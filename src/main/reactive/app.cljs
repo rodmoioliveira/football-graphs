@@ -1,5 +1,5 @@
 (ns reactive.app
-  (:require ["rxjs" :as rx :refer [fromEvent]]
+  (:require ["rxjs" :as rx]
             ["rxjs/operators" :as rx-op]))
 
 (def root (-> js/document (.getElementById "root")))
@@ -10,20 +10,27 @@
       .-innerHTML
       (set! value)))
 
-(defn x-pos
+(defn get-coods
+  [e] {:y (.-clientY e) :x (.-clientX e)})
+
+(defn format-str
+  [{:keys [x y]}]
+  (str "posição x: " x ", posição y: " y))
+
+(defn render-pos
   [e]
   (-> e
-      .-clientY
-      (#(str "posição x: " %))))
+      get-coods
+      format-str))
 
 ; https://cljs.github.io/api/cljs.core/DOT
-(defn click$
+(defn move-mouse$
   []
   (-> js/document
-      (fromEvent "click")
-      (.pipe (rx-op/map x-pos) (rx-op/startWith "posição x: ???"))
+      (rx/fromEvent "mousemove")
+      (.pipe (rx-op/map render-pos) (rx-op/startWith "posição x: ???, posição y: ???"))
       (.subscribe set-div)))
 
 (defn init []
-  (click$))
+  (move-mouse$))
 
