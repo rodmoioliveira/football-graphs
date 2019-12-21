@@ -1,6 +1,12 @@
 (ns reactive.graph
   (:require ["d3" :as d3]))
 
+(def canvas
+  (-> js/document
+      (.getElementById "canvas")))
+
+(js/console.log (.-height canvas) (.-width canvas))
+
 ; function findNode(nodes, x, y, radius) {
 ;     const rSq = radius * radius;
 ;     let i;
