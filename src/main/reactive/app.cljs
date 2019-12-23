@@ -4,5 +4,6 @@
 
 (defn init []
   (init-graph)
-  (move-mouse$))
+  ; (move-mouse$)
+  )
 
