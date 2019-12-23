@@ -1,6 +1,15 @@
 (ns reactive.graph
   (:require ["d3" :as d3]))
 
+(def scale (-> d3 (.scaleOrdinal (-> d3 (.-schemeCategory10)))))
+(def color (fn [d] (scale (-> d .-group))))
+(def canvas (-> js/document (.getElementById "canvas")))
+(def ctx (-> canvas (.getContext "2d")))
+(def w2 (/ (.-height canvas) 2))
+(def h2 (/ (.-width canvas) 2))
+(def node-radius 10)
+(def transform (-> d3 .-zoomIdentity))
+
 (defn find-node
   [nodes x y radius]
   (let [rsq (* radius radius)
@@ -24,27 +33,13 @@
       (.force "change" (-> d3 (.forceManyBody)))
       (.force "link" (-> d3 (.forceLink) (.id (fn [d] (-> d .-id)))))))
 
-(def scale (-> d3 (.scaleOrdinal (-> d3 (.-schemeCategory10)))))
-(def color (fn [d] (scale (-> d .-group))))
-(def canvas
-  (-> js/document
-      (.getElementById "canvas")))
-(def ctx
-  (-> canvas
-      (.getContext "2d")))
-(def w2 (/ (.-height canvas) 2))
-(def h2 (/ (.-width canvas) 2))
-(def node-radius 10)
-(def transform (-> d3 .-zoomIdentity))
-(def simulation
-  (force-simulation (.-width canvas) (.-height canvas)))
+(def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
 (defn update-coords
   [node]
   (do
     (-> node .-x (set! (-> transform (.applyX (-> node .-x)))))
-    (-> node .-y (set! (-> transform (.applyY (-> node .-y))))))
-  )
+    (-> node .-y (set! (-> transform (.applyY (-> node .-y)))))))
 
 (defn drag-subject
   [nodes]
