@@ -7,7 +7,8 @@
 (def ctx (-> canvas (.getContext "2d")))
 (def w2 (/ (.-height canvas) 2))
 (def h2 (/ (.-width canvas) 2))
-(def node-radius 20)
+(def node-radius 35)
+(def distance 180)
 (def transform (-> d3 .-zoomIdentity))
 
 (defn find-node
@@ -31,7 +32,7 @@
       (.forceSimulation)
       (.force "center" (-> d3 (.forceCenter (/ width 2) (/ height 2))))
       (.force "change" (-> d3 (.forceManyBody)))
-      (.force "link" (-> d3 (.forceLink) (.distance 120) (.id (fn [d] (-> d .-id)))))))
+      (.force "link" (-> d3 (.forceLink) (.distance distance) (.id (fn [d] (-> d .-id)))))))
 
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
@@ -66,15 +67,46 @@
   (-> d3 .-event .-subject .-fx (set! nil))
   (-> d3 .-event .-subject .-fy (set! nil)))
 
+(defn get-distance
+  [x1 y1 x2 y2]
+  (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2))))
+
+(defn find-point
+  [x1 y1 x2 y2 distance1 distance2]
+  {:x (- x2 (/ (* distance2 (- x2 x1)) distance1))
+   :y (- y2 (/ (* distance2 (- y2 y1)) distance1))})
+
 (defn draw-edges
   [edge]
-  (doto ctx
-    (.beginPath)
-    (.moveTo (-> edge .-source .-x) (-> edge .-source .-y))
-    (.lineTo (-> edge .-target .-x) (-> edge .-target .-y))
-    ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt (-> edge .-value)))))
-    ((fn [v] (set! (.-strokeStyle v) "#fff")))
-    (.stroke)))
+  (let [target-x (-> edge .-target .-x)
+        target-y (-> edge .-target .-y)
+        source-x (-> edge .-source .-x)
+        source-y (-> edge .-source .-y)
+        value (-> edge .-value)
+        point-dis (get-distance source-x source-y target-x target-y)
+        weight-point (find-point
+                       source-x
+                       source-y
+                       target-x
+                       target-y
+                       point-dis
+                       (- point-dis (+ node-radius 15)))]
+    (doto ctx
+      (.save)
+      ((fn [v] (set! (.-globalAlpha v) 0.2)))
+      (.beginPath)
+      (.moveTo source-x source-y)
+      (.lineTo target-x target-y)
+      ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
+      ((fn [v] (set! (.-strokeStyle v) "#fff")))
+      (.stroke)
+      (.restore)
+      ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
+      ((fn [v] (set! (.-textBaseline v) "middle")))
+      ((fn [v] (set! (.-fillStyle v) "#00FF00")))
+      ((fn [v] (set! (.-textAlign v) "center")))
+      (.fillText value (weight-point :x) (weight-point :y))
+      )))
 
 (defn draw-nodes
   [node]
@@ -87,7 +119,7 @@
     ((fn [v] (set! (.-font v) "20px sans-serif")))
     ((fn [v] (set! (.-fillStyle v) "#fff")))
     ((fn [v] (set! (.-textAlign v) "center")))
-    (.fillText (-> node .-id) (-> node .-x) (-> node .-y (+ 5)))
+    (.fillText (-> node .-id) (-> node .-x) (-> node .-y))
     ((fn [v] (set! (.-strokeStyle v) "#fff")))
     ((fn [v] (set! (.-lineWidth v) "1.5")))
     (.stroke)))
@@ -135,14 +167,16 @@
   {
    :nodes [
            {:id "a" :group 1}
-           {:id "b" :group 1}
-           {:id "c" :group 1}
+           {:id "b" :group 2}
+           {:id "c" :group 3}
            ]
    :links [
-           {:source "a" :target "b" :value 1}
-           {:source "b" :target "a" :value 1}
+           {:source "a" :target "b" :value 20}
            {:source "a" :target "c" :value 10}
-           {:source "c" :target "a" :value 10}
+           {:source "b" :target "a" :value 5}
+           {:source "c" :target "b" :value 6}
+           {:source "c" :target "a" :value 60}
+           {:source "b" :target "c" :value 1}
            ]
    })
 
