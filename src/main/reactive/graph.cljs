@@ -37,9 +37,8 @@
 
 (defn update-coords
   [node]
-  (do
-    (-> node .-x (set! (-> transform (.applyX (-> node .-x)))))
-    (-> node .-y (set! (-> transform (.applyY (-> node .-y)))))))
+  (-> node .-x (set! (-> transform (.applyX (-> node .-x)))))
+  (-> node .-y (set! (-> transform (.applyY (-> node .-y))))))
 
 (defn drag-subject
   [nodes]
@@ -104,23 +103,23 @@
   [data]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)]
-      (-> d3
-          (.select canvas)
-          (.call (-> d3
-                     (.drag)
-                     (.container canvas)
-                     (.subject (fn [] (drag-subject nodes)))
-                     (.on "start" drag-started)
-                     (.on "drag" dragged)
-                     (.on "end" dragended))))
+    (-> d3
+        (.select canvas)
+        (.call (-> d3
+                   (.drag)
+                   (.container canvas)
+                   (.subject (fn [] (drag-subject nodes)))
+                   (.on "start" drag-started)
+                   (.on "drag" dragged)
+                   (.on "end" dragended))))
 
-      (-> simulation
-          (.nodes nodes)
-          (.on "tick" (fn [] (simulation-update edges nodes))))
+    (-> simulation
+        (.nodes nodes)
+        (.on "tick" (fn [] (simulation-update edges nodes))))
 
-      (-> simulation
-          (.force "link")
-          (.links edges))))
+    (-> simulation
+        (.force "link")
+        (.links edges))))
 
 (def get-data
   (-> d3
