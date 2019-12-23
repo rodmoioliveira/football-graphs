@@ -7,7 +7,7 @@
 (def ctx (-> canvas (.getContext "2d")))
 (def w2 (/ (.-height canvas) 2))
 (def h2 (/ (.-width canvas) 2))
-(def node-radius 10)
+(def node-radius 20)
 (def transform (-> d3 .-zoomIdentity))
 
 (defn find-node
@@ -31,7 +31,7 @@
       (.forceSimulation)
       (.force "center" (-> d3 (.forceCenter (/ width 2) (/ height 2))))
       (.force "change" (-> d3 (.forceManyBody)))
-      (.force "link" (-> d3 (.forceLink) (.id (fn [d] (-> d .-id)))))))
+      (.force "link" (-> d3 (.forceLink) (.distance 120) (.id (fn [d] (-> d .-id)))))))
 
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
@@ -73,7 +73,7 @@
     (.moveTo (-> edge .-source .-x) (-> edge .-source .-y))
     (.lineTo (-> edge .-target .-x) (-> edge .-target .-y))
     ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt (-> edge .-value)))))
-    ((fn [v] (set! (.-strokeStyle v) "#aaa")))
+    ((fn [v] (set! (.-strokeStyle v) "#fff")))
     (.stroke)))
 
 (defn draw-nodes
@@ -84,6 +84,10 @@
     (.arc (-> node .-x) (-> node .-y) node-radius 0 (* 2 js/Math.PI))
     ((fn [v] (set! (.-fillStyle v) (color node))))
     (.fill)
+    ((fn [v] (set! (.-font v) "20px sans-serif")))
+    ((fn [v] (set! (.-fillStyle v) "#fff")))
+    ((fn [v] (set! (.-textAlign v) "center")))
+    (.fillText (-> node .-id) (-> node .-x) (-> node .-y (+ 5)))
     ((fn [v] (set! (.-strokeStyle v) "#fff")))
     ((fn [v] (set! (.-lineWidth v) "1.5")))
     (.stroke)))
@@ -125,5 +129,23 @@
   (-> d3
       (.json "https://gist.githubusercontent.com/mbostock/4062045/raw/5916d145c8c048a6e3086915a6be464467391c62/miserables.json")))
 
+; TODO: estabelecer posicionamento inicial dos nodes
+; https://bl.ocks.org/mbostock/3750558
+(def mock-data
+  {
+   :nodes [
+           {:id "a" :group 1}
+           {:id "b" :group 1}
+           {:id "c" :group 1}
+           ]
+   :links [
+           {:source "a" :target "b" :value 1}
+           {:source "b" :target "a" :value 1}
+           {:source "a" :target "c" :value 10}
+           {:source "c" :target "a" :value 10}
+           ]
+   })
+
 ; https://observablehq.com/d/42f72efad452c2f0
-(defn init-graph [] (-> get-data (.then force-graph)))
+; (defn init-graph [] (-> get-data (.then force-graph)))
+(defn init-graph [] (-> mock-data clj->js force-graph))
