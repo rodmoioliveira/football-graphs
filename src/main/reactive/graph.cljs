@@ -41,6 +41,15 @@
   (-> node .-x (set! (-> transform (.applyX (-> node .-x)))))
   (-> node .-y (set! (-> transform (.applyY (-> node .-y))))))
 
+(defn clicked
+  [nodes]
+  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
+        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
+        node (find-node nodes x y node-radius)]
+    (if node
+      ; TODO: scale node
+      (js/console.log node))))
+
 (defn drag-subject
   [nodes]
   (let [x (-> transform (.invertX (-> d3 .-event .-x)))
@@ -143,6 +152,7 @@
         edges (-> data .-links)]
     (-> d3
         (.select canvas)
+        (.on "click" (fn [] (clicked nodes)))
         (.call (-> d3
                    (.drag)
                    (.container canvas)
