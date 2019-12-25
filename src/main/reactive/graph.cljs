@@ -91,7 +91,12 @@
         target-y (-> edge .-target .-y)
         source-x (-> edge .-source .-x)
         source-y (-> edge .-source .-y)
+        target-index (-> edge .-target .-index)
+        source-index (-> edge .-source .-index)
+        dis-betw-edges (/ node-radius 3)
+        edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         value (-> edge .-value)
+        edge-color (-> edge .-source color)
         point-dis (get-distance source-x source-y target-x target-y)
         weight-point (find-point
                        source-x
@@ -99,23 +104,24 @@
                        target-x
                        target-y
                        point-dis
-                       (- point-dis (+ node-radius 15)))]
+                       (/ point-dis 2))]
     (doto ctx
       (.save)
       ((fn [v] (set! (.-globalAlpha v) 0.2)))
+      (.translate edge-pos edge-pos)
       (.beginPath)
       (.moveTo source-x source-y)
       (.lineTo target-x target-y)
-      ; ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
-      ((fn [v] (set! (.-lineWidth v) value)))
-      ((fn [v] (set! (.-strokeStyle v) "#fff")))
+      ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
+      ((fn [v] (set! (.-strokeStyle v) edge-color)))
       (.stroke)
-      (.restore)
+      ((fn [v] (set! (.-globalAlpha v) 1)))
       ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
       ((fn [v] (set! (.-textBaseline v) "middle")))
-      ((fn [v] (set! (.-fillStyle v) "red")))
+      ((fn [v] (set! (.-fillStyle v) "white")))
       ((fn [v] (set! (.-textAlign v) "center")))
       (.fillText value (weight-point :x) (weight-point :y))
+      (.restore)
       )))
 
 (defn draw-nodes
@@ -126,8 +132,8 @@
     (.arc (-> node .-x) (-> node .-y) node-radius 0 (* 2 js/Math.PI))
     ((fn [v] (set! (.-fillStyle v) (color node))))
     (.fill)
-    ((fn [v] (set! (.-font v) "20px sans-serif")))
-    ((fn [v] (set! (.-fillStyle v) "#fff")))
+    ((fn [v] (set! (.-font v) "18px sans-serif")))
+    ((fn [v] (set! (.-fillStyle v) "white")))
     ((fn [v] (set! (.-textAlign v) "center")))
     ((fn [v] (set! (.-textBaseline v) "middle")))
     (.fillText (-> node .-id) (-> node .-x) (-> node .-y))
@@ -159,7 +165,8 @@
                    (.subject (fn [] (drag-subject nodes)))
                    (.on "start" drag-started)
                    (.on "drag" dragged)
-                   (.on "end" dragended))))
+                   (.on "end" dragended)))
+        )
 
     (-> simulation
         (.nodes nodes)
@@ -178,17 +185,53 @@
 (def mock-data
   {
    :nodes [
-           {:id "a" :group 1}
-           {:id "b" :group 2}
-           {:id "c" :group 3}
+           {:id "ata"     :group 5 :initial_pos {:x 1 :y 1}}
+           {:id "pon-dir" :group 5 :initial_pos {:x 1 :y 1}}
+           {:id "pon-esq" :group 5 :initial_pos {:x 1 :y 1}}
+           {:id "meia"    :group 4 :initial_pos {:x 1 :y 1}}
+           {:id "vol-dir" :group 4 :initial_pos {:x 1 :y 1}}
+           {:id "vol-esq" :group 4 :initial_pos {:x 1 :y 1}}
+           {:id "lat-dir" :group 3 :initial_pos {:x 1 :y 1}}
+           {:id "lat-esq" :group 3 :initial_pos {:x 1 :y 1}}
+           {:id "zag-dir" :group 2 :initial_pos {:x 1 :y 1}}
+           {:id "zag-esq" :group 2 :initial_pos {:x 1 :y 1}}
+           {:id "gol"     :group 1 :initial_pos {:x 1 :y 1}}
            ]
    :links [
-           {:source "a" :target "b" :value 20}
-           {:source "a" :target "c" :value 10}
-           {:source "b" :target "a" :value 5}
-           {:source "c" :target "b" :value 6}
-           {:source "c" :target "a" :value 60}
-           {:source "b" :target "c" :value 1}
+           {:source "ata"     :target "lat-dir" :value 1}
+           {:source "ata"     :target "lat-esq" :value 1}
+
+
+           {:source "pon-dir" :target "meia" :value 1}
+           {:source "vol-dir" :target "meia" :value 1}
+           {:source "pon-esq" :target "meia" :value 1}
+           {:source "vol-esq" :target "meia" :value 1}
+
+           {:source "pon-dir" :target "vol-dir" :value 1}
+           {:source "pon-dir" :target "ata" :value 1}
+           {:source "pon-esq" :target "ata" :value 1}
+           {:source "pon-esq" :target "vol-esq" :value 1}
+
+
+           {:source "vol-dir" :target "lat-dir" :value 1}
+           {:source "vol-dir" :target "zag-dir" :value 1}
+           {:source "vol-esq" :target "zag-esq" :value 1}
+           {:source "vol-esq" :target "lat-esq" :value 1}
+
+           {:source "lat-dir" :target "ata" :value 1}
+           {:source "lat-esq" :target "lat-dir" :value 1}
+           {:source "lat-dir" :target "lat-esq" :value 1}
+           {:source "lat-esq" :target "ata" :value 1}
+           {:source "lat-dir" :target "zag-dir" :value 1}
+           {:source "lat-esq" :target "zag-esq" :value 1}
+
+           {:source "zag-dir" :target "lat-dir" :value 1}
+           {:source "zag-esq" :target "lat-esq" :value 1}
+           {:source "zag-dir" :target "gol" :value 1}
+           {:source "zag-esq" :target "gol" :value 1}
+
+           {:source "gol"     :target "zag-dir" :value 1}
+           {:source "gol"     :target "zag-esq" :value 1}
            ]
    })
 
