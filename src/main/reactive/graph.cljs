@@ -31,8 +31,14 @@
   (-> d3
       (.forceSimulation)
       (.force "center" (-> d3 (.forceCenter (/ width 2) (/ height 2))))
-      (.force "change" (-> d3 (.forceManyBody)))
-      (.force "link" (-> d3 (.forceLink) (.distance distance) (.id (fn [d] (-> d .-id)))))))
+      (.force "link" (-> d3
+                         (.forceLink)
+                         (.id (fn [d] (-> d .-id)))
+                         ; (.distance 0)
+                         ; (.strength 0.8)
+                         ))
+      (.force "change" (-> d3 (.forceManyBody) (.strength (- 4000))))
+      ))
 
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
@@ -91,31 +97,37 @@
         target-y (-> edge .-target .-y)
         source-x (-> edge .-source .-x)
         source-y (-> edge .-source .-y)
+
+        source-x-initial-pos (-> edge .-source .-initial_pos .-x)
+        source-y-initial-pos (-> edge .-source .-initial_pos .-y)
+        target-x-initial-pos (-> edge .-target .-initial_pos .-x)
+        target-y-initial-pos (-> edge .-target .-initial_pos .-y)
+
         target-index (-> edge .-target .-index)
         source-index (-> edge .-source .-index)
         dis-betw-edges (/ node-radius 3)
         edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         value (-> edge .-value)
         edge-color (-> edge .-source color)
-        point-dis (get-distance source-x source-y target-x target-y)
+        point-dis (get-distance source-x-initial-pos source-y-initial-pos target-x-initial-pos target-y-initial-pos)
         weight-point (find-point
-                       source-x
-                       source-y
-                       target-x
-                       target-y
+                       source-x-initial-pos
+                       source-y-initial-pos
+                       target-x-initial-pos
+                       target-y-initial-pos
                        point-dis
                        (/ point-dis 2))]
     (doto ctx
       (.save)
-      ((fn [v] (set! (.-globalAlpha v) 0.2)))
+      ; ((fn [v] (set! (.-globalAlpha v) 0.2)))
       (.translate edge-pos edge-pos)
       (.beginPath)
-      (.moveTo source-x source-y)
-      (.lineTo target-x target-y)
+      (.moveTo source-x-initial-pos source-y-initial-pos)
+      (.lineTo target-x-initial-pos target-y-initial-pos)
       ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
       ((fn [v] (set! (.-strokeStyle v) edge-color)))
       (.stroke)
-      ((fn [v] (set! (.-globalAlpha v) 1)))
+      ; ((fn [v] (set! (.-globalAlpha v) 1)))
       ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
       ((fn [v] (set! (.-textBaseline v) "middle")))
       ((fn [v] (set! (.-fillStyle v) "white")))
@@ -126,23 +138,26 @@
 
 (defn draw-nodes
   [node]
-  (doto ctx
-    (.beginPath)
-    (.moveTo (+ (-> node .-x) node-radius) (-> node .-y))
-    (.arc (-> node .-x) (-> node .-y) node-radius 0 (* 2 js/Math.PI))
-    ((fn [v] (set! (.-fillStyle v) (color node))))
-    (.fill)
-    ((fn [v] (set! (.-font v) "18px sans-serif")))
-    ((fn [v] (set! (.-fillStyle v) "white")))
-    ((fn [v] (set! (.-textAlign v) "center")))
-    ((fn [v] (set! (.-textBaseline v) "middle")))
-    (.fillText (-> node .-id) (-> node .-x) (-> node .-y))
-    ((fn [v] (set! (.-strokeStyle v) "#fff")))
-    ((fn [v] (set! (.-lineWidth v) "1.5")))
-    (.stroke)))
+  (let [x-initial-pos (-> node .-initial_pos .-x)
+        y-initial-pos (-> node .-initial_pos .-y)]
+    (doto ctx
+      (.beginPath)
+      (.moveTo (+ x-initial-pos node-radius) y-initial-pos)
+      (.arc x-initial-pos y-initial-pos node-radius 0 (* 2 js/Math.PI))
+      ((fn [v] (set! (.-fillStyle v) (color node))))
+      (.fill)
+      ((fn [v] (set! (.-font v) "18px sans-serif")))
+      ((fn [v] (set! (.-fillStyle v) "white")))
+      ((fn [v] (set! (.-textAlign v) "center")))
+      ((fn [v] (set! (.-textBaseline v) "middle")))
+      (.fillText (-> node .-id) x-initial-pos y-initial-pos)
+      ((fn [v] (set! (.-strokeStyle v) "#fff")))
+      ((fn [v] (set! (.-lineWidth v) "1.5")))
+      (.stroke))))
 
 (defn simulation-update
   [edges nodes]
+  (js/console.log "a")
   (doto ctx
     (.save)
     (.clearRect 0 0 (.-width canvas) (.-height canvas))
@@ -159,13 +174,13 @@
     (-> d3
         (.select canvas)
         (.on "click" (fn [] (clicked nodes)))
-        (.call (-> d3
-                   (.drag)
-                   (.container canvas)
-                   (.subject (fn [] (drag-subject nodes)))
-                   (.on "start" drag-started)
-                   (.on "drag" dragged)
-                   (.on "end" dragended)))
+        ; (.call (-> d3
+        ;            (.drag)
+        ;            (.container canvas)
+        ;            (.subject (fn [] (drag-subject nodes)))
+        ;            (.on "start" drag-started)
+        ;            (.on "drag" dragged)
+        ;            (.on "end" dragended)))
         )
 
     (-> simulation
@@ -174,7 +189,8 @@
 
     (-> simulation
         (.force "link")
-        (.links edges))))
+        (.links edges))
+    ))
 
 (def get-data
   (-> d3
@@ -185,53 +201,45 @@
 (def mock-data
   {
    :nodes [
-           {:id "ata"     :group 5 :initial_pos {:x 1 :y 1}}
-           {:id "pon-dir" :group 5 :initial_pos {:x 1 :y 1}}
-           {:id "pon-esq" :group 5 :initial_pos {:x 1 :y 1}}
-           {:id "meia"    :group 4 :initial_pos {:x 1 :y 1}}
-           {:id "vol-dir" :group 4 :initial_pos {:x 1 :y 1}}
-           {:id "vol-esq" :group 4 :initial_pos {:x 1 :y 1}}
-           {:id "lat-dir" :group 3 :initial_pos {:x 1 :y 1}}
-           {:id "lat-esq" :group 3 :initial_pos {:x 1 :y 1}}
-           {:id "zag-dir" :group 2 :initial_pos {:x 1 :y 1}}
-           {:id "zag-esq" :group 2 :initial_pos {:x 1 :y 1}}
-           {:id "gol"     :group 1 :initial_pos {:x 1 :y 1}}
+           {:id "ata"     :group 5 :initial_pos {:x 450 :y 100}}
+           {:id "pon-dir" :group 5 :initial_pos {:x 700 :y 200}}
+           {:id "pon-esq" :group 5 :initial_pos {:x 200 :y 200}}
+           {:id "meia"    :group 4 :initial_pos {:x 450 :y 300}}
+           {:id "vol-dir" :group 4 :initial_pos {:x 600 :y 350}}
+           {:id "vol-esq" :group 4 :initial_pos {:x 300 :y 350}}
+           {:id "lat-dir" :group 3 :initial_pos {:x 800 :y 500}}
+           {:id "lat-esq" :group 3 :initial_pos {:x 100 :y 500}}
+           {:id "zag-dir" :group 2 :initial_pos {:x 600 :y 700}}
+           {:id "zag-esq" :group 2 :initial_pos {:x 300 :y 700}}
+           {:id "gol"     :group 1 :initial_pos {:x 450 :y 800}}
            ]
    :links [
            {:source "ata"     :target "lat-dir" :value 1}
            {:source "ata"     :target "lat-esq" :value 1}
-
-
            {:source "pon-dir" :target "meia" :value 1}
            {:source "vol-dir" :target "meia" :value 1}
            {:source "pon-esq" :target "meia" :value 1}
            {:source "vol-esq" :target "meia" :value 1}
-
            {:source "pon-dir" :target "vol-dir" :value 1}
            {:source "pon-dir" :target "ata" :value 1}
            {:source "pon-esq" :target "ata" :value 1}
            {:source "pon-esq" :target "vol-esq" :value 1}
-
-
            {:source "vol-dir" :target "lat-dir" :value 1}
            {:source "vol-dir" :target "zag-dir" :value 1}
            {:source "vol-esq" :target "zag-esq" :value 1}
            {:source "vol-esq" :target "lat-esq" :value 1}
-
            {:source "lat-dir" :target "ata" :value 1}
            {:source "lat-esq" :target "lat-dir" :value 1}
            {:source "lat-dir" :target "lat-esq" :value 1}
            {:source "lat-esq" :target "ata" :value 1}
            {:source "lat-dir" :target "zag-dir" :value 1}
            {:source "lat-esq" :target "zag-esq" :value 1}
-
            {:source "zag-dir" :target "lat-dir" :value 1}
            {:source "zag-esq" :target "lat-esq" :value 1}
            {:source "zag-dir" :target "gol" :value 1}
            {:source "zag-esq" :target "gol" :value 1}
-
-           {:source "gol"     :target "zag-dir" :value 1}
-           {:source "gol"     :target "zag-esq" :value 1}
+           {:source "gol"     :target "zag-dir" :value 5}
+           {:source "gol"     :target "zag-esq" :value 9}
            ]
    })
 
