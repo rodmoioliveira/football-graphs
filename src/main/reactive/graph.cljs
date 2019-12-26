@@ -151,11 +151,10 @@
         (.links edges))))
 
 (defn place-node
-  [x-por y-por]
-  #js {:x (* (.-width canvas) (/ x-por 100))  :y (* (.-height canvas) (/ y-por 100))})
+  [x-% y-%]
+  #js {:x (* (.-width canvas) (/ x-% 100))  :y (* (.-height canvas) (/ y-% 100))})
 
-; TODO: estabelecer posicionamento inicial dos nodes
-; https://bl.ocks.org/mbostock/3750558
+; Inspiração:
 ; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 (def mock-data
   {
