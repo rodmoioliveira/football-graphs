@@ -22,8 +22,8 @@
 
 (defn find-point
   [x1 y1 x2 y2 distance1 distance2]
-  {:x (- x2 (/ (* distance2 (- x2 x1)) distance1))
-   :y (- y2 (/ (* distance2 (- y2 y1)) distance1))})
+  #js {:x (- x2 (/ (* distance2 (- x2 x1)) distance1))
+       :y (- y2 (/ (* distance2 (- y2 y1)) distance1))})
 
 (defn draw-weigths
   [edge weight-point]
@@ -34,25 +34,32 @@
       ((fn [v] (set! (.-textBaseline v) "middle")))
       ((fn [v] (set! (.-fillStyle v) "blue")))
       ((fn [v] (set! (.-textAlign v) "center")))
-      (.fillText value (weight-point :x) (weight-point :y)))))
+      (.fillText value (-> weight-point .-x) (-> weight-point .-y)))))
 
 (defn draw-edges
-  [edge]
-  (let [source-x (-> edge .-source .-initial_pos .-x)
-        source-y (-> edge .-source .-initial_pos .-y)
-        target-x (-> edge .-target .-initial_pos .-x)
-        target-y (-> edge .-target .-initial_pos .-y)
-        target-index (-> edge .-target .-index)
+  [edge edge-start edge-end]
+  (let [target-index (-> edge .-target .-index)
         source-index (-> edge .-source .-index)
         dis-betw-edges (/ node-radius 2)
         edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         value (-> edge .-value)]
     (doto ctx
-      ((fn [v] (set! (.-globalAlpha v) 0.7)))
-      (.translate edge-pos edge-pos)
+      ((fn [v] (set! (.-globalAlpha v) 0.6)))
+      ; ; left ascendent nodes
+      ; (.setTransform 1 0 0 1 edge-pos (- edge-pos))
+
+      ; ; vertical align nodes
+      ; (.setTransform 1 0 0 1 edge-pos 0)
+
+      ; ; horizontal align nodes
+      ; (.setTransform 1 0 0 1 0 edge-pos)
+
+      ; right ascendent nodes
+      ; (.setTransform 1 0 0 1 (- edge-pos) (- edge-pos))
+
       (.beginPath)
-      (.moveTo source-x source-y)
-      (.lineTo target-x target-y)
+      (.moveTo (-> edge-start .-x) (-> edge-start .-y))
+      (.lineTo (-> edge-end .-x) (-> edge-end .-y))
       ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
       ((fn [v] (set! (.-strokeStyle v) "black")))
       (.stroke))))
@@ -63,21 +70,20 @@
         source-y (-> edge .-source .-initial_pos .-y)
         target-x (-> edge .-target .-initial_pos .-x)
         target-y (-> edge .-target .-initial_pos .-y)
-        point-dis (get-distance
-                    source-x
-                    source-y
-                    target-x
-                    target-y)
-        weight-point (find-point
-                       source-x
-                       source-y
-                       target-x
-                       target-y
-                       point-dis
-                       (/ point-dis 2))]
+        point-between (partial find-point source-x source-y target-x target-y)
+        source-target-distance (get-distance
+                                 source-x
+                                 source-y
+                                 target-x
+                                 target-y)
+        weight-coord (point-between source-target-distance (/ source-target-distance 2))
+        edge-start (point-between source-target-distance (- source-target-distance node-radius 10))
+        edge-end (point-between source-target-distance (+ node-radius 10))
+        ]
+
     (-> ctx (.save))
-    (draw-edges edge)
-    (draw-weigths edge weight-point)
+    (draw-edges edge edge-start edge-end)
+    ; (draw-weigths edge weight-coord)
     (-> ctx (.restore))))
 
 (defn draw-numbers
@@ -157,6 +163,12 @@
            {:id "1" :group 1 :initial_pos (place-node 50 95)}
            ]
    :links [
+           {:source "6" :target "14" :value 1}
+           {:source "14" :target "6" :value 100}
+           {:source "8" :target "14" :value 1}
+           {:source "14" :target "8" :value 100}
+           {:source "6" :target "1" :value 1}
+           {:source "1" :target "6" :value 100}
            {:source "3" :target "1" :value 1}
            {:source "1" :target "3" :value 100}
            {:source "5" :target "1" :value 23}
