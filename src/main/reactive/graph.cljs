@@ -1,86 +1,20 @@
 (ns reactive.graph
   (:require ["d3" :as d3]))
 
-(def scale (-> d3 (.scaleOrdinal (-> d3 (.-schemeCategory10)))))
-(def color (fn [d] (scale (-> d .-group))))
 (def canvas (-> js/document (.getElementById "canvas")))
 (def ctx (-> canvas (.getContext "2d")))
-(def w2 (/ (.-height canvas) 2))
-(def h2 (/ (.-width canvas) 2))
 (def node-radius 35)
 (def distance 180)
-(def transform (-> d3 .-zoomIdentity))
-
-(defn find-node
-  [nodes x y radius]
-  (let [rsq (* radius radius)
-        nodes-length (-> nodes count dec)]
-    (loop [i 0]
-      (let [interate? (< i nodes-length)
-            node (get nodes i)
-            dx (- x (.-x node))
-            dy (- y (.-y node))
-            dist-sq (+ (* dx dx) (* dy dy))
-            node-found? (< dist-sq rsq)]
-        (if node-found?
-          node
-          (if interate? (-> i inc recur)))))))
 
 (defn force-simulation
   [width height]
   (-> d3
       (.forceSimulation)
       (.force "center" (-> d3 (.forceCenter (/ width 2) (/ height 2))))
-      (.force "link" (-> d3
-                         (.forceLink)
-                         (.id (fn [d] (-> d .-id)))
-                         ; (.distance 0)
-                         ; (.strength 0.8)
-                         ))
-      (.force "change" (-> d3 (.forceManyBody) (.strength (- 4000))))
-      ))
+      (.force "link" (-> d3 (.forceLink) (.id (fn [d] (-> d .-id)))))
+      (.force "change" (-> d3 (.forceManyBody)))))
 
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
-
-(defn update-coords
-  [node]
-  (-> node .-x (set! (-> transform (.applyX (-> node .-x)))))
-  (-> node .-y (set! (-> transform (.applyY (-> node .-y))))))
-
-(defn clicked
-  [nodes]
-  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
-        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
-        node (find-node nodes x y node-radius)]
-    (if node
-      ; TODO: scale node
-      (js/console.log node))))
-
-(defn drag-subject
-  [nodes]
-  (let [x (-> transform (.invertX (-> d3 .-event .-x)))
-        y (-> transform (.invertY (-> d3 .-event .-y)))
-        node (find-node nodes x y node-radius)]
-    (if node
-      (update-coords node))
-    node))
-
-(defn drag-started
-  []
-  (-> simulation (.alphaTarget 1) (.restart))
-  (-> d3 .-event .-subject .-fx (set! (-> transform (.invertY (-> d3 .-event .-x)))))
-  (-> d3 .-event .-subject .-fy (set! (-> transform (.invertX (-> d3 .-event .-y))))))
-
-(defn dragged
-  []
-  (-> d3 .-event .-subject .-fx (set! (-> transform (.invertY (-> d3 .-event .-x)))))
-  (-> d3 .-event .-subject .-fy (set! (-> transform (.invertX (-> d3 .-event .-y))))))
-
-(defn dragended
-  []
-  (-> simulation (.alphaTarget 0))
-  (-> d3 .-event .-subject .-fx (set! nil))
-  (-> d3 .-event .-subject .-fy (set! nil)))
 
 (defn get-distance
   [x1 y1 x2 y2]
@@ -93,46 +27,43 @@
 
 (defn draw-edges
   [edge]
-  (let [target-x (-> edge .-target .-x)
-        target-y (-> edge .-target .-y)
-        source-x (-> edge .-source .-x)
-        source-y (-> edge .-source .-y)
-
-        source-x-initial-pos (-> edge .-source .-initial_pos .-x)
-        source-y-initial-pos (-> edge .-source .-initial_pos .-y)
-        target-x-initial-pos (-> edge .-target .-initial_pos .-x)
-        target-y-initial-pos (-> edge .-target .-initial_pos .-y)
-
+  (let [source-x (-> edge .-source .-initial_pos .-x)
+        source-y (-> edge .-source .-initial_pos .-y)
+        target-x (-> edge .-target .-initial_pos .-x)
+        target-y (-> edge .-target .-initial_pos .-y)
         target-index (-> edge .-target .-index)
         source-index (-> edge .-source .-index)
-        dis-betw-edges (/ node-radius 3)
+        dis-betw-edges (/ node-radius 2)
         edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         value (-> edge .-value)
-        edge-color (-> edge .-source color)
-        point-dis (get-distance source-x-initial-pos source-y-initial-pos target-x-initial-pos target-y-initial-pos)
+        point-dis (get-distance
+                    source-x
+                    source-y
+                    target-x
+                    target-y)
         weight-point (find-point
-                       source-x-initial-pos
-                       source-y-initial-pos
-                       target-x-initial-pos
-                       target-y-initial-pos
+                       source-x
+                       source-y
+                       target-x
+                       target-y
                        point-dis
                        (/ point-dis 2))]
     (doto ctx
       (.save)
-      ; ((fn [v] (set! (.-globalAlpha v) 0.2)))
-      (.translate edge-pos edge-pos)
+      ((fn [v] (set! (.-globalAlpha v) 0.7)))
+      (.translate 0 edge-pos)
       (.beginPath)
-      (.moveTo source-x-initial-pos source-y-initial-pos)
-      (.lineTo target-x-initial-pos target-y-initial-pos)
+      (.moveTo source-x source-y)
+      (.lineTo target-x target-y)
       ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
-      ((fn [v] (set! (.-strokeStyle v) edge-color)))
+      ((fn [v] (set! (.-strokeStyle v) "black")))
       (.stroke)
-      ; ((fn [v] (set! (.-globalAlpha v) 1)))
-      ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
-      ((fn [v] (set! (.-textBaseline v) "middle")))
-      ((fn [v] (set! (.-fillStyle v) "white")))
-      ((fn [v] (set! (.-textAlign v) "center")))
-      (.fillText value (weight-point :x) (weight-point :y))
+      ((fn [v] (set! (.-globalAlpha v) 1)))
+      ; ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
+      ; ((fn [v] (set! (.-textBaseline v) "middle")))
+      ; ((fn [v] (set! (.-fillStyle v) "blue")))
+      ; ((fn [v] (set! (.-textAlign v) "center")))
+      ; (.fillText value (weight-point :x) (weight-point :y))
       (.restore)
       )))
 
@@ -144,9 +75,9 @@
       (.beginPath)
       (.moveTo (+ x-initial-pos node-radius) y-initial-pos)
       (.arc x-initial-pos y-initial-pos node-radius 0 (* 2 js/Math.PI))
-      ((fn [v] (set! (.-fillStyle v) (color node))))
+      ((fn [v] (set! (.-fillStyle v) "black")))
       (.fill)
-      ((fn [v] (set! (.-font v) "18px sans-serif")))
+      ((fn [v] (set! (.-font v) "700 22px sans-serif")))
       ((fn [v] (set! (.-fillStyle v) "white")))
       ((fn [v] (set! (.-textAlign v) "center")))
       ((fn [v] (set! (.-textBaseline v) "middle")))
@@ -155,14 +86,12 @@
       ((fn [v] (set! (.-lineWidth v) "1.5")))
       (.stroke))))
 
-(defn simulation-update
+(defn draw-graph
   [edges nodes]
-  (js/console.log "a")
+  (js/console.log "simulation on...")
   (doto ctx
     (.save)
-    (.clearRect 0 0 (.-width canvas) (.-height canvas))
-    (.translate (-> transform .-x) (-> transform .-y))
-    (.scale (-> transform .-k) (-> transform .-k)))
+    (.clearRect 0 0 (.-width canvas) (.-height canvas)))
   (doseq [e edges] (draw-edges e))
   (doseq [n nodes] (draw-nodes n))
   (-> ctx (.restore)))
@@ -171,75 +100,44 @@
   [data]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)]
-    (-> d3
-        (.select canvas)
-        (.on "click" (fn [] (clicked nodes)))
-        ; (.call (-> d3
-        ;            (.drag)
-        ;            (.container canvas)
-        ;            (.subject (fn [] (drag-subject nodes)))
-        ;            (.on "start" drag-started)
-        ;            (.on "drag" dragged)
-        ;            (.on "end" dragended)))
-        )
 
     (-> simulation
         (.nodes nodes)
-        (.on "tick" (fn [] (simulation-update edges nodes))))
+        (.on "tick" (fn [] (draw-graph edges nodes))))
 
     (-> simulation
         (.force "link")
-        (.links edges))
-    ))
+        (.links edges))))
 
-(def get-data
-  (-> d3
-      (.json "https://gist.githubusercontent.com/mbostock/4062045/raw/5916d145c8c048a6e3086915a6be464467391c62/miserables.json")))
+(defn place-node
+  [x-por y-por]
+  #js {:x (* (.-width canvas) (/ x-por 100))  :y (* (.-height canvas) (/ y-por 100))})
 
 ; TODO: estabelecer posicionamento inicial dos nodes
 ; https://bl.ocks.org/mbostock/3750558
+; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 (def mock-data
   {
    :nodes [
-           {:id "ata"     :group 5 :initial_pos {:x 450 :y 100}}
-           {:id "pon-dir" :group 5 :initial_pos {:x 700 :y 200}}
-           {:id "pon-esq" :group 5 :initial_pos {:x 200 :y 200}}
-           {:id "meia"    :group 4 :initial_pos {:x 450 :y 300}}
-           {:id "vol-dir" :group 4 :initial_pos {:x 600 :y 350}}
-           {:id "vol-esq" :group 4 :initial_pos {:x 300 :y 350}}
-           {:id "lat-dir" :group 3 :initial_pos {:x 800 :y 500}}
-           {:id "lat-esq" :group 3 :initial_pos {:x 100 :y 500}}
-           {:id "zag-dir" :group 2 :initial_pos {:x 600 :y 700}}
-           {:id "zag-esq" :group 2 :initial_pos {:x 300 :y 700}}
-           {:id "gol"     :group 1 :initial_pos {:x 450 :y 800}}
+           {:id "7" :group 1 :initial_pos (place-node 30 6)}
+           {:id "9" :group 1 :initial_pos (place-node 70 6)}
+           {:id "6" :group 1 :initial_pos (place-node 9 28)}
+           {:id "14" :group 1 :initial_pos (place-node 50 28)}
+           {:id "8" :group 1 :initial_pos (place-node 91 28)}
+           {:id "6" :group 1 :initial_pos (place-node 9 28)}
+           {:id "16" :group 1 :initial_pos (place-node 50 58)}
+           {:id "15" :group 1 :initial_pos (place-node 91 58)}
+           {:id "11" :group 1 :initial_pos (place-node 9 58)}
+           {:id "3" :group 1 :initial_pos (place-node 72 77)}
+           {:id "5" :group 1 :initial_pos (place-node 28 77)}
+           {:id "1" :group 1 :initial_pos (place-node 50 95)}
            ]
    :links [
-           {:source "ata"     :target "lat-dir" :value 1}
-           {:source "ata"     :target "lat-esq" :value 1}
-           {:source "pon-dir" :target "meia" :value 1}
-           {:source "vol-dir" :target "meia" :value 1}
-           {:source "pon-esq" :target "meia" :value 1}
-           {:source "vol-esq" :target "meia" :value 1}
-           {:source "pon-dir" :target "vol-dir" :value 1}
-           {:source "pon-dir" :target "ata" :value 1}
-           {:source "pon-esq" :target "ata" :value 1}
-           {:source "pon-esq" :target "vol-esq" :value 1}
-           {:source "vol-dir" :target "lat-dir" :value 1}
-           {:source "vol-dir" :target "zag-dir" :value 1}
-           {:source "vol-esq" :target "zag-esq" :value 1}
-           {:source "vol-esq" :target "lat-esq" :value 1}
-           {:source "lat-dir" :target "ata" :value 1}
-           {:source "lat-esq" :target "lat-dir" :value 1}
-           {:source "lat-dir" :target "lat-esq" :value 1}
-           {:source "lat-esq" :target "ata" :value 1}
-           {:source "lat-dir" :target "zag-dir" :value 1}
-           {:source "lat-esq" :target "zag-esq" :value 1}
-           {:source "zag-dir" :target "lat-dir" :value 1}
-           {:source "zag-esq" :target "lat-esq" :value 1}
-           {:source "zag-dir" :target "gol" :value 1}
-           {:source "zag-esq" :target "gol" :value 1}
-           {:source "gol"     :target "zag-dir" :value 5}
-           {:source "gol"     :target "zag-esq" :value 9}
+           {:source "3" :target "1" :value 1}
+           {:source "1" :target "3" :value 100}
+           {:source "5" :target "1" :value 23}
+           {:source "1" :target "5" :value 2}
+           {:source "1" :target "7" :value 2}
            ]
    })
 
