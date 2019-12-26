@@ -45,6 +45,17 @@
         value (-> edge .-value)]
     (doto ctx
       ((fn [v] (set! (.-globalAlpha v) 0.6)))
+      ; TODO:
+      ; 0 - save canvas state
+      ; 1 - translate to source node center point
+      ; 2 - calculate angle of target projetion align with
+      ; source along the x-axis
+      ; 3 - rotate canvas by that angle
+      ; 4 - translate again between edges
+      ; 5 - draw edges
+      ; 6 - restore canvas
+      ; https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors
+
       ; ; left ascendent nodes
       ; (.setTransform 1 0 0 1 edge-pos (- edge-pos))
 
