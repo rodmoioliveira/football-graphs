@@ -25,6 +25,17 @@
   {:x (- x2 (/ (* distance2 (- x2 x1)) distance1))
    :y (- y2 (/ (* distance2 (- y2 y1)) distance1))})
 
+(defn draw-weigths
+  [edge weight-point]
+  (let [value (-> edge .-value)]
+    (doto ctx
+      ((fn [v] (set! (.-globalAlpha v) 1)))
+      ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
+      ((fn [v] (set! (.-textBaseline v) "middle")))
+      ((fn [v] (set! (.-fillStyle v) "blue")))
+      ((fn [v] (set! (.-textAlign v) "center")))
+      (.fillText value (weight-point :x) (weight-point :y)))))
+
 (defn draw-edges
   [edge]
   (let [source-x (-> edge .-source .-initial_pos .-x)
@@ -35,7 +46,23 @@
         source-index (-> edge .-source .-index)
         dis-betw-edges (/ node-radius 2)
         edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
-        value (-> edge .-value)
+        value (-> edge .-value)]
+    (doto ctx
+      ((fn [v] (set! (.-globalAlpha v) 0.7)))
+      (.translate edge-pos edge-pos)
+      (.beginPath)
+      (.moveTo source-x source-y)
+      (.lineTo target-x target-y)
+      ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
+      ((fn [v] (set! (.-strokeStyle v) "black")))
+      (.stroke))))
+
+(defn draw-passes
+  [edge]
+  (let [source-x (-> edge .-source .-initial_pos .-x)
+        source-y (-> edge .-source .-initial_pos .-y)
+        target-x (-> edge .-target .-initial_pos .-x)
+        target-y (-> edge .-target .-initial_pos .-y)
         point-dis (get-distance
                     source-x
                     source-y
@@ -48,24 +75,21 @@
                        target-y
                        point-dis
                        (/ point-dis 2))]
+    (-> ctx (.save))
+    (draw-edges edge)
+    (draw-weigths edge weight-point)
+    (-> ctx (.restore))))
+
+(defn draw-numbers
+  [node]
+  (let [x-initial-pos (-> node .-initial_pos .-x)
+        y-initial-pos (-> node .-initial_pos .-y)]
     (doto ctx
-      (.save)
-      ((fn [v] (set! (.-globalAlpha v) 0.7)))
-      (.translate 0 edge-pos)
-      (.beginPath)
-      (.moveTo source-x source-y)
-      (.lineTo target-x target-y)
-      ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
-      ((fn [v] (set! (.-strokeStyle v) "black")))
-      (.stroke)
-      ((fn [v] (set! (.-globalAlpha v) 1)))
-      ; ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
-      ; ((fn [v] (set! (.-textBaseline v) "middle")))
-      ; ((fn [v] (set! (.-fillStyle v) "blue")))
-      ; ((fn [v] (set! (.-textAlign v) "center")))
-      ; (.fillText value (weight-point :x) (weight-point :y))
-      (.restore)
-      )))
+      ((fn [v] (set! (.-font v) "700 22px sans-serif")))
+      ((fn [v] (set! (.-fillStyle v) "white")))
+      ((fn [v] (set! (.-textAlign v) "center")))
+      ((fn [v] (set! (.-textBaseline v) "middle")))
+      (.fillText (-> node .-id) x-initial-pos y-initial-pos))))
 
 (defn draw-nodes
   [node]
@@ -77,23 +101,23 @@
       (.arc x-initial-pos y-initial-pos node-radius 0 (* 2 js/Math.PI))
       ((fn [v] (set! (.-fillStyle v) "black")))
       (.fill)
-      ((fn [v] (set! (.-font v) "700 22px sans-serif")))
-      ((fn [v] (set! (.-fillStyle v) "white")))
-      ((fn [v] (set! (.-textAlign v) "center")))
-      ((fn [v] (set! (.-textBaseline v) "middle")))
-      (.fillText (-> node .-id) x-initial-pos y-initial-pos)
       ((fn [v] (set! (.-strokeStyle v) "#fff")))
       ((fn [v] (set! (.-lineWidth v) "1.5")))
       (.stroke))))
 
+(defn draw-players
+  [node]
+  (doto node
+    (draw-nodes)
+    (draw-numbers)))
+
 (defn draw-graph
   [edges nodes]
-  (js/console.log "simulation on...")
   (doto ctx
     (.save)
     (.clearRect 0 0 (.-width canvas) (.-height canvas)))
-  (doseq [e edges] (draw-edges e))
-  (doseq [n nodes] (draw-nodes n))
+  (doseq [e edges] (draw-passes e))
+  (doseq [n nodes] (draw-players n))
   (-> ctx (.restore)))
 
 (defn force-graph
@@ -138,6 +162,9 @@
            {:source "5" :target "1" :value 23}
            {:source "1" :target "5" :value 2}
            {:source "1" :target "7" :value 2}
+           {:source "7" :target "1" :value 2}
+           {:source "1" :target "16" :value 2}
+           {:source "16" :target "1" :value 2}
            ]
    })
 
