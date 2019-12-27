@@ -16,8 +16,6 @@
 
 (defn dot-product [[x1 y1] [x2 y2]] (+ (* x1 x2) (* y1 y2)))
 
-(defn radians->deegres [rad] (/ (* rad 180) js/Math.PI))
-
 ; https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors
 (defn radians-between
   [vector1 vector2]

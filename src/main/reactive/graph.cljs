@@ -1,12 +1,11 @@
 (ns reactive.graph
   (:require
     ["d3" :as d3]
-    [reactive.utils :refer [get-distance find-point radians-between radians->deegres]]))
+    [reactive.utils :refer [get-distance find-point radians-between]]))
 
 (def canvas (-> js/document (.getElementById "canvas")))
 (def ctx (-> canvas (.getContext "2d")))
 (def node-radius 35)
-(def distance 180)
 
 (defn force-simulation
   [width height]
@@ -18,17 +17,6 @@
 
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
-(defn draw-weigths
-  [edge weight-point]
-  (let [value (-> edge .-value)]
-    (doto ctx
-      ((fn [v] (set! (.-globalAlpha v) 1)))
-      ((fn [v] (set! (.-font v) "bold 18px sans-serif")))
-      ((fn [v] (set! (.-textBaseline v) "middle")))
-      ((fn [v] (set! (.-fillStyle v) "blue")))
-      ((fn [v] (set! (.-textAlign v) "center")))
-      (.fillText value (-> weight-point .-x) (-> weight-point .-y)))))
-
 (defn draw-edges
   [edge]
   (let [source-x (-> edge .-source .-initial_pos .-x)
@@ -38,7 +26,6 @@
         target-index (-> edge .-target .-index)
         source-index (-> edge .-source .-index)
         dis-betw-edges (/ node-radius 2)
-        ; edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         value (-> edge .-value)
         point-between (partial find-point source-x source-y target-x target-y)
         source-target-distance (get-distance
@@ -48,22 +35,25 @@
                                  target-y)
         base-vector [source-target-distance 0]
         target-vector [(- target-x source-x) (- target-y source-y)]
+
+        ; 2 - calculate angle of target projetion align with source along the x-axis
         radians (radians-between base-vector target-vector)
+        orientation (cond
+                      (and (< source-x target-x) (< source-y target-y)) radians
+                      (and (> source-x target-x) (< source-y target-y)) radians
+                      (and (= source-x target-x) (< source-y target-y)) radians
+                      :else (- radians))
+        ; edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         ; edge-start (point-between source-target-distance (- source-target-distance node-radius 10))
         ; edge-end (point-between source-target-distance (+ node-radius 10))
         ]
-    (print (-> edge .-source .-id) radians (radians->deegres radians))
     (doto ctx
       ((fn [v] (set! (.-globalAlpha v) 0.6)))
-
       ; 1 - translate to source node center point
       (.translate source-x source-y)
 
-      ; 2 - calculate angle of target projetion align with
-      ; source along the x-axis
-
       ; 3 - rotate canvas by that angle
-      (.rotate (if (< source-x target-x) radians (- radians)))
+      (.rotate orientation)
 
       ; 4 - translate again between edges
       (.translate 0 dis-betw-edges)
@@ -71,7 +61,6 @@
       ; 5 - draw edges
       (.beginPath)
       (.moveTo 0 0)
-
       (.lineTo (first base-vector) (second base-vector))
       ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
       ((fn [v] (set! (.-strokeStyle v) "black")))
@@ -85,7 +74,6 @@
   [edge]
   (-> ctx (.save))
   (draw-edges edge)
-  ; (draw-weigths edge weight-coord)
   (-> ctx (.restore))
   )
 
@@ -167,21 +155,42 @@
    :links [
            {:source "6" :target "14" :value 1}
            {:source "14" :target "6" :value 100}
-           ; {:source "8" :target "14" :value 1}
-           ; {:source "14" :target "8" :value 100}
+           {:source "8" :target "14" :value 1}
+           {:source "14" :target "8" :value 100}
            {:source "6" :target "1" :value 1}
            {:source "1" :target "6" :value 100}
            {:source "3" :target "1" :value 1}
            {:source "1" :target "3" :value 100}
-           ; {:source "5" :target "1" :value 23}
-           ; {:source "1" :target "5" :value 2}
-           ; {:source "1" :target "7" :value 2}
-           ; {:source "7" :target "1" :value 2}
-           ; {:source "1" :target "16" :value 2}
-           ; {:source "16" :target "1" :value 2}
+           {:source "5" :target "1" :value 23}
+           {:source "1" :target "5" :value 2}
+           {:source "1" :target "7" :value 2}
+           {:source "7" :target "1" :value 2}
+           {:source "1" :target "16" :value 2}
+           {:source "16" :target "1" :value 2}
+           {:source "5" :target "11" :value 2}
+           {:source "11" :target "5" :value 2}
+           {:source "9" :target "11" :value 2}
+           {:source "11" :target "9" :value 2}
+           {:source "6" :target "11" :value 2}
+           {:source "11" :target "6" :value 2}
+           {:source "8" :target "11" :value 2}
+           {:source "11" :target "8" :value 2}
+           {:source "3" :target "11" :value 2}
+           {:source "11" :target "3" :value 2}
+           {:source "7" :target "11" :value 2}
+           {:source "11" :target "7" :value 2}
+           {:source "15" :target "11" :value 2}
+           {:source "11" :target "15" :value 2}
+           {:source "15" :target "8" :value 2}
+           {:source "8" :target "15" :value 2}
+           {:source "15" :target "5" :value 2}
+           {:source "5" :target "15" :value 2}
+           {:source "1" :target "9" :value 2}
+           {:source "9" :target "1" :value 2}
+           {:source "14" :target "9" :value 2}
+           {:source "9" :target "14" :value 2}
            ]
    })
 
 ; https://observablehq.com/d/42f72efad452c2f0
-; (defn init-graph [] (-> get-data (.then force-graph)))
 (defn init-graph [] (-> mock-data clj->js force-graph))
