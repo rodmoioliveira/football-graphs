@@ -140,18 +140,18 @@
 (def mock-data
   {
    :nodes [
-           {:id "7" :group 1 :initial_pos (place-node 30 6)}
-           {:id "9" :group 1 :initial_pos (place-node 70 6)}
-           {:id "6" :group 1 :initial_pos (place-node 9 28)}
-           {:id "14" :group 1 :initial_pos (place-node 50 28)}
-           {:id "8" :group 1 :initial_pos (place-node 91 28)}
-           {:id "6" :group 1 :initial_pos (place-node 9 28)}
-           {:id "16" :group 1 :initial_pos (place-node 50 58)}
-           {:id "15" :group 1 :initial_pos (place-node 91 58)}
-           {:id "11" :group 1 :initial_pos (place-node 9 58)}
-           {:id "3" :group 1 :initial_pos (place-node 72 77)}
-           {:id "5" :group 1 :initial_pos (place-node 28 77)}
-           {:id "1" :group 1 :initial_pos (place-node 50 95)}
+           {:id "7" :initial_pos (place-node 30 6)}
+           {:id "9" :initial_pos (place-node 70 6)}
+           {:id "6" :initial_pos (place-node 9 28)}
+           {:id "14" :initial_pos (place-node 50 28)}
+           {:id "8" :initial_pos (place-node 91 28)}
+           {:id "6" :initial_pos (place-node 9 28)}
+           {:id "16" :initial_pos (place-node 50 58)}
+           {:id "15" :initial_pos (place-node 91 58)}
+           {:id "11" :initial_pos (place-node 9 58)}
+           {:id "3" :initial_pos (place-node 72 77)}
+           {:id "5" :initial_pos (place-node 28 77)}
+           {:id "1" :initial_pos (place-node 50 95)}
            ]
    :links (-> mock-edges vec)
    ; :links [
