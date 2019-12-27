@@ -44,8 +44,6 @@
                       (and (> source-x target-x) (< source-y target-y)) radians
                       (and (= source-x target-x) (< source-y target-y)) radians
                       :else (- radians))
-        ; edge-start (point-between source-target-distance (- source-target-distance node-radius 10))
-        ; edge-end (point-between source-target-distance (+ node-radius 10))
         ]
     (doto ctx
       ((fn [v] (set! (.-globalAlpha v) 0.6)))
