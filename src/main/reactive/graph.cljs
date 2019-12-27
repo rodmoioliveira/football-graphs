@@ -1,3 +1,5 @@
+; Inspiração:
+; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 (ns reactive.graph
   (:require
     ["d3" :as d3]
@@ -7,6 +9,7 @@
 (def ctx (-> canvas (.getContext "2d")))
 (def node-radius 35)
 (def edges-padding 10)
+(def edges-alpha 0.5)
 
 (defn force-simulation
   [width height]
@@ -24,8 +27,6 @@
         source-y (-> edge .-source .-initial_pos .-y)
         target-x (-> edge .-target .-initial_pos .-x)
         target-y (-> edge .-target .-initial_pos .-y)
-        target-index (-> edge .-target .-index)
-        source-index (-> edge .-source .-index)
         dis-betw-edges (/ node-radius 2)
         value (-> edge .-value)
         point-between (partial find-point source-x source-y target-x target-y)
@@ -37,43 +38,37 @@
         base-vector [source-target-distance 0]
         target-vector [(- target-x source-x) (- target-y source-y)]
 
-        ; 2 - calculate angle of target projetion align with source along the x-axis
+        ; calculate angle of target projetion align with source along the x-axis
         radians (radians-between base-vector target-vector)
         orientation (cond
                       (and (< source-x target-x) (< source-y target-y)) radians
                       (and (> source-x target-x) (< source-y target-y)) radians
                       (and (= source-x target-x) (< source-y target-y)) radians
-                      :else (- radians))
-        ]
+                      :else (- radians))]
+
     (doto ctx
-      ((fn [v] (set! (.-globalAlpha v) 0.6)))
-      ; 1 - translate to source node center point
+      ((fn [v] (set! (.-globalAlpha v) edges-alpha)))
+      ; translate to source node center point
       (.translate source-x source-y)
-
-      ; 3 - rotate canvas by that angle
+      ; rotate canvas by that angle
       (.rotate orientation)
-
-      ; 4 - translate again between edges
+      ; translate again between edges
       (.translate 0 dis-betw-edges)
-
-      ; 5 - draw edges
+      ; draw edges
       (.beginPath)
       (.moveTo (-> node-radius (+ edges-padding)) 0)
       (.lineTo (-> base-vector first (- node-radius edges-padding)) (second base-vector))
       ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
       ((fn [v] (set! (.-strokeStyle v) "black")))
       (.stroke)
-
-      ; 6 - restore canvas
-      (.setTransform)
-      )))
+      ; restore canvas
+      (.setTransform))))
 
 (defn draw-passes
   [edge]
   (-> ctx (.save))
   (draw-edges edge)
-  (-> ctx (.restore))
-  )
+  (-> ctx (.restore)))
 
 (defn draw-numbers
   [node]
@@ -140,8 +135,6 @@
                       :when (not= source target)]
                   edge))
 
-; Inspiração:
-; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 (def mock-data
   {
    :nodes [

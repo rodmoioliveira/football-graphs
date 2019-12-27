@@ -16,8 +16,8 @@
 
 (defn dot-product [[x1 y1] [x2 y2]] (+ (* x1 x2) (* y1 y2)))
 
-; https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors
 (defn radians-between
+  "https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors"
   [vector1 vector2]
   (->
     (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
