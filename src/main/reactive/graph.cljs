@@ -37,6 +37,9 @@
 (def dis-betw-edges (/ node-radius 3))
 (def edges-color "grey")
 (defn edge-width [value] (js/Math.sqrt value))
+(def arrows {:edge-recoil 22
+             :base-expansion 1.5
+             :width 70})
 
 
 ; ==================================
@@ -91,8 +94,7 @@
       ; draw edges
       (.beginPath)
       (.moveTo (-> node-radius (+ edges-padding)) 0)
-      ; TODO: name magical number
-      (.lineTo (-> base-vector first (- node-radius edges-padding 25)) (second base-vector))
+      (.lineTo (-> base-vector first (- node-radius edges-padding (arrows :edge-recoil))) (second base-vector))
       ((fn [v] (set! (.-lineWidth v) (edge-width value))))
       ((fn [v] (set! (.-strokeStyle v) edges-color)))
       (.stroke)
@@ -101,10 +103,8 @@
       (.beginPath)
       ((fn [v] (set! (.-fillStyle v) edges-color)))
       (.moveTo (-> base-vector first (- node-radius edges-padding)) (-> base-vector second))
-      ; TODO: name magical number
-      (.lineTo (-> base-vector first (- 70)) (* (edge-width value) 1.5))
-      ; TODO: name magical number
-      (.lineTo (-> base-vector first (- 70)) (- (* (edge-width value) 1.5)))
+      (.lineTo (-> base-vector first (- (arrows :width))) (* (edge-width value) (arrows :base-expansion)))
+      (.lineTo (-> base-vector first (- (arrows :width))) (- (* (edge-width value) (arrows :base-expansion))))
       (.fill)
       ; ; restore canvas
       (.setTransform))))
