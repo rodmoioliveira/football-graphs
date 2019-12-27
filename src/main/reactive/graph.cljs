@@ -105,7 +105,9 @@
   [edges nodes]
   (doto ctx
     (.save)
-    (.clearRect 0 0 (.-width canvas) (.-height canvas)))
+    (.clearRect 0 0 (.-width canvas) (.-height canvas))
+    ((fn [v] (set! (.-fillStyle v) "white")))
+    (.fillRect 0 0 (.-width canvas) (.-height canvas)))
   (doseq [e edges] (draw-passes e))
   (doseq [n nodes] (draw-players n))
   (-> ctx (.restore)))
