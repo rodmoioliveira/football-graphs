@@ -6,6 +6,7 @@
 (def canvas (-> js/document (.getElementById "canvas")))
 (def ctx (-> canvas (.getContext "2d")))
 (def node-radius 35)
+(def edges-padding 10)
 
 (defn force-simulation
   [width height]
@@ -43,7 +44,6 @@
                       (and (> source-x target-x) (< source-y target-y)) radians
                       (and (= source-x target-x) (< source-y target-y)) radians
                       :else (- radians))
-        ; edge-pos (if (< target-index source-index) dis-betw-edges (- dis-betw-edges))
         ; edge-start (point-between source-target-distance (- source-target-distance node-radius 10))
         ; edge-end (point-between source-target-distance (+ node-radius 10))
         ]
@@ -60,8 +60,8 @@
 
       ; 5 - draw edges
       (.beginPath)
-      (.moveTo 0 0)
-      (.lineTo (first base-vector) (second base-vector))
+      (.moveTo (-> node-radius (+ edges-padding)) 0)
+      (.lineTo (-> base-vector first (- node-radius edges-padding)) (second base-vector))
       ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
       ((fn [v] (set! (.-strokeStyle v) "black")))
       (.stroke)
