@@ -2,15 +2,46 @@
 ; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 (ns reactive.graph
   (:require
-    ["d3" :as d3]
-    [reactive.utils :refer [get-distance find-point radians-between]]))
+    [clojure.string :as str]
+    [reactive.utils :refer [get-distance find-point radians-between]]
+    ["d3" :as d3]))
 
 (def canvas (-> js/document (.getElementById "canvas")))
 (def ctx (-> canvas (.getContext "2d")))
-(def node-radius 35)
-(def edges-padding 10)
-(def edges-alpha 0.5)
 
+; ==================================
+; NODES
+; ==================================
+(def node-radius 35)
+(def nodes-color "black")
+(def nodes-outline {:color "white"
+                    :width "1.5"})
+(def node-font {:weight "700"
+                :size "22px"
+                :type "sans-serif"
+                :color "white"
+                :text-align "center"
+                :base-line "middle"
+                })
+(def node-font-config
+  (str/join " "
+            [(node-font :weight)
+             (node-font :size)
+             (node-font :type)]))
+
+; ==================================
+; EDGES
+; ==================================
+; (def edges-alpha 0.5)
+(def edges-padding 10)
+(def dis-betw-edges (/ node-radius 3))
+(def edges-color "grey")
+(defn edge-width [value] (js/Math.sqrt value))
+
+
+; ==================================
+; SIMULATIONS
+; ==================================
 (defn force-simulation
   [width height]
   (-> d3
@@ -21,13 +52,15 @@
 
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
+; ==================================
+; DRAW FNS
+; ==================================
 (defn draw-edges
   [edge]
   (let [source-x (-> edge .-source .-initial_pos .-x)
         source-y (-> edge .-source .-initial_pos .-y)
         target-x (-> edge .-target .-initial_pos .-x)
         target-y (-> edge .-target .-initial_pos .-y)
-        dis-betw-edges (/ node-radius 2)
         value (-> edge .-value)
         point-between (partial find-point source-x source-y target-x target-y)
         source-target-distance (get-distance
@@ -47,7 +80,8 @@
                       :else (- radians))]
 
     (doto ctx
-      ((fn [v] (set! (.-globalAlpha v) edges-alpha)))
+      ; TODO: map weight to alpha on edge
+      ; ((fn [v] (set! (.-globalAlpha v) edges-alpha)))
       ; translate to source node center point
       (.translate source-x source-y)
       ; rotate canvas by that angle
@@ -57,11 +91,22 @@
       ; draw edges
       (.beginPath)
       (.moveTo (-> node-radius (+ edges-padding)) 0)
-      (.lineTo (-> base-vector first (- node-radius edges-padding)) (second base-vector))
-      ((fn [v] (set! (.-lineWidth v) (js/Math.sqrt value))))
-      ((fn [v] (set! (.-strokeStyle v) "black")))
+      ; TODO: name magical number
+      (.lineTo (-> base-vector first (- node-radius edges-padding 25)) (second base-vector))
+      ((fn [v] (set! (.-lineWidth v) (edge-width value))))
+      ((fn [v] (set! (.-strokeStyle v) edges-color)))
       (.stroke)
-      ; restore canvas
+
+      ; draw arrows
+      (.beginPath)
+      ((fn [v] (set! (.-fillStyle v) edges-color)))
+      (.moveTo (-> base-vector first (- node-radius edges-padding)) (-> base-vector second))
+      ; TODO: name magical number
+      (.lineTo (-> base-vector first (- 70)) (* (edge-width value) 1.5))
+      ; TODO: name magical number
+      (.lineTo (-> base-vector first (- 70)) (- (* (edge-width value) 1.5)))
+      (.fill)
+      ; ; restore canvas
       (.setTransform))))
 
 (defn draw-passes
@@ -75,10 +120,10 @@
   (let [x-initial-pos (-> node .-initial_pos .-x)
         y-initial-pos (-> node .-initial_pos .-y)]
     (doto ctx
-      ((fn [v] (set! (.-font v) "700 22px sans-serif")))
-      ((fn [v] (set! (.-fillStyle v) "white")))
-      ((fn [v] (set! (.-textAlign v) "center")))
-      ((fn [v] (set! (.-textBaseline v) "middle")))
+      ((fn [v] (set! (.-font v) node-font-config)))
+      ((fn [v] (set! (.-fillStyle v) (node-font :color))))
+      ((fn [v] (set! (.-textAlign v) (node-font :text-align))))
+      ((fn [v] (set! (.-textBaseline v) (node-font :base-line))))
       (.fillText (-> node .-id) x-initial-pos y-initial-pos))))
 
 (defn draw-nodes
@@ -89,10 +134,10 @@
       (.beginPath)
       (.moveTo (+ x-initial-pos node-radius) y-initial-pos)
       (.arc x-initial-pos y-initial-pos node-radius 0 (* 2 js/Math.PI))
-      ((fn [v] (set! (.-fillStyle v) "black")))
+      ((fn [v] (set! (.-fillStyle v) nodes-color)))
       (.fill)
-      ((fn [v] (set! (.-strokeStyle v) "#fff")))
-      ((fn [v] (set! (.-lineWidth v) "1.5")))
+      ((fn [v] (set! (.-strokeStyle v) (nodes-outline :color))))
+      ((fn [v] (set! (.-lineWidth v) (nodes-outline :width))))
       (.stroke))))
 
 (defn draw-players
@@ -112,19 +157,23 @@
   (doseq [n nodes] (draw-players n))
   (-> ctx (.restore)))
 
+; ==================================
+; FORCE GRAPF
+; ==================================
 (defn force-graph
   [data]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)]
-
     (-> simulation
         (.nodes nodes)
         (.on "tick" (fn [] (draw-graph edges nodes))))
-
     (-> simulation
         (.force "link")
         (.links edges))))
 
+; ==================================
+; MOCK DATA
+; ==================================
 (defn place-node
   [x-% y-%]
   #js {:x (* (.-width canvas) (/ x-% 100))  :y (* (.-height canvas) (/ y-% 100))})
@@ -153,52 +202,54 @@
            {:id "5" :initial_pos (place-node 28 77)}
            {:id "1" :initial_pos (place-node 50 95)}
            ]
-   :links (-> mock-edges vec)
-   ; :links [
-   ;         {:source "6" :target "14" :value 1}
-   ;         {:source "14" :target "6" :value 100}
-   ;         {:source "8" :target "14" :value 1}
-   ;         {:source "14" :target "8" :value 100}
-   ;         {:source "6" :target "1" :value 1}
-   ;         {:source "1" :target "6" :value 100}
-   ;         {:source "3" :target "1" :value 1}
-   ;         {:source "1" :target "3" :value 100}
-   ;         {:source "5" :target "1" :value 23}
-   ;         {:source "1" :target "5" :value 2}
-   ;         {:source "1" :target "7" :value 2}
-   ;         {:source "7" :target "1" :value 2}
-   ;         {:source "1" :target "16" :value 2}
-   ;         {:source "16" :target "1" :value 2}
-   ;         {:source "5" :target "11" :value 2}
-   ;         {:source "11" :target "5" :value 2}
-   ;         {:source "9" :target "11" :value 2}
-   ;         {:source "11" :target "9" :value 2}
-   ;         {:source "6" :target "11" :value 2}
-   ;         {:source "11" :target "6" :value 2}
-   ;         {:source "8" :target "11" :value 2}
-   ;         {:source "11" :target "8" :value 2}
-   ;         {:source "3" :target "11" :value 2}
-   ;         {:source "11" :target "3" :value 2}
-   ;         {:source "7" :target "11" :value 2}
-   ;         {:source "11" :target "7" :value 2}
-   ;         {:source "15" :target "11" :value 2}
-   ;         {:source "11" :target "15" :value 2}
-   ;         {:source "15" :target "8" :value 2}
-   ;         {:source "8" :target "15" :value 2}
-   ;         {:source "15" :target "5" :value 2}
-   ;         {:source "5" :target "15" :value 2}
-   ;         {:source "1" :target "9" :value 2}
-   ;         {:source "9" :target "1" :value 2}
-   ;         {:source "14" :target "9" :value 2}
-   ;         {:source "9" :target "14" :value 2}
-   ;         {:source "15" :target "3" :value 2}
-   ;         {:source "3" :target "15" :value 2}
-   ;         {:source "15" :target "14" :value 2}
-   ;         {:source "14" :target "15" :value 2}
-   ;         {:source "16" :target "6" :value 2}
-   ;         {:source "6" :target "16" :value 2}
-   ;         ]
+   ; :links (-> mock-edges vec)
+   :links [
+           {:source "6" :target "14" :value 1}
+           {:source "14" :target "6" :value 100}
+           {:source "8" :target "14" :value 1}
+           {:source "14" :target "8" :value 100}
+           {:source "6" :target "1" :value 1}
+           {:source "1" :target "6" :value 100}
+           {:source "3" :target "1" :value 1}
+           {:source "1" :target "3" :value 100}
+           {:source "5" :target "1" :value 23}
+           {:source "1" :target "5" :value 2}
+           {:source "1" :target "7" :value 2}
+           {:source "7" :target "1" :value 2}
+           {:source "1" :target "16" :value 2}
+           {:source "16" :target "1" :value 2}
+           {:source "5" :target "11" :value 2}
+           {:source "11" :target "5" :value 48}
+           {:source "9" :target "11" :value 48}
+           {:source "11" :target "9" :value 48}
+           {:source "6" :target "11" :value 15}
+           {:source "11" :target "6" :value 15}
+           {:source "8" :target "11" :value 48}
+           {:source "11" :target "8" :value 48}
+           {:source "3" :target "11" :value 48}
+           {:source "11" :target "3" :value 48}
+           {:source "7" :target "11" :value 48}
+           {:source "11" :target "7" :value 2}
+           {:source "15" :target "11" :value 2}
+           {:source "11" :target "15" :value 2}
+           {:source "15" :target "8" :value 67}
+           {:source "8" :target "15" :value 17}
+           {:source "15" :target "5" :value 67}
+           {:source "5" :target "15" :value 67}
+           {:source "1" :target "9" :value 2}
+           {:source "9" :target "1" :value 2}
+           {:source "14" :target "9" :value 2}
+           {:source "9" :target "14" :value 2}
+           {:source "15" :target "3" :value 2}
+           {:source "3" :target "15" :value 2}
+           {:source "15" :target "14" :value 2}
+           {:source "14" :target "15" :value 2}
+           {:source "16" :target "6" :value 2}
+           {:source "6" :target "16" :value 2}
+           ]
    })
 
-; https://observablehq.com/d/42f72efad452c2f0
+; ==================================
+; INIT FORCE GRAPF
+; ==================================
 (defn init-graph [] (-> mock-data clj->js force-graph))
