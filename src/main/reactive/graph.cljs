@@ -84,6 +84,7 @@
 
     (doto ctx
       ; TODO: map weight to alpha on edge
+      ; https://stackoverflow.com/questions/26584280/convert-given-range-values-to-domain-values-in-d3
       ; ((fn [v] (set! (.-globalAlpha v) edges-alpha)))
       ; translate to source node center point
       (.translate source-x source-y)
