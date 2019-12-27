@@ -198,6 +198,12 @@
    ;         {:source "9" :target "1" :value 2}
    ;         {:source "14" :target "9" :value 2}
    ;         {:source "9" :target "14" :value 2}
+   ;         {:source "15" :target "3" :value 2}
+   ;         {:source "3" :target "15" :value 2}
+   ;         {:source "15" :target "14" :value 2}
+   ;         {:source "14" :target "15" :value 2}
+   ;         {:source "16" :target "6" :value 2}
+   ;         {:source "6" :target "16" :value 2}
    ;         ]
    })
 
