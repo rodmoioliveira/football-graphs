@@ -1,36 +1,14 @@
 (ns reactive.app
-  (:require ["rxjs" :as rx]
-            ["rxjs/operators" :as rx-op]))
+	(:require
+		; [reactive.rxjs :refer [move-mouse$]]
+		[reactive.graph :refer [init-graph]]))
 
-(def root (-> js/document (.getElementById "root")))
-
-(defn set-div
-  [value]
-  (-> root
-      .-innerHTML
-      (set! value)))
-
-(defn get-coods
-  [e] {:y (.-clientY e) :x (.-clientX e)})
-
-(defn format-str
-  [{:keys [x y]}]
-  (str "posição x: " x ", posição y: " y))
-
-(defn render-pos
-  [e]
-  (-> e
-      get-coods
-      format-str))
-
-; https://cljs.github.io/api/cljs.core/DOT
-(defn move-mouse$
-  []
-  (-> js/document
-      (rx/fromEvent "mousemove")
-      (.pipe (rx-op/map render-pos) (rx-op/startWith "posição x: ???, posição y: ???"))
-      (.subscribe set-div)))
 
 (defn init []
-  (move-mouse$))
+	(init-graph)
+	; (move-mouse$)
+	)
 
+; TODO: https://code.thheller.com/blog/shadow-cljs/2019/08/25/hot-reload-in-clojurescript.html
+(defn ^:dev/after-load start []
+	(init))
