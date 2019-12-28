@@ -7,7 +7,7 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  []
+  [{:keys [id]}]
   (let [mapping {:domains {:passes->color #js [(- 70) 160]
                            :passes->edge-width #js [0 100]}
                  :codomains {:passes<-edge-width #js [2 21]}}
@@ -22,8 +22,8 @@
     {:arrows {:recoil 22
               :expansion 0.9
               :width 75}
-     :canvas (-> js/document (.getElementById "canvas"))
-     :ctx (-> js/document (.getElementById "canvas") (.getContext "2d"))
+     :canvas (-> js/document (.getElementById id))
+     :ctx (-> js/document (.getElementById id) (.getContext "2d"))
      :edges {:padding 10
              :distance-between (/ node-radius 2.2)}
      :nodes {:radius node-radius
@@ -46,8 +46,8 @@
 ; ==================================
 (defn place-node
   [x-% y-%]
-  #js {:x (* (-> (config) :canvas .-width) (/ x-% 100))
-       :y (* (-> (config) :canvas .-height) (/ y-% 100))})
+  #js {:x (* (-> (config {:id "canvas0"}) :canvas .-width) (/ x-% 100))
+       :y (* (-> (config {:id "canvas0"}) :canvas .-height) (/ y-% 100))})
 
 (def mock-edges (for [source ["1" "5" "3" "11" "15" "16" "6" "8" "14" "6" "9" "7"]
                       target ["1" "5" "3" "11" "15" "16" "6" "8" "14" "6" "9" "7"]

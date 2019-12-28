@@ -1,9 +1,10 @@
-; Inspiração:
-; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
-(ns reactive.graph
+(ns
+  ^{:doc "Graphs for football matches"
+    :author "Rodolfo Mói"
+    :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"}
+  reactive.graph
   (:require
     [reactive.utils :refer [get-distance find-point radians-between]]
-    [reactive.config :refer [config mock-data]]
     ["d3" :as d3]))
 
 ; ==================================
@@ -140,12 +141,4 @@
     (-> simulation
         (.force "link")
         (.links edges))))
-
-; ==================================
-; Init force graph
-; ==================================
-(defn init-graph
-  []
-  (-> {:data (clj->js mock-data) :config (config)}
-      force-graph))
 
