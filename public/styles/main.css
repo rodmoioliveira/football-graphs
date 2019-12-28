@@ -1,11 +1,17 @@
 #root {
   align-items: center;
   display: flex;
-  flex-direction: column;
-  height: 95vh;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
-/* #canvas { */
-/*   outline: 1px dashed black; */
-/* } */
+.canvas {
+  margin: 5rem 5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .canvas {
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
