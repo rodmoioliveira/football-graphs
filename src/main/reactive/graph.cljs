@@ -10,6 +10,11 @@
 (def ctx (-> canvas (.getContext "2d")))
 
 ; ==================================
+; DOMAINS AND CODOMAINS
+; ==================================
+(def domains {:passes #js [(- 50) 100]})
+
+; ==================================
 ; NODES
 ; ==================================
 (def node-radius 35)
@@ -41,6 +46,13 @@
              :base-expansion 1.5
              :width 70})
 
+; ==================================
+; COLOR SCALE
+; ==================================
+(def edges-scale
+  (-> d3
+      (.scaleSequential (-> d3 (.-interpolateGreys)))
+      (.domain (domains :passes))))
 
 ; ==================================
 ; SIMULATIONS
@@ -97,12 +109,12 @@
       (.moveTo (-> node-radius (+ edges-padding)) 0)
       (.lineTo (-> base-vector first (- node-radius edges-padding (arrows :edge-recoil))) (second base-vector))
       ((fn [v] (set! (.-lineWidth v) (edge-width value))))
-      ((fn [v] (set! (.-strokeStyle v) edges-color)))
+      ((fn [v] (set! (.-strokeStyle v) (edges-scale value))))
       (.stroke)
 
       ; draw arrows
       (.beginPath)
-      ((fn [v] (set! (.-fillStyle v) edges-color)))
+      ((fn [v] (set! (.-fillStyle v) (edges-scale value))))
       (.moveTo (-> base-vector first (- node-radius edges-padding)) (-> base-vector second))
       (.lineTo (-> base-vector first (- (arrows :width))) (* (edge-width value) (arrows :base-expansion)))
       (.lineTo (-> base-vector first (- (arrows :width))) (- (* (edge-width value) (arrows :base-expansion))))
@@ -204,50 +216,52 @@
            {:id "1" :initial_pos (place-node 50 95)}
            ]
    ; :links (-> mock-edges vec)
-   :links [
-           {:source "6" :target "14" :value 1}
-           {:source "14" :target "6" :value 100}
-           {:source "8" :target "14" :value 1}
-           {:source "14" :target "8" :value 100}
-           {:source "6" :target "1" :value 1}
-           {:source "1" :target "6" :value 100}
-           {:source "3" :target "1" :value 1}
-           {:source "1" :target "3" :value 100}
-           {:source "5" :target "1" :value 23}
-           {:source "1" :target "5" :value 2}
-           {:source "1" :target "7" :value 2}
-           {:source "7" :target "1" :value 2}
-           {:source "1" :target "16" :value 2}
-           {:source "16" :target "1" :value 2}
-           {:source "5" :target "11" :value 2}
-           {:source "11" :target "5" :value 48}
-           {:source "9" :target "11" :value 48}
-           {:source "11" :target "9" :value 48}
-           {:source "6" :target "11" :value 15}
-           {:source "11" :target "6" :value 15}
-           {:source "8" :target "11" :value 48}
-           {:source "11" :target "8" :value 48}
-           {:source "3" :target "11" :value 48}
-           {:source "11" :target "3" :value 48}
-           {:source "7" :target "11" :value 48}
-           {:source "11" :target "7" :value 2}
-           {:source "15" :target "11" :value 2}
-           {:source "11" :target "15" :value 2}
-           {:source "15" :target "8" :value 67}
-           {:source "8" :target "15" :value 17}
-           {:source "15" :target "5" :value 67}
-           {:source "5" :target "15" :value 67}
-           {:source "1" :target "9" :value 2}
-           {:source "9" :target "1" :value 2}
-           {:source "14" :target "9" :value 2}
-           {:source "9" :target "14" :value 2}
-           {:source "15" :target "3" :value 2}
-           {:source "3" :target "15" :value 2}
-           {:source "15" :target "14" :value 2}
-           {:source "14" :target "15" :value 2}
-           {:source "16" :target "6" :value 2}
-           {:source "6" :target "16" :value 2}
-           ]
+   :links (->
+            [
+             {:source "6" :target "14" :value 1}
+             {:source "14" :target "6" :value 100}
+             {:source "8" :target "14" :value 1}
+             {:source "14" :target "8" :value 100}
+             {:source "6" :target "1" :value 1}
+             {:source "1" :target "6" :value 100}
+             {:source "3" :target "1" :value 1}
+             {:source "1" :target "3" :value 100}
+             {:source "5" :target "1" :value 23}
+             {:source "1" :target "5" :value 2}
+             {:source "1" :target "7" :value 2}
+             {:source "7" :target "1" :value 2}
+             {:source "1" :target "16" :value 2}
+             {:source "16" :target "1" :value 2}
+             {:source "5" :target "11" :value 2}
+             {:source "11" :target "5" :value 48}
+             {:source "9" :target "11" :value 48}
+             {:source "11" :target "9" :value 48}
+             {:source "6" :target "11" :value 15}
+             {:source "11" :target "6" :value 15}
+             {:source "8" :target "11" :value 48}
+             {:source "11" :target "8" :value 48}
+             {:source "3" :target "11" :value 48}
+             {:source "11" :target "3" :value 48}
+             {:source "7" :target "11" :value 48}
+             {:source "11" :target "7" :value 2}
+             {:source "15" :target "11" :value 2}
+             {:source "11" :target "15" :value 2}
+             {:source "15" :target "8" :value 67}
+             {:source "8" :target "15" :value 17}
+             {:source "15" :target "5" :value 67}
+             {:source "5" :target "15" :value 67}
+             {:source "1" :target "9" :value 2}
+             {:source "9" :target "1" :value 2}
+             {:source "14" :target "9" :value 2}
+             {:source "9" :target "14" :value 2}
+             {:source "15" :target "3" :value 2}
+             {:source "3" :target "15" :value 2}
+             {:source "15" :target "14" :value 2}
+             {:source "14" :target "15" :value 2}
+             {:source "16" :target "6" :value 2}
+             {:source "6" :target "16" :value 2}
+             ]
+            (#(sort-by :value %)))
    })
 
 ; ==================================
