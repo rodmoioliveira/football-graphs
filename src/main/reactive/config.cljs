@@ -8,9 +8,9 @@
 ; ==================================
 (defn config
   []
-  (let [mapping {:domains {:passes->color #js [(- 50) 100]
+  (let [mapping {:domains {:passes->color #js [(- 70) 160]
                            :passes->edge-width #js [0 100]}
-                 :codomains {:passes<-edge-width #js [2 11]}}
+                 :codomains {:passes<-edge-width #js [2 21]}}
         font {:weight "700"
               :size "22px"
               :type "sans-serif"
@@ -20,12 +20,12 @@
         node-radius 35]
 
     {:arrows {:recoil 22
-              :expansion 1.5
-              :width 70}
+              :expansion 0.9
+              :width 75}
      :canvas (-> js/document (.getElementById "canvas"))
      :ctx (-> js/document (.getElementById "canvas") (.getContext "2d"))
      :edges {:padding 10
-             :distance-between (/ node-radius 3)}
+             :distance-between (/ node-radius 2.2)}
      :nodes {:radius node-radius
              :fill {:color "black"}
              :outline {:color "white"
