@@ -15,17 +15,41 @@
           :secondary "white"
           :edges (-> d3 (.-interpolateBlues))}
    :green {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolateGreens))}
+           :secondary "white"
+           :edges (-> d3 (.-interpolateGreens))}
    :orange {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolateOranges))}
+            :secondary "white"
+            :edges (-> d3 (.-interpolateOranges))}
    :purple {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolatePurples))}
+            :secondary "white"
+            :edges (-> d3 (.-interpolatePurples))}
    :red {:primary "black"
+         :secondary "white"
+         :edges (-> d3 (.-interpolateReds))}
+   :viridis {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateViridis))}
+   :inferno {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateInferno))}
+   :magma {:primary "black"
+           :secondary "white"
+           :edges (-> d3 (.-interpolateMagma))}
+   :plasma {:primary "black"
+            :secondary "white"
+            :edges (-> d3 (.-interpolatePlasma))}
+   :cividis {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateCividis))}
+   :warm {:primary "black"
           :secondary "white"
-          :edges (-> d3 (.-interpolateReds))}
+          :edges (-> d3 (.-interpolateWarm))}
+   :cool {:primary "black"
+          :secondary "white"
+          :edges (-> d3 (.-interpolateCool))}
+   :turbo {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateTurbo))}
    })
 
 ; ==================================
