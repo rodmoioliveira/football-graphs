@@ -7,14 +7,12 @@
     ["d3" :as d3]))
 
 (def canvas (-> js/document (.getElementById "canvas")))
-(def ctx (-> canvas (.getContext "2d")))
 
 ; ==================================
 ; Domains and codomains
 ; ==================================
 (def domains {:passes->color #js [(- 50) 100]
               :passes->edge-width #js [0 100]})
-
 (def codomains {:passes<-edge-width #js [2 8]})
 
 ; ==================================
@@ -67,20 +65,18 @@
 ; Simulation
 ; ==================================
 (defn force-simulation
-  [width height]
+  []
   (-> d3
       (.forceSimulation)
-      (.force "center" (-> d3 (.forceCenter (/ width 2) (/ height 2))))
-      (.force "link" (-> d3 (.forceLink) (.id (fn [d] (-> d .-id)))))
-      (.force "change" (-> d3 (.forceManyBody)))))
+      (.force "link" (-> d3 (.forceLink) (.id (fn [d] (-> d .-id)))))))
 
-(def simulation (force-simulation (.-width canvas) (.-height canvas)))
+(def simulation (force-simulation))
 
 ; ==================================
 ; Draw fns
 ; ==================================
 (defn draw-edges
-  [edge]
+  [{:keys [edge ctx]}]
   (let [source-x (-> edge .-source .-initial_pos .-x)
         source-y (-> edge .-source .-initial_pos .-y)
         target-x (-> edge .-target .-initial_pos .-x)
@@ -139,13 +135,13 @@
       (.setTransform))))
 
 (defn draw-passes
-  [edge]
+  [{:keys [edge ctx]}]
   (-> ctx (.save))
-  (draw-edges edge)
+  (draw-edges {:edge edge :ctx ctx})
   (-> ctx (.restore)))
 
 (defn draw-numbers
-  [node]
+  [{:keys [node ctx]}]
   (let [x-initial-pos (-> node .-initial_pos .-x)
         y-initial-pos (-> node .-initial_pos .-y)]
     (doto ctx
@@ -156,7 +152,7 @@
       (.fillText (-> node .-id) x-initial-pos y-initial-pos))))
 
 (defn draw-nodes
-  [node]
+  [{:keys [node ctx]}]
   (let [x-initial-pos (-> node .-initial_pos .-x)
         y-initial-pos (-> node .-initial_pos .-y)]
     (doto ctx
@@ -170,21 +166,22 @@
       (.stroke))))
 
 (defn draw-players
-  [node]
-  (doto node
+  [{:keys [node ctx]}]
+  (doto {:node node :ctx ctx}
     (draw-nodes)
     (draw-numbers)))
 
 (defn draw-graph
-  [edges nodes]
-  (doto ctx
-    (.save)
-    (.clearRect 0 0 (.-width canvas) (.-height canvas))
-    ((fn [v] (set! (.-fillStyle v) "white")))
-    (.fillRect 0 0 (.-width canvas) (.-height canvas)))
-  (doseq [e edges] (draw-passes e))
-  (doseq [n nodes] (draw-players n))
-  (-> ctx (.restore)))
+  [{:keys [edges nodes canvas]}]
+  (let [ctx (-> canvas (.getContext "2d"))]
+    (doto ctx
+      (.save)
+      (.clearRect 0 0 (.-width canvas) (.-height canvas))
+      ((fn [v] (set! (.-fillStyle v) "white")))
+      (.fillRect 0 0 (.-width canvas) (.-height canvas)))
+    (doseq [e edges] (draw-passes {:edge e :ctx ctx}))
+    (doseq [n nodes] (draw-players {:node n :ctx ctx}))
+    (-> ctx (.restore))))
 
 ; ==================================
 ; Force graph
@@ -195,7 +192,9 @@
         edges (-> data .-links)]
     (-> simulation
         (.nodes nodes)
-        (.on "tick" (fn [] (draw-graph edges nodes))))
+        (.on "tick" (fn [] (draw-graph {:canvas canvas
+                                        :edges edges
+                                        :nodes nodes}))))
     (-> simulation
         (.force "link")
         (.links edges))))
