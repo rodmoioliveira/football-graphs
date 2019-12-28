@@ -2,7 +2,6 @@
 ; https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 (ns reactive.graph
   (:require
-    [clojure.string :as str]
     [reactive.utils :refer [get-distance find-point radians-between]]
     [reactive.config :refer [config mock-data]]
     ["d3" :as d3]))
