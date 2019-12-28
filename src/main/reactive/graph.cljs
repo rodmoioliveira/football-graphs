@@ -10,12 +10,29 @@
 (def ctx (-> canvas (.getContext "2d")))
 
 ; ==================================
-; DOMAINS AND CODOMAINS
+; Domains and codomains
 ; ==================================
-(def domains {:passes #js [(- 50) 100]})
+(def domains {:passes->color #js [(- 50) 100]
+              :passes->edge-width #js [0 100]})
+
+(def codomains {:passes<-edge-width #js [2 8]})
 
 ; ==================================
-; NODES
+; Scales
+; ==================================
+(def edges-width
+  (-> d3
+      (.scaleLinear)
+      (.domain (domains :passes->edge-width))
+      (.range (codomains :passes<-edge-width))))
+
+(def edges-colors
+  (-> d3
+      (.scaleSequential (-> d3 (.-interpolateGreys)))
+      (.domain (domains :passes->color))))
+
+; ==================================
+; Nodes
 ; ==================================
 (def node-radius 35)
 (def nodes-color "black")
@@ -26,36 +43,28 @@
                 :type "sans-serif"
                 :color "white"
                 :text-align "center"
-                :base-line "middle"
-                })
+                :base-line "middle"})
 (def node-font-config
-  (str/join " "
-            [(node-font :weight)
-             (node-font :size)
-             (node-font :type)]))
+  (str/join " " [(node-font :weight)
+                 (node-font :size)
+                 (node-font :type)]))
 
 ; ==================================
-; EDGES
+; Edges
 ; ==================================
-; (def edges-alpha 0.5)
 (def edges-padding 10)
 (def dis-betw-edges (/ node-radius 3))
 (def edges-color "grey")
-(defn edge-width [value] (js/Math.sqrt value))
+
+; ==================================
+; Arrows
+; ==================================
 (def arrows {:edge-recoil 22
              :base-expansion 1.5
              :width 70})
 
 ; ==================================
-; COLOR SCALE
-; ==================================
-(def edges-scale
-  (-> d3
-      (.scaleSequential (-> d3 (.-interpolateGreys)))
-      (.domain (domains :passes))))
-
-; ==================================
-; SIMULATIONS
+; Simulation
 ; ==================================
 (defn force-simulation
   [width height]
@@ -68,7 +77,7 @@
 (def simulation (force-simulation (.-width canvas) (.-height canvas)))
 
 ; ==================================
-; DRAW FNS
+; Draw fns
 ; ==================================
 (defn draw-edges
   [edge]
@@ -104,17 +113,27 @@
       ; draw edges
       (.beginPath)
       (.moveTo (-> node-radius (+ edges-padding)) 0)
-      (.lineTo (-> base-vector first (- node-radius edges-padding (arrows :edge-recoil))) (second base-vector))
-      ((fn [v] (set! (.-lineWidth v) (edge-width value))))
-      ((fn [v] (set! (.-strokeStyle v) (edges-scale value))))
+      (.lineTo
+        (-> base-vector
+            first
+            (- node-radius edges-padding (arrows :edge-recoil)))
+        (second base-vector))
+      ((fn [v] (set! (.-lineWidth v) (edges-width value))))
+      ((fn [v] (set! (.-strokeStyle v) (edges-colors value))))
       (.stroke)
 
       ; draw arrows
       (.beginPath)
-      ((fn [v] (set! (.-fillStyle v) (edges-scale value))))
-      (.moveTo (-> base-vector first (- node-radius edges-padding)) (-> base-vector second))
-      (.lineTo (-> base-vector first (- (arrows :width))) (* (edge-width value) (arrows :base-expansion)))
-      (.lineTo (-> base-vector first (- (arrows :width))) (- (* (edge-width value) (arrows :base-expansion))))
+      ((fn [v] (set! (.-fillStyle v) (edges-colors value))))
+      (.moveTo
+        (-> base-vector first (- node-radius edges-padding))
+        (-> base-vector second))
+      (.lineTo
+        (-> base-vector first (- (arrows :width)))
+        (* (edges-width value) (arrows :base-expansion)))
+      (.lineTo
+        (-> base-vector first (- (arrows :width)))
+        (- (* (edges-width value) (arrows :base-expansion))))
       (.fill)
       ; ; restore canvas
       (.setTransform))))
@@ -168,7 +187,7 @@
   (-> ctx (.restore)))
 
 ; ==================================
-; FORCE GRAPF
+; Force graph
 ; ==================================
 (defn force-graph
   [data]
@@ -182,7 +201,7 @@
         (.links edges))))
 
 ; ==================================
-; MOCK DATA
+; Mock data
 ; ==================================
 (defn place-node
   [x-% y-%]
@@ -262,6 +281,6 @@
    })
 
 ; ==================================
-; INIT FORCE GRAPF
+; Init force graph
 ; ==================================
 (defn init-graph [] (-> mock-data clj->js force-graph))
