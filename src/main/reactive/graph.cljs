@@ -187,7 +187,7 @@
 ; Force graph
 ; ==================================
 (defn force-graph
-  [data]
+  [{:keys [data canvas]}]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)]
     (-> simulation
@@ -282,4 +282,7 @@
 ; ==================================
 ; Init force graph
 ; ==================================
-(defn init-graph [] (-> mock-data clj->js force-graph))
+(defn init-graph
+  []
+  (-> {:data (clj->js mock-data) :canvas canvas}
+      force-graph))
