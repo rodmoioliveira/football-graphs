@@ -98,14 +98,6 @@
   #js {:x (* (-> (config {:id "canvas0" :theme (-> themes :grey)}) :canvas .-width) (/ x-% 100))
        :y (* (-> (config {:id "canvas0" :theme (-> themes :grey)}) :canvas .-height) (/ y-% 100))})
 
-(def mock-edges (for [source ["1" "5" "3" "11" "15" "16" "6" "8" "14" "6" "9" "7"]
-                      target ["1" "5" "3" "11" "15" "16" "6" "8" "14" "6" "9" "7"]
-                      :let [edge {:source source
-                                  :target target
-                                  :value (if (zero? (rand-int 2)) 1 20)}]
-                      :when (not= source target)]
-                  edge))
-
 (def mock-data
   {
    :nodes [
@@ -122,7 +114,6 @@
            {:id "5" :initial_pos (place-node 28 77)}
            {:id "1" :initial_pos (place-node 50 95)}
            ]
-   ; :links (-> mock-edges (#(sort-by :value %)) vec)
    :links (->
             [
              {:source "7" :target "14" :value 32}
