@@ -23,4 +23,3 @@
     (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
     js/Math.acos))
 
-
