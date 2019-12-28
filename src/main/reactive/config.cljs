@@ -57,7 +57,7 @@
 ; ==================================
 (defn config
   [{:keys [id theme]}]
-  (let [mapping {:domains {:passes->color #js [(- 70) 160]
+  (let [mapping {:domains {:passes->color #js [(- 5) 130]
                            :passes->edge-width #js [0 100]}
                  :codomains {:passes<-edge-width #js [2 21]}}
         font {:weight "700"
@@ -125,48 +125,48 @@
    ; :links (-> mock-edges (#(sort-by :value %)) vec)
    :links (->
             [
-             {:source "6" :target "14" :value 1}
+             {:source "7" :target "14" :value 32}
              {:source "14" :target "6" :value 100}
-             {:source "8" :target "14" :value 1}
-             {:source "14" :target "8" :value 100}
-             {:source "6" :target "1" :value 1}
-             {:source "1" :target "6" :value 100}
-             {:source "3" :target "1" :value 1}
+             {:source "8" :target "14" :value 17}
+             {:source "14" :target "8" :value 89}
+             {:source "6" :target "1" :value 63}
+             {:source "1" :target "6" :value 98}
+             {:source "3" :target "1" :value 41}
              {:source "1" :target "3" :value 100}
              {:source "5" :target "1" :value 23}
-             {:source "1" :target "5" :value 2}
-             {:source "1" :target "7" :value 2}
-             {:source "7" :target "1" :value 2}
-             {:source "1" :target "16" :value 2}
-             {:source "16" :target "1" :value 2}
-             {:source "5" :target "11" :value 2}
-             {:source "11" :target "5" :value 48}
-             {:source "9" :target "11" :value 48}
-             {:source "11" :target "9" :value 48}
-             {:source "6" :target "11" :value 15}
+             {:source "1" :target "5" :value 23}
+             {:source "1" :target "7" :value 29}
+             {:source "7" :target "1" :value 19}
+             {:source "1" :target "16" :value 5}
+             {:source "16" :target "1" :value 90}
+             {:source "5" :target "11" :value 54}
+             {:source "11" :target "5" :value 23}
+             {:source "9" :target "11" :value 70}
+             {:source "11" :target "9" :value 69}
+             {:source "6" :target "11" :value 21}
              {:source "11" :target "6" :value 15}
-             {:source "8" :target "11" :value 48}
-             {:source "11" :target "8" :value 48}
-             {:source "3" :target "11" :value 48}
-             {:source "11" :target "3" :value 48}
-             {:source "7" :target "11" :value 48}
-             {:source "11" :target "7" :value 2}
-             {:source "15" :target "11" :value 2}
-             {:source "11" :target "15" :value 2}
-             {:source "15" :target "8" :value 67}
+             {:source "8" :target "11" :value 9}
+             {:source "11" :target "8" :value 29}
+             {:source "3" :target "11" :value 63}
+             {:source "11" :target "3" :value 17}
+             {:source "7" :target "11" :value 74}
+             {:source "11" :target "7" :value 44}
+             {:source "15" :target "11" :value 19}
+             {:source "11" :target "15" :value 15}
+             {:source "15" :target "8" :value 53}
              {:source "8" :target "15" :value 17}
-             {:source "15" :target "5" :value 67}
-             {:source "5" :target "15" :value 67}
-             {:source "1" :target "9" :value 2}
-             {:source "9" :target "1" :value 2}
-             {:source "14" :target "9" :value 2}
-             {:source "9" :target "14" :value 2}
-             {:source "15" :target "3" :value 2}
-             {:source "3" :target "15" :value 2}
-             {:source "15" :target "14" :value 2}
-             {:source "14" :target "15" :value 2}
-             {:source "16" :target "6" :value 2}
-             {:source "6" :target "16" :value 2}
+             {:source "15" :target "5" :value 87}
+             {:source "5" :target "15" :value 6}
+             {:source "1" :target "9" :value 29}
+             {:source "9" :target "1" :value 49}
+             {:source "14" :target "9" :value 59}
+             {:source "9" :target "14" :value 13}
+             {:source "15" :target "3" :value 11}
+             {:source "3" :target "15" :value 27}
+             {:source "15" :target "14" :value 61}
+             {:source "14" :target "15" :value 37}
+             {:source "16" :target "6" :value 27}
+             {:source "6" :target "16" :value 34}
              ]
             (#(sort-by :value %)))
    })
