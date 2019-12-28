@@ -4,17 +4,66 @@
     ["d3" :as d3]))
 
 ; ==================================
+; Themes
+; ==================================
+(def themes
+  {
+   :grey {:primary "black"
+          :secondary "white"
+          :edges (-> d3 (.-interpolateGreys))}
+   :blue {:primary "black"
+          :secondary "white"
+          :edges (-> d3 (.-interpolateBlues))}
+   :green {:primary "black"
+           :secondary "white"
+           :edges (-> d3 (.-interpolateGreens))}
+   :orange {:primary "black"
+            :secondary "white"
+            :edges (-> d3 (.-interpolateOranges))}
+   :purple {:primary "black"
+            :secondary "white"
+            :edges (-> d3 (.-interpolatePurples))}
+   :red {:primary "black"
+         :secondary "white"
+         :edges (-> d3 (.-interpolateReds))}
+   :viridis {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateViridis))}
+   :inferno {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateInferno))}
+   :magma {:primary "black"
+           :secondary "white"
+           :edges (-> d3 (.-interpolateMagma))}
+   :plasma {:primary "black"
+            :secondary "white"
+            :edges (-> d3 (.-interpolatePlasma))}
+   :cividis {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateCividis))}
+   :warm {:primary "black"
+          :secondary "white"
+          :edges (-> d3 (.-interpolateWarm))}
+   :cool {:primary "black"
+          :secondary "white"
+          :edges (-> d3 (.-interpolateCool))}
+   :turbo {:primary "black"
+             :secondary "white"
+             :edges (-> d3 (.-interpolateTurbo))}
+   })
+
+; ==================================
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id]}]
+  [{:keys [id theme]}]
   (let [mapping {:domains {:passes->color #js [(- 70) 160]
                            :passes->edge-width #js [0 100]}
                  :codomains {:passes<-edge-width #js [2 21]}}
         font {:weight "700"
               :size "22px"
               :type "sans-serif"
-              :color "white"
+              :color (theme :secondary)
               :text-align "center"
               :base-line "middle"}
         node-radius 35]
@@ -27,14 +76,14 @@
      :edges {:padding 10
              :distance-between (/ node-radius 2.2)}
      :nodes {:radius node-radius
-             :fill {:color "black"}
-             :outline {:color "white"
+             :fill {:color (theme :primary)}
+             :outline {:color (theme :secondary)
                        :width "1.5"}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
                                                     (font :type)]))}
      :scales {:edges->colors (-> d3
-                                 (.scaleSequential (-> d3 (.-interpolateGreys)))
+                                 (.scaleSequential (theme :edges))
                                  (.domain (-> mapping :domains :passes->color)))
               :edges->width (-> d3
                                 (.scaleLinear)
@@ -46,8 +95,8 @@
 ; ==================================
 (defn place-node
   [x-% y-%]
-  #js {:x (* (-> (config {:id "canvas0"}) :canvas .-width) (/ x-% 100))
-       :y (* (-> (config {:id "canvas0"}) :canvas .-height) (/ y-% 100))})
+  #js {:x (* (-> (config {:id "canvas0" :theme (-> themes :grey)}) :canvas .-width) (/ x-% 100))
+       :y (* (-> (config {:id "canvas0" :theme (-> themes :grey)}) :canvas .-height) (/ y-% 100))})
 
 (def mock-edges (for [source ["1" "5" "3" "11" "15" "16" "6" "8" "14" "6" "9" "7"]
                       target ["1" "5" "3" "11" "15" "16" "6" "8" "14" "6" "9" "7"]
