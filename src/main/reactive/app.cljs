@@ -9,6 +9,5 @@
 	; (move-mouse$)
 	)
 
-; TODO: https://code.thheller.com/blog/shadow-cljs/2019/08/25/hot-reload-in-clojurescript.html
 (defn ^:dev/after-load start []
 	(init))
