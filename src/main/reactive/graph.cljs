@@ -28,11 +28,7 @@
 
         ; calculate angle of target projetion align with source along the x-axis
         radians (radians-between base-vector target-vector)
-        orientation (cond
-                      (and (< source-x target-x) (< source-y target-y)) radians
-                      (and (> source-x target-x) (< source-y target-y)) radians
-                      (and (= source-x target-x) (< source-y target-y)) radians
-                      :else (- radians))]
+        orientation (cond (> source-y target-y) (- radians) :else radians)]
 
     (doto (-> config :ctx)
       ; translate to source node center point
