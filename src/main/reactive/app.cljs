@@ -12,7 +12,8 @@
 (defn init []
   (doseq [canvas all-canvas]
     (force-graph {:data (clj->js mock-data)
-                  :config (config {:id (canvas :id) :theme (-> canvas :theme themes)})})))
+                  :config (config {:id (canvas :id)
+                                   :theme (-> canvas :theme themes)})})))
 
 (defn ^:dev/after-load start []
   (init))

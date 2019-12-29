@@ -23,3 +23,17 @@
     (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
     js/Math.acos))
 
+(defn find-node
+  [nodes x y radius]
+  (let [rsq (* radius radius)
+        nodes-length (-> nodes count dec)]
+    (loop [i 0]
+      (let [interate? (< i nodes-length)
+            node (get nodes i)
+            dx (- x (-> node .-initial_pos .-x))
+            dy (- y (-> node .-initial_pos .-y))
+            dist-sq (+ (* dx dx) (* dy dy))
+            node-found? (< dist-sq rsq)]
+        (if node-found?
+          node
+          (if interate? (-> i inc recur)))))))

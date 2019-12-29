@@ -4,7 +4,7 @@
     :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"}
   reactive.graph
   (:require
-    [reactive.utils :refer [get-distance find-point radians-between]]
+    [reactive.utils :refer [get-distance find-point radians-between find-node]]
     ["d3" :as d3]))
 
 ; ==================================
@@ -69,7 +69,8 @@
         (-> base-vector first (- (-> config :arrows :width)))
         (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
       (.fill)
-      ; ; restore canvas
+
+      ; restore canvas
       (.setTransform))))
 
 (defn draw-passes
@@ -129,21 +130,6 @@
 ; ==================================
 ; Events
 ; ==================================
-(defn find-node
-  [nodes x y radius]
-  (let [rsq (* radius radius)
-        nodes-length (-> nodes count dec)]
-    (loop [i 0]
-      (let [interate? (< i nodes-length)
-            node (get nodes i)
-            dx (- x (-> node .-initial_pos .-x))
-            dy (- y (-> node .-initial_pos .-y))
-            dist-sq (+ (* dx dx) (* dy dy))
-            node-found? (< dist-sq rsq)]
-        (if node-found?
-          node
-          (if interate? (-> i inc recur)))))))
-
 (defn clicked
   [{:keys [edges nodes config]}]
   (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
