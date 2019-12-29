@@ -145,8 +145,8 @@
   (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
         node (find-node nodes x y (-> config :nodes :radius))]
-    (doseq [n nodes] (set! (.-active n) false))
-    (if node (set! (.-active node) true))
+    (doseq [n nodes] (if (not= n node) (set! (.-active n) false)))
+    (if node (set! (.-active node) (not (-> node .-active))))
     (draw-graph {:edges edges
                  :config config
                  :nodes nodes})))
