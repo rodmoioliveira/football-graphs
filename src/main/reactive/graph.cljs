@@ -11,7 +11,7 @@
 ; Draw fns
 ; ==================================
 (defn draw-edges
-  [{:keys [edge config]}]
+  [{:keys [edge config active-node]}]
   (let [source-x (-> edge .-source .-initial_pos .-x)
         source-y (-> edge .-source .-initial_pos .-y)
         target-x (-> edge .-target .-initial_pos .-x)
@@ -28,7 +28,11 @@
 
         ; calculate angle of target projetion align with source along the x-axis
         radians (radians-between base-vector target-vector)
-        orientation (cond (> source-y target-y) (- radians) :else radians)]
+        orientation (cond (> source-y target-y) (- radians) :else radians)
+
+        ; set alpha value for active edges
+        active-edges (= (-> edge .-source .-id) (-> (or active-node #js {:id nil}) .-id))
+        alpha-value (if active-node (if active-edges 1 0.05) 1)]
 
     (doto (-> config :ctx)
       ; translate to source node center point
@@ -48,6 +52,7 @@
                (-> config :arrows :recoil)))
         (second base-vector))
       ((fn [v] (set! (.-lineWidth v) ((-> config :scales :edges->width) value))))
+      ((fn [v] (set! (.-globalAlpha v) alpha-value)))
       ((fn [v] (set! (.-strokeStyle v) ((-> config :scales :edges->colors) value))))
       (.stroke)
 
@@ -68,10 +73,10 @@
       (.setTransform))))
 
 (defn draw-passes
-  [{:keys [edge config]}]
-  (-> config :ctx (.save))
-  (draw-edges {:edge edge :config config})
-  (-> config :ctx (.restore)))
+  [obj]
+  (-> obj :config :ctx (.save))
+  (draw-edges obj)
+  (-> obj :config :ctx (.restore)))
 
 (defn draw-numbers
   [{:keys [node config]}]
@@ -101,21 +106,24 @@
       (.stroke))))
 
 (defn draw-players
-  [{:keys [node config]}]
-  (doto {:node node :config config}
+  [obj]
+  (doto obj
     (draw-nodes)
     (draw-numbers)))
 
 (defn draw-graph
-  [{:keys [edges nodes config]}]
+  [{:keys [edges nodes config active-node]}]
   (let [ctx (-> config :ctx)]
     (doto ctx
       (.save)
       (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
       ((fn [v] (set! (.-fillStyle v) "white")))
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))
-    (doseq [e edges] (draw-passes {:edge e :config config}))
-    (doseq [n nodes] (draw-players {:node n :config config}))
+    (doseq [e edges] (draw-passes {:edge e
+                                   :config config
+                                   :active-node active-node}))
+    (doseq [n nodes] (draw-players {:node n
+                                    :config config}))
     (-> ctx (.restore))))
 
 ; ==================================
@@ -141,11 +149,15 @@
   (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
         node (find-node nodes x y (-> config :nodes :radius))]
-    (doseq [n nodes] (if (not= n node) (set! (.-active n) false)))
+
+    ; TODO: implement toogle feature
+    (doseq [n nodes] (set! (.-active n) false))
     (if node (set! (.-active node) (not (-> node .-active))))
+
     (draw-graph {:edges edges
                  :config config
-                 :nodes nodes})))
+                 :nodes nodes
+                 :active-node node})))
 
 ; ==================================
 ; Force graph
@@ -167,6 +179,7 @@
 
     (-> simulation
         (.nodes nodes)
+        ; TODO: remove tick interations
         (.on "tick" (fn [] (draw-graph {:edges edges
                                         :config config
                                         :nodes nodes}))))
