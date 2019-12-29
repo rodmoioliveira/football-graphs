@@ -69,7 +69,8 @@
         (-> base-vector first (- (-> config :arrows :width)))
         (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
       (.fill)
-      ; ; restore canvas
+
+      ; restore canvas
       (.setTransform))))
 
 (defn draw-passes
