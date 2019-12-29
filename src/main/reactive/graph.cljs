@@ -8,6 +8,33 @@
     ["d3" :as d3]))
 
 ; ==================================
+; Events
+; ==================================
+(defn find-node
+  [nodes x y radius]
+  (let [rsq (* radius radius)
+        nodes-length (-> nodes count dec)]
+    (loop [i 0]
+      (let [interate? (< i nodes-length)
+            node (get nodes i)
+            dx (- x (-> node .-initial_pos .-x))
+            dy (- y (-> node .-initial_pos .-y))
+            dist-sq (+ (* dx dx) (* dy dy))
+            node-found? (< dist-sq rsq)]
+        (if node-found?
+          node
+          (if interate? (-> i inc recur)))))))
+
+(defn clicked
+  [nodes config]
+  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
+        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
+        node (find-node nodes x y (-> config :nodes :radius))]
+    (if node
+      ; TODO: ???
+      (js/console.log node))))
+
+; ==================================
 ; Draw fns
 ; ==================================
 (defn draw-edges
@@ -127,6 +154,9 @@
   [{:keys [data config]}]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)
+        click-event (-> d3
+                        (.select (-> config :canvas))
+                        (.on "click" (fn [] (clicked nodes config))))
         simulation (-> d3
                        (.forceSimulation)
                        (.force "link" (-> d3
