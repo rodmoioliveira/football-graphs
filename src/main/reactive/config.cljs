@@ -68,7 +68,7 @@
               :base-line "middle"}
         node-radius 35]
 
-    {:arrows {:recoil 22
+    {:arrows {:recoil 29.5
               :expansion 0.9
               :width 75}
      :canvas (-> js/document (.getElementById id))
@@ -103,7 +103,6 @@
    :nodes [
            {:id "7" :initial_pos (place-node 30 6)}
            {:id "9" :initial_pos (place-node 70 6)}
-           {:id "6" :initial_pos (place-node 9 28)}
            {:id "14" :initial_pos (place-node 50 28)}
            {:id "8" :initial_pos (place-node 91 28)}
            {:id "6" :initial_pos (place-node 9 28)}
