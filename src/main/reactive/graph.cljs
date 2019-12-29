@@ -8,33 +8,6 @@
     ["d3" :as d3]))
 
 ; ==================================
-; Events
-; ==================================
-(defn find-node
-  [nodes x y radius]
-  (let [rsq (* radius radius)
-        nodes-length (-> nodes count dec)]
-    (loop [i 0]
-      (let [interate? (< i nodes-length)
-            node (get nodes i)
-            dx (- x (-> node .-initial_pos .-x))
-            dy (- y (-> node .-initial_pos .-y))
-            dist-sq (+ (* dx dx) (* dy dy))
-            node-found? (< dist-sq rsq)]
-        (if node-found?
-          node
-          (if interate? (-> i inc recur)))))))
-
-(defn clicked
-  [nodes config]
-  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
-        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
-        node (find-node nodes x y (-> config :nodes :radius))]
-    (if node
-      ; TODO: ???
-      (js/console.log node))))
-
-; ==================================
 ; Draw fns
 ; ==================================
 (defn draw-edges
@@ -118,12 +91,15 @@
 (defn draw-nodes
   [{:keys [node config]}]
   (let [x-initial-pos (-> node .-initial_pos .-x)
-        y-initial-pos (-> node .-initial_pos .-y)]
+        y-initial-pos (-> node .-initial_pos .-y)
+        is-active? (-> node .-active)
+        active-radius #(if is-active? (* % 1.5) %)
+        active-color #(if is-active? "red" %)]
     (doto (-> config :ctx)
       (.beginPath)
-      (.moveTo (+ x-initial-pos (-> config :nodes :radius)) y-initial-pos)
-      (.arc x-initial-pos y-initial-pos (-> config :nodes :radius) 0 (* 2 js/Math.PI))
-      ((fn [v] (set! (.-fillStyle v) (-> config :nodes :fill :color))))
+      (.moveTo (+ x-initial-pos (-> config :nodes :radius active-radius)) y-initial-pos)
+      (.arc x-initial-pos y-initial-pos (-> config :nodes :radius active-radius) 0 (* 2 js/Math.PI))
+      ((fn [v] (set! (.-fillStyle v) (-> config :nodes :fill :color active-color))))
       (.fill)
       ((fn [v] (set! (.-strokeStyle v) (-> config :nodes :outline :color))))
       ((fn [v] (set! (.-lineWidth v) (-> config :nodes :outline :width))))
@@ -148,6 +124,35 @@
     (-> ctx (.restore))))
 
 ; ==================================
+; Events
+; ==================================
+(defn find-node
+  [nodes x y radius]
+  (let [rsq (* radius radius)
+        nodes-length (-> nodes count dec)]
+    (loop [i 0]
+      (let [interate? (< i nodes-length)
+            node (get nodes i)
+            dx (- x (-> node .-initial_pos .-x))
+            dy (- y (-> node .-initial_pos .-y))
+            dist-sq (+ (* dx dx) (* dy dy))
+            node-found? (< dist-sq rsq)]
+        (if node-found?
+          node
+          (if interate? (-> i inc recur)))))))
+
+(defn clicked
+  [{:keys [edges nodes config]}]
+  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
+        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
+        node (find-node nodes x y (-> config :nodes :radius))]
+    (doseq [n nodes] (set! (.-active n) false))
+    (if node (set! (.-active node) true))
+    (draw-graph {:edges edges
+                 :config config
+                 :nodes nodes})))
+
+; ==================================
 ; Force graph
 ; ==================================
 (defn force-graph
@@ -156,7 +161,9 @@
         edges (-> data .-links)
         click-event (-> d3
                         (.select (-> config :canvas))
-                        (.on "click" (fn [] (clicked nodes config))))
+                        (.on "click" (fn [] (clicked {:edges edges
+                                                      :config config
+                                                      :nodes nodes}))))
         simulation (-> d3
                        (.forceSimulation)
                        (.force "link" (-> d3
