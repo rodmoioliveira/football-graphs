@@ -146,9 +146,22 @@
 
 (defn clicked
   [{:keys [edges nodes config]}]
-  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
+  (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
+        x-domain #js [0 (-> canvas-current-dimensions .-width)]
+        y-domain #js [0 (-> canvas-current-dimensions .-height)]
+        x-codomain #js [0 (-> config :canvas .-width)]
+        y-codomain #js [0 (-> config :canvas .-height)]
+        mapping-x (-> d3
+                      (.scaleLinear)
+                      (.domain x-domain)
+                      (.range x-codomain))
+        mapping-y (-> d3
+                      (.scaleLinear)
+                      (.domain y-domain)
+                      (.range y-codomain))
+        x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
-        node (find-node nodes x y (-> config :nodes :radius))]
+        node (find-node nodes (mapping-x x) (mapping-y y) (-> config :nodes :radius))]
 
     ; TODO: implement toogle feature
     (doseq [n nodes] (set! (.-active n) false))
