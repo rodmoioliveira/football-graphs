@@ -94,7 +94,7 @@
   (let [x-initial-pos (-> node .-initial_pos .-x)
         y-initial-pos (-> node .-initial_pos .-y)
         is-active? (-> node .-active)
-        active-color #(if is-active? "red" %)]
+        active-color #(if is-active? ((-> config :scales :edges->colors) 100) %)]
     (doto (-> config :ctx)
       (.beginPath)
       (.moveTo (+ x-initial-pos (-> config :nodes :radius)) y-initial-pos)
@@ -179,11 +179,16 @@
 
     (-> simulation
         (.nodes nodes)
-        ; TODO: remove tick interations
-        (.on "tick" (fn [] (draw-graph {:edges edges
-                                        :config config
-                                        :nodes nodes}))))
+        ; TODO: maybe u need this for animations later...
+        ; (.on "tick" (fn [] (draw-graph {:edges edges
+        ;                                 :config config
+        ;                                 :nodes nodes})))
+        )
+
     (-> simulation
         (.force "link")
-        (.links edges))))
+        (.links edges))
 
+    (draw-graph {:edges edges
+                 :config config
+                 :nodes nodes})))
