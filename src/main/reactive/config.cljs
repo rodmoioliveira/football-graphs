@@ -66,13 +66,14 @@
               :color (theme :secondary)
               :text-align "center"
               :base-line "middle"}
-        node-radius 35]
+        node-radius 35
+        canvas (-> js/document (.getElementById id))]
 
     {:arrows {:recoil 29.5
               :expansion 0.9
               :width 75}
-     :canvas (-> js/document (.getElementById id))
-     :ctx (-> js/document (.getElementById id) (.getContext "2d"))
+     :canvas canvas
+     :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 10
              :distance-between (/ node-radius 2.2)}
      :nodes {:radius node-radius

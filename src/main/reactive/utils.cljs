@@ -14,7 +14,9 @@
   [[x y]]
   (js/Math.sqrt (+ (js/Math.pow x 2) (js/Math.pow y 2))))
 
-(defn dot-product [[x1 y1] [x2 y2]] (+ (* x1 x2) (* y1 y2)))
+(defn dot-product
+  [[x1 y1] [x2 y2]]
+  (+ (* x1 x2) (* y1 y2)))
 
 (defn radians-between
   "https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors"
