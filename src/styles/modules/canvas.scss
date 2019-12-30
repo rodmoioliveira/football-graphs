@@ -1,4 +1,4 @@
-.inspiration {
+.graphs__inspiration {
   display: block;
   margin: 0 auto;
   width: 80%;
@@ -8,7 +8,7 @@
   }
 }
 
-.wrapper {
+.graphs__wrapper {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -16,13 +16,12 @@
   margin: 0;
 }
 
-.canvas {
-  margin: 5rem 2rem;
-  transition: margin 300ms ease;
-  max-width: 700px;
+.graph__canvas {
+  margin: 2rem;
+  max-width: 630px;
 
   @media (max-width: 800px) {
-    margin: 5rem 0;
+    margin: 2rem 0;
   }
 
   @media (max-width: 710px) {

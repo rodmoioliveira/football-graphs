@@ -4,7 +4,7 @@
     [reactive.graph :refer [force-graph]]))
 
 (def all-canvas (-> js/document
-                    (.querySelectorAll ".canvas")
+                    (.querySelectorAll ".graph__canvas")
                     array-seq
                     (#(map (fn [v] {:id (.getAttribute v "id")
                                     :theme (-> v (.getAttribute "data-theme") keyword)}) %))))
