@@ -61,15 +61,15 @@
                            :passes->edge-width #js [0 100]}
                  :codomains {:passes<-edge-width #js [2 21]}}
         font {:weight "700"
-              :size "22px"
+              :size "32px"
               :type "sans-serif"
               :color (theme :secondary)
               :text-align "center"
               :base-line "middle"}
-        node-radius 35
+        node-radius 45
         canvas (-> js/document (.getElementById id))]
 
-    {:arrows {:recoil 29.5
+    {:arrows {:recoil 19.5
               :expansion 0.9
               :width 75}
      :canvas canvas
@@ -107,12 +107,12 @@
            {:id "14" :initial_pos (place-node 50 28)}
            {:id "8" :initial_pos (place-node 91 28)}
            {:id "6" :initial_pos (place-node 9 28)}
-           {:id "16" :initial_pos (place-node 50 58)}
-           {:id "15" :initial_pos (place-node 91 58)}
-           {:id "11" :initial_pos (place-node 9 58)}
-           {:id "3" :initial_pos (place-node 71 77)}
-           {:id "5" :initial_pos (place-node 29 77)}
-           {:id "1" :initial_pos (place-node 50 95)}
+           {:id "16" :initial_pos (place-node 50 56)}
+           {:id "15" :initial_pos (place-node 91 56)}
+           {:id "11" :initial_pos (place-node 9 56)}
+           {:id "3" :initial_pos (place-node 71 75)}
+           {:id "5" :initial_pos (place-node 29 75)}
+           {:id "1" :initial_pos (place-node 50 94)}
            ]
    :links (->
             [
