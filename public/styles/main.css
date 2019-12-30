@@ -2,25 +2,16 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-}
+  justify-content: space-evenly; }
 
 .canvas {
   margin: 5rem 2rem;
-  transition: margin 300ms ease;
-}
-
-@media (max-width: 800px) {
-  .canvas {
-    margin: 5rem 0;
-  }
-}
-
-@media (max-width: 600px) {
-  .canvas {
-    width: 100%;
-    max-width: 100rem;
-    margin: 1rem 0;
-  }
-}
-
+  transition: margin 300ms ease; }
+  @media (max-width: 800px) {
+    .canvas {
+      margin: 5rem 0; } }
+  @media (max-width: 600px) {
+    .canvas {
+      width: 100%;
+      max-width: 100rem;
+      margin: 1rem 0; } }
