@@ -176,13 +176,7 @@
                                           (.forceLink)
                                           (.id (fn [d] (-> d .-id))))))]
 
-    (-> simulation
-        (.nodes nodes)
-        ; TODO: maybe u need this for animations later...
-        ; (.on "tick" (fn [] (draw-graph {:edges edges
-        ;                                 :config config
-        ;                                 :nodes nodes})))
-        )
+    (-> simulation (.nodes nodes))
 
     (-> simulation
         (.force "link")
