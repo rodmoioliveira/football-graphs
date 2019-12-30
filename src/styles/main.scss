@@ -1,27 +1,11 @@
-@import '../../node_modules/normalize-scss/sass/normalize';
+@import '../../node_modules/normalize-scss/sass/normalize',
+  './modules/canvas.scss';
 
 body {
-  margin: 0;
-}
-
-#root {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin: 0;
 }
 
-.canvas {
-  margin: 5rem 2rem;
-  transition: margin 300ms ease;
-
-  @media (max-width: 800px) {
-    margin: 5rem 0;
-  }
-
-  @media (max-width: 600px) {
-    width: 100%;
-    max-width: 100rem;
-    margin: 1rem 0;
-  }
-}
