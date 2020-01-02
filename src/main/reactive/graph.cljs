@@ -1,7 +1,8 @@
 (ns
   ^{:doc "Graphs for football matches"
     :author "Rodolfo Mói"
-    :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"}
+    :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"
+    :more-examples ["https://www.optasports.com/news/opta-legends-series-andrea-pirlo/"]}
   reactive.graph
   (:require
     [reactive.utils :refer [get-distance radians-between find-node]]
