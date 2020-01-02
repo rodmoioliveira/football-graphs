@@ -9,3 +9,6 @@
 - https://karun.in/blog/interactive-passing-networks.html#all-together-now
 - https://www.frontiersin.org/articles/10.3389/fpsyg.2019.01738/full
 - https://www.researchgate.net/publication/313141210_Exploring_Team_Passing_Networks_and_Player_Movement_Dynamics_in_Youth_Association_Football
+- https://phys.org/news/2010-06-science-true-soccer-stars.html
+- https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png
+
