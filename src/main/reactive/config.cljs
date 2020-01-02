@@ -6,60 +6,28 @@
 ; ==================================
 ; Themes
 ; ==================================
-(def themes
-  {
-   :grey {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolateGreys))}
-   :blue {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolateBlues))}
-   :green {:primary "black"
-           :secondary "white"
-           :edges (-> d3 (.-interpolateGreens))}
-   :orange {:primary "black"
-            :secondary "white"
-            :edges (-> d3 (.-interpolateOranges))}
-   :purple {:primary "black"
-            :secondary "white"
-            :edges (-> d3 (.-interpolatePurples))}
-   :red {:primary "black"
-         :secondary "white"
-         :edges (-> d3 (.-interpolateReds))}
-   :viridis {:primary "black"
-             :secondary "white"
-             :edges (-> d3 (.-interpolateViridis))}
-   :inferno {:primary "black"
-             :secondary "white"
-             :edges (-> d3 (.-interpolateInferno))}
-   :magma {:primary "black"
-           :secondary "white"
-           :edges (-> d3 (.-interpolateMagma))}
-   :plasma {:primary "black"
-            :secondary "white"
-            :edges (-> d3 (.-interpolatePlasma))}
-   :cividis {:primary "black"
-             :secondary "white"
-             :edges (-> d3 (.-interpolateCividis))}
-   :warm {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolateWarm))}
-   :cool {:primary "black"
-          :secondary "white"
-          :edges (-> d3 (.-interpolateCool))}
-   :turbo {:primary "black"
-             :secondary "white"
-             :edges (-> d3 (.-interpolateTurbo))}
-   })
+(def themes {
+             :grey {:primary "grey"
+                    :secondary "white"}
+             :blue {:primary "blue"
+                    :secondary "white"}
+             :green {:primary "green"
+                     :secondary "white"}
+             :orange {:primary "orange"
+                      :secondary "white"}
+             :purple {:primary "purple"
+                      :secondary "white"}
+             :red {:primary "red"
+                   :secondary "white"}
+             })
 
 ; ==================================
 ; Configuration hashmap
 ; ==================================
 (defn config
   [{:keys [id theme]}]
-  (let [mapping {:domains {:passes->color #js [(- 5) 130]
-                           :passes->edge-width #js [0 100]}
-                 :codomains {:passes<-edge-width #js [2 21]}}
+  (let [mapping {:domains {:passes #js [0 100]}
+                 :codomains {:edges-width #js [1 20]}}
         font {:weight "700"
               :size "32px"
               :type "sans-serif"
@@ -77,19 +45,23 @@
      :edges {:padding 10
              :distance-between (/ node-radius 2.2)}
      :nodes {:radius node-radius
-             :fill {:color (theme :primary)}
+             :fill {:color "black"}
+             :active {:color (theme :primary)}
              :outline {:color (theme :secondary)
                        :width "1.5"}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
                                                     (font :type)]))}
      :scales {:edges->colors (-> d3
-                                 (.scaleSequential (theme :edges))
-                                 (.domain (-> mapping :domains :passes->color)))
+                                 (.scaleLinear)
+                                 (.domain (-> mapping :domains :passes))
+                                 (.range #js [(-> theme :primary ), "black"])
+                                 (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
               :edges->width (-> d3
-                                (.scaleLinear)
-                                (.domain (-> mapping :domains :passes->edge-width))
-                                (.range (-> mapping :codomains :passes<-edge-width)))}}))
+                                (.scalePow)
+                                (.exponent 2)
+                                (.domain (-> mapping :domains :passes))
+                                (.range (-> mapping :codomains :edges-width)))}}))
 
 ; ==================================
 ; Mock data
@@ -173,8 +145,8 @@
              {:source "14" :target "15" :value 37}
              {:source "16" :target "8" :value 27}
              {:source "8" :target "16" :value 34}
-             {:source "16" :target "6" :value 27}
-             {:source "6" :target "16" :value 34}
+             {:source "16" :target "6" :value 1}
+             {:source "6" :target "16" :value 1}
              ]
             (#(sort-by :value %)))
    })
