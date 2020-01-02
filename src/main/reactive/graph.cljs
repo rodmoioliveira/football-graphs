@@ -32,7 +32,7 @@
 
         ; set alpha value for active edges
         active-edges (= (-> edge .-source .-id) (-> (or active-node #js {:id nil}) .-id))
-        alpha-value (if active-node (if active-edges 1 0.05) 1)]
+        alpha-value (if active-node (if active-edges 1 0.03) 1)]
 
     (doto (-> config :ctx)
       ; translate to source node center point
@@ -95,7 +95,7 @@
   (let [x-initial-pos (-> node .-initial_pos .-x)
         y-initial-pos (-> node .-initial_pos .-y)
         is-active? (-> node .-active)
-        active-color #(if is-active? ((-> config :scales :edges->colors) 100) %)]
+        active-color #(if is-active? (-> config :nodes :active :color) %)]
     (doto (-> config :ctx)
       (.beginPath)
       (.moveTo (+ x-initial-pos (-> config :nodes :radius)) y-initial-pos)
