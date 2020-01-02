@@ -10,8 +10,6 @@
 ; ==================================
 ; Draw fns
 ; ==================================
-
-
 (defn draw-edges
   [{:keys [edge config active-node]}]
   (let [source-x (-> edge .-source .-initial_pos .-x)
