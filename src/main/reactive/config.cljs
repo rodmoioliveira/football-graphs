@@ -142,4 +142,3 @@
              {:source "16" :target "6" :value 1}
              {:source "6" :target "16" :value 1}]
             (#(sort-by :value %)))})
-
