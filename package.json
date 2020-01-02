@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "npm-run-all --parallel dev:sass dev:cljs",
+    "start": "npm-run-all --parallel dev:sass dev:cljs",
     "dev:cljs": "npx shadow-cljs watch reactive",
     "dev:sass": "node-sass src/styles/main.scss -wo public/styles",
     "share": "ngrok http --host-header=rewrite 8080"
