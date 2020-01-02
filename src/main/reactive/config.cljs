@@ -7,19 +7,19 @@
 ; Themes
 ; ==================================
 (def themes {
-   :grey {:primary "grey"
-          :secondary "white"}
-   :blue {:primary "blue"
-          :secondary "white"}
-   :green {:primary "green"
-           :secondary "white"}
-   :orange {:primary "orange"
-            :secondary "white"}
-   :purple {:primary "purple"
-            :secondary "white"}
-   :red {:primary "red"
-         :secondary "white"}
-   })
+             :grey {:primary "grey"
+                    :secondary "white"}
+             :blue {:primary "blue"
+                    :secondary "white"}
+             :green {:primary "green"
+                     :secondary "white"}
+             :orange {:primary "orange"
+                      :secondary "white"}
+             :purple {:primary "purple"
+                      :secondary "white"}
+             :red {:primary "red"
+                   :secondary "white"}
+             })
 
 ; ==================================
 ; Configuration hashmap
@@ -56,8 +56,7 @@
                                  (.scaleLinear)
                                  (.domain (-> mapping :domains :passes))
                                  (.range #js [(-> theme :primary ), "black"])
-                                 (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3)))
-                                 )
+                                 (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
               :edges->width (-> d3
                                 (.scalePow)
                                 (.exponent 2)
