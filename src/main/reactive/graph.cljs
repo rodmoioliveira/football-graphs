@@ -4,7 +4,7 @@
    :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"}
  reactive.graph
  (:require
-   [reactive.utils :refer [get-distance find-point radians-between find-node]]
+   [reactive.utils :refer [get-distance radians-between find-node]]
    ["d3" :as d3]))
 
 ; ==================================
@@ -17,7 +17,6 @@
         target-x (-> edge .-target .-initial_pos .-x)
         target-y (-> edge .-target .-initial_pos .-y)
         value (-> edge .-value)
-        point-between (partial find-point source-x source-y target-x target-y)
         source-target-distance (get-distance
                                 source-x
                                 source-y
@@ -165,16 +164,17 @@
   [{:keys [data config]}]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)
-        click-event (-> d3
-                        (.select (-> config :canvas))
-                        (.on "click" (fn [] (clicked {:edges edges
-                                                      :config config
-                                                      :nodes nodes}))))
         simulation (-> d3
                        (.forceSimulation)
                        (.force "link" (-> d3
                                           (.forceLink)
                                           (.id (fn [d] (-> d .-id))))))]
+
+    (-> d3
+        (.select (-> config :canvas))
+        (.on "click" (fn [] (clicked {:edges edges
+                                      :config config
+                                      :nodes nodes}))))
 
     (-> simulation (.nodes nodes))
 
