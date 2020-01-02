@@ -1,7 +1,7 @@
 (ns reactive.app
   (:require
-   [reactive.config :refer [config mock-data themes]]
-   [reactive.graph :refer [force-graph]]))
+    [reactive.config :refer [config mock-data themes]]
+    [reactive.graph :refer [force-graph]]))
 
 (def all-canvas (-> js/document
                     (.querySelectorAll ".graph__canvas")

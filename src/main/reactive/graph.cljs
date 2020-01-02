@@ -1,11 +1,11 @@
 (ns
- ^{:doc "Graphs for football matches"
-   :author "Rodolfo Mói"
-   :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"}
- reactive.graph
- (:require
-   [reactive.utils :refer [get-distance radians-between find-node]]
-   ["d3" :as d3]))
+  ^{:doc "Graphs for football matches"
+    :author "Rodolfo Mói"
+    :inspiration "Inspiration from https://tsj101sports.com/2018/06/20/football-with-graph-theory/"}
+  reactive.graph
+  (:require
+    [reactive.utils :refer [get-distance radians-between find-node]]
+    ["d3" :as d3]))
 
 ; ==================================
 ; Draw fns
@@ -18,10 +18,10 @@
         target-y (-> edge .-target .-initial_pos .-y)
         value (-> edge .-value)
         source-target-distance (get-distance
-                                source-x
-                                source-y
-                                target-x
-                                target-y)
+                                 source-x
+                                 source-y
+                                 target-x
+                                 target-y)
         base-vector [source-target-distance 0]
         target-vector [(- target-x source-x) (- target-y source-y)]
 
@@ -36,7 +36,7 @@
     (doto (-> config :ctx)
       ; translate to source node center point
       (.translate source-x source-y)
-      ; rotate canvas by that angle
+      ; rotate canvas
       (.rotate orientation)
       ; translate again between edges
       (.translate 0 (-> config :edges :distance-between))
@@ -44,12 +44,12 @@
       (.beginPath)
       (.moveTo (-> config :nodes :radius (+ (-> config :edges :padding))) 0)
       (.lineTo
-       (-> base-vector
-           first
-           (- (-> config :nodes :radius)
-              (-> config :edges :padding)
-              (-> config :arrows :recoil)))
-       (second base-vector))
+        (-> base-vector
+            first
+            (- (-> config :nodes :radius)
+               (-> config :edges :padding)
+               (-> config :arrows :recoil)))
+        (second base-vector))
       ((fn [v] (set! (.-lineWidth v) ((-> config :scales :edges->width) value))))
       ((fn [v] (set! (.-globalAlpha v) alpha-value)))
       ((fn [v] (set! (.-strokeStyle v) ((-> config :scales :edges->colors) value))))
@@ -59,14 +59,14 @@
       (.beginPath)
       ((fn [v] (set! (.-fillStyle v) ((-> config :scales :edges->colors) value))))
       (.moveTo
-       (-> base-vector first (- (-> config :nodes :radius) (-> config :edges :padding)))
-       (-> base-vector second))
+        (-> base-vector first (- (-> config :nodes :radius) (-> config :edges :padding)))
+        (-> base-vector second))
       (.lineTo
-       (-> base-vector first (- (-> config :arrows :width)))
-       (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion)))
+        (-> base-vector first (- (-> config :arrows :width)))
+        (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion)))
       (.lineTo
-       (-> base-vector first (- (-> config :arrows :width)))
-       (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
+        (-> base-vector first (- (-> config :arrows :width)))
+        (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
       (.fill)
 
       ; restore canvas

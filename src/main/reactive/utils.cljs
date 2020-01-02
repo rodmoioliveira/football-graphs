@@ -22,8 +22,8 @@
   "https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors"
   [vector1 vector2]
   (->
-   (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
-   js/Math.acos))
+    (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
+    js/Math.acos))
 
 (defn find-node
   [nodes x y radius]
