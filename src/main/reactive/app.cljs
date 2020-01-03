@@ -1,5 +1,6 @@
 (ns reactive.app
   (:require
+    [reactive.data :refer [data]]
     [reactive.config :refer [config mock-data themes]]
     [reactive.graph :refer [force-graph]]))
 
@@ -8,6 +9,8 @@
                     array-seq
                     (#(map (fn [v] {:id (.getAttribute v "id")
                                     :theme (-> v (.getAttribute "data-theme") keyword)}) %))))
+
+(-> data clj->js js/console.log)
 
 (defn init []
   (doseq [canvas all-canvas]

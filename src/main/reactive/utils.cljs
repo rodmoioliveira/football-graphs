@@ -4,6 +4,11 @@
   [x1 y1 x2 y2]
   (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2))))
 
+(defn hash-by
+  "Hashmap a collection by a given key"
+  [key acc cur]
+  (assoc acc (key cur) cur))
+
 (defn find-point
   [x1 y1 x2 y2 distance1 distance2]
   #js {:x (- x2 (/ (* distance2 (- x2 x1)) distance1))
