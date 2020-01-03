@@ -24,7 +24,7 @@
         ((fn [p] (map assoc-player-data p)))
         group-by-id
         vals
-        ((fn [group] (map #(partition 2 %) group))))))
+        ((fn [group] (map #(partition 2 1 %) group))))))
 
 (def data
   {:passes (passes)
