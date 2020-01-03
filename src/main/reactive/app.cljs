@@ -18,5 +18,4 @@
                   :config (config {:id (canvas :id)
                                    :theme (-> canvas :theme themes)})})))
 
-(defn ^:dev/after-load start []
-  (init))
+(defn reload! [] (init))
