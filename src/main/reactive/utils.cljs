@@ -1,5 +1,20 @@
 (ns reactive.utils)
 
+(defn place-node
+  [canvas x-% y-%]
+  #js {:x (* (-> canvas .-width) (/ x-% 100))
+       :y (* (-> canvas .-height) (/ y-% 100))})
+
+(defn assoc-pos
+  [canvas team formation tatical-schemes]
+  (let [placement (partial place-node canvas)
+        coords (fn [p] (-> tatical-schemes formation (get-in [(-> p :pos)])))]
+    (map (fn [p]
+           (assoc-in
+            p
+            [:coord_pos]
+            (apply placement (coords p)))) team)))
+
 (defn get-distance
   [x1 y1 x2 y2]
   (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2))))
@@ -27,8 +42,8 @@
   "https://www.wikihow.com/Find-the-Angle-Between-Two-Vectors"
   [vector1 vector2]
   (->
-    (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
-    js/Math.acos))
+   (/ (dot-product vector1 vector2) (* (vector-length vector1) (vector-length vector2)))
+   js/Math.acos))
 
 (defn find-node
   [nodes x y radius]
@@ -37,8 +52,8 @@
     (loop [i 0]
       (let [interate? (< i nodes-length)
             node (get nodes i)
-            dx (- x (-> node .-initial_pos .-x))
-            dy (- y (-> node .-initial_pos .-y))
+            dx (- x (-> node .-coord_pos .-x))
+            dy (- y (-> node .-coord_pos .-y))
             dist-sq (+ (* dx dx) (* dy dy))
             node-found? (< dist-sq rsq)]
         (if node-found?

@@ -11,10 +11,10 @@
 ; ==================================
 (defn draw-edges
   [{:keys [edge config active-node]}]
-  (let [source-x (-> edge .-source .-initial_pos .-x)
-        source-y (-> edge .-source .-initial_pos .-y)
-        target-x (-> edge .-target .-initial_pos .-x)
-        target-y (-> edge .-target .-initial_pos .-y)
+  (let [source-x (-> edge .-source .-coord_pos .-x)
+        source-y (-> edge .-source .-coord_pos .-y)
+        target-x (-> edge .-target .-coord_pos .-x)
+        target-y (-> edge .-target .-coord_pos .-y)
         value (-> edge .-value)
         source-target-distance (get-distance
                                  source-x
@@ -79,8 +79,8 @@
 
 (defn draw-numbers
   [{:keys [node config]}]
-  (let [x-initial-pos (-> node .-initial_pos .-x)
-        y-initial-pos (-> node .-initial_pos .-y)]
+  (let [x-initial-pos (-> node .-coord_pos .-x)
+        y-initial-pos (-> node .-coord_pos .-y)]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
@@ -90,8 +90,8 @@
 
 (defn draw-nodes
   [{:keys [node config]}]
-  (let [x-initial-pos (-> node .-initial_pos .-x)
-        y-initial-pos (-> node .-initial_pos .-y)
+  (let [x-initial-pos (-> node .-coord_pos .-x)
+        y-initial-pos (-> node .-coord_pos .-y)
         is-active? (-> node .-active)
         active-color #(if is-active? (-> config :nodes :active :color) %)]
     (doto (-> config :ctx)
