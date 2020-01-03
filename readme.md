@@ -1,4 +1,15 @@
-# Referências
+# Visual Reference
+
+![image](https://i0.wp.com/tsj101sports.com/wp-content/uploads/2018/06/ateamsstrate.png?w=1344&ssl=1)
+![image](https://www.optasports.com/media/3988/pirlo-pass-map-sp-branded.png)
+![image](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41597-019-0247-7/MediaObjects/41597_2019_247_Fig6_HTML.png?as=webp)
+![image](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41598-019-49969-2/MediaObjects/41598_2019_49969_Fig1_HTML.png?as=webp)
+![image](https://pbs.twimg.com/media/DhCNEuaW4AAQT-Y.jpg)
+![image](https://www.researchgate.net/profile/Bruno_Goncalves12/publication/313141210/figure/fig3/AS:456706820972546@1485898799477/Visual-representation-from-U17-match-analysis-Upper-panel-a-passing-network-nodes.png)
+![image](https://scx2.b-cdn.net/gfx/news/hires/journal_pone_0010937_g005.jpg)
+![image](https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png)
+
+# Passing Networks
 
 - https://tsj101sports.com/2018/06/20/football-with-graph-theory/
 - https://www.optasports.com/news/opta-legends-series-andrea-pirlo/
@@ -12,3 +23,6 @@
 - https://phys.org/news/2010-06-science-true-soccer-stars.html
 - https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png
 
+# Dataset
+
+- https://figshare.com/collections/Soccer_match_event_dataset/4415000/2
