@@ -14,17 +14,19 @@
                  (js->clj :keywordize-keys true)
                  ((fn [v] (reduce (partial hash-by :wyId) (sorted-map) v)))))
 
-(defn passes-from-2057958
+(defn passes
   []
-  (let [group-by-id (fn [v] (group-by :teamId v))]
+  (let [group-by-id (fn [v] (group-by :teamId v))
+        assoc-player-data #(assoc-in % [:playerData] (get-in players [(-> % :playerId)]))]
     (-> js/JSON
         (.parse (rc/inline "./data/passes-2057958.json"))
         (js->clj :keywordize-keys true)
-        (group-by-id)
+        ((fn [p] (map assoc-player-data p)))
+        group-by-id
         vals
-        ((fn [vals] (map #(partition 2 %) vals))))))
+        ((fn [group] (map #(partition 2 %) group))))))
 
 (def data
-  {:passes {:2057958 (passes-from-2057958)}
+  {:passes (passes)
    :matches matches
    :players players})
