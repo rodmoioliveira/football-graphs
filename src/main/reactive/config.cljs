@@ -27,7 +27,7 @@
   (let [mapping {:domains {:passes #js [0 100]}
                  :codomains {:edges-width #js [1 20]}}
         font {:weight "700"
-              :size "32px"
+              :size "35px"
               :type "sans-serif"
               :color (theme :secondary)
               :text-align "center"

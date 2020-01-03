@@ -79,25 +79,25 @@
 
 (defn draw-numbers
   [{:keys [node config]}]
-  (let [x-initial-pos (-> node .-coord_pos .-x)
-        y-initial-pos (-> node .-coord_pos .-y)]
+  (let [x-pos (-> node .-coord_pos .-x)
+        y-pos (-> node .-coord_pos .-y)]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
       ((fn [v] (set! (.-textAlign v) (-> config :nodes :font :text-align))))
       ((fn [v] (set! (.-textBaseline v) (-> config :nodes :font :base-line))))
-      (.fillText (-> node .-id) x-initial-pos y-initial-pos))))
+      (.fillText (-> node .-id) x-pos y-pos))))
 
 (defn draw-nodes
   [{:keys [node config]}]
-  (let [x-initial-pos (-> node .-coord_pos .-x)
-        y-initial-pos (-> node .-coord_pos .-y)
+  (let [x-pos (-> node .-coord_pos .-x)
+        y-pos (-> node .-coord_pos .-y)
         is-active? (-> node .-active)
         active-color #(if is-active? (-> config :nodes :active :color) %)]
     (doto (-> config :ctx)
       (.beginPath)
-      (.moveTo (+ x-initial-pos (-> config :nodes :radius)) y-initial-pos)
-      (.arc x-initial-pos y-initial-pos (-> config :nodes :radius) 0 (* 2 js/Math.PI))
+      (.moveTo (+ x-pos (-> config :nodes :radius)) y-pos)
+      (.arc x-pos y-pos (-> config :nodes :radius) 0 (* 2 js/Math.PI))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :fill :color active-color))))
       (.fill)
       ((fn [v] (set! (.-strokeStyle v) (-> config :nodes :outline :color))))

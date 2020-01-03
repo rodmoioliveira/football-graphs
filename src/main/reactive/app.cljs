@@ -10,13 +10,14 @@
                     array-seq
                     (#(map (fn [el] {:id (.getAttribute el "id")
                                     :el el
+                                    :formation (-> el (.getAttribute "data-formation") keyword)
                                     :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
 (-> data clj->js js/console.log)
 
 (defn init []
   (doseq [canvas all-canvas]
-    (force-graph {:data (clj->js (mock-data (-> canvas :el)))
+    (force-graph {:data (clj->js (mock-data (-> canvas :el) (-> canvas :formation)))
                   :config (config {:id (canvas :id)
                                    :theme (-> canvas :theme themes)})})))
 

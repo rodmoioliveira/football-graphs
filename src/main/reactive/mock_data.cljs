@@ -3,25 +3,39 @@
    [reactive.utils :refer [assoc-pos]]
    [reactive.tatical :refer [tatical-schemes]]))
 
+(def team-formations
+  {:4-2-3-1 [{:id "7" :pos :ATC}
+             {:id "9" :pos :VOC}
+             {:id "8" :pos :PTD}
+             {:id "6" :pos :PTE}
+             {:id "16" :pos :VOD}
+             {:id "14" :pos :VOE}
+             {:id "15" :pos :LAD}
+             {:id "11" :pos :LAE}
+             {:id "3" :pos :ZAD}
+             {:id "5" :pos :ZAE}
+             {:id "1" :pos :GOL}]
+   :4-3-3 [{:id "7" :pos :ATC}
+           {:id "9" :pos :VOC}
+           {:id "8" :pos :PTD}
+           {:id "6" :pos :PTE}
+           {:id "16" :pos :VOD}
+           {:id "14" :pos :VOE}
+           {:id "15" :pos :LAD}
+           {:id "11" :pos :LAE}
+           {:id "3" :pos :ZAD}
+           {:id "5" :pos :ZAE}
+           {:id "1" :pos :GOL}]})
+
 ; ==================================
 ; Mock data
 ; ==================================
 (defn mock-data
-  [canvas]
+  [canvas formation]
   {:nodes (assoc-pos
            canvas
-           [{:id "7" :pos :ATC}
-            {:id "9" :pos :VOC}
-            {:id "8" :pos :PTD}
-            {:id "6" :pos :PTE}
-            {:id "16" :pos :VOD}
-            {:id "14" :pos :VOE}
-            {:id "15" :pos :LAD}
-            {:id "11" :pos :LAE}
-            {:id "3" :pos :ZAD}
-            {:id "5" :pos :ZAE}
-            {:id "1" :pos :GOL}]
-           :4-2-3-1
+           (-> team-formations formation)
+           formation
            tatical-schemes)
    :links (->
            [{:source "7" :target "14" :value 32}
