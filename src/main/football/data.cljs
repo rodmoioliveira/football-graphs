@@ -1,7 +1,7 @@
-(ns reactive.data
+(ns football.data
   (:require
     [shadow.resource :as rc]
-    [reactive.utils :refer [hash-by]]))
+    [football.utils :refer [hash-by]]))
 
 (def matches (-> js/JSON
                  (.parse (rc/inline "../data/matches_World_Cup.json"))

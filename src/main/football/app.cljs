@@ -1,9 +1,9 @@
-(ns reactive.app
+(ns football.app
   (:require
-    [reactive.data :refer [data]]
-    [reactive.config :refer [config themes]]
-    [reactive.mock-data :refer [mock-data]]
-    [reactive.graph :refer [force-graph]]))
+    [football.data :refer [data]]
+    [football.config :refer [config themes]]
+    [football.mock-data :refer [mock-data]]
+    [football.graph :refer [force-graph]]))
 
 (def all-canvas (-> js/document
                     (.querySelectorAll ".graph__canvas")

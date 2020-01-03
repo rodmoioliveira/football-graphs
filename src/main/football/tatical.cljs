@@ -1,4 +1,4 @@
-(ns reactive.tatical)
+(ns football.tatical)
 
 (def tatical-schemes
   {:4-2-3-1 {:ATC [50 6]
@@ -23,4 +23,3 @@
            :ZAE [30 79]
            :ZAD [70 79]
            :GOL [50 94]}})
-

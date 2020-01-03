@@ -6,5 +6,5 @@
  :dev-http {8080 "public"}
  :builds {:reactive
           {:target :browser
-           :devtools {:after-load reactive.app/reload!}
-           :modules {:main {:init-fn reactive.app/init}}}}}
+           :devtools {:after-load football.app/reload!}
+           :modules {:main {:init-fn football.app/init}}}}}

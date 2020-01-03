@@ -1,4 +1,4 @@
-(ns reactive.rxjs
+(ns football.rxjs
   (:require ["rxjs" :as rx]
             ["rxjs/operators" :as rx-op]))
 
@@ -30,4 +30,3 @@
       (rx/fromEvent "mousemove")
       (.pipe (rx-op/map render-pos) (rx-op/startWith "posição x: ???, posição y: ???"))
       (.subscribe set-div)))
-

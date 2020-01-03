@@ -1,4 +1,4 @@
-(ns reactive.config
+(ns football.config
   (:require
     [clojure.string :as str]
     ["d3" :as d3]))
@@ -60,4 +60,3 @@
                                 (.exponent 2)
                                 (.domain (-> mapping :domains :passes))
                                 (.range (-> mapping :codomains :edges-width)))}}))
-

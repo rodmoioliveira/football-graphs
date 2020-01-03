@@ -1,9 +1,9 @@
 (ns
   ^{:doc "Graphs for football matches"
     :author "Rodolfo Mói"}
-  reactive.graph
+  football.graph
   (:require
-    [reactive.utils :refer [get-distance radians-between find-node]]
+    [football.utils :refer [get-distance radians-between find-node]]
     ["d3" :as d3]))
 
 ; ==================================

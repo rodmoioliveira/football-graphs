@@ -1,7 +1,7 @@
-(ns reactive.mock-data
+(ns football.mock-data
   (:require
-   [reactive.utils :refer [assoc-pos]]
-   [reactive.tatical :refer [tatical-schemes]]))
+   [football.utils :refer [assoc-pos]]
+   [football.tatical :refer [tatical-schemes]]))
 
 (def team-formations
   {:4-2-3-1 [{:id "7" :pos :ATC}
@@ -98,4 +98,3 @@
             {:source "16" :target "6" :value 1}
             {:source "6" :target "16" :value 1}]
            (#(sort-by :value %)))})
-
