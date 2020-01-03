@@ -43,4 +43,4 @@
             node-found? (< dist-sq rsq)]
         (if node-found?
           node
-          (if interate? (-> i inc recur)))))))
+          (when interate? (-> i inc recur)))))))

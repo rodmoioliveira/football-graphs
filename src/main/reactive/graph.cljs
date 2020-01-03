@@ -149,7 +149,7 @@
 
     ; TODO: implement toogle feature
     (doseq [n nodes] (set! (.-active n) false))
-    (if node (set! (.-active node) (not (-> node .-active))))
+    (when node (set! (.-active node) (not (-> node .-active))))
 
     (draw-graph {:edges edges
                  :config config
