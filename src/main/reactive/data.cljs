@@ -19,7 +19,7 @@
   (let [group-by-id (fn [v] (group-by :teamId v))
         assoc-player-data #(assoc-in % [:playerData] (get-in players [(-> % :playerId)]))]
     (-> js/JSON
-        (.parse (rc/inline "./data/passes-2057958.json"))
+        (.parse (rc/inline "./data/passes.json"))
         (js->clj :keywordize-keys true)
         ((fn [p] (map assoc-player-data p)))
         group-by-id
