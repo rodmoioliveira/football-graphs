@@ -25,6 +25,11 @@
         group-by-id
         vals
         ((fn [group] (map #(partition 2 1 %) group)))
+        ((fn [teams] (map (fn [link]
+                            (map (fn [[source target]]
+                                   {:source (get-in source [:pos])
+                                    :target (get-in target [:pos])
+                                    :value 1}) link)) teams)))
         )))
 
 (def data
