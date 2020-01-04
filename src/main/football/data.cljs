@@ -17,14 +17,15 @@
 (defn passes
   []
   (let [group-by-id (fn [v] (group-by :teamId v))
-        assoc-player-data #(assoc-in % [:playerData] (get-in players [(-> % :playerId)]))]
+        assoc-player-data #(assoc-in % [:pos] (get-in players [(-> % :playerId) :pos]))]
     (-> js/JSON
         (.parse (rc/inline "../data/passes.json"))
         (js->clj :keywordize-keys true)
         ((fn [p] (map assoc-player-data p)))
         group-by-id
         vals
-        ((fn [group] (map #(partition 2 1 %) group))))))
+        ((fn [group] (map #(partition 2 1 %) group)))
+        )))
 
 (def data
   {:passes (passes)
