@@ -4,7 +4,6 @@
     [football.utils :refer [assoc-pos]]
     [football.tatical :refer [tatical-schemes]]
     [football.config :refer [config themes]]
-    [football.mock-data :refer [mock-data]]
     [football.graph :refer [force-graph]]))
 
 (def teams

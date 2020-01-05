@@ -28,9 +28,15 @@
   (let [group-by-id (fn [v] (group-by :teamId v))
         assoc-player-data #(assoc-in % [:pos] (get-in players [(-> % :playerId) :pos]))]
     (-> js/JSON
-        (.parse (rc/inline "../data/passes.json"))
-        logger
+
+        ; ####################################
+        ; FIXME: Fix logic of passes
+        ; ####################################
+        (.parse (rc/inline "../data/events.json"))
         (js->clj :keywordize-keys true)
+        ; Other events must be consider for passing network...
+        ((fn [v] (filter #(= (-> % :eventId) 8) v)))
+        logger
         ((fn [p] (map assoc-player-data p)))
         group-by-id
         vals
@@ -40,6 +46,10 @@
                                    {:source (get-in source [:pos])
                                     :target (get-in target [:pos])
                                     :teamId (get-in source [:teamId])}) link)) teams)))
+        ; ####################################
+        ; ####################################
+        ; ####################################
+
         ((fn [teams] (map frequencies teams)))
         ((fn [teams] (map (fn [team] (map (fn [[ks v]] (merge ks {:value v})) team)) teams)))
         ((fn [teams] (map #(sort-by :value %) teams))))))
