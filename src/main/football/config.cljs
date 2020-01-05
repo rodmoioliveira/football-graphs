@@ -24,8 +24,8 @@
 ; ==================================
 (defn config
   [{:keys [id theme]}]
-  (let [mapping {:domains {:passes #js [0 100]}
-                 :codomains {:edges-width #js [1 20]}}
+  (let [mapping {:domains {:passes #js [1 28]}
+                 :codomains {:edges-width #js [1 40]}}
         font {:weight "700"
               :size "35px"
               :type "sans-serif"
@@ -57,6 +57,6 @@
                                  (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
               :edges->width (-> d3
                                 (.scalePow)
-                                (.exponent 2)
+                                (.exponent 1.2)
                                 (.domain (-> mapping :domains :passes))
                                 (.range (-> mapping :codomains :edges-width)))}}))

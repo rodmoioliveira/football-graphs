@@ -2,8 +2,8 @@
 
 (defn place-node
   [canvas x-% y-%]
-  #js {:x (* (-> canvas .-width) (/ x-% 100))
-       :y (* (-> canvas .-height) (/ y-% 100))})
+  {:x (* (-> canvas .-width) (/ x-% 100))
+   :y (* (-> canvas .-height) (/ y-% 100))})
 
 (defn assoc-pos
   [canvas team formation tatical-schemes]
