@@ -1,6 +1,6 @@
 (ns football.app
   (:require
-    [football.data :refer [brazil switzerland]]
+    [football.data :refer [brazil switzerland data]]
     [football.utils :refer [assoc-pos]]
     [football.tatical :refer [tatical-schemes]]
     [football.config :refer [config themes]]
@@ -23,6 +23,8 @@
                                                teams)
                                      :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
+(-> data clj->js js/console.log)
+
 (defn set-nodes-pos
   [[{:keys [nodes links]} canvas formation tatical-schemes]]
   {:links links
@@ -39,6 +41,7 @@
           data (-> canvas :data)
           format-data (-> [data el formation tatical-schemes] set-nodes-pos clj->js)]
 
+      ; (js/console.log format-data)
       (force-graph {:data format-data
                     :config (config {:id (canvas :id)
                                      :theme (-> canvas :theme themes)})}))))

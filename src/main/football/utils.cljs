@@ -5,6 +5,10 @@
   {:x (* (-> canvas .-width) (/ x-% 100))
    :y (* (-> canvas .-height) (/ y-% 100))})
 
+(defn logger [v]
+  (-> v clj->js js/console.log)
+  v)
+
 (defn assoc-pos
   [canvas team formation tatical-schemes]
   (let [placement (partial place-node canvas)
