@@ -36,7 +36,6 @@
         (js->clj :keywordize-keys true)
         ; Other events must be consider for passing network...
         ((fn [v] (filter #(= (-> % :eventId) 8) v)))
-        logger
         ((fn [p] (map assoc-player-data p)))
         group-by-id
         vals
@@ -52,7 +51,12 @@
 
         ((fn [teams] (map frequencies teams)))
         ((fn [teams] (map (fn [team] (map (fn [[ks v]] (merge ks {:value v})) team)) teams)))
-        ((fn [teams] (map #(sort-by :value %) teams))))))
+        ((fn [teams] (map #(sort-by :value %) teams)))
+
+        ; FIXME: this transformation MUST be remove at some point
+        ; Remove link where source and target are the same
+        ((fn [teams] (map #(remove (fn [{:keys [source target]}] (= source target)) %) teams)))
+        )))
 
 (def data
   {:links (links)
