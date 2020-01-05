@@ -35,6 +35,7 @@
         (.parse (rc/inline "../data/events.json"))
         (js->clj :keywordize-keys true)
         ; Other events must be consider for passing network...
+        logger
         ((fn [v] (filter #(= (-> % :eventId) 8) v)))
         ((fn [p] (map assoc-player-data p)))
         group-by-id

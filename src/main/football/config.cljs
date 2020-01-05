@@ -7,17 +7,23 @@
 ; Themes
 ; ==================================
 (def themes {:grey {:primary "grey"
-                    :secondary "white"}
+                    :secondary "white"
+                    :accent "#dedcdb"}
              :blue {:primary "blue"
-                    :secondary "white"}
+                    :secondary "white"
+                    :accent "#c5c2ff"}
              :green {:primary "green"
-                     :secondary "white"}
+                     :secondary "white"
+                     :accent "#a2dea6"}
              :orange {:primary "orange"
-                      :secondary "white"}
+                      :secondary "white"
+                      :accent "#ffecc2"}
              :purple {:primary "purple"
-                      :secondary "white"}
+                      :secondary "white"
+                      :accent "#ffb8f6"}
              :red {:primary "red"
-                   :secondary "white"}})
+                   :secondary "white"
+                   :accent "#ffa6a3"}})
 
 ; ==================================
 ; Configuration hashmap
@@ -51,12 +57,13 @@
                                                     (font :size)
                                                     (font :type)]))}
      :scales {:edges->colors (-> d3
-                                 (.scaleLinear)
+                                 (.scalePow)
+                                 (.exponent 0.1)
                                  (.domain (-> mapping :domains :passes))
-                                 (.range #js [(-> theme :primary), "black"])
+                                 (.range #js [(-> theme :accent), "black"])
                                  (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
               :edges->width (-> d3
                                 (.scalePow)
-                                (.exponent 1.2)
+                                (.exponent 0.9)
                                 (.domain (-> mapping :domains :passes))
                                 (.range (-> mapping :codomains :edges-width)))}}))
