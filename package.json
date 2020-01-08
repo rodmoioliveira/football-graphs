@@ -9,7 +9,7 @@
 
     "build": "npm-run-all --parallel build:css build:js build:html",
     "build:js": "shadow-cljs release prod",
-    "build:css": "node-sass src/styles/main.scss public/styles/main.css --output-style compressed --recursive --include-path node_modules --source-map true",
+    "build:css": "node-sass src/styles/main.scss dist/styles/main.css --output-style compressed --recursive --include-path node_modules --source-map true",
     "build:html": "node build-scripts/copy.js",
 
     "share": "ngrok http --host-header=rewrite 8080",
@@ -22,8 +22,6 @@
     "shadow-cljs": "2.8.83"
   },
   "dependencies": {
-    "d3": "^5.14.2",
-    "normalize-scss": "^7.0.1",
-    "rxjs": "^6.5.3"
+    "d3": "^5.14.2"
   }
 }
