@@ -4,7 +4,7 @@
                 "src/test"]
  :dependencies []
  :dev-http {8080 "public"}
- :builds {:app
+ :builds {:dev
           {:target :browser
            :devtools {:after-load football.app/reload!}
            :modules {:main {:init-fn football.app/init}}}
