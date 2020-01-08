@@ -13,5 +13,6 @@
            :output-dir "dist/js"
            :asset-path "/js"
            :build-options {:manifest-name "manifest.json"}
+           :compiler-options {:optimizations :simple}
            :modules {:main {:init-fn football.app/init}}
            }}}
