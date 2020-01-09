@@ -1,0 +1,12 @@
+@mixin margin {
+  margin: 0 auto 3rem;
+
+  @media (max-width: 700px) {
+    margin: 0 auto 7vw;
+  }
+}
+
+@mixin padding {
+  padding: 0 1rem;
+}
+

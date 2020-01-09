@@ -1,0 +1,51 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
+.title {
+  text-align: center;
+  font-size: 9rem;
+  line-height: 1;
+  font-weight: 700;
+
+  @include margin;
+  @include padding;
+
+  @media (max-width: 700px) {
+    font-size: 18vw;
+  }
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.5;
+  max-width: 1200px;
+
+  @include margin;
+  @include padding;
+
+  @media (max-width: 600px) {
+    font-size: 6vw;
+  }
+}
+
+.paragraph {
+  font-size: 1.4rem;
+  max-width: 700px;
+  line-height: 1.5;
+
+  @include margin;
+  @include padding;
+
+  @media (max-width: 490px) {
+    line-height: 1.9;
+    font-size: 4.4vw;
+  }
+}
