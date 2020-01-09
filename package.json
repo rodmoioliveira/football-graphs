@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "deploy": "npm-run-all --serial compile-once build",
+    "compile-once": "shadow-cljs compile dev",
     "start": "npm-run-all --parallel dev:sass dev:cljs",
     "dev:cljs": "npx shadow-cljs watch dev",
     "dev:sass": "node-sass src/styles/main.scss -w public/styles/main.css",
