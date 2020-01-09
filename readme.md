@@ -26,3 +26,4 @@
 # Dataset
 
 - https://figshare.com/collections/Soccer_match_event_dataset/4415000/2
+- https://apidocs.wyscout.com/
