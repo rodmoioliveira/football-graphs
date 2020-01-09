@@ -21,12 +21,8 @@
                           (if first?
                             false
                             (and
-                             (=
-                              (-> e :subEventName)
-                              (-> sub-events :lost-ball))
-                             (not=
-                              (-> e :teamId)
-                              (-> (nth index-coll (- i 1)) second :teamId))))))
+                             (= (-> e :subEventName) (-> sub-events :lost-ball))
+                             (not= (-> e :teamId) (-> (nth index-coll (- i 1)) second :teamId))))))
             index-coll)))
 
 (defn remove-cycle
@@ -36,9 +32,7 @@
     (remove (fn [[i e]] (let [last? (= (+ i 1) (count coll))]
                           (if last?
                             false
-                            (=
-                             (-> e :playerId)
-                             (get-in coll [(+ 1 i) :playerId])))))
+                            (= (-> e :playerId) (get-in coll [(+ 1 i) :playerId])))))
             index-coll)))
 
 (defn link-passes
