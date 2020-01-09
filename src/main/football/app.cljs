@@ -40,7 +40,6 @@
           data (-> canvas :data)
           format-data (-> [data el formation tatical-schemes] set-nodes-pos clj->js)]
 
-      ; (js/console.log format-data)
       (force-graph {:data format-data
                     :config (config {:id (canvas :id)
                                      :theme (-> canvas :theme themes)})}))))

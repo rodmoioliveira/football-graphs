@@ -4,11 +4,13 @@
 
 .graphs__inspiration {
   display: block;
-  margin: 0 auto;
-  width: 80%;
+  max-width: 1200px;
+  margin: 5rem auto;
 
-  @media (max-width: 800px) {
-    width: 100%;
+  @media (max-width: 1300px) {
+    width: 90%;
+    padding: 0 1rem;
+    margin: 7vw auto;
   }
 }
 
@@ -21,17 +23,13 @@
 }
 
 .graph__canvas {
-  // outline: 1px dotted black;
-  margin: 2rem;
-  max-width: 650px;
+  display: block;
+  max-width: 670px;
 
-  @media (max-width: 800px) {
-    margin: 2rem 0;
-  }
+  @include margin;
 
   @media (max-width: 710px) {
     width: 100%;
     max-width: 100rem;
-    margin: 1rem 0;
   }
 }
