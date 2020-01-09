@@ -4,6 +4,15 @@
                 "src/test"]
  :dependencies []
  :dev-http {8080 "public"}
- :builds {:reactive
+ :builds {:dev
           {:target :browser
-           :modules {:main {:init-fn reactive.app/init}}}}}
+           :devtools {:after-load football.app/reload!}
+           :modules {:main {:init-fn football.app/init}}}
+          :prod
+          {:target :browser
+           :output-dir "dist/js"
+           :asset-path "/js"
+           :build-options {:manifest-name "manifest.json"}
+           :compiler-options {:optimizations :simple}
+           :modules {:main {:init-fn football.app/init}}
+           }}}

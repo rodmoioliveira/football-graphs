@@ -2,24 +2,37 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="/styles/main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles/main.css" />
   </head>
   <body>
     <section class="graphs">
       <img
         class="graphs__inspiration"
-        src="https://i0.wp.com/tsj101sports.com/wp-content/uploads/2018/06/ateamsstrate.png" />
+        src="https://i0.wp.com/tsj101sports.com/wp-content/uploads/2018/06/ateamsstrate.png"
+      />
       <div class="graphs__wrapper">
-        <canvas width="730" height="850" data-theme="red" class="graph__canvas" id="canvas0"></canvas>
-        <canvas width="730" height="850" data-theme="blue" class="graph__canvas" id="canvas1"></canvas>
-        <canvas width="730" height="850" data-theme="green" class="graph__canvas" id="canvas2"></canvas>
-        <canvas width="730" height="850" data-theme="orange" class="graph__canvas" id="canvas3"></canvas>
-        <canvas width="730" height="850" data-theme="purple" class="graph__canvas" id="canvas4"></canvas>
-        <canvas width="730" height="850" data-theme="grey" class="graph__canvas" id="canvas5"></canvas>
+        <canvas
+          width="730"
+          height="950"
+          data-team="brazil"
+          data-formation="4-3-3"
+          data-theme="green"
+          class="graph__canvas"
+          id="canvas4"
+        ></canvas>
+        <canvas
+          width="730"
+          height="950"
+          data-team="switzerland"
+          data-formation="4-2-3-1"
+          data-theme="red"
+          class="graph__canvas"
+          id="canvas5"
+        ></canvas>
       </div>
     </section>
 
-    <script src="/js/main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
