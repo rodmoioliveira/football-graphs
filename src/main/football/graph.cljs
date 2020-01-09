@@ -145,7 +145,12 @@
                       (.range y-codomain))
         x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
-        node (find-node nodes (mapping-x x) (mapping-y y) (-> config :nodes :radius))]
+        node (find-node
+               (-> canvas-current-dimensions .-width)
+               nodes
+               (mapping-x x)
+               (mapping-y y)
+               (-> config :nodes :radius))]
 
     (doseq [n nodes] (set! (.-active n) false))
     (when node (set! (.-active node) (not (-> node .-active))))

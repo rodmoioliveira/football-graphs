@@ -38,16 +38,16 @@
               :color (theme :secondary)
               :text-align "center"
               :base-line "middle"}
-        node-radius 45
+        node-radius 50
         canvas (-> js/document (.getElementById id))]
 
     {:arrows {:recoil 19.5
               :expansion 0.9
-              :width 75}
+              :width 80}
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 10
-             :distance-between (/ node-radius 2.2)}
+             :distance-between (/ node-radius 2.5)}
      :nodes {:radius node-radius
              :fill {:color "black"}
              :active {:color (theme :primary)}
