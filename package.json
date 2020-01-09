@@ -6,12 +6,10 @@
     "start": "npm-run-all --parallel dev:sass dev:cljs",
     "dev:cljs": "npx shadow-cljs watch dev",
     "dev:sass": "node-sass src/styles/main.scss -w public/styles/main.css",
-
     "build": "npm-run-all --parallel build:css build:js build:html",
     "build:js": "shadow-cljs release prod",
     "build:css": "node-sass src/styles/main.scss dist/styles/main.css --output-style compressed --recursive --include-path node_modules --source-map true",
     "build:html": "node build-scripts/copy.js",
-
     "share": "ngrok http --host-header=rewrite 8080",
     "serve": "npm run build && http-server dist"
   },
@@ -21,6 +19,7 @@
     "shadow-cljs": "2.8.83"
   },
   "dependencies": {
-    "d3": "^5.14.2"
+    "d3": "^5.14.2",
+    "fs-extra": "^8.1.0"
   }
 }
