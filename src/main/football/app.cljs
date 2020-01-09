@@ -22,7 +22,7 @@
                                                teams)
                                      :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
-(-> data clj->js js/console.log)
+; (-> data clj->js js/console.log)
 
 (defn set-nodes-pos
   [[{:keys [nodes links]} canvas formation tatical-schemes]]

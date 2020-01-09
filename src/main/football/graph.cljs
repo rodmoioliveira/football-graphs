@@ -147,7 +147,6 @@
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
         node (find-node nodes (mapping-x x) (mapping-y y) (-> config :nodes :radius))]
 
-    ; TODO: implement toogle feature
     (doseq [n nodes] (set! (.-active n) false))
     (when node (set! (.-active node) (not (-> node .-active))))
 

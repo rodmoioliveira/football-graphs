@@ -28,11 +28,6 @@
   [key acc cur]
   (assoc acc (key cur) cur))
 
-(defn find-point
-  [x1 y1 x2 y2 distance1 distance2]
-  #js {:x (- x2 (/ (* distance2 (- x2 x1)) distance1))
-       :y (- y2 (/ (* distance2 (- y2 y1)) distance1))})
-
 (defn vector-length
   "||u|| = √(u1 + u2)"
   [[x y]]
