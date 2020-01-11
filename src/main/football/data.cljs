@@ -1,6 +1,7 @@
 (ns football.data
   (:require
    [shadow.resource :as rc]
+   ; [cljs.reader :as reader]
    [clojure.set :refer [project]]
    [football.utils :refer [hash-by logger]]))
 
@@ -53,6 +54,10 @@
   (map
    #(remove (fn [{:keys [source target]}] (= source target)) %)
    teams))
+
+
+; (-> (rc/inline "../data/matches/brazil_switzerland,_1_1.edn") reader/read-string clj->js js/console.log)
+; (-> js/JSON (.parse (rc/inline "../data/matches/brazil_switzerland,_1_1.json")) js/console.log)
 
 (def matches (-> js/JSON
                  (.parse (rc/inline "../data/matches_World_Cup.json"))
