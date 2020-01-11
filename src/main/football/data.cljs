@@ -56,8 +56,8 @@
    teams))
 
 
-; (-> (rc/inline "../data/games/brazil_switzerland,_1_1.edn") reader/read-string clj->js js/console.log)
-; (-> js/JSON (.parse (rc/inline "../data/games/brazil_switzerland,_1_1.json")) js/console.log)
+; (-> (rc/inline "../data/matches/brazil_switzerland,_1_1.edn") reader/read-string clj->js js/console.log)
+; (-> js/JSON (.parse (rc/inline "../data/matches/brazil_switzerland,_1_1.json")) js/console.log)
 
 (def matches (-> js/JSON
                  (.parse (rc/inline "../data/matches_World_Cup.json"))

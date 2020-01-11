@@ -1,6 +1,6 @@
-; src/main/io/spit_game.clj --id=2057978 --type=edn
+; src/main/io/spit_match.clj --id=2057978 --type=edn
 
-(ns io.spit-game
+(ns io.spit-match
   (:require
    [camel-snake-kebab.core :as csk]
    ; FIXME: import cljc in clj...
@@ -16,7 +16,7 @@
   [key acc cur]
   (assoc acc (-> cur key str keyword) cur))
 
-(def options [["-i" "--id ID" "Game ID"]
+(def options [["-i" "--id ID" "Match ID"]
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
                :parse-fn keyword
@@ -64,7 +64,7 @@
 (if (-> errors some? not)
   (let [data (get-data)]
     (spit
-     (str "src/main/data/games/" (-> data :match :label csk/->snake_case)  "." (name file-type))
+     (str "src/main/data/matches/" (-> data :match :label csk/->snake_case) "." (name file-type))
      ((output-file-type file-type) data))
     (print "Success!"))
   (print errors))
