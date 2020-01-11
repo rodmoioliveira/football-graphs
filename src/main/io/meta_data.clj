@@ -3,7 +3,6 @@
    [utils.core :refer [hash-by csv-data->maps output-file-type]]
    [clojure.data.csv :as csv]
    [clojure.tools.cli :refer [parse-opts]]
-   [clojure.pprint :as pp]
    [clojure.java.io :as io]))
 
 (def options [["-t" "--type TYPE" "File Type (json or edn)"
