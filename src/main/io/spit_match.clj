@@ -29,20 +29,54 @@
                   json->edn
                   list->hash
                   id-keyword)
-        players (-> (get-file "players.json")
-                    slurp
-                    json->edn)
         teams-ids (-> match
                       :teams-data
                       vals
-                      (#(map (fn [{:keys [team-id]}] team-id) %)))]
+                      (#(map (fn [{:keys [team-id]}] team-id) %)))
+        reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
+        players (-> (get-file "players.json")
+                    slurp
+                    json->edn
+                    (#(filter (fn [{:keys [current-national-team-id]}]
+                                (some (fn [id] (= id current-national-team-id)) teams-ids))
+                              %))
+                    list->hash)
+        short-name (fn [p]
+                     (assoc
+                      p
+                      :player-name
+                      (-> p :player-id str keyword players :short-name)))
+        get-sub-names (fn [p]
+                        (assoc
+                         p
+                         :player-in-name
+                         (-> p :player-in str keyword players :short-name)
+                         :player-out-name
+                         (-> p :player-out str keyword players :short-name)))
+        get-names (fn [fnc location team]
+                    (->> team
+                         :formation
+                         location
+                         (map fnc)))]
+    {:match (->> match
+                 ((fn [v]
+                    (->> v
+                         :teams-data
+                         vals
+                         (map (fn [team]
+                                (assoc
+                                 team
+                                 :formation
+                                 {:bench
+                                  (->> team (get-names short-name :bench))
+                                  :lineup
+                                  (->> team (get-names short-name :lineup))
+                                  :substitutions
+                                  (->> team (get-names get-sub-names :substitutions))}))))))
+                 (reduce-by :team-id)
+                 (#(assoc match :teams-data %)))
 
-    {:match match
-     :players (-> players
-                  (#(filter (fn [{:keys [current-national-team-id]}]
-                              (some (fn [id] (= id current-national-team-id)) teams-ids))
-                            %))
-                  list->hash)
+     :players players
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn
