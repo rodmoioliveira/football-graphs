@@ -2,7 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.edn :as edn]
-   [utils.core :refer [hash-by output-file-type]]
+   [utils.core :refer [hash-by output-file-type assoc-names]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]))
@@ -17,39 +17,6 @@
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
 (def errors (-> args :errors))
-
-(defn assoc-names
-  [players match]
-  (let [short-name (fn [p]
-                     (assoc
-                      p
-                      :player-name
-                      (-> p :player-id str keyword players :short-name)))
-        get-sub-names (fn [p]
-                        (assoc
-                         p
-                         :player-in-name
-                         (-> p :player-in str keyword players :short-name)
-                         :player-out-name
-                         (-> p :player-out str keyword players :short-name)))
-        get-names (fn [fnc location team]
-                    (->> team
-                         :formation
-                         location
-                         (map fnc)))]
-    (->> match
-         :teams-data
-         vals
-         (map (fn [team]
-                (assoc
-                 team
-                 :formation
-                 {:bench
-                  (->> team (get-names short-name :bench))
-                  :lineup
-                  (->> team (get-names short-name :lineup))
-                  :substitutions
-                  (->> team (get-names get-sub-names :substitutions))}))))))
 
 (defn get-data
   []

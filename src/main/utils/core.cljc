@@ -88,3 +88,37 @@
            (if node-found?
              node
              (when interate? (-> i inc recur))))))))
+
+#?(:clj
+   (defn assoc-names
+     [players match]
+     (let [short-name (fn [p]
+                        (assoc
+                         p
+                         :player-name
+                         (-> p :player-id str keyword players :short-name)))
+           get-sub-names (fn [p]
+                           (assoc
+                            p
+                            :player-in-name
+                            (-> p :player-in str keyword players :short-name)
+                            :player-out-name
+                            (-> p :player-out str keyword players :short-name)))
+           get-names (fn [fnc location team]
+                       (->> team
+                            :formation
+                            location
+                            (map fnc)))]
+       (->> match
+            :teams-data
+            vals
+            (map (fn [team]
+                   (assoc
+                    team
+                    :formation
+                    {:bench
+                     (->> team (get-names short-name :bench))
+                     :lineup
+                     (->> team (get-names short-name :lineup))
+                     :substitutions
+                     (->> team (get-names get-sub-names :substitutions))})))))))
