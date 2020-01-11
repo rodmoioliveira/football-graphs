@@ -1,9 +1,33 @@
-(ns football.utils)
+(ns football.utils
+  (:require
+   [camel-snake-kebab.core :as csk]
+   [clojure.pprint :as pp]
+   [clojure.data.json :as json]))
 
-(defn hash-by
-  "Hashmap a collection by a given key"
-  [key acc cur]
-  (assoc acc (key cur) cur))
+#?(:clj
+   (defn hash-by
+     "Hashmap a collection by a given key"
+     [key acc cur]
+     (assoc acc (-> cur key str keyword) cur)))
+
+#?(:cljs
+   (defn hash-by
+     "Hashmap a collection by a given key"
+     [key acc cur]
+     (assoc acc (key cur) cur)))
+
+#?(:clj
+   (def output-file-type
+     {:edn #(-> % pp/pprint with-out-str)
+      :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))}))
+
+#?(:clj
+   (defn csv-data->maps [csv-data]
+     (map zipmap
+          (->> (first csv-data)
+               (map #(-> % csk/->kebab-case keyword))
+               repeat)
+          (rest csv-data))))
 
 (defn logger [v]
   (-> v #?(:cljs clj->js :clj identity) #?(:cljs js/console.log :clj print)) v)

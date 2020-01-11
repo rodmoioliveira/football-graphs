@@ -1,20 +1,11 @@
-; src/main/io/spit_match.clj --id=2057978 --type=edn
-
 (ns io.spit-match
   (:require
    [camel-snake-kebab.core :as csk]
-   ; FIXME: import cljc in clj...
-   ; [football.utils :refer [hash-by]]
    [clojure.edn :as edn]
-   [clojure.pprint :as pp]
+   [football.utils :refer [hash-by output-file-type]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]))
-
-(defn hash-by
-  "Hashmap a collection by a given key"
-  [key acc cur]
-  (assoc acc (-> cur key str keyword) cur))
 
 (def options [["-i" "--id ID" "Match ID"]
               ["-t" "--type TYPE" "File Type (json or edn)"
@@ -29,7 +20,7 @@
 
 (defn get-data
   []
-  (let [path "main/data/soccer_match_event_dataset/"
+  (let [path "data/soccer_match_event_dataset/"
         get-file #(io/resource (str path %))
         list->hash (fn [v] (reduce (partial hash-by :wy-id) (sorted-map) v))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
@@ -57,14 +48,11 @@
                  json->edn
                  (#(filter (fn [e] (= (-> e :match-id) id)) %)))}))
 
-(def output-file-type
-  {:edn #(-> % pp/pprint with-out-str)
-   :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))})
-
 (if (-> errors some? not)
-  (let [data (get-data)]
+  (let [data (get-data)
+        match-label (-> data :match :label csk/->snake_case)]
     (spit
-     (str "src/main/data/matches/" (-> data :match :label csk/->snake_case) "." (name file-type))
+     (str "src/main/data/matches/" match-label "." (name file-type))
      ((output-file-type file-type) data))
-    (print "Success!"))
+    (print (str "Success on spit " match-label)))
   (print errors))

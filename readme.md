@@ -9,6 +9,8 @@
 ![image](https://scx2.b-cdn.net/gfx/news/hires/journal_pone_0010937_g005.jpg)
 ![image](https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png)
 
+---
+
 # Passing Networks
 
 - https://tsj101sports.com/2018/06/20/football-with-graph-theory/
@@ -23,7 +25,37 @@
 - https://phys.org/news/2010-06-science-true-soccer-stars.html
 - https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png
 
+---
+
 # Dataset
 
 - https://figshare.com/collections/Soccer_match_event_dataset/4415000/2
 - https://apidocs.wyscout.com/
+
+---
+
+# IO Usage
+
+### Spit match
+```sh
+clj src/main/io/meta_data.clj --type=json
+```
+or
+```sh
+clj src/main/io/meta_data.clj --type=end
+```
+
+### Metadata
+```sh
+clj src/main/io/spit_match.clj --id=2057978 --type=json
+```
+or
+```sh
+clj src/main/io/spit_match.clj --id=2057978 --type=edn
+```
+### Extract All World Cup Matches
+
+```sh
+chmod +x get_all_world_cup_matches.sh
+./get_brazil_matches.sh
+```

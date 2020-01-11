@@ -9,7 +9,7 @@
   {:lost-ball "Ground loose ball duel"})
 
 (defn passes-count
-  "Log da contagem de passes. Atual [464, 397]; Correta: [544 453]"
+  "Log da contagem de passes. Atual [464, 397]; Passes corretos [473 357]"
   [v]
   (-> (map (fn [x] (apply + (map (fn [y] (y :value)) x))) v) clj->js js/console.log)
   v)
