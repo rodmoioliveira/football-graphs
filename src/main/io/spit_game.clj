@@ -2,6 +2,7 @@
 (ns io.spit-game
   (:require
    [camel-snake-kebab.core :as csk]
+   ; FIXME: import cljc in clj...
    ; [football.utils :refer [hash-by]]
    [clojure.edn :as edn]
    [clojure.pprint :as pp]
@@ -14,14 +15,20 @@
   [key acc cur]
   (assoc acc (-> cur key str keyword) cur))
 
-(def options [["-i" "--id ID" "Game ID"]])
+(def options [["-i" "--id ID" "Game ID"]
+              ["-t" "--type TYPE" "File Type (json or edn)"
+               :default :edn
+               :parse-fn keyword
+               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]])
 (def args (-> *command-line-args* (parse-opts options)))
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
+(def file-type (-> args :options :type))
+(def errors (-> args :errors))
 
 (defn get-data
   []
-  (let [path "main/data/"
+  (let [path "main/data/soccer_match_event_dataset/"
         get-file #(io/resource (str path %))
         list->hash (fn [v] (reduce (partial hash-by :wy-id) (sorted-map) v))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
@@ -49,8 +56,14 @@
                  json->edn
                  (#(filter (fn [e] (= (-> e :match-id) id)) %)))}))
 
-(def data (get-data))
+(def output-file-type
+  {:edn #(-> % pp/pprint with-out-str)
+   :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))})
 
-(spit
- (str "src/main/data/games/" (-> data :match :label csk/->snake_case) ".edn")
- (-> data pp/pprint with-out-str))
+(if (-> errors some? not)
+  (let [data (get-data)]
+    (spit
+     (str "src/main/data/games/" (-> data :match :label csk/->snake_case)  "." (name file-type))
+     ((output-file-type file-type) data))
+    (print "Success!"))
+  (print errors))
