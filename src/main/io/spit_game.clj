@@ -1,4 +1,5 @@
-; clj src/main/io/spit_game.clj --id=2057978
+; src/main/io/spit_game.clj --id=2057978 --type=edn
+
 (ns io.spit-game
   (:require
    [camel-snake-kebab.core :as csk]
