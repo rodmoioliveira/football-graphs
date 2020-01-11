@@ -2,7 +2,7 @@
   (:require
     [utils.core :refer [assoc-pos]]
     [football.data :refer [brazil switzerland data]]
-    [football.tatical :refer [tatical-schemes]]
+    [mapping.tatical :refer [tatical-schemes]]
     [football.config :refer [config themes]]
     [football.graph :refer [force-graph]]))
 

@@ -1,7 +1,7 @@
 (ns football.mock-data
   (:require
    [utils.core :refer [assoc-pos]]
-   [football.tatical :refer [tatical-schemes]]))
+   [mapping.tatical :refer [tatical-schemes]]))
 
 (def team-formations
   {:4-2-3-1 [{:id "7" :pos :ATC}
