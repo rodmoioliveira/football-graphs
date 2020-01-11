@@ -2,7 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.edn :as edn]
-   [football.utils :refer [hash-by output-file-type]]
+   [utils.core :refer [hash-by output-file-type]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]))

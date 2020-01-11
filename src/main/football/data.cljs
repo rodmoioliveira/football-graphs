@@ -3,7 +3,7 @@
    [shadow.resource :as rc]
    ; [cljs.reader :as reader]
    [clojure.set :refer [project]]
-   [football.utils :refer [hash-by logger]]))
+   [utils.core :refer [hash-by logger]]))
 
 (def sub-events
   {:lost-ball "Ground loose ball duel"})

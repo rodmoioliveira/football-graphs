@@ -1,4 +1,4 @@
-(ns football.utils
+(ns utils.core
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]

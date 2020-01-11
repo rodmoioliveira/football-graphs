@@ -2,7 +2,7 @@
         org.clojure/tools.cli {:mvn/version "0.4.2"}
         camel-snake-kebab {:mvn/version "0.4.1"}
         org.clojure/data.csv {:mvn/version "0.1.4"}
-        football.utils {:local/root "./src/main/football/utils"
+        utils.core {:local/root "./src/main/utils/core"
                         :deps/manifest :deps}}
  :paths ["src/dev" "src/main" "src/test"]
- :classpath-overrides {football.utils "./src/main/football/utils"}}
+ :classpath-overrides {utils.core "./src/main/utils/core"}}

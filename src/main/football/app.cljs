@@ -1,7 +1,7 @@
 (ns football.app
   (:require
+    [utils.core :refer [assoc-pos]]
     [football.data :refer [brazil switzerland data]]
-    [football.utils :refer [assoc-pos]]
     [football.tatical :refer [tatical-schemes]]
     [football.config :refer [config themes]]
     [football.graph :refer [force-graph]]))

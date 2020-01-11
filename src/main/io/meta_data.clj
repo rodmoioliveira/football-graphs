@@ -1,6 +1,6 @@
 (ns io.meta-data
   (:require
-   [football.utils :refer [hash-by csv-data->maps output-file-type]]
+   [utils.core :refer [hash-by csv-data->maps output-file-type]]
    [clojure.data.csv :as csv]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.pprint :as pp]

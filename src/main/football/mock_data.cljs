@@ -1,6 +1,6 @@
 (ns football.mock-data
   (:require
-   [football.utils :refer [assoc-pos]]
+   [utils.core :refer [assoc-pos]]
    [football.tatical :refer [tatical-schemes]]))
 
 (def team-formations

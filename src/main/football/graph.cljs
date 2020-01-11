@@ -3,7 +3,7 @@
     :author "Rodolfo Mói"}
   football.graph
   (:require
-    [football.utils :refer [get-distance radians-between find-node]]
+    [utils.core :refer [get-distance radians-between find-node]]
     ["d3" :as d3]))
 
 ; ==================================
