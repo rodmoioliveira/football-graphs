@@ -2,7 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
-   [clojure.data.json :as json]))
+   #?(:clj [clojure.data.json :as json])))
 
 #?(:clj
    (defn hash-by
