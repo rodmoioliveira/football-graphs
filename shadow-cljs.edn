@@ -2,7 +2,9 @@
 {:source-paths ["src/dev"
                 "src/main"
                 "src/test"]
- :dependencies []
+ :dependencies [[camel-snake-kebab "0.4.1"]
+                [org.clojure/tools.cli "0.4.2"]
+                [org.clojure/data.json "0.2.7"]]
  :dev-http {8080 "public"}
  :builds {:dev
           {:target :browser
@@ -14,5 +16,4 @@
            :asset-path "/js"
            :build-options {:manifest-name "manifest.json"}
            :compiler-options {:optimizations :simple}
-           :modules {:main {:init-fn football.app/init}}
-           }}}
+           :modules {:main {:init-fn football.app/init}}}}}
