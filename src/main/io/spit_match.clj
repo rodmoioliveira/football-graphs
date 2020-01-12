@@ -48,7 +48,12 @@
                  (#(assoc match :teams-data %)))
 
      :players players
-     ; :project (-> players vals (project [:wy-id :short-name]) vec list->hash)
+     ; :project (-> players
+     ;              vals
+     ;              (#(map (fn [p] (assoc p :pos :???)) %))
+     ;              (project [:pos :wy-id :short-name])
+     ;              vec
+     ;              list->hash)
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn
