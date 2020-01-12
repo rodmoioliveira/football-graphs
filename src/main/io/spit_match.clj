@@ -2,7 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.edn :as edn]
-   [utils.core :refer [hash-by output-file-type assoc-names]]
+   [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]))
@@ -22,12 +22,11 @@
   []
   (let [path "data/soccer_match_event_dataset/"
         get-file #(io/resource (str path %))
-        list->hash (fn [v] (reduce (partial hash-by :wy-id) (sorted-map) v))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
         match (-> (get-file "matches_World_Cup.json")
                   slurp
                   json->edn
-                  list->hash
+                  hash-by-id
                   id-keyword)
         teams-ids (-> match
                       :teams-data
@@ -40,7 +39,7 @@
                     (#(filter (fn [{:keys [current-national-team-id]}]
                                 (some (fn [id] (= id current-national-team-id)) teams-ids))
                               %))
-                    list->hash)]
+                    hash-by-id)]
     {:match (->> match
                  (assoc-names players)
                  (reduce-by :team-id)
@@ -52,7 +51,7 @@
      ;              (#(map (fn [p] (assoc p :pos :???)) %))
      ;              (project [:pos :wy-id :short-name])
      ;              vec
-     ;              list->hash)
+     ;              hash-by-id)
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn

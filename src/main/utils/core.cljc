@@ -17,6 +17,9 @@
      (assoc acc (key cur) cur)))
 
 #?(:clj
+   (defn hash-by-id [v] (reduce (partial hash-by :wy-id) (sorted-map) v)))
+
+#?(:clj
    (def output-file-type
      {:edn #(-> % pp/pprint with-out-str)
       :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))}))
