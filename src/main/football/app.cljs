@@ -25,8 +25,6 @@
                     array-seq
                     (#(map (fn [el]
                              {:id (.getAttribute el "id")
-                              :el el
-                              :formation (-> el (.getAttribute "data-formation") keyword)
                               :data (-> el
                                         (.getAttribute "data-match-id")
                                         keyword
