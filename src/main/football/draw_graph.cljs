@@ -8,10 +8,10 @@
 ; ==================================
 (defn draw-edges
   [{:keys [edge config active-node]}]
-  (let [source-x (-> edge .-source .-coord_pos .-x)
-        source-y (-> edge .-source .-coord_pos .-y)
-        target-x (-> edge .-target .-coord_pos .-x)
-        target-y (-> edge .-target .-coord_pos .-y)
+  (let [source-x (-> edge .-source .-coord .-x)
+        source-y (-> edge .-source .-coord .-y)
+        target-x (-> edge .-target .-coord .-x)
+        target-y (-> edge .-target .-coord .-y)
         value (-> edge .-value)
         source-target-distance (get-distance
                                  source-x
@@ -76,8 +76,8 @@
 
 (defn draw-numbers
   [{:keys [node config]}]
-  (let [x-pos (-> node .-coord_pos .-x)
-        y-pos (-> node .-coord_pos .-y)]
+  (let [x-pos (-> node .-coord .-x)
+        y-pos (-> node .-coord .-y)]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
@@ -87,8 +87,8 @@
 
 (defn draw-nodes
   [{:keys [node config]}]
-  (let [x-pos (-> node .-coord_pos .-x)
-        y-pos (-> node .-coord_pos .-y)
+  (let [x-pos (-> node .-coord .-x)
+        y-pos (-> node .-coord .-y)
         is-active? (-> node .-active)
         active-color #(if is-active? (-> config :nodes :active :color) %)]
     (doto (-> config :ctx)
@@ -161,8 +161,7 @@
 ; Force graph
 ; ==================================
 (defn force-graph
-  [{:keys [data data-2 config]}]
-  (print data-2)
+  [{:keys [data config]}]
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)
         simulation (-> d3
