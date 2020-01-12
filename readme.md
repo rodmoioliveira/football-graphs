@@ -36,16 +36,16 @@
 
 # IO Usage
 
-### Spit match
+### Metadata
 ```sh
 clj src/main/io/meta_data.clj --type=json
 ```
 or
 ```sh
-clj src/main/io/meta_data.clj --type=end
+clj src/main/io/meta_data.clj --type=edn
 ```
 
-### Metadata
+### Spit match
 ```sh
 clj src/main/io/spit_match.clj --id=2057978 --type=json
 ```
@@ -53,8 +53,17 @@ or
 ```sh
 clj src/main/io/spit_match.clj --id=2057978 --type=edn
 ```
-### Extract All World Cup Matches
 
+### Spit graph
+```sh
+clj src/main/io/spit_graph.clj --id=2057978 --type=json
+```
+or
+```sh
+clj src/main/io/spit_graph.clj --id=2057978 --type=edn
+```
+
+### Extract All World Cup Matches
 ```sh
 chmod +x get_all_world_cup_matches.sh
 ./get_brazil_matches.sh
