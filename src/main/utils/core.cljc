@@ -43,14 +43,13 @@
 
 #?(:cljs
    (defn assoc-pos
-     [canvas team formation tatical-schemes]
-     (let [placement (partial place-node canvas)
-           coords (fn [p] (-> tatical-schemes formation (get-in [(-> p :pos)])))]
-       (map (fn [p]
+     [nodes canvas]
+     (let [placement (partial place-node canvas)]
+       (map (fn [n]
               (assoc-in
-               p
-               [:coord_pos]
-               (apply placement (coords p)))) team))))
+               n
+               [:coord]
+               (apply placement (n :coord-pos)))) nodes))))
 
 #?(:cljs
    (defn get-distance
@@ -84,8 +83,8 @@
        (loop [i 0]
          (let [interate? (< i nodes-length)
                node (get nodes i)
-               dx (- x (-> node .-coord_pos .-x))
-               dy (- y (-> node .-coord_pos .-y))
+               dx (- x (-> node .-coord .-x))
+               dy (- y (-> node .-coord .-y))
                dist-sq (+ (* dx dx) (* dy dy))
                node-found? (< dist-sq rsq)]
            (if node-found?
