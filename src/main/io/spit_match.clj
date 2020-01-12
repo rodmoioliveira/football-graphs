@@ -2,7 +2,6 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.edn :as edn]
-   ; [clojure.set :refer [project]]
    [utils.core :refer [hash-by output-file-type assoc-names]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
@@ -61,9 +60,11 @@
 
 (if (-> errors some? not)
   (let [data (get-data)
-        match-label (-> data :match :label csk/->snake_case)]
+        match-label (-> data :match :label csk/->snake_case)
+        dist "src/main/data/matches/"
+        ext (name file-type)]
     (spit
-     (str "src/main/data/matches/" match-label "." (name file-type))
+     (str dist match-label "." ext)
      ((output-file-type file-type) data))
-    (print (str "Success on spit " match-label)))
+    (print (str "Success on spit " dist match-label "." ext)))
   (print errors))
