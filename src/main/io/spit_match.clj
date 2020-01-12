@@ -2,11 +2,15 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.edn :as edn]
-   [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
-   [clojure.data.json :as json]))
+   [clojure.data.json :as json]
 
+   [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]))
+
+; ==================================
+; Command Line Options
+; ==================================
 (def options [["-i" "--id ID" "Match ID"]
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
@@ -18,6 +22,9 @@
 (def file-type (-> args :options :type))
 (def errors (-> args :errors))
 
+; ==================================
+; Fetch Data
+; ==================================
 (defn get-data
   []
   (let [path "data/soccer_match_event_dataset/"
@@ -57,6 +64,9 @@
                  json->edn
                  (#(filter (fn [e] (= (-> e :match-id) id)) %)))}))
 
+; ==================================
+; IO
+; ==================================
 (if (-> errors some? not)
   (let [data (get-data)
         match-label (-> data :match :label csk/->snake_case)
