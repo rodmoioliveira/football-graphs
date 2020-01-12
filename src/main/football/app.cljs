@@ -4,7 +4,7 @@
     [football.data :refer [brazil switzerland data]]
     [mapping.tatical :refer [tatical-schemes]]
     [football.config :refer [config themes]]
-    [football.graph :refer [force-graph]]))
+    [football.draw-graph :refer [force-graph]]))
 
 (def teams
   {:brazil brazil

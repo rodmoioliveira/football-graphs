@@ -59,11 +59,6 @@
 ; (-> (rc/inline "../data/matches/brazil_switzerland,_1_1.edn") reader/read-string clj->js js/console.log)
 ; (-> js/JSON (.parse (rc/inline "../data/matches/brazil_switzerland,_1_1.json")) js/console.log)
 
-(def matches (-> js/JSON
-                 (.parse (rc/inline "../data/matches_World_Cup.json"))
-                 (js->clj :keywordize-keys true)
-                 ((fn [v] (filter #(= (-> % :wyId) 2057978) v)))
-                 ((fn [v] (reduce (partial hash-by :wyId) (sorted-map) v)))))
 
 (def players (-> js/JSON
                  (.parse (rc/inline "../data/players.json"))
@@ -72,7 +67,9 @@
 
 (def nodes (-> players
                vals
+               logger
                (project [:pos :currentNationalTeamId])
+               logger
                (#(map (fn [p] (merge p {:id (p :pos) :pos (-> p :pos keyword)})) %))
                (#(group-by :currentNationalTeamId %))
                vals
@@ -118,8 +115,6 @@
 
 (def data
   {:links (links)
-   :matches matches
-   :players players
    :nodes nodes})
 
 (def brazil

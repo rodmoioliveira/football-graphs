@@ -1,7 +1,4 @@
-(ns
-  ^{:doc "Graphs for football matches"
-    :author "Rodolfo Mói"}
-  football.graph
+(ns football.draw-graph
   (:require
     [utils.core :refer [get-distance radians-between find-node]]
     ["d3" :as d3]))
