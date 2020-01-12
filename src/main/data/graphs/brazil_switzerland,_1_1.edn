@@ -1,5 +1,8 @@
-{:nodes
- (({:id :ZAE,
+{:match-id 2057978,
+ :label "Brazil - Switzerland, 1 - 1",
+ :nodes
+ {:6380
+  ({:id :ZAE,
     :pos :ZAE,
     :short-name ("Jo\\u00e3o Miranda"),
     :current-national-team-id 6380,
@@ -53,7 +56,8 @@
     :pos :GOL,
     :short-name ("Alisson"),
     :current-national-team-id 6380,
-    :coord-pos [50 94]})
+    :coord-pos [50 94]}),
+  :6697
   ({:id :ZAE,
     :pos :ZAE,
     :short-name ("M. Akanji"),
@@ -108,9 +112,10 @@
     :pos :GOL,
     :short-name ("Y. Sommer"),
     :current-national-team-id 6697,
-    :coord-pos [50 94]})),
+    :coord-pos [50 94]})},
  :links
- (({:source :ZAE, :target :GOL, :team-id 6380, :value 1}
+ {:6380
+  ({:source :ZAE, :target :GOL, :team-id 6380, :value 1}
    {:source :ZAE, :target :PTE, :team-id 6380, :value 1}
    {:source :GOL, :target :PTD, :team-id 6380, :value 1}
    {:source :GOL, :target :VOC, :team-id 6380, :value 1}
@@ -200,7 +205,8 @@
    {:source :LAE, :target :VOE, :team-id 6380, :value 15}
    {:source :ZAD, :target :LAD, :team-id 6380, :value 18}
    {:source :VOE, :target :LAE, :team-id 6380, :value 18}
-   {:source :ZAE, :target :LAE, :team-id 6380, :value 26})
+   {:source :ZAE, :target :LAE, :team-id 6380, :value 26}),
+  :6697
   ({:source :VOC, :target :ZAD, :team-id 6697, :value 1}
    {:source :VOE, :target :ATC, :team-id 6697, :value 1}
    {:source :LAD, :target :GOL, :team-id 6697, :value 1}
@@ -290,4 +296,4 @@
    {:source :LAD, :target :PTD, :team-id 6697, :value 13}
    {:source :ZAE, :target :ZAD, :team-id 6697, :value 14}
    {:source :PTD, :target :LAD, :team-id 6697, :value 15}
-   {:source :ZAD, :target :ZAE, :team-id 6697, :value 22}))}
+   {:source :ZAD, :target :ZAE, :team-id 6697, :value 22})}}

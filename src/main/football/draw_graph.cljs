@@ -161,7 +161,8 @@
 ; Force graph
 ; ==================================
 (defn force-graph
-  [{:keys [data config]}]
+  [{:keys [data data-2 config]}]
+  (print data-2)
   (let [nodes (-> data .-nodes)
         edges (-> data .-links)
         simulation (-> d3

@@ -1,7 +1,8 @@
+; TODO: remove file...
 (ns football.data
   (:require
    [shadow.resource :as rc]
-   [cljs.reader :as reader]
+   ; [cljs.reader :as reader]
    [clojure.set :refer [project]]
    [utils.core :refer [hash-by logger]]))
 
@@ -56,7 +57,7 @@
    teams))
 
 
-(-> (rc/inline "../data/graphs/brazil_switzerland,_1_1.edn") reader/read-string clj->js js/console.log)
+; (-> (rc/inline "../data/graphs/brazil_switzerland,_1_1.edn") reader/read-string clj->js js/console.log)
 ; (-> js/JSON (.parse (rc/inline "../data/matches/brazil_switzerland,_1_1.json")) js/console.log)
 
 

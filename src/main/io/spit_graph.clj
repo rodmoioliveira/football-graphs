@@ -23,15 +23,15 @@
 (def file-type (-> args :options :type))
 (def errors (-> args :errors))
 
-(defn remove-cycle
-  "Eventos como [24 -> 24 -> 24 -> 25] se transformam em [24 -> 25]"
-  [coll]
-  (let [index-coll (map #(vector %2 %1) coll (range))]
-    (remove (fn [[i e]] (let [last? (= (+ i 1) (count coll))]
-                          (if last?
-                            false
-                            (= (-> e :playerId) (get-in coll [(+ 1 i) :playerId])))))
-            index-coll)))
+; (defn remove-cycle
+;   "Eventos como [24 -> 24 -> 24 -> 25] se transformam em [24 -> 25]"
+;   [coll]
+;   (let [index-coll (map #(vector %2 %1) coll (range))]
+;     (remove (fn [[i e]] (let [last? (= (+ i 1) (count coll))]
+;                           (if last?
+;                             false
+;                             (= (-> e :playerId) (get-in coll [(+ 1 i) :playerId])))))
+;             index-coll)))
 
 (defn link-passes
   "Cria relacionamento de links"
@@ -153,8 +153,22 @@
         )))
 
 (if (-> errors some? not)
-  (let [graph {:nodes (-> nodes :nodes)
-               :links (links)}
+  (let [graph {:match-id (-> id Integer.)
+               :label (-> data :match :label)
+               :nodes (-> nodes
+                          :nodes (#(reduce
+                                    (fn [acc cur]
+                                      (assoc-in
+                                       acc
+                                       [(-> cur first :current-national-team-id str keyword)]
+                                       cur)) {} %)))
+               :links (-> (links)
+                          (#(reduce (fn
+                                      [acc cur]
+                                      (assoc-in
+                                       acc
+                                       [(-> cur first :team-id str keyword)]
+                                       cur)) {} %)))}
         match-label (-> data :match :label csk/->snake_case)
         dist "src/main/data/graphs/"
         ext (name file-type)]
