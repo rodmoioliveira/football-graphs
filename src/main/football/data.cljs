@@ -67,9 +67,7 @@
 
 (def nodes (-> players
                vals
-               logger
                (project [:pos :currentNationalTeamId])
-               logger
                (#(map (fn [p] (merge p {:id (p :pos) :pos (-> p :pos keyword)})) %))
                (#(group-by :currentNationalTeamId %))
                vals

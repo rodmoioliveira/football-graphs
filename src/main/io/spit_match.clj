@@ -66,5 +66,5 @@
     (spit
      (str dist match-label "." ext)
      ((output-file-type file-type) data))
-    (print (str "Success on spit " dist match-label "." ext)))
+    (println (str "Success on spit " dist match-label "." ext)))
   (print errors))
