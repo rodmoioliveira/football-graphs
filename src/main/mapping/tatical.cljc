@@ -1,6 +1,6 @@
 (ns mapping.tatical)
 
-(def tatical-schemes
+(def positions
   {:4-2-3-1 {:ATC [50 6]
              :VOC [50 27]
              :PTE [12 27]
@@ -23,3 +23,9 @@
            :ZAE [30 79]
            :ZAD [70 79]
            :GOL [50 94]}})
+
+#?(:cljs
+   (def tatical-schemes positions))
+
+#?(:clj
+   (def tatical-schemes positions))

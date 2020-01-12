@@ -2,6 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.edn :as edn]
+   ; [clojure.set :refer [project]]
    [utils.core :refer [hash-by output-file-type assoc-names]]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
@@ -47,6 +48,7 @@
                  (#(assoc match :teams-data %)))
 
      :players players
+     ; :project (-> players vals (project [:wy-id :short-name]) vec list->hash)
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn
