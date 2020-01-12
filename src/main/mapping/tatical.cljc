@@ -23,9 +23,3 @@
            :ZAE [30 79]
            :ZAD [70 79]
            :GOL [50 94]}})
-
-#?(:cljs
-   (def tatical-schemes positions))
-
-#?(:clj
-   (def tatical-schemes positions))

@@ -1,10 +1,14 @@
 (ns io.meta-data
   (:require
-   [utils.core :refer [hash-by csv-data->maps output-file-type]]
    [clojure.data.csv :as csv]
    [clojure.tools.cli :refer [parse-opts]]
-   [clojure.java.io :as io]))
+   [clojure.java.io :as io]
 
+   [utils.core :refer [hash-by csv-data->maps output-file-type]]))
+
+; ==================================
+; Command Line Options
+; ==================================
 (def options [["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
                :parse-fn keyword
@@ -13,6 +17,9 @@
 (def file-type (-> args :options :type))
 (def errors (-> args :errors))
 
+; ==================================
+; IO
+; ==================================
 (let [path "data/meta/"
       meta ["event.csv" "position.csv" "schemes.csv" "tags.csv"]
       get-file (fn [f] (-> f
