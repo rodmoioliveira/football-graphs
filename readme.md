@@ -36,9 +36,9 @@
 
 # Dependencies to be installed
 
-[Clojure](https://clojure.org/guides/getting_started)
-[Java](https://java.com/en/download/help/download_options.xml)
-[Node](https://nodejs.org/en/download/)
+- [Clojure](https://clojure.org/guides/getting_started)
+- [Java](https://java.com/en/download/help/download_options.xml)
+- [Node](https://nodejs.org/en/download/)
 
 # Run Project
 ```sh
