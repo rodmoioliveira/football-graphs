@@ -34,9 +34,26 @@
 
 ---
 
+# Dependencies to be installed
+
+[Clojure](https://clojure.org/guides/getting_started)
+[Java](https://java.com/en/download/help/download_options.xml)
+[Node](https://nodejs.org/en/download/)
+
+# Run Project
+```sh
+npm install && npm start
+```
+
 # IO Usage
 
-### Metadata
+## Params
+```sh
+--id   [Id of a match]
+--type [Filetype output]
+```
+
+#### Metadata
 ```sh
 clj src/main/io/meta_data.clj --type=json
 ```
@@ -45,7 +62,7 @@ or
 clj src/main/io/meta_data.clj --type=edn
 ```
 
-### Spit match
+#### Spit match
 ```sh
 clj src/main/io/spit_match.clj --id=2057978 --type=json
 ```
@@ -54,7 +71,7 @@ or
 clj src/main/io/spit_match.clj --id=2057978 --type=edn
 ```
 
-### Spit graph
+#### Spit graph
 ```sh
 clj src/main/io/spit_graph.clj --id=2057978 --type=json
 ```
@@ -63,8 +80,8 @@ or
 clj src/main/io/spit_graph.clj --id=2057978 --type=edn
 ```
 
-### Extract All World Cup Matches
+#### Extract All World Cup Matches
 ```sh
 chmod +x get_all_world_cup_matches.sh
-./get_brazil_matches.sh
+./get_all_world_cup_matches.sh
 ```
