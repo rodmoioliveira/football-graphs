@@ -1,21 +1,16 @@
-; src/main/io/spit_match.clj --id=2057978 --type=edn
-
 (ns io.spit-match
   (:require
    [camel-snake-kebab.core :as csk]
-   ; FIXME: import cljc in clj...
-   ; [football.utils :refer [hash-by]]
    [clojure.edn :as edn]
-   [clojure.pprint :as pp]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
-   [clojure.data.json :as json]))
+   [clojure.data.json :as json]
 
-(defn hash-by
-  "Hashmap a collection by a given key"
-  [key acc cur]
-  (assoc acc (-> cur key str keyword) cur))
+   [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]))
 
+; ==================================
+; Command Line Options
+; ==================================
 (def options [["-i" "--id ID" "Match ID"]
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
@@ -27,44 +22,58 @@
 (def file-type (-> args :options :type))
 (def errors (-> args :errors))
 
+; ==================================
+; Fetch Data
+; ==================================
 (defn get-data
   []
-  (let [path "main/data/soccer_match_event_dataset/"
+  (let [path "data/soccer_match_event_dataset/"
         get-file #(io/resource (str path %))
-        list->hash (fn [v] (reduce (partial hash-by :wy-id) (sorted-map) v))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
         match (-> (get-file "matches_World_Cup.json")
                   slurp
                   json->edn
-                  list->hash
+                  hash-by-id
                   id-keyword)
-        players (-> (get-file "players.json")
-                    slurp
-                    json->edn)
         teams-ids (-> match
                       :teams-data
                       vals
-                      (#(map (fn [{:keys [team-id]}] team-id) %)))]
+                      (#(map (fn [{:keys [team-id]}] team-id) %)))
+        reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
+        players (-> (get-file "players.json")
+                    slurp
+                    json->edn
+                    (#(filter (fn [{:keys [current-national-team-id]}]
+                                (some (fn [id] (= id current-national-team-id)) teams-ids))
+                              %))
+                    hash-by-id)]
+    {:match (->> match
+                 (assoc-names players)
+                 (reduce-by :team-id)
+                 (#(assoc match :teams-data %)))
 
-    {:match match
-     :players (-> players
-                  (#(filter (fn [{:keys [current-national-team-id]}]
-                              (some (fn [id] (= id current-national-team-id)) teams-ids))
-                            %))
-                  list->hash)
+     :players players
+     ; :project (-> players
+     ;              vals
+     ;              (#(map (fn [p] (assoc p :pos :???)) %))
+     ;              (project [:pos :wy-id :short-name])
+     ;              vec
+     ;              hash-by-id)
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn
                  (#(filter (fn [e] (= (-> e :match-id) id)) %)))}))
 
-(def output-file-type
-  {:edn #(-> % pp/pprint with-out-str)
-   :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))})
-
+; ==================================
+; IO
+; ==================================
 (if (-> errors some? not)
-  (let [data (get-data)]
+  (let [data (get-data)
+        match-label (-> data :match :label csk/->snake_case)
+        dist "src/main/data/matches/"
+        ext (name file-type)]
     (spit
-     (str "src/main/data/matches/" (-> data :match :label csk/->snake_case) "." (name file-type))
+     (str dist match-label "." ext)
      ((output-file-type file-type) data))
-    (print "Success!"))
+    (println (str "Success on spit " dist match-label "." ext)))
   (print errors))

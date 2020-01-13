@@ -9,6 +9,8 @@
 ![image](https://scx2.b-cdn.net/gfx/news/hires/journal_pone_0010937_g005.jpg)
 ![image](https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png)
 
+---
+
 # Passing Networks
 
 - https://tsj101sports.com/2018/06/20/football-with-graph-theory/
@@ -23,7 +25,63 @@
 - https://phys.org/news/2010-06-science-true-soccer-stars.html
 - https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png
 
+---
+
 # Dataset
 
 - https://figshare.com/collections/Soccer_match_event_dataset/4415000/2
 - https://apidocs.wyscout.com/
+
+---
+
+# Dependencies to be installed
+
+- [Clojure](https://clojure.org/guides/getting_started)
+- [Java](https://java.com/en/download/help/download_options.xml)
+- [Node](https://nodejs.org/en/download/)
+
+# Run Project
+```sh
+npm install && npm start
+```
+
+# IO Usage
+
+## Params
+```sh
+--id   [Id of a match]
+--type [Filetype output]
+```
+
+#### Metadata
+```sh
+clj src/main/io/meta_data.clj --type=json
+```
+or
+```sh
+clj src/main/io/meta_data.clj --type=edn
+```
+
+#### Spit match
+```sh
+clj src/main/io/spit_match.clj --id=2057978 --type=json
+```
+or
+```sh
+clj src/main/io/spit_match.clj --id=2057978 --type=edn
+```
+
+#### Spit graph
+```sh
+clj src/main/io/spit_graph.clj --id=2057978 --type=json
+```
+or
+```sh
+clj src/main/io/spit_graph.clj --id=2057978 --type=edn
+```
+
+#### Extract All World Cup Matches
+```sh
+chmod +x get_all_world_cup_matches.sh
+./get_all_world_cup_matches.sh
+```
