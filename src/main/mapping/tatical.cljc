@@ -1,7 +1,18 @@
 (ns mapping.tatical)
 
 (def positions
-  {:4-2-3-1 {:ATC [50 6]
+  {:3-4-2-1 {:ATC [50 6]
+             :ATE [12 27]
+             :ATD [88 27]
+             :VOE [35 50]
+             :VOD [65 50]
+             :LAE [12 47]
+             :LAD [88 47]
+             :ZAC [50 74]
+             :ZAE [12 71]
+             :ZAD [88 71]
+             :GOL [50 94]}
+   :4-2-3-1 {:ATC [50 6]
              :VOC [50 27]
              :PTE [12 27]
              :PTD [88 27]
