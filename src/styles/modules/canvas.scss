@@ -1,7 +1,5 @@
 .graphs {
   margin: 5rem auto;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .graphs__inspiration {
@@ -20,15 +18,17 @@
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   margin: 0;
+}
+
+.graph__label {
+  text-align: center;
 }
 
 .graph__canvas {
   display: block;
-  max-width: 570px;
-
-  @include margin;
+  max-width: 470px;
 
   @media (max-width: 710px) {
     width: 100%;

@@ -10,7 +10,8 @@
 ; Matches
 ; ==================================
 (def brazil-matches
-  [(-> (rc/inline "../data/graphs/brazil_switzerland,_1_1.edn") reader/read-string)])
+  [(-> (rc/inline "../data/graphs/brazil_switzerland,_1_1.edn") reader/read-string)
+   (-> (rc/inline "../data/graphs/brazil_costa_rica,_2_0.edn") reader/read-string)])
 
 (def matches-hash
   (reduce (fn [acc cur] (assoc-in acc [(-> cur :match-id str keyword)] cur))
@@ -31,8 +32,10 @@
                                         matches-hash
                                         ((fn [v]
                                            (let [id (-> el (.getAttribute "data-team-id") keyword)]
-                                             {:nodes (-> v :nodes id (assoc-pos el))
-                                              :links (-> v :links id)}))))
+                                             {:match-id (-> v :match-id)
+                                              :nodes (-> v :nodes id (assoc-pos el))
+                                              :links (-> v :links id)
+                                              :label (-> v :label)}))))
                               :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
 ; ==================================
@@ -40,6 +43,9 @@
 ; ==================================
 (defn init []
   (doseq [canvas all-canvas]
+    (-> js/document
+        (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
+        (#(set! (.-innerHTML %) (-> canvas :data :label))))
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
                                    :theme (-> canvas :theme themes)})})))

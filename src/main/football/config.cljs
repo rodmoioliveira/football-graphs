@@ -30,7 +30,7 @@
 ; ==================================
 (defn config
   [{:keys [id theme]}]
-  (let [mapping {:domains {:passes #js [1 26]}
+  (let [mapping {:domains {:passes #js [1 31]}
                  :codomains {:edges-width #js [1 30]}}
         font {:weight "700"
               :size "25px"
