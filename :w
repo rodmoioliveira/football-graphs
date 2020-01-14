@@ -42,9 +42,9 @@
 ; ==================================
 (defn init []
   (doseq [canvas all-canvas]
-    (-> js/document
-        (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
-        (#(set! (.-innerHTML %) (-> canvas :data :label))))
+      (-> canvas :match-id js/console.log)
+    ; (-> (str "[data-match-id=" (canvas :match-id) "].label") js/console.log)
+      ; (-> js/document (.querySelector (str "[data-match-id=" id "].label")) js/console.log)
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
                                    :theme (-> canvas :theme themes)})})))
