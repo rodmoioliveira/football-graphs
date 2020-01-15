@@ -28,10 +28,24 @@
 
 .graph__canvas {
   display: block;
+}
+
+[data-orientation='gol-top'],
+[data-orientation='gol-bottom'] {
   max-width: 470px;
 
   @media (max-width: 710px) {
     width: 100%;
     max-width: 100rem;
+  }
+}
+
+[data-orientation='gol-left'],
+[data-orientation='gol-right'] {
+  max-height: 370px;
+
+  @media (max-width: 710px) {
+    width: 100%;
+    max-height: 100rem;
   }
 }
