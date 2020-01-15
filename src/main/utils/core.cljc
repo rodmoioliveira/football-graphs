@@ -41,15 +41,23 @@
      {:x (* (-> canvas .-width) (/ x-% 100))
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
+(def coord-mapping
+  {:gol-bottom identity
+   :gol-top (fn [[x y]] [x (- 100 y)])
+   :gol-left (fn [[x y]] [(- 100 y) x])
+   :gol-right (fn [[x y]] [y (- 100 x)])})
+
 #?(:cljs
    (defn assoc-pos
-     [nodes canvas]
+     [nodes canvas orientation]
      (let [placement (partial place-node canvas)]
        (map (fn [n]
-              (assoc-in
-               n
-               [:coord]
-               (apply placement (n :coord-pos)))) nodes))))
+              (let [coord (-> n :coord-pos)
+                    pos ((-> coord-mapping orientation) coord)]
+                (assoc-in
+                 n
+                 [:coord]
+                 (apply placement pos)))) nodes))))
 
 #?(:cljs
    (defn get-distance

@@ -32,9 +32,10 @@
                                         keyword
                                         matches-hash
                                         ((fn [v]
-                                           (let [id (-> el (.getAttribute "data-team-id") keyword)]
+                                           (let [id (-> el (.getAttribute "data-team-id") keyword)
+                                                 orientation (-> el (.getAttribute "data-orientation") keyword)]
                                              {:match-id (-> v :match-id)
-                                              :nodes (-> v :nodes id (assoc-pos el))
+                                              :nodes (-> v :nodes id (assoc-pos el orientation))
                                               :links (-> v :links id)
                                               :label (-> v :label)}))))
                               :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
