@@ -3,7 +3,7 @@
    [shadow.resource :as rc]
    [cljs.reader :as reader]
 
-   [utils.core :refer [assoc-pos set-canvas-dimensions]]
+   [utils.core :refer [assoc-pos set-canvas-dimensions mobile-mapping]]
    [football.config :refer [config themes]]
    [football.draw-graph :refer [force-graph]]))
 
@@ -21,32 +21,44 @@
           brazil-matches))
 
 ; ==================================
+; Viewport
+; ==================================
+; TODO: apply RXjs to event resize
+(defn mobile?
+  []
+  (< (-> js/window .-innerWidth) 901))
+
+; ==================================
 ; Get canvas from DOM
 ; ==================================
-(def all-canvas (-> js/document
-                    (.querySelectorAll ".graph__canvas")
-                    array-seq
-                    (#(map (fn [el]
-                             {:id (.getAttribute el "id")
-                              :data (-> el
-                                        (.getAttribute "data-match-id")
-                                        keyword
-                                        matches-hash
-                                        ((fn [v]
-                                           (let [id (-> el (.getAttribute "data-team-id") keyword)
-                                                 orientation (-> el (.getAttribute "data-orientation") keyword)]
-                                             ((set-canvas-dimensions orientation) el)
-                                             {:match-id (-> v :match-id)
-                                              :nodes (-> v :nodes id (assoc-pos el orientation))
-                                              :links (-> v :links id)
-                                              :label (-> v :label)}))))
-                              :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
+(defn all-canvas
+  [] (-> js/document
+         (.querySelectorAll ".graph__canvas")
+         array-seq
+         (#(map (fn [el]
+                  {:id (.getAttribute el "id")
+                   :data (-> el
+                             (.getAttribute "data-match-id")
+                             keyword
+                             matches-hash
+                             ((fn [v]
+                                (let [id (-> el (.getAttribute "data-team-id") keyword)
+                                      orientation (-> el
+                                                      (.getAttribute "data-orientation")
+                                                      keyword
+                                                      ((fn [k] (if (mobile?) (mobile-mapping k) k))))]
+                                  ((set-canvas-dimensions orientation) el)
+                                  {:match-id (-> v :match-id)
+                                   :nodes (-> v :nodes id (assoc-pos el orientation))
+                                   :links (-> v :links id)
+                                   :label (-> v :label)}))))
+                   :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
 ; ==================================
 ; Graphs Init
 ; ==================================
 (defn init []
-  (doseq [canvas all-canvas]
+  (doseq [canvas (all-canvas)]
     (-> js/document
         (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
         (#(set! (.-innerHTML %) (-> canvas :data :label))))

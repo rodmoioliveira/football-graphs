@@ -54,7 +54,6 @@
               :base-line "middle"}
         node-radius 20
         canvas (-> js/document (.getElementById id))]
-
     {:arrows {:recoil 19.5
               :expansion 1.3
               :width 50}

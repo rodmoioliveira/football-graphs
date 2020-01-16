@@ -60,6 +60,11 @@
                            (set! (.-width c) (-> canvas-dimensions first))))}))
 
 #?(:cljs
+   (def mobile-mapping
+     {:gol-right :gol-bottom
+      :gol-left :gol-top}))
+
+#?(:cljs
    (def coord-mapping
      {:gol-bottom identity
       :gol-top (fn [[x y]] [x (- 100 y)])
@@ -105,7 +110,8 @@
 #?(:cljs
    (defn find-node
      [canvas-width nodes x y radius]
-     (let [rsq (+ (* 2 canvas-width) (* radius radius))
+     ; TODO: put 5 value in config -> :radius-click
+     (let [rsq (+ (* 5 canvas-width) (* radius radius))
            nodes-length (-> nodes count dec)]
        (loop [i 0]
          (let [interate? (< i nodes-length)
