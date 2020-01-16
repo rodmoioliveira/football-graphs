@@ -3,6 +3,6 @@
         camel-snake-kebab {:mvn/version "0.4.1"}
         org.clojure/data.csv {:mvn/version "0.1.4"}
         utils.core {:local/root "./src/main/utils/core"
-                        :deps/manifest :deps}}
+                    :deps/manifest :deps}}
  :paths ["src/dev" "src/main" "src/test"]
  :classpath-overrides {utils.core "./src/main/utils/core"}}
