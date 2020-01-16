@@ -110,6 +110,7 @@
 #?(:cljs
    (defn find-node
      [canvas-width nodes x y radius]
+     ; TODO: put 5 value in config -> :radius-click
      (let [rsq (+ (* 5 canvas-width) (* radius radius))
            nodes-length (-> nodes count dec)]
        (loop [i 0]
