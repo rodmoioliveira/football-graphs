@@ -23,7 +23,13 @@
 }
 
 .graph__label {
+  font-size: 4rem;
+  font-weight: 700;
   text-align: center;
+
+  @media (max-width: 700px) {
+    font-size: 7vw;
+  }
 }
 
 .graph__canvas {

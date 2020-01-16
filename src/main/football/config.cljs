@@ -48,7 +48,7 @@
                  :codomains {:edges-width #js [2 22]}}
         font {:weight "700"
               :size "25px"
-              :type "sans-serif"
+              :type "'Open sans', sans-serif"
               :color "black"
               :text-align "center"
               :base-line "middle"}
