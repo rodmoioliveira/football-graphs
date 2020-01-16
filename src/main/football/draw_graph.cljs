@@ -1,5 +1,6 @@
 (ns football.draw-graph
   (:require
+    [clojure.string :refer [split]]
     [utils.core :refer [get-distance radians-between find-node]]
     ["d3" :as d3]))
 
@@ -74,16 +75,23 @@
   (draw-edges obj)
   (-> obj :config :ctx (.restore)))
 
-(defn draw-numbers
+(defn draw-players-names
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
-        y-pos (-> node .-coord .-y)]
+        y-pos (-> node .-coord .-y)
+        radius (-> config :nodes :radius)
+        name-position (-> config :nodes :name-position)]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
       ((fn [v] (set! (.-textAlign v) (-> config :nodes :font :text-align))))
       ((fn [v] (set! (.-textBaseline v) (-> config :nodes :font :base-line))))
-      (.fillText (-> node .-id) x-pos y-pos))))
+      (.fillText (-> node
+                     (aget "short-name")
+                     first
+                     (split #" ")
+                     ((fn [s] (if (> (count s) 1) (second s) (first s))))
+                     ) x-pos (- y-pos name-position)))))
 
 (defn draw-nodes
   [{:keys [node config]}]
@@ -105,7 +113,7 @@
   [obj]
   (doto obj
     (draw-nodes)
-    (draw-numbers)))
+    (draw-players-names)))
 
 (defn draw-graph
   [{:keys [edges nodes config active-node]}]

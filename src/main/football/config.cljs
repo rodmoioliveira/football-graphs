@@ -47,12 +47,12 @@
   (let [mapping {:domains {:passes #js [1 31]}
                  :codomains {:edges-width #js [2 22]}}
         font {:weight "700"
-              :size "20px"
+              :size "25px"
               :type "sans-serif"
-              :color (theme :secondary)
+              :color "black"
               :text-align "center"
               :base-line "middle"}
-        node-radius 35
+        node-radius 20
         canvas (-> js/document (.getElementById id))]
 
     {:arrows {:recoil 19.5
@@ -64,7 +64,8 @@
              :distance-between (/ node-radius 2.5)}
      :nodes {:radius node-radius
              :fill {:color (theme :primary)}
-             :active {:color "black"}
+             :active {:color (theme :accent)}
+             :name-position (+ node-radius 15)
              :outline {:color (theme :secondary)
                        :width "1.5"}
              :font (assoc font :full (str/join " " [(font :weight)
