@@ -34,6 +34,11 @@
 
 .graph__canvas {
   display: block;
+  margin: 1rem;
+
+  @media (max-width: 710px) {
+    margin: 0;
+  }
 }
 
 [data-orientation='gol-top'],

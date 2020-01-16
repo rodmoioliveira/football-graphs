@@ -45,7 +45,7 @@
 (defn config
   [{:keys [id theme]}]
   (let [mapping {:domains {:passes #js [1 31]}
-                 :codomains {:edges-width #js [2 22]}}
+                 :codomains {:edges-width #js [1 20]}}
         font {:weight "700"
               :size "25px"
               :type "'Open sans', sans-serif"
@@ -61,7 +61,7 @@
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 10
-             :distance-between (/ node-radius 1.5)}
+             :distance-between (/ node-radius 4)}
      :nodes {:radius node-radius
              :fill {:color (theme :primary)}
              :active {:color (theme :accent)}
