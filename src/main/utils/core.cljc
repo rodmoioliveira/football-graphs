@@ -60,6 +60,11 @@
                            (set! (.-width c) (-> canvas-dimensions first))))}))
 
 #?(:cljs
+   (def mobile-mapping
+     {:gol-right :gol-bottom
+      :gol-left :gol-top}))
+
+#?(:cljs
    (def coord-mapping
      {:gol-bottom identity
       :gol-top (fn [[x y]] [x (- 100 y)])
