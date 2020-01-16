@@ -110,7 +110,7 @@
 #?(:cljs
    (defn find-node
      [canvas-width nodes x y radius]
-     (let [rsq (+ (* 2 canvas-width) (* radius radius))
+     (let [rsq (+ (* 5 canvas-width) (* radius radius))
            nodes-length (-> nodes count dec)]
        (loop [i 0]
          (let [interate? (< i nodes-length)
