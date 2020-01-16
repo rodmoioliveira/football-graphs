@@ -1,7 +1,6 @@
 (ns io.spit-graph
   (:require
    [camel-snake-kebab.core :as csk]
-   [clojure.pprint :as pp]
    [clojure.edn :as edn]
    [clojure.set :refer [project]]
    [clojure.tools.cli :refer [parse-opts]]
@@ -10,7 +9,7 @@
 
    [mapping.matches :refer [map->pos]]
    [mapping.tatical :refer [positions]]
-   [utils.core :refer [hash-by output-file-type hash-by-id]]))
+   [utils.core :refer [output-file-type hash-by-id]]))
 
 ; ==================================
 ; Utils
@@ -99,7 +98,10 @@
                                               :short-name
                                               (conj
                                                (-> cur :id acc :short-name)
-                                               (-> cur :short-name)))))
+                                               (-> cur
+                                                   :short-name
+                                                   (#(clojure.edn/read-string (str ""\" % "\"")))
+                                                   )))))
                                     {} t))
         players-with-position (-> data
                                   :players

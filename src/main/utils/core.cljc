@@ -41,11 +41,30 @@
      {:x (* (-> canvas .-width) (/ x-% 100))
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
-(def coord-mapping
-  {:gol-bottom identity
-   :gol-top (fn [[x y]] [x (- 100 y)])
-   :gol-left (fn [[x y]] [(- 100 y) x])
-   :gol-right (fn [[x y]] [y (- 100 x)])})
+(def canvas-dimensions
+  [950 730])
+
+#?(:cljs
+   (def set-canvas-dimensions
+     {:gol-bottom (fn [c] (do
+                            (set! (.-height c) (-> canvas-dimensions first))
+                            (set! (.-width c) (-> canvas-dimensions second))))
+      :gol-top (fn [c] (do
+                         (set! (.-height c) (-> canvas-dimensions first))
+                         (set! (.-width c) (-> canvas-dimensions second))))
+      :gol-left (fn [c] (do
+                          (set! (.-height c) (-> canvas-dimensions second))
+                          (set! (.-width c) (-> canvas-dimensions first))))
+      :gol-right (fn [c] (do
+                           (set! (.-height c) (-> canvas-dimensions second))
+                           (set! (.-width c) (-> canvas-dimensions first))))}))
+
+#?(:cljs
+   (def coord-mapping
+     {:gol-bottom identity
+      :gol-top (fn [[x y]] [x (- 100 y)])
+      :gol-left (fn [[x y]] [(- 100 y) x])
+      :gol-right (fn [[x y]] [y (- 100 x)])}))
 
 #?(:cljs
    (defn assoc-pos

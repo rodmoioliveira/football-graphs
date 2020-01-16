@@ -1,8 +1,9 @@
 (ns football.app
   (:require
    [shadow.resource :as rc]
-   [utils.core :refer [assoc-pos]]
    [cljs.reader :as reader]
+
+   [utils.core :refer [assoc-pos set-canvas-dimensions]]
    [football.config :refer [config themes]]
    [football.draw-graph :refer [force-graph]]))
 
@@ -34,6 +35,7 @@
                                         ((fn [v]
                                            (let [id (-> el (.getAttribute "data-team-id") keyword)
                                                  orientation (-> el (.getAttribute "data-orientation") keyword)]
+                                             ((set-canvas-dimensions orientation) el)
                                              {:match-id (-> v :match-id)
                                               :nodes (-> v :nodes id (assoc-pos el orientation))
                                               :links (-> v :links id)
