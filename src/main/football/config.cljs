@@ -61,7 +61,7 @@
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 10
-             :distance-between (/ node-radius 2.5)}
+             :distance-between (/ node-radius 1.5)}
      :nodes {:radius node-radius
              :fill {:color (theme :primary)}
              :active {:color (theme :accent)}

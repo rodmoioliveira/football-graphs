@@ -80,8 +80,16 @@ or
 clj src/main/io/spit_graph.clj --id=2057978 --type=edn
 ```
 
-#### Extract All World Cup Matches
+#### Spit All World Cup Matches
 ```sh
+# just once
 chmod +x get_all_world_cup_matches.sh
 ./get_all_world_cup_matches.sh
+```
+
+#### Spit all Brazil matches graphs
+```sh
+# just once
+chmod +x get_all_brazil_graphs.sh
+./get_all_brazil_graphs.sh
 ```
