@@ -56,8 +56,8 @@
         canvas (-> js/document (.getElementById id))]
 
     {:arrows {:recoil 19.5
-              :expansion 0.9
-              :width 80}
+              :expansion 1.3
+              :width 50}
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 10
