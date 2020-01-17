@@ -100,8 +100,7 @@
                                                (-> cur :id acc :short-name)
                                                (-> cur
                                                    :short-name
-                                                   (#(clojure.edn/read-string (str ""\" % "\"")))
-                                                   )))))
+                                                   (#(clojure.edn/read-string (str "" \" % "\""))))))))
                                     {} t))
         players-with-position (-> data
                                   :players
@@ -122,6 +121,12 @@
                 (#(map aggregate-players %))
                 (#(map vals %)))}))
 
+; (defn logger-file [v]
+;   (spit
+;    (str "src/main/data/graphs/test.edn")
+;    ((output-file-type file-type) v))
+;   v)
+
 (def nodes (get-nodes))
 (defn links
   []
@@ -134,6 +139,7 @@
         (#(partition-by :team-id %))
         ((fn [v] (group-by #(-> % first :team-id) v)))
         vals
+        ; logger-file
         ((fn [teams] (map (fn [team] (map #(partition 2 1 %) team)) teams)))
         link-passes
         ((fn [teams] (map (fn [team] (flatten team)) teams)))
