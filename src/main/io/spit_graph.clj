@@ -19,6 +19,10 @@
   (-> (map (fn [x] (apply + (map (fn [y] (y :value)) x))) v) print)
   v)
 
+(defn just-passes
+  [e]
+  (= (-> e :event-id) 8))
+
 (defn link-passes
   [teams]
   (map (fn [links]
@@ -135,6 +139,8 @@
                    (get-in (-> nodes :players-hash) [(-> % :player-id str keyword) :pos]))]
     (-> data
         :events
+        ; FIXME: refine counts of passes
+        (#(filter just-passes %))
         ((fn [p] (map assoc-player-data p)))
         (#(partition-by :team-id %))
         ((fn [v] (group-by #(-> % first :team-id) v)))
@@ -146,7 +152,7 @@
         ((fn [teams] (map frequencies teams)))
         ((fn [teams] (map (fn [team] (map (fn [[ks v]] (merge ks {:value v})) team)) teams)))
         ((fn [teams] (map #(sort-by :value %) teams)))
-        ; ; FIXME: this transformation MUST be remove at some point
+        ; FIXME: this transformation MUST be remove at some point
         remove-reflexivity
         ; passes-count
         )))

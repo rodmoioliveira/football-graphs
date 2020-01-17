@@ -44,8 +44,8 @@
 ; ==================================
 (defn config
   [{:keys [id theme]}]
-  (let [mapping {:domains {:passes #js [1 31]}
-                 :codomains {:edges-width #js [1 20]}}
+  (let [mapping {:domains {:passes #js [1 30]}
+                 :codomains {:edges-width #js [1 25]}}
         font {:weight "700"
               :size "25px"
               :type "'Open sans', sans-serif"
@@ -62,9 +62,9 @@
      :edges {:padding 10
              :distance-between (/ node-radius 4)}
      :nodes {:radius node-radius
-             :fill {:color (theme :primary)}
+             :fill {:color (theme :accent)}
              :active {:color (theme :accent)}
-             :name-position (+ node-radius 15)
+             :name-position 0
              :outline {:color (theme :secondary)
                        :width "1.5"}
              :font (assoc font :full (str/join " " [(font :weight)
