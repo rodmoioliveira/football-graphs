@@ -35,17 +35,16 @@
                      :accent "#ffcac2"}
              ; Brazil
              :6380 {:primary "#00912F"
-                     :secondary "white"
-                     :accent "#03f081"}
-             })
+                    :secondary "white"
+                    :accent "#03f081"}})
 
 ; ==================================
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id theme]}]
-  (let [mapping {:domains {:passes #js [1 30]}
-                 :codomains {:edges-width #js [1 25]}}
+  [{:keys [id theme max-passes]}]
+  (let [mapping {:domains {:passes #js [1 max-passes]}
+                 :codomains {:edges-width #js [1 20]}}
         font {:weight "700"
               :size "25px"
               :type "'Open sans', sans-serif"
@@ -62,9 +61,9 @@
      :edges {:padding 10
              :distance-between (/ node-radius 4)}
      :nodes {:radius node-radius
-             :fill {:color (theme :accent)}
+             :fill {:color (theme :primary)}
              :active {:color (theme :accent)}
-             :name-position 0
+             :name-position (+ node-radius 15)
              :outline {:color (theme :secondary)
                        :width "1.5"}
              :font (assoc font :full (str/join " " [(font :weight)
