@@ -35,16 +35,15 @@
                      :accent "#ffcac2"}
              ; Brazil
              :6380 {:primary "#00912F"
-                     :secondary "white"
-                     :accent "#03f081"}
-             })
+                    :secondary "white"
+                    :accent "#03f081"}})
 
 ; ==================================
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id theme]}]
-  (let [mapping {:domains {:passes #js [1 31]}
+  [{:keys [id theme max-passes]}]
+  (let [mapping {:domains {:passes #js [1 max-passes]}
                  :codomains {:edges-width #js [1 20]}}
         font {:weight "700"
               :size "25px"

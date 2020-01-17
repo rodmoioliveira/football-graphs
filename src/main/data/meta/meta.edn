@@ -1,51 +1,40 @@
 {:sub-events
- {:10 {:event 1, :sub-event 10, :label "Duel – Air duel"},
+ {:10  {:event 1, :sub-event 10, :label "Duel – Air duel"},
   :100 {:event 10, :sub-event 100, :label "Shot – Shot"},
-  :11 {:event 1, :sub-event 11, :label "Duel – Ground attacking duel"},
-  :12 {:event 1, :sub-event 12, :label "Duel – Ground defending duel"},
-  :13
-  {:event 1, :sub-event 13, :label "Duel – Ground loose ball duel"},
-  :20 {:event 2, :sub-event 20, :label "Foul – Foul"},
-  :21 {:event 2, :sub-event 21, :label "Foul – Hand foul"},
-  :22 {:event 2, :sub-event 22, :label "Foul – Late card foul"},
-  :23 {:event 2, :sub-event 23, :label "Foul – Out of game foul"},
-  :24 {:event 2, :sub-event 24, :label "Foul – Protest"},
-  :25 {:event 2, :sub-event 25, :label "Foul – Simulation"},
-  :26 {:event 2, :sub-event 26, :label "Foul – Time lost foul"},
-  :27 {:event 2, :sub-event 27, :label "Foul – Violent Foul"},
-  :30 {:event 3, :sub-event 30, :label "Free Kick – Corner"},
-  :31 {:event 3, :sub-event 31, :label "Free Kick – Free Kick"},
-  :32 {:event 3, :sub-event 32, :label "Free Kick – Free kick cross"},
-  :33 {:event 3, :sub-event 33, :label "Free Kick – Free kick shot"},
-  :34 {:event 3, :sub-event 34, :label "Free Kick – Goal kick"},
-  :35 {:event 3, :sub-event 35, :label "Free Kick – Penalty"},
-  :36 {:event 3, :sub-event 36, :label "Free Kick – Throw in"},
-  :40
-  {:event 4,
-   :sub-event 40,
-   :label "Goalkeeper leaving line – Goalkeeper leaving line"},
-  :50
-  {:event 5,
-   :sub-event 50,
-   :label "Interruption – Ball out of the field"},
-  :51 {:event 5, :sub-event 51, :label "Interruption – Whistle"},
-  :60 {:event 6, :sub-event 60, :label "Offside – Offside"},
-  :70
-  {:event 7,
-   :sub-event 70,
-   :label "Others on the ball – Acceleration"},
-  :71
-  {:event 7, :sub-event 71, :label "Others on the ball – Clearance"},
-  :72 {:event 7, :sub-event 72, :label "Others on the ball – Touch"},
-  :80 {:event 8, :sub-event 80, :label "Pass – Cross"},
-  :81 {:event 8, :sub-event 81, :label "Pass – Hand pass"},
-  :82 {:event 8, :sub-event 82, :label "Pass – Head pass"},
-  :83 {:event 8, :sub-event 83, :label "Pass – High pass"},
-  :84 {:event 8, :sub-event 84, :label "Pass – Launch"},
-  :85 {:event 8, :sub-event 85, :label "Pass – Simple pass"},
-  :86 {:event 8, :sub-event 86, :label "Pass – Smart pass"},
-  :90 {:event 9, :sub-event 90, :label "Save attempt – Reflexes"},
-  :91 {:event 9, :sub-event 91, :label "Save attempt – Save attempt"}},
+  :11  {:event 1, :sub-event 11, :label "Duel – Ground attacking duel"},
+  :12  {:event 1, :sub-event 12, :label "Duel – Ground defending duel"},
+  :13  {:event 1, :sub-event 13, :label "Duel – Ground loose ball duel"},
+  :20  {:event 2, :sub-event 20, :label "Foul – Foul"},
+  :21  {:event 2, :sub-event 21, :label "Foul – Hand foul"},
+  :22  {:event 2, :sub-event 22, :label "Foul – Late card foul"},
+  :23  {:event 2, :sub-event 23, :label "Foul – Out of game foul"},
+  :24  {:event 2, :sub-event 24, :label "Foul – Protest"},
+  :25  {:event 2, :sub-event 25, :label "Foul – Simulation"},
+  :26  {:event 2, :sub-event 26, :label "Foul – Time lost foul"},
+  :27  {:event 2, :sub-event 27, :label "Foul – Violent Foul"},
+  :30  {:event 3, :sub-event 30, :label "Free Kick – Corner"},
+  :31  {:event 3, :sub-event 31, :label "Free Kick – Free Kick"},
+  :32  {:event 3, :sub-event 32, :label "Free Kick – Free kick cross"},
+  :33  {:event 3, :sub-event 33, :label "Free Kick – Free kick shot"},
+  :34  {:event 3, :sub-event 34, :label "Free Kick – Goal kick"},
+  :35  {:event 3, :sub-event 35, :label "Free Kick – Penalty"},
+  :36  {:event 3, :sub-event 36, :label "Free Kick – Throw in"},
+  :40  {:event 4, :sub-event 40, :label "Goalkeeper leaving line – Goalkeeper leaving line"},
+  :50  {:event 5, :sub-event 50, :label "Interruption – Ball out of the field"},
+  :51  {:event 5, :sub-event 51, :label "Interruption – Whistle"},
+  :60  {:event 6, :sub-event 60, :label "Offside – Offside"},
+  :70  {:event 7, :sub-event 70, :label "Others on the ball – Acceleration"},
+  :71  {:event 7, :sub-event 71, :label "Others on the ball – Clearance"},
+  :72  {:event 7, :sub-event 72, :label "Others on the ball – Touch"},
+  :80  {:event 8, :sub-event 80, :label "Pass – Cross"},
+  :81  {:event 8, :sub-event 81, :label "Pass – Hand pass"},
+  :82  {:event 8, :sub-event 82, :label "Pass – Head pass"},
+  :83  {:event 8, :sub-event 83, :label "Pass – High pass"},
+  :84  {:event 8, :sub-event 84, :label "Pass – Launch"},
+  :85  {:event 8, :sub-event 85, :label "Pass – Simple pass"},
+  :86  {:event 8, :sub-event 86, :label "Pass – Smart pass"},
+  :90  {:event 9, :sub-event 90, :label "Save attempt – Reflexes"},
+  :91  {:event 9, :sub-event 91, :label "Save attempt – Save attempt"}},
  :position
  {:amf {:name "Attacking Midfielder", :code "amf"},
   :cb {:name "Centre Back", :code "cb"},
@@ -537,73 +526,41 @@
   :102 {:tag 102, :label "own_goal", :description "Own goal"},
   :1101 {:tag 1101, :label "direct", :description "Direct"},
   :1102 {:tag 1102, :label "indirect", :description "Indirect"},
-  :1201
-  {:tag 1201, :label "gb", :description "Position: Goal low center"},
-  :1202
-  {:tag 1202, :label "gbr", :description "Position: Goal low right"},
+  :1201 {:tag 1201, :label "gb", :description "Position: Goal low center"},
+  :1202 {:tag 1202, :label "gbr", :description "Position: Goal low right"},
   :1203 {:tag 1203, :label "gc", :description "Position: Goal center"},
-  :1204
-  {:tag 1204, :label "gl", :description "Position: Goal center left"},
-  :1205
-  {:tag 1205, :label "glb", :description "Position: Goal low left"},
-  :1206
-  {:tag 1206, :label "gr", :description "Position: Goal center right"},
-  :1207
-  {:tag 1207, :label "gt", :description "Position: Goal high center"},
-  :1208
-  {:tag 1208, :label "gtl", :description "Position: Goal high left"},
-  :1209
-  {:tag 1209, :label "gtr", :description "Position: Goal high right"},
-  :1210
-  {:tag 1210, :label "obr", :description "Position: Out low right"},
-  :1211
-  {:tag 1211, :label "ol", :description "Position: Out center left"},
-  :1212
-  {:tag 1212, :label "olb", :description "Position: Out low left"},
-  :1213
-  {:tag 1213, :label "or", :description "Position: Out center right"},
-  :1214
-  {:tag 1214, :label "ot", :description "Position: Out high center"},
-  :1215
-  {:tag 1215, :label "otl", :description "Position: Out high left"},
-  :1216
-  {:tag 1216, :label "otr", :description "Position: Out high right"},
-  :1217
-  {:tag 1217, :label "pbr", :description "Position: Post low right"},
-  :1218
-  {:tag 1218, :label "pl", :description "Position: Post center left"},
-  :1219
-  {:tag 1219, :label "plb", :description "Position: Post low left"},
-  :1220
-  {:tag 1220, :label "pr", :description "Position: Post center right"},
-  :1221
-  {:tag 1221, :label "pt", :description "Position: Post high center"},
-  :1222
-  {:tag 1222, :label "ptl", :description "Position: Post high left"},
-  :1223
-  {:tag 1223, :label "ptr", :description "Position: Post high right"},
+  :1204 {:tag 1204, :label "gl", :description "Position: Goal center left"},
+  :1205 {:tag 1205, :label "glb", :description "Position: Goal low left"},
+  :1206 {:tag 1206, :label "gr", :description "Position: Goal center right"},
+  :1207 {:tag 1207, :label "gt", :description "Position: Goal high center"},
+  :1208 {:tag 1208, :label "gtl", :description "Position: Goal high left"},
+  :1209 {:tag 1209, :label "gtr", :description "Position: Goal high right"},
+  :1210 {:tag 1210, :label "obr", :description "Position: Out low right"},
+  :1211 {:tag 1211, :label "ol", :description "Position: Out center left"},
+  :1212 {:tag 1212, :label "olb", :description "Position: Out low left"},
+  :1213 {:tag 1213, :label "or", :description "Position: Out center right"},
+  :1214 {:tag 1214, :label "ot", :description "Position: Out high center"},
+  :1215 {:tag 1215, :label "otl", :description "Position: Out high left"},
+  :1216 {:tag 1216, :label "otr", :description "Position: Out high right"},
+  :1217 {:tag 1217, :label "pbr", :description "Position: Post low right"},
+  :1218 {:tag 1218, :label "pl", :description "Position: Post center left"},
+  :1219 {:tag 1219, :label "plb", :description "Position: Post low left"},
+  :1220 {:tag 1220, :label "pr", :description "Position: Post center right"},
+  :1221 {:tag 1221, :label "pt", :description "Position: Post high center"},
+  :1222 {:tag 1222, :label "ptl", :description "Position: Post high left"},
+  :1223 {:tag 1223, :label "ptr", :description "Position: Post high right"},
   :1301 {:tag 1301, :label "Feint", :description "Feint"},
   :1302 {:tag 1302, :label "missed ball", :description "Missed ball"},
-  :1401
-  {:tag 1401, :label "interception", :description "Interception"},
+  :1401 {:tag 1401, :label "interception", :description "Interception"},
   :1501 {:tag 1501, :label "clearance", :description "Clearance"},
-  :1601
-  {:tag 1601, :label "sliding_tackle", :description "Sliding tackle"},
+  :1601 {:tag 1601, :label "sliding_tackle", :description "Sliding tackle"},
   :1701 {:tag 1701, :label "red_card", :description "Red card"},
   :1702 {:tag 1702, :label "yellow_card", :description "Yellow card"},
-  :1703
-  {:tag 1703,
-   :label "second_yellow_card",
-   :description "Second yellow card"},
+  :1703 {:tag 1703, :label "second_yellow_card", :description "Second yellow card"},
   :1801 {:tag 1801, :label "accurate", :description "Accurate"},
-  :1802
-  {:tag 1802, :label "not accurate", :description "Not accurate"},
-  :1901
-  {:tag 1901, :label "counter_attack", :description "Counter attack"},
-  :2001
-  {:tag 2001,
-   :label "dangerous_ball_lost",
-   :description "Dangerous ball lost"},
+  :1802 {:tag 1802, :label "not accurate", :description "Not accurate"},
+  :1901 {:tag 1901, :label "counter_attack", :description "Counter attack"},
+  :2001 {:tag 2001, :label "dangerous_ball_lost", :description "Dangerous ball lost"},
   :201 {:tag 201, :label "opportunity", :description "Opportunity"},
   :2101 {:tag 2101, :label "blocked", :description "Blocked"},
   :301 {:tag 301, :label "assist", :description "Assist"},
@@ -611,10 +568,8 @@
   :401 {:tag 401, :label "Left", :description "Left foot"},
   :402 {:tag 402, :label "Right", :description "Right foot"},
   :403 {:tag 403, :label "head/body", :description "Head/body"},
-  :501
-  {:tag 501, :label "free_space_r", :description "Free space right"},
-  :502
-  {:tag 502, :label "free_space_l", :description "Free space left"},
+  :501 {:tag 501, :label "free_space_r", :description "Free space right"},
+  :502 {:tag 502, :label "free_space_l", :description "Free space left"},
   :503 {:tag 503, :label "take_on_l", :description "Take on left"},
   :504 {:tag 504, :label "take_on_r", :description "Take on right"},
   :601 {:tag 601, :label "anticipated", :description "Anticipated"},

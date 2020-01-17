@@ -31,6 +31,10 @@
   (let [path "data/soccer_match_event_dataset/"
         get-file #(io/resource (str path %))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
+        tags (-> (io/resource "data/meta/meta.edn")
+                 slurp
+                 edn/read-string
+                 :tags)
         match (-> (get-file "matches_World_Cup.json")
                   slurp
                   json->edn
@@ -54,16 +58,27 @@
                  (#(assoc match :teams-data %)))
 
      :players players
-     :project (-> players
-                  vals
-                  (#(map (fn [p] (assoc p :pos :???)) %))
-                  (project [:pos :wy-id :short-name])
-                  vec
-                  hash-by-id)
+     ; :project (-> players
+     ;              vals
+     ;              (#(map (fn [p] (assoc p :pos :???)) %))
+     ;              (project [:pos :wy-id :short-name])
+     ;              vec
+     ;              hash-by-id)
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn
-                 (#(filter (fn [e] (= (-> e :match-id) id)) %)))}))
+                 (#(filter (fn [e] (= (-> e :match-id) id)) %))
+                 (#(map (fn [e]
+                          (assoc
+                           e
+                           :tags
+                           (map (fn [t]
+                                  (assoc
+                                   t
+                                   :description
+                                   (get-in tags [(-> t :id str keyword) :description])))
+                                (-> e :tags))))
+                        %)))}))
 
 ; ==================================
 ; IO

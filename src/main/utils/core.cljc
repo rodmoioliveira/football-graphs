@@ -33,7 +33,7 @@
           (rest csv-data))))
 
 (defn logger [v]
-  (-> v #?(:cljs clj->js :clj identity) #?(:cljs js/console.log :clj print)) v)
+  (-> v #?(:cljs clj->js :clj identity) #?(:cljs js/console.log :clj pp/pprint)) v)
 
 #?(:cljs
    (defn place-node

@@ -19,6 +19,10 @@
   (-> (map (fn [x] (apply + (map (fn [y] (y :value)) x))) v) print)
   v)
 
+(defn just-passes
+  [e]
+  (= (-> e :event-id) 8))
+
 (defn link-passes
   [teams]
   (map (fn [links]
@@ -49,6 +53,15 @@
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
 (def errors (-> args :errors))
+
+; ==================================
+; Test
+; ==================================
+(defn logger-file [v]
+  (spit
+   (str "src/main/data/graphs/test.edn")
+   ((output-file-type file-type) v))
+  v)
 
 ; ==================================
 ; Fetch Data
@@ -100,8 +113,7 @@
                                                (-> cur :id acc :short-name)
                                                (-> cur
                                                    :short-name
-                                                   (#(clojure.edn/read-string (str ""\" % "\"")))
-                                                   )))))
+                                                   (#(clojure.edn/read-string (str "" \" % "\""))))))))
                                     {} t))
         players-with-position (-> data
                                   :players
@@ -130,6 +142,8 @@
                    (get-in (-> nodes :players-hash) [(-> % :player-id str keyword) :pos]))]
     (-> data
         :events
+        ; FIXME: refine counts of passes
+        (#(filter just-passes %))
         ((fn [p] (map assoc-player-data p)))
         (#(partition-by :team-id %))
         ((fn [v] (group-by #(-> % first :team-id) v)))
@@ -140,8 +154,9 @@
         ((fn [teams] (map frequencies teams)))
         ((fn [teams] (map (fn [team] (map (fn [[ks v]] (merge ks {:value v})) team)) teams)))
         ((fn [teams] (map #(sort-by :value %) teams)))
-        ; ; FIXME: this transformation MUST be remove at some point
+        ; FIXME: this transformation MUST be remove at some point
         remove-reflexivity
+        ; logger-file
         ; passes-count
         )))
 
@@ -149,7 +164,8 @@
 ; IO
 ; ==================================
 (if (-> errors some? not)
-  (let [graph
+  (let [links (links)
+        graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
          :nodes (-> nodes
@@ -160,14 +176,15 @@
                           acc
                           [(-> cur first :current-national-team-id str keyword)]
                           cur)) {} %)))
-         :links (-> (links)
+         :links (-> links
                     (#(reduce
                        (fn
                          [acc cur]
                          (assoc-in
                           acc
                           [(-> cur first :team-id str keyword)]
-                          cur)) {} %)))}
+                          cur)) {} %)))
+         :max-passes (-> links flatten (#(sort-by :value %)) last :value)}
         match-label (-> data :match :label csk/->snake_case)
         dist "src/main/data/graphs/"
         ext (name file-type)]
