@@ -80,6 +80,15 @@ or
 clj src/main/io/spit_graph.clj --id=2057978 --type=edn
 ```
 
+#### Spit graph analysis
+```sh
+clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=json
+```
+or
+```sh
+clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=edn
+```
+
 #### Spit All World Cup Matches
 ```sh
 # just once
