@@ -17,9 +17,9 @@
 ; Matches
 ; ==================================
 (def brazil-matches
-  [(-> (rc/inline "../data/graphs/brazil_switzerland,_1_1.edn") reader/read-string)
-   (-> (rc/inline "../data/graphs/brazil_costa_rica,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/graphs/serbia_brazil,_0_2.edn") reader/read-string)])
+  [(-> (rc/inline "../data/analysis/brazil_switzerland,_1_1.edn") reader/read-string)
+   (-> (rc/inline "../data/analysis/brazil_costa_rica,_2_0.edn") reader/read-string)
+   (-> (rc/inline "../data/analysis/serbia_brazil,_0_2.edn") reader/read-string)])
 
 (def matches-hash
   (reduce (fn [acc cur] (assoc-in acc [(-> cur :match-id str keyword)] cur))
