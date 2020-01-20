@@ -1,4 +1,6 @@
 (ns io.spit-graph-analysis
+  ; https://jgrapht.org/guide/UserOverview#graph-structures
+  ; https://jgrapht.org/javadoc/overview-summary.html
   (:import [org.jgrapht.graph DefaultWeightedEdge SimpleDirectedWeightedGraph]
            [org.jgrapht.alg.scoring
             BetweennessCentrality
