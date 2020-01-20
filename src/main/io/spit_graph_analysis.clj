@@ -100,8 +100,7 @@
                           :alpha-centrality (-> alpha-centrality id)
                           :degree (-> graph (.degreeOf id))
                           :in-degree (-> graph (.inDegreeOf id))
-                          :out-degree (-> graph (.outDegreeOf id))
-                          }}) %))
+                          :out-degree (-> graph (.outDegreeOf id))}}) %))
           (#(reduce (partial hash-by :id) (sorted-map) %))))))
 
 (def metrics
