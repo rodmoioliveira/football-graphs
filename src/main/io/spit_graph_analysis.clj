@@ -7,15 +7,12 @@
             ClosenessCentrality])
   (:require
    [camel-snake-kebab.core :as csk]
-   [clojure.set :refer [project]]
-   [clojure.pprint :refer [pprint]]
    [clojure.edn :as edn]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
-   [clojure.set :refer [project]]
 
-   [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]))
+   [utils.core :refer [output-file-type hash-by hash-by-id]]))
 
 ; ==================================
 ; Command Line Options
@@ -29,7 +26,7 @@
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
-; (def errors (-> args :errors))
+(def errors (-> args :errors))
 
 ; ==================================
 ; Fetch Data
@@ -85,62 +82,57 @@
     (doseq [link links]
       (doto graph
         (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
-    graph))
 
-; (println (-> (create-graph team-1) (.getEdgeWeight (-> (create-graph team-1) (.edgeSet) last))))
-; (println (-> (create-graph team-1) (.outDegreeOf :PTE)))
-; (println (-> (create-graph team-1) (.inDegreeOf :PTE)))
-(println "Betweenness Centrality")
-(pprint (-> (create-graph team-1) (BetweennessCentrality. true) (.getScores)))
-(println "Clustering Coefficient")
-(pprint (-> (create-graph team-1) (ClusteringCoefficient.) (.getScores)))
-(pprint (-> (create-graph team-1) (ClusteringCoefficient.) (.getAverageClusteringCoefficient)))
-(println "Closeness Centrality")
-(pprint (-> (create-graph team-1) (ClosenessCentrality.) (.getScores)))
-(println "Alpha Centrality")
-(pprint (-> (create-graph team-1) (AlphaCentrality.) (.getScores)))
+    (let [vertex-set (-> graph (.vertexSet) vec)
+          betweenness-centrality (-> graph (BetweennessCentrality. true) (.getScores))
+          clustering-coefficient (-> graph (ClusteringCoefficient.) (.getScores))
+          closeness-centrality (-> graph (ClosenessCentrality.) (.getScores))
+          alpha-centrality (-> graph (AlphaCentrality.) (.getScores))]
+      (-> vertex-set
+          (#(map
+             (fn [id]
+               {:id (name id)
+                :metrics {:betweenness-centrality (-> betweenness-centrality id)
+                          :clustering-coefficient (-> clustering-coefficient id)
+                          :closeness-centrality (-> closeness-centrality id)
+                          :alpha-centrality (-> alpha-centrality id)}}) %))
+          (#(reduce (partial hash-by :id) (sorted-map) %))))))
 
-; (def graph (SimpleDirectedWeightedGraph. DefaultWeightedEdge))
-; (doto graph
-;   (.addVertex :ZAD)
-;   (.addVertex :LAD)
-;   (.addVertex :VOE)
-;   (.addVertex :LAE)
-;   (.addEdge :ZAD :LAD)
-;   (.addEdge :VOE :LAE)
-;   (.setEdgeWeight :ZAD :LAD 5)
-;   (.setEdgeWeight :VOE :LAE 18))
+(def metrics
+  [(create-graph team-1)
+   (create-graph team-2)])
 
 ; ==================================
 ; IO
 ; ==================================
-; (if (-> errors some? not)
-;   (let [links (links)
-;         graph
-;         {:match-id (-> id Integer.)
-;          :label (-> data :match :label)
-;          :nodes (-> nodes
-;                     :nodes
-;                     (#(reduce
-;                        (fn [acc cur]
-;                          (assoc-in
-;                           acc
-;                           [(-> cur first :current-national-team-id str keyword)]
-;                           cur)) {} %)))
-;          :links (-> links
-;                     (#(reduce
-;                        (fn
-;                          [acc cur]
-;                          (assoc-in
-;                           acc
-;                           [(-> cur first :team-id str keyword)]
-;                           cur)) {} %)))
-;          :max-passes (-> links flatten (#(sort-by :value %)) last :value)}
-;         match-label (-> data :match :label csk/->snake_case)
-;         dist "src/main/data/graphs/"
-;         ext (name file-type)]
-;     (spit
-;      (str dist match-label "." ext)
-;      ((output-file-type file-type) graph))
-;     (print (str "Success on spit " dist match-label "." ext)))
-;   (print errors))
+(if (-> errors some? not)
+  (let [graph (-> data
+                  ((fn [d]
+                     (assoc
+                      d
+                      :nodes
+                      {(-> teams-ids first)
+                       (-> nodes
+                           first
+                           (#(map (fn [n] (assoc
+                                           n
+                                           :metrics
+                                           (get-in metrics [0 (-> n :id) :metrics])))
+                                  %)))
+                       (-> teams-ids second)
+                       (-> nodes
+                           second
+                           (#(map (fn [n] (assoc
+                                           n
+                                           :metrics
+                                           (get-in metrics [1 (-> n :id) :metrics])))
+                                  %)))}))))
+
+        match-label (-> data :label csk/->snake_case)
+        dist "src/main/data/analysis/"
+        ext (name file-type)]
+    (spit
+     (str dist match-label "." ext)
+     ((output-file-type file-type) graph))
+    (print (str "Success on spit " dist match-label "." ext)))
+  (print errors))

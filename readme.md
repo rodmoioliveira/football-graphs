@@ -102,3 +102,10 @@ chmod +x get_all_world_cup_matches.sh
 chmod +x get_all_brazil_graphs.sh
 ./get_all_brazil_graphs.sh
 ```
+
+#### Spit all Brazil metrics
+```sh
+# just once
+chmod +x get_all_brazil_analysis.sh
+./get_all_brazil_graphs.sh
+```
