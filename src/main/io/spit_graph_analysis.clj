@@ -1,8 +1,14 @@
 (ns io.spit-graph-analysis
-  (:import [org.jgrapht.graph DefaultWeightedEdge SimpleDirectedWeightedGraph])
+  (:import [org.jgrapht.graph DefaultWeightedEdge SimpleDirectedWeightedGraph]
+           [org.jgrapht.alg.scoring
+            BetweennessCentrality
+            ClusteringCoefficient
+            AlphaCentrality
+            ClosenessCentrality])
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.set :refer [project]]
+   [clojure.pprint :refer [pprint]]
    [clojure.edn :as edn]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
@@ -81,9 +87,18 @@
         (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
     graph))
 
-(println (-> (create-graph team-1) (.getEdgeWeight (-> (create-graph team-1) (.edgeSet) last))))
-(println (-> (create-graph team-1) (.outDegreeOf :PTE)))
-(println (-> (create-graph team-1) (.inDegreeOf :PTE)))
+; (println (-> (create-graph team-1) (.getEdgeWeight (-> (create-graph team-1) (.edgeSet) last))))
+; (println (-> (create-graph team-1) (.outDegreeOf :PTE)))
+; (println (-> (create-graph team-1) (.inDegreeOf :PTE)))
+(println "Betweenness Centrality")
+(pprint (-> (create-graph team-1) (BetweennessCentrality. true) (.getScores)))
+(println "Clustering Coefficient")
+(pprint (-> (create-graph team-1) (ClusteringCoefficient.) (.getScores)))
+(pprint (-> (create-graph team-1) (ClusteringCoefficient.) (.getAverageClusteringCoefficient)))
+(println "Closeness Centrality")
+(pprint (-> (create-graph team-1) (ClosenessCentrality.) (.getScores)))
+(println "Alpha Centrality")
+(pprint (-> (create-graph team-1) (AlphaCentrality.) (.getScores)))
 
 ; (def graph (SimpleDirectedWeightedGraph. DefaultWeightedEdge))
 ; (doto graph
