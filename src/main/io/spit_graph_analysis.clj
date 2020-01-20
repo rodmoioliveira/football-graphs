@@ -85,7 +85,9 @@
       (doto graph
         (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
 
-    (let [vertex-set (-> graph (.vertexSet) vec)
+    (let [get-edges-weight (fn [edges] (map (fn [e] (-> graph (.getEdgeWeight e))) edges))
+          sum (fn [v] (apply + v))
+          vertex-set (-> graph (.vertexSet) vec)
           betweenness-centrality (-> graph (BetweennessCentrality. true) (.getScores))
           clustering-coefficient (-> graph (ClusteringCoefficient.))
           local-clustering-coefficient (-> clustering-coefficient (.getScores))
@@ -96,16 +98,24 @@
       (-> vertex-set
           (#(map
              (fn [id]
-               {:id (name id)
-                :metrics {:betweenness-centrality (-> betweenness-centrality id)
-                          :local-clustering-coefficient (-> local-clustering-coefficient id)
-                          :average-clustering-coefficient average-clustering-coefficient
-                          :closeness-centrality (-> closeness-centrality id)
-                          :alpha-centrality (-> alpha-centrality id)
-                          :eigenvector-centrality (-> eigenvector-centrality id)
-                          :degree (-> graph (.degreeOf id))
-                          :in-degree (-> graph (.inDegreeOf id))
-                          :out-degree (-> graph (.outDegreeOf id))}}) %))
+               (let [in-degree (-> graph
+                                   (.incomingEdgesOf id)
+                                   get-edges-weight
+                                   sum)
+                     out-degree (-> graph
+                                    (.outgoingEdgesOf id)
+                                    get-edges-weight
+                                    sum)]
+                 {:id (name id)
+                  :metrics {:in-degree in-degree
+                            :out-degree out-degree
+                            :degree (-> [in-degree out-degree] sum)
+                            :betweenness-centrality (-> betweenness-centrality id)
+                            :local-clustering-coefficient (-> local-clustering-coefficient id)
+                            :average-clustering-coefficient average-clustering-coefficient
+                            :closeness-centrality (-> closeness-centrality id)
+                            :alpha-centrality (-> alpha-centrality id)
+                            :eigenvector-centrality (-> eigenvector-centrality id)}})) %))
           (#(reduce (partial hash-by :id) (sorted-map) %))))))
 
 (def metrics
