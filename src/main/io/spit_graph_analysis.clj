@@ -97,7 +97,11 @@
                 :metrics {:betweenness-centrality (-> betweenness-centrality id)
                           :clustering-coefficient (-> clustering-coefficient id)
                           :closeness-centrality (-> closeness-centrality id)
-                          :alpha-centrality (-> alpha-centrality id)}}) %))
+                          :alpha-centrality (-> alpha-centrality id)
+                          :degree (-> graph (.degreeOf id))
+                          :in-degree (-> graph (.inDegreeOf id))
+                          :out-degree (-> graph (.outDegreeOf id))
+                          }}) %))
           (#(reduce (partial hash-by :id) (sorted-map) %))))))
 
 (def metrics

@@ -7,12 +7,6 @@
    [football.config :refer [config themes]]
    [football.draw-graph :refer [force-graph]]))
 
-
-; ==================================
-; Test Graph
-; ==================================
-; (-> (rc/inline "../data/graphs/test.edn") reader/read-string clj->js js/console.log)
-
 ; ==================================
 ; Matches
 ; ==================================
@@ -25,6 +19,12 @@
   (reduce (fn [acc cur] (assoc-in acc [(-> cur :match-id str keyword)] cur))
           {}
           brazil-matches))
+
+; ==================================
+; Test Graph
+; ==================================
+; (-> (rc/inline "../data/graphs/test.edn") reader/read-string clj->js js/console.log)
+; (-> brazil-matches clj->js js/console.log)
 
 ; ==================================
 ; Viewport
