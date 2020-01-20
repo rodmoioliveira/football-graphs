@@ -72,13 +72,13 @@
         [nodes links] team]
     (doseq [node nodes]
       (doto graph
-        (.addVertex (-> node :pos))))
+        (.addVertex (-> node :pos keyword))))
     (doseq [link links]
       (doto graph
-        (.addEdge (-> link :source) (-> link :target))))
+        (.addEdge (-> link :source keyword) (-> link :target keyword))))
     (doseq [link links]
       (doto graph
-        (.setEdgeWeight (-> link :source) (-> link :target) (-> link :value))))
+        (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
     graph))
 
 (println (-> (create-graph team-1) (.getEdgeWeight (-> (create-graph team-1) (.edgeSet) last))))
