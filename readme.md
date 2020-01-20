@@ -103,7 +103,7 @@ chmod +x get_all_brazil_graphs.sh
 ./get_all_brazil_graphs.sh
 ```
 
-#### Spit all Brazil metrics
+#### Spit all Brazil analysis
 ```sh
 # just once
 chmod +x get_all_brazil_analysis.sh
