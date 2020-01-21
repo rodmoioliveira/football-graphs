@@ -60,6 +60,7 @@
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
         radius-scale #(-> d3
+                          ; FIXME: change scale to area...
                           (.scalePow)
                           (.exponent 1.5)
                           (.domain (-> mapping :domains %))
