@@ -42,41 +42,55 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id theme max-passes]}]
-  (let [mapping {:domains {:passes #js [1 max-passes]}
-                 :codomains {:edges-width #js [1 20]}}
+  [{:keys [id theme max-passes radius-metric]}]
+  (let [mapping {:domains {:passes #js [1 max-passes]
+                           :degree #js [1 133]}
+                 :codomains {:edges-width #js [1 20]
+                             :radius #js [20 50]}}
         font {:weight "700"
               :size "25px"
               :type "'Open sans', sans-serif"
               :color "black"
               :text-align "center"
               :base-line "middle"}
-        node-radius 20
-        canvas (-> js/document (.getElementById id))]
-    {:arrows {:recoil 19.5
-              :expansion 1.3
-              :width 50}
+        canvas (-> js/document (.getElementById id))
+        degree (-> d3
+                   (.scalePow)
+                   (.exponent 1.5)
+                   (.domain (-> mapping :domains :degree))
+                   (.range (-> mapping :codomains :radius)))
+        edges->colors (-> d3
+                          (.scalePow)
+                          (.exponent 0.1)
+                          (.domain (-> mapping :domains :passes))
+                          (.range #js [(-> theme :accent), "black"])
+                          (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
+        edges->width (-> d3
+                         (.scalePow)
+                         (.exponent 0.9)
+                         (.domain (-> mapping :domains :passes))
+                         (.range (-> mapping :codomains :edges-width)))
+        scales {:degree degree
+                :edges->colors edges->colors
+                :edges->width edges->width}]
+
+    {:arrows {:recoil 19
+              :expansion 1.2
+              :width 30}
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 10
-             :distance-between (/ node-radius 4)}
-     :nodes {:radius node-radius
-             :fill {:color (theme :primary)}
-             :active {:color (theme :accent)}
-             :name-position (+ node-radius 15)
-             :outline {:color (theme :secondary)
-                       :width "1.5"}
+             :distance-between 5
+             :alpha 0.03}
+     :nodes {:radius-metric radius-metric
+             :radius-click 5
+             :fill {:color (theme :accent)}
+             :active {:color "#ebd1fe"
+                      :outline "purple"}
+             :name-position 0
+             :outline {:color (theme :primary)
+                       :width 1.5}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
                                                     (font :type)]))}
-     :scales {:edges->colors (-> d3
-                                 (.scalePow)
-                                 (.exponent 0.1)
-                                 (.domain (-> mapping :domains :passes))
-                                 (.range #js [(-> theme :accent), "black"])
-                                 (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
-              :edges->width (-> d3
-                                (.scalePow)
-                                (.exponent 0.9)
-                                (.domain (-> mapping :domains :passes))
-                                (.range (-> mapping :codomains :edges-width)))}}))
+     :scales scales}))

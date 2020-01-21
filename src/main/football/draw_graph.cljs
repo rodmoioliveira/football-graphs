@@ -1,24 +1,24 @@
 (ns football.draw-graph
   (:require
-    [clojure.string :refer [split]]
-    [utils.core :refer [get-distance radians-between find-node]]
-    ["d3" :as d3]))
+   [clojure.string :refer [split]]
+   [utils.core :refer [get-distance radians-between find-node]]
+   ["d3" :as d3]))
 
 ; ==================================
 ; Draw fns
 ; ==================================
 (defn draw-edges
-  [{:keys [edge config active-node]}]
+  [{:keys [edge config active-node nodeshash]}]
   (let [source-x (-> edge .-source .-coord .-x)
         source-y (-> edge .-source .-coord .-y)
         target-x (-> edge .-target .-coord .-x)
         target-y (-> edge .-target .-coord .-y)
         value (-> edge .-value)
         source-target-distance (get-distance
-                                 source-x
-                                 source-y
-                                 target-x
-                                 target-y)
+                                source-x
+                                source-y
+                                target-x
+                                target-y)
         base-vector [source-target-distance 0]
         target-vector [(- target-x source-x) (- target-y source-y)]
 
@@ -28,7 +28,13 @@
 
         ; set alpha value for active edges
         active-edges (= (-> edge .-source .-id) (-> (or active-node #js {:id nil}) .-id))
-        alpha-value (if active-node (if active-edges 1 0.03) 1)]
+        alpha-value (if active-node (if active-edges 1 (-> config :edges :alpha)) 1)
+
+        ; get metric name, radius scale and values
+        metric-name (-> config :nodes :radius-metric name)
+        radius-scale (-> config :scales (#(get-in % [(-> config :nodes :radius-metric)])))
+        source-radius (-> edge .-source .-id (#(aget nodeshash %)) .-metrics (#(aget % metric-name)) radius-scale)
+        target-radius (-> edge .-target .-id (#(aget nodeshash %)) .-metrics (#(aget % metric-name)) radius-scale)]
 
     (doto (-> config :ctx)
       ; translate to source node center point
@@ -39,14 +45,14 @@
       (.translate 0 (-> config :edges :distance-between))
       ; draw edges
       (.beginPath)
-      (.moveTo (-> config :nodes :radius (+ (-> config :edges :padding))) 0)
+      (.moveTo (-> source-radius (+ (-> config :edges :padding))) 0)
       (.lineTo
-        (-> base-vector
-            first
-            (- (-> config :nodes :radius)
-               (-> config :edges :padding)
-               (-> config :arrows :recoil)))
-        (second base-vector))
+       (-> base-vector
+           first
+           (- target-radius
+              (-> config :edges :padding)
+              (-> config :arrows :recoil)))
+       (second base-vector))
       ((fn [v] (set! (.-lineWidth v) ((-> config :scales :edges->width) value))))
       ((fn [v] (set! (.-globalAlpha v) alpha-value)))
       ((fn [v] (set! (.-strokeStyle v) ((-> config :scales :edges->colors) value))))
@@ -56,14 +62,14 @@
       (.beginPath)
       ((fn [v] (set! (.-fillStyle v) ((-> config :scales :edges->colors) value))))
       (.moveTo
-        (-> base-vector first (- (-> config :nodes :radius) (-> config :edges :padding)))
-        (-> base-vector second))
+       (-> base-vector first (- target-radius (-> config :edges :padding)))
+       (-> base-vector second))
       (.lineTo
-        (-> base-vector first (- (-> config :arrows :width)))
-        (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion)))
+       (-> base-vector first (- target-radius (-> config :arrows :width)))
+       (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion)))
       (.lineTo
-        (-> base-vector first (- (-> config :arrows :width)))
-        (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
+       (-> base-vector first (- target-radius (-> config :arrows :width)))
+       (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
       (.fill)
 
       ; restore canvas
@@ -79,7 +85,6 @@
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
-        radius (-> config :nodes :radius)
         name-position (-> config :nodes :name-position)]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
@@ -90,22 +95,26 @@
                      (aget "short-name")
                      first
                      (split #" ")
-                     ((fn [s] (if (> (count s) 1) (second s) (first s))))
-                     ) x-pos (- y-pos name-position)))))
+                     ((fn [s] (if (> (count s) 1) (second s) (first s))))) x-pos (- y-pos name-position)))))
 
 (defn draw-nodes
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
         is-active? (-> node .-active)
-        active-color #(if is-active? (-> config :nodes :active :color) %)]
+        active-color #(if is-active? (-> config :nodes :active :color) %)
+        active-outline #(if is-active? (-> config :nodes :active :outline) %)
+        metric-name (-> config :nodes :radius-metric name)
+        metric-value (-> node .-metrics (#(aget % metric-name)))
+        radius-scale (-> config :scales (#(get-in % [(-> config :nodes :radius-metric)])))
+        radius (radius-scale metric-value)]
     (doto (-> config :ctx)
       (.beginPath)
-      (.moveTo (+ x-pos (-> config :nodes :radius)) y-pos)
-      (.arc x-pos y-pos (-> config :nodes :radius) 0 (* 2 js/Math.PI))
+      (.moveTo (+ x-pos radius) y-pos)
+      (.arc x-pos y-pos radius 0 (* 2 js/Math.PI))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :fill :color active-color))))
       (.fill)
-      ((fn [v] (set! (.-strokeStyle v) (-> config :nodes :outline :color))))
+      ((fn [v] (set! (.-strokeStyle v) (-> config :nodes :outline :color active-outline))))
       ((fn [v] (set! (.-lineWidth v) (-> config :nodes :outline :width))))
       (.stroke))))
 
@@ -116,7 +125,7 @@
     (draw-players-names)))
 
 (defn draw-graph
-  [{:keys [edges nodes config active-node]}]
+  [{:keys [edges nodes config nodeshash active-node]}]
   (let [ctx (-> config :ctx)]
     (doto ctx
       (.save)
@@ -124,6 +133,7 @@
       ((fn [v] (set! (.-fillStyle v) "white")))
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))
     (doseq [e edges] (draw-passes {:edge e
+                                   :nodeshash nodeshash
                                    :config config
                                    :active-node active-node}))
     (doseq [n nodes] (draw-players {:node n
@@ -134,7 +144,7 @@
 ; Events
 ; ==================================
 (defn clicked
-  [{:keys [edges nodes config]}]
+  [{:keys [edges nodes config nodeshash]}]
   (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
         x-domain #js [0 (-> canvas-current-dimensions .-width)]
         y-domain #js [0 (-> canvas-current-dimensions .-height)]
@@ -151,11 +161,11 @@
         x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
         node (find-node
-               (-> canvas-current-dimensions .-width)
-               nodes
-               (mapping-x x)
-               (mapping-y y)
-               (-> config :nodes :radius))]
+              config
+              (-> canvas-current-dimensions .-width)
+              nodes
+              (mapping-x x)
+              (mapping-y y))]
 
     (doseq [n nodes] (set! (.-active n) false))
     (when node (set! (.-active node) (not (-> node .-active))))
@@ -163,6 +173,7 @@
     (draw-graph {:edges edges
                  :config config
                  :nodes nodes
+                 :nodeshash nodeshash
                  :active-node node})))
 
 ; ==================================
@@ -171,6 +182,7 @@
 (defn force-graph
   [{:keys [data config]}]
   (let [nodes (-> data .-nodes)
+        nodeshash (-> data .-nodeshash)
         edges (-> data .-links)
         simulation (-> d3
                        (.forceSimulation)
@@ -182,6 +194,7 @@
         (.select (-> config :canvas))
         (.on "click" (fn [] (clicked {:edges edges
                                       :config config
+                                      :nodeshash nodeshash
                                       :nodes nodes}))))
 
     (-> simulation (.nodes nodes))
@@ -192,4 +205,5 @@
 
     (draw-graph {:edges edges
                  :config config
+                 :nodeshash nodeshash
                  :nodes nodes})))
