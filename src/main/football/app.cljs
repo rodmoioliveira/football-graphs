@@ -3,15 +3,9 @@
    [shadow.resource :as rc]
    [cljs.reader :as reader]
 
-   [utils.core :refer [assoc-pos set-canvas-dimensions mobile-mapping]]
+   [utils.core :refer [assoc-pos set-canvas-dimensions mobile-mapping hash-by]]
    [football.config :refer [config themes]]
    [football.draw-graph :refer [force-graph]]))
-
-
-; ==================================
-; Test Graph
-; ==================================
-; (-> (rc/inline "../data/graphs/test.edn") reader/read-string clj->js js/console.log)
 
 ; ==================================
 ; Matches
@@ -25,6 +19,12 @@
   (reduce (fn [acc cur] (assoc-in acc [(-> cur :match-id str keyword)] cur))
           {}
           brazil-matches))
+
+; ==================================
+; Test Graph
+; ==================================
+; (-> (rc/inline "../data/graphs/test.edn") reader/read-string clj->js js/console.log)
+; (-> brazil-matches clj->js js/console.log)
 
 ; ==================================
 ; Viewport
@@ -52,10 +52,15 @@
                                       orientation (-> el
                                                       (.getAttribute "data-orientation")
                                                       keyword
-                                                      ((fn [k] (if (mobile?) (mobile-mapping k) k))))]
+                                                      ((fn [k] (if (mobile?) (mobile-mapping k) k))))
+                                      nodes (-> v :nodes id (assoc-pos el orientation))]
                                   ((set-canvas-dimensions orientation) el)
                                   {:match-id (-> v :match-id)
-                                   :nodes (-> v :nodes id (assoc-pos el orientation))
+                                   :nodes nodes
+                                   ; TODO: move hashs to preprocessing data..
+                                   :nodeshash (-> nodes
+                                                  ((fn [n]
+                                                     (reduce (partial hash-by :id) (sorted-map) n))))
                                    :links (-> v :links id)
                                    :label (-> v :label)}))))
                    :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
@@ -70,6 +75,7 @@
         (#(set! (.-innerHTML %) (-> canvas :data :label))))
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
+                                   :radius-metric :degree
                                    :max-passes (-> brazil-matches
                                                    (#(map :max-passes %))
                                                    (#(apply max %)))
