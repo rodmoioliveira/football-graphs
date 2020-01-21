@@ -44,7 +44,12 @@
 (defn config
   [{:keys [id theme max-passes radius-metric]}]
   (let [mapping {:domains {:passes #js [1 max-passes]
-                           :degree #js [1 133]}
+                           :degree #js [1 133]
+                           :local-clustering-coefficient #js [0.7 1]
+                           :betweenness-centrality #js [0 0.2]
+                           :closeness-centrality #js [0 0.6]
+                           :in-degree #js [1 70]
+                           :out-degree #js [1 70]}
                  :codomains {:edges-width #js [1 20]
                              :radius #js [20 50]}}
         font {:weight "700"
@@ -54,11 +59,17 @@
               :text-align "center"
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
-        degree (-> d3
-                   (.scalePow)
-                   (.exponent 1.5)
-                   (.domain (-> mapping :domains :degree))
-                   (.range (-> mapping :codomains :radius)))
+        radius-scale #(-> d3
+                          (.scalePow)
+                          (.exponent 1.5)
+                          (.domain (-> mapping :domains %))
+                          (.range (-> mapping :codomains :radius)))
+        degree (radius-scale :degree)
+        in-degree (radius-scale :in-degree)
+        out-degree (radius-scale :out-degree)
+        betweenness-centrality (radius-scale :betweenness-centrality)
+        closeness-centrality (radius-scale :closeness-centrality)
+        local-clustering-coefficient (radius-scale :local-clustering-coefficient)
         edges->colors (-> d3
                           (.scalePow)
                           (.exponent 0.1)
@@ -71,6 +82,11 @@
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
         scales {:degree degree
+                :in-degree in-degree
+                :out-degree out-degree
+                :betweenness-centrality betweenness-centrality
+                :closeness-centrality closeness-centrality
+                :local-clustering-coefficient local-clustering-coefficient
                 :edges->colors edges->colors
                 :edges->width edges->width}]
 
