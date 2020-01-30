@@ -45,7 +45,7 @@
   [{:keys [id theme max-passes radius-metric]}]
   (let [mapping {:domains {:passes #js [1 max-passes]
                            :degree #js [1 133]
-                           :local-clustering-coefficient #js [0.7 1]
+                           :local-clustering-coefficient #js [1 0.7]
                            :betweenness-centrality #js [0 0.2]
                            :closeness-centrality #js [0 0.6]
                            :in-degree #js [1 70]

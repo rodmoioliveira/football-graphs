@@ -75,7 +75,7 @@
         (#(set! (.-innerHTML %) (-> canvas :data :label))))
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
-                                   :radius-metric :degree
+                                   :radius-metric :local-clustering-coefficient
                                    :max-passes (-> brazil-matches
                                                    (#(map :max-passes %))
                                                    (#(apply max %)))
