@@ -1,3 +1,5 @@
+$text-width: 750px;
+
 h1,
 h2,
 h3,
@@ -6,27 +8,30 @@ h5,
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
+  color: #111;
+  letter-spacing: -1px;
 }
 
 .title {
   text-align: center;
-  font-size: 9rem;
-  line-height: 1;
+  font-size: 7rem;
+  line-height: 1.1;
   font-weight: 700;
+  letter-spacing: -4px;
 
   @include margin;
   @include padding;
 
   @media (max-width: 700px) {
-    font-size: 18vw;
+    font-size: 16vw;
   }
 }
 
 .subtitle {
-  text-align: center;
-  font-size: 2rem;
-  line-height: 1.5;
-  max-width: 1200px;
+  font-size: 3rem;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  max-width: $text-width;
 
   @include margin;
   @include padding;
@@ -38,7 +43,7 @@ p {
 
 .paragraph {
   font-size: 1.4rem;
-  max-width: 700px;
+  max-width: $text-width;
   line-height: 1.5;
 
   @include margin;
@@ -46,6 +51,6 @@ p {
 
   @media (max-width: 490px) {
     line-height: 1.9;
-    font-size: 4.4vw;
+    font-size: 4.2vw;
   }
 }
