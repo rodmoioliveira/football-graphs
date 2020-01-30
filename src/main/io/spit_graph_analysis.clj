@@ -132,6 +132,60 @@
   [(create-graph team-1)
    (create-graph team-2)])
 
+(defn get-metrics-ranges
+  []
+  (let [max-val (fn [m] {:max (reduce max m)})
+        min-val (fn [m] {:min (reduce min m)})
+        merge-maps (fn [v] (apply merge v))
+        get-min-max (fn [v] ((juxt min-val max-val) v))
+        metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
+        in-degree (metric-range :in-degree)
+        out-degree (metric-range :out-degree)
+        degree (metric-range :degree)
+        betweenness-centrality (metric-range :betweenness-centrality)
+        global-clustering-coefficient (metric-range :global-clustering-coefficient)
+        local-clustering-coefficient (metric-range :local-clustering-coefficient)
+        average-clustering-coefficient (metric-range :average-clustering-coefficient)
+        closeness-centrality (metric-range :closeness-centrality)
+        alpha-centrality (metric-range :alpha-centrality)
+        eigenvector-centrality (metric-range :eigenvector-centrality)]
+    (-> metrics
+        (#(map vals %))
+        flatten
+        (#(map :metrics %))
+        (#((juxt
+            degree
+            in-degree
+            out-degree
+            betweenness-centrality
+            local-clustering-coefficient
+            closeness-centrality
+            alpha-centrality
+            eigenvector-centrality
+            average-clustering-coefficient
+            global-clustering-coefficient)
+           %))
+        ((fn [[degree
+               in-degree
+               out-degree
+               betweenness-centrality
+               local-clustering-coefficient
+               closeness-centrality
+               alpha-centrality
+               eigenvector-centrality
+               average-clustering-coefficient
+               global-clustering-coefficient]]
+           {:degree degree
+            :in-degree in-degree
+            :out-degree out-degree
+            :betweenness-centrality betweenness-centrality
+            :local-clustering-coefficient local-clustering-coefficient
+            :closeness-centrality closeness-centrality
+            :alpha-centrality alpha-centrality
+            :eigenvector-centrality eigenvector-centrality
+            :average-clustering-coefficient average-clustering-coefficient
+            :global-clustering-coefficient global-clustering-coefficient})))))
+
 ; ==================================
 ; IO
 ; ==================================
@@ -156,8 +210,8 @@
                                            n
                                            :metrics
                                            (get-in metrics [1 (-> n :id) :metrics])))
-                                  %)))}))))
-
+                                  %)))}
+                      :meta (merge (-> data :meta) (get-metrics-ranges))))))
         match-label (-> data :label csk/->snake_case)
         dist "src/main/data/analysis/"
         ext (name file-type)]

@@ -532,4 +532,18 @@
    {:source :VOE, :target :LAE, :team-id 6380, :value 20}
    {:source :LAE, :target :PTE, :team-id 6380, :value 21}
    {:source :LAE, :target :VOE, :team-id 6380, :value 23})},
- :max-passes 23}
+ :meta
+ {:out-degree {:min 10.0, :max 87.0},
+  :average-clustering-coefficient
+  {:min 0.750974025974026, :max 0.8854978354978355},
+  :global-clustering-coefficient
+  {:min 0.8559556786703602, :max 0.9090909090909091},
+  :in-degree {:min 7.0, :max 93.0},
+  :degree {:min 19.0, :max 180.0},
+  :max-passes 23,
+  :alpha-centrality {:min 1.1105602245483954, :max 3.543097598753481},
+  :betweenness-centrality {:min 0.0, :max 0.1762433862433862},
+  :local-clustering-coefficient {:min 0.7, :max 0.9821428571428571},
+  :closeness-centrality
+  {:min 0.18181818181818182, :max 0.7692307692307693},
+  :eigenvector-centrality {:min 7.3819E-6, :max 1.6669818308074106E-4}}}

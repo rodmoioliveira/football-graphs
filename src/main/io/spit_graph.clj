@@ -184,7 +184,8 @@
                           acc
                           [(-> cur first :team-id str keyword)]
                           cur)) {} %)))
-         :max-passes (-> links flatten (#(sort-by :value %)) last :value)}
+         :meta
+         {:max-passes (-> links flatten (#(sort-by :value %)) last :value)}}
         match-label (-> data :match :label csk/->snake_case)
         dist "src/main/data/graphs/"
         ext (name file-type)]
