@@ -71,7 +71,7 @@
                    :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
 ; ==================================
-; Graphs Init
+; Plot graphs
 ; ==================================
 (defn plot-graphs
   [{:keys [global-scale? radius-metric]}]
@@ -87,6 +87,9 @@
                                                 (-> canvas :data :meta))
                                    :theme (-> canvas :theme themes)})})))
 
+; ==================================
+; Graphs Init
+; ==================================
 (defn init
   []
   (plot-graphs
