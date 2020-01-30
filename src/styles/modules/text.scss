@@ -9,7 +9,6 @@ p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   color: #111;
-  letter-spacing: -1px;
 }
 
 .title {
@@ -29,7 +28,7 @@ p {
 
 .subtitle {
   font-size: 3rem;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: -1px;
   max-width: $text-width;
 
@@ -37,7 +36,7 @@ p {
   @include padding;
 
   @media (max-width: 600px) {
-    font-size: 6vw;
+    font-size: 8vw;
   }
 }
 
