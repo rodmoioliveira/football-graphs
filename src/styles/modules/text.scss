@@ -1,3 +1,4 @@
+$text-color: #222;
 $text-width: 750px;
 
 h1,
@@ -7,8 +8,8 @@ h4,
 h5,
 p {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  color: #111;
+  color: $text-color;
+  font-weight: 300;
 }
 
 .title {
@@ -22,7 +23,7 @@ p {
   @include padding;
 
   @media (max-width: 700px) {
-    font-size: 16vw;
+    font-size: 12vw;
   }
 }
 
@@ -31,17 +32,18 @@ p {
   line-height: 1.2;
   letter-spacing: -1px;
   max-width: $text-width;
+  font-weight: 700;
 
   @include margin;
   @include padding;
 
   @media (max-width: 600px) {
-    font-size: 8vw;
+    font-size: 7vw;
   }
 }
 
 .paragraph {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   max-width: $text-width;
   line-height: 1.5;
 
@@ -53,3 +55,21 @@ p {
     font-size: 4.2vw;
   }
 }
+
+blockquote {
+  margin: 0 auto;
+  background: #fcfbe9;
+  outline: 1px solid $text-color;
+  max-width: $text-width;
+}
+
+.quote-text {
+  font-style: italic;
+}
+
+.quote-reference {
+  display: block;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+

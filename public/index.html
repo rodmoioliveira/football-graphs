@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
@@ -35,20 +35,8 @@
             Pellentesque ut ligula porta, aliquam massa non, rutrum libero.
             Phasellus hendrerit consectetur est, et eleifend sem laoreet eu.
           </p>
-          <h3 class="subtitle">Centralidade de Grau<br>[Degree Centrality]</h3>
-          <p class="paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque ut ligula porta, aliquam massa non, rutrum libero.
-            Phasellus hendrerit consectetur est, et eleifend sem laoreet eu.
-            Pellentesque tortor ante, mollis sed elit bibendum, elementum
-            rhoncus sapien. Mauris sollicitudin vulputate aliquam. Quisque
-            aliquet dui vel metus auctor convallis. Donec pellentesque id nisi
-            ac accumsan.
-          </p>
-        </li>
-        <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Autovetor<br>[Eigenvector Centrality]
+            Centralidade de Grau<br />[Degree Centrality]
           </h3>
           <p class="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -62,7 +50,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Proximidade<br>[Closeness Centrality]
+            Centralidade de Autovetor<br />[Eigenvector Centrality]
           </h3>
           <p class="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -76,7 +64,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Intermediação<br>[Betweenness Centrality]
+            Centralidade de Proximidade<br />[Closeness Centrality]
           </h3>
           <p class="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -90,7 +78,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Coeficiente Local de Agrupamento<br>[Local Clustering Coefficient]
+            Centralidade de Intermediação<br />[Betweenness Centrality]
           </h3>
           <p class="paragraph">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -101,6 +89,179 @@
             aliquet dui vel metus auctor convallis. Donec pellentesque id nisi
             ac accumsan.
           </p>
+        </li>
+        <li class="metric-item">
+          <h3 class="subtitle">
+            Coeficiente Local de Agrupamento<br />[Local Clustering Coefficient]
+          </h3>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text"
+                >We can quantify the level of transitivity in a network as
+                follows. If u knows v and v knows w, then we have a path uvw of
+                two edges in the network. If u also knows w, we say that the
+                path is closed—it forms a loop of length three, or a triangle,
+                in the network. In the social network jargon, u, v, and w are
+                said to form a closed triad. We define the clustering
+                coefficient to be the fraction of paths of length two in the
+                network that are closed.</span
+              >
+              <span class="quote-reference"
+                >Networks: An Introduction. M. E. J. Newman, Oxford University
+                Press, 2010, p. 200</span
+              >
+            </p>
+          </blockquote>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text"
+                >Some social networks, such as the email network above, are
+                directed networks. In calculating clustering coefficients for
+                direct networks, scientists have typically just ignored their
+                directed nature (...) as if the edges were undirected.</span
+              >
+              <span class="quote-reference"
+                >Networks: An Introduction. M. E. J. Newman, Oxford University
+                Press, 2010, p. 203</span
+              >
+            </p>
+          </blockquote>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text"
+                >(...) clustering coefficient (...) represents the average
+                probability that a pair of i′s friends are friends of one
+                another. Local clustering is interesting for several reasons.
+                First, in many networks it is found empirically to have a rough
+                dependence on degree, vertices with higher degree having a lower
+                local clustering coefficient on average.</span
+              >
+              <span class="quote-reference"
+                >Networks: An Introduction. M. E. J. Newman, Oxford University
+                Press, 2010, p. 204</span
+              >
+            </p>
+          </blockquote>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text"
+                >(...) local clustering can be used as a probe for the existence
+                of so-called 'structural holes' in a network. While it is common
+                in many networks, especially social networks, for the neighbors
+                of a vertex to be connected among themselves, it happens
+                sometimes that these expected connections between neighbors are
+                missing. The missing links are called structural holes and were
+                first studied in this context by Burt [60]. If we are interested
+                in efficient spread of information or other traffic around a
+                network, as we were in Section 7.7, then structural holes are a
+                bad thing— they reduce the number of alternative routes
+                information can take through the network. On the other hand
+                structural holes can be a good thing for the central vertex i
+                whose friends lack connections, because they give i power over
+                information flow between those friends. If two friends of i are
+                not connected directly and their information about one another
+                comes instead via their mutual connection with i then i can
+                control the flow of that information. The local clustering
+                coefficient measures how influential i is in this sense, taking
+                lower values the more structural holes there are in the network
+                around i. Thus local clustering can be regarded as a type of
+                centrality measure, albeit one that takes small values for
+                powerful individuals rather than large ones.</span
+              >
+              <span class="quote-reference"
+                >Networks: An Introduction. M. E. J. Newman, Oxford University
+                Press, 2010, p. 204</span
+              >
+            </p>
+          </blockquote>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text"
+                >In this sense, local clustering can also be thought of as akin
+                to the betweenness centrality of Section 7.7. Where betweenness
+                measures a vertex’s control over information flowing between all
+                pairs of vertices in its component, local clustering is like a
+                local version of betweenness that measures control over flows
+                between just the immediate neighbors of a vertex. One measure is
+                not necessarily better than another. There may be cases in which
+                we want to take all vertices into account and others where we
+                want to consider only immediate neighbors—the choice will depend
+                on the particular questions we want to answer. It is worth
+                pointing out however that betweenness is much more
+                computationally intensive to calculate than local clustering
+                (see Section 10.3.6), and that in practice betweenness and local
+                clustering are strongly correlated</span
+              >
+              <span class="quote-reference"
+                >Networks: An Introduction. M. E. J. Newman, Oxford University
+                Press, 2010, p. 205</span
+              >
+            </p>
+          </blockquote>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text"
+                >The clustering coefficient (...) measures the frequency with
+                which loops of length three—triangles—appear in a network.</span
+              >
+              <span class="quote-reference"
+                >Networks: An Introduction. M. E. J. Newman, Oxford University
+                Press, 2010, p. 207</span
+              >
+            </p>
+          </blockquote>
+          <blockquote
+            cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/"
+          >
+            <p class="paragraph">
+              <span class="quote-text"
+                >Other metrics, such as the clustering coefficient, which
+                measures the number of 'neighbors' of a player that also have
+                passed the ball between them (i.e., the number of triangles
+                around a player), has also been quantified to evaluate the
+                contribution of a given player to the local robustness of the
+                passing network.</span
+              >
+              <span class="quote-reference"
+                ><a
+                  target="_blank"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/"
+                >
+                  Using Network Science to Analyse Football Passing Networks:
+                  Dynamics, Space, Time, and the Multilayer Nature of the Game.
+                  Javier M. Buldú, Javier Busquets, [...], and Jordi Luque
+                </a></span
+              >
+            </p>
+          </blockquote>
+          <blockquote
+            cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/"
+          >
+            <p class="paragraph">
+              <span class="quote-text"
+                >In Fig. 3A, we plot the clustering coefficient C, which is
+                related to the amount of triangles created between any triplet
+                of players. Clustering coefficient is an indicator of the local
+                robustness of networks, since when a triangle connecting three
+                nodes (i.e. players) exists, and a link (i.e., pass) between two
+                nodes is lost (i.e., not possible to make the pass), there is an
+                alternative way of reaching the other node passing through the
+                other two edges of the triangle. In football, the clustering
+                coefficient mesures the triangulation between three
+                players.</span
+              >
+              <span class="quote-reference"
+                ><a
+                  target="_blank"
+                  href="https://www.nature.com/articles/s41598-019-49969-2"
+                >
+                  Defining a historic football team: Using Network Science to
+                  analyze Guardiola’s F.C. Barcelona J. M. Buldú, J. Busquets,
+                  I. Echegoyen & F. Seirul.lo
+                </a></span
+              >
+            </p>
+          </blockquote>
         </li>
       </ul>
     </section>
