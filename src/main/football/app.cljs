@@ -77,7 +77,7 @@
                   :config (config {:id (canvas :id)
                                    :radius-metric :local-clustering-coefficient
                                    :max-passes (-> brazil-matches
-                                                   (#(map (fn [v] (get-in v [:meta :max-passes])) %))
+                                                   (#(map (fn [v] (get-in v [:meta :passes :max])) %))
                                                    (#(apply max %)))
                                    :theme (-> canvas :theme themes)})})))
 
