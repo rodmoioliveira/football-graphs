@@ -1,7 +1,10 @@
 (ns io.spit-graph-analysis
   ; https://jgrapht.org/guide/UserOverview#graph-structures
   ; https://jgrapht.org/javadoc/overview-summary.html
-  (:import [org.jgrapht.graph DefaultWeightedEdge SimpleDirectedWeightedGraph]
+  (:import [org.jgrapht.graph
+            DefaultWeightedEdge
+            SimpleDirectedWeightedGraph
+            SimpleWeightedGraph]
            [org.jgrapht.alg.scoring
             BetweennessCentrality
             ClusteringCoefficient
@@ -73,36 +76,42 @@
 ; ==================================
 (defn create-graph
   [team]
-  (let [graph (SimpleDirectedWeightedGraph. DefaultWeightedEdge)
+  (let [sdwg (SimpleDirectedWeightedGraph. DefaultWeightedEdge)
+        swg (SimpleWeightedGraph. DefaultWeightedEdge)
         [nodes links] team]
     (doseq [node nodes]
-      (doto graph
+      (doto sdwg
+        (.addVertex (-> node :pos keyword)))
+      (doto swg
         (.addVertex (-> node :pos keyword))))
     (doseq [link links]
-      (doto graph
+      (doto sdwg
+        (.addEdge (-> link :source keyword) (-> link :target keyword)))
+      (doto swg
         (.addEdge (-> link :source keyword) (-> link :target keyword))))
     (doseq [link links]
-      (doto graph
+      (doto sdwg
         (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
 
-    (let [get-edges-weight (fn [edges] (map (fn [e] (-> graph (.getEdgeWeight e))) edges))
+    (let [get-edges-weight (fn [edges] (map (fn [e] (-> sdwg (.getEdgeWeight e))) edges))
           sum (fn [v] (apply + v))
-          vertex-set (-> graph (.vertexSet) vec)
-          betweenness-centrality (-> graph (BetweennessCentrality. true) (.getScores))
-          clustering-coefficient (-> graph (ClusteringCoefficient.))
+          vertex-set (-> sdwg (.vertexSet) vec)
+          betweenness-centrality (-> sdwg (BetweennessCentrality. true) (.getScores))
+          clustering-coefficient (-> sdwg (ClusteringCoefficient.))
           local-clustering-coefficient (-> clustering-coefficient (.getScores))
           average-clustering-coefficient (-> clustering-coefficient (.getAverageClusteringCoefficient))
-          closeness-centrality (-> graph (ClosenessCentrality. false true) (.getScores))
-          alpha-centrality (-> graph (AlphaCentrality.) (.getScores))
-          eigenvector-centrality (-> graph (AlphaCentrality. 0.01	0.0) (.getScores))]
+          global-clustering-coefficient (-> swg ClusteringCoefficient. (.getGlobalClusteringCoefficient))
+          closeness-centrality (-> sdwg (ClosenessCentrality. false true) (.getScores))
+          alpha-centrality (-> sdwg (AlphaCentrality.) (.getScores))
+          eigenvector-centrality (-> sdwg (AlphaCentrality. 0.01	0.0) (.getScores))]
       (-> vertex-set
           (#(map
              (fn [id]
-               (let [in-degree (-> graph
+               (let [in-degree (-> sdwg
                                    (.incomingEdgesOf id)
                                    get-edges-weight
                                    sum)
-                     out-degree (-> graph
+                     out-degree (-> sdwg
                                     (.outgoingEdgesOf id)
                                     get-edges-weight
                                     sum)]
@@ -111,6 +120,7 @@
                             :out-degree out-degree
                             :degree (-> [in-degree out-degree] sum)
                             :betweenness-centrality (-> betweenness-centrality id)
+                            :global-clustering-coefficient global-clustering-coefficient
                             :local-clustering-coefficient (-> local-clustering-coefficient id)
                             :average-clustering-coefficient average-clustering-coefficient
                             :closeness-centrality (-> closeness-centrality id)
