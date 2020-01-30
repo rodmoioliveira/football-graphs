@@ -198,18 +198,22 @@
                       {(-> teams-ids first)
                        (-> nodes
                            first
-                           (#(map (fn [n] (assoc
-                                           n
-                                           :metrics
-                                           (get-in metrics [0 (-> n :id) :metrics])))
+                           (#(map (fn
+                                    [n]
+                                    (assoc
+                                     n
+                                     :metrics
+                                     (get-in metrics [0 (-> n :id keyword) :metrics])))
                                   %)))
                        (-> teams-ids second)
                        (-> nodes
                            second
-                           (#(map (fn [n] (assoc
-                                           n
-                                           :metrics
-                                           (get-in metrics [1 (-> n :id) :metrics])))
+                           (#(map (fn
+                                    [n]
+                                    (assoc
+                                     n
+                                     :metrics
+                                     (get-in metrics [1 (-> n :id keyword) :metrics])))
                                   %)))}
                       :meta (merge (-> data :meta) (get-metrics-ranges))))))
         match-label (-> data :label csk/->snake_case)
