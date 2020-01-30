@@ -42,6 +42,7 @@
 ; ==================================
 (defn config
   [{:keys [id theme radius-metric meta-data]}]
+  ; (-> meta-data radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> meta-data metric (#((juxt :min :max) %))))
         mapping {:domains
                  {:passes (-> (get-ranges :passes) clj->js)

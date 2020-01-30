@@ -101,7 +101,7 @@
           local-clustering-coefficient (-> clustering-coefficient (.getScores))
           average-clustering-coefficient (-> clustering-coefficient (.getAverageClusteringCoefficient))
           global-clustering-coefficient (-> swg ClusteringCoefficient. (.getGlobalClusteringCoefficient))
-          closeness-centrality (-> sdwg (ClosenessCentrality. false true) (.getScores))
+          closeness-centrality (-> sdwg (ClosenessCentrality.) (.getScores))
           alpha-centrality (-> sdwg (AlphaCentrality.) (.getScores))
           eigenvector-centrality (-> sdwg (AlphaCentrality. 0.01	0.0) (.getScores))]
       (-> vertex-set
