@@ -7,8 +7,8 @@
                        set-canvas-dimensions
                        mobile-mapping
                        hash-by
-                       global-meta-data]]
-   [football.config :refer [config themes]]
+                       get-global-metrics]]
+   [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
 ; ==================================
@@ -74,18 +74,18 @@
 ; Plot graphs
 ; ==================================
 (defn plot-graphs
-  [{:keys [global-scale? radius-metric]}]
+  [{:keys [global-metrics? node-radius-metric node-color-metric matches get-global-metrics]}]
   (doseq [canvas (all-canvas)]
     (-> js/document
         (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
         (#(set! (.-innerHTML %) (-> canvas :data :label))))
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
-                                   :radius-metric radius-metric
-                                   :meta-data (if global-scale?
-                                                (global-meta-data brazil-matches)
-                                                (-> canvas :data :meta))
-                                   :theme (-> canvas :theme themes)})})))
+                                   :node-radius-metric node-radius-metric
+                                   :node-color-metric node-color-metric
+                                   :meta-data (if global-metrics?
+                                                (get-global-metrics matches)
+                                                (-> canvas :data :meta))})})))
 
 ; ==================================
 ; Graphs Init
@@ -93,7 +93,10 @@
 (defn init
   []
   (plot-graphs
-   {:global-scale? false
-    :radius-metric :degree}))
+   {:matches brazil-matches
+    :get-global-metrics get-global-metrics
+    :global-metrics? false
+    :node-radius-metric :degree
+    :node-color-metric :betweenness-centrality}))
 
 (defn reload! [] (init))

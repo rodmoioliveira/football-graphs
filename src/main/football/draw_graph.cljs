@@ -31,8 +31,8 @@
         alpha-value (if active-node (if active-edges 1 (-> config :edges :alpha)) 1)
 
         ; get metric name, radius scale and values
-        metric-name (-> config :nodes :radius-metric name)
-        radius-scale (-> config :scales (#(get-in % [(-> config :nodes :radius-metric)])))
+        metric-name (-> config :nodes :node-radius-metric name)
+        radius-scale (-> config :scales (#(get-in % [(-> config :nodes :node-radius-metric)])) (#(% :radius)))
         source-radius (-> edge .-source .-id (#(aget nodeshash %)) .-metrics (#(aget % metric-name)) radius-scale)
         target-radius (-> edge .-target .-id (#(aget nodeshash %)) .-metrics (#(aget % metric-name)) radius-scale)]
 
@@ -104,15 +104,29 @@
         is-active? (-> node .-active)
         active-color #(if is-active? (-> config :nodes :active :color) %)
         active-outline #(if is-active? (-> config :nodes :active :outline) %)
-        metric-name (-> config :nodes :radius-metric name)
-        metric-value (-> node .-metrics (#(aget % metric-name)))
-        radius-scale (-> config :scales (#(get-in % [(-> config :nodes :radius-metric)])))
-        radius (radius-scale metric-value)]
+
+        ; Metrics for coloring node
+        node-color-metric-name (-> config :nodes :node-color-metric name)
+        node-color-metric-value (-> node .-metrics (#(aget % node-color-metric-name)))
+        color-scale (-> config
+                        :scales
+                        (#(get-in % [(-> config :nodes :node-color-metric)]))
+                        (#(% :color)))
+        color (color-scale node-color-metric-value)
+
+        ; Metrics for sizing node
+        node-radius-metric-name (-> config :nodes :node-radius-metric name)
+        node-radius-metric-value (-> node .-metrics (#(aget % node-radius-metric-name)))
+        radius-scale (-> config
+                         :scales
+                         (#(get-in % [(-> config :nodes :node-radius-metric)]))
+                         (#(% :radius)))
+        radius (radius-scale node-radius-metric-value)]
     (doto (-> config :ctx)
       (.beginPath)
       (.moveTo (+ x-pos radius) y-pos)
       (.arc x-pos y-pos radius 0 (* 2 js/Math.PI))
-      ((fn [v] (set! (.-fillStyle v) (-> config :nodes :fill :color active-color))))
+      ((fn [v] (set! (.-fillStyle v) (-> color active-color))))
       (.fill)
       ((fn [v] (set! (.-strokeStyle v) (-> config :nodes :outline :color active-outline))))
       ((fn [v] (set! (.-lineWidth v) (-> config :nodes :outline :width))))

@@ -5,7 +5,7 @@
    #?(:clj [clojure.data.json :as json])))
 
 #?(:cljs
-   (defn global-meta-data
+   (defn get-global-metrics
      [matches]
      (let [max-val (fn [m] (reduce max m))
            min-val (fn [m] (reduce min m))

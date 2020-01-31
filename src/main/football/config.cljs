@@ -2,48 +2,18 @@
   (:require
    [clojure.string :as str]
    ["d3" :as d3]))
-; ==================================
-; Themes
-; ==================================
-(def themes {:grey {:primary "grey"
-                    :secondary "white"
-                    :accent "#dedcdb"}
-             :blue {:primary "blue"
-                    :secondary "white"
-                    :accent "#c5c2ff"}
-             :orange {:primary "orange"
-                      :secondary "white"
-                      :accent "#ffecc2"}
-             :purple {:primary "purple"
-                      :secondary "white"
-                      :accent "#ffb8f6"}
-             :red {:primary "red"
-                   :secondary "white"
-                   :accent "#ffa6a3"}
-             ; Costa Rica
-             :16817 {:primary "#002780"
-                     :secondary "white"
-                     :accent "#adb5ff"}
-             ; Switzerland
-             :6697 {:primary "#d52b1e"
-                    :secondary "white"
-                    :accent "#ffcac2"}
-             ; Serbia
-             :17322 {:primary "#c73339"
-                     :secondary "white"
-                     :accent "#ffcac2"}
-             ; Brazil
-             :6380 {:primary "#00912F"
-                    :secondary "white"
-                    :accent "#03f081"}})
 
 ; ==================================
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id theme radius-metric meta-data]}]
-  ; (-> meta-data radius-metric (#((juxt :min :max) %)) print)
+  [{:keys [id node-radius-metric node-color-metric meta-data]}]
+  ; (-> meta-data node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> meta-data metric (#((juxt :min :max) %))))
+
+        ; ==================================
+        ; Domains and Codomains
+        ; ==================================
         mapping {:domains
                  {:passes (-> (get-ranges :passes) clj->js)
                   :degree (-> (get-ranges :degree) clj->js)
@@ -56,38 +26,57 @@
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
                  :codomains {:edges-width #js [1 20]
                              :radius #js [20 50]}}
+
+        ; ==================================
+        ; Font
+        ; ==================================
         font {:weight "700"
               :size "25px"
               :type "'Open sans', sans-serif"
               :color "black"
               :text-align "center"
               :base-line "middle"}
+
+        ; ==================================
+        ; Canvas
+        ; ==================================
         canvas (-> js/document (.getElementById id))
-        radius-scale #(-> d3
-                          ; FIXME: change scale to area...
-                          (.scalePow)
-                          (.exponent 1)
-                          (.domain (-> mapping :domains %))
-                          (.range (-> mapping :codomains :radius)))
-        degree (radius-scale :degree)
-        in-degree (radius-scale :in-degree)
-        out-degree (radius-scale :out-degree)
-        betweenness-centrality (radius-scale :betweenness-centrality)
-        closeness-centrality (radius-scale :closeness-centrality)
-        local-clustering-coefficient (radius-scale :local-clustering-coefficient)
-        alpha-centrality (radius-scale :alpha-centrality)
-        eigenvector-centrality (radius-scale :eigenvector-centrality)
+
+        ; ==================================
+        ; Scales
+        ; ==================================
         edges->colors (-> d3
                           (.scalePow)
                           (.exponent 0.1)
                           (.domain (-> mapping :domains :passes))
-                          (.range #js [(-> theme :accent), "black"])
+                          (.range #js ["#bbdefb", "#0d47a1"])
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         edges->width (-> d3
                          (.scalePow)
                          (.exponent 0.9)
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
+        node-color-scale #(-> d3
+                              (.scalePow)
+                              (.exponent 1)
+                              (.domain (-> mapping :domains %))
+                              (.range #js ["#ffff00", "#ff5722"])
+                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
+        node-radius-scale #(-> d3
+                               (.scalePow)
+                               (.exponent 1)
+                               (.domain (-> mapping :domains %))
+                               (.range (-> mapping :codomains :radius)))
+        map-scale {:radius node-radius-scale
+                   :color node-color-scale}
+        degree #((-> map-scale %) :degree)
+        in-degree #((-> map-scale %) :in-degree)
+        out-degree #((-> map-scale %) :out-degree)
+        betweenness-centrality #((-> map-scale %) :betweenness-centrality)
+        closeness-centrality #((-> map-scale %) :closeness-centrality)
+        local-clustering-coefficient #((-> map-scale %) :local-clustering-coefficient)
+        alpha-centrality #((-> map-scale %) :alpha-centrality)
+        eigenvector-centrality #((-> map-scale %) :eigenvector-centrality)
         scales {:degree degree
                 :in-degree in-degree
                 :out-degree out-degree
@@ -99,6 +88,9 @@
                 :edges->colors edges->colors
                 :edges->width edges->width}]
 
+    ; ==================================
+    ; Config Object
+    ; ==================================
     {:arrows {:recoil 19
               :expansion 1.2
               :width 30}
@@ -107,13 +99,13 @@
      :edges {:padding 10
              :distance-between 5
              :alpha 0.03}
-     :nodes {:radius-metric radius-metric
+     :nodes {:node-radius-metric node-radius-metric
+             :node-color-metric node-color-metric
              :radius-click 5
-             :fill {:color (theme :accent)}
              :active {:color "#ebd1fe"
-                      :outline "purple"}
+                      :outline "#999"}
              :name-position 0
-             :outline {:color (theme :primary)
+             :outline {:color "#999"
                        :width 1.5}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
