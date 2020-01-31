@@ -119,7 +119,8 @@
 
 #?(:cljs
    (def mobile-mapping
-     {:gol-right :gol-bottom
+     {:gol-bottom :gol-bottom
+      :gol-right :gol-bottom
       :gol-left :gol-top}))
 
 #?(:cljs
