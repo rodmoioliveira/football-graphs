@@ -1,7 +1,10 @@
 (ns io.spit-graph-analysis
   ; https://jgrapht.org/guide/UserOverview#graph-structures
   ; https://jgrapht.org/javadoc/overview-summary.html
-  (:import [org.jgrapht.graph DefaultWeightedEdge SimpleDirectedWeightedGraph]
+  (:import [org.jgrapht.graph
+            DefaultWeightedEdge
+            SimpleDirectedWeightedGraph
+            SimpleWeightedGraph]
            [org.jgrapht.alg.scoring
             BetweennessCentrality
             ClusteringCoefficient
@@ -73,36 +76,42 @@
 ; ==================================
 (defn create-graph
   [team]
-  (let [graph (SimpleDirectedWeightedGraph. DefaultWeightedEdge)
+  (let [sdwg (SimpleDirectedWeightedGraph. DefaultWeightedEdge)
+        swg (SimpleWeightedGraph. DefaultWeightedEdge)
         [nodes links] team]
     (doseq [node nodes]
-      (doto graph
+      (doto sdwg
+        (.addVertex (-> node :pos keyword)))
+      (doto swg
         (.addVertex (-> node :pos keyword))))
     (doseq [link links]
-      (doto graph
+      (doto sdwg
+        (.addEdge (-> link :source keyword) (-> link :target keyword)))
+      (doto swg
         (.addEdge (-> link :source keyword) (-> link :target keyword))))
     (doseq [link links]
-      (doto graph
+      (doto sdwg
         (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
 
-    (let [get-edges-weight (fn [edges] (map (fn [e] (-> graph (.getEdgeWeight e))) edges))
+    (let [get-edges-weight (fn [edges] (map (fn [e] (-> sdwg (.getEdgeWeight e))) edges))
           sum (fn [v] (apply + v))
-          vertex-set (-> graph (.vertexSet) vec)
-          betweenness-centrality (-> graph (BetweennessCentrality. true) (.getScores))
-          clustering-coefficient (-> graph (ClusteringCoefficient.))
+          vertex-set (-> sdwg (.vertexSet) vec)
+          betweenness-centrality (-> sdwg (BetweennessCentrality. true) (.getScores))
+          clustering-coefficient (-> sdwg (ClusteringCoefficient.))
           local-clustering-coefficient (-> clustering-coefficient (.getScores))
           average-clustering-coefficient (-> clustering-coefficient (.getAverageClusteringCoefficient))
-          closeness-centrality (-> graph (ClosenessCentrality. false true) (.getScores))
-          alpha-centrality (-> graph (AlphaCentrality.) (.getScores))
-          eigenvector-centrality (-> graph (AlphaCentrality. 0.01	0.0) (.getScores))]
+          global-clustering-coefficient (-> swg ClusteringCoefficient. (.getGlobalClusteringCoefficient))
+          closeness-centrality (-> sdwg (ClosenessCentrality.) (.getScores))
+          alpha-centrality (-> sdwg (AlphaCentrality.) (.getScores))
+          eigenvector-centrality (-> sdwg (AlphaCentrality. 0.01	0.0) (.getScores))]
       (-> vertex-set
           (#(map
              (fn [id]
-               (let [in-degree (-> graph
+               (let [in-degree (-> sdwg
                                    (.incomingEdgesOf id)
                                    get-edges-weight
                                    sum)
-                     out-degree (-> graph
+                     out-degree (-> sdwg
                                     (.outgoingEdgesOf id)
                                     get-edges-weight
                                     sum)]
@@ -111,6 +120,7 @@
                             :out-degree out-degree
                             :degree (-> [in-degree out-degree] sum)
                             :betweenness-centrality (-> betweenness-centrality id)
+                            :global-clustering-coefficient global-clustering-coefficient
                             :local-clustering-coefficient (-> local-clustering-coefficient id)
                             :average-clustering-coefficient average-clustering-coefficient
                             :closeness-centrality (-> closeness-centrality id)
@@ -121,6 +131,60 @@
 (def metrics
   [(create-graph team-1)
    (create-graph team-2)])
+
+(defn get-metrics-ranges
+  []
+  (let [max-val (fn [m] {:max (reduce max m)})
+        min-val (fn [m] {:min (reduce min m)})
+        merge-maps (fn [v] (apply merge v))
+        get-min-max (fn [v] ((juxt min-val max-val) v))
+        metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
+        in-degree (metric-range :in-degree)
+        out-degree (metric-range :out-degree)
+        degree (metric-range :degree)
+        betweenness-centrality (metric-range :betweenness-centrality)
+        global-clustering-coefficient (metric-range :global-clustering-coefficient)
+        local-clustering-coefficient (metric-range :local-clustering-coefficient)
+        average-clustering-coefficient (metric-range :average-clustering-coefficient)
+        closeness-centrality (metric-range :closeness-centrality)
+        alpha-centrality (metric-range :alpha-centrality)
+        eigenvector-centrality (metric-range :eigenvector-centrality)]
+    (-> metrics
+        (#(map vals %))
+        flatten
+        (#(map :metrics %))
+        (#((juxt
+            degree
+            in-degree
+            out-degree
+            betweenness-centrality
+            local-clustering-coefficient
+            closeness-centrality
+            alpha-centrality
+            eigenvector-centrality
+            average-clustering-coefficient
+            global-clustering-coefficient)
+           %))
+        ((fn [[degree
+               in-degree
+               out-degree
+               betweenness-centrality
+               local-clustering-coefficient
+               closeness-centrality
+               alpha-centrality
+               eigenvector-centrality
+               average-clustering-coefficient
+               global-clustering-coefficient]]
+           {:degree degree
+            :in-degree in-degree
+            :out-degree out-degree
+            :betweenness-centrality betweenness-centrality
+            :local-clustering-coefficient local-clustering-coefficient
+            :closeness-centrality closeness-centrality
+            :alpha-centrality alpha-centrality
+            :eigenvector-centrality eigenvector-centrality
+            :average-clustering-coefficient average-clustering-coefficient
+            :global-clustering-coefficient global-clustering-coefficient})))))
 
 ; ==================================
 ; IO
@@ -134,20 +198,24 @@
                       {(-> teams-ids first)
                        (-> nodes
                            first
-                           (#(map (fn [n] (assoc
-                                           n
-                                           :metrics
-                                           (get-in metrics [0 (-> n :id) :metrics])))
+                           (#(map (fn
+                                    [n]
+                                    (assoc
+                                     n
+                                     :metrics
+                                     (get-in metrics [0 (-> n :id keyword) :metrics])))
                                   %)))
                        (-> teams-ids second)
                        (-> nodes
                            second
-                           (#(map (fn [n] (assoc
-                                           n
-                                           :metrics
-                                           (get-in metrics [1 (-> n :id) :metrics])))
-                                  %)))}))))
-
+                           (#(map (fn
+                                    [n]
+                                    (assoc
+                                     n
+                                     :metrics
+                                     (get-in metrics [1 (-> n :id keyword) :metrics])))
+                                  %)))}
+                      :meta (merge (-> data :meta) (get-metrics-ranges))))))
         match-label (-> data :label csk/->snake_case)
         dist "src/main/data/analysis/"
         ext (name file-type)]

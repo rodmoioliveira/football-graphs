@@ -2,7 +2,6 @@
   (:require
    [clojure.string :as str]
    ["d3" :as d3]))
-
 ; ==================================
 ; Themes
 ; ==================================
@@ -42,14 +41,19 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id theme max-passes radius-metric]}]
-  (let [mapping {:domains {:passes #js [1 max-passes]
-                           :degree #js [1 133]
-                           :local-clustering-coefficient #js [0.7 1]
-                           :betweenness-centrality #js [0 0.2]
-                           :closeness-centrality #js [0 0.6]
-                           :in-degree #js [1 70]
-                           :out-degree #js [1 70]}
+  [{:keys [id theme radius-metric meta-data]}]
+  ; (-> meta-data radius-metric (#((juxt :min :max) %)) print)
+  (let [get-ranges (fn [metric] (-> meta-data metric (#((juxt :min :max) %))))
+        mapping {:domains
+                 {:passes (-> (get-ranges :passes) clj->js)
+                  :degree (-> (get-ranges :degree) clj->js)
+                  :in-degree (-> (get-ranges :in-degree) clj->js)
+                  :out-degree (-> (get-ranges :out-degree) clj->js)
+                  :betweenness-centrality (-> (get-ranges :betweenness-centrality) clj->js)
+                  :local-clustering-coefficient (-> (get-ranges :local-clustering-coefficient) reverse clj->js)
+                  :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
+                  :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
+                  :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
                  :codomains {:edges-width #js [1 20]
                              :radius #js [20 50]}}
         font {:weight "700"
@@ -62,7 +66,7 @@
         radius-scale #(-> d3
                           ; FIXME: change scale to area...
                           (.scalePow)
-                          (.exponent 1.5)
+                          (.exponent 1)
                           (.domain (-> mapping :domains %))
                           (.range (-> mapping :codomains :radius)))
         degree (radius-scale :degree)
@@ -71,6 +75,8 @@
         betweenness-centrality (radius-scale :betweenness-centrality)
         closeness-centrality (radius-scale :closeness-centrality)
         local-clustering-coefficient (radius-scale :local-clustering-coefficient)
+        alpha-centrality (radius-scale :alpha-centrality)
+        eigenvector-centrality (radius-scale :eigenvector-centrality)
         edges->colors (-> d3
                           (.scalePow)
                           (.exponent 0.1)
@@ -88,6 +94,8 @@
                 :betweenness-centrality betweenness-centrality
                 :closeness-centrality closeness-centrality
                 :local-clustering-coefficient local-clustering-coefficient
+                :alpha-centrality alpha-centrality
+                :eigenvector-centrality eigenvector-centrality
                 :edges->colors edges->colors
                 :edges->width edges->width}]
 

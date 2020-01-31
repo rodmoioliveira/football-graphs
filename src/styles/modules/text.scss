@@ -1,3 +1,6 @@
+$text-color: #222;
+$text-width: 750px;
+
 h1,
 h2,
 h3,
@@ -5,40 +8,43 @@ h4,
 h5,
 p {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  color: $text-color;
+  font-weight: 300;
 }
 
 .title {
   text-align: center;
-  font-size: 9rem;
-  line-height: 1;
+  font-size: 7rem;
+  line-height: 1.1;
   font-weight: 700;
+  letter-spacing: -4px;
 
   @include margin;
   @include padding;
 
   @media (max-width: 700px) {
-    font-size: 18vw;
+    font-size: 12vw;
   }
 }
 
 .subtitle {
-  text-align: center;
-  font-size: 2rem;
-  line-height: 1.5;
-  max-width: 1200px;
+  font-size: 3rem;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  max-width: $text-width;
+  font-weight: 700;
 
   @include margin;
   @include padding;
 
   @media (max-width: 600px) {
-    font-size: 6vw;
+    font-size: 7vw;
   }
 }
 
 .paragraph {
-  font-size: 1.4rem;
-  max-width: 700px;
+  font-size: 1.6rem;
+  max-width: $text-width;
   line-height: 1.5;
 
   @include margin;
@@ -46,6 +52,25 @@ p {
 
   @media (max-width: 490px) {
     line-height: 1.9;
-    font-size: 4.4vw;
+    font-size: 4.2vw;
   }
 }
+
+blockquote {
+  display: none;
+  margin: 0 auto;
+  background: #fcfbe9;
+  outline: 1px solid $text-color;
+  max-width: $text-width;
+}
+
+.quote-text {
+  font-style: italic;
+}
+
+.quote-reference {
+  display: block;
+  font-weight: 600;
+  margin-top: 0.5rem;
+}
+

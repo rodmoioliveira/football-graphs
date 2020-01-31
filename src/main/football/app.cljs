@@ -3,7 +3,11 @@
    [shadow.resource :as rc]
    [cljs.reader :as reader]
 
-   [utils.core :refer [assoc-pos set-canvas-dimensions mobile-mapping hash-by]]
+   [utils.core :refer [assoc-pos
+                       set-canvas-dimensions
+                       mobile-mapping
+                       hash-by
+                       global-meta-data]]
    [football.config :refer [config themes]]
    [football.draw-graph :refer [force-graph]]))
 
@@ -62,23 +66,34 @@
                                                   ((fn [n]
                                                      (reduce (partial hash-by :id) (sorted-map) n))))
                                    :links (-> v :links id)
+                                   :meta (-> v :meta)
                                    :label (-> v :label)}))))
                    :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
 ; ==================================
-; Graphs Init
+; Plot graphs
 ; ==================================
-(defn init []
+(defn plot-graphs
+  [{:keys [global-scale? radius-metric]}]
   (doseq [canvas (all-canvas)]
     (-> js/document
         (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
         (#(set! (.-innerHTML %) (-> canvas :data :label))))
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
-                                   :radius-metric :degree
-                                   :max-passes (-> brazil-matches
-                                                   (#(map :max-passes %))
-                                                   (#(apply max %)))
+                                   :radius-metric radius-metric
+                                   :meta-data (if global-scale?
+                                                (global-meta-data brazil-matches)
+                                                (-> canvas :data :meta))
                                    :theme (-> canvas :theme themes)})})))
+
+; ==================================
+; Graphs Init
+; ==================================
+(defn init
+  []
+  (plot-graphs
+   {:global-scale? false
+    :radius-metric :degree}))
 
 (defn reload! [] (init))

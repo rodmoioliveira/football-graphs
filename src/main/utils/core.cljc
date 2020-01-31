@@ -4,6 +4,64 @@
    [clojure.pprint :as pp]
    #?(:clj [clojure.data.json :as json])))
 
+#?(:cljs
+   (defn global-meta-data
+     [matches]
+     (let [max-val (fn [m] (reduce max m))
+           min-val (fn [m] (reduce min m))
+           merge-maps (fn [v] (apply merge v))
+           get-min-max (fn [v] ((juxt min-val max-val) v))
+           metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
+           in-degree (metric-range :in-degree)
+           out-degree (metric-range :out-degree)
+           degree (metric-range :degree)
+           passes (metric-range :passes)
+           betweenness-centrality (metric-range :betweenness-centrality)
+           global-clustering-coefficient (metric-range :global-clustering-coefficient)
+           local-clustering-coefficient (metric-range :local-clustering-coefficient)
+           average-clustering-coefficient (metric-range :average-clustering-coefficient)
+           closeness-centrality (metric-range :closeness-centrality)
+           alpha-centrality (metric-range :alpha-centrality)
+           eigenvector-centrality (metric-range :eigenvector-centrality)]
+
+       (-> matches
+           (#(map (fn [v] (get-in v [:meta])) %))
+           (#((juxt
+               degree
+               in-degree
+               out-degree
+               betweenness-centrality
+               local-clustering-coefficient
+               closeness-centrality
+               alpha-centrality
+               eigenvector-centrality
+               average-clustering-coefficient
+               global-clustering-coefficient
+               passes)
+              %))
+           ((fn [[degree
+                  in-degree
+                  out-degree
+                  betweenness-centrality
+                  local-clustering-coefficient
+                  closeness-centrality
+                  alpha-centrality
+                  eigenvector-centrality
+                  average-clustering-coefficient
+                  global-clustering-coefficient
+                  passes]]
+              {:degree degree
+               :in-degree in-degree
+               :out-degree out-degree
+               :betweenness-centrality betweenness-centrality
+               :local-clustering-coefficient local-clustering-coefficient
+               :closeness-centrality closeness-centrality
+               :alpha-centrality alpha-centrality
+               :eigenvector-centrality eigenvector-centrality
+               :average-clustering-coefficient average-clustering-coefficient
+               :global-clustering-coefficient global-clustering-coefficient
+               :passes passes}))))))
+
 #?(:clj
    (defn hash-by
      "Hashmap a collection by a given key"
