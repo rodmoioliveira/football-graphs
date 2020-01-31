@@ -105,9 +105,15 @@
       ((fn [v] (set! (.-textBaseline v) (-> config :nodes :font :base-line))))
       (.fillText (-> node
                      (aget "short-name")
+                     reverse
                      first
                      (split #" ")
-                     ((fn [s] (if (> (count s) 1) (second s) (first s))))) x-pos (- y-pos name-position)))))
+                     ((fn [v] (print v) v))
+                     ((fn [s] (cond
+                                (> (count s) 2) (get s 2)
+                                (> (count s) 1) (second s)
+                                :else (first s)))))
+                 x-pos (- y-pos name-position)))))
 
 (defn draw-nodes
   [{:keys [node config]}]

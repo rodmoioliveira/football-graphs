@@ -126,7 +126,7 @@
 #?(:cljs
    (def coord-mapping
      {:gol-bottom identity
-      :gol-top (fn [[x y]] [x (- 100 y)])
+      :gol-top (fn [[x y]] [(- 100 x) (- 100 y)])
       :gol-left (fn [[x y]] [(- 100 y) x])
       :gol-right (fn [[x y]] [y (- 100 x)])}))
 
