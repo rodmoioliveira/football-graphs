@@ -96,7 +96,7 @@
    {:matches brazil-matches
     :get-global-metrics get-global-metrics
     :global-metrics? false
-    :node-radius-metric :degree
+    :node-radius-metric :in-degree
     :node-color-metric :betweenness-centrality}))
 
 (defn reload! [] (init))

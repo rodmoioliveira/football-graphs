@@ -61,7 +61,7 @@
                               (.exponent 1)
                               (.domain (-> mapping :domains %))
                               (.range #js ["yellow", "red"])
-                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 1))))
+                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         node-radius-scale #(-> d3
                                ; FIXME: change to area scale
                                (.scalePow)
