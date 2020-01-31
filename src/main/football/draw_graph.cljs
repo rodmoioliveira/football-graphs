@@ -108,7 +108,6 @@
                      reverse
                      first
                      (split #" ")
-                     ((fn [v] (print v) v))
                      ((fn [s] (cond
                                 (> (count s) 2) (get s 2)
                                 (> (count s) 1) (second s)

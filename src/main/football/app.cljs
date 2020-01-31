@@ -7,6 +7,7 @@
                        set-canvas-dimensions
                        mobile-mapping
                        hash-by
+                       write-label
                        get-global-metrics]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -77,9 +78,7 @@
 (defn plot-graphs
   [{:keys [global-metrics? node-radius-metric node-color-metric matches get-global-metrics]}]
   (doseq [canvas (all-canvas)]
-    (-> js/document
-        (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
-        (#(set! (.-innerHTML %) (-> canvas :data :label))))
+    (write-label canvas)
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
