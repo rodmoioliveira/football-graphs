@@ -31,13 +31,17 @@
       <ul class="metric-list">
         <li class="metric-item">
           <p class="paragraph">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque ut ligula porta, aliquam massa non, rutrum libero.
-            Phasellus hendrerit consectetur est, et eleifend sem laoreet eu.
+            Quando representamos a rede de passes de um time de futebol como um
+            grafo, podemos utilizar diversos instrumentos matemáticos para medir
+            a centralidade de cada um dos seus vértices (jodagores). Veja alguns
+            deles:
           </p>
           <h3 class="subtitle">
             Centralidade de Grau<br />[Degree Centrality]
           </h3>
+          <p class="paragraph">
+            Representa o número de passes feitos e recebidos por um jogador.
+          </p>
           <blockquote>
             <p class="paragraph">
               <span class="quote-text">
@@ -74,6 +78,10 @@
           <h3 class="subtitle">
             Centralidade de Autovetor<br />[Eigenvector Centrality]
           </h3>
+          <p class="paragraph">
+            É a medida de importância de um jogador em relação à troca de passes
+            realizados com outros jogadores que também são importantes.
+          </p>
           <blockquote>
             <p class="paragraph">
               <span class="quote-text">
@@ -127,6 +135,10 @@
           <h3 class="subtitle">
             Centralidade de Proximidade<br />[Closeness Centrality]
           </h3>
+          <p class="paragraph">
+            Este índice mede a proximidade de um jogador em relação a todos os
+            outros do seu time.
+          </p>
           <blockquote>
             <p class="paragraph">
               <span class="quote-text">
@@ -179,7 +191,7 @@
             <p class="paragraph">
               <span class="quote-text">
                 (...) closeness, measuring the minimum number of steps that the
-                ball has to undergo from one player to reach any other in the
+                ball has to under go from one player to reach any other in the
                 team.
               </span>
               <span class="quote-reference">
@@ -200,10 +212,10 @@
             <p class="paragraph">
               <span class="quote-text">
                 A closeness score indicates how easy it is for a player to be
-                con-nected with teammates (by passing relation) and, therefore,
-                that player is requested by theteam as a target to pass the
+                connected with teammates (by passing relation) and, therefore,
+                that player is requested by the team as a target to pass the
                 ball. Thus, it quantifies the proximity of how close is such
-                player tohis peers.
+                player to his peers.
               </span>
               <span class="quote-reference">
                 <a
@@ -222,6 +234,10 @@
           <h3 class="subtitle">
             Centralidade de Intermediação<br />[Betweenness Centrality]
           </h3>
+          <p class="paragraph">
+            Mede quantas vezes um jogador é necessário para completar a rota de
+            passes que concecta outros dois jogadores do time.
+          </p>
           <blockquote>
             <p class="paragraph">
               <span class="quote-text">
@@ -372,11 +388,11 @@
               <span class="quote-text">
                 A player with higher betweenness scores is crucial to
                 maintainteam passing connections by acting as a connecting
-                bridge. Also, low scores and spread across certain players may be
-                related with well-balanced passing strategy and less specific
-                players dependence. Betweenness centrality quantifies
-                the occurrences that a node acts as a bridge along the geodesic
-                path between other nodes.
+                bridge. Also, low scores and spread across certain players may
+                be related with well-balanced passing strategy and less specific
+                players dependence. Betweenness centrality quantifies the
+                occurrences that a node acts as a bridge along the geodesic path
+                between other nodes.
               </span>
               <span class="quote-reference">
                 <a
@@ -395,6 +411,11 @@
           <h3 class="subtitle">
             Coeficiente Local de Agrupamento<br />[Local Clustering Coefficient]
           </h3>
+          <p class="paragraph">
+            Mede a frequência de triangulação de passes entre jogadores.
+            Jogadores com alto índice de neste indicador são mais necessários
+            para manter a rede de passes entre outros jogadores.
+          </p>
           <blockquote>
             <p class="paragraph">
               <span class="quote-text">
