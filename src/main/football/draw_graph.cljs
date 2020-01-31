@@ -31,10 +31,22 @@
         alpha-value (if active-node (if active-edges 1 (-> config :edges :alpha)) 1)
 
         ; get metric name, radius scale and values
-        metric-name (-> config :nodes :node-radius-metric name)
+        node-radius-metric-name (-> config :nodes :node-radius-metric name)
         radius-scale (-> config :scales (#(get-in % [(-> config :nodes :node-radius-metric)])) (#(% :radius)))
-        source-radius (-> edge .-source .-id (#(aget nodeshash %)) .-metrics (#(aget % metric-name)) radius-scale)
-        target-radius (-> edge .-target .-id (#(aget nodeshash %)) .-metrics (#(aget % metric-name)) radius-scale)]
+        source-radius (-> edge
+                          .-source
+                          .-id
+                          (#(aget nodeshash %))
+                          .-metrics
+                          (#(aget % node-radius-metric-name))
+                          radius-scale)
+        target-radius (-> edge
+                          .-target
+                          .-id
+                          (#(aget nodeshash %))
+                          .-metrics
+                          (#(aget % node-radius-metric-name))
+                          radius-scale)]
 
     (doto (-> config :ctx)
       ; translate to source node center point
