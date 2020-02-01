@@ -15,6 +15,18 @@ fieldset {
   display: flex;
   justify-content: center;
   align-items: center;
+  background: white;
+  padding: 0.5rem 0 1rem;
+  transition: border 300ms ease;
+  border-bottom: 1px solid white;
+}
+
+[data-sticky='1'] {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #999;
+  box-shadow: 1px 2px 5px #bbb;
 }
 
 .nav-controls {
@@ -26,7 +38,7 @@ fieldset {
 .metric-select {
   background: white;
   width: 200px;
-  padding: 0.7rem 0.5rem;
+  padding: 0.2rem 0.3rem;
   border-radius: 5px;
 
   @media (max-width: 700px) {
@@ -37,6 +49,7 @@ fieldset {
 .metric-label {
   padding: 0.2rem 0.5rem;
   font-weight: 700;
+  text-align: center;
 }
 
 .metric-select,
