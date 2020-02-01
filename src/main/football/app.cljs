@@ -9,6 +9,7 @@
                        hash-by
                        write-label
                        get-global-metrics]]
+   [football.metrics-nav :refer [select-metrics$]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
@@ -92,11 +93,10 @@
 ; ==================================
 (defn init
   []
-  (plot-graphs
-   {:matches brazil-matches
-    :get-global-metrics get-global-metrics
-    :global-metrics? false
-    :node-radius-metric :in-degree
-    :node-color-metric :betweenness-centrality}))
+  (-> (select-metrics$)
+      (.subscribe #(-> %
+                       (merge {:matches brazil-matches
+                               :get-global-metrics get-global-metrics})
+                       plot-graphs))))
 
 (defn reload! [] (init))

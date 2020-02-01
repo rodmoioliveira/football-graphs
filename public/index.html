@@ -596,6 +596,45 @@
         vulputate aliquam. Quisque aliquet dui vel metus auctor convallis. Donec
         pellentesque id nisi ac accumsan.
       </p>
+      <nav class="nav-metrics">
+        <form class="nav-controls">
+          <fieldset>
+            <label class="metric-label" for="node-area">Área</label>
+            <select class="metric-select" data-metric="node-area" name="node-area">
+              <option class="metric-option" value="degree" selected>Grau</option>
+              <option class="metric-option" value="in-degree">Indegree</option>
+              <option class="metric-option" value="out-degree">Outdegree</option>
+              <option class="metric-option" value="betweenness-centrality">Intermediação</option>
+              <option class="metric-option" value="closeness-centrality">Proximidade</option>
+              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
+              <option class="metric-option" value="alpha-centrality">Alpha</option>
+              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label class="metric-label" for="node-color">Cor</label>
+            <select class="metric-select" data-metric="node-color" name="node-color">
+              <option class="metric-option" value="degree">Grau</option>
+              <option class="metric-option" value="in-degree">Indegree</option>
+              <option class="metric-option" value="out-degree">Outdegree</option>
+              <option class="metric-option" value="betweenness-centrality" selected>
+                Intermediação
+              </option>
+              <option class="metric-option" value="closeness-centrality">Proximidade</option>
+              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
+              <option class="metric-option" value="alpha-centrality">Alpha</option>
+              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label class="metric-label" for="coverage">Abrangência</label>
+            <select class="metric-select" data-metric="coverage" name="coverage">
+              <option class="metric-option" value="match">Jogo</option>
+              <option class="metric-option" value="global">Global</option>
+            </select>
+          </fieldset>
+        </form>
+      </nav>
       <h2 class="graph__label" data-match-id="2057978"></h2>
       <div class="graphs__wrapper">
         <canvas
