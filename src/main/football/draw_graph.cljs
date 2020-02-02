@@ -9,7 +9,7 @@
 ; Draw fns
 ; ==================================
 (defn draw-edges
-  [{:keys [^js edge config active-node ^js nodeshash]}]
+  [{:keys [^js edge config active-node nodeshash]}]
   (let [source-x (-> edge .-source .-coord .-x)
         source-y (-> edge .-source .-coord .-y)
         target-x (-> edge .-target .-coord .-x)
@@ -130,7 +130,7 @@
                  x-pos (-> positions name-position)))))
 
 (defn draw-nodes
-  [{:keys [^js node config]}]
+  [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
         is-active? (-> node .-active)
