@@ -25,7 +25,9 @@
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
                  :codomains {:edges-width #js [1 20]
-                             :radius #js [20 50]}}
+                             :radius #js [30 60]
+                             :colors {:cold #js ["#bbdefb", "#0d47a1"]
+                                      :hot #js ["yellow", "red"]}}}
 
         ; ==================================
         ; Font
@@ -49,7 +51,7 @@
                           (.scalePow)
                           (.exponent 0.1)
                           (.domain (-> mapping :domains :passes))
-                          (.range #js ["#bbdefb", "#0d47a1"])
+                          (.range (-> mapping :codomains :colors :cold))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         edges->width (-> d3
                          (.scalePow)
@@ -60,12 +62,10 @@
                               (.scalePow)
                               (.exponent 1)
                               (.domain (-> mapping :domains %))
-                              (.range #js ["yellow", "red"])
+                              (.range (-> mapping :codomains :colors :hot))
                               (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
         node-radius-scale #(-> d3
-                               ; FIXME: change to area scale
-                               (.scalePow)
-                               (.exponent 1)
+                               (.scaleSqrt)
                                (.domain (-> mapping :domains %))
                                (.range (-> mapping :codomains :radius)))
         map-scale {:radius node-radius-scale
