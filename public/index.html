@@ -28,14 +28,28 @@
     </section>
     <section class="metrics section">
       <h1 class="title">Entendendo as métricas</h1>
+      <p class="paragraph">
+        Quando representamos a rede de passes de um time de futebol como um
+        grafo, podemos utilizar diversos instrumentos matemáticos para medir a
+        centralidade de cada um dos seus vértices (jodagores). Veja alguns
+        deles:
+      </p>
+      <figure>
+        <img
+          class="graphs-examples"
+          src="https://upload.wikimedia.org/wikipedia/commons/1/11/6_centrality_measures.png"
+        />
+        <figcaption class="figcaption">
+          Exemplos de A) Centralidade de Intermediação, B) Centralidade de
+          Proximidade, C) Centralidade de Autovetor, D) Centralidade de Grau, E)
+          Centralidade Harmônica e F) Centralidade de Katz no mesmo grafo.
+          <a href="https://en.wikipedia.org/wiki/Centrality">
+            Wikipedia
+          </a>
+        </figcaption>
+      </figure>
       <ul class="metric-list">
         <li class="metric-item">
-          <p class="paragraph">
-            Quando representamos a rede de passes de um time de futebol como um
-            grafo, podemos utilizar diversos instrumentos matemáticos para medir
-            a centralidade de cada um dos seus vértices (jodagores). Veja alguns
-            deles:
-          </p>
           <h3 class="subtitle">
             Centralidade de Grau
           </h3>
@@ -601,37 +615,95 @@
         <form class="nav-controls">
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
-            <select class="metric-select" data-metric="node-area" name="node-area">
-              <option class="metric-option" value="degree" selected>Grau</option>
-              <option class="metric-option" value="in-degree">Indegree</option>
-              <option class="metric-option" value="out-degree">Outdegree</option>
-              <option class="metric-option" value="betweenness-centrality">Intermediação</option>
-              <option class="metric-option" value="closeness-centrality">Proximidade</option>
-              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
-              <option class="metric-option" value="alpha-centrality">Alpha</option>
-              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+            <select
+              class="metric-select"
+              data-metric="node-area"
+              name="node-area"
+            >
+              <option class="metric-option" value="degree" selected>
+                Grau
+              </option>
+              <option class="metric-option" value="in-degree">
+                Indegree
+              </option>
+              <option class="metric-option" value="out-degree">
+                Outdegree
+              </option>
+              <option class="metric-option" value="betweenness-centrality">
+                Intermediação
+              </option>
+              <option class="metric-option" value="closeness-centrality">
+                Proximidade
+              </option>
+              <option
+                class="metric-option"
+                value="local-clustering-coefficient"
+              >
+                Agrupamento
+              </option>
+              <option class="metric-option" value="alpha-centrality">
+                Alpha
+              </option>
+              <option class="metric-option" value="eigenvector-centrality">
+                Autovetor
+              </option>
             </select>
           </fieldset>
           <fieldset>
             <label class="metric-label" for="node-color">Cor</label>
-            <select class="metric-select" data-metric="node-color" name="node-color">
-              <option class="metric-option" value="degree">Grau</option>
-              <option class="metric-option" value="in-degree">Indegree</option>
-              <option class="metric-option" value="out-degree">Outdegree</option>
-              <option class="metric-option" value="betweenness-centrality" selected>
+            <select
+              class="metric-select"
+              data-metric="node-color"
+              name="node-color"
+            >
+              <option class="metric-option" value="degree">
+                Grau
+              </option>
+              <option class="metric-option" value="in-degree">
+                Indegree
+              </option>
+              <option class="metric-option" value="out-degree">
+                Outdegree
+              </option>
+              <option
+                class="metric-option"
+                value="betweenness-centrality"
+                selected
+              >
                 Intermediação
               </option>
-              <option class="metric-option" value="closeness-centrality">Proximidade</option>
-              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
-              <option class="metric-option" value="alpha-centrality">Alpha</option>
-              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+              <option class="metric-option" value="closeness-centrality">
+                Proximidade
+              </option>
+              <option
+                class="metric-option"
+                value="local-clustering-coefficient"
+              >
+                Agrupamento
+              </option>
+              <option class="metric-option" value="alpha-centrality">
+                Alpha
+              </option>
+              <option class="metric-option" value="eigenvector-centrality">
+                Autovetor
+              </option>
             </select>
           </fieldset>
           <fieldset>
-            <label class="metric-label" for="coverage">Abrangência</label>
-            <select class="metric-select" data-metric="coverage" name="coverage">
-              <option class="metric-option" value="match">Jogo</option>
-              <option class="metric-option" value="global">Global</option>
+            <label class="metric-label" for="coverage">
+              Abrangência
+            </label>
+            <select
+              class="metric-select"
+              data-metric="coverage"
+              name="coverage"
+            >
+              <option class="metric-option" value="match">
+                Jogo
+              </option>
+              <option class="metric-option" value="global">
+                Global
+              </option>
             </select>
           </fieldset>
         </form>
