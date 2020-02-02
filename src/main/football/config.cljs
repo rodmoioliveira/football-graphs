@@ -24,8 +24,8 @@
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
-                 :codomains {:edges-width #js [1 20]
-                             :radius #js [30 60]
+                 :codomains {:edges-width #js [1 25]
+                             :radius #js [10 50]
                              :colors {:cold #js ["#bbdefb", "#0d47a1"]
                                       :hot #js ["yellow", "red"]}}}
 
@@ -54,8 +54,7 @@
                           (.range (-> mapping :codomains :colors :cold))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         edges->width (-> d3
-                         (.scalePow)
-                         (.exponent 0.9)
+                         (.scaleLinear)
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
         node-color-scale #(-> d3
@@ -65,6 +64,7 @@
                               (.range (-> mapping :codomains :colors :hot))
                               (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
         node-radius-scale #(-> d3
+                               ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
                                (.scaleSqrt)
                                (.domain (-> mapping :domains %))
                                (.range (-> mapping :codomains :radius)))
