@@ -77,13 +77,19 @@
 ; Plot graphs
 ; ==================================
 (defn plot-graphs
-  [{:keys [global-metrics? node-radius-metric node-color-metric matches get-global-metrics]}]
+  [{:keys [global-metrics?
+           node-radius-metric
+           node-color-metric
+           matches
+           get-global-metrics
+           name-position]}]
   (doseq [canvas (all-canvas)]
     (write-label canvas)
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
+                                   :name-position name-position
                                    :meta-data (if global-metrics?
                                                 (get-global-metrics matches)
                                                 (-> canvas :data :meta))})})))
@@ -98,7 +104,8 @@
     (-> (select-metrics$)
         (.subscribe #(-> %
                          (merge {:matches brazil-matches
-                                 :get-global-metrics get-global-metrics})
+                                 :get-global-metrics get-global-metrics
+                                 :name-position (when (mobile?) :center)})
                          plot-graphs)))))
 
 (defn reload! [] (init))

@@ -7,7 +7,7 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric meta-data]}]
+  [{:keys [id node-radius-metric node-color-metric meta-data name-position]}]
   ; (-> meta-data node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> meta-data metric (#((juxt :min :max) %))))
 
@@ -25,7 +25,7 @@
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
                  :codomains {:edges-width #js [2 25]
-                             :radius #js [10 50]
+                             :radius #js [20 50]
                              :colors {:cold #js ["#bbdefb", "#0d47a1"]
                                       :hot #js ["yellow", "red"]}}}
 
@@ -105,7 +105,7 @@
              :radius-click 5
              :active {:color "#ebd1fe"
                       :outline "#999"}
-             :name-position 0
+             :name-position (or name-position :top)
              :outline {:color "#999"
                        :width 1.5}
              :font (assoc font :full (str/join " " [(font :weight)

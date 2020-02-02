@@ -97,7 +97,21 @@
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
-        name-position (-> config :nodes :name-position)]
+
+        ; Metrics for sizing node
+        node-radius-metric-name (-> config :nodes :node-radius-metric name)
+        node-radius-metric-value (-> node .-metrics (#(aget % node-radius-metric-name)))
+        radius-scale (-> config
+                         :scales
+                         (#(get-in % [(-> config :nodes :node-radius-metric)]))
+                         (#(% :radius)))
+        radius (radius-scale node-radius-metric-value)
+
+        ; Player name position
+        name-position (-> config :nodes :name-position)
+        positions {:center y-pos
+                   :top (- y-pos 20 radius)
+                   :bottom (+ y-pos 20 radius)}]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
@@ -112,7 +126,7 @@
                                 (> (count s) 2) (get s 2)
                                 (> (count s) 1) (second s)
                                 :else (first s)))))
-                 x-pos (- y-pos name-position)))))
+                 x-pos (-> positions name-position)))))
 
 (defn draw-nodes
   [{:keys [node config]}]
