@@ -27,7 +27,7 @@
                  :codomains {:edges-width #js [2 25]
                              :radius #js [20 50]
                              :colors {:cold #js ["#bbdefb", "#0d47a1"]
-                                      :hot #js ["yellow", "red"]}}}
+                                      :hot #js ["#ffff00", "#ff0000"]}}}
 
         ; ==================================
         ; Font
