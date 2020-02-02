@@ -4,11 +4,12 @@
    [utils.core :refer [get-distance radians-between find-node]]
    ["d3" :as d3]))
 
+(set! *warn-on-infer* true)
 ; ==================================
 ; Draw fns
 ; ==================================
 (defn draw-edges
-  [{:keys [edge config active-node nodeshash]}]
+  [{:keys [^js edge config active-node ^js nodeshash]}]
   (let [source-x (-> edge .-source .-coord .-x)
         source-y (-> edge .-source .-coord .-y)
         target-x (-> edge .-target .-coord .-x)
@@ -37,14 +38,14 @@
                           .-source
                           .-id
                           (#(aget nodeshash %))
-                          .-metrics
+                          ((fn [^js v] (-> v .-metrics)))
                           (#(aget % node-radius-metric-name))
                           radius-scale)
         target-radius (-> edge
                           .-target
                           .-id
                           (#(aget nodeshash %))
-                          .-metrics
+                          ((fn [^js v] (-> v .-metrics)))
                           (#(aget % node-radius-metric-name))
                           radius-scale)]
 
@@ -129,7 +130,7 @@
                  x-pos (-> positions name-position)))))
 
 (defn draw-nodes
-  [{:keys [node config]}]
+  [{:keys [^js node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
         is-active? (-> node .-active)
@@ -225,9 +226,9 @@
 ; Force graph
 ; ==================================
 (defn force-graph
-  [{:keys [data config]}]
+  [{:keys [^js data config]}]
   (let [nodes (-> data .-nodes)
-        nodeshash (-> data .-nodeshash)
+        nodeshash (-> data ^:export .-nodeshash)
         edges (-> data .-links)
         simulation (-> d3
                        (.forceSimulation)
