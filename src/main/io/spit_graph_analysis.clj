@@ -103,6 +103,7 @@
           global-clustering-coefficient (-> swg ClusteringCoefficient. (.getGlobalClusteringCoefficient))
           closeness-centrality (-> sdwg (ClosenessCentrality.) (.getScores))
           alpha-centrality (-> sdwg (AlphaCentrality.) (.getScores))
+          katz-centrality (-> sdwg (AlphaCentrality. 0.01 1.0) (.getScores))
           eigenvector-centrality (-> sdwg (AlphaCentrality. 0.01	0.0) (.getScores))]
       (-> vertex-set
           (#(map
@@ -125,6 +126,7 @@
                             :average-clustering-coefficient average-clustering-coefficient
                             :closeness-centrality (-> closeness-centrality id)
                             :alpha-centrality (-> alpha-centrality id)
+                            :katz-centrality (-> katz-centrality id)
                             :eigenvector-centrality (-> eigenvector-centrality id)}})) %))
           (#(reduce (partial hash-by :id) (sorted-map) %))))))
 
@@ -148,6 +150,7 @@
         average-clustering-coefficient (metric-range :average-clustering-coefficient)
         closeness-centrality (metric-range :closeness-centrality)
         alpha-centrality (metric-range :alpha-centrality)
+        katz-centrality (metric-range :katz-centrality)
         eigenvector-centrality (metric-range :eigenvector-centrality)]
     (-> metrics
         (#(map vals %))
@@ -163,7 +166,8 @@
             alpha-centrality
             eigenvector-centrality
             average-clustering-coefficient
-            global-clustering-coefficient)
+            global-clustering-coefficient
+            katz-centrality)
            %))
         ((fn [[degree
                in-degree
@@ -174,7 +178,8 @@
                alpha-centrality
                eigenvector-centrality
                average-clustering-coefficient
-               global-clustering-coefficient]]
+               global-clustering-coefficient
+               katz-centrality]]
            {:degree degree
             :in-degree in-degree
             :out-degree out-degree
@@ -184,7 +189,8 @@
             :alpha-centrality alpha-centrality
             :eigenvector-centrality eigenvector-centrality
             :average-clustering-coefficient average-clustering-coefficient
-            :global-clustering-coefficient global-clustering-coefficient})))))
+            :global-clustering-coefficient global-clustering-coefficient
+            :katz-centrality katz-centrality})))))
 
 ; ==================================
 ; IO
