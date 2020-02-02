@@ -28,18 +28,57 @@
     </section>
     <section class="metrics section">
       <h1 class="title">Entendendo as métricas</h1>
+      <p class="paragraph">
+        (As explicações abaixo foram retiradas da
+        <a target="_blank" href="https://pt.wikipedia.org/wiki/Centralidade">
+          wikipedia</a
+        >)
+      </p>
+      <p class="paragraph">
+        Quando representamos a rede de passes de um time de futebol como um
+        grafo, podemos utilizar diversos instrumentos matemáticos para medir a
+        centralidade de cada um dos seus vértices (jodagores). Veja alguns
+        deles:
+      </p>
+      <figure>
+        <img
+          class="graphs-examples"
+          src="https://upload.wikimedia.org/wikipedia/commons/1/11/6_centrality_measures.png"
+        />
+        <figcaption class="figcaption">
+          Exemplos de A) Centralidade de Intermediação, B) Centralidade de
+          Proximidade, C) Centralidade de Autovetor, D) Centralidade de Grau, E)
+          Centralidade Harmônica e F) Centralidade de Katz no mesmo grafo.
+          <a href="https://en.wikipedia.org/wiki/Centrality">
+            Wikipedia
+          </a>
+        </figcaption>
+      </figure>
       <ul class="metric-list">
         <li class="metric-item">
-          <p class="paragraph">
-            Quando representamos a rede de passes de um time de futebol como um
-            grafo, podemos utilizar diversos instrumentos matemáticos para medir
-            a centralidade de cada um dos seus vértices (jodagores). Veja alguns
-            deles:
-          </p>
           <h3 class="subtitle">
             Centralidade de Grau
           </h3>
           <p class="paragraph">
+            Centralidade de grau é definida como o número de ligações incidentes
+            de um vértice. O grau pode ser interpretado como a probabilidade que
+            o vértice tem de receber alguma informação da rede.
+          </p>
+          <p class="paragraph">
+            No caso de uma rede orientada (onde os laços tem direção), define-se
+            duas medidas distintas de centralidade de grau: indegree e
+            outdegree. Indegree é uma contagem do número de ligações
+            direcionadas para o nó e outdegree é o número de ligações que o nó
+            encaminha para outros.
+          </p>
+          <p class="paragraph">
+            A centralidade de Katz é uma generalização da centralidade de grau.
+            Como a centralidade de grau mede o número de vizinhos diretos, a
+            centralidade Katz mede o número de todos os nós que podem ser
+            conectados através de um caminho, enquanto a contribuição de um nó
+            distante é penalizado por um fator de atenuação.
+          </p>
+          <p class="paragraph short-explanation">
             Representa o número de passes feitos e recebidos por um jogador.
           </p>
           <blockquote>
@@ -79,8 +118,21 @@
             Centralidade de Autovetor
           </h3>
           <p class="paragraph">
-            É a medida de importância de um jogador em relação à troca de passes
-            realizados com outros jogadores que também são importantes.
+            Centralidade de vetor próprio é uma medida da influência de um nó
+            numa rede. Ele atribui pontuações relativas a todos os nós da rede,
+            baseada no conceito de que as ligações para os nós de alta pontuação
+            contribuem mais para a pontuação do nó em questão do que ligações
+            iguais a nós baixa pontuação.
+          </p>
+          <p class="paragraph">
+            O sistema de PageRank do Google é uma variante da medida de
+            centralidade de vetor próprio. Outra medida de centralidade
+            relacionada é a centralidade de Katz.
+          </p>
+          <p class="paragraph short-explanation">
+            A medida de importância de um jogador está relacionada com o fato
+            dele estar ou não conectado com outros jogadores que também são
+            importantes.
           </p>
           <blockquote>
             <p class="paragraph">
@@ -136,6 +188,30 @@
             Centralidade de Proximidade
           </h3>
           <p class="paragraph">
+            Em grafos conectados existe uma distância natural métrica entre
+            todos os pares de nós, definido pelo comprimento de seus caminhos
+            mais curtos. O afastamento de um nó s é definido como a soma de suas
+            distâncias para todos os outros nós, e sua proximidade é definida
+            como o inverso do afastamento. Assim, quanto mais central é o nó,
+            menor é a distância do seu total para todos os outros nós.
+          </p>
+          <p class="paragraph">
+            Proximidade pode ser considerada como uma medida de rapidez, para
+            determinar a velocidade que ela necessitará para difundir
+            informações de s a todos os outros nós sequencialmente.
+          </p>
+          <p class="paragraph">
+            Na definição clássica de centralidade de proximidade, a disseminação
+            de informações é modelada através da utilização dos caminhos mais
+            curtos. Este modelo pode não ser o mais realista de todos os tipos
+            de cenários de comunicação. Assim, as definições relacionadas foram
+            discutidas para medir proximidade, como a centralidade de
+            proximidade de caminhos aleatórios introduzida por Noh e Rieger
+            (2004). Mede a velocidade com que as mensagens aleatórias chegam a
+            um vértice de fora da rede, digamos que é uma espécie de versão
+            aleatória das mensagens da centralidade de proximidade.
+          </p>
+          <p class="paragraph short-explanation">
             Este índice mede a proximidade de um jogador em relação a todos os
             outros do seu time.
           </p>
@@ -235,8 +311,15 @@
             Centralidade de Intermediação
           </h3>
           <p class="paragraph">
-            Mede quantas vezes um jogador é necessário para completar a rota de
-            passes que conecta outros dois jogadores do time.
+            Centralidade de intermediação quantifica o número de vezes que um nó
+            age como ponte ao longo do caminho mais curto entre dois outros nós.
+            Foi introduzido por Linton Freeman como uma medida para quantificar
+            o controle de um ser humano sobre a comunicação entre outros seres
+            humanos numa rede social.
+          </p>
+          <p class="paragraph short-explanation">
+            Mede quantas vezes um jogador aparece como conector na cadeia de
+            passes realizada entre dois jogadores do time.
           </p>
           <blockquote>
             <p class="paragraph">
@@ -412,9 +495,24 @@
             Coeficiente Local de Agrupamento
           </h3>
           <p class="paragraph">
+            O coeficiente de agrupamento local de um vértice (nó) num grafo mede
+            o quão perto os seus vizinhos estão de serem um clique (grafo
+            completo).
+          </p>
+          <p class="paragraph">
+            Por outras palavras, pode dizer-se que o coeficiente de agrupamento
+            local mede o grau da densidade de ligações da vizinhança de um
+            determinado nó, isto é, corresponde ao grau com que os vizinhos de
+            um nó se interligam). Esta medida foi introduzida por Duncan J.
+            Watts e Steven Strogatz em 1998 para determinar se um grafo
+            constitui uma rede de pequeno mundo.
+          </p>
+          <p class="paragraph short-explanation">
             Mede a frequência de triangulação de passes entre jogadores.
-            Jogadores com alto índice de neste indicador são mais necessários
-            para manter a rede de passes entre outros jogadores.
+            Jogadores com alto índice neste indicador são mais necessários para
+            manter a triangulação de passes entre os jogadores ao seu redor.
+            Baixos índices neste indicador revelam uma rede de passe bem
+            balenceada.
           </p>
           <blockquote>
             <p class="paragraph">
@@ -601,37 +699,101 @@
         <form class="nav-controls">
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
-            <select class="metric-select" data-metric="node-area" name="node-area">
-              <option class="metric-option" value="degree" selected>Grau</option>
-              <option class="metric-option" value="in-degree">Indegree</option>
-              <option class="metric-option" value="out-degree">Outdegree</option>
-              <option class="metric-option" value="betweenness-centrality">Intermediação</option>
-              <option class="metric-option" value="closeness-centrality">Proximidade</option>
-              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
-              <option class="metric-option" value="alpha-centrality">Alpha</option>
-              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+            <select
+              class="metric-select"
+              data-metric="node-area"
+              name="node-area"
+            >
+              <option class="metric-option" value="degree" selected>
+                Grau
+              </option>
+              <option class="metric-option" value="in-degree">
+                Indegree
+              </option>
+              <option class="metric-option" value="out-degree">
+                Outdegree
+              </option>
+              <option class="metric-option" value="betweenness-centrality">
+                Intermediação
+              </option>
+              <option class="metric-option" value="closeness-centrality">
+                Proximidade
+              </option>
+              <option
+                class="metric-option"
+                value="local-clustering-coefficient"
+              >
+                Agrupamento
+              </option>
+              <option class="metric-option" value="alpha-centrality">
+                Alpha
+              </option>
+              <option class="metric-option" value="eigenvector-centrality">
+                Autovetor
+              </option>
+              <option class="metric-option" value="katz-centrality">
+                Katz
+              </option>
             </select>
           </fieldset>
           <fieldset>
             <label class="metric-label" for="node-color">Cor</label>
-            <select class="metric-select" data-metric="node-color" name="node-color">
-              <option class="metric-option" value="degree">Grau</option>
-              <option class="metric-option" value="in-degree">Indegree</option>
-              <option class="metric-option" value="out-degree">Outdegree</option>
-              <option class="metric-option" value="betweenness-centrality" selected>
+            <select
+              class="metric-select"
+              data-metric="node-color"
+              name="node-color"
+            >
+              <option class="metric-option" value="degree">
+                Grau
+              </option>
+              <option class="metric-option" value="in-degree">
+                Indegree
+              </option>
+              <option class="metric-option" value="out-degree">
+                Outdegree
+              </option>
+              <option
+                class="metric-option"
+                value="betweenness-centrality"
+                selected
+              >
                 Intermediação
               </option>
-              <option class="metric-option" value="closeness-centrality">Proximidade</option>
-              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
-              <option class="metric-option" value="alpha-centrality">Alpha</option>
-              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+              <option class="metric-option" value="closeness-centrality">
+                Proximidade
+              </option>
+              <option
+                class="metric-option"
+                value="local-clustering-coefficient"
+              >
+                Agrupamento
+              </option>
+              <option class="metric-option" value="alpha-centrality">
+                Alpha
+              </option>
+              <option class="metric-option" value="eigenvector-centrality">
+                Autovetor
+              </option>
+              <option class="metric-option" value="katz-centrality">
+                Katz
+              </option>
             </select>
           </fieldset>
           <fieldset>
-            <label class="metric-label" for="coverage">Abrangência</label>
-            <select class="metric-select" data-metric="coverage" name="coverage">
-              <option class="metric-option" value="match">Jogo</option>
-              <option class="metric-option" value="global">Global</option>
+            <label class="metric-label" for="coverage">
+              Abrangência
+            </label>
+            <select
+              class="metric-select"
+              data-metric="coverage"
+              name="coverage"
+            >
+              <option class="metric-option" value="match">
+                Jogo
+              </option>
+              <option class="metric-option" value="global">
+                Global
+              </option>
             </select>
           </fieldset>
         </form>

@@ -1,0 +1,24 @@
+figure {
+  margin: 0;
+}
+
+.graphs-examples {
+  display: block;
+  margin: 0 auto;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+}
+
+.figcaption {
+  padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+
+  @media (max-width: 490px) {
+    line-height: 1.9;
+    font-size: 3.5vw;
+  }
+}

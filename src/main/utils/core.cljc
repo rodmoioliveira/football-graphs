@@ -37,6 +37,7 @@
            in-degree (metric-range :in-degree)
            out-degree (metric-range :out-degree)
            degree (metric-range :degree)
+           katz-centrality (metric-range :katz-centrality)
            passes (metric-range :passes)
            betweenness-centrality (metric-range :betweenness-centrality)
            global-clustering-coefficient (metric-range :global-clustering-coefficient)
@@ -59,7 +60,8 @@
                eigenvector-centrality
                average-clustering-coefficient
                global-clustering-coefficient
-               passes)
+               passes
+               katz-centrality)
               %))
            ((fn [[degree
                   in-degree
@@ -71,7 +73,8 @@
                   eigenvector-centrality
                   average-clustering-coefficient
                   global-clustering-coefficient
-                  passes]]
+                  passes
+                  katz-centrality]]
               {:degree degree
                :in-degree in-degree
                :out-degree out-degree
@@ -82,7 +85,8 @@
                :eigenvector-centrality eigenvector-centrality
                :average-clustering-coefficient average-clustering-coefficient
                :global-clustering-coefficient global-clustering-coefficient
-               :passes passes}))))))
+               :passes passes
+               :katz-centrality katz-centrality}))))))
 
 #?(:clj
    (defn hash-by

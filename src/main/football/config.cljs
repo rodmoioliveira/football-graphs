@@ -19,6 +19,7 @@
                   :degree (-> (get-ranges :degree) clj->js)
                   :in-degree (-> (get-ranges :in-degree) clj->js)
                   :out-degree (-> (get-ranges :out-degree) clj->js)
+                  :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
                   :betweenness-centrality (-> (get-ranges :betweenness-centrality) clj->js)
                   :local-clustering-coefficient (-> (get-ranges :local-clustering-coefficient) reverse clj->js)
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
@@ -77,12 +78,14 @@
         closeness-centrality #((-> map-scale %) :closeness-centrality)
         local-clustering-coefficient #((-> map-scale %) :local-clustering-coefficient)
         alpha-centrality #((-> map-scale %) :alpha-centrality)
+        katz-centrality #((-> map-scale %) :katz-centrality)
         eigenvector-centrality #((-> map-scale %) :eigenvector-centrality)
         scales {:degree degree
                 :in-degree in-degree
                 :out-degree out-degree
                 :betweenness-centrality betweenness-centrality
                 :closeness-centrality closeness-centrality
+                :katz-centrality katz-centrality
                 :local-clustering-coefficient local-clustering-coefficient
                 :alpha-centrality alpha-centrality
                 :eigenvector-centrality eigenvector-centrality
