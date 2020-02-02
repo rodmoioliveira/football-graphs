@@ -13,6 +13,8 @@
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
+(set! *warn-on-infer* true)
+
 ; ==================================
 ; Matches
 ; ==================================

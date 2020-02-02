@@ -2,6 +2,8 @@
   (:require ["rxjs" :as rx]
             ["rxjs/operators" :as rx-op]))
 
+(set! *warn-on-infer* true)
+
 (defn select-metrics$
   []
   (let [node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
