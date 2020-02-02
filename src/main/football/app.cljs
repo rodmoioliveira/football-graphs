@@ -7,8 +7,10 @@
                        set-canvas-dimensions
                        mobile-mapping
                        hash-by
-                       global-meta-data]]
-   [football.config :refer [config themes]]
+                       write-label
+                       get-global-metrics]]
+   [football.metrics-nav :refer [select-metrics$ sticky-nav$]]
+   [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
 ; ==================================
@@ -17,7 +19,8 @@
 (def brazil-matches
   [(-> (rc/inline "../data/analysis/brazil_switzerland,_1_1.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/brazil_costa_rica,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/serbia_brazil,_0_2.edn") reader/read-string)])
+   (-> (rc/inline "../data/analysis/serbia_brazil,_0_2.edn") reader/read-string)
+   (-> (rc/inline "../data/analysis/brazil_belgium,_1_2.edn") reader/read-string)])
 
 (def matches-hash
   (reduce (fn [acc cur] (assoc-in acc [(-> cur :match-id str keyword)] cur))
@@ -74,26 +77,35 @@
 ; Plot graphs
 ; ==================================
 (defn plot-graphs
-  [{:keys [global-scale? radius-metric]}]
+  [{:keys [global-metrics?
+           node-radius-metric
+           node-color-metric
+           matches
+           get-global-metrics
+           name-position]}]
   (doseq [canvas (all-canvas)]
-    (-> js/document
-        (.querySelector (str "[data-match-id=" "'" (-> canvas :data :match-id) "'" "].graph__label"))
-        (#(set! (.-innerHTML %) (-> canvas :data :label))))
+    (write-label canvas)
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
-                                   :radius-metric radius-metric
-                                   :meta-data (if global-scale?
-                                                (global-meta-data brazil-matches)
-                                                (-> canvas :data :meta))
-                                   :theme (-> canvas :theme themes)})})))
+                                   :node-radius-metric node-radius-metric
+                                   :node-color-metric node-color-metric
+                                   :name-position name-position
+                                   :meta-data (if global-metrics?
+                                                (get-global-metrics matches)
+                                                (-> canvas :data :meta))})})))
 
 ; ==================================
 ; Graphs Init
 ; ==================================
 (defn init
   []
-  (plot-graphs
-   {:global-scale? false
-    :radius-metric :degree}))
+  (do
+    (sticky-nav$)
+    (-> (select-metrics$)
+        (.subscribe #(-> %
+                         (merge {:matches brazil-matches
+                                 :get-global-metrics get-global-metrics
+                                 :name-position (when (mobile?) :center)})
+                         plot-graphs)))))
 
 (defn reload! [] (init))

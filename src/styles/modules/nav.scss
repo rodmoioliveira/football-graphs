@@ -1,0 +1,72 @@
+fieldset {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.8rem;
+
+  @media (max-width: 700px) {
+    padding: 0 1vw;
+  }
+}
+
+.nav-metrics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 0.3rem 0 0.5rem;
+  transition: border 300ms ease;
+  border-bottom: 1px solid white;
+}
+
+[data-sticky='1'] {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1px solid #999;
+  box-shadow: 1px 2px 5px #bbb;
+}
+
+.nav-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.metric-select {
+  background: white;
+  width: 200px;
+  padding: 0.2rem 0.3rem;
+  border-radius: 5px;
+
+  @media (max-width: 700px) {
+    width: 30vw;
+  }
+}
+
+.metric-label {
+  padding: 0.2rem 0.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.metric-select,
+.metric-option,
+.metric-label {
+  font-size: 1.2rem;
+
+  @media (max-width: 700px) {
+    font-size: 3.4vw;
+  }
+}
+
+.metric-label {
+  font-size: 1.6rem;
+
+  @media (max-width: 700px) {
+    font-size: 4vw;
+  }
+}
+

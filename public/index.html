@@ -37,7 +37,7 @@
             deles:
           </p>
           <h3 class="subtitle">
-            Centralidade de Grau<br />[Degree Centrality]
+            Centralidade de Grau
           </h3>
           <p class="paragraph">
             Representa o número de passes feitos e recebidos por um jogador.
@@ -76,7 +76,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Autovetor<br />[Eigenvector Centrality]
+            Centralidade de Autovetor
           </h3>
           <p class="paragraph">
             É a medida de importância de um jogador em relação à troca de passes
@@ -133,7 +133,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Proximidade<br />[Closeness Centrality]
+            Centralidade de Proximidade
           </h3>
           <p class="paragraph">
             Este índice mede a proximidade de um jogador em relação a todos os
@@ -232,11 +232,11 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Intermediação<br />[Betweenness Centrality]
+            Centralidade de Intermediação
           </h3>
           <p class="paragraph">
             Mede quantas vezes um jogador é necessário para completar a rota de
-            passes que concecta outros dois jogadores do time.
+            passes que conecta outros dois jogadores do time.
           </p>
           <blockquote>
             <p class="paragraph">
@@ -296,8 +296,8 @@
                 via the mutual acquaintance, rather than along the direct
                 (geodesic) path of length one. A version of betweenness
                 centrality that makes some allowance for effects like this is
-                the flow betweenness, which was proposed by Freeman et al. [130]
-                and is based on the idea of maximum flow. Imagine each edge in a
+                the flow betweenness, which was proposed by Freeman et al. and
+                is based on the idea of maximum flow. Imagine each edge in a
                 network as a pipe that can carry a unit flow of some fluid. We
                 can ask what the maximum possible flow then is between a given
                 source vertex s and target vertex t through these pipes. In
@@ -409,7 +409,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Coeficiente Local de Agrupamento<br />[Local Clustering Coefficient]
+            Coeficiente Local de Agrupamento
           </h3>
           <p class="paragraph">
             Mede a frequência de triangulação de passes entre jogadores.
@@ -596,12 +596,51 @@
         vulputate aliquam. Quisque aliquet dui vel metus auctor convallis. Donec
         pellentesque id nisi ac accumsan.
       </p>
+      <div class="sticky-nav-breakpoint"></div>
+      <nav class="nav-metrics" data-sticky="0">
+        <form class="nav-controls">
+          <fieldset>
+            <label class="metric-label" for="node-area">Área</label>
+            <select class="metric-select" data-metric="node-area" name="node-area">
+              <option class="metric-option" value="degree" selected>Grau</option>
+              <option class="metric-option" value="in-degree">Indegree</option>
+              <option class="metric-option" value="out-degree">Outdegree</option>
+              <option class="metric-option" value="betweenness-centrality">Intermediação</option>
+              <option class="metric-option" value="closeness-centrality">Proximidade</option>
+              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
+              <option class="metric-option" value="alpha-centrality">Alpha</option>
+              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label class="metric-label" for="node-color">Cor</label>
+            <select class="metric-select" data-metric="node-color" name="node-color">
+              <option class="metric-option" value="degree">Grau</option>
+              <option class="metric-option" value="in-degree">Indegree</option>
+              <option class="metric-option" value="out-degree">Outdegree</option>
+              <option class="metric-option" value="betweenness-centrality" selected>
+                Intermediação
+              </option>
+              <option class="metric-option" value="closeness-centrality">Proximidade</option>
+              <option class="metric-option" value="local-clustering-coefficient">Agrupamento</option>
+              <option class="metric-option" value="alpha-centrality">Alpha</option>
+              <option class="metric-option" value="eigenvector-centrality">Autovetor</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label class="metric-label" for="coverage">Abrangência</label>
+            <select class="metric-select" data-metric="coverage" name="coverage">
+              <option class="metric-option" value="match">Jogo</option>
+              <option class="metric-option" value="global">Global</option>
+            </select>
+          </fieldset>
+        </form>
+      </nav>
       <h2 class="graph__label" data-match-id="2057978"></h2>
       <div class="graphs__wrapper">
         <canvas
           data-match-id="2057978"
           data-team-id="6380"
-          data-theme="6380"
           class="graph__canvas"
           id="canvas1"
           data-orientation="gol-left"
@@ -609,7 +648,6 @@
         <canvas
           data-match-id="2057978"
           data-team-id="6697"
-          data-theme="6697"
           class="graph__canvas"
           id="canvas2"
           data-orientation="gol-right"
@@ -620,7 +658,6 @@
         <canvas
           data-match-id="2057980"
           data-team-id="6380"
-          data-theme="6380"
           class="graph__canvas"
           id="canvas3"
           data-orientation="gol-left"
@@ -628,7 +665,6 @@
         <canvas
           data-match-id="2057980"
           data-team-id="16871"
-          data-theme="16817"
           class="graph__canvas"
           id="canvas4"
           data-orientation="gol-right"
@@ -639,7 +675,6 @@
         <canvas
           data-match-id="2057982"
           data-team-id="17322"
-          data-theme="17322"
           class="graph__canvas"
           id="canvas5"
           data-orientation="gol-left"
@@ -647,9 +682,25 @@
         <canvas
           data-match-id="2057982"
           data-team-id="6380"
-          data-theme="6380"
           class="graph__canvas"
           id="canvas6"
+          data-orientation="gol-right"
+        ></canvas>
+      </div>
+      <h2 class="graph__label" data-match-id="2058011"></h2>
+      <div class="graphs__wrapper">
+        <canvas
+          data-match-id="2058011"
+          data-team-id="6380"
+          class="graph__canvas"
+          id="canvas7"
+          data-orientation="gol-left"
+        ></canvas>
+        <canvas
+          data-match-id="2058011"
+          data-team-id="5629"
+          class="graph__canvas"
+          id="canvas8"
           data-orientation="gol-right"
         ></canvas>
       </div>

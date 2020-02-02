@@ -1,8 +1,10 @@
 #!/bin/bash
-for id in 2057978 2057980 2057982
+for id in 2057978 2057980 2057982 2058011 2058006
 do
-  echo "Getting match $id"
+  echo "==========================================================="
+  echo "Fetching match $id from dataset. Please wait..."
+  echo "==========================================================="
   clj src/main/io/spit_match.clj --id=$id --type=edn
   clj src/main/io/spit_match.clj --id=$id --type=json
-  echo "Done with match $id"
+  echo "Done!"
 done

@@ -1,6 +1,9 @@
 $text-color: #222;
 $text-width: 750px;
 
+label,
+option,
+select,
 h1,
 h2,
 h3,
@@ -28,14 +31,16 @@ p {
 }
 
 .subtitle {
+  @include margin;
+  @include padding;
+
   font-size: 3rem;
   line-height: 1.2;
   letter-spacing: -1px;
   max-width: $text-width;
   font-weight: 700;
-
-  @include margin;
-  @include padding;
+  margin-bottom: 1rem;
+  margin-top: 5rem;
 
   @media (max-width: 600px) {
     font-size: 7vw;

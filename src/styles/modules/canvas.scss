@@ -11,15 +11,52 @@
 }
 
 .graph__label {
-  font-size: 4rem;
+  font-size: 3.7rem;
   font-weight: 700;
   text-align: center;
   margin: 3rem auto 0;
   letter-spacing: -1px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  max-width: 1000px;
 
-  @media (max-width: 700px) {
+  @media (max-width: 850px) {
     font-size: 7vw;
   }
+}
+
+.label__team1,
+.label__team2 {
+  flex: 0 0 35%;
+  font-weight: 300;
+}
+
+.label__score1,
+.label__score2 {
+  flex: 0 0 3%;
+  margin: 0 2rem;
+  font-size: 4.5rem;
+  transition: margin 200ms ease;
+
+  @media (max-width: 850px) {
+    margin: 0 0.5rem;
+    font-size: 9vw;
+  }
+}
+
+.label__score1,
+.label__team1 {
+  text-align: center;
+}
+
+.label__score2,
+.label__team2 {
+  text-align: center;
+}
+
+.label__vs {
+  flex: 0 0 3%;
 }
 
 .graph__canvas {
@@ -36,7 +73,7 @@
   max-width: 30vw;
 
   @media (max-width: 900px) {
-    width: 100%;
+    width: 95%;
     max-width: 100rem;
   }
 }
@@ -46,7 +83,7 @@
   max-height: 30vw;
 
   @media (max-width: 900px) {
-    width: 100%;
+    width: 95%;
     max-height: 100rem;
   }
 }
