@@ -24,7 +24,7 @@
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
-                 :codomains {:edges-width #js [1 25]
+                 :codomains {:edges-width #js [2 25]
                              :radius #js [10 50]
                              :colors {:cold #js ["#bbdefb", "#0d47a1"]
                                       :hot #js ["yellow", "red"]}}}
