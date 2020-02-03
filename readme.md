@@ -11,6 +11,10 @@
 - https://www.researchgate.net/publication/313141210_Exploring_Team_Passing_Networks_and_Player_Movement_Dynamics_in_Youth_Association_Football
 - https://phys.org/news/2010-06-science-true-soccer-stars.html
 - https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png
+- https://statsbomb.com/2018/08/explaining-xgchain-passing-networks/
+- https://rpubs.com/ihatestudying/passing-network-
+- https://twitter.com/karun1710/status/1098224580370546688?s=09
+- https://twitter.com/karun1710
 
 # Understanding the Metrics
 
@@ -61,11 +65,14 @@
 ![image](https://www.researchgate.net/profile/Bruno_Goncalves12/publication/313141210/figure/fig3/AS:456706820972546@1485898799477/Visual-representation-from-U17-match-analysis-Upper-panel-a-passing-network-nodes.png)
 ![image](https://scx2.b-cdn.net/gfx/news/hires/journal_pone_0010937_g005.jpg)
 ![image](https://scientometrics.files.wordpress.com/2012/04/sf_l1_munchen-madrid.png)
+![image](https://i2.wp.com/statsbomb.com/wp-content/uploads/2018/08/Liverpool_Swansea_passnetwork.png)
 
-# Dataset
+# Datasets and Resources
 
 - https://figshare.com/collections/Soccer_match_event_dataset/4415000/2
 - https://apidocs.wyscout.com/
+- https://github.com/matiasmascioto/awesome-soccer-analytics
+- https://github.com/rjtavares/football-crunching
 
 # Dependencies
 
