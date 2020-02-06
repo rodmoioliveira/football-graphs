@@ -48,6 +48,8 @@
   (py. add_edge 1 0 :weight 50))
 
 (println "====================================")
+(println "Nodes Metrics")
+(println "====================================")
 (-> mdg (py.- nodes) (py. data) (#(map second %))  println)
 (-> mdg (py. nx/out_degree 2 :weight "weight") println)
 (-> mdg (py. nx/in_degree 2 :weight "weight") println)
@@ -55,9 +57,19 @@
 (-> mdg nx/in_degree_centrality println)
 (-> mdg nx/out_degree_centrality println)
 (-> mdg nx/closeness_centrality println)
-(println "====================================")
 (-> mg (nx/current_flow_closeness_centrality :weight "weight") println)
 (-> mdg (nx/edge_betweenness_centrality :weight "weight") println)
+(println "====================================")
+(println "Graph Metrics")
+(println "====================================")
+(-> mg (nx/algebraic_connectivity :weight "weight") println)
+(println "====================================")
+(println "Edges Metrics")
+(println "====================================")
+
+(println "====================================")
+(println "Matrices")
+(-> mdg (nx/adjacency_matrix :weight "weight") println)
 (println "====================================")
 
 ; ==================================
