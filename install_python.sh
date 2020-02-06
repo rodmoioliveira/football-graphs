@@ -1,0 +1,9 @@
+#!/bin/bash
+
+sudo apt install python3-pip
+sudo apt install python3-venv
+pip install virtualenv
+virtualenv my-project-env
+source my-project-env/bin/activate
+pip install -r requirements.txt
+export PYTHONPATH="$PWD/src/main/io"
