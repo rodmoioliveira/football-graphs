@@ -16,6 +16,7 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [clojure.walk :refer [keywordize-keys]]
    [libpython-clj.require :refer [require-python]]
    [libpython-clj.python :as py :refer [py. py.. py.-]]
 
@@ -39,21 +40,15 @@
   (py. add_edge 2 1 :weight 100)
   (py. add_edge 1 0 :weight 50))
 
-; G.add_node(1, time='5pm')
-; G.nodes[0]['foo'] = 'bar'
-; list(G.nodes(data=True))
-; list(G.nodes.data())
-
+(println "====================================")
+(-> G (py.- nodes) (py. data) (#(map second %))  println)
 (println "====================================")
 (-> G (py. out_degree 2 :weight "weight") println)
 (-> G (py. in_degree 2 :weight "weight") println)
-(-> G (py. nodes :data true) println)
-(-> G (py.- nodes) (py. data) println)
-
-(-> (degree_centrality G) println)
-(-> (in_degree_centrality G) println)
-(-> (out_degree_centrality G) println)
-(-> (closeness_centrality G) println)
+(-> G degree_centrality println)
+(-> G in_degree_centrality println)
+(-> G out_degree_centrality println)
+(-> G closeness_centrality println)
 
 (println "====================================")
 
