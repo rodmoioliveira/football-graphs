@@ -79,9 +79,15 @@
 - [Clojure](https://clojure.org/guides/getting_started)
 - [Java](https://java.com/en/download/help/download_options.xml)
 - [Node](https://nodejs.org/en/download/)
+- [Python](https://www.python.org/downloads/)
 
 # Run Project
 ```sh
+# first time
+chmod +x install_python.sh
+./install_python.sh
+
+# to run in dev mode
 npm install && npm start
 ```
 
@@ -89,7 +95,7 @@ npm install && npm start
 
 ### Params
 ```sh
---id   [Id of a match]
+--id [Id of a match]
 --type [Filetype output]
 ```
 
@@ -133,6 +139,8 @@ clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=edn
 ```sh
 # just once
 chmod +x get_all_world_cup_matches.sh
+
+# whenever you want
 ./get_all_world_cup_matches.sh
 ```
 
@@ -140,6 +148,8 @@ chmod +x get_all_world_cup_matches.sh
 ```sh
 # just once
 chmod +x get_all_brazil_graphs.sh
+
+# whenever you want
 ./get_all_brazil_graphs.sh
 ```
 
@@ -147,5 +157,16 @@ chmod +x get_all_brazil_graphs.sh
 ```sh
 # just once
 chmod +x get_all_brazil_analysis.sh
+
+# whenever you want
 ./get_all_brazil_graphs.sh
+```
+
+#### Get matches -> graphs -> analysis of Brazil Games
+```sh
+# just once
+chmod +x streamline_brazil_matches.sh
+
+# whenever you want
+./streamline_brazil_matches.sh
 ```
