@@ -24,21 +24,37 @@
 ; ==================================
 ; Python interop code...
 ; ==================================
-(require-python '[networkx :as nx :refer [MultiDiGraph]])
+(require-python '[networkx :as nx :refer [MultiDiGraph
+                                          degree_centrality
+                                          in_degree_centrality
+                                          out_degree_centrality
+                                          closeness_centrality]])
 
 (def G (MultiDiGraph))
 (doto G
-  (py. add_nodes_from [0 1 2])
-  (py. add_edge 1 2)
-  (py. add_edge 1 2)
-  (py. add_edge 1 2)
-  (py. add_edge 1 2)
-  (py. add_edge 1 2)
-  (py. add_edge 1 2)
-  (py. add_edge 0 2))
+  (py. add_node 0 :name "a")
+  (py. add_node 1 :name "b")
+  (py. add_node 2 :name "c")
+  (py. add_edge 1 2 :weight 200)
+  (py. add_edge 2 1 :weight 100)
+  (py. add_edge 1 0 :weight 50))
+
+; G.add_node(1, time='5pm')
+; G.nodes[0]['foo'] = 'bar'
+; list(G.nodes(data=True))
+; list(G.nodes.data())
 
 (println "====================================")
-(-> G (py. degree 2) println)
+(-> G (py. out_degree 2 :weight "weight") println)
+(-> G (py. in_degree 2 :weight "weight") println)
+(-> G (py. nodes :data true) println)
+(-> G (py.- nodes) (py. data) println)
+
+(-> (degree_centrality G) println)
+(-> (in_degree_centrality G) println)
+(-> (out_degree_centrality G) println)
+(-> (closeness_centrality G) println)
+
 (println "====================================")
 
 ; ==================================
