@@ -184,7 +184,7 @@
                           acc
                           [(-> cur first :team-id str keyword)]
                           cur)) {} %)))
-         :meta
+         :min-max-values
          {:passes (-> links
                           flatten
                           ((fn [v]

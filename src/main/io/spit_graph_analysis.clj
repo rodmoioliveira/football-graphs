@@ -274,7 +274,7 @@
                                      :metrics
                                      (get-in metrics [1 (-> n :id keyword) :metrics])))
                                   %)))}
-                      :meta (merge (-> data :meta) (get-metrics-ranges))))))
+                      :min-max-values (merge (-> data :min-max-values) (get-metrics-ranges))))))
         match-label (-> data :label csk/->snake_case)
         dist "src/main/data/analysis/"
         ext (name file-type)]

@@ -7,9 +7,9 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric meta-data name-position]}]
-  ; (-> meta-data node-radius-metric (#((juxt :min :max) %)) print)
-  (let [get-ranges (fn [metric] (-> meta-data metric (#((juxt :min :max) %))))
+  [{:keys [id node-radius-metric node-color-metric min-max-values name-position]}]
+  ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
+  (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
 
         ; ==================================
         ; Domains and Codomains

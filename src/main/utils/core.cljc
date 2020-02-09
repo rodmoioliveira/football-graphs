@@ -48,7 +48,7 @@
            eigenvector-centrality (metric-range :eigenvector-centrality)]
 
        (-> matches
-           (#(map (fn [v] (get-in v [:meta])) %))
+           (#(map (fn [v] (get-in v [:min-max-values])) %))
            (#((juxt
                degree
                in-degree
