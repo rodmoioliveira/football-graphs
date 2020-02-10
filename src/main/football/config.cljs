@@ -7,9 +7,9 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric meta-data name-position]}]
-  ; (-> meta-data node-radius-metric (#((juxt :min :max) %)) print)
-  (let [get-ranges (fn [metric] (-> meta-data metric (#((juxt :min :max) %))))
+  [{:keys [id node-radius-metric node-color-metric min-max-values name-position]}]
+  ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
+  (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
 
         ; ==================================
         ; Domains and Codomains
@@ -21,6 +21,7 @@
                   :out-degree (-> (get-ranges :out-degree) clj->js)
                   :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
                   :betweenness-centrality (-> (get-ranges :betweenness-centrality) clj->js)
+                  :current_flow_betweenness_centrality (-> (get-ranges :current_flow_betweenness_centrality) clj->js)
                   :local-clustering-coefficient (-> (get-ranges :local-clustering-coefficient) reverse clj->js)
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
@@ -78,6 +79,7 @@
         closeness-centrality #((-> map-scale %) :closeness-centrality)
         local-clustering-coefficient #((-> map-scale %) :local-clustering-coefficient)
         alpha-centrality #((-> map-scale %) :alpha-centrality)
+        current_flow_betweenness_centrality #((-> map-scale %) :current_flow_betweenness_centrality)
         katz-centrality #((-> map-scale %) :katz-centrality)
         eigenvector-centrality #((-> map-scale %) :eigenvector-centrality)
         scales {:degree degree
@@ -89,6 +91,7 @@
                 :local-clustering-coefficient local-clustering-coefficient
                 :alpha-centrality alpha-centrality
                 :eigenvector-centrality eigenvector-centrality
+                :current_flow_betweenness_centrality current_flow_betweenness_centrality
                 :edges->colors edges->colors
                 :edges->width edges->width}]
 

@@ -71,7 +71,7 @@
                                                   ((fn [n]
                                                      (reduce (partial hash-by :id) (sorted-map) n))))
                                    :links (-> v :links id)
-                                   :meta (-> v :meta)
+                                   :min-max-values (-> v :min-max-values)
                                    :label (-> v :label)}))))
                    :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
@@ -92,9 +92,9 @@
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
                                    :name-position name-position
-                                   :meta-data (if global-metrics?
-                                                (get-global-metrics matches)
-                                                (-> canvas :data :meta))})})))
+                                   :min-max-values (if global-metrics?
+                                                     (get-global-metrics matches)
+                                                     (-> canvas :data :min-max-values))})})))
 
 ; ==================================
 ; Graphs Init

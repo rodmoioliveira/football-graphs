@@ -1,4 +1,7 @@
 #!/bin/bash
+
+source my-project-env/bin/activate
+
 for id in 2057978 2057980 2057982 2058011
 do
   echo "==========================================================="

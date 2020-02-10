@@ -16,8 +16,15 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [libpython-clj.require :refer [require-python]]
+   [libpython-clj.python :as py :refer [py. py.. py.-]]
 
    [utils.core :refer [output-file-type hash-by hash-by-id]]))
+
+; ==================================
+; Python interop code...
+; ==================================
+(require-python '[networkx :as nx])
 
 ; ==================================
 ; Command Line Options
@@ -78,20 +85,46 @@
   [team]
   (let [sdwg (SimpleDirectedWeightedGraph. DefaultWeightedEdge)
         swg (SimpleWeightedGraph. DefaultWeightedEdge)
+        mg (nx/MultiGraph)
+        mdg (nx/MultiDiGraph)
         [nodes links] team]
+
+    ; ====================================
+    ; Nodes
+    ; ====================================
     (doseq [node nodes]
+      ; networkx
+      (doto mg
+        (py. add_node (-> node :pos name)))
+      (doto mdg
+        (py. add_node (-> node :pos name)))
+
+      ; jgrapht
       (doto sdwg
         (.addVertex (-> node :pos keyword)))
       (doto swg
         (.addVertex (-> node :pos keyword))))
+
+    ; ====================================
+    ; Links
+    ; ====================================
     (doseq [link links]
-      (doto sdwg
-        (.addEdge (-> link :source keyword) (-> link :target keyword)))
-      (doto swg
-        (.addEdge (-> link :source keyword) (-> link :target keyword))))
-    (doseq [link links]
-      (doto sdwg
-        (.setEdgeWeight (-> link :source keyword) (-> link :target keyword) (-> link :value))))
+      (let [source (-> link :source keyword)
+            target (-> link :target keyword)
+            weight (-> link :value)]
+
+        ; networkx
+        (doto mg
+          (py. add_edge (-> source name) (-> target name) :weight weight))
+        (doto mdg
+          (py. add_edge (-> source name) (-> target name) :weight weight))
+
+      ; jgrapht
+        (doto sdwg
+          (.addEdge source target)
+          (.setEdgeWeight source target weight))
+        (doto swg
+          (.addEdge source target))))
 
     (let [get-edges-weight (fn [edges] (map (fn [e] (-> sdwg (.getEdgeWeight e))) edges))
           sum (fn [v] (apply + v))
@@ -101,34 +134,44 @@
           local-clustering-coefficient (-> clustering-coefficient (.getScores))
           average-clustering-coefficient (-> clustering-coefficient (.getAverageClusteringCoefficient))
           global-clustering-coefficient (-> swg ClusteringCoefficient. (.getGlobalClusteringCoefficient))
+          ; random-walk betweenness centrality
+          current_flow_betweenness_centrality (-> mg
+                                                  (nx/current_flow_betweenness_centrality
+                                                   :weight "weight"
+                                                   :normalized true))
           closeness-centrality (-> sdwg (ClosenessCentrality.) (.getScores))
           alpha-centrality (-> sdwg (AlphaCentrality.) (.getScores))
           katz-centrality (-> sdwg (AlphaCentrality. 0.01 1.0) (.getScores))
           eigenvector-centrality (-> sdwg (AlphaCentrality. 0.01	0.0) (.getScores))]
-      (-> vertex-set
-          (#(map
-             (fn [id]
-               (let [in-degree (-> sdwg
-                                   (.incomingEdgesOf id)
-                                   get-edges-weight
-                                   sum)
-                     out-degree (-> sdwg
-                                    (.outgoingEdgesOf id)
+      {:vertex-set
+       (-> vertex-set
+           (#(map
+              (fn [id]
+                (let [in-degree (-> sdwg
+                                    (.incomingEdgesOf id)
                                     get-edges-weight
-                                    sum)]
-                 {:id (name id)
-                  :metrics {:in-degree in-degree
-                            :out-degree out-degree
-                            :degree (-> [in-degree out-degree] sum)
-                            :betweenness-centrality (-> betweenness-centrality id)
-                            :global-clustering-coefficient global-clustering-coefficient
-                            :local-clustering-coefficient (-> local-clustering-coefficient id)
-                            :average-clustering-coefficient average-clustering-coefficient
-                            :closeness-centrality (-> closeness-centrality id)
-                            :alpha-centrality (-> alpha-centrality id)
-                            :katz-centrality (-> katz-centrality id)
-                            :eigenvector-centrality (-> eigenvector-centrality id)}})) %))
-          (#(reduce (partial hash-by :id) (sorted-map) %))))))
+                                    sum)
+                      out-degree (-> sdwg
+                                     (.outgoingEdgesOf id)
+                                     get-edges-weight
+                                     sum)]
+                  {:id (name id)
+                   :metrics {:in-degree in-degree
+                             :out-degree out-degree
+                             :degree (-> [in-degree out-degree] sum)
+                             :betweenness-centrality (-> betweenness-centrality id)
+                             :global-clustering-coefficient global-clustering-coefficient
+                             :local-clustering-coefficient (-> local-clustering-coefficient id)
+                             :average-clustering-coefficient average-clustering-coefficient
+                             :closeness-centrality (-> closeness-centrality id)
+                             :alpha-centrality (-> alpha-centrality id)
+                             :katz-centrality (-> katz-centrality id)
+                             :current_flow_betweenness_centrality (-> (name id)
+                                                                      current_flow_betweenness_centrality)
+                             :eigenvector-centrality (-> eigenvector-centrality id)}})) %))
+           (#(reduce (partial hash-by :id) (sorted-map) %)))
+       :graph-metrics
+       {:algebraic_connectivity (-> mg (nx/algebraic_connectivity :weight "weight"))}})))
 
 (def metrics
   [(create-graph team-1)
@@ -146,6 +189,7 @@
         degree (metric-range :degree)
         betweenness-centrality (metric-range :betweenness-centrality)
         global-clustering-coefficient (metric-range :global-clustering-coefficient)
+        current_flow_betweenness_centrality (metric-range :current_flow_betweenness_centrality)
         local-clustering-coefficient (metric-range :local-clustering-coefficient)
         average-clustering-coefficient (metric-range :average-clustering-coefficient)
         closeness-centrality (metric-range :closeness-centrality)
@@ -153,6 +197,7 @@
         katz-centrality (metric-range :katz-centrality)
         eigenvector-centrality (metric-range :eigenvector-centrality)]
     (-> metrics
+        (#(map :vertex-set %))
         (#(map vals %))
         flatten
         (#(map :metrics %))
@@ -167,7 +212,8 @@
             eigenvector-centrality
             average-clustering-coefficient
             global-clustering-coefficient
-            katz-centrality)
+            katz-centrality
+            current_flow_betweenness_centrality)
            %))
         ((fn [[degree
                in-degree
@@ -179,7 +225,8 @@
                eigenvector-centrality
                average-clustering-coefficient
                global-clustering-coefficient
-               katz-centrality]]
+               katz-centrality
+               current_flow_betweenness_centrality]]
            {:degree degree
             :in-degree in-degree
             :out-degree out-degree
@@ -190,7 +237,8 @@
             :eigenvector-centrality eigenvector-centrality
             :average-clustering-coefficient average-clustering-coefficient
             :global-clustering-coefficient global-clustering-coefficient
-            :katz-centrality katz-centrality})))))
+            :katz-centrality katz-centrality
+            :current_flow_betweenness_centrality current_flow_betweenness_centrality})))))
 
 ; ==================================
 ; IO
@@ -209,7 +257,7 @@
                                     (assoc
                                      n
                                      :metrics
-                                     (get-in metrics [0 (-> n :id keyword) :metrics])))
+                                     (get-in metrics [0 :vertex-set (-> n :id keyword) :metrics])))
                                   %)))
                        (-> teams-ids second)
                        (-> nodes
@@ -219,9 +267,12 @@
                                     (assoc
                                      n
                                      :metrics
-                                     (get-in metrics [1 (-> n :id keyword) :metrics])))
+                                     (get-in metrics [1 :vertex-set (-> n :id keyword) :metrics])))
                                   %)))}
-                      :meta (merge (-> data :meta) (get-metrics-ranges))))))
+                      :min-max-values (merge (-> data :min-max-values) (get-metrics-ranges))
+                      :graph-metrics
+                      {(-> teams-ids first) (get-in metrics [0 :graph-metrics])
+                       (-> teams-ids second) (get-in metrics [1 :graph-metrics])}))))
         match-label (-> data :label csk/->snake_case)
         dist "src/main/data/analysis/"
         ext (name file-type)]
