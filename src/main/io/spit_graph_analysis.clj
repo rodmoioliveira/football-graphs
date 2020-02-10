@@ -26,44 +26,6 @@
 ; ==================================
 (require-python '[networkx :as nx])
 
-; (def mdg (nx/MultiDiGraph))
-; (def mg (nx/MultiGraph))
-; (doto mdg
-;   (py. add_node 0 :name "a")
-;   (py. add_node 1 :name "b")
-;   (py. add_node 2 :name "c")
-
-;   (py. add_edge 1 2 :weight 200)
-;   (py. add_edge 2 1 :weight 100)
-;   (py. add_edge 1 0 :weight 50))
-
-; (doto mg
-;   (py. add_node 0 :name "a")
-;   (py. add_node 1 :name "b")
-;   (py. add_node 2 :name "c")
-
-;   (py. add_edge 1 2 :weight 200)
-;   (py. add_edge 2 1 :weight 100)
-;   (py. add_edge 1 0 :weight 50))
-
-; (println "====================================")
-; (println "Nodes Metrics")
-; (println "====================================")
-; (-> mdg (py.- nodes) (py. data) (#(map second %))  println)
-; (-> mdg (py. nx/out_degree 2 :weight "weight") println)
-; (-> mdg (py. nx/in_degree 2 :weight "weight") println)
-; (-> mdg nx/degree_centrality println)
-; (-> mdg nx/in_degree_centrality println)
-; (-> mdg nx/out_degree_centrality println)
-; (-> mdg nx/closeness_centrality println)
-; (-> mg (nx/current_flow_closeness_centrality :weight "weight") println)
-; (-> mdg (nx/edge_betweenness_centrality :weight "weight") println)
-
-; (println "====================================")
-; (println "Graph Metrics")
-; (println "====================================")
-; (-> mg (nx/algebraic_connectivity :weight "weight") println)
-
 ; ==================================
 ; Command Line Options
 ; ==================================
