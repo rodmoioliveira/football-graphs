@@ -45,6 +45,7 @@
            average-clustering-coefficient (metric-range :average-clustering-coefficient)
            closeness-centrality (metric-range :closeness-centrality)
            alpha-centrality (metric-range :alpha-centrality)
+           current_flow_betweenness_centrality (metric-range :current_flow_betweenness_centrality)
            eigenvector-centrality (metric-range :eigenvector-centrality)]
 
        (-> matches
@@ -61,7 +62,8 @@
                average-clustering-coefficient
                global-clustering-coefficient
                passes
-               katz-centrality)
+               katz-centrality
+               current_flow_betweenness_centrality)
               %))
            ((fn [[degree
                   in-degree
@@ -74,7 +76,8 @@
                   average-clustering-coefficient
                   global-clustering-coefficient
                   passes
-                  katz-centrality]]
+                  katz-centrality
+                  current_flow_betweenness_centrality]]
               {:degree degree
                :in-degree in-degree
                :out-degree out-degree
@@ -86,7 +89,8 @@
                :average-clustering-coefficient average-clustering-coefficient
                :global-clustering-coefficient global-clustering-coefficient
                :passes passes
-               :katz-centrality katz-centrality}))))))
+               :katz-centrality katz-centrality
+               :current_flow_betweenness_centrality current_flow_betweenness_centrality}))))))
 
 #?(:clj
    (defn hash-by
