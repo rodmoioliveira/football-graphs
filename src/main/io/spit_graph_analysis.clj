@@ -136,7 +136,9 @@
           global-clustering-coefficient (-> swg ClusteringCoefficient. (.getGlobalClusteringCoefficient))
           ; random-walk betweenness centrality
           current_flow_betweenness_centrality (-> mg
-                                                  (nx/current_flow_betweenness_centrality :weight "weight"))
+                                                  (nx/current_flow_betweenness_centrality
+                                                   :weight "weight"
+                                                   :normalized true))
           closeness-centrality (-> sdwg (ClosenessCentrality.) (.getScores))
           alpha-centrality (-> sdwg (AlphaCentrality.) (.getScores))
           katz-centrality (-> sdwg (AlphaCentrality. 0.01 1.0) (.getScores))
