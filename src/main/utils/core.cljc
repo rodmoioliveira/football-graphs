@@ -40,9 +40,7 @@
            katz-centrality (metric-range :katz-centrality)
            passes (metric-range :passes)
            betweenness-centrality (metric-range :betweenness-centrality)
-           global-clustering-coefficient (metric-range :global-clustering-coefficient)
            local-clustering-coefficient (metric-range :local-clustering-coefficient)
-           average-clustering-coefficient (metric-range :average-clustering-coefficient)
            closeness-centrality (metric-range :closeness-centrality)
            alpha-centrality (metric-range :alpha-centrality)
            current_flow_betweenness_centrality (metric-range :current_flow_betweenness_centrality)
@@ -59,8 +57,6 @@
                closeness-centrality
                alpha-centrality
                eigenvector-centrality
-               average-clustering-coefficient
-               global-clustering-coefficient
                passes
                katz-centrality
                current_flow_betweenness_centrality)
@@ -73,8 +69,6 @@
                   closeness-centrality
                   alpha-centrality
                   eigenvector-centrality
-                  average-clustering-coefficient
-                  global-clustering-coefficient
                   passes
                   katz-centrality
                   current_flow_betweenness_centrality]]
@@ -86,8 +80,6 @@
                :closeness-centrality closeness-centrality
                :alpha-centrality alpha-centrality
                :eigenvector-centrality eigenvector-centrality
-               :average-clustering-coefficient average-clustering-coefficient
-               :global-clustering-coefficient global-clustering-coefficient
                :passes passes
                :katz-centrality katz-centrality
                :current_flow_betweenness_centrality current_flow_betweenness_centrality}))))))
