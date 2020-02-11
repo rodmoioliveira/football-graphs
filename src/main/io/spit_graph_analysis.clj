@@ -160,9 +160,7 @@
                              :out-degree out-degree
                              :degree (-> [in-degree out-degree] sum)
                              :betweenness-centrality (-> betweenness-centrality id)
-                             :global-clustering-coefficient global-clustering-coefficient
                              :local-clustering-coefficient (-> local-clustering-coefficient id)
-                             :average-clustering-coefficient average-clustering-coefficient
                              :closeness-centrality (-> closeness-centrality id)
                              :alpha-centrality (-> alpha-centrality id)
                              :katz-centrality (-> katz-centrality id)
@@ -171,7 +169,9 @@
                              :eigenvector-centrality (-> eigenvector-centrality id)}})) %))
            (#(reduce (partial hash-by :id) (sorted-map) %)))
        :graph-metrics
-       {:algebraic_connectivity (-> mg (nx/algebraic_connectivity :weight "weight"))}})))
+       {:algebraic_connectivity (-> mg (nx/algebraic_connectivity :weight "weight"))
+        :average-clustering-coefficient average-clustering-coefficient
+        :global-clustering-coefficient global-clustering-coefficient}})))
 
 (def metrics
   [(create-graph team-1)
@@ -188,10 +188,8 @@
         out-degree (metric-range :out-degree)
         degree (metric-range :degree)
         betweenness-centrality (metric-range :betweenness-centrality)
-        global-clustering-coefficient (metric-range :global-clustering-coefficient)
         current_flow_betweenness_centrality (metric-range :current_flow_betweenness_centrality)
         local-clustering-coefficient (metric-range :local-clustering-coefficient)
-        average-clustering-coefficient (metric-range :average-clustering-coefficient)
         closeness-centrality (metric-range :closeness-centrality)
         alpha-centrality (metric-range :alpha-centrality)
         katz-centrality (metric-range :katz-centrality)
@@ -210,8 +208,6 @@
             closeness-centrality
             alpha-centrality
             eigenvector-centrality
-            average-clustering-coefficient
-            global-clustering-coefficient
             katz-centrality
             current_flow_betweenness_centrality)
            %))
@@ -223,8 +219,6 @@
                closeness-centrality
                alpha-centrality
                eigenvector-centrality
-               average-clustering-coefficient
-               global-clustering-coefficient
                katz-centrality
                current_flow_betweenness_centrality]]
            {:degree degree
@@ -235,8 +229,6 @@
             :closeness-centrality closeness-centrality
             :alpha-centrality alpha-centrality
             :eigenvector-centrality eigenvector-centrality
-            :average-clustering-coefficient average-clustering-coefficient
-            :global-clustering-coefficient global-clustering-coefficient
             :katz-centrality katz-centrality
             :current_flow_betweenness_centrality current_flow_betweenness_centrality})))))
 
