@@ -122,7 +122,7 @@
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
 (def canvas-dimensions
-  [950 730])
+  [950 560])
 
 #?(:cljs
    (def set-canvas-dimensions
@@ -141,8 +141,8 @@
 
 #?(:cljs
    (def mobile-mapping
-     {:gol-right :gol-bottom
-      :gol-left :gol-top}))
+     {:gol-right :gol-left
+      :gol-left :gol-left}))
 
 #?(:cljs
    (def coord-mapping

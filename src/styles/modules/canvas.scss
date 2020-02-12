@@ -62,6 +62,7 @@
 .graph__canvas {
   display: block;
   margin: 1rem;
+  border: 1px solid #ccc;
 
   @media (max-width: 710px) {
     margin: 0;
@@ -70,20 +71,20 @@
 
 [data-orientation='gol-top'],
 [data-orientation='gol-bottom'] {
-  max-width: 25vw;
+  max-width: 20vw;
 
   @media (max-width: 900px) {
-    width: 80%;
+    width: 95%;
     max-width: 100rem;
   }
 }
 
 [data-orientation='gol-left'],
 [data-orientation='gol-right'] {
-  max-height: 25vw;
+  max-height: 20vw;
 
   @media (max-width: 900px) {
-    width: 80%;
+    width: 95%;
     max-height: 100rem;
   }
 }
