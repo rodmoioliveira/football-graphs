@@ -6,10 +6,11 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   ; [clojure.pprint :refer [pprint]]
 
    [mapping.matches :refer [map->pos]]
    [mapping.tatical :refer [positions]]
-   [utils.core :refer [output-file-type hash-by-id]]))
+   [utils.core :refer [output-file-type hash-by-id hash-by]]))
 
 ; ==================================
 ; Utils
@@ -19,9 +20,23 @@
   (-> (map (fn [x] (apply + (map (fn [y] (y :value)) x))) v) print)
   v)
 
+; FIXME: refine counts of passes
 (defn just-passes
   [e]
   (= (-> e :event-id) 8))
+
+(defn get-event-positions
+  [teams]
+  (map (fn [links]
+         (map (fn [link]
+                (map (fn [[source target]]
+                       {:source (get-in source [:pos])
+                        :target (get-in target [:pos])
+                        :source-position (-> source (#(get-in % [:positions])) first)
+                        :target-position (-> source (#(get-in % [:positions])) second)
+                        :team-id (get-in source [:team-id])}) link))
+              links))
+       teams))
 
 (defn link-passes
   [teams]
@@ -38,6 +53,21 @@
   [teams]
   (map
    #(remove (fn [{:keys [source target]}] (= source target)) %)
+   teams))
+
+(defn aggregate-positions
+  [teams]
+  (map
+   (fn [team]
+     {:team-id (-> team first :team-id)
+      :positions (reduce
+                  (fn [acc cur]
+                    (assoc
+                     acc
+                     (-> cur :source) (concat (-> acc (#(get-in % [(-> cur :source)]))) [(-> cur :source-position)])
+                     (-> cur :target) (concat (-> acc (#(get-in % [(-> cur :target)]))) [(-> cur :target-position)])))
+                  {}
+                  team)})
    teams))
 
 ; ==================================
@@ -160,16 +190,79 @@
         ; passes-count
         )))
 
+(defn get-medium-pos
+  []
+  (let [assoc-player-data
+        #(assoc-in % [:pos]
+                   (get-in (-> nodes :players-hash) [(-> % :player-id str keyword) :pos]))]
+    (-> data
+        :events
+        (#(filter just-passes %))
+        ((fn [p] (map assoc-player-data p)))
+        (#(partition-by :team-id %))
+        ((fn [v] (group-by #(-> % first :team-id) v)))
+        vals
+        ((fn [teams] (map (fn [team] (map #(partition 2 1 %) team)) teams)))
+        get-event-positions
+        ((fn [teams] (map (fn [team] (flatten team)) teams)))
+        ; FIXME: this transformation MUST be remove at some point
+        remove-reflexivity
+        aggregate-positions
+        (#(map (fn [{:keys [team-id positions]}]
+                 {:team-id team-id
+                  :positions
+                  (reduce
+                   (partial hash-by :role)
+                   (sorted-map)
+                   (map (fn
+                          [[key all-pos]]
+                          (let [sum-pos (fn [pos] (fn [v] (->> (map pos v) (apply +))))]
+                            {:role (-> key name)
+                             :med-position
+                             ; ====================================
+                             ; About x and y positions in this dataset:
+                             ; ====================================
+
+                             ; The origin and destination positions associated with the event.
+                             ; Each position is a pair of coordinates (x, y). The x and y coordinates are
+                             ; always in the range [0, 100] and indicate the percentage of the field from
+                             ; the perspective of the attacking team. In particular, the value of the x
+                             ; coordinate indicates the event’s nearness (in percentage) to the opponent’s
+                             ; goal, while the value of the y coordinates indicates the event’s nearness
+                             ; (in percentage) to the right side of the field;
+
+                             ; https://www.nature.com/articles/s41597-019-0247-7
+                             ; ====================================
+                             (-> ((juxt (sum-pos :x) (sum-pos :y) count) all-pos)
+                                 ((fn [[x y c]] [(/ x c) (/ y c)]))
+                                 ((fn [v] (map float v)))
+                                 ((fn [[x y]] [y (- 100 x)])))}))
+                        positions))}) %))
+        (#(reduce (partial hash-by :team-id) (sorted-map) %)))))
+
 ; ==================================
 ; IO
 ; ==================================
 (if (-> errors some? not)
   (let [links (links)
+        medium-pos (get-medium-pos)
         graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
          :nodes (-> nodes
                     :nodes
+                    (#(map (fn
+                             [team]
+                             (map
+                              (fn [node] (merge
+                                          node
+                                          {:medium-pos
+                                           (-> medium-pos
+                                               (get-in [(-> node :current-national-team-id str keyword)
+                                                        :positions
+                                                        (-> node :pos)
+                                                        :med-position]))}))
+                              team)) %))
                     (#(reduce
                        (fn [acc cur]
                          (assoc-in
@@ -186,17 +279,16 @@
                           cur)) {} %)))
          :min-max-values
          {:passes (-> links
-                          flatten
-                          ((fn [v]
-                             (let [max-val (fn [m] {:max (reduce max m)})
-                                   min-val (fn [m] {:min (reduce min m)})
-                                   merge-maps (fn [v] (apply merge v))
-                                   get-min-max (fn [v] ((juxt min-val max-val) v))
-                                   metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
-                                   value (metric-range :value)]
-                               ((juxt value) v))))
-                          first
-                          )}}
+                      flatten
+                      ((fn [v]
+                         (let [max-val (fn [m] {:max (reduce max m)})
+                               min-val (fn [m] {:min (reduce min m)})
+                               merge-maps (fn [v] (apply merge v))
+                               get-min-max (fn [v] ((juxt min-val max-val) v))
+                               metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
+                               value (metric-range :value)]
+                           ((juxt value) v))))
+                      first)}}
 
         match-label (-> data :match :label csk/->snake_case)
         dist "src/main/data/graphs/"
