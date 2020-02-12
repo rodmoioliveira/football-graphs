@@ -176,7 +176,7 @@
     (doto ctx
       (.save)
       (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
-      ((fn [v] (set! (.-fillStyle v) "white")))
+      ((fn [v] (set! (.-fillStyle v) "transparent")))
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))
     (doseq [e edges] (draw-passes {:edge e
                                    :nodeshash nodeshash

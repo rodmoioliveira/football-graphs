@@ -121,8 +121,10 @@
      {:x (* (-> canvas .-width) (/ x-% 100))
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
+(def field-dimensions [120 78])
+(def scale 8)
 (def canvas-dimensions
-  [950 560])
+  (-> field-dimensions (#(map (partial * scale) %))))
 
 #?(:cljs
    (def set-canvas-dimensions
