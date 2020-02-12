@@ -109,7 +109,8 @@
         (.subscribe #(-> %
                          (merge {:matches brazil-matches
                                  :get-global-metrics get-global-metrics
-                                 :name-position (when (mobile?) :center)})
+                                 :name-position (when (= (-> % :position-metric) :average-pos) :center)
+                                 })
                          plot-graphs)))))
 
 (defn reload! [] (init))
