@@ -153,10 +153,10 @@
 
 #?(:cljs
    (defn assoc-pos
-     [nodes canvas orientation]
+     [nodes position-metric canvas orientation]
      (let [placement (partial place-node canvas)]
        (map (fn [n]
-              (let [coord (-> n :coord-pos)
+              (let [coord (-> n position-metric)
                     pos ((-> coord-mapping orientation) coord)]
                 (assoc-in
                  n

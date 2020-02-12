@@ -718,7 +718,7 @@
                 class="metric-option"
                 value="current_flow_betweenness_centrality"
               >
-                Intermediação Random Walk
+                Random Walk
               </option>
               <option class="metric-option" value="betweenness-centrality">
                 Intermediação
@@ -763,7 +763,7 @@
                 class="metric-option"
                 value="current_flow_betweenness_centrality"
               >
-                Intermediação Random Walk
+                Random Walk
               </option>
               <option
                 class="metric-option"
@@ -793,6 +793,23 @@
             </select>
           </fieldset>
           <fieldset>
+            <label class="metric-label" for="position">
+              Posição
+            </label>
+            <select
+              class="metric-select"
+              data-metric="position"
+              name="position"
+            >
+              <option class="metric-option" value="coord-pos" selected>
+                Tática
+              </option>
+              <option class="metric-option" value="average-pos">
+                Média
+              </option>
+            </select>
+          </fieldset>
+          <fieldset data-fieldset="coverage">
             <label class="metric-label" for="coverage">
               Abrangência
             </label>
@@ -801,7 +818,7 @@
               data-metric="coverage"
               name="coverage"
             >
-              <option class="metric-option" value="match">
+              <option class="metric-option" value="match" selected>
                 Jogo
               </option>
               <option class="metric-option" value="global">

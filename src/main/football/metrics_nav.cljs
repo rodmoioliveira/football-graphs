@@ -9,11 +9,13 @@
   (let [node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
         node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
         coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
+        position-select (-> js/document (.querySelector (str "[data-metric='position']")))
         is-global? (fn [v] (= v :global))
         get-metrics (fn [] {:node-color-metric (-> node-color-select .-value keyword)
                         :node-radius-metric (-> node-area-select .-value keyword)
+                        :position-metric (-> position-select .-value keyword)
                         :global-metrics? (-> coverage-select .-value keyword is-global?)})]
-    (-> (rx/of node-color-select node-area-select coverage-select)
+    (-> (rx/of node-color-select node-area-select coverage-select position-select)
         (.pipe
          (rx-op/mergeMap #(-> (rx/fromEvent % "change")
                               (.pipe (rx-op/map get-metrics))))

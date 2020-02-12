@@ -47,33 +47,34 @@
 ; Get canvas from DOM
 ; ==================================
 (defn all-canvas
-  [] (-> js/document
-         (.querySelectorAll ".graph__canvas")
-         array-seq
-         (#(map (fn [el]
-                  {:id (.getAttribute el "id")
-                   :data (-> el
-                             (.getAttribute "data-match-id")
-                             keyword
-                             matches-hash
-                             ((fn [v]
-                                (let [id (-> el (.getAttribute "data-team-id") keyword)
-                                      orientation (-> el
-                                                      (.getAttribute "data-orientation")
-                                                      keyword
-                                                      ((fn [k] (if (mobile?) (mobile-mapping k) k))))
-                                      nodes (-> v :nodes id (assoc-pos el orientation))]
-                                  ((set-canvas-dimensions orientation) el)
-                                  {:match-id (-> v :match-id)
-                                   :nodes nodes
-                                   ; TODO: move hashs to preprocessing data..
-                                   :nodeshash (-> nodes
-                                                  ((fn [n]
-                                                     (reduce (partial hash-by :id) (sorted-map) n))))
-                                   :links (-> v :links id)
-                                   :min-max-values (-> v :min-max-values)
-                                   :label (-> v :label)}))))
-                   :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
+  [{:keys [position-metric]}]
+  (-> js/document
+      (.querySelectorAll ".graph__canvas")
+      array-seq
+      (#(map (fn [el]
+               {:id (.getAttribute el "id")
+                :data (-> el
+                          (.getAttribute "data-match-id")
+                          keyword
+                          matches-hash
+                          ((fn [v]
+                             (let [id (-> el (.getAttribute "data-team-id") keyword)
+                                   orientation (-> el
+                                                   (.getAttribute "data-orientation")
+                                                   keyword
+                                                   ((fn [k] (if (mobile?) (mobile-mapping k) k))))
+                                   nodes (-> v :nodes id (assoc-pos position-metric el orientation))]
+                               ((set-canvas-dimensions orientation) el)
+                               {:match-id (-> v :match-id)
+                                :nodes nodes
+                                ; TODO: move hashs to preprocessing data..
+                                :nodeshash (-> nodes
+                                               ((fn [n]
+                                                  (reduce (partial hash-by :id) (sorted-map) n))))
+                                :links (-> v :links id)
+                                :min-max-values (-> v :min-max-values)
+                                :label (-> v :label)}))))
+                :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
 ; ==================================
 ; Plot graphs
@@ -84,8 +85,9 @@
            node-color-metric
            matches
            get-global-metrics
-           name-position]}]
-  (doseq [canvas (all-canvas)]
+           name-position
+           position-metric]}]
+  (doseq [canvas (all-canvas {:position-metric position-metric})]
     (write-label canvas)
     (force-graph {:data (-> canvas :data clj->js)
                   :config (config {:id (canvas :id)
