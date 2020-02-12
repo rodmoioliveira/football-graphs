@@ -190,7 +190,7 @@
         ; passes-count
         )))
 
-(defn get-medium-pos
+(defn get-average-pos
   []
   (let [assoc-player-data
         #(assoc-in % [:pos]
@@ -245,7 +245,7 @@
 ; ==================================
 (if (-> errors some? not)
   (let [links (links)
-        medium-pos (get-medium-pos)
+        average-pos (get-average-pos)
         graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
@@ -256,8 +256,8 @@
                              (map
                               (fn [node] (merge
                                           node
-                                          {:medium-pos
-                                           (-> medium-pos
+                                          {:average-pos
+                                           (-> average-pos
                                                (get-in [(-> node :current-national-team-id str keyword)
                                                         :positions
                                                         (-> node :pos)
