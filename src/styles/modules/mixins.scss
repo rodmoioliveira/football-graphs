@@ -1,3 +1,15 @@
+$text-color: #222;
+$text-width: 600px;
+
+$link-color: darkred;
+
+$strip-color: darkred;
+$strip-height: 0.7rem;
+$strip-width: 10rem;
+
+$select-text-color: darkred;
+$nav-border-color: darkred;
+
 @mixin margin {
   margin: 0 auto 3rem;
 
@@ -10,3 +22,19 @@
   padding: 0 1rem;
 }
 
+@mixin strip($color, $height, $width, $margin-desktop, $margin-mobile) {
+  &:after {
+    content: '';
+    display: block;
+    height: $height;
+    width: $width;
+    background-color: $color;
+    margin: $margin-desktop;
+
+    @media (max-width: 700px) {
+      margin: $margin-mobile;
+      height: ($height - 0.3rem);
+      width: ($width - 4rem);
+    }
+  }
+}
