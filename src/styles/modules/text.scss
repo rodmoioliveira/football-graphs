@@ -93,6 +93,12 @@ label,
 
 .short-explanation {
   font-style: italic;
+  font-size: 1.5rem;
+  color: $accent-color;
+
+  @media (max-width: 600px) {
+    font-size: 5vw;
+  }
 }
 
 blockquote {
