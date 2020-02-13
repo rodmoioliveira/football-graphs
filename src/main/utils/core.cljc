@@ -122,7 +122,7 @@
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
 (def field-dimensions [120 78])
-(def scale 8)
+(def scale 9)
 (def canvas-dimensions
   (-> field-dimensions (#(map (partial * scale) %))))
 
