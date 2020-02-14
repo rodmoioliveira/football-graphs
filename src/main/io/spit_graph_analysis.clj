@@ -179,6 +179,7 @@
 
 (defn get-metrics-ranges
   []
+  ; FIXME: duplicated code
   (let [max-val (fn [m] {:max (reduce max m)})
         min-val (fn [m] {:min (reduce min m)})
         merge-maps (fn [v] (apply merge v))
