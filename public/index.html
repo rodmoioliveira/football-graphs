@@ -4,7 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&display=swap"
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Alegreya:500,700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
@@ -13,32 +17,31 @@
     <section class="intro section">
       <h1 class="title">Rede de Passes</h1>
       <p class="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut
-        ligula porta, aliquam massa non, rutrum libero. Phasellus hendrerit
-        consectetur est, et eleifend sem laoreet eu.
+        Uma rede de passes é apenas a aplicação da
+        <a target="_blank" href="https://pt.wikipedia.org/wiki/Teoria_das_redes_complexas">
+          teoria de redes</a
+        >
+        e dos seus instrumentos de análise para compreender o desempenho de um
+        time de futebol em uma partida.
       </p>
       <p class="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut
-        ligula porta, aliquam massa non, rutrum libero. Phasellus hendrerit
-        consectetur est, et eleifend sem laoreet eu. Pellentesque tortor ante,
-        mollis sed elit bibendum, elementum rhoncus sapien. Mauris sollicitudin
-        vulputate aliquam. Quisque aliquet dui vel metus auctor convallis. Donec
-        pellentesque id nisi ac accumsan.
+        Cada jogador é representado por um vértice. Cada vértice está conectado
+        com muitos outros por linhas, que representam os passes trocados entre
+        os jogadores.
       </p>
     </section>
     <section class="metrics section">
-      <h1 class="title">Entendendo as métricas</h1>
-      <p class="paragraph">
-        (As explicações abaixo foram retiradas da
-        <a target="_blank" href="https://pt.wikipedia.org/wiki/Centralidade">
-          wikipedia</a
-        >
-        e outras fontes...)
-      </p>
+      <h1 class="title">Explicando as métricas</h1>
       <p class="paragraph">
         Quando representamos a rede de passes de um time de futebol como um
-        grafo, podemos utilizar diversos instrumentos matemáticos para medir a
-        centralidade de cada um dos seus vértices (jodagores). Veja alguns
+        <a target="_blank" href="https://pt.wikipedia.org/wiki/Teoria_dos_grafos">
+          grafo</a
+        >
+        , podemos utilizar diversos instrumentos matemáticos para medir a
+        <a target="_blank" href="https://pt.wikipedia.org/wiki/Centralidade">
+          centralidade</a
+        >
+        de cada um dos seus vértices (jodagores). Veja alguns
         deles:
       </p>
       <figure>
@@ -47,9 +50,9 @@
           src="https://upload.wikimedia.org/wikipedia/commons/1/11/6_centrality_measures.png"
         />
         <figcaption class="figcaption">
-          Exemplos de A) Centralidade de Intermediação, B) Centralidade de
-          Proximidade, C) Centralidade de Autovetor, D) Centralidade de Grau, E)
-          Centralidade Harmônica e F) Centralidade de Katz no mesmo grafo.
+          Exemplos de A) centralidade de intermediação, B) centralidade de
+          proximidade, C) centralidade de autovetor, D) centralidade de grau, E)
+          centralidade Harmônica e F) centralidade de Katz no mesmo grafo.
           <a href="https://en.wikipedia.org/wiki/Centrality">
             Wikipedia
           </a>
@@ -58,7 +61,7 @@
       <ul class="metric-list">
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Grau
+            Grau
           </h3>
           <p class="paragraph">
             Centralidade de grau é definida como o número de ligações incidentes
@@ -116,7 +119,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Autovetor
+            Autovetor
           </h3>
           <p class="paragraph">
             Centralidade de vetor próprio é uma medida da influência de um nó
@@ -186,7 +189,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Proximidade
+            Proximidade
           </h3>
           <p class="paragraph">
             Em grafos conectados existe uma distância natural métrica entre
@@ -309,7 +312,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Centralidade de Intermediação
+            Intermediação
           </h3>
           <p class="paragraph">
             Centralidade de intermediação quantifica o número de vezes que um nó
@@ -688,12 +691,9 @@
     <section class="graphs section">
       <h1 class="title">Brasil na Copa de 2018</h1>
       <p class="paragraph">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut
-        ligula porta, aliquam massa non, rutrum libero. Phasellus hendrerit
-        consectetur est, et eleifend sem laoreet eu. Pellentesque tortor ante,
-        mollis sed elit bibendum, elementum rhoncus sapien. Mauris sollicitudin
-        vulputate aliquam. Quisque aliquet dui vel metus auctor convallis. Donec
-        pellentesque id nisi ac accumsan.
+        Vamos ver alguns grafos de jogos do Brasil na última Copa do Mundo.
+        Abaixo é possível selecionar diversas métricas diferentes para comparar
+        o desempenho dos jogadores:
       </p>
       <div class="sticky-nav-breakpoint"></div>
       <nav class="nav-metrics" data-sticky="0">
@@ -718,7 +718,7 @@
                 class="metric-option"
                 value="current_flow_betweenness_centrality"
               >
-                Intermediação Random Walk
+                Random Walk
               </option>
               <option class="metric-option" value="betweenness-centrality">
                 Intermediação
@@ -763,7 +763,7 @@
                 class="metric-option"
                 value="current_flow_betweenness_centrality"
               >
-                Intermediação Random Walk
+                Random Walk
               </option>
               <option
                 class="metric-option"
@@ -793,6 +793,23 @@
             </select>
           </fieldset>
           <fieldset>
+            <label class="metric-label" for="position">
+              Posição
+            </label>
+            <select
+              class="metric-select"
+              data-metric="position"
+              name="position"
+            >
+              <option class="metric-option" value="average-pos" selected>
+                Média
+              </option>
+              <option class="metric-option" value="coord-pos">
+                Tática
+              </option>
+            </select>
+          </fieldset>
+          <fieldset data-fieldset="coverage">
             <label class="metric-label" for="coverage">
               Abrangência
             </label>
@@ -801,7 +818,7 @@
               data-metric="coverage"
               name="coverage"
             >
-              <option class="metric-option" value="match">
+              <option class="metric-option" value="match" selected>
                 Jogo
               </option>
               <option class="metric-option" value="global">

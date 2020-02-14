@@ -25,8 +25,8 @@ fieldset {
   position: fixed;
   top: 0;
   width: 100%;
-  border-bottom: 1px solid #999;
-  box-shadow: 1px 2px 5px #bbb;
+  border-bottom: 1px solid $nav-border-color;
+  box-shadow: 1px 2px 5px $nav-shadow-color;
 }
 
 .nav-controls {
@@ -53,8 +53,7 @@ fieldset {
 }
 
 .metric-select,
-.metric-option,
-.metric-label {
+.metric-option {
   font-size: 1.2rem;
 
   @media (max-width: 700px) {
@@ -63,10 +62,16 @@ fieldset {
 }
 
 .metric-label {
-  font-size: 1.2rem;
+  font-size: 1.7rem;
 
   @media (max-width: 700px) {
-    font-size: 4vw;
+    font-size: 5vw;
+  }
+}
+
+[data-fieldset='coverage'] {
+  @media (max-width: 1024px) {
+    display: none;
   }
 }
 

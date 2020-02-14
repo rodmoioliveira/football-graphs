@@ -121,8 +121,10 @@
      {:x (* (-> canvas .-width) (/ x-% 100))
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
+(def field-dimensions [120 78])
+(def scale 9)
 (def canvas-dimensions
-  [950 730])
+  (-> field-dimensions (#(map (partial * scale) %))))
 
 #?(:cljs
    (def set-canvas-dimensions
@@ -141,8 +143,8 @@
 
 #?(:cljs
    (def mobile-mapping
-     {:gol-right :gol-bottom
-      :gol-left :gol-top}))
+     {:gol-right :gol-left
+      :gol-left :gol-left}))
 
 #?(:cljs
    (def coord-mapping
@@ -153,10 +155,10 @@
 
 #?(:cljs
    (defn assoc-pos
-     [nodes canvas orientation]
+     [nodes position-metric canvas orientation]
      (let [placement (partial place-node canvas)]
        (map (fn [n]
-              (let [coord (-> n :coord-pos)
+              (let [coord (-> n position-metric)
                     pos ((-> coord-mapping orientation) coord)]
                 (assoc-in
                  n

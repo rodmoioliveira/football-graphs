@@ -10,3 +10,19 @@
   padding: 0 1rem;
 }
 
+@mixin strip($color, $height, $width, $margin-desktop, $margin-mobile) {
+  &:after {
+    content: '';
+    display: block;
+    height: $height;
+    width: $width;
+    background-color: $color;
+    margin: $margin-desktop;
+
+    @media (max-width: 700px) {
+      margin: $margin-mobile;
+      height: ($height - 0.3rem);
+      width: ($width - 4rem);
+    }
+  }
+}

@@ -11,32 +11,42 @@
 }
 
 .graph__label {
-  font-size: 3.7rem;
+  display: block;
+  font-size: 4rem;
   font-weight: 700;
   text-align: center;
   margin: 3rem auto 0;
   letter-spacing: -1px;
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
   max-width: 1000px;
 
   @media (max-width: 850px) {
-    font-size: 7vw;
+    font-size: 8vw;
   }
+
+  @include strip(
+    $strip-color,
+    $strip-height,
+    $strip-width,
+    0 auto 1rem,
+    0.5rem auto 1rem
+  );
 }
 
 .label__team1,
 .label__team2 {
   flex: 0 0 35%;
-  font-weight: 300;
+  font-weight: 500;
 }
 
 .label__score1,
 .label__score2 {
   flex: 0 0 3%;
   margin: 0 2rem;
-  font-size: 4.5rem;
+  font-size: 7rem;
   transition: margin 200ms ease;
 
   @media (max-width: 850px) {
@@ -62,6 +72,10 @@
 .graph__canvas {
   display: block;
   margin: 1rem;
+  // TODO: draw in canvas?
+  background: url(http://clipart-library.com/images/AibrpL5BT.jpg);
+  background-size: 104% auto;
+  background-position: center center;
 
   @media (max-width: 710px) {
     margin: 0;
@@ -73,7 +87,7 @@
   max-width: 25vw;
 
   @media (max-width: 900px) {
-    width: 80%;
+    width: 99%;
     max-width: 100rem;
   }
 }
@@ -83,7 +97,7 @@
   max-height: 25vw;
 
   @media (max-width: 900px) {
-    width: 80%;
+    width: 99%;
     max-height: 100rem;
   }
 }
