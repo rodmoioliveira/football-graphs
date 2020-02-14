@@ -110,9 +110,9 @@
              :node-color-metric node-color-metric
              :radius-click 5
              :active {:color "#ebd1fe"
-                      :outline "#999"}
+                      :outline "#333"}
              :name-position (or name-position :top)
-             :outline {:color "#999"
+             :outline {:color "#333"
                        :width 1.5}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
