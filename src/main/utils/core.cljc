@@ -3,6 +3,11 @@
    [clojure.string :refer [split]]
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
+   [project-specs :as pspecs]
+   #?(:clj [clojure.spec.test.alpha :as stest]
+      :cljs [cljs.spec.test.alpha :as stest])
+   #?(:clj [clojure.spec.alpha :as s]
+      :cljs [cljs.spec.alpha :as s])
    #?(:clj [clojure.data.json :as json])))
 
 #?(:cljs
@@ -169,6 +174,12 @@
    (defn get-distance
      [x1 y1 x2 y2]
      (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2)))))
+
+(s/fdef get-distance
+  :args (s/coll-of ::pspecs/coord)
+  :ret ::pspecs/distance)
+
+(stest/instrument `get-distance)
 
 #?(:cljs
    (defn vector-length
