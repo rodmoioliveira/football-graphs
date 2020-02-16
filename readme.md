@@ -1,8 +1,12 @@
+# :octocat: About this project
+
+This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
+
 # :globe_with_meridians: Website
 
 #### https://grafos-da-bola.netlify.com/
 
-# :soccer: About Passing Networks
+# :soccer: About passing networks
 
 ### :books: Papers
 - Pappalardo, L., Cintia, P., Rossi, A. et al. A public data set of spatio-temporal match events in soccer competitions. Sci Data 6, 236 (2019). https://doi.org/10.1038/s41597-019-0247-7
@@ -29,10 +33,10 @@
 ### :eyes: People to follow
 - [Karun Singh](https://twitter.com/karun1710)
 - [Luca Pappalardo](https://github.com/jonpappalord)
+- [Ricardo Tavares](https://github.com/rjtavares)
 
 ### :open_file_folder: Resources
 - https://github.com/matiasmascioto/awesome-soccer-analytics
-- https://github.com/rjtavares/football-crunching
 
 # :floppy_disk: Dataset
 - Pappalardo, Luca; Massucco, Emanuele (2019): Soccer match event dataset. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.4415000
