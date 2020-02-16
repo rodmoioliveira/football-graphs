@@ -16,6 +16,7 @@ do
   clj src/main/io/spit_graph.clj --id=$id --type=json
   echo "==========================================================="
   echo "Calculating metrics..."
+  echo "This operations may take a while, please be patient..."
   echo "==========================================================="
   clj src/main/io/spit_graph_analysis.clj --id=$id --type=edn
   clj src/main/io/spit_graph_analysis.clj --id=$id --type=json
