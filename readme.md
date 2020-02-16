@@ -1,4 +1,4 @@
-# Website
+# :globe_with_meridians: Website
 
 #### https://grafos-da-bola.netlify.com/
 
@@ -202,6 +202,6 @@ chmod +x sh/streamline_brazil_matches.sh
 
 [BSD 3-Clause License](https://github.com/rodmoioliveira/football-graphs/blob/master/LICENSE)
 
-# :feelsgood: Author
+# :man: Author
 
 Rodolfo Mói [[LinkedIn]](https://www.linkedin.com/in/rodmoi/) [[Twitter]](https://twitter.com/rodmoi)
