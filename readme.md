@@ -202,6 +202,6 @@ chmod +x sh/streamline_brazil_matches.sh
 
 [BSD 3-Clause License](https://github.com/rodmoioliveira/football-graphs/blob/master/LICENSE)
 
-# :man: Author
+# :bust_in_silhouette: Author
 
 Rodolfo Mói [[LinkedIn]](https://www.linkedin.com/in/rodmoi/) [[Twitter]](https://twitter.com/rodmoi)
