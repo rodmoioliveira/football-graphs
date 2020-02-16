@@ -1,0 +1,31 @@
+.footer {
+  background: $accent-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.footer__author {
+  color: white;
+  flex: 0 0 100%;
+  margin: 0;
+}
+
+.footer__link {
+  color: white;
+  margin: 0 1rem;
+}
+
+.footer__link,
+.footer__author {
+  font-family: 'Alegreya', serif;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.5;
+
+  @media (max-width: 600px) {
+    font-size: 4.2vw;
+  }
+}
