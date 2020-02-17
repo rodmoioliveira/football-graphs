@@ -12,8 +12,28 @@
 
 #?(:clj (defn max-val [m] {:max (reduce max m)}))
 #?(:cljs (defn max-val [m] (reduce max m)))
+#?(:clj
+   (s/fdef max-val
+     :args ::pspecs/max-val-args
+     :ret ::pspecs/max-val-ret))
+#?(:cljs
+   (s/fdef max-val
+     :args ::pspecs/ranges
+     :ret ::pspecs/range))
+(stest/instrument `max-val)
+
 #?(:clj (defn min-val [m] {:min (reduce min m)}))
 #?(:cljs (defn min-val [m] (reduce min m)))
+#?(:clj
+   (s/fdef min-val
+     :args ::pspecs/min-val-args
+     :ret ::pspecs/min-val-ret))
+#?(:cljs
+   (s/fdef min-val
+     :args ::pspecs/ranges
+     :ret ::pspecs/range))
+(stest/instrument `min-val)
+
 (defn merge-maps [v] (apply merge v))
 (defn get-min-max [v] ((juxt min-val max-val) v))
 (defn metric-range [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
@@ -179,8 +199,8 @@
      (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2)))))
 
 (s/fdef get-distance
-  :args (s/coll-of ::pspecs/coord)
-  :ret ::pspecs/distance)
+  :args (s/coll-of ::pspecs/int-or-double)
+  :ret ::pspecs/int-or-double)
 
 (stest/instrument `get-distance)
 
