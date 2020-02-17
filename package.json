@@ -1,7 +1,41 @@
 {
-  "name": "reactive",
+  "name": "football-graphs",
   "version": "0.0.1",
+  "description": "This is a personal project to study soccer passing networks and investigate data visualizations on graphs.",
+  "keywords": [
+    "graphs",
+    "football-data",
+    "clojure",
+    "clojurescript",
+    "data-visualization",
+    "data-analysis",
+    "sports",
+    "sports-analytics",
+    "jgrapht",
+    "networkx",
+    "betweenness-centrality",
+    "clustering-coefficient",
+    "algebraic-connectivity",
+    "eigenvector-centrality",
+    "complex-networks",
+    "flow-centrality",
+    "soccer",
+    "flow-betweenness",
+    "network-science"
+  ],
   "private": true,
+  "homepage": "https://grafos-da-bola.netlify.com/",
+  "author": {
+    "name": "Rodolfo Mói de Oliveira",
+    "email": "rodmoi.oliveira@gmail.com",
+    "url": "https://github.com/rodmoioliveira"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:rodmoioliveira/football-graphs.git"
+  },
+  "bugs": "https://github.com/rodmoioliveira/football-graphs/issues",
+  "license": "BSD-3-Clause",
   "scripts": {
     "deploy": "npm-run-all --serial compile-once build",
     "compile-once": "shadow-cljs compile dev",
@@ -14,7 +48,8 @@
     "build:html": "node build-scripts/copy.js",
     "share": "ngrok http --host-header=rewrite 8080",
     "serve:prod": "npm run build && http-server dist",
-    "serve:dev": "http-server public"
+    "serve:dev": "http-server public",
+    "test": "clj src/test/core.clj"
   },
   "devDependencies": {
     "fs-extra": "^8.1.0",

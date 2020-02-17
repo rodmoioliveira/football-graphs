@@ -197,11 +197,9 @@
    (defn get-distance
      [x1 y1 x2 y2]
      (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2)))))
-
 (s/fdef get-distance
   :args (s/coll-of ::pspecs/int-or-double)
   :ret ::pspecs/int-or-double)
-
 (stest/instrument `get-distance)
 
 #?(:cljs
