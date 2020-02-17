@@ -10,7 +10,7 @@
 
    [mapping.matches :refer [map->pos]]
    [mapping.tatical :refer [positions]]
-   [utils.core :refer [output-file-type hash-by-id hash-by]]))
+   [utils.core :refer [output-file-type hash-by-id hash-by metric-range]]))
 
 ; ==================================
 ; Utils
@@ -281,13 +281,7 @@
          {:passes (-> links
                       flatten
                       ((fn [v]
-                         ; FIXME: duplicated code
-                         (let [max-val (fn [m] {:max (reduce max m)})
-                               min-val (fn [m] {:min (reduce min m)})
-                               merge-maps (fn [v] (apply merge v))
-                               get-min-max (fn [v] ((juxt min-val max-val) v))
-                               metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
-                               value (metric-range :value)]
+                         (let [value (metric-range :value)]
                            ((juxt value) v))))
                       first)}}
 

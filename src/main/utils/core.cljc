@@ -10,6 +10,14 @@
       :cljs [cljs.spec.alpha :as s])
    #?(:clj [clojure.data.json :as json])))
 
+#?(:clj (defn max-val [m] {:max (reduce max m)}))
+#?(:cljs (defn max-val [m] (reduce max m)))
+#?(:clj (defn min-val [m] {:min (reduce min m)}))
+#?(:cljs (defn min-val [m] (reduce min m)))
+(defn merge-maps [v] (apply merge v))
+(defn get-min-max [v] ((juxt min-val max-val) v))
+(defn metric-range [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
+
 #?(:cljs
    (defn write-label
      [canvas]
@@ -34,12 +42,7 @@
 #?(:cljs
    (defn get-global-metrics
      [matches]
-     (let [max-val (fn [m] (reduce max m))
-           min-val (fn [m] (reduce min m))
-           merge-maps (fn [v] (apply merge v))
-           get-min-max (fn [v] ((juxt min-val max-val) v))
-           metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
-           in-degree (metric-range :in-degree)
+     (let [in-degree (metric-range :in-degree)
            out-degree (metric-range :out-degree)
            degree (metric-range :degree)
            katz-centrality (metric-range :katz-centrality)
