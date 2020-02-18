@@ -9,11 +9,15 @@
 
 (defn has-error?
   [results]
-  (let [errors (reduce (fn [acc cur] (or (some? cur) acc)) false results)]
+  (let [errors (reduce (fn [acc cur] (or (some? cur) acc)) false results)
+        num-errors (count results)
+        pluralize? (not= num-errors 1)]
     (if errors
       (do
-        (println (str (count results) " fail tests..."))
+        (println (str num-errors " fail test" (when pluralize? "s")  "..."))
         (pprint results)
+        (println)
+        (throw (Exception. "Error"))
         (System/exit 0))
       (do
         (println "All tests passed!")
