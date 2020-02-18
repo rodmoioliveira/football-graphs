@@ -9,12 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup Java
     - uses: DeLaGuardo/setup-graalvm@2.0
       with:
         graalvm-version: '19.3.1.java11'
 
-    - name: Setup Clojure
       uses: DeLaGuardo/setup-clojure@2.0
       with:
         tools-deps: '1.10.1.469'
