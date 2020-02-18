@@ -61,8 +61,12 @@ npm run compile-once
 ```
 # :coffee: Run Project
 ```sh
-# start dev mode
 npm start
+```
+
+# :running: Run Tests
+```sh
+npm test
 ```
 
 # :minidisc: IO Usage
