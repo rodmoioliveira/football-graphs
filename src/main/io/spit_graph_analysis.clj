@@ -19,7 +19,7 @@
    [libpython-clj.require :refer [require-python]]
    [libpython-clj.python :as py :refer [py. py.. py.-]]
 
-   [utils.core :refer [output-file-type hash-by hash-by-id]]))
+   [utils.core :refer [output-file-type hash-by hash-by-id metric-range]]))
 
 ; ==================================
 ; Python interop code...
@@ -179,13 +179,7 @@
 
 (defn get-metrics-ranges
   []
-  ; FIXME: duplicated code
-  (let [max-val (fn [m] {:max (reduce max m)})
-        min-val (fn [m] {:min (reduce min m)})
-        merge-maps (fn [v] (apply merge v))
-        get-min-max (fn [v] ((juxt min-val max-val) v))
-        metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
-        in-degree (metric-range :in-degree)
+  (let [in-degree (metric-range :in-degree)
         out-degree (metric-range :out-degree)
         degree (metric-range :degree)
         betweenness-centrality (metric-range :betweenness-centrality)

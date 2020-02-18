@@ -3,7 +3,40 @@
    [clojure.string :refer [split]]
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
+   [project-specs :as pspecs]
+   #?(:clj [clojure.spec.test.alpha :as stest]
+      :cljs [cljs.spec.test.alpha :as stest])
+   #?(:clj [clojure.spec.alpha :as s]
+      :cljs [cljs.spec.alpha :as s])
    #?(:clj [clojure.data.json :as json])))
+
+#?(:clj (defn max-val [m] {:max (reduce max m)}))
+#?(:cljs (defn max-val [m] (reduce max m)))
+#?(:clj
+   (s/fdef max-val
+     :args ::pspecs/max-val-args
+     :ret ::pspecs/max-val-ret))
+#?(:cljs
+   (s/fdef max-val
+     :args ::pspecs/ranges
+     :ret ::pspecs/range))
+(stest/instrument `max-val)
+
+#?(:clj (defn min-val [m] {:min (reduce min m)}))
+#?(:cljs (defn min-val [m] (reduce min m)))
+#?(:clj
+   (s/fdef min-val
+     :args ::pspecs/min-val-args
+     :ret ::pspecs/min-val-ret))
+#?(:cljs
+   (s/fdef min-val
+     :args ::pspecs/ranges
+     :ret ::pspecs/range))
+(stest/instrument `min-val)
+
+(defn merge-maps [v] (apply merge v))
+(defn get-min-max [v] ((juxt min-val max-val) v))
+(defn metric-range [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
 
 #?(:cljs
    (defn write-label
@@ -29,12 +62,7 @@
 #?(:cljs
    (defn get-global-metrics
      [matches]
-     (let [max-val (fn [m] (reduce max m))
-           min-val (fn [m] (reduce min m))
-           merge-maps (fn [v] (apply merge v))
-           get-min-max (fn [v] ((juxt min-val max-val) v))
-           metric-range (fn [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
-           in-degree (metric-range :in-degree)
+     (let [in-degree (metric-range :in-degree)
            out-degree (metric-range :out-degree)
            degree (metric-range :degree)
            katz-centrality (metric-range :katz-centrality)
@@ -169,6 +197,10 @@
    (defn get-distance
      [x1 y1 x2 y2]
      (js/Math.sqrt (+ (js/Math.pow (- x2 x1) 2) (js/Math.pow (- y2 y1) 2)))))
+(s/fdef get-distance
+  :args (s/coll-of ::pspecs/int-or-double)
+  :ret ::pspecs/int-or-double)
+(stest/instrument `get-distance)
 
 #?(:cljs
    (defn vector-length
