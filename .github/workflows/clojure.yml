@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup Clojure
+    - name: Setup Java
       uses: DeLaGuardo/setup-graalvm@2.0
       with:
         graalvm-version: '19.3.1.java11'
@@ -24,7 +24,7 @@ jobs:
       uses: actions/cache@v1
       with:
         path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
 
