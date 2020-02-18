@@ -5,8 +5,7 @@
    [clojure.pprint :refer [pprint]]
    [utils.core]))
 
-; TODO: automate clojurescript testing also...
-
+; TODO: automate clojurescript testing also...?
 (defn has-error?
   [results]
   (let [errors (reduce (fn [acc cur] (or (some? cur) acc)) false results)
