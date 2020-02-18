@@ -27,7 +27,8 @@
 #?(:cljs (defn min-val [m] (reduce min m)))
 #?(:clj
    (s/fdef min-val
-     :args ::pspecs/min-val-args
+     ; :args ::pspecs/min-val-args
+     :args string?
      :ret ::pspecs/min-val-ret))
 #?(:cljs
    (s/fdef min-val
