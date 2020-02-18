@@ -3,17 +3,37 @@ name: Clojure CI
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v2
+
     - uses: DeLaGuardo/setup-graalvm@2.0
       with:
         graalvm-version: '19.3.1.java11'
+
     - uses: DeLaGuardo/setup-clojure@2.0
       with:
         tools-deps: '1.10.1.469'
-    - name: Install dependencies
+
+    - name: Install node dependencies
+      run: npm install
+      uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+    - name: Install clojure dependencies
+      uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
       run: npm run compile-once
+
     - name: Run tests
       run: npm test
