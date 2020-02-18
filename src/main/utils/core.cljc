@@ -14,7 +14,8 @@
 #?(:cljs (defn max-val [m] (reduce max m)))
 #?(:clj
    (s/fdef max-val
-     :args ::pspecs/max-val-args
+     ; :args ::pspecs/max-val-args
+     :args string?
      :ret ::pspecs/max-val-ret))
 #?(:cljs
    (s/fdef max-val
