@@ -1,5 +1,6 @@
 # :dart: About this project
 
+
 This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
 
 # :globe_with_meridians: Website
