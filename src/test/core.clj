@@ -14,8 +14,14 @@
         pluralize? (not= num-errors 1)]
     (if errors
       (do
+        (println)
+        (println "================================")
+        (println)
         (println (str num-errors " fail test" (when pluralize? "s")  "..."))
+        (println)
         (pprint results)
+        (println)
+        (println "================================")
         (println)
         (throw (Exception. "Error"))
         (System/exit 0))

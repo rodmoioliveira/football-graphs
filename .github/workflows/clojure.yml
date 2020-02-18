@@ -14,6 +14,6 @@ jobs:
       with:
         tools-deps: '1.10.1.469'
     - name: Install dependencies
-      run: npm install && npm run compile-once
+      run: npm run compile-once
     - name: Run tests
       run: npm test
