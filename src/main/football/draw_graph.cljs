@@ -284,7 +284,7 @@
       ; midfield circle
       ; ==============
       (.beginPath)
-      (.arc (/ length 2) (/ width 2) 95 0 (* 2 js/Math.PI))
+      (.arc (/ length 2) (/ width 2) 91 0 (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
@@ -324,10 +324,10 @@
         (.force "link")
         (.links edges))
 
-    (draw-background config data)
+    ; (draw-background config data)
     (-> data (aget "canvas-dimensions") (draw-field data config))
-    (draw-graph {:edges edges
-                 :config config
-                 :nodeshash nodeshash
-                 :nodes nodes})
+    ; (draw-graph {:edges edges
+    ;              :config config
+    ;              :nodeshash nodeshash
+    ;              :nodes nodes})
     ))
