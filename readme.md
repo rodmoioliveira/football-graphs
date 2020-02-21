@@ -2,20 +2,18 @@
 
 This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
 
-<p align="center">
-  Serbia 0 X 2 Brazil - World Cup 2018
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/serbia.png" width="400">
-</p>
-<p align="center">
-  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/brazil.png" width="400">
-</p>
 
 # :globe_with_meridians: Website
 
 #### https://grafos-da-bola.netlify.com/
+
+# :dart: Examples
+
+<p align="center">
+  Serbia 0 X 2 Brazil - World Cup 2018
+  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/serbia.png" width="600">
+  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/brazil.png" width="600">
+</p>
 
 # :soccer: About passing networks
 
