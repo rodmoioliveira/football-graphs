@@ -9,9 +9,9 @@ This is a personal project to study soccer passing networks and investigate data
 
 # :hatched_chick: Example:
 
-<h2 align="center">
+<h3 align="center">
   Serbia 0 X 2 Brazil - World Cup 2018
-</h2>
+</h3>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/serbia.png" width="650">
