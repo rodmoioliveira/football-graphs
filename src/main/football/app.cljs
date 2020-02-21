@@ -92,7 +92,9 @@
            position-metric]}]
   (doseq [canvas (all-canvas {:position-metric position-metric})]
     (write-label canvas)
-    (force-graph {:data (-> canvas :data clj->js)
+    (force-graph {:data (-> (merge (-> canvas :data) {:field {:background "white"
+                                                              :lines-color "#111"
+                                                              :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric

@@ -173,19 +173,21 @@
 (defn draw-graph
   [{:keys [edges nodes config nodeshash active-node]}]
   (let [ctx (-> config :ctx)]
-    (doto ctx
-      (.save)
-      ; (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
-      ; ((fn [v] (set! (.-fillStyle v) "transparent")))
-      ; (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
-      )
     (doseq [e edges] (draw-passes {:edge e
                                    :nodeshash nodeshash
                                    :config config
                                    :active-node active-node}))
     (doseq [n nodes] (draw-players {:node n
-                                    :config config}))
-    (-> ctx (.restore))))
+                                    :config config}))))
+
+(defn draw-background
+  [^js config ^js data]
+  (let [ctx (-> config :ctx)
+        background-color (-> data .-field .-background)]
+    (doto ctx
+      (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
+      ((fn [v] (set! (.-fillStyle v) background-color)))
+      (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))))
 
 ; ==================================
 ; Events
@@ -227,14 +229,15 @@
 ; Soccer Field
 ; ==================================
 (defn draw-field
-  [dimensions data config]
+  [dimensions ^js data config]
   (let [[a b] (sort dimensions)
         flip? (-> data .-orientation (#(or (= % "gol-bottom") (= % "gol-top"))))
-        [width length] (if flip? [b a] [a b])]
+        [width length] (if flip? [b a] [a b])
+        field-data (-> data .-field)]
     (doto (-> config :ctx)
-      ((fn [v] (set! (.-strokeStyle v) "black")))
-      ((fn [v] (set! (.-fillStyle v) "black")))
-      ((fn [v] (set! (.-lineWidth v) 2)))
+      ((fn [v] (set! (.-strokeStyle v) (aget field-data "lines-color"))))
+      ((fn [v] (set! (.-fillStyle v) (aget field-data "lines-color"))))
+      ((fn [v] (set! (.-lineWidth v) (aget field-data "lines-width"))))
 
       ; ==============
       ; borders
@@ -302,11 +305,10 @@
         (.force "link")
         (.links edges))
 
+    (draw-background config data)
     (-> data (aget "canvas-dimensions") (draw-field data config))
-
     ; (draw-graph {:edges edges
     ;              :config config
     ;              :nodeshash nodeshash
     ;              :nodes nodes})
-
     ))
