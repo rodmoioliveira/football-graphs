@@ -5,6 +5,7 @@
 
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
+                       canvas-dimensions
                        mobile-mapping
                        hash-by
                        write-label
@@ -67,6 +68,8 @@
                                ((set-canvas-dimensions orientation) el)
                                {:match-id (-> v :match-id)
                                 :nodes nodes
+                                :canvas-dimensions canvas-dimensions
+                                :orientation orientation
                                 ; TODO: move hashs to preprocessing data..
                                 :nodeshash (-> nodes
                                                ((fn [n]

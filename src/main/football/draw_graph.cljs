@@ -175,9 +175,10 @@
   (let [ctx (-> config :ctx)]
     (doto ctx
       (.save)
-      (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
-      ((fn [v] (set! (.-fillStyle v) "transparent")))
-      (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))
+      ; (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
+      ; ((fn [v] (set! (.-fillStyle v) "transparent")))
+      ; (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
+      )
     (doseq [e edges] (draw-passes {:edge e
                                    :nodeshash nodeshash
                                    :config config
@@ -223,6 +224,58 @@
                  :active-node node})))
 
 ; ==================================
+; Soccer Field
+; ==================================
+(defn draw-field
+  [dimensions data config]
+  (let [[a b] (sort dimensions)
+        flip? (-> data .-orientation (#(or (= % "gol-bottom") (= % "gol-top"))))
+        [width length] (if flip? [b a] [a b])]
+    (doto (-> config :ctx)
+      ((fn [v] (set! (.-strokeStyle v) "black")))
+      ((fn [v] (set! (.-fillStyle v) "black")))
+      ((fn [v] (set! (.-lineWidth v) 2)))
+
+      ; ==============
+      ; borders
+      ; ==============
+      (.beginPath)
+      (.moveTo 10 10)
+      (.lineTo 10 (- width 10))
+      (.lineTo (- length 10) (- width 10))
+      (.lineTo (- length 10) 10)
+      (.lineTo 10 10)
+
+      ; ==============
+      ; midfield line
+      ; ==============
+      (#(if flip?
+          (doto %
+            (.moveTo 10 (/ width 2))
+            (.lineTo (- length 10) (/ width 2)))
+          (doto %
+            (.moveTo (/ length 2) 10)
+            (.lineTo (/ length 2) (- width 10)))))
+      (.stroke)
+
+      ; ==============
+      ; midfield circle
+      ; ==============
+      (.beginPath)
+      (.arc (/ length 2) (/ width 2) 95 0 (* 2 js/Math.PI))
+      (.stroke)
+
+      ; ==============
+      ; midfield point
+      ; ==============
+      (.beginPath)
+      (.arc (/ length 2) (/ width 2) 3 0 (* 2 js/Math.PI))
+      (.fill)
+
+      )
+    ))
+
+; ==================================
 ; Force graph
 ; ==================================
 (defn force-graph
@@ -249,7 +302,11 @@
         (.force "link")
         (.links edges))
 
-    (draw-graph {:edges edges
-                 :config config
-                 :nodeshash nodeshash
-                 :nodes nodes})))
+    (-> data (aget "canvas-dimensions") (draw-field data config))
+
+    ; (draw-graph {:edges edges
+    ;              :config config
+    ;              :nodeshash nodeshash
+    ;              :nodes nodes})
+
+    ))
