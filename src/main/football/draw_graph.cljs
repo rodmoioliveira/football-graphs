@@ -248,10 +248,29 @@
       (.lineTo (- length 10) (- width 10))
       (.lineTo (- length 10) 10)
       (.lineTo 10 10)
+      (.stroke)
+
+      ; ==============
+      ; corners
+      ; ==============
+      (.beginPath)
+      (.arc 10 10 10 0 (/ js/Math.PI 2))
+      (.stroke)
+      (.beginPath)
+      (.arc 10 (- width 10) 10 (* js/Math.PI 1.5) (* 2 js/Math.PI))
+      (.stroke)
+      (.beginPath)
+      (.arc (- length 10) (- width 10) 10 (* 1 js/Math.PI) (* 1.5 js/Math.PI))
+      (.stroke)
+      (.beginPath)
+      (.arc (- length 10) 10 10 (* 0.5 js/Math.PI) (* 1 js/Math.PI))
+      (.stroke)
+
 
       ; ==============
       ; midfield line
       ; ==============
+      (.beginPath)
       (#(if flip?
           (doto %
             (.moveTo 10 (/ width 2))
@@ -307,8 +326,8 @@
 
     (draw-background config data)
     (-> data (aget "canvas-dimensions") (draw-field data config))
-    ; (draw-graph {:edges edges
-    ;              :config config
-    ;              :nodeshash nodeshash
-    ;              :nodes nodes})
+    (draw-graph {:edges edges
+                 :config config
+                 :nodeshash nodeshash
+                 :nodes nodes})
     ))

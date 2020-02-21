@@ -172,7 +172,9 @@
 #?(:cljs
    (def mobile-mapping
      {:gol-right :gol-left
-      :gol-left :gol-left}))
+      :gol-left :gol-left
+      :gol-bottom :gol-left
+      :gol-top :gol-left}))
 
 #?(:cljs
    (def coord-mapping
