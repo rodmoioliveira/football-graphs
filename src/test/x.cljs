@@ -9,9 +9,12 @@
   (:require [cljs.spec.test.alpha :as stest :include-macros true]
             [clojure.set :refer-macros [project]]
             [clojure.pprint :refer [pprint]]
-            [utils.core]))
+            [utils.core :refer [max-val]]))
 
-(-> `utils.core find-ns print)
+; (-> `utils.core find-ns print)
+; (-> `max-val print)
+(-> #'max-val print)
+; (stest/check #'max-val)
 ; (stest/enumerate-namespace 'utils.core)
 ; (stest/enumerate-namespace)
 
