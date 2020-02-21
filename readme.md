@@ -7,12 +7,13 @@ This is a personal project to study soccer passing networks and investigate data
 
 #### https://grafos-da-bola.netlify.com/
 
-# :dart: Examples
+# :dart: Example: Serbia 0 X 2 Brazil - World Cup 2018
 
 <p align="center">
-  Serbia 0 X 2 Brazil - World Cup 2018
-  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/serbia.png" width="600">
-  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/brazil.png" width="600">
+  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/serbia.png" width="700">
+</p>
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/33-draw-soccer-field/public/img/brazil.png" width="700">
 </p>
 
 # :soccer: About passing networks
