@@ -280,47 +280,64 @@
             (.lineTo (/ length 2) (- width 10)))))
       (.stroke)
 
-
       (#(if flip?
           (doto %
             ; ==============
             ; gol
             ; ==============
             (.beginPath)
-            (.rect (/ length 2.21) 0 (/ width 16) 10)
+            (.rect (- (/ length 2) (/ width 32)) 0 (/ width 16) 10)
             (.stroke)
 
+            ; ==============
+            ; gol area
+            ; ==============
             (.beginPath)
-            (.rect (/ length 2.69) 10 (/ width 6) (/ width 18))
+            (.rect (- (/ length 2) (/ width 12)) 10 (/ width 6) (/ width 18))
             (.stroke)
 
             ; ==============
             ; gol
             ; ==============
             (.beginPath)
-            (.rect (/ length 2.21) (- width 10) (/ width 16) (/ width 120))
+            (.rect (- (/ length 2) (/ width 32)) (- width 10) (/ width 16) 10)
             (.stroke)
 
+            ; ==============
+            ; gol area
+            ; ==============
             (.beginPath)
-            (.rect (/ length 2.69) (- width (/ width 15.4)) (/ width 6) (/ width 18))
-            (.stroke)
+            (.rect (- (/ length 2) (/ width 12)) (- width 10 (/ width 18)) (/ width 6) (/ width 18))
+            (.stroke))
 
-            )
           (doto %
             ; ==============
             ; gol
             ; ==============
             (.beginPath)
-            (.rect 0 (/ width 2.21) (/ length 100) (/ length 16))
+            (.rect 0 (- (/ width 2) (/ length 32)) 10 (/ length 16))
             (.stroke)
 
-
+            ; ==============
+            ; gol area
+            ; ==============
             (.beginPath)
-            (.rect 10 (/ width 2.69) (/ length 18) (/ length 6))
+            (.rect 10 (- (/ width 2) (/ length 12)) (/ length 18) (/ length 6))
             (.stroke)
 
-            )))
-      ; (.restore)
+            ; ==============
+            ; gol
+            ; ==============
+            (.beginPath)
+            (.rect (- length 10) (- (/ width 2) (/ length 32)) 10 (/ length 16))
+            (.stroke)
+
+            ; ==============
+            ; gol area
+            ; ==============
+            (.beginPath)
+            (.rect (- length 10 (/ length 18)) (- (/ width 2) (/ length 12)) (/ length 18) (/ length 6))
+            (.stroke))))
 
       ; ==============
       ; midfield circle
@@ -334,10 +351,7 @@
       ; ==============
       (.beginPath)
       (.arc (/ length 2) (/ width 2) 3 0 (* 2 js/Math.PI))
-      (.fill)
-
-      )
-    ))
+      (.fill))))
 
 ; ==================================
 ; Force graph
