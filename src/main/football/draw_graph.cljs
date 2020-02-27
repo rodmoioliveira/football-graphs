@@ -280,6 +280,48 @@
             (.lineTo (/ length 2) (- width 10)))))
       (.stroke)
 
+
+      (#(if flip?
+          (doto %
+            ; ==============
+            ; gol
+            ; ==============
+            (.beginPath)
+            (.rect (/ length 2.21) 0 (/ width 16) 10)
+            (.stroke)
+
+            (.beginPath)
+            (.rect (/ length 2.69) 10 (/ width 6) (/ width 18))
+            (.stroke)
+
+            ; ==============
+            ; gol
+            ; ==============
+            (.beginPath)
+            (.rect (/ length 2.21) (- width 10) (/ width 16) (/ width 120))
+            (.stroke)
+
+            (.beginPath)
+            (.rect (/ length 2.69) (- width (/ width 15.4)) (/ width 6) (/ width 18))
+            (.stroke)
+
+            )
+          (doto %
+            ; ==============
+            ; gol
+            ; ==============
+            (.beginPath)
+            (.rect 0 (/ width 2.21) (/ length 100) (/ length 16))
+            (.stroke)
+
+
+            (.beginPath)
+            (.rect 10 (/ width 2.69) (/ length 18) (/ length 6))
+            (.stroke)
+
+            )))
+      ; (.restore)
+
       ; ==============
       ; midfield circle
       ; ==============
