@@ -172,13 +172,12 @@
 
 (defn draw-graph
   [{:keys [edges nodes config nodeshash active-node]}]
-  (let [ctx (-> config :ctx)]
-    (doseq [e edges] (draw-passes {:edge e
-                                   :nodeshash nodeshash
-                                   :config config
-                                   :active-node active-node}))
-    (doseq [n nodes] (draw-players {:node n
-                                    :config config}))))
+  (doseq [e edges] (draw-passes {:edge e
+                                 :nodeshash nodeshash
+                                 :config config
+                                 :active-node active-node}))
+  (doseq [n nodes] (draw-players {:node n
+                                  :config config})))
 
 (defn draw-background
   [^js config ^js data]
@@ -190,42 +189,6 @@
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))))
 
 ; ==================================
-; Events
-; ==================================
-(defn clicked
-  [{:keys [edges nodes config nodeshash]}]
-  (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
-        x-domain #js [0 (-> canvas-current-dimensions .-width)]
-        y-domain #js [0 (-> canvas-current-dimensions .-height)]
-        x-codomain #js [0 (-> config :canvas .-width)]
-        y-codomain #js [0 (-> config :canvas .-height)]
-        mapping-x (-> d3
-                      (.scaleLinear)
-                      (.domain x-domain)
-                      (.range x-codomain))
-        mapping-y (-> d3
-                      (.scaleLinear)
-                      (.domain y-domain)
-                      (.range y-codomain))
-        x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
-        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
-        node (find-node
-              config
-              (-> canvas-current-dimensions .-width)
-              nodes
-              (mapping-x x)
-              (mapping-y y))]
-
-    (doseq [n nodes] (set! (.-active n) false))
-    (when node (set! (.-active node) (not (-> node .-active))))
-
-    (draw-graph {:edges edges
-                 :config config
-                 :nodes nodes
-                 :nodeshash nodeshash
-                 :active-node node})))
-
-; ==================================
 ; Soccer Field
 ; ==================================
 (defn draw-field
@@ -233,7 +196,8 @@
   (let [[a b] (sort dimensions)
         flip? (-> data .-orientation (#(or (= % "gol-bottom") (= % "gol-top"))))
         [width length] (if flip? [b a] [a b])
-        field-data (-> data .-field)]
+        field-data (-> data .-field)
+        corner-radius (if flip? (/ width 100) (/ length 100))]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-strokeStyle v) (aget field-data "lines-color"))))
       ((fn [v] (set! (.-fillStyle v) (aget field-data "lines-color"))))
@@ -254,18 +218,17 @@
       ; corners
       ; ==============
       (.beginPath)
-      (.arc 10 10 10 0 (/ js/Math.PI 2))
+      (.arc 10 10 corner-radius 0 (/ js/Math.PI 2))
       (.stroke)
       (.beginPath)
-      (.arc 10 (- width 10) 10 (* js/Math.PI 1.5) (* 2 js/Math.PI))
+      (.arc 10 (- width 10) corner-radius (* js/Math.PI 1.5) (* 2 js/Math.PI))
       (.stroke)
       (.beginPath)
-      (.arc (- length 10) (- width 10) 10 (* 1 js/Math.PI) (* 1.5 js/Math.PI))
+      (.arc (- length 10) (- width 10) corner-radius (* 1 js/Math.PI) (* 1.5 js/Math.PI))
       (.stroke)
       (.beginPath)
-      (.arc (- length 10) 10 10 (* 0.5 js/Math.PI) (* 1 js/Math.PI))
+      (.arc (- length 10) 10 corner-radius (* 0.5 js/Math.PI) (* 1 js/Math.PI))
       (.stroke)
-
 
       ; ==============
       ; midfield line
@@ -297,6 +260,13 @@
             (.stroke)
 
             ; ==============
+            ; penal area
+            ; ==============
+            (.beginPath)
+            (.rect (- (/ length 2) (/ width 5.4)) 10 (/ width 2.7) (/ width 5.9))
+            (.stroke)
+
+            ; ==============
             ; gol
             ; ==============
             (.beginPath)
@@ -308,6 +278,13 @@
             ; ==============
             (.beginPath)
             (.rect (- (/ length 2) (/ width 12)) (- width 10 (/ width 18)) (/ width 6) (/ width 18))
+            (.stroke)
+
+            ; ==============
+            ; penal area
+            ; ==============
+            (.beginPath)
+            (.rect (- (/ length 2) (/ width 5.4)) (- width 10 (/ width 5.9)) (/ width 2.7) (/ width 5.9))
             (.stroke))
 
           (doto %
@@ -326,6 +303,13 @@
             (.stroke)
 
             ; ==============
+            ; penal area
+            ; ==============
+            (.beginPath)
+            (.rect 10 (- (/ width 2) (/ length 5.4)) (/ length 5.9) (/ length 2.7))
+            (.stroke)
+
+            ; ==============
             ; gol
             ; ==============
             (.beginPath)
@@ -337,13 +321,20 @@
             ; ==============
             (.beginPath)
             (.rect (- length 10 (/ length 18)) (- (/ width 2) (/ length 12)) (/ length 18) (/ length 6))
+            (.stroke)
+
+            ; ==============
+            ; penal area
+            ; ==============
+            (.beginPath)
+            (.rect (- length 10 (/ length 5.9)) (- (/ width 2) (/ length 5.4)) (/ length 5.9) (/ length 2.7))
             (.stroke))))
 
       ; ==============
       ; midfield circle
       ; ==============
       (.beginPath)
-      (.arc (/ length 2) (/ width 2) 91 0 (* 2 js/Math.PI))
+      (.arc (/ length 2) (/ width 2) (if flip? (/ width 11.9) (/ length 11.9)) 0 (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
@@ -352,6 +343,45 @@
       (.beginPath)
       (.arc (/ length 2) (/ width 2) 3 0 (* 2 js/Math.PI))
       (.fill))))
+
+
+; ==================================
+; Events
+; ==================================
+(defn clicked
+  [{:keys [edges nodes config nodeshash data]}]
+  (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
+        x-domain #js [0 (-> canvas-current-dimensions .-width)]
+        y-domain #js [0 (-> canvas-current-dimensions .-height)]
+        x-codomain #js [0 (-> config :canvas .-width)]
+        y-codomain #js [0 (-> config :canvas .-height)]
+        mapping-x (-> d3
+                      (.scaleLinear)
+                      (.domain x-domain)
+                      (.range x-codomain))
+        mapping-y (-> d3
+                      (.scaleLinear)
+                      (.domain y-domain)
+                      (.range y-codomain))
+        x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
+        y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
+        node (find-node
+              config
+              (-> canvas-current-dimensions .-width)
+              nodes
+              (mapping-x x)
+              (mapping-y y))]
+
+    (doseq [n nodes] (set! (.-active n) false))
+    (when node (set! (.-active node) (not (-> node .-active))))
+
+    (draw-background config data)
+    (-> data (aget "canvas-dimensions") (draw-field data config))
+    (draw-graph {:edges edges
+                 :config config
+                 :nodes nodes
+                 :nodeshash nodeshash
+                 :active-node node})))
 
 ; ==================================
 ; Force graph
@@ -371,6 +401,7 @@
         (.select (-> config :canvas))
         (.on "click" (fn [] (clicked {:edges edges
                                       :config config
+                                      :data data
                                       :nodeshash nodeshash
                                       :nodes nodes}))))
 
@@ -380,10 +411,9 @@
         (.force "link")
         (.links edges))
 
-    ; (draw-background config data)
+    (draw-background config data)
     (-> data (aget "canvas-dimensions") (draw-field data config))
-    ; (draw-graph {:edges edges
-    ;              :config config
-    ;              :nodeshash nodeshash
-    ;              :nodes nodes})
-    ))
+    (draw-graph {:edges edges
+                 :config config
+                 :nodeshash nodeshash
+                 :nodes nodes})))
