@@ -27,7 +27,7 @@
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
                  :codomains {:edges-width #js [2 15]
-                             :radius #js [10 30]
+                             :radius #js [15 30]
                              :colors {:cold #js ["#bbdefb", "#0d47a1"]
                                       :hot #js ["#ffff00", "#ff0000"]}}}
 
@@ -104,7 +104,7 @@
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 1
-             :distance-between 5
+             :distance-between 4
              :alpha 0.03}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
@@ -113,7 +113,7 @@
                       :outline "#333"}
              :name-position (or name-position :top)
              :outline {:color "#333"
-                       :width 1.5}
+                       :width 1}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
                                                     (font :type)]))}
