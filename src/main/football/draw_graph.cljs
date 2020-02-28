@@ -265,10 +265,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- (/ length 2) (/ width (* 2 gol-area-length)))
-              padding
-              (/ width gol-area-length)
-              (/ width gol-area-width))
+             (- (/ length 2) (/ width (* 2 gol-area-length)))
+             padding
+             (/ width gol-area-length)
+             (/ width gol-area-width))
             (.stroke)
 
             ; ==============
@@ -276,10 +276,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- (/ length 2) (/ width (* 2 penal-area-length)))
-              padding
-              (/ width penal-area-length)
-              (/ width penal-area-width))
+             (- (/ length 2) (/ width (* 2 penal-area-length)))
+             padding
+             (/ width penal-area-length)
+             (/ width penal-area-width))
             (.stroke)
 
             ; ==============
@@ -294,10 +294,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- (/ length 2) (/ width (* 2 gol-area-length)))
-              (- width padding (/ width gol-area-width))
-              (/ width gol-area-length)
-              (/ width gol-area-width))
+             (- (/ length 2) (/ width (* 2 gol-area-length)))
+             (- width padding (/ width gol-area-width))
+             (/ width gol-area-length)
+             (/ width gol-area-width))
             (.stroke)
 
             ; ==============
@@ -305,10 +305,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- (/ length 2) (/ width (* 2 penal-area-length)))
-              (- width padding (/ width penal-area-width))
-              (/ width penal-area-length)
-              (/ width penal-area-width))
+             (- (/ length 2) (/ width (* 2 penal-area-length)))
+             (- width padding (/ width penal-area-width))
+             (/ width penal-area-length)
+             (/ width penal-area-width))
             (.stroke))
 
           (doto %
@@ -317,10 +317,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              0
-              (- (/ width 2) (/ length (* 2 gol-length)))
-              padding
-              (/ length gol-length))
+             0
+             (- (/ width 2) (/ length (* 2 gol-length)))
+             padding
+             (/ length gol-length))
             (.stroke)
 
             ; ==============
@@ -328,10 +328,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              padding
-              (- (/ width 2) (/ length (* 2 gol-area-length)))
-              (/ length gol-area-width)
-              (/ length gol-area-length))
+             padding
+             (- (/ width 2) (/ length (* 2 gol-area-length)))
+             (/ length gol-area-width)
+             (/ length gol-area-length))
             (.stroke)
 
             ; ==============
@@ -339,10 +339,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              padding
-              (- (/ width 2) (/ length (* 2 penal-area-length)))
-              (/ length penal-area-width)
-              (/ length penal-area-length))
+             padding
+             (- (/ width 2) (/ length (* 2 penal-area-length)))
+             (/ length penal-area-width)
+             (/ length penal-area-length))
             (.stroke)
 
             ; ==============
@@ -350,10 +350,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- length padding)
-              (- (/ width 2) (/ length (* 2 gol-length)))
-              padding
-              (/ length gol-length))
+             (- length padding)
+             (- (/ width 2) (/ length (* 2 gol-length)))
+             padding
+             (/ length gol-length))
             (.stroke)
 
             ; ==============
@@ -361,10 +361,10 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- length padding (/ length gol-area-width))
-              (- (/ width 2) (/ length (* 2 gol-area-length)))
-              (/ length gol-area-width)
-              (/ length gol-area-length))
+             (- length padding (/ length gol-area-width))
+             (- (/ width 2) (/ length (* 2 gol-area-length)))
+             (/ length gol-area-width)
+             (/ length gol-area-length))
             (.stroke)
 
             ; ==============
@@ -372,22 +372,125 @@
             ; ==============
             (.beginPath)
             (.rect
-              (- length padding (/ length penal-area-width))
-              (- (/ width 2) (/ length (* 2 penal-area-length)))
-              (/ length penal-area-width)
-              (/ length penal-area-length))
+             (- length padding (/ length penal-area-width))
+             (- (/ width 2) (/ length (* 2 penal-area-length)))
+             (/ length penal-area-width)
+             (/ length penal-area-length))
             (.stroke))))
+
+      (#(if flip?
+          (doto %
+            ; ==============
+            ; penal circle area
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 2)
+             (/ width 8.3)
+             (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
+             (* 0.2 js/Math.PI)
+             (* 0.8 js/Math.PI))
+            (.stroke)
+
+            ; ==============
+            ; penal circle point
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 2)
+             (/ width 8.3)
+             midfield-point-radius
+             0
+             (* 2 js/Math.PI))
+            (.stroke)
+            (.fill)
+
+            ; ==============
+            ; penal circle area
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 2)
+             (/ width 1.136)
+             (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
+             (* 1.205 js/Math.PI)
+             (/ js/Math.PI 0.557))
+            (.stroke)
+
+            ; ==============
+            ; penal circle point
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 2)
+             (/ width 1.136)
+             midfield-point-radius
+             0
+             (* 2 js/Math.PI))
+            (.stroke)
+            (.fill))
+
+          (doto %
+            ; ==============
+            ; penal circle area
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 8.3)
+             (/ width 2)
+             (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
+             (* 1.701 js/Math.PI)
+             (* 2.299 js/Math.PI))
+            (.stroke)
+
+            ; ==============
+            ; penal circle point
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 8.3)
+             (/ width 2)
+             midfield-point-radius
+             0
+             (* 2 js/Math.PI))
+            (.stroke)
+            (.fill)
+
+            ; ==============
+            ; penal circle area
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 1.136)
+             (/ width 2)
+             (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
+             (* 0.708 js/Math.PI)
+             (* 1.296 js/Math.PI))
+            (.stroke)
+
+            ; ==============
+            ; penal circle point
+            ; ==============
+            (.beginPath)
+            (.arc
+             (/ length 1.136)
+             (/ width 2)
+             midfield-point-radius
+             0
+             (* 2 js/Math.PI))
+            (.stroke)
+            (.fill))))
 
       ; ==============
       ; midfield circle
       ; ==============
       (.beginPath)
       (.arc
-        (/ length 2)
-        (/ width 2)
-        (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
-        0
-        (* 2 js/Math.PI))
+       (/ length 2)
+       (/ width 2)
+       (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
+       0
+       (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
