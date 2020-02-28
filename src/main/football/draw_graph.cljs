@@ -231,6 +231,27 @@
           (.lineTo (/ length 2) (- width padding)))))
     (.stroke)))
 
+(defn draw-midfield-circle
+  "Draw midfield circle."
+  [ctx width length flip? midfield-cicle-radius]
+  (doto ctx
+    (.beginPath)
+    (.arc
+      (/ length 2)
+      (/ width 2)
+      (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
+      0
+      (* 2 js/Math.PI))
+    (.stroke)))
+
+(defn draw-midfield-point
+  "Draw midfield point."
+  [ctx width length midfield-point-radius]
+  (doto ctx
+    (.beginPath)
+    (.arc (/ length 2) (/ width 2) midfield-point-radius 0 (* 2 js/Math.PI))
+    (.fill)))
+
 (defn draw-field
   "Draw soccer field on canvas."
   [dimensions ^js data config]
@@ -486,24 +507,8 @@
             (.stroke)
             (.fill))))
 
-      ; ==============
-      ; midfield circle
-      ; ==============
-      (.beginPath)
-      (.arc
-       (/ length 2)
-       (/ width 2)
-       (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
-       0
-       (* 2 js/Math.PI))
-      (.stroke)
-
-      ; ==============
-      ; midfield point
-      ; ==============
-      (.beginPath)
-      (.arc (/ length 2) (/ width 2) midfield-point-radius 0 (* 2 js/Math.PI))
-      (.fill))))
+      (draw-midfield-circle width length flip? midfield-cicle-radius)
+      (draw-midfield-point width length midfield-point-radius))))
 
 (defn on-node-click
   "On node click, only display that player passes network."
