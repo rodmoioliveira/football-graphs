@@ -2,13 +2,13 @@
   (:require
    [clojure.string :refer [split]]
    [utils.core :refer [get-distance radians-between find-node]]
+   [football.draw-field :refer [draw-field draw-background]]
    ["d3" :as d3]))
 
 (set! *warn-on-infer* true)
-; ==================================
-; Draw fns
-; ==================================
+
 (defn draw-edges
+  "Draw the edges of passes between players."
   [{:keys [^js edge config active-node nodeshash]}]
   (let [source-x (-> edge .-source .-coord .-x)
         source-y (-> edge .-source .-coord .-y)
@@ -50,6 +50,7 @@
                           radius-scale)]
 
     (doto (-> config :ctx)
+      (.save)
       ; translate to source node center point
       (.translate source-x source-y)
       ; rotate canvas
@@ -86,15 +87,11 @@
       (.fill)
 
       ; restore canvas
-      (.setTransform))))
-
-(defn draw-passes
-  [obj]
-  (-> obj :config :ctx (.save))
-  (draw-edges obj)
-  (-> obj :config :ctx (.restore)))
+      (.setTransform)
+      (.restore))))
 
 (defn draw-players-names
+  "Draw the players names."
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
@@ -130,6 +127,7 @@
                  x-pos (-> positions name-position)))))
 
 (defn draw-nodes
+  "Draw the players nodes."
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
@@ -165,32 +163,25 @@
       (.stroke))))
 
 (defn draw-players
+  "Draw nodes and players names."
   [obj]
   (doto obj
     (draw-nodes)
     (draw-players-names)))
 
 (defn draw-graph
+  "Draw all graph elements."
   [{:keys [edges nodes config nodeshash active-node]}]
-  (let [ctx (-> config :ctx)]
-    (doto ctx
-      (.save)
-      (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
-      ((fn [v] (set! (.-fillStyle v) "transparent")))
-      (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))
-    (doseq [e edges] (draw-passes {:edge e
-                                   :nodeshash nodeshash
-                                   :config config
-                                   :active-node active-node}))
-    (doseq [n nodes] (draw-players {:node n
-                                    :config config}))
-    (-> ctx (.restore))))
+  (doseq [e edges] (draw-edges {:edge e
+                                :nodeshash nodeshash
+                                :config config
+                                :active-node active-node}))
+  (doseq [n nodes] (draw-players {:node n
+                                  :config config})))
 
-; ==================================
-; Events
-; ==================================
-(defn clicked
-  [{:keys [edges nodes config nodeshash]}]
+(defn on-node-click
+  "On node click, only display that player passes network."
+  [{:keys [edges nodes config nodeshash data]}]
   (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
         x-domain #js [0 (-> canvas-current-dimensions .-width)]
         y-domain #js [0 (-> canvas-current-dimensions .-height)]
@@ -216,16 +207,16 @@
     (doseq [n nodes] (set! (.-active n) false))
     (when node (set! (.-active node) (not (-> node .-active))))
 
+    (draw-background config data)
+    (-> data (aget "canvas-dimensions") (draw-field data config))
     (draw-graph {:edges edges
                  :config config
                  :nodes nodes
                  :nodeshash nodeshash
                  :active-node node})))
 
-; ==================================
-; Force graph
-; ==================================
 (defn force-graph
+  "Draw force graph elements."
   [{:keys [^js data config]}]
   (let [nodes (-> data .-nodes)
         nodeshash (-> data ^:export .-nodeshash)
@@ -238,10 +229,11 @@
 
     (-> d3
         (.select (-> config :canvas))
-        (.on "click" (fn [] (clicked {:edges edges
-                                      :config config
-                                      :nodeshash nodeshash
-                                      :nodes nodes}))))
+        (.on "click" (fn [] (on-node-click {:edges edges
+                                            :config config
+                                            :data data
+                                            :nodeshash nodeshash
+                                            :nodes nodes}))))
 
     (-> simulation (.nodes nodes))
 
@@ -249,6 +241,8 @@
         (.force "link")
         (.links edges))
 
+    (draw-background config data)
+    (-> data (aget "canvas-dimensions") (draw-field data config))
     (draw-graph {:edges edges
                  :config config
                  :nodeshash nodeshash
