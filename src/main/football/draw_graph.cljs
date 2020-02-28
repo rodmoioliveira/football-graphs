@@ -188,6 +188,49 @@
       ((fn [v] (set! (.-fillStyle v) background-color)))
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))))
 
+(defn draw-borders
+  "Draw field borders."
+  [ctx padding width length]
+  (doto ctx
+    (.beginPath)
+    (.moveTo padding padding)
+    (.lineTo padding (- width padding))
+    (.lineTo (- length padding) (- width padding))
+    (.lineTo (- length padding) padding)
+    (.lineTo padding padding)
+    (.stroke)))
+
+(defn draw-corners
+  "Draw field corners."
+  [ctx padding width length corner-radius]
+  (doto ctx
+    (.beginPath)
+    (.arc padding padding corner-radius 0 (/ js/Math.PI 2))
+    (.stroke)
+    (.beginPath)
+    (.arc padding (- width padding) corner-radius (* js/Math.PI 1.5) (* 2 js/Math.PI))
+    (.stroke)
+    (.beginPath)
+    (.arc (- length padding) (- width padding) corner-radius (* 1 js/Math.PI) (* 1.5 js/Math.PI))
+    (.stroke)
+    (.beginPath)
+    (.arc (- length padding) padding corner-radius (* 0.5 js/Math.PI) (* 1 js/Math.PI))
+    (.stroke)))
+
+(defn draw-midfield-line
+  "Draw midfield line."
+  [ctx padding width length flip?]
+  (doto ctx
+    (.beginPath)
+    (#(if flip?
+        (doto %
+          (.moveTo padding (/ width 2))
+          (.lineTo (- length padding) (/ width 2)))
+        (doto %
+          (.moveTo (/ length 2) padding)
+          (.lineTo (/ length 2) (- width padding)))))
+    (.stroke)))
+
 (defn draw-field
   "Draw soccer field on canvas."
   [dimensions ^js data config]
@@ -209,45 +252,9 @@
       ((fn [v] (set! (.-fillStyle v) (aget field-data "lines-color"))))
       ((fn [v] (set! (.-lineWidth v) (aget field-data "lines-width"))))
 
-      ; ==============
-      ; borders
-      ; ==============
-      (.beginPath)
-      (.moveTo padding padding)
-      (.lineTo padding (- width padding))
-      (.lineTo (- length padding) (- width padding))
-      (.lineTo (- length padding) padding)
-      (.lineTo padding padding)
-      (.stroke)
-
-      ; ==============
-      ; corners
-      ; ==============
-      (.beginPath)
-      (.arc padding padding corner-radius 0 (/ js/Math.PI 2))
-      (.stroke)
-      (.beginPath)
-      (.arc padding (- width padding) corner-radius (* js/Math.PI 1.5) (* 2 js/Math.PI))
-      (.stroke)
-      (.beginPath)
-      (.arc (- length padding) (- width padding) corner-radius (* 1 js/Math.PI) (* 1.5 js/Math.PI))
-      (.stroke)
-      (.beginPath)
-      (.arc (- length padding) padding corner-radius (* 0.5 js/Math.PI) (* 1 js/Math.PI))
-      (.stroke)
-
-      ; ==============
-      ; midfield line
-      ; ==============
-      (.beginPath)
-      (#(if flip?
-          (doto %
-            (.moveTo padding (/ width 2))
-            (.lineTo (- length padding) (/ width 2)))
-          (doto %
-            (.moveTo (/ length 2) padding)
-            (.lineTo (/ length 2) (- width padding)))))
-      (.stroke)
+      (draw-borders padding width length)
+      (draw-corners padding width length corner-radius)
+      (draw-midfield-line padding width length flip?)
 
       (#(if flip?
           (doto %
@@ -534,9 +541,6 @@
                  :nodeshash nodeshash
                  :active-node node})))
 
-; ==================================
-; Force graph
-; ==================================
 (defn force-graph
   "Draw force graph elements."
   [{:keys [^js data config]}]
