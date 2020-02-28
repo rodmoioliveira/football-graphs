@@ -149,7 +149,7 @@
      {:x (* (-> canvas .-width) (/ x-% 100))
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
-(def field-dimensions [120 78])
+(def field-dimensions [123 80])
 (def scale 9)
 (def canvas-dimensions
   (-> field-dimensions (#(map (partial * scale) %))))
@@ -172,7 +172,9 @@
 #?(:cljs
    (def mobile-mapping
      {:gol-right :gol-left
-      :gol-left :gol-left}))
+      :gol-left :gol-left
+      :gol-bottom :gol-left
+      :gol-top :gol-left}))
 
 #?(:cljs
    (def coord-mapping
