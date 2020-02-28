@@ -5,6 +5,7 @@
 
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
+                       canvas-dimensions
                        mobile-mapping
                        hash-by
                        write-label
@@ -67,6 +68,8 @@
                                ((set-canvas-dimensions orientation) el)
                                {:match-id (-> v :match-id)
                                 :nodes nodes
+                                :canvas-dimensions canvas-dimensions
+                                :orientation orientation
                                 ; TODO: move hashs to preprocessing data..
                                 :nodeshash (-> nodes
                                                ((fn [n]
@@ -89,7 +92,9 @@
            position-metric]}]
   (doseq [canvas (all-canvas {:position-metric position-metric})]
     (write-label canvas)
-    (force-graph {:data (-> canvas :data clj->js)
+    (force-graph {:data (-> (merge (-> canvas :data) {:field {:background "white"
+                                                              :lines-color "#aaa"
+                                                              :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
