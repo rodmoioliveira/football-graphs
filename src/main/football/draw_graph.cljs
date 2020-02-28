@@ -267,6 +267,7 @@
            gol-area-width]}]
   (if flip?
     (doto ctx
+      (.save)
       ((fn [v] (set! (.-fillStyle v) background-color)))
       ; ==============
       ; penal area
@@ -326,9 +327,11 @@
        (- width padding (/ width gol-area-width))
        (/ width gol-area-length)
        (/ width gol-area-width))
-      (.stroke))
+      (.stroke)
+      (.restore))
 
     (doto ctx
+      (.save)
       ((fn [v] (set! (.-fillStyle v) background-color)))
       ; ==============
       ; penal area
@@ -397,7 +400,7 @@
        (/ length gol-area-width)
        (/ length gol-area-length))
       (.stroke)
-      )))
+      (.restore))))
 
 (defn draw-penal-arcs
   "Draw all penal arcs."
@@ -508,8 +511,69 @@
        0
        (* 2 js/Math.PI))
       (.stroke)
+      (.fill))))
+
+(defn draw-penal-marks
+  "Draw penal marks."
+  [ctx
+   {:keys [flip?
+           length
+           width
+           midfield-point-radius]}]
+  (if flip?
+    (doto ctx
+      ; ==============
+      ; penal circle point
+      ; ==============
+      (.beginPath)
+      (.arc
+       (/ length 2)
+       (/ width 8.3)
+       midfield-point-radius
+       0
+       (* 2 js/Math.PI))
+      (.stroke)
       (.fill)
-      )))
+
+      ; ==============
+      ; penal circle point
+      ; ==============
+      (.beginPath)
+      (.arc
+       (/ length 2)
+       (/ width 1.136)
+       midfield-point-radius
+       0
+       (* 2 js/Math.PI))
+      (.stroke)
+      (.fill))
+
+    (doto ctx
+      ; ==============
+      ; penal circle point
+      ; ==============
+      (.beginPath)
+      (.arc
+       (/ length 8.3)
+       (/ width 2)
+       midfield-point-radius
+       0
+       (* 2 js/Math.PI))
+      (.stroke)
+      (.fill)
+
+      ; ==============
+      ; penal circle point
+      ; ==============
+      (.beginPath)
+      (.arc
+       (/ length 1.136)
+       (/ width 2)
+       midfield-point-radius
+       0
+       (* 2 js/Math.PI))
+      (.stroke)
+      (.fill))))
 
 (defn draw-field
   "Draw soccer field on canvas."
@@ -553,6 +617,11 @@
         :penal-area-length penal-area-length
         :penal-area-width penal-area-width
         :gol-area-width gol-area-width})
+      (draw-penal-marks
+       {:flip? flip?
+        :length length
+        :width width
+        :midfield-point-radius midfield-point-radius})
       (draw-midfield-circle width length flip? midfield-cicle-radius)
       (draw-midfield-point width length midfield-point-radius))))
 
