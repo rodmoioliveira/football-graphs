@@ -94,7 +94,7 @@
     (write-label canvas)
     (force-graph {:data (-> (merge (-> canvas :data) {:field {:background "white"
                                                               :lines-color "#aaa"
-                                                              :lines-width 1}}) clj->js)
+                                                              :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
