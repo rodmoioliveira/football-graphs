@@ -6,5 +6,5 @@
 pyenv virtualenv my-project-env
 pyenv my-project-env
 # source my-project-env/bin/activate
-pip install -r req.txt
+pip install -r requirements.txt
 export PYTHONPATH="$PWD/src/main/io"
