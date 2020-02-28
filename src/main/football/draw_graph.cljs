@@ -5,10 +5,9 @@
    ["d3" :as d3]))
 
 (set! *warn-on-infer* true)
-; ==================================
-; Draw fns
-; ==================================
+
 (defn draw-edges
+  "Draw the edges of passes between players."
   [{:keys [^js edge config active-node nodeshash]}]
   (let [source-x (-> edge .-source .-coord .-x)
         source-y (-> edge .-source .-coord .-y)
@@ -50,6 +49,7 @@
                           radius-scale)]
 
     (doto (-> config :ctx)
+      (.save)
       ; translate to source node center point
       (.translate source-x source-y)
       ; rotate canvas
@@ -86,15 +86,11 @@
       (.fill)
 
       ; restore canvas
-      (.setTransform))))
-
-(defn draw-passes
-  [obj]
-  (-> obj :config :ctx (.save))
-  (draw-edges obj)
-  (-> obj :config :ctx (.restore)))
+      (.setTransform)
+      (.restore))))
 
 (defn draw-players-names
+  "Draw the players names."
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
@@ -130,6 +126,7 @@
                  x-pos (-> positions name-position)))))
 
 (defn draw-nodes
+  "Draw the players nodes."
   [{:keys [node config]}]
   (let [x-pos (-> node .-coord .-x)
         y-pos (-> node .-coord .-y)
@@ -165,21 +162,24 @@
       (.stroke))))
 
 (defn draw-players
+  "Draw nodes and players names."
   [obj]
   (doto obj
     (draw-nodes)
     (draw-players-names)))
 
 (defn draw-graph
+  "Draw all graph elements."
   [{:keys [edges nodes config nodeshash active-node]}]
-  (doseq [e edges] (draw-passes {:edge e
-                                 :nodeshash nodeshash
-                                 :config config
-                                 :active-node active-node}))
+  (doseq [e edges] (draw-edges {:edge e
+                                :nodeshash nodeshash
+                                :config config
+                                :active-node active-node}))
   (doseq [n nodes] (draw-players {:node n
                                   :config config})))
 
 (defn draw-background
+  "Draw the field background."
   [^js config ^js data]
   (let [ctx (-> config :ctx)
         background-color (-> data .-field .-background)]
@@ -188,10 +188,8 @@
       ((fn [v] (set! (.-fillStyle v) background-color)))
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))))
 
-; ==================================
-; Soccer Field
-; ==================================
 (defn draw-field
+  "Draw soccer field on canvas."
   [dimensions ^js data config]
   (let [[a b] (sort dimensions)
         flip? (-> data .-orientation (#(or (= % "gol-bottom") (= % "gol-top"))))
@@ -500,11 +498,8 @@
       (.arc (/ length 2) (/ width 2) midfield-point-radius 0 (* 2 js/Math.PI))
       (.fill))))
 
-
-; ==================================
-; Events
-; ==================================
-(defn clicked
+(defn on-node-click
+  "On node click, only display that player passes network."
   [{:keys [edges nodes config nodeshash data]}]
   (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
         x-domain #js [0 (-> canvas-current-dimensions .-width)]
@@ -543,6 +538,7 @@
 ; Force graph
 ; ==================================
 (defn force-graph
+  "Draw force graph elements."
   [{:keys [^js data config]}]
   (let [nodes (-> data .-nodes)
         nodeshash (-> data ^:export .-nodeshash)
@@ -555,11 +551,11 @@
 
     (-> d3
         (.select (-> config :canvas))
-        (.on "click" (fn [] (clicked {:edges edges
-                                      :config config
-                                      :data data
-                                      :nodeshash nodeshash
-                                      :nodes nodes}))))
+        (.on "click" (fn [] (on-node-click {:edges edges
+                                            :config config
+                                            :data data
+                                            :nodeshash nodeshash
+                                            :nodes nodes}))))
 
     (-> simulation (.nodes nodes))
 
