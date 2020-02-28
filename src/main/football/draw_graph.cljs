@@ -259,6 +259,7 @@
            length
            width
            padding
+           background-color
            gol-length
            gol-area-length
            penal-area-length
@@ -266,6 +267,19 @@
            gol-area-width]}]
   (if flip?
     (doto ctx
+      ((fn [v] (set! (.-fillStyle v) background-color)))
+      ; ==============
+      ; penal area
+      ; ==============
+      (.beginPath)
+      (.rect
+       (- (/ length 2) (/ width (* 2 penal-area-length)))
+       padding
+       (/ width penal-area-length)
+       (/ width penal-area-width))
+      (.fill)
+      (.stroke)
+
       ; ==============
       ; gol
       ; ==============
@@ -290,9 +304,10 @@
       (.beginPath)
       (.rect
        (- (/ length 2) (/ width (* 2 penal-area-length)))
-       padding
+       (- width padding (/ width penal-area-width))
        (/ width penal-area-length)
        (/ width penal-area-width))
+      (.fill)
       (.stroke)
 
       ; ==============
@@ -311,20 +326,22 @@
        (- width padding (/ width gol-area-width))
        (/ width gol-area-length)
        (/ width gol-area-width))
-      (.stroke)
+      (.stroke))
 
+    (doto ctx
+      ((fn [v] (set! (.-fillStyle v) background-color)))
       ; ==============
       ; penal area
       ; ==============
       (.beginPath)
       (.rect
-       (- (/ length 2) (/ width (* 2 penal-area-length)))
-       (- width padding (/ width penal-area-width))
-       (/ width penal-area-length)
-       (/ width penal-area-width))
-      (.stroke))
+       padding
+       (- (/ width 2) (/ length (* 2 penal-area-length)))
+       (/ length penal-area-width)
+       (/ length penal-area-length))
+      (.fill)
+      (.stroke)
 
-    (doto ctx
       ; ==============
       ; gol
       ; ==============
@@ -352,10 +369,11 @@
       ; ==============
       (.beginPath)
       (.rect
-       padding
+       (- length padding (/ length penal-area-width))
        (- (/ width 2) (/ length (* 2 penal-area-length)))
        (/ length penal-area-width)
        (/ length penal-area-length))
+      (.fill)
       (.stroke)
 
       ; ==============
@@ -379,17 +397,7 @@
        (/ length gol-area-width)
        (/ length gol-area-length))
       (.stroke)
-
-      ; ==============
-      ; penal area
-      ; ==============
-      (.beginPath)
-      (.rect
-       (- length padding (/ length penal-area-width))
-       (- (/ width 2) (/ length (* 2 penal-area-length)))
-       (/ length penal-area-width)
-       (/ length penal-area-length))
-      (.stroke))))
+      )))
 
 (defn draw-penal-arcs
   "Draw all penal arcs."
@@ -409,8 +417,8 @@
        (/ length 2)
        (/ width 8.3)
        (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
-       (* 0.2 js/Math.PI)
-       (* 0.8 js/Math.PI))
+       0
+       (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
@@ -434,8 +442,8 @@
        (/ length 2)
        (/ width 1.136)
        (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
-       (* 1.205 js/Math.PI)
-       (/ js/Math.PI 0.557))
+       0
+       (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
@@ -460,8 +468,8 @@
        (/ length 8.3)
        (/ width 2)
        (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
-       (* 1.701 js/Math.PI)
-       (* 2.299 js/Math.PI))
+       0
+       (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
@@ -485,8 +493,8 @@
        (/ length 1.136)
        (/ width 2)
        (if flip? (/ width midfield-cicle-radius) (/ length midfield-cicle-radius))
-       (* 0.708 js/Math.PI)
-       (* 1.296 js/Math.PI))
+       0
+       (* 2 js/Math.PI))
       (.stroke)
 
       ; ==============
@@ -500,7 +508,8 @@
        0
        (* 2 js/Math.PI))
       (.stroke)
-      (.fill))))
+      (.fill)
+      )))
 
 (defn draw-field
   "Draw soccer field on canvas."
@@ -509,6 +518,7 @@
         flip? (-> data .-orientation (#(or (= % "gol-bottom") (= % "gol-top"))))
         [width length] (if flip? [b a] [a b])
         field-data (-> data .-field)
+        background-color (-> field-data .-background)
         corner-radius (if flip? (/ width 100) (/ length 100))
         padding 10
         gol-length 16
@@ -526,22 +536,23 @@
       (draw-borders padding width length)
       (draw-corners padding width length corner-radius)
       (draw-midfield-line padding width length flip?)
-      (draw-goals-rects
-       {:flip? flip?
-        :length length
-        :width width
-        :padding padding
-        :gol-length gol-length
-        :gol-area-length gol-area-length
-        :penal-area-length penal-area-length
-        :penal-area-width penal-area-width
-        :gol-area-width gol-area-width})
       (draw-penal-arcs
        {:flip? flip?
         :length length
         :width width
         :midfield-cicle-radius midfield-cicle-radius
         :midfield-point-radius midfield-point-radius})
+      (draw-goals-rects
+       {:flip? flip?
+        :length length
+        :width width
+        :padding padding
+        :background-color background-color
+        :gol-length gol-length
+        :gol-area-length gol-area-length
+        :penal-area-length penal-area-length
+        :penal-area-width penal-area-width
+        :gol-area-width gol-area-width})
       (draw-midfield-circle width length flip? midfield-cicle-radius)
       (draw-midfield-point width length midfield-point-radius))))
 
