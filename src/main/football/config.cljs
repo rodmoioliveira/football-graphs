@@ -26,10 +26,10 @@
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
-                 :codomains {:edges-width #js [2 15]
-                             :radius #js [15 30]
-                             :colors {:cold #js ["#bbdefb", "#0d47a1"]
-                                      :hot #js ["#ffff00", "#ff0000"]}}}
+                 :codomains {:edges-width #js [2 25]
+                             :radius #js [10 40]
+                             :colors {:edges #js ["#bbdefb", "#1565C0"]
+                                      :nodes #js ["#ffff00", "#ff7f7f"]}}}
 
         ; ==================================
         ; Font
@@ -53,7 +53,7 @@
                           (.scalePow)
                           (.exponent 0.1)
                           (.domain (-> mapping :domains :passes))
-                          (.range (-> mapping :codomains :colors :cold))
+                          (.range (-> mapping :codomains :colors :edges))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         edges->width (-> d3
                          (.scaleLinear)
@@ -63,7 +63,7 @@
                               (.scalePow)
                               (.exponent 1)
                               (.domain (-> mapping :domains %))
-                              (.range (-> mapping :codomains :colors :hot))
+                              (.range (-> mapping :codomains :colors :nodes))
                               (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
         node-radius-scale #(-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
@@ -105,7 +105,7 @@
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 1
              :distance-between 4
-             :alpha 0.03}
+             :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
              :radius-click 5
