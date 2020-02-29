@@ -266,5 +266,6 @@
     (spit
      (str dist match-label "." ext)
      ((output-file-type file-type) graph))
-    (print (str "Success on spit " dist match-label "." ext)))
+    (print (str "Success on spit " dist match-label "." ext))
+    (System/exit 0))
   (print errors))
