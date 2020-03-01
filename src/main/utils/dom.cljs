@@ -34,7 +34,8 @@
   [match]
   (let [[label] (-> match :label (split #","))
         match-id (-> match :match-id)
-        [team1-id team2-id] (-> match :graph-metrics keys (#(map name %)))]
+        team1-id (-> match :match-info :home-away :home)
+        team2-id (-> match :match-info :home-away :away)]
     (str
      "<div class='graphs__wrapper'>
       <canvas

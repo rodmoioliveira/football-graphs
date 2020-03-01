@@ -285,15 +285,15 @@
         graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
+         :teams-info (-> edges
+                         keys
+                         ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
+                         hash-by-id)
          :match-info
          {:winner (-> data :match :winner)
           :competition-id (-> data :match :competition-id)
           :home-away {:home (-> teams-name-hashmap team1 :wy-id)
                       :away (-> teams-name-hashmap team2 :wy-id)}
-          :teams-info (-> edges
-                          keys
-                          ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
-                          hash-by-id)
           :gameweek (-> data :match :gameweek)
           :duration (-> data :match :duration)
           :season-id (-> data :match :season-id)
