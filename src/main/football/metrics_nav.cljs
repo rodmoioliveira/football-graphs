@@ -30,9 +30,12 @@
 
 (defn sticky-nav$
   []
-  (let [nav (-> js/document (.querySelector ".nav-metrics"))
-        nav-height (-> nav (.getBoundingClientRect) .-height)
+  (let [menu (-> js/document (.querySelector ".nav-menu"))
+        activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
+        deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
+        nav (-> js/document (.querySelector ".nav-metrics"))
         breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))]
+
     (-> js/document
         (rx/fromEvent "scroll")
         (.pipe
@@ -40,7 +43,14 @@
          (rx-op/distinctUntilChanged))
         (.subscribe (fn [v]
                         (do
-                          (-> nav (.setAttribute "data-sticky" v))
-                          (-> breakpoint (#(set! (-> % .-style .-height) (if (zero? v)
-                                                                           0
-                                                                           (str nav-height "px")))))))))))
+                          (-> menu (.setAttribute "data-sticky" v))))))
+    (-> activate-btn
+        (rx/fromEvent "click")
+        (.subscribe (fn [_] (-> nav (.setAttribute "data-active" 1)))))
+
+    (-> deactivate-btn
+        (rx/fromEvent "click")
+        (.subscribe (fn [_] (-> nav (.setAttribute "data-active" 0)))))
+
+
+    ))

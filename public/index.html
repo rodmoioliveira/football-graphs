@@ -775,6 +775,7 @@
         </li>
       </ul>
     </section>
+    <div class="sticky-nav-breakpoint"></div>
     <section class="graphs section">
       <h1 class="title">Brasil na Copa de 2018</h1>
       <p class="paragraph">
@@ -782,9 +783,12 @@
         Abaixo é possível selecionar diversas métricas diferentes para comparar
         o desempenho dos jogadores:
       </p>
-      <div class="sticky-nav-breakpoint"></div>
-      <nav class="nav-metrics" data-sticky="0">
+      <nav class="nav-menu" data-sticky="0">
+        <button class="nav-btn" data-active-metrics>Mostrar métricas</button>
+      </nav>
+      <nav class="nav-metrics" data-active="0">
         <div class="nav-controls">
+          <button class="nav-btn" data-deactivate-metrics>Esconder métricas</button>
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
             <select
