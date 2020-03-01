@@ -107,6 +107,9 @@
    (defn hash-by-id [v] (reduce (partial hash-by :wy-id) (sorted-map) v)))
 
 #?(:clj
+   (defn hash-by-name [v] (reduce (partial hash-by :name) (sorted-map) v)))
+
+#?(:clj
    (def output-file-type
      {:edn #(-> % pp/pprint with-out-str)
       :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))}))
