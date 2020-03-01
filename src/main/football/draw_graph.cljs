@@ -108,8 +108,8 @@
         ; Player name position
         name-position (-> config :nodes :name-position)
         positions {:center y-pos
-                   :top (- y-pos 20 radius)
-                   :bottom (+ y-pos 20 radius)}]
+                   :top (- y-pos 6 radius)
+                   :bottom (+ y-pos 6 radius)}]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
       ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
@@ -220,6 +220,8 @@
   [{:keys [^js data config]}]
   (let [nodes (-> data .-nodes)
         nodeshash (-> data ^:export .-nodeshash)
+        min-passes-to-display (-> data (aget "graphs-options") (aget "min-passes-to-display"))
+        filter-min-passes #(filter (fn [edge] (>= (-> edge .-value) min-passes-to-display)) %)
         edges (-> data .-links)
         simulation (-> d3
                        (.forceSimulation)
@@ -229,7 +231,7 @@
 
     (-> d3
         (.select (-> config :canvas))
-        (.on "click" (fn [] (on-node-click {:edges edges
+        (.on "click" (fn [] (on-node-click {:edges (-> edges filter-min-passes)
                                             :config config
                                             :data data
                                             :nodeshash nodeshash
@@ -243,7 +245,7 @@
 
     (draw-background config data)
     (-> data (aget "canvas-dimensions") (draw-field data config))
-    (draw-graph {:edges edges
+    (draw-graph {:edges (-> edges filter-min-passes)
                  :config config
                  :nodeshash nodeshash
                  :nodes nodes})))

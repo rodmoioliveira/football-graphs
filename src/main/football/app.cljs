@@ -89,12 +89,16 @@
            matches
            get-global-metrics
            name-position
+           min-passes-to-display
            position-metric]}]
   (doseq [canvas (all-canvas {:position-metric position-metric})]
     (write-label canvas)
-    (force-graph {:data (-> (merge (-> canvas :data) {:field {:background "white"
-                                                              :lines-color "#aaa"
-                                                              :lines-width 2}}) clj->js)
+    (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
+                                                      {:min-passes-to-display min-passes-to-display}
+                                                      :field
+                                                      {:background "white"
+                                                       :lines-color "#ccc"
+                                                       :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
@@ -116,7 +120,7 @@
                                  :get-global-metrics get-global-metrics
                                  ; TODO: remove?
                                  ; :name-position (when (= (-> % :position-metric) :average-pos) :center)
-                                 :name-position :center})
+                                 :name-position :bottom})
                          plot-graphs)))))
 
 (defn reload! [] (init))

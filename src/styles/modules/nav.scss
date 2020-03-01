@@ -35,6 +35,18 @@ fieldset {
   align-items: center;
 }
 
+.metric-input {
+  display: block;
+  background: white;
+  width: 200px;
+  padding: 0.2rem 0.3rem;
+  border-radius: 5px;
+
+  @media (max-width: 700px) {
+    width: 30vw;
+  }
+}
+
 .metric-select {
   background: white;
   width: 200px;
@@ -52,6 +64,12 @@ fieldset {
   text-align: center;
 }
 
+.metric-input,
+.metric-select {
+  border: $input-border;
+}
+
+.metric-input,
 .metric-select,
 .metric-option {
   font-size: 1.2rem;

@@ -72,8 +72,6 @@
 .graph__canvas {
   display: block;
   margin: 1rem;
-  background-size: 104% auto;
-  background-position: center center;
 
   @media (max-width: 710px) {
     margin: 0;
@@ -82,9 +80,9 @@
 
 [data-orientation='gol-top'],
 [data-orientation='gol-bottom'] {
-  max-width: 25vw;
+  // max-width: 25vw;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     width: 99%;
     max-width: 100rem;
   }
@@ -92,9 +90,9 @@
 
 [data-orientation='gol-left'],
 [data-orientation='gol-right'] {
-  max-height: 25vw;
+  // max-height: 25vw;
 
-  @media (max-width: 900px) {
+  @media (max-width: 1150px) {
     width: 99%;
     max-height: 100rem;
   }

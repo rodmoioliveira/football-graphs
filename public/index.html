@@ -784,13 +784,14 @@
       </p>
       <div class="sticky-nav-breakpoint"></div>
       <nav class="nav-metrics" data-sticky="0">
-        <form class="nav-controls">
+        <div class="nav-controls">
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
             <select
               class="metric-select"
               data-metric="node-area"
               name="node-area"
+              id="node-area"
             >
               <option class="metric-option" value="degree" selected>
                 Grau
@@ -836,6 +837,7 @@
               class="metric-select"
               data-metric="node-color"
               name="node-color"
+              id="node-color"
             >
               <option class="metric-option" value="degree">
                 Grau
@@ -887,6 +889,7 @@
               class="metric-select"
               data-metric="position"
               name="position"
+              id="position"
             >
               <option class="metric-option" value="average-pos" selected>
                 Média
@@ -904,6 +907,7 @@
               class="metric-select"
               data-metric="coverage"
               name="coverage"
+              id="coverage"
             >
               <option class="metric-option" value="match" selected>
                 Jogo
@@ -913,7 +917,22 @@
               </option>
             </select>
           </fieldset>
-        </form>
+          <fieldset data-fieldset="min-passes-to-display">
+            <label class="metric-label" for="min-passes-to-display">
+              Passes mínimos
+            </label>
+            <input
+              type="number"
+              class="metric-input"
+              data-metric="min-passes-to-display"
+              name="min-passes-to-display"
+              id="min-passes-to-display"
+              value="5"
+              min="1"
+              max="50"
+            />
+          </fieldset>
+        </div>
       </nav>
       <h2 class="graph__label" data-match-id="2057978"></h2>
       <div class="graphs__wrapper">
@@ -929,7 +948,7 @@
           data-team-id="6697"
           class="graph__canvas"
           id="canvas2"
-          data-orientation="gol-right"
+          data-orientation="gol-left"
         ></canvas>
       </div>
       <h2 class="graph__label" data-match-id="2057980"></h2>
@@ -946,7 +965,7 @@
           data-team-id="16871"
           class="graph__canvas"
           id="canvas4"
-          data-orientation="gol-right"
+          data-orientation="gol-left"
         ></canvas>
       </div>
       <h2 class="graph__label" data-match-id="2057982"></h2>
@@ -963,7 +982,7 @@
           data-team-id="6380"
           class="graph__canvas"
           id="canvas6"
-          data-orientation="gol-right"
+          data-orientation="gol-left"
         ></canvas>
       </div>
       <h2 class="graph__label" data-match-id="2058011"></h2>
@@ -980,7 +999,7 @@
           data-team-id="5629"
           class="graph__canvas"
           id="canvas8"
-          data-orientation="gol-right"
+          data-orientation="gol-left"
         ></canvas>
       </div>
     </section>

@@ -10,12 +10,19 @@
         node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
         coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
         position-select (-> js/document (.querySelector (str "[data-metric='position']")))
+        min-passses-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
         is-global? (fn [v] (= v :global))
         get-metrics (fn [] {:node-color-metric (-> node-color-select .-value keyword)
                         :node-radius-metric (-> node-area-select .-value keyword)
                         :position-metric (-> position-select .-value keyword)
+                        :min-passes-to-display (-> min-passses-input .-value int)
                         :global-metrics? (-> coverage-select .-value keyword is-global?)})]
-    (-> (rx/of node-color-select node-area-select coverage-select position-select)
+    (-> (rx/of
+          node-color-select
+          node-area-select
+          coverage-select
+          position-select
+          min-passses-input)
         (.pipe
          (rx-op/mergeMap #(-> (rx/fromEvent % "change")
                               (.pipe (rx-op/map get-metrics))))
@@ -32,9 +39,8 @@
          (rx-op/map (fn [] (-> breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
          (rx-op/distinctUntilChanged))
         (.subscribe (fn [v]
-                      (let []
                         (do
                           (-> nav (.setAttribute "data-sticky" v))
                           (-> breakpoint (#(set! (-> % .-style .-height) (if (zero? v)
                                                                            0
-                                                                           (str nav-height "px"))))))))))))
+                                                                           (str nav-height "px")))))))))))
