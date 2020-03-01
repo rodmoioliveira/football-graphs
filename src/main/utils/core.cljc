@@ -39,27 +39,6 @@
 (defn metric-range [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
 
 #?(:cljs
-   (defn write-label
-     [canvas]
-     (let [[label score] (-> canvas :data :label (split #","))
-           [team1 team2] (-> label (split #"-"))
-           [score1 score2] (-> score (split #"-"))
-           label-html (-> js/document (.querySelector
-                                       (str
-                                        "[data-match-id="
-                                        "'"
-                                        (-> canvas :data :match-id)
-                                        "'"
-                                        "].graph__label")))]
-       (-> label-html
-           (#(set! (.-innerHTML %) (str
-                                    "<span class='label__team1'>" team1 "</span>"
-                                    "<span class='label__score1'>" score1 "</span>"
-                                    "<span class='label__vs'>x</span>"
-                                    "<span class='label__score2'>" score2 "</span>"
-                                    "<span class='label__team2'>" team2 "</span>")))))))
-
-#?(:cljs
    (defn get-global-metrics
      [matches]
      (let [in-degree (metric-range :in-degree)
