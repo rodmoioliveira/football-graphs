@@ -249,6 +249,17 @@
         graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
+         :match-info
+         {:winner (-> data :match :winner)
+          :competition-id (-> data :match :competition-id)
+          :gameweek (-> data :match :gameweek)
+          :duration (-> data :match :duration)
+          :season-id (-> data :match :season-id)
+          :round-id (-> data :match :round-id)
+          :group-name (-> data :match :group-name)
+          :status (-> data :match :status)
+          :venue (-> data :match :venue)
+          :dateutc (-> data :match :dateutc)}
          :nodes (-> nodes
                     :nodes
                     (#(map (fn
