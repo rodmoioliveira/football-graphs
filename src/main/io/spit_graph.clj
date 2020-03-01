@@ -93,6 +93,19 @@
    ((output-file-type file-type) v))
   v)
 
+(defn get-teams-hashmap
+  []
+  (let [path "data/"
+        get-file #(io/resource (str path %))
+        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
+        data (->> (get-file "soccer_match_event_dataset/teams.json")
+                  slurp
+                  json->edn
+                  hash-by-id)]
+    data))
+
+(def teams-hashmap (get-teams-hashmap))
+
 ; ==================================
 ; Fetch Data
 ; ==================================
@@ -246,12 +259,24 @@
 (if (-> errors some? not)
   (let [links (links)
         average-pos (get-average-pos)
+        edges (-> links
+                  (#(reduce
+                     (fn
+                       [acc cur]
+                       (assoc-in
+                        acc
+                        [(-> cur first :team-id str keyword)]
+                        cur)) {} %)))
         graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
          :match-info
          {:winner (-> data :match :winner)
           :competition-id (-> data :match :competition-id)
+          :teams-info (-> edges
+                          keys
+                          ((fn [ks] (map (fn [k] (-> teams-hashmap k)) ks)))
+                          hash-by-id)
           :gameweek (-> data :match :gameweek)
           :duration (-> data :match :duration)
           :season-id (-> data :match :season-id)
@@ -280,14 +305,7 @@
                           acc
                           [(-> cur first :current-national-team-id str keyword)]
                           cur)) {} %)))
-         :links (-> links
-                    (#(reduce
-                       (fn
-                         [acc cur]
-                         (assoc-in
-                          acc
-                          [(-> cur first :team-id str keyword)]
-                          cur)) {} %)))
+         :links edges
          :min-max-values
          {:passes (-> links
                       flatten
