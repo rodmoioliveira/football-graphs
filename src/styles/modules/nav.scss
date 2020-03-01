@@ -16,8 +16,8 @@ fieldset {
 .nav-metrics {
   display: flex;
   align-items: center;
+  justify-content: center;
   background: white;
-  padding: 0.3rem 0 0.5rem;
   position: fixed;
   top: 0;
   width: 20rem;
@@ -25,7 +25,6 @@ fieldset {
   border-right: 1px solid $nav-border-color;
   box-shadow: 1px 2px 5px $nav-shadow-color;
   transition: transform 200ms ease;
-  padding-left: 2rem;
 }
 
 [data-active='0'] {
@@ -105,6 +104,7 @@ fieldset {
   background: $btn-background;
   border: $btn-border;
   padding: 1rem;
+  width: 200px;
   font-size: 1.3rem;
 
   @media (max-width: 700px) {
