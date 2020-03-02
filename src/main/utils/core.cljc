@@ -132,24 +132,25 @@
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
 (def field-dimensions [123 80])
-(def scale 9)
-(def canvas-dimensions
+(defn canvas-dimensions
+  [scale]
   (-> field-dimensions (#(map (partial * scale) %))))
 
 #?(:cljs
-   (def set-canvas-dimensions
+   (defn set-canvas-dimensions
+     [scale]
      {:gol-bottom (fn [c] (do
-                            (set! (.-height c) (-> canvas-dimensions first))
-                            (set! (.-width c) (-> canvas-dimensions second))))
+                            (set! (.-height c) (-> (canvas-dimensions scale) first))
+                            (set! (.-width c) (-> (canvas-dimensions scale) second))))
       :gol-top (fn [c] (do
-                         (set! (.-height c) (-> canvas-dimensions first))
-                         (set! (.-width c) (-> canvas-dimensions second))))
+                         (set! (.-height c) (-> (canvas-dimensions scale) first))
+                         (set! (.-width c) (-> (canvas-dimensions scale) second))))
       :gol-left (fn [c] (do
-                          (set! (.-height c) (-> canvas-dimensions second))
-                          (set! (.-width c) (-> canvas-dimensions first))))
+                          (set! (.-height c) (-> (canvas-dimensions scale) second))
+                          (set! (.-width c) (-> (canvas-dimensions scale) first))))
       :gol-right (fn [c] (do
-                           (set! (.-height c) (-> canvas-dimensions second))
-                           (set! (.-width c) (-> canvas-dimensions first))))}))
+                           (set! (.-height c) (-> (canvas-dimensions scale) second))
+                           (set! (.-width c) (-> (canvas-dimensions scale) first))))}))
 
 #?(:cljs
    (def mobile-mapping

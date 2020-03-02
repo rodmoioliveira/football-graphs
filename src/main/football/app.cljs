@@ -48,7 +48,7 @@
 ; Get canvas from DOM
 ; ==================================
 (defn all-canvas
-  [{:keys [position-metric]}]
+  [{:keys [position-metric scale]}]
   (-> js/document
       (.querySelectorAll ".graph__canvas")
       array-seq
@@ -65,10 +65,10 @@
                                                    keyword
                                                    ((fn [k] (if (mobile?) (mobile-mapping k) k))))
                                    nodes (-> v :nodes id (assoc-pos position-metric el orientation))]
-                               ((set-canvas-dimensions orientation) el)
+                               (((set-canvas-dimensions scale) orientation) el)
                                {:match-id (-> v :match-id)
                                 :nodes nodes
-                                :canvas-dimensions canvas-dimensions
+                                :canvas-dimensions (canvas-dimensions scale)
                                 :orientation orientation
                                 ; TODO: move hashs to preprocessing data..
                                 :nodeshash (-> nodes
@@ -87,9 +87,10 @@
            matches
            get-global-metrics
            name-position
+           scale
            min-passes-to-display
            position-metric]}]
-  (doseq [canvas (all-canvas {:position-metric position-metric})]
+  (doseq [canvas (all-canvas {:position-metric position-metric :scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
                                                       {:min-passes-to-display min-passes-to-display}
                                                       :field
@@ -114,6 +115,7 @@
     (-> (select-metrics$)
         (.subscribe #(-> %
                          (merge {:matches brazil-matches
+                                 :scale 9
                                  :get-global-metrics get-global-metrics
                                  :name-position :bottom})
                          plot-graphs)))))
