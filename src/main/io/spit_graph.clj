@@ -6,11 +6,12 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [clojure.string :refer [split trim]]
    ; [clojure.pprint :refer [pprint]]
 
    [mapping.matches :refer [map->pos]]
    [mapping.tatical :refer [positions]]
-   [utils.core :refer [output-file-type hash-by-id hash-by metric-range]]))
+   [utils.core :refer [output-file-type hash-by-id hash-by-name hash-by metric-range]]))
 
 ; ==================================
 ; Utils
@@ -92,6 +93,31 @@
    (str "src/main/data/graphs/test.edn")
    ((output-file-type file-type) v))
   v)
+
+(defn get-teams-id-hashmap
+  []
+  (let [path "data/"
+        get-file #(io/resource (str path %))
+        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
+        data (->> (get-file "soccer_match_event_dataset/teams.json")
+                  slurp
+                  json->edn
+                  hash-by-id)]
+    data))
+
+(defn get-teams-name-hashmap
+  []
+  (let [path "data/"
+        get-file #(io/resource (str path %))
+        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
+        data (->> (get-file "soccer_match_event_dataset/teams.json")
+                  slurp
+                  json->edn
+                  hash-by-name)]
+    data))
+
+(def teams-id-hashmap (get-teams-id-hashmap))
+(def teams-name-hashmap (get-teams-name-hashmap))
 
 ; ==================================
 ; Fetch Data
@@ -246,9 +272,36 @@
 (if (-> errors some? not)
   (let [links (links)
         average-pos (get-average-pos)
+        [teams-str] (-> data :match :label (split #","))
+        [team1 team2] (-> teams-str (split #"-") (#(map trim %)) (#(map keyword %)))
+        edges (-> links
+                  (#(reduce
+                     (fn
+                       [acc cur]
+                       (assoc-in
+                        acc
+                        [(-> cur first :team-id str keyword)]
+                        cur)) {} %)))
         graph
         {:match-id (-> id Integer.)
          :label (-> data :match :label)
+         :teams-info (-> edges
+                         keys
+                         ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
+                         hash-by-id)
+         :match-info
+         {:winner (-> data :match :winner)
+          :competition-id (-> data :match :competition-id)
+          :home-away {:home (-> teams-name-hashmap team1 :wy-id)
+                      :away (-> teams-name-hashmap team2 :wy-id)}
+          :gameweek (-> data :match :gameweek)
+          :duration (-> data :match :duration)
+          :season-id (-> data :match :season-id)
+          :round-id (-> data :match :round-id)
+          :group-name (-> data :match :group-name)
+          :status (-> data :match :status)
+          :venue (-> data :match :venue)
+          :dateutc (-> data :match :dateutc)}
          :nodes (-> nodes
                     :nodes
                     (#(map (fn
@@ -269,14 +322,7 @@
                           acc
                           [(-> cur first :current-national-team-id str keyword)]
                           cur)) {} %)))
-         :links (-> links
-                    (#(reduce
-                       (fn
-                         [acc cur]
-                         (assoc-in
-                          acc
-                          [(-> cur first :team-id str keyword)]
-                          cur)) {} %)))
+         :links edges
          :min-max-values
          {:passes (-> links
                       flatten

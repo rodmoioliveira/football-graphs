@@ -775,6 +775,7 @@
         </li>
       </ul>
     </section>
+    <div class="sticky-nav-breakpoint"></div>
     <section class="graphs section">
       <h1 class="title">Brasil na Copa de 2018</h1>
       <p class="paragraph">
@@ -782,15 +783,23 @@
         Abaixo é possível selecionar diversas métricas diferentes para comparar
         o desempenho dos jogadores:
       </p>
-      <div class="sticky-nav-breakpoint"></div>
-      <nav class="nav-metrics" data-sticky="0">
-        <form class="nav-controls">
+      <nav class="nav-menu" data-sticky="0">
+        <button class="nav-btn nav-btn--alternative" data-active-metrics>
+          <span class="btn-strip"></span>
+          <span class="btn-strip"></span>
+          <span class="btn-strip"></span>
+        </button>
+      </nav>
+      <nav class="nav-metrics" data-active="0">
+        <div class="nav-controls">
+          <button class="nav-btn" data-deactivate-metrics>Esconder métricas</button>
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
             <select
               class="metric-select"
               data-metric="node-area"
               name="node-area"
+              id="node-area"
             >
               <option class="metric-option" value="degree" selected>
                 Grau
@@ -836,6 +845,7 @@
               class="metric-select"
               data-metric="node-color"
               name="node-color"
+              id="node-color"
             >
               <option class="metric-option" value="degree">
                 Grau
@@ -887,6 +897,7 @@
               class="metric-select"
               data-metric="position"
               name="position"
+              id="position"
             >
               <option class="metric-option" value="average-pos" selected>
                 Média
@@ -904,6 +915,7 @@
               class="metric-select"
               data-metric="coverage"
               name="coverage"
+              id="coverage"
             >
               <option class="metric-option" value="match" selected>
                 Jogo
@@ -913,76 +925,26 @@
               </option>
             </select>
           </fieldset>
-        </form>
+          <fieldset data-fieldset="min-passes-to-display">
+            <label class="metric-label" for="min-passes-to-display">
+              Passes mínimos
+            </label>
+            <input
+              type="number"
+              class="metric-input"
+              data-metric="min-passes-to-display"
+              name="min-passes-to-display"
+              id="min-passes-to-display"
+              value="5"
+              min="1"
+              max="50"
+            />
+          </fieldset>
+        </div>
       </nav>
-      <h2 class="graph__label" data-match-id="2057978"></h2>
-      <div class="graphs__wrapper">
-        <canvas
-          data-match-id="2057978"
-          data-team-id="6380"
-          class="graph__canvas"
-          id="canvas1"
-          data-orientation="gol-left"
-        ></canvas>
-        <canvas
-          data-match-id="2057978"
-          data-team-id="6697"
-          class="graph__canvas"
-          id="canvas2"
-          data-orientation="gol-right"
-        ></canvas>
-      </div>
-      <h2 class="graph__label" data-match-id="2057980"></h2>
-      <div class="graphs__wrapper">
-        <canvas
-          data-match-id="2057980"
-          data-team-id="6380"
-          class="graph__canvas"
-          id="canvas3"
-          data-orientation="gol-left"
-        ></canvas>
-        <canvas
-          data-match-id="2057980"
-          data-team-id="16871"
-          class="graph__canvas"
-          id="canvas4"
-          data-orientation="gol-right"
-        ></canvas>
-      </div>
-      <h2 class="graph__label" data-match-id="2057982"></h2>
-      <div class="graphs__wrapper">
-        <canvas
-          data-match-id="2057982"
-          data-team-id="17322"
-          class="graph__canvas"
-          id="canvas5"
-          data-orientation="gol-left"
-        ></canvas>
-        <canvas
-          data-match-id="2057982"
-          data-team-id="6380"
-          class="graph__canvas"
-          id="canvas6"
-          data-orientation="gol-right"
-        ></canvas>
-      </div>
-      <h2 class="graph__label" data-match-id="2058011"></h2>
-      <div class="graphs__wrapper">
-        <canvas
-          data-match-id="2058011"
-          data-team-id="6380"
-          class="graph__canvas"
-          id="canvas7"
-          data-orientation="gol-left"
-        ></canvas>
-        <canvas
-          data-match-id="2058011"
-          data-team-id="5629"
-          class="graph__canvas"
-          id="canvas8"
-          data-orientation="gol-right"
-        ></canvas>
-      </div>
+
+    <section data-plot-graphs></section>
+
     </section>
     <footer class="footer">
       <p class="footer__author">Feito por Rodolfo Mói, Copyright (c) 2020.</p>

@@ -26,17 +26,17 @@
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
                   :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
-                 :codomains {:edges-width #js [2 15]
-                             :radius #js [15 30]
-                             :colors {:cold #js ["#bbdefb", "#0d47a1"]
-                                      :hot #js ["#ffff00", "#ff0000"]}}}
+                 :codomains {:edges-width #js [1 10]
+                             :radius #js [8 23]
+                             :colors {:edges #js ["#FFCC80", "#EF6C00"]
+                                      :nodes #js ["#FFF3E0", "#F57C00"]}}}
 
         ; ==================================
         ; Font
         ; ==================================
-        font {:weight "700"
-              :size "25px"
-              :type "'Open sans', sans-serif"
+        font {:weight "400"
+              :size "22px"
+              :type "'Alegreya', serif"
               :color "black"
               :text-align "center"
               :base-line "middle"}
@@ -53,7 +53,7 @@
                           (.scalePow)
                           (.exponent 0.1)
                           (.domain (-> mapping :domains :passes))
-                          (.range (-> mapping :codomains :colors :cold))
+                          (.range (-> mapping :codomains :colors :edges))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         edges->width (-> d3
                          (.scaleLinear)
@@ -63,7 +63,7 @@
                               (.scalePow)
                               (.exponent 1)
                               (.domain (-> mapping :domains %))
-                              (.range (-> mapping :codomains :colors :hot))
+                              (.range (-> mapping :codomains :colors :nodes))
                               (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
         node-radius-scale #(-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
@@ -98,14 +98,14 @@
     ; ==================================
     ; Config Object
     ; ==================================
-    {:arrows {:recoil 19
-              :expansion 1.2
-              :width 30}
+    {:arrows {:recoil 12
+              :expansion 1.5
+              :width 34}
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
-     :edges {:padding 1
-             :distance-between 4
-             :alpha 0.03}
+     :edges {:padding 15
+             :distance-between 10
+             :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
              :radius-click 5

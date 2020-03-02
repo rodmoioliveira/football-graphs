@@ -169,7 +169,7 @@
                              :eigenvector-centrality (-> eigenvector-centrality id)}})) %))
            (#(reduce (partial hash-by :id) (sorted-map) %)))
        :graph-metrics
-       {:algebraic_connectivity (-> mg (nx/algebraic_connectivity :weight "weight"))
+       {:algebraic-connectivity (-> mg (nx/algebraic_connectivity :weight "weight"))
         :average-clustering-coefficient average-clustering-coefficient
         :global-clustering-coefficient global-clustering-coefficient}})))
 

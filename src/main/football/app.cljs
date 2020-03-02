@@ -8,8 +8,8 @@
                        canvas-dimensions
                        mobile-mapping
                        hash-by
-                       write-label
                        get-global-metrics]]
+   [utils.dom :refer [plot-dom reset-dom]]
    [football.metrics-nav :refer [select-metrics$ sticky-nav$]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -79,22 +79,23 @@
                                 :label (-> v :label)}))))
                 :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
 
-; ==================================
-; Plot graphs
-; ==================================
 (defn plot-graphs
+  "Plot all data inside canvas."
   [{:keys [global-metrics?
            node-radius-metric
            node-color-metric
            matches
            get-global-metrics
            name-position
+           min-passes-to-display
            position-metric]}]
   (doseq [canvas (all-canvas {:position-metric position-metric})]
-    (write-label canvas)
-    (force-graph {:data (-> (merge (-> canvas :data) {:field {:background "white"
-                                                              :lines-color "#aaa"
-                                                              :lines-width 2}}) clj->js)
+    (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
+                                                      {:min-passes-to-display min-passes-to-display}
+                                                      :field
+                                                      {:background "white"
+                                                       :lines-color "#ccc"
+                                                       :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
@@ -103,20 +104,18 @@
                                                      (get-global-metrics matches)
                                                      (-> canvas :data :min-max-values))})})))
 
-; ==================================
-; Graphs Init
-; ==================================
 (defn init
+  "Init graph interations."
   []
   (do
+    (reset-dom)
+    (plot-dom brazil-matches)
     (sticky-nav$)
     (-> (select-metrics$)
         (.subscribe #(-> %
                          (merge {:matches brazil-matches
                                  :get-global-metrics get-global-metrics
-                                 ; TODO: remove?
-                                 ; :name-position (when (= (-> % :position-metric) :average-pos) :center)
-                                 :name-position :center})
+                                 :name-position :bottom})
                          plot-graphs)))))
 
 (defn reload! [] (init))
