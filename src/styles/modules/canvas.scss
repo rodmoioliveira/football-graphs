@@ -36,18 +36,18 @@
   color: $gray;
   margin-top: -20px;
 
-  @media (max-width: 850px) {
-    margin: 0 0.5rem;
-    font-size: 4vw;
-  }
-
   @include strip(
     $strip-color,
     $strip-height,
     $strip-width,
-    1rem auto 2rem,
-    0.5rem auto 1rem
+    2rem auto,
+    1rem auto
   );
+
+  @media (max-width: 850px) {
+    margin: 0 0.5rem;
+    font-size: 4.5vw;
+  }
 }
 
 .label__team1,
