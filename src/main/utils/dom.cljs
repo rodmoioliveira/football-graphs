@@ -41,6 +41,24 @@
      (-> dateutc (split #" ") first (split #"-") ((fn [[y m d]] [d m y])) (#(join "-" %)))
      "</h3>")))
 
+(defn stats-dom
+  [algebraic-connectivity global-clustering]
+  (str
+   "<p class='graph__stats'>
+      <span>
+      Conectividade:
+      </span>
+      <span class='graph__metric'>"
+   algebraic-connectivity
+   "</span>
+      <span>
+      | Agrupamento:
+      </span>
+      <span class='graph__metric'>"
+   global-clustering
+   "</span>
+      </p>"))
+
 (defn canvas-dom
   "Create canvas elements."
   [match]
@@ -53,10 +71,10 @@
         team2-id (-> match :match-info :home-away :away)
         team1-name (get-name team1-id)
         team2-name (get-name team2-id)
-        team1-algebraic-connectivity (get-ac team1-id)
-        team2-algebraic-connectivity (get-ac team2-id)
-        team1-global-clustering (get-gclus team1-id)
-        team2-global-clustering (get-gclus team2-id)]
+        team1-ac (get-ac team1-id)
+        team2-ac (get-ac team2-id)
+        team1-gc (get-gclus team1-id)
+        team2-gc (get-gclus team2-id)]
     (str
      "<div class='graphs__wrapper'>
       <div class='graph'>
@@ -68,22 +86,9 @@
       vs "
      team2-name
      "</span>
-      </p>
-      <p class='graph__stats'>
-      <span>
-      Conectividade:
-      </span>
-      <span class='graph__metric'>"
-     team1-algebraic-connectivity
-     "</span>
-      <span>
-      | Agrupamento:
-      </span>
-      <span class='graph__metric'>"
-     team1-global-clustering
-     "</span>
-      </p>
-      <canvas
+      </p>"
+     (stats-dom team1-ac team1-gc)
+     "<canvas
         data-match-id='"
      match-id
      "'data-team-id='"
@@ -106,22 +111,9 @@
       vs "
      team1-name
      "</span>
-      </p>
-      <p class='graph__stats'>
-        <span>
-          Conectividade:
-        </span>
-      <span class='graph__metric'>"
-     team2-algebraic-connectivity
-     "</span>
-        <span>
-         | Agrupamento:
-        </span>
-      <span class='graph__metric'>"
-     team2-global-clustering
-     "</span>
-      </p>
-     <canvas
+      </p>"
+     (stats-dom team2-ac team2-gc)
+     "<canvas
         data-match-id='"
      match-id
      "'data-team-id='"
