@@ -42,6 +42,7 @@
      "</h3>")))
 
 (defn stats-dom
+  "Create the stats values for each graph."
   [algebraic-connectivity global-clustering]
   (str
    "<p class='graph__stats'>
