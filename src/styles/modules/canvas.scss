@@ -26,12 +26,26 @@
   @media (max-width: 850px) {
     font-size: 8vw;
   }
+}
+
+.graph__info {
+  font-family: 'Alegreya', serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 2rem;
+  color: $gray;
+  margin-top: -20px;
+
+  @media (max-width: 850px) {
+    margin: 0 0.5rem;
+    font-size: 4vw;
+  }
 
   @include strip(
     $strip-color,
     $strip-height,
     $strip-width,
-    0 auto 1rem,
+    1rem auto 2rem,
     0.5rem auto 1rem
   );
 }
@@ -51,7 +65,7 @@
 
   @media (max-width: 850px) {
     margin: 0 0.5rem;
-    font-size: 9vw;
+    font-size: 14vw;
   }
 }
 

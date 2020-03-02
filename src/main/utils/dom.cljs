@@ -8,6 +8,9 @@
   (let [[label score] (-> match :label (split #","))
         [team1 team2] (-> label (split #"-"))
         [score1 score2] (-> score (split #"-"))
+        group-name (-> match :match-info :group-name)
+        dateutc (-> match :match-info :dateutc)
+        venue (-> match :match-info :venue)
         match-id (-> match :match-id)]
     (str
      "<h2 class='graph__label'
@@ -27,7 +30,16 @@
         <span class='label__team2'>"
      team2
      "</span>
-      </h2>")))
+      </h2>
+     <h3 class='graph__info'>"
+     (when (not= "" group-name)
+       (str
+        group-name
+        " | "))
+     venue
+     " | "
+     (-> dateutc (split #" ") first (split #"-") ((fn [[y m d]] [d m y])) (#(join "-" %)))
+     "</h3>")))
 
 (defn canvas-dom
   "Create canvas elements."
@@ -38,6 +50,7 @@
         team2-id (-> match :match-info :home-away :away)]
     (str
      "<div class='graphs__wrapper'>
+      <div class='graph'>
       <canvas
         data-match-id='"
      match-id
@@ -50,8 +63,10 @@
      label
      "' data-orientation='gol-left'
         height='720'
-        width='1107'></canvas>"
-     "<canvas
+        width='1107'></canvas>
+      </div>"
+     "<div class='graph'>
+     <canvas
         data-match-id='"
      match-id
      "'data-team-id='"
@@ -64,6 +79,7 @@
      "' data-orientation='gol-left'
         height='720'
         width='1107'></canvas>
+     </div>
      </div>")))
 
 (defn plot-dom

@@ -34,7 +34,7 @@
         ; ==================================
         ; Font
         ; ==================================
-        font {:weight "500"
+        font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
               :color "black"
