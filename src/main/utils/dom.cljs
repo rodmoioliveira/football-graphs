@@ -46,11 +46,43 @@
   [match]
   (let [[label] (-> match :label (split #","))
         match-id (-> match :match-id)
+        get-name (fn [id] (-> match :teams-info (#(get-in % [(keyword (str id))])) :name))
+        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 1)))
+        get-gclus (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :global-clustering-coefficient (.toFixed 3)))
         team1-id (-> match :match-info :home-away :home)
-        team2-id (-> match :match-info :home-away :away)]
+        team2-id (-> match :match-info :home-away :away)
+        team1-name (get-name team1-id)
+        team2-name (get-name team2-id)
+        team1-algebraic-connectivity (get-ac team1-id)
+        team2-algebraic-connectivity (get-ac team2-id)
+        team1-global-clustering (get-gclus team1-id)
+        team2-global-clustering (get-gclus team2-id)]
     (str
      "<div class='graphs__wrapper'>
       <div class='graph'>
+      <p class='graph__confront'>
+      <span class='graph__team'>"
+     team1-name
+     "</span>
+      <span>
+      vs "
+     team2-name
+     "</span>
+      </p>
+      <p class='graph__stats'>
+      <span>
+      Conectividade:
+      </span>
+      <span class='graph__metric'>"
+     team1-algebraic-connectivity
+     "</span>
+      <span>
+      | Agrupamento:
+      </span>
+      <span class='graph__metric'>"
+     team1-global-clustering
+     "</span>
+      </p>
       <canvas
         data-match-id='"
      match-id
@@ -66,6 +98,29 @@
         width='1107'></canvas>
       </div>"
      "<div class='graph'>
+     <p class='graph__confront'>
+      <span class='graph__team'>"
+     team2-name
+     "</span>
+      <span>
+      vs "
+     team1-name
+     "</span>
+      </p>
+      <p class='graph__stats'>
+        <span>
+          Conectividade:
+        </span>
+      <span class='graph__metric'>"
+     team2-algebraic-connectivity
+     "</span>
+        <span>
+         | Agrupamento:
+        </span>
+      <span class='graph__metric'>"
+     team2-global-clustering
+     "</span>
+      </p>
      <canvas
         data-match-id='"
      match-id
