@@ -50,7 +50,7 @@
     "share": "ngrok http --host-header=rewrite 8080",
     "serve:prod": "npm run build && http-server dist",
     "serve:dev": "http-server public",
-    "test": "clojure src/test/core.clj"
+    "test": "clojure src/test/core.cljc"
   },
   "devDependencies": {
     "fs-extra": "^8.1.0",

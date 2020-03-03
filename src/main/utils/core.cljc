@@ -5,33 +5,23 @@
    [clojure.pprint :as pp]
    [project-specs :as pspecs]
    #?(:clj [clojure.spec.test.alpha :as stest]
-      :cljs [cljs.spec.test.alpha :as stest])
+      :cljs [cljs.spec.test.alpha :as stest :include-macros true])
    #?(:clj [clojure.spec.alpha :as s]
-      :cljs [cljs.spec.alpha :as s])
+      :cljs [cljs.spec.alpha :as s] :include-macros true)
    #?(:clj [clojure.data.json :as json])))
 
 #?(:clj (defn max-val [m] {:max (reduce max m)}))
 #?(:cljs (defn max-val [m] (reduce max m)))
-#?(:clj
-   (s/fdef max-val
-     :args ::pspecs/max-val-args
-     :ret ::pspecs/max-val-ret))
-#?(:cljs
-   (s/fdef max-val
-     :args ::pspecs/ranges
-     :ret ::pspecs/range))
+(s/fdef max-val
+  :args #?(:clj ::pspecs/max-val-args :cljs ::pspecs/ranges)
+  :ret #?(:clj ::pspecs/max-val-ret :cljs ::pspecs/range))
 (stest/instrument `max-val)
 
 #?(:clj (defn min-val [m] {:min (reduce min m)}))
 #?(:cljs (defn min-val [m] (reduce min m)))
-#?(:clj
-   (s/fdef min-val
-     :args ::pspecs/min-val-args
-     :ret ::pspecs/min-val-ret))
-#?(:cljs
-   (s/fdef min-val
-     :args ::pspecs/ranges
-     :ret ::pspecs/range))
+(s/fdef min-val
+  :args #?(:clj ::pspecs/min-val-args :cljs ::pspecs/ranges)
+  :ret #?(:clj ::pspecs/min-val-ret :cljs ::pspecs/range))
 (stest/instrument `min-val)
 
 (defn merge-maps [v] (apply merge v))
