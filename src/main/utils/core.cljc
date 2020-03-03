@@ -39,27 +39,6 @@
 (defn metric-range [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
 
 #?(:cljs
-   (defn write-label
-     [canvas]
-     (let [[label score] (-> canvas :data :label (split #","))
-           [team1 team2] (-> label (split #"-"))
-           [score1 score2] (-> score (split #"-"))
-           label-html (-> js/document (.querySelector
-                                       (str
-                                        "[data-match-id="
-                                        "'"
-                                        (-> canvas :data :match-id)
-                                        "'"
-                                        "].graph__label")))]
-       (-> label-html
-           (#(set! (.-innerHTML %) (str
-                                    "<span class='label__team1'>" team1 "</span>"
-                                    "<span class='label__score1'>" score1 "</span>"
-                                    "<span class='label__vs'>x</span>"
-                                    "<span class='label__score2'>" score2 "</span>"
-                                    "<span class='label__team2'>" team2 "</span>")))))))
-
-#?(:cljs
    (defn get-global-metrics
      [matches]
      (let [in-degree (metric-range :in-degree)
@@ -128,6 +107,9 @@
    (defn hash-by-id [v] (reduce (partial hash-by :wy-id) (sorted-map) v)))
 
 #?(:clj
+   (defn hash-by-name [v] (reduce (partial hash-by :name) (sorted-map) v)))
+
+#?(:clj
    (def output-file-type
      {:edn #(-> % pp/pprint with-out-str)
       :json #(-> % (json/write-str :key-fn (fn [k] (-> k name str csk/->camelCase))))}))
@@ -150,24 +132,25 @@
       :y (* (-> canvas .-height) (/ y-% 100))}))
 
 (def field-dimensions [123 80])
-(def scale 9)
-(def canvas-dimensions
+(defn canvas-dimensions
+  [scale]
   (-> field-dimensions (#(map (partial * scale) %))))
 
 #?(:cljs
-   (def set-canvas-dimensions
+   (defn set-canvas-dimensions
+     [scale]
      {:gol-bottom (fn [c] (do
-                            (set! (.-height c) (-> canvas-dimensions first))
-                            (set! (.-width c) (-> canvas-dimensions second))))
+                            (set! (.-height c) (-> (canvas-dimensions scale) first))
+                            (set! (.-width c) (-> (canvas-dimensions scale) second))))
       :gol-top (fn [c] (do
-                         (set! (.-height c) (-> canvas-dimensions first))
-                         (set! (.-width c) (-> canvas-dimensions second))))
+                         (set! (.-height c) (-> (canvas-dimensions scale) first))
+                         (set! (.-width c) (-> (canvas-dimensions scale) second))))
       :gol-left (fn [c] (do
-                          (set! (.-height c) (-> canvas-dimensions second))
-                          (set! (.-width c) (-> canvas-dimensions first))))
+                          (set! (.-height c) (-> (canvas-dimensions scale) second))
+                          (set! (.-width c) (-> (canvas-dimensions scale) first))))
       :gol-right (fn [c] (do
-                           (set! (.-height c) (-> canvas-dimensions second))
-                           (set! (.-width c) (-> canvas-dimensions first))))}))
+                           (set! (.-height c) (-> (canvas-dimensions scale) second))
+                           (set! (.-width c) (-> (canvas-dimensions scale) first))))}))
 
 #?(:cljs
    (def mobile-mapping
