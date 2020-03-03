@@ -42,5 +42,3 @@
     (#(project % [:cause]))
     vec
     has-error?)
-
-
