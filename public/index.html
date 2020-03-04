@@ -775,7 +775,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Conectividade Algébrica (Sincronização)
+            Conectividade Algébrica (Coesão)
           </h3>
           <p class="paragraph">
             A conectividade algébrica de um grafo é o segundo menor autovalor da
@@ -783,40 +783,42 @@
           </p>
           <p class="paragraph short-explanation">
             Quantifica a coesão de um time. Baixos valores nesta métrica são
-            indicativo de que a rede de passes está próxima de se dividir em duas
-            redes distintas.
+            indicativo de que a rede de passes está próxima de se dividir em
+            duas redes distintas.
           </p>
           <blockquote>
             <p class="paragraph">
               <span class="quote-text">
                 It is also worth analyzing the behavior of the second smallest
-                eigenvalue λ2 of the Laplacian matrix L, also known as the
-                algebraic connectivity (see Methods). The value of λ2 is related
+                eigenvalue λ of the Laplacian matrix L, also known as the
+                algebraic connectivity (see Methods). The value of λ is related
                 to several network properties. In synchronization, networks with
-                higher λ2 require less time to synchronize54 and in diffusion
+                higher λ require less time to synchronize54 and in diffusion
                 processes, the time to reach equilibrium also goes with the
-                inverse of λ2. In the context of football passing networks, λ2
-                can be interpreted as a metric for quantifying the division of a
-                team. The reason is that low values of λ2 indicate that a
-                network is close to be split into two groups, eventually
-                breaking for λ2=0. In this way, the higher the value of λ2 the
-                more interconnected the team is, being a measure of structural
-                cohesion. In Fig. 3D, we have plot the comparison of λ2, which
-                reveals that FCB attacking and defensive lines are more
-                intermingled, leading to a λ~2 higher than its rivals.
+                inverse of λ. In the context of football passing networks, λ can
+                be interpreted as a metric for quantifying the division of a
+                team. The reason is that low values of λ indicate that a network
+                is close to be split into two groups, eventually breaking for
+                λ=0. In this way, the higher the value of λ the more
+                interconnected the team is, being a measure of structural
+                cohesion.
               </span>
               <span class="quote-reference">
-                Buldú, J.M., Busquets, J., Echegoyen, I. et al. Defining a
-                historic football team: Using Network Science to analyze
-                Guardiola’s F.C. Barcelona. Sci Rep 9, 13602 (2019).
-                https://doi.org/10.1038/s41598-019-49969-2
+                <a
+                  target="_blank"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/"
+                >
+                  Using Network Science to Analyse Football Passing Networks:
+                  Dynamics, Space, Time, and the Multilayer Nature of the Game.
+                  Javier M. Buldú, Javier Busquets, [...], and Jordi Luque
+                </a>
               </span>
             </p>
           </blockquote>
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Conectividade (Força da rede)
+            Conectividade (Resistência)
           </h3>
           <p class="paragraph">
             Conectividade é um dos conceitos básicos da teoria dos grafos que

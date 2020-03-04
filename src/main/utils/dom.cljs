@@ -49,7 +49,7 @@
   (str
    "<p class='graph__stats'>
       <span>
-      Sincronização:
+      Coesão:
       </span>
       <span class='graph__metric'>"
    algebraic-connectivity
@@ -61,7 +61,7 @@
    global-clustering
    "</span>
       <span>
-      | Conectividade:
+      | Resistência:
       </span>
       <span class='graph__metric'>"
    average-node-connectivity
