@@ -7,6 +7,7 @@
 (s/def ::max ::int-or-double)
 (s/def ::min ::int-or-double)
 (s/def ::max-val-args (s/cat :values (s/coll-of ::max :min-count 1)))
+(s/def ::point (s/cat :vector (s/coll-of ::int-or-double :kind vector? :count 2)))
 (s/def ::min-val-args (s/cat :values (s/coll-of ::min :min-count 1)))
 (s/def ::max-val-ret (s/keys :req-un [::max]))
 (s/def ::min-val-ret (s/keys :req-un [::min]))

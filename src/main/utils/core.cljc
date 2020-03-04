@@ -182,6 +182,10 @@
      "||u|| = √(u1 + u2)"
      [[x y]]
      (js/Math.sqrt (+ (js/Math.pow x 2) (js/Math.pow y 2)))))
+(s/fdef vector-length
+  :args ::pspecs/point
+  :ret ::pspecs/int-or-double)
+(stest/instrument `vector-length)
 
 #?(:cljs
    (defn dot-product
