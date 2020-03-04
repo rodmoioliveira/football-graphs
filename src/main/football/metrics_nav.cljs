@@ -27,7 +27,7 @@
          position-select
          min-passes-input)
         (.pipe
-         (rx-op/mergeMap #(-> (rx/fromEvent % "change")
+         (rx-op/mergeMap #(-> (rx/fromEvent % "input")
                               (.pipe (rx-op/map get-metrics))))
          (rx-op/startWith (get-metrics))
          (rx-op/tap display-passes)))))

@@ -148,7 +148,7 @@
       <ul class="metric-list">
         <li class="metric-item">
           <h3 class="subtitle">
-            Grau
+            Grau (passes feitos e recebidos)
           </h3>
           <p class="paragraph">
             Centralidade de grau é definida como o número de ligações incidentes
@@ -206,7 +206,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Autovetor
+            Autovetor (Influência)
           </h3>
           <p class="paragraph">
             Centralidade de vetor próprio é uma medida da influência de um nó
@@ -399,7 +399,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Intermediação
+            Intermediação (Ponte)
           </h3>
           <p class="paragraph">
             Centralidade de intermediação quantifica o número de vezes que um nó
@@ -583,7 +583,7 @@
         </li>
         <li class="metric-item">
           <h3 class="subtitle">
-            Coeficiente Local de Agrupamento
+            Coeficiente Local de Agrupamento (Triangulação)
           </h3>
           <p class="paragraph">
             O coeficiente de agrupamento local de um vértice (nó) num grafo mede
@@ -773,6 +773,65 @@
             </p>
           </blockquote>
         </li>
+        <li class="metric-item">
+          <h3 class="subtitle">
+            Conectividade Algébrica (Coesão)
+          </h3>
+          <p class="paragraph">
+            A conectividade algébrica de um grafo é o segundo menor autovalor da
+            sua matriz Laplaciana associada.
+          </p>
+          <p class="paragraph short-explanation">
+            Quantifica a coesão de um time. Baixos valores nesta métrica são
+            indicativo de que a rede de passes está próxima de se dividir em
+            duas redes distintas.
+          </p>
+          <blockquote>
+            <p class="paragraph">
+              <span class="quote-text">
+                It is also worth analyzing the behavior of the second smallest
+                eigenvalue λ of the Laplacian matrix L, also known as the
+                algebraic connectivity (see Methods). The value of λ is related
+                to several network properties. In synchronization, networks with
+                higher λ require less time to synchronize54 and in diffusion
+                processes, the time to reach equilibrium also goes with the
+                inverse of λ. In the context of football passing networks, λ can
+                be interpreted as a metric for quantifying the division of a
+                team. The reason is that low values of λ indicate that a network
+                is close to be split into two groups, eventually breaking for
+                λ=0. In this way, the higher the value of λ the more
+                interconnected the team is, being a measure of structural
+                cohesion.
+              </span>
+              <span class="quote-reference">
+                <a
+                  target="_blank"
+                  href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/"
+                >
+                  Using Network Science to Analyse Football Passing Networks:
+                  Dynamics, Space, Time, and the Multilayer Nature of the Game.
+                  Javier M. Buldú, Javier Busquets, [...], and Jordi Luque
+                </a>
+              </span>
+            </p>
+          </blockquote>
+        </li>
+        <li class="metric-item">
+          <h3 class="subtitle">
+            Conectividade (Resistência)
+          </h3>
+          <p class="paragraph">
+            Conectividade é um dos conceitos básicos da teoria dos grafos que
+            fala sobre o número mínimo de elementos (vértices ou arestas) que
+            precisam ser removidos para desconectar os vértices restantes uns
+            dos outros. É um tema fortemente ligado a teoria dos problemas de
+            fluxo de redes. A conectividade de um grafo é uma importante medida
+            da robustez de uma rede.
+          </p>
+          <p class="paragraph short-explanation">
+            Indica a força e resiliência da rede de passes do time.
+          </p>
+        </li>
       </ul>
     </section>
     <div class="sticky-nav-breakpoint"></div>
@@ -792,7 +851,9 @@
       </nav>
       <nav class="nav-metrics" data-active="0">
         <div class="nav-controls">
-          <button class="nav-btn" data-deactivate-metrics>Esconder métricas</button>
+          <button class="nav-btn" data-deactivate-metrics>
+            Esconder métricas
+          </button>
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
             <select
@@ -943,9 +1004,7 @@
           </fieldset>
         </div>
       </nav>
-
-    <section data-plot-graphs></section>
-
+      <section data-plot-graphs></section>
     </section>
     <footer class="footer">
       <p class="footer__author">Feito por Rodolfo Mói, Copyright (c) 2020.</p>

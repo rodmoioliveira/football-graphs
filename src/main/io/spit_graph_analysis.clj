@@ -170,6 +170,7 @@
            (#(reduce (partial hash-by :id) (sorted-map) %)))
        :graph-metrics
        {:algebraic-connectivity (-> mg (nx/algebraic_connectivity :weight "weight"))
+        :average-node-connectivity (-> mdg (nx/average_node_connectivity))
         :average-clustering-coefficient average-clustering-coefficient
         :global-clustering-coefficient global-clustering-coefficient}})))
 
