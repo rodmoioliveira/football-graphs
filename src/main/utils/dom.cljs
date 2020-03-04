@@ -43,20 +43,28 @@
 
 (defn stats-dom
   "Create the stats values for each graph."
-  [algebraic-connectivity global-clustering]
+  [algebraic-connectivity
+   global-clustering
+   average-node-connectivity]
   (str
    "<p class='graph__stats'>
       <span>
-      Conectividade:
+      Sincronização:
       </span>
       <span class='graph__metric'>"
    algebraic-connectivity
    "</span>
       <span>
-      | Agrupamento:
+      | Triangulação:
       </span>
       <span class='graph__metric'>"
    global-clustering
+   "</span>
+      <span>
+      | Conectividade:
+      </span>
+      <span class='graph__metric'>"
+   average-node-connectivity
    "</span>
       </p>"))
 
@@ -66,12 +74,15 @@
   (let [[label] (-> match :label (split #","))
         match-id (-> match :match-id)
         get-name (fn [id] (-> match :teams-info (#(get-in % [(keyword (str id))])) :name))
-        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 1)))
+        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 3)))
+        get-anc (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :average-node-connectivity (.toFixed 3)))
         get-gclus (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :global-clustering-coefficient (.toFixed 3)))
         team1-id (-> match :match-info :home-away :home)
         team2-id (-> match :match-info :home-away :away)
         team1-name (get-name team1-id)
         team2-name (get-name team2-id)
+        team1-anc (get-anc team1-id)
+        team2-anc (get-anc team2-id)
         team1-ac (get-ac team1-id)
         team2-ac (get-ac team2-id)
         team1-gc (get-gclus team1-id)
@@ -88,7 +99,7 @@
      team2-name
      "</span>
       </p>"
-     (stats-dom team1-ac team1-gc)
+     (stats-dom team1-ac team1-gc team1-anc)
      "<canvas
         data-match-id='"
      match-id
@@ -113,7 +124,7 @@
      team1-name
      "</span>
       </p>"
-     (stats-dom team2-ac team2-gc)
+     (stats-dom team2-ac team2-gc team2-anc)
      "<canvas
         data-match-id='"
      match-id
