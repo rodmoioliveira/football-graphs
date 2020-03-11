@@ -76,8 +76,7 @@
                                                   (reduce (partial hash-by :id) (sorted-map) n))))
                                 :links (-> v :links id)
                                 :min-max-values (-> v :min-max-values)
-                                :label (-> v :label)}))))
-                :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
+                                :label (-> v :label)}))))}) %))))
 
 (defn plot-graphs
   "Plot all data inside canvas."
