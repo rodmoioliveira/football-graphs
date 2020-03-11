@@ -7,7 +7,7 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric min-max-values name-position]}]
+  [{:keys [id node-radius-metric node-color-metric min-max-values name-position font-color]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
 
@@ -37,7 +37,7 @@
         font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
-              :color "black"
+              :color (or font-color "black")
               :text-align "center"
               :base-line "middle"}
 

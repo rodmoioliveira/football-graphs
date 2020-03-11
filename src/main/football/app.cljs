@@ -100,6 +100,7 @@
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
                                    :name-position name-position
+                                   :font-color "black"
                                    :min-max-values (if global-metrics?
                                                      (get-global-metrics matches)
                                                      (-> canvas :data :min-max-values))})})))
