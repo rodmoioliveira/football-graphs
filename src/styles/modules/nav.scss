@@ -15,15 +15,15 @@ fieldset {
 
 .nav-metrics {
   display: flex;
+  background: var(--body-color);
   align-items: center;
   justify-content: center;
-  background: white;
   position: fixed;
   top: 0;
   width: 20rem;
   height: 100%;
-  border-right: 1px solid $nav-border-color;
-  box-shadow: 1px 2px 5px $nav-shadow-color;
+  border-right: 1px solid var(--nav-border-color);
+  box-shadow: 1px 2px 5px var(--nav-shadow-color);
   transition: transform 200ms ease;
 }
 
@@ -49,13 +49,14 @@ fieldset {
 }
 
 .metric-select {
-  background: white;
+  background: var(--body-color);
   width: 200px;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
 }
 
 .metric-label {
+  color: var(--text-color);
   padding: 0.2rem 0.5rem 0.2rem 0.2rem;
   font-weight: 700;
   text-align: left;
@@ -63,7 +64,7 @@ fieldset {
 
 .metric-input,
 .metric-select {
-  border: $input-border;
+  border: var(--input-border);
 }
 
 .metric-input,
@@ -100,9 +101,9 @@ fieldset {
 }
 
 .nav-btn {
-  color: $btn-font-color;
-  background: $btn-background;
-  border: $btn-border;
+  color: var(--btn-font-color);
+  background: var(--btn-background);
+  border: var(--btn-border);
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -113,8 +114,27 @@ fieldset {
   }
 }
 
+[data-deactivate-metrics] {
+  margin-top: 1rem;
+}
+
 .nav-btn--alternative {
   background: transparent;
+}
+
+.nav-btn--theme-toogle {
+  background: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  color: var(--btn-theme-color);
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-strip {
@@ -122,7 +142,7 @@ fieldset {
   flex: 0 0 100%;
   height: 5px;
   width: 0.6rem;
-  background: $btn-background;
+  background: var(--btn-background);
 
   &:not(:first-child) {
     margin-top: 5px;

@@ -33,13 +33,13 @@
   font-weight: 400;
   text-align: center;
   font-size: 2rem;
-  color: $gray;
+  color: var(--gray);
   margin-top: -20px;
 
   @include strip(
-    $strip-color,
-    $strip-height,
-    $strip-width,
+    var(--strip-color),
+    var(--strip-height),
+    var(--strip-width),
     2rem auto,
     1rem auto
   );
@@ -118,7 +118,7 @@
   font-size: 1.5rem;
   margin: 0;
   padding-left: 1.4rem;
-  color: $gray;
+  color: var(--gray);
 
   @media (max-width: 650px) {
     font-size: 4vw;
@@ -131,7 +131,7 @@
 }
 
 .graph__team {
-  color: $text-color;
+  color: var(--text-color);
   font-size: 2.5rem;
   line-height: 0.2;
 
@@ -141,5 +141,5 @@
 }
 
 .graph__metric {
-  color: $text-color;
+  color: var(--text-color);
 }

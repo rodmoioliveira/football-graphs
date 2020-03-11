@@ -9,7 +9,7 @@
                        mobile-mapping
                        hash-by
                        get-global-metrics]]
-   [utils.dom :refer [plot-dom reset-dom]]
+   [utils.dom :refer [plot-dom reset-dom dom toogle-theme-btn toogle-theme]]
    [football.metrics-nav :refer [select-metrics$ sticky-nav$]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -76,8 +76,7 @@
                                                   (reduce (partial hash-by :id) (sorted-map) n))))
                                 :links (-> v :links id)
                                 :min-max-values (-> v :min-max-values)
-                                :label (-> v :label)}))))
-                :theme (-> el (.getAttribute "data-theme") keyword)}) %))))
+                                :label (-> v :label)}))))}) %))))
 
 (defn plot-graphs
   "Plot all data inside canvas."
@@ -89,18 +88,22 @@
            name-position
            scale
            min-passes-to-display
-           position-metric]}]
+           position-metric
+           theme-background
+           theme-lines-color
+           theme-font-color]}]
   (doseq [canvas (all-canvas {:position-metric position-metric :scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
                                                       {:min-passes-to-display min-passes-to-display}
                                                       :field
-                                                      {:background "white"
-                                                       :lines-color "#ccc"
+                                                      {:background theme-background
+                                                       :lines-color theme-lines-color
                                                        :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
                                    :name-position name-position
+                                   :font-color theme-font-color
                                    :min-max-values (if global-metrics?
                                                      (get-global-metrics matches)
                                                      (-> canvas :data :min-max-values))})})))
@@ -108,16 +111,25 @@
 (defn init
   "Init graph interations."
   []
-  (do
-    (reset-dom)
-    (plot-dom brazil-matches)
-    (sticky-nav$)
-    (-> (select-metrics$)
-        (.subscribe #(-> %
-                         (merge {:matches brazil-matches
-                                 :scale 9
-                                 :get-global-metrics get-global-metrics
-                                 :name-position :bottom})
-                         plot-graphs)))))
+  (let [metrics (select-metrics$)
+        input$ (-> metrics :input$)
+        click$ (-> metrics :click$)
+        opts {:matches brazil-matches
+              :scale 9
+              :get-global-metrics get-global-metrics
+              :name-position :bottom}]
+    (do
+      (reset-dom)
+      (plot-dom brazil-matches)
+      (sticky-nav$)
+      (-> input$
+          (.subscribe #(-> % (merge opts) plot-graphs)))
+      (-> click$
+          (.subscribe #(-> % (merge opts)
+                           ((fn [{:keys [theme-text theme] :as obj}]
+                              (do
+                                (toogle-theme-btn theme-text)
+                                (toogle-theme theme)
+                                (plot-graphs obj))))))))))
 
 (defn reload! [] (init))

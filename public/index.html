@@ -98,7 +98,7 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
     <title>Grafos da Bola</title>
   </head>
-  <body>
+  <body data-theme="light">
     <section class="intro section">
       <h1 class="title">Rede de Passes</h1>
       <p class="paragraph">
@@ -849,11 +849,9 @@
           <span class="btn-strip"></span>
         </button>
       </nav>
+      <button class="nav-btn nav-btn--theme-toogle" data-toogle-theme>🌛</button>
       <nav class="nav-metrics" data-active="0">
         <div class="nav-controls">
-          <button class="nav-btn" data-deactivate-metrics>
-            Esconder métricas
-          </button>
           <fieldset>
             <label class="metric-label" for="node-area">Área</label>
             <select
@@ -1002,6 +1000,9 @@
               max="50"
             />
           </fieldset>
+          <button class="nav-btn" data-deactivate-metrics>
+            Esconder métricas
+          </button>
         </div>
       </nav>
       <section data-plot-graphs></section>

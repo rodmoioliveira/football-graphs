@@ -21,8 +21,8 @@
 
     @media (max-width: 700px) {
       margin: $margin-mobile;
-      height: ($height - 0.3rem);
-      width: ($width - 4rem);
+      height: calc(#{$height} - 0.3rem);
+      width: calc(#{$width} - 4rem);
     }
   }
 }
