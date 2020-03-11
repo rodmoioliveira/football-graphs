@@ -10,7 +10,14 @@
    :coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
    :position-select (-> js/document (.querySelector (str "[data-metric='position']")))
    :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
-   :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))})
+   :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
+   :menu (-> js/document (.querySelector ".nav-menu"))
+   :theme-btn (-> js/document (.querySelector "[data-toogle-theme]"))
+   :body-theme (-> js/document (.querySelector "[data-theme]"))
+   :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
+   :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
+   :nav (-> js/document (.querySelector ".nav-metrics"))
+   :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
 
 (defn is-global? [v] (= v :global))
 
@@ -49,37 +56,31 @@
 
 (defn sticky-nav$
   []
-  (let [menu (-> js/document (.querySelector ".nav-menu"))
-        theme-btn (-> js/document (.querySelector "[data-toogle-theme]"))
-        body-theme (-> js/document (.querySelector "[data-theme]"))
-        current-theme (fn [] (-> body-theme (.getAttribute "data-theme") keyword))
-        activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
-        deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
-        nav (-> js/document (.querySelector ".nav-metrics"))
-        breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))]
+  (let [current-theme (fn [] (-> dom :body-theme (.getAttribute "data-theme") keyword))]
 
     (-> js/document
         (rx/fromEvent "scroll")
         (.pipe
-         (rx-op/map (fn [] (-> breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
+         (rx-op/map (fn [] (-> dom :breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
          (rx-op/distinctUntilChanged))
         (.subscribe (fn [v]
                       (do
-                        (-> menu (.setAttribute "data-sticky" v))))))
+                        (-> dom :menu (.setAttribute "data-sticky" v))))))
 
-    (-> theme-btn
+    (-> dom
+        :theme-btn
         (rx/fromEvent "click")
         (.subscribe (fn [_] (let [mapped-theme (-> (current-theme) theme-mapping :theme)
                                   mapped-text (-> (current-theme) theme-mapping :text)]
                               (do
-                              (-> theme-btn (#(set! (.-innerHTML %) mapped-text)))
-                              (-> body-theme
+                              (-> dom :theme-btn (#(set! (.-innerHTML %) mapped-text)))
+                              (-> dom :body-theme
                                   (.setAttribute "data-theme" mapped-theme)))))))
 
-    (-> activate-btn
+    (-> dom :activate-btn
         (rx/fromEvent "click")
-        (.subscribe (fn [_] (-> nav (.setAttribute "data-active" 1)))))
+        (.subscribe (fn [_] (-> dom :nav (.setAttribute "data-active" 1)))))
 
-    (-> deactivate-btn
+    (-> dom :deactivate-btn
         (rx/fromEvent "click")
-        (.subscribe (fn [_] (-> nav (.setAttribute "data-active" 0)))))))
+        (.subscribe (fn [_] (-> dom :nav (.setAttribute "data-active" 0)))))))
