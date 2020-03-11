@@ -4,28 +4,33 @@
 
 (set! *warn-on-infer* true)
 
+(def dom
+  {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
+   :node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
+   :coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
+   :position-select (-> js/document (.querySelector (str "[data-metric='position']")))
+   :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
+   :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))})
+
+(defn is-global? [v] (= v :global))
+
+(defn get-metrics
+  [] {:node-color-metric (-> dom :node-color-select .-value keyword)
+      :node-radius-metric (-> dom :node-area-select .-value keyword)
+      :position-metric (-> dom :position-select .-value keyword)
+      :min-passes-to-display (-> dom :min-passes-input .-value int)
+      :global-metrics? (-> dom :coverage-select .-value keyword is-global?)})
+
 (defn select-metrics$
   []
-  (let [node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
-        node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
-        coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
-        position-select (-> js/document (.querySelector (str "[data-metric='position']")))
-        min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
-        min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
-        display-passes (fn [{:keys [min-passes-to-display]}]
-                         (set! (.-innerHTML min-passes-span) (str "(" min-passes-to-display ")")))
-        is-global? (fn [v] (= v :global))
-        get-metrics (fn [] {:node-color-metric (-> node-color-select .-value keyword)
-                            :node-radius-metric (-> node-area-select .-value keyword)
-                            :position-metric (-> position-select .-value keyword)
-                            :min-passes-to-display (-> min-passes-input .-value int)
-                            :global-metrics? (-> coverage-select .-value keyword is-global?)})]
+  (let [display-passes (fn [{:keys [min-passes-to-display]}]
+                         (set! (.-innerHTML (dom :min-passes-span)) (str "(" min-passes-to-display ")")))]
     (-> (rx/of
-         node-color-select
-         node-area-select
-         coverage-select
-         position-select
-         min-passes-input)
+         (-> dom :node-color-select)
+         (-> dom :node-area-select)
+         (-> dom :coverage-select)
+         (-> dom :position-select)
+         (-> dom :min-passes-input))
         (.pipe
          (rx-op/mergeMap #(-> (rx/fromEvent % "input")
                               (.pipe (rx-op/map get-metrics))))
