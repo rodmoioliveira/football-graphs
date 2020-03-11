@@ -4,6 +4,16 @@
 
 (set! *warn-on-infer* true)
 
+(def theme-mapping
+  {:light {:theme "dark"
+           :text "Light Mode"
+           :background "#121010"
+           :font-color "white"}
+   :dark {:theme "light"
+          :text "Dark Mode"
+          :background "white"
+          :font-color "black"}})
+
 (def dom
   {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
    :node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
@@ -18,6 +28,13 @@
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
    :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
+
+(defn current-theme
+  [] (-> dom :body-theme (.getAttribute "data-theme") keyword))
+
+(defn get-theme-mapping
+  [prop]
+  (-> (current-theme) theme-mapping prop))
 
 (defn is-global? [v] (= v :global))
 
@@ -44,20 +61,9 @@
          (rx-op/startWith (get-metrics))
          (rx-op/tap display-passes)))))
 
-(def theme-mapping
-  {:light {:theme "dark"
-           :text "Light Mode"
-           :background "#121010"
-           :font-color "white"}
-   :dark {:theme "light"
-          :text "Dark Mode"
-          :background "white"
-          :font-color "black"}})
-
 (defn sticky-nav$
   []
-  (let [current-theme (fn [] (-> dom :body-theme (.getAttribute "data-theme") keyword))]
-
+  (do
     (-> js/document
         (rx/fromEvent "scroll")
         (.pipe
@@ -70,12 +76,11 @@
     (-> dom
         :theme-btn
         (rx/fromEvent "click")
-        (.subscribe (fn [_] (let [mapped-theme (-> (current-theme) theme-mapping :theme)
-                                  mapped-text (-> (current-theme) theme-mapping :text)]
-                              (do
-                              (-> dom :theme-btn (#(set! (.-innerHTML %) mapped-text)))
-                              (-> dom :body-theme
-                                  (.setAttribute "data-theme" mapped-theme)))))))
+        (.subscribe (fn [_]
+                      (do
+                        (-> dom :theme-btn (#(set! (.-innerHTML %) (get-theme-mapping :text))))
+                        (-> dom :body-theme
+                            (.setAttribute "data-theme" (get-theme-mapping :theme)))))))
 
     (-> dom :activate-btn
         (rx/fromEvent "click")
