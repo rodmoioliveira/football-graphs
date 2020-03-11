@@ -22,8 +22,8 @@ fieldset {
   top: 0;
   width: 20rem;
   height: 100%;
-  border-right: 1px solid $nav-border-color;
-  box-shadow: 1px 2px 5px $nav-shadow-color;
+  border-right: 1px solid var(--nav-border-color);
+  box-shadow: 1px 2px 5px var(--nav-shadow-color);
   transition: transform 200ms ease;
 }
 
@@ -63,7 +63,7 @@ fieldset {
 
 .metric-input,
 .metric-select {
-  border: $input-border;
+  border: var(--input-border);
 }
 
 .metric-input,
@@ -100,9 +100,9 @@ fieldset {
 }
 
 .nav-btn {
-  color: $btn-font-color;
-  background: $btn-background;
-  border: $btn-border;
+  color: var(--btn-font-color);
+  background: var(--btn-background);
+  border: var(--btn-border);
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -122,7 +122,7 @@ fieldset {
   flex: 0 0 100%;
   height: 5px;
   width: 0.6rem;
-  background: $btn-background;
+  background: var(--btn-background);
 
   &:not(:first-child) {
     margin-top: 5px;
