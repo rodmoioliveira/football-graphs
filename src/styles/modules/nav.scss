@@ -15,9 +15,9 @@ fieldset {
 
 .nav-metrics {
   display: flex;
+  background: var(--body-color);
   align-items: center;
   justify-content: center;
-  background: white;
   position: fixed;
   top: 0;
   width: 20rem;
@@ -49,13 +49,14 @@ fieldset {
 }
 
 .metric-select {
-  background: white;
+  background: var(--body-color);
   width: 200px;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
 }
 
 .metric-label {
+  color: var(--text-color);
   padding: 0.2rem 0.5rem 0.2rem 0.2rem;
   font-weight: 700;
   text-align: left;
