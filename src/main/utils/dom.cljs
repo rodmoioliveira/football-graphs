@@ -17,6 +17,16 @@
    :nav (-> js/document (.querySelector ".nav-metrics"))
    :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
 
+(defn toogle-theme-btn
+  [theme-text]
+  (do
+    (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text))))))
+
+(defn toogle-theme
+  [theme]
+  (do
+    (-> dom :body-theme (.setAttribute "data-theme" theme))))
+
 (defn label-dom
   "Create a label for each match."
   [match]
