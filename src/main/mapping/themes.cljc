@@ -5,12 +5,14 @@
            :theme "dark"
            :text "Light Mode"
            :background "#121010"
-           :font-color "white"}
+           :font-color "white"
+           :lines-color "#333"}
    :dark {:reverse :light
           :theme "light"
           :text "Dark Mode"
           :background "white"
-          :font-color "black"}})
+          :font-color "black"
+          :lines-color "#ccc"}})
 
 (defn theme-reverse
   [theme prop]
@@ -25,4 +27,5 @@
   {:theme (func :theme)
    :theme-text (func :text)
    :theme-background (func :background)
+   :theme-lines-color (func :lines-color)
    :theme-font-color (func :font-color)})

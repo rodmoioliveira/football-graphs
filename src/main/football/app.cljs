@@ -90,13 +90,14 @@
            min-passes-to-display
            position-metric
            theme-background
+           theme-lines-color
            theme-font-color]}]
   (doseq [canvas (all-canvas {:position-metric position-metric :scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
                                                       {:min-passes-to-display min-passes-to-display}
                                                       :field
                                                       {:background theme-background
-                                                       :lines-color "#ccc"
+                                                       :lines-color theme-lines-color
                                                        :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
