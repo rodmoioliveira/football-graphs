@@ -32,9 +32,18 @@
          (rx-op/startWith (get-metrics))
          (rx-op/tap display-passes)))))
 
+(def theme-mapping
+  {:light {:theme "dark"
+           :text "Light Mode"}
+   :dark {:theme "light"
+          :text "Dark Mode"}})
+
 (defn sticky-nav$
   []
   (let [menu (-> js/document (.querySelector ".nav-menu"))
+        theme-btn (-> js/document (.querySelector "[data-toogle-theme]"))
+        body-theme (-> js/document (.querySelector "[data-theme]"))
+        current-theme (fn [] (-> body-theme (.getAttribute "data-theme") keyword))
         activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
         deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
         nav (-> js/document (.querySelector ".nav-metrics"))
@@ -48,6 +57,16 @@
         (.subscribe (fn [v]
                       (do
                         (-> menu (.setAttribute "data-sticky" v))))))
+
+    (-> theme-btn
+        (rx/fromEvent "click")
+        (.subscribe (fn [_] (let [mapped-theme (-> (current-theme) theme-mapping :theme)
+                                  mapped-text (-> (current-theme) theme-mapping :text)]
+                              (do
+                              (-> theme-btn (#(set! (.-innerHTML %) mapped-text)))
+                              (-> body-theme
+                                  (.setAttribute "data-theme" mapped-theme)))))))
+
     (-> activate-btn
         (rx/fromEvent "click")
         (.subscribe (fn [_] (-> nav (.setAttribute "data-active" 1)))))
