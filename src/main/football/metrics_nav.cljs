@@ -1,33 +1,11 @@
 (ns football.metrics-nav
   (:require ["rxjs" :as rx]
-            ["rxjs/operators" :as rx-op]))
+            ["rxjs/operators" :as rx-op]
+
+            [utils.dom :refer [dom]]
+            [mapping.themes :refer [theme-mapping]]))
 
 (set! *warn-on-infer* true)
-
-(def theme-mapping
-  {:light {:theme "dark"
-           :text "Light Mode"
-           :background "#121010"
-           :font-color "white"}
-   :dark {:theme "light"
-          :text "Dark Mode"
-          :background "white"
-          :font-color "black"}})
-
-(def dom
-  {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
-   :node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
-   :coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
-   :position-select (-> js/document (.querySelector (str "[data-metric='position']")))
-   :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
-   :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
-   :menu (-> js/document (.querySelector ".nav-menu"))
-   :theme-btn (-> js/document (.querySelector "[data-toogle-theme]"))
-   :body-theme (-> js/document (.querySelector "[data-theme]"))
-   :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
-   :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
-   :nav (-> js/document (.querySelector ".nav-metrics"))
-   :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
 
 (defn current-theme
   [] (-> dom :body-theme (.getAttribute "data-theme") keyword))
