@@ -15,7 +15,7 @@ fieldset {
 
 .nav-metrics {
   display: flex;
-  background: var(--body-color);
+  background: var(--nav-background);
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -23,8 +23,12 @@ fieldset {
   width: 20rem;
   height: 100%;
   border-right: 1px solid var(--nav-border-color);
-  box-shadow: 1px 2px 5px var(--nav-shadow-color);
+  box-shadow: var(--nav-box-shadow);
   transition: transform 200ms ease;
+
+  [data-theme='dark'] & {
+    box-shadow: none;
+  }
 }
 
 [data-active='0'] {
@@ -49,7 +53,7 @@ fieldset {
 }
 
 .metric-select {
-  background: var(--body-color);
+  background: var(--nav-input-color);
   width: 200px;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;

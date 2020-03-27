@@ -4,7 +4,7 @@
   {:light {:reverse :dark
            :theme "dark"
            :text "☀️"
-           :background "#121010"
+           :background "#121212"
            :font-color "white"
            :lines-color "#333"}
    :dark {:reverse :light
