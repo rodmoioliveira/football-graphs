@@ -49,20 +49,35 @@
 
 (defn sticky-nav$
   []
-  (do
-    (-> js/document
-        (rx/fromEvent "scroll")
-        (.pipe
-         (rx-op/map (fn [] (-> dom :breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
-         (rx-op/distinctUntilChanged))
-        (.subscribe (fn [v]
-                      (do
-                        (-> dom :menu (.setAttribute "data-sticky" v))))))
+  (let [activate-nav (fn [_] (-> dom :nav (.setAttribute "data-active" 1)))
+        deactivate-nav (fn [_] (-> dom :nav (.setAttribute "data-active" 0)))
+        is-body-click? (fn [e] (->> e
+                                    .-path
+                                    array-seq
+                                    (map #(-> % .-tagName))
+                                    set
+                                    (#(or (contains? % "NAV") (contains? % "BUTTON")))
+                                    not))]
+    (do
+      (-> js/document
+          (rx/fromEvent "scroll")
+          (.pipe
+           (rx-op/map (fn [] (-> dom :breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
+           (rx-op/distinctUntilChanged))
+          (.subscribe (fn [v]
+                        (do
+                          (-> dom :menu (.setAttribute "data-sticky" v))))))
 
-    (-> dom :activate-btn
-        (rx/fromEvent "click")
-        (.subscribe (fn [_] (-> dom :nav (.setAttribute "data-active" 1)))))
+      (-> dom :activate-btn
+          (rx/fromEvent "click")
+          (.subscribe activate-nav))
 
-    (-> dom :deactivate-btn
-        (rx/fromEvent "click")
-        (.subscribe (fn [_] (-> dom :nav (.setAttribute "data-active" 0)))))))
+      (-> dom :document
+          (rx/fromEvent "click")
+          (.pipe
+           (rx-op/filter is-body-click?))
+          (.subscribe deactivate-nav))
+
+      (-> dom :deactivate-btn
+          (rx/fromEvent "click")
+          (.subscribe deactivate-nav)))))
