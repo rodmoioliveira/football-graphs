@@ -15,7 +15,7 @@ fieldset {
 
 .nav-metrics {
   display: flex;
-  background: var(--body-color);
+  background: var(--nav-background);
   align-items: center;
   justify-content: center;
   position: fixed;
@@ -23,8 +23,12 @@ fieldset {
   width: 20rem;
   height: 100%;
   border-right: 1px solid var(--nav-border-color);
-  box-shadow: 1px 2px 5px var(--nav-shadow-color);
+  box-shadow: var(--nav-box-shadow);
   transition: transform 200ms ease;
+
+  [data-theme='dark'] & {
+    box-shadow: none;
+  }
 }
 
 [data-active='0'] {
@@ -38,19 +42,21 @@ fieldset {
 .nav-controls {
   justify-content: flex-start;
   flex-wrap: wrap;
+  min-width: 253px;
 }
 
 .metric-input {
   display: block;
   background: white;
-  width: 188px;
+  width: 94%;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
 .metric-select {
-  background: var(--body-color);
-  width: 200px;
+  background: var(--nav-input-color);
+  width: 100%;
   padding: 0.2rem 0.3rem;
   border-radius: 5px;
 }
@@ -100,51 +106,7 @@ fieldset {
   transform: translateX(0);
 }
 
-.nav-btn {
-  color: var(--btn-font-color);
-  background: var(--btn-background);
-  border: var(--btn-border);
-  padding: 1rem;
-  display: flex;
-  flex-wrap: wrap;
-  font-size: 1.3rem;
-
-  @media (max-width: 700px) {
-    font-size: 1rem;
-  }
-}
-
 [data-deactivate-metrics] {
   margin-top: 1rem;
 }
 
-.nav-btn--alternative {
-  background: transparent;
-}
-
-.nav-btn--theme-toogle {
-  background: transparent;
-  position: fixed;
-  top: 0;
-  right: 0;
-  color: var(--btn-theme-color);
-  width: 3.5rem;
-  height: 3.5rem;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn-strip {
-  display: block;
-  flex: 0 0 100%;
-  height: 5px;
-  width: 0.6rem;
-  background: var(--btn-background);
-
-  &:not(:first-child) {
-    margin-top: 5px;
-  }
-}

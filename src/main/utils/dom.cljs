@@ -10,6 +10,7 @@
    :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
    :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
    :menu (-> js/document (.querySelector ".nav-menu"))
+   :document js/document
    :theme-btn (-> js/document (.querySelector "[data-toogle-theme]"))
    :body-theme (-> js/document (.querySelector "[data-theme]"))
    :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
