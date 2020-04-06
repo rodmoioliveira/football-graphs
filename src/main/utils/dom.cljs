@@ -184,7 +184,10 @@
         team1-gc (get-gclus team1-id)
         team2-gc (get-gclus team2-id)]
     ; TODO: https://observablehq.com/@d3/bar-chart
-    (print team1-name team1-gc team1-anc team1-ac team2-name team1-gc team1-anc team1-ac)))
+    (-> el (.insertAdjacentHTML "beforeend" (str
+                                             "<p>"
+                                             team1-name team1-gc team1-anc team1-ac team2-name team1-gc team1-anc team1-ac
+                                             "</p>")))))
 
 (defn plot-dom
   "Plot graphs in the dom."
