@@ -192,7 +192,7 @@
   (let [plot-section (-> js/document (.querySelector "[data-plot-graphs]"))]
     (doseq [match matches]
       (-> plot-section (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %)))))
-      (-> match :match-id (#(-> js/document (.getElementById %))) (#(append-charts % match))))))
+      (-> match :match-id (#(-> js/document (.getElementById %))) (append-charts match)))))
 
 (defn reset-dom
   "Reset graphs in the dom."
