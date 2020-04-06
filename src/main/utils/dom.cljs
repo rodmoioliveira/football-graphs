@@ -170,23 +170,25 @@
 (defn append-charts [el match]
   "Append charts below each of the graphs."
   (let [get-name (fn [id] (-> match :teams-info (#(get-in % [(keyword (str id))])) :name))
-        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 3)))
-        get-anc (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :average-node-connectivity (.toFixed 3)))
-        get-gclus (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :global-clustering-coefficient (.toFixed 3)))
+        get-metric-for (fn [id metric] (-> match
+                                           :graph-metrics
+                                           (#(get-in % [(keyword (str id))]))
+                                           metric
+                                           (.toFixed 3)))
         team1-id (-> match :match-info :home-away :home)
         team2-id (-> match :match-info :home-away :away)
         team1-name (get-name team1-id)
         team2-name (get-name team2-id)
-        team1-anc (get-anc team1-id)
-        team2-anc (get-anc team2-id)
-        team1-ac (get-ac team1-id)
-        team2-ac (get-ac team2-id)
-        team1-gc (get-gclus team1-id)
-        team2-gc (get-gclus team2-id)]
+        team1-anc (get-metric-for team1-id :average-node-connectivity)
+        team2-anc (get-metric-for team2-id :average-node-connectivity)
+        team1-ac (get-metric-for team1-id :algebraic-connectivity)
+        team2-ac (get-metric-for team2-id :algebraic-connectivity)
+        team1-gc (get-metric-for team1-id :global-clustering-coefficient)
+        team2-gc (get-metric-for team2-id :global-clustering-coefficient)]
     ; TODO: https://observablehq.com/@d3/bar-chart
     (-> el (.insertAdjacentHTML "beforeend" (str
                                              "<p>"
-                                             team1-name team1-gc team1-anc team1-ac team2-name team1-gc team1-anc team1-ac
+                                             team1-name team1-gc team1-anc team1-ac team2-name team2-gc team2-anc team2-ac
                                              "</p>")))))
 
 (defn plot-dom
