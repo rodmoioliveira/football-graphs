@@ -188,7 +188,21 @@
     ; TODO: https://observablehq.com/@d3/bar-chart
     (-> el (.insertAdjacentHTML "beforeend" (str
                                              "<p>"
-                                             team1-name team1-gc team1-anc team1-ac team2-name team2-gc team2-anc team2-ac
+                                             team1-name
+                                             " "
+                                             team1-gc
+                                             " "
+                                             team1-anc
+                                             " "
+                                             team1-ac
+                                             " "
+                                             team2-name
+                                             " "
+                                             team2-gc
+                                             " "
+                                             team2-anc
+                                             " "
+                                             team2-ac
                                              "</p>")))))
 
 (defn plot-dom
