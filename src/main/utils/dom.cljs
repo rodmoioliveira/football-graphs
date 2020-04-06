@@ -100,22 +100,22 @@
   (let [[label] (-> match :label (split #","))
         match-id (-> match :match-id)
         get-name (fn [id] (-> match :teams-info (#(get-in % [(keyword (str id))])) :name))
-        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 3)))
-        get-anc (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :average-node-connectivity (.toFixed 3)))
-        get-gclus (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :global-clustering-coefficient (.toFixed 3)))
         team1-id (-> match :match-info :home-away :home)
         team2-id (-> match :match-info :home-away :away)
         team1-name (get-name team1-id)
-        team2-name (get-name team2-id)
-        team1-anc (get-anc team1-id)
-        team2-anc (get-anc team2-id)
-        team1-ac (get-ac team1-id)
-        team2-ac (get-ac team2-id)
-        team1-gc (get-gclus team1-id)
-        team2-gc (get-gclus team2-id)]
+        team2-name (get-name team2-id)]
     (str
-     "<div class='graphs__wrapper'>
-      <div class='graph'>
+     "<div
+        class='graphs__wrapper'
+        data-match-id='"
+     match-id
+     "'"
+     " "
+     "id='"
+     match-id
+     "'"
+     ">"
+     "<div class='graph'>
       <p class='graph__confront'>
       <span class='graph__team'>"
      team1-name
@@ -125,7 +125,6 @@
      team2-name
      "</span>
       </p>"
-     (stats-dom team1-ac team1-gc team1-anc)
      "<canvas
         data-match-id='"
      match-id
@@ -150,7 +149,6 @@
      team1-name
      "</span>
       </p>"
-     (stats-dom team2-ac team2-gc team2-anc)
      "<canvas
         data-match-id='"
      match-id
@@ -165,14 +163,36 @@
         height='720'
         width='1107'></canvas>
      </div>
+     <div class='graph__charts'>
+     </div>
      </div>")))
+
+(defn append-charts [el match]
+  "Append charts below each of the graphs."
+  (let [get-name (fn [id] (-> match :teams-info (#(get-in % [(keyword (str id))])) :name))
+        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 3)))
+        get-anc (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :average-node-connectivity (.toFixed 3)))
+        get-gclus (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :global-clustering-coefficient (.toFixed 3)))
+        team1-id (-> match :match-info :home-away :home)
+        team2-id (-> match :match-info :home-away :away)
+        team1-name (get-name team1-id)
+        team2-name (get-name team2-id)
+        team1-anc (get-anc team1-id)
+        team2-anc (get-anc team2-id)
+        team1-ac (get-ac team1-id)
+        team2-ac (get-ac team2-id)
+        team1-gc (get-gclus team1-id)
+        team2-gc (get-gclus team2-id)]
+    ; TODO: https://observablehq.com/@d3/bar-chart
+    (print team1-name team1-gc team1-anc team1-ac team2-name team1-gc team1-anc team1-ac)))
 
 (defn plot-dom
   "Plot graphs in the dom."
   [matches]
   (let [plot-section (-> js/document (.querySelector "[data-plot-graphs]"))]
     (doseq [match matches]
-      (-> plot-section (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %))))))))
+      (-> plot-section (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %)))))
+      (-> match :match-id (#(-> js/document (.getElementById %))) (#(append-charts % match))))))
 
 (defn reset-dom
   "Reset graphs in the dom."
