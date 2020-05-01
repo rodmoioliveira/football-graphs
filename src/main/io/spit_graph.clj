@@ -151,10 +151,14 @@
                        :teams-data
                        vals
                        (map :formation))
+        lineup (->> formation
+                    (map (fn [t] (->> (->> t :lineup) (map :player-id))))
+                    (reduce concat))
         substitutions (->> formation
                            (map (fn [t] (->> t :substitutions
                                              pair-subs)))
                            (reduce concat))
+        players-in-game (set (concat lineup (->> substitutions (reduce concat))))
         aggregate-players (fn [t]
                             (reduce (fn [acc cur]
                                       (assoc-in
@@ -182,7 +186,9 @@
                                             (assoc p :pos (join "" pos) :id (join "" pos))))))]
 
     {:players-hash (-> players-with-position hash-by-id)
+     :substitutions substitutions
      :nodes (-> players-with-position
+                (#(filter (fn [{:keys [wy-id]}] (some (set [wy-id]) players-in-game)) %))
                 (project [:id :pos :short-name :current-national-team-id])
                 vec
                 (#(group-by :current-national-team-id %))

@@ -31,33 +31,79 @@
   :dateutc "2018-07-06 18:00:00"},
  :nodes
  {:5629
-  ({:id :ZAE,
-    :pos :ZAE,
+  ({:id "7905263802",
+    :pos "7905263802",
+    :short-name ("R. Lukaku" "Y. Tielemans"),
+    :current-national-team-id 5629,
+    :average-pos [64.89474 40.52631759643555],
+    :metrics
+    {:out-degree 8.0,
+     :in-degree 11.0,
+     :current_flow_betweenness_centrality 0.035088343448296914,
+     :katz-centrality 1.146958195493503,
+     :degree 19.0,
+     :alpha-centrality 1.146958195493503,
+     :betweenness-centrality 0.14584656084656084,
+     :local-clustering-coefficient 0.6964285714285714,
+     :closeness-centrality 0.45454545454545453,
+     :eigenvector-centrality 3.5038504400000002E-6}}
+   {:id "70123",
+    :pos "70123",
+    :short-name ("A. Witsel"),
+    :current-national-team-id 5629,
+    :average-pos [50.431034 54.844825744628906],
+    :metrics
+    {:out-degree 29.0,
+     :in-degree 29.0,
+     :current_flow_betweenness_centrality 0.028877502852543684,
+     :katz-centrality 1.3941176269268263,
+     :degree 58.0,
+     :alpha-centrality 1.3941176269268263,
+     :betweenness-centrality 0.03288359788359788,
+     :local-clustering-coefficient 0.7083333333333334,
+     :closeness-centrality 0.3225806451612903,
+     :eigenvector-centrality 9.919252915454546E-6}}
+   {:id "8307",
+    :pos "8307",
     :short-name ("V. Kompany"),
     :current-national-team-id 5629,
-    :coord-pos [35 79],
     :average-pos [43.162163 72.0540542602539],
     :metrics
     {:out-degree 41.0,
      :in-degree 33.0,
-     :current_flow_betweenness_centrality 0.029109504039911333,
+     :current_flow_betweenness_centrality -0.12212383341541953,
      :katz-centrality 1.4571987263730573,
      :degree 74.0,
      :alpha-centrality 1.4571987263730573,
-     :betweenness-centrality 0.02851851851851852,
+     :betweenness-centrality 0.0312962962962963,
      :local-clustering-coefficient 0.7361111111111112,
      :closeness-centrality 0.29411764705882354,
      :eigenvector-centrality 1.2232019793636362E-5}}
-   {:id :LAE,
-    :pos :LAE,
+   {:id "8249",
+    :pos "8249",
+    :short-name ("M. Fellaini"),
+    :current-national-team-id 5629,
+    :average-pos [66.23404 54.40425491333008],
+    :metrics
+    {:out-degree 24.0,
+     :in-degree 23.0,
+     :current_flow_betweenness_centrality -0.0188511204588073,
+     :katz-centrality 1.3085363041258442,
+     :degree 47.0,
+     :alpha-centrality 1.3085363041258442,
+     :betweenness-centrality 0.10185185185185185,
+     :local-clustering-coefficient 0.7321428571428571,
+     :closeness-centrality 0.4166666666666667,
+     :eigenvector-centrality 7.4067363736363634E-6}}
+   {:id "48",
+    :pos "48",
     :short-name ("J. Vertonghen"),
     :current-national-team-id 5629,
-    :coord-pos [12 70],
     :average-pos [19.414286 61.5428581237793],
     :metrics
     {:out-degree 37.0,
      :in-degree 33.0,
-     :current_flow_betweenness_centrality 0.04491769688115319,
+     :current_flow_betweenness_centrality 0.0011734878173130347,
      :katz-centrality 1.4507971560059707,
      :degree 70.0,
      :alpha-centrality 1.4507971560059707,
@@ -65,542 +111,489 @@
      :local-clustering-coefficient 0.75,
      :closeness-centrality 0.29411764705882354,
      :eigenvector-centrality 1.1741547837272727E-5}}
-   {:id :PTE,
-    :pos :PTE,
-    :short-name ("E. Hazard"),
-    :current-national-team-id 5629,
-    :coord-pos [12 25],
-    :average-pos [24.09091 42.20000076293945],
-    :metrics
-    {:out-degree 26.0,
-     :in-degree 29.0,
-     :current_flow_betweenness_centrality -0.020249709250391528,
-     :katz-centrality 1.4000311027403312,
-     :degree 55.0,
-     :alpha-centrality 1.4000311027403312,
-     :betweenness-centrality 0.1287962962962963,
-     :local-clustering-coefficient 0.7222222222222222,
-     :closeness-centrality 0.37037037037037035,
-     :eigenvector-centrality 1.0579301186363635E-5}}
-   {:id :PTD,
-    :pos :PTD,
-    :short-name ("Y. Tielemans" "R. Lukaku"),
-    :current-national-team-id 5629,
-    :coord-pos [88 25],
-    :average-pos [64.89474 40.52631759643555],
-    :metrics
-    {:out-degree 8.0,
-     :in-degree 11.0,
-     :current_flow_betweenness_centrality -0.04464524542084835,
-     :katz-centrality 1.146958195493503,
-     :degree 19.0,
-     :alpha-centrality 1.146958195493503,
-     :betweenness-centrality 0.15537037037037035,
-     :local-clustering-coefficient 0.6964285714285714,
-     :closeness-centrality 0.45454545454545453,
-     :eigenvector-centrality 3.5038504399999994E-6}}
-   {:id :LAD,
-    :pos :LAD,
-    :short-name ("T. Meunier"),
-    :current-national-team-id 5629,
-    :coord-pos [88 70],
-    :average-pos [86.22857 47.20000076293945],
-    :metrics
-    {:out-degree 16.0,
-     :in-degree 19.0,
-     :current_flow_betweenness_centrality -0.06874097377196796,
-     :katz-centrality 1.2523562741295462,
-     :degree 35.0,
-     :alpha-centrality 1.2523562741295462,
-     :betweenness-centrality 0.04898148148148148,
-     :local-clustering-coefficient 0.7142857142857143,
-     :closeness-centrality 0.47619047619047616,
-     :eigenvector-centrality 5.984095641818182E-6}}
-   {:id :VOD,
-    :pos :VOD,
-    :short-name ("M. Fellaini"),
-    :current-national-team-id 5629,
-    :coord-pos [75 45],
-    :average-pos [66.23404 54.40425491333008],
-    :metrics
-    {:out-degree 24.0,
-     :in-degree 23.0,
-     :current_flow_betweenness_centrality -0.02464825010100324,
-     :katz-centrality 1.3085363041258442,
-     :degree 47.0,
-     :alpha-centrality 1.3085363041258442,
-     :betweenness-centrality 0.10407407407407408,
-     :local-clustering-coefficient 0.7321428571428571,
-     :closeness-centrality 0.4166666666666667,
-     :eigenvector-centrality 7.4067363736363634E-6}}
-   {:id :VOC,
-    :pos :VOC,
-    :short-name ("A. Witsel"),
-    :current-national-team-id 5629,
-    :coord-pos [50 53],
-    :average-pos [50.431034 54.844825744628906],
-    :metrics
-    {:out-degree 29.0,
-     :in-degree 29.0,
-     :current_flow_betweenness_centrality 0.015130754149100065,
-     :katz-centrality 1.3941176269268263,
-     :degree 58.0,
-     :alpha-centrality 1.3941176269268263,
-     :betweenness-centrality 0.027222222222222224,
-     :local-clustering-coefficient 0.7083333333333334,
-     :closeness-centrality 0.3225806451612903,
-     :eigenvector-centrality 9.919252915454546E-6}}
-   {:id :ZAD,
-    :pos :ZAD,
+   {:id "36",
+    :pos "36",
     :short-name ("T. Alderweireld"),
     :current-national-team-id 5629,
-    :coord-pos [65 79],
     :average-pos [70.31373 73.29411697387695],
     :metrics
     {:out-degree 28.0,
      :in-degree 23.0,
-     :current_flow_betweenness_centrality -0.07058355850270105,
+     :current_flow_betweenness_centrality -0.055280684840218836,
      :katz-centrality 1.3216970911881996,
      :degree 51.0,
      :alpha-centrality 1.3216970911881996,
-     :betweenness-centrality 0.025833333333333337,
+     :betweenness-centrality 0.03297619047619048,
      :local-clustering-coefficient 0.7142857142857143,
      :closeness-centrality 0.3225806451612903,
-     :eigenvector-centrality 8.88694390181818E-6}}
-   {:id :ATC,
-    :pos :ATC,
+     :eigenvector-centrality 8.886943901818182E-6}}
+   {:id "25707",
+    :pos "25707",
+    :short-name ("E. Hazard"),
+    :current-national-team-id 5629,
+    :average-pos [24.09091 42.20000076293945],
+    :metrics
+    {:out-degree 26.0,
+     :in-degree 29.0,
+     :current_flow_betweenness_centrality -0.015498814484712842,
+     :katz-centrality 1.4000311027403312,
+     :degree 55.0,
+     :alpha-centrality 1.4000311027403312,
+     :betweenness-centrality 0.12308201058201058,
+     :local-clustering-coefficient 0.7222222222222222,
+     :closeness-centrality 0.37037037037037035,
+     :eigenvector-centrality 1.0579301186363635E-5}}
+   {:id "37824",
+    :pos "37824",
+    :short-name ("T. Meunier"),
+    :current-national-team-id 5629,
+    :average-pos [86.22857 47.20000076293945],
+    :metrics
+    {:out-degree 16.0,
+     :in-degree 19.0,
+     :current_flow_betweenness_centrality -0.057300341344846885,
+     :katz-centrality 1.2523562741295462,
+     :degree 35.0,
+     :alpha-centrality 1.2523562741295462,
+     :betweenness-centrality 0.03972222222222222,
+     :local-clustering-coefficient 0.7142857142857143,
+     :closeness-centrality 0.47619047619047616,
+     :eigenvector-centrality 5.984095641818183E-6}}
+   {:id "38021",
+    :pos "38021",
     :short-name ("K. De Bruyne"),
     :current-national-team-id 5629,
-    :coord-pos [50 15],
     :average-pos [44.42857 44.775508880615234],
     :metrics
     {:out-degree 21.0,
      :in-degree 28.0,
-     :current_flow_betweenness_centrality 0.008318942889811195,
+     :current_flow_betweenness_centrality 0.04150629348342747,
      :katz-centrality 1.3780278755107647,
      :degree 49.0,
      :alpha-centrality 1.3780278755107647,
-     :betweenness-centrality 0.013888888888888888,
+     :betweenness-centrality 0.024656084656084657,
      :local-clustering-coefficient 0.7111111111111111,
      :closeness-centrality 0.3333333333333333,
      :eigenvector-centrality 9.428958638181818E-6}}
-   {:id :VOE,
-    :pos :VOE,
-    :short-name ("T. Vermaelen" "N. Chadli"),
+   {:id "2617860",
+    :pos "2617860",
+    :short-name ("N. Chadli" "T. Vermaelen"),
     :current-national-team-id 5629,
-    :coord-pos [25 45],
     :average-pos [15.096154 49.53845977783203],
     :metrics
     {:out-degree 26.0,
      :in-degree 26.0,
-     :current_flow_betweenness_centrality -0.06064680797680337,
+     :current_flow_betweenness_centrality -0.04028979429536314,
      :katz-centrality 1.3618877821773134,
      :degree 52.0,
      :alpha-centrality 1.3618877821773134,
-     :betweenness-centrality 0.06592592592592593,
+     :betweenness-centrality 0.0724074074074074,
      :local-clustering-coefficient 0.7380952380952381,
      :closeness-centrality 0.4166666666666667,
      :eigenvector-centrality 9.865127744545456E-6}}
-   {:id :GOL,
-    :pos :GOL,
+   {:id "3429",
+    :pos "3429",
     :short-name ("T. Courtois"),
     :current-national-team-id 5629,
-    :coord-pos [50 94],
     :average-pos [47.642857 90.4642858505249],
     :metrics
     {:out-degree 13.0,
      :in-degree 15.0,
-     :current_flow_betweenness_centrality -0.06916970289523429,
+     :current_flow_betweenness_centrality -0.058508388721186536,
      :katz-centrality 1.2075897455754,
      :degree 28.0,
      :alpha-centrality 1.2075897455754,
-     :betweenness-centrality 0.037777777777777785,
+     :betweenness-centrality 0.04558201058201058,
      :local-clustering-coefficient 0.6785714285714286,
      :closeness-centrality 0.5555555555555556,
-     :eigenvector-centrality 5.682372337272727E-6}}),
+     :eigenvector-centrality 5.682372337272728E-6}}),
   :6380
-  ({:id :ZAE,
-    :pos :ZAE,
-    :short-name ("João Miranda"),
+  ({:id "1478540550",
+    :pos "1478540550",
+    :short-name ("Renato Augusto" "Paulinho"),
     :current-national-team-id 6380,
-    :coord-pos [35 79],
-    :average-pos [31.323076 64.78461456298828],
-    :metrics
-    {:out-degree 34.0,
-     :in-degree 31.0,
-     :current_flow_betweenness_centrality 0.05648567517894387,
-     :katz-centrality 1.5613020434227387,
-     :degree 65.0,
-     :alpha-centrality 1.5613020434227387,
-     :betweenness-centrality 0.11727272727272725,
-     :local-clustering-coefficient 0.8035714285714286,
-     :closeness-centrality 0.4,
-     :eigenvector-centrality 2.2524812468783145E-5}}
-   {:id :LAE,
-    :pos :LAE,
-    :short-name ("Marcelo"),
-    :current-national-team-id 6380,
-    :coord-pos [12 70],
-    :average-pos [15.508064 37.99193572998047],
-    :metrics
-    {:out-degree 60.0,
-     :in-degree 64.0,
-     :current_flow_betweenness_centrality 0.014940796768533519,
-     :katz-centrality 2.179947223722558,
-     :degree 124.0,
-     :alpha-centrality 2.179947223722558,
-     :betweenness-centrality 0.1443582651915985,
-     :local-clustering-coefficient 0.7555555555555555,
-     :closeness-centrality 0.47619047619047616,
-     :eigenvector-centrality 5.0233153053859495E-5}}
-   {:id :PTE,
-    :pos :PTE,
-    :short-name ("Neymar"),
-    :current-national-team-id 6380,
-    :coord-pos [12 25],
-    :average-pos [27.633333 31.177780151367188],
-    :metrics
-    {:out-degree 41.0,
-     :in-degree 49.0,
-     :current_flow_betweenness_centrality -0.11899250618005029,
-     :katz-centrality 1.945353878592917,
-     :degree 90.0,
-     :alpha-centrality 1.945353878592917,
-     :betweenness-centrality 0.04953703703703703,
-     :local-clustering-coefficient 0.8888888888888888,
-     :closeness-centrality 0.3448275862068966,
-     :eigenvector-centrality 4.224470105163623E-5}}
-   {:id :PTD,
-    :pos :PTD,
-    :short-name ("Willian" "Roberto Firmino"),
-    :current-national-team-id 6380,
-    :coord-pos [88 25],
-    :average-pos [64.491806 33.14753723144531],
-    :metrics
-    {:out-degree 27.0,
-     :in-degree 34.0,
-     :current_flow_betweenness_centrality -0.06457431520072568,
-     :katz-centrality 1.6255184483665097,
-     :degree 61.0,
-     :alpha-centrality 1.6255184483665097,
-     :betweenness-centrality 0.024925444925444924,
-     :local-clustering-coefficient 0.875,
-     :closeness-centrality 0.45454545454545453,
-     :eigenvector-centrality 2.6667066495712928E-5}}
-   {:id :LAD,
-    :pos :LAD,
-    :short-name ("Fágner"),
-    :current-national-team-id 6380,
-    :coord-pos [88 70],
-    :average-pos [84.0339 56.084747314453125],
-    :metrics
-    {:out-degree 30.0,
-     :in-degree 29.0,
-     :current_flow_betweenness_centrality -0.09963380666061344,
-     :katz-centrality 1.4937580353960547,
-     :degree 59.0,
-     :alpha-centrality 1.4937580353960547,
-     :betweenness-centrality 0.10662698412698413,
-     :local-clustering-coefficient 0.7916666666666666,
-     :closeness-centrality 0.5263157894736842,
-     :eigenvector-centrality 1.790859606874525E-5}}
-   {:id :VOD,
-    :pos :VOD,
-    :short-name ("Paulinho" "Renato Augusto"),
-    :current-national-team-id 6380,
-    :coord-pos [75 45],
     :average-pos [64.088234 47.338233947753906],
     :metrics
     {:out-degree 35.0,
      :in-degree 33.0,
-     :current_flow_betweenness_centrality -0.07647857224706514,
+     :current_flow_betweenness_centrality -0.015463449566701471,
      :katz-centrality 1.5969425079295365,
      :degree 68.0,
      :alpha-centrality 1.5969425079295365,
-     :betweenness-centrality 0.07917348084014751,
+     :betweenness-centrality 0.08829805996472663,
      :local-clustering-coefficient 0.875,
      :closeness-centrality 0.43478260869565216,
-     :eigenvector-centrality 2.449744718171806E-5}}
-   {:id :VOC,
-    :pos :VOC,
-    :short-name ("Fernandinho"),
+     :eigenvector-centrality 2.4497447181718053E-5}}
+   {:id "105334340386",
+    :pos "105334340386",
+    :short-name ("Gabriel Jesus" "Douglas Costa"),
     :current-national-team-id 6380,
-    :coord-pos [50 53],
-    :average-pos [46.221054 47.61052703857422],
-    :metrics
-    {:out-degree 51.0,
-     :in-degree 44.0,
-     :current_flow_betweenness_centrality -0.024707725600807195,
-     :katz-centrality 1.8503284805169102,
-     :degree 95.0,
-     :alpha-centrality 1.8503284805169102,
-     :betweenness-centrality 0.05904882154882155,
-     :local-clustering-coefficient 0.8611111111111112,
-     :closeness-centrality 0.25,
-     :eigenvector-centrality 3.818425120523237E-5}}
-   {:id :ZAD,
-    :pos :ZAD,
-    :short-name ("Thiago Silva"),
-    :current-national-team-id 6380,
-    :coord-pos [65 79],
-    :average-pos [63.868134 61.340660095214844],
-    :metrics
-    {:out-degree 49.0,
-     :in-degree 42.0,
-     :current_flow_betweenness_centrality -0.019982613334396937,
-     :katz-centrality 1.678917747604221,
-     :degree 91.0,
-     :alpha-centrality 1.678917747604221,
-     :betweenness-centrality 0.06962962962962962,
-     :local-clustering-coefficient 0.7666666666666667,
-     :closeness-centrality 0.38461538461538464,
-     :eigenvector-centrality 2.3170685885473746E-5}}
-   {:id :ATC,
-    :pos :ATC,
-    :short-name ("Douglas Costa" "Gabriel Jesus"),
-    :current-national-team-id 6380,
-    :coord-pos [50 15],
     :average-pos [79.954544 29.704544067382812],
     :metrics
     {:out-degree 21.0,
      :in-degree 23.0,
-     :current_flow_betweenness_centrality -0.1259803377885527,
+     :current_flow_betweenness_centrality 0.024644772057714082,
      :katz-centrality 1.4170496998063271,
      :degree 44.0,
      :alpha-centrality 1.4170496998063271,
-     :betweenness-centrality 0.0433068783068783,
+     :betweenness-centrality 0.04445165945165945,
      :local-clustering-coefficient 0.9464285714285714,
      :closeness-centrality 0.2564102564102564,
      :eigenvector-centrality 1.7260630611283235E-5}}
-   {:id :VOE,
-    :pos :VOE,
-    :short-name ("Philippe Coutinho"),
-    :current-national-team-id 6380,
-    :coord-pos [25 45],
-    :average-pos [30.51938 39.25581359863281],
-    :metrics
-    {:out-degree 64.0,
-     :in-degree 65.0,
-     :current_flow_betweenness_centrality -0.025876914332131483,
-     :katz-centrality 2.217970916474029,
-     :degree 129.0,
-     :alpha-centrality 2.217970916474029,
-     :betweenness-centrality 0.026322751322751324,
-     :local-clustering-coefficient 0.7666666666666667,
-     :closeness-centrality 0.4166666666666667,
-     :eigenvector-centrality 5.305612995897303E-5}}
-   {:id :GOL,
-    :pos :GOL,
+   {:id "214220",
+    :pos "214220",
     :short-name ("Alisson"),
     :current-national-team-id 6380,
-    :coord-pos [50 94],
     :average-pos [49.8 89.69999980926514],
     :metrics
     {:out-degree 6.0,
      :in-degree 4.0,
-     :current_flow_betweenness_centrality 0.006836888003749057,
+     :current_flow_betweenness_centrality -0.05285636609940722,
      :katz-centrality 1.062276550737211,
      :degree 10.0,
      :alpha-centrality 1.062276550737211,
-     :betweenness-centrality 0.06374378707712042,
+     :betweenness-centrality 0.05960237293570627,
      :local-clustering-coefficient 0.85,
      :closeness-centrality 0.4166666666666667,
-     :eigenvector-centrality 1.7877474822232194E-6}})},
+     :eigenvector-centrality 1.7877474822232194E-6}}
+   {:id "20394",
+    :pos "20394",
+    :short-name ("Thiago Silva"),
+    :current-national-team-id 6380,
+    :average-pos [63.868134 61.340660095214844],
+    :metrics
+    {:out-degree 49.0,
+     :in-degree 42.0,
+     :current_flow_betweenness_centrality -0.07293366036909574,
+     :katz-centrality 1.678917747604221,
+     :degree 91.0,
+     :alpha-centrality 1.678917747604221,
+     :betweenness-centrality 0.07765993265993265,
+     :local-clustering-coefficient 0.7666666666666667,
+     :closeness-centrality 0.38461538461538464,
+     :eigenvector-centrality 2.3170685885473746E-5}}
+   {:id "3310",
+    :pos "3310",
+    :short-name ("Marcelo"),
+    :current-national-team-id 6380,
+    :average-pos [15.508064 37.99193572998047],
+    :metrics
+    {:out-degree 60.0,
+     :in-degree 64.0,
+     :current_flow_betweenness_centrality -0.05318719602699584,
+     :katz-centrality 2.179947223722558,
+     :degree 124.0,
+     :alpha-centrality 2.179947223722558,
+     :betweenness-centrality 0.14520001603334937,
+     :local-clustering-coefficient 0.7555555555555555,
+     :closeness-centrality 0.47619047619047616,
+     :eigenvector-centrality 5.023315305385949E-5}}
+   {:id "3431",
+    :pos "3431",
+    :short-name ("João Miranda"),
+    :current-national-team-id 6380,
+    :average-pos [31.323076 64.78461456298828],
+    :metrics
+    {:out-degree 34.0,
+     :in-degree 31.0,
+     :current_flow_betweenness_centrality -0.11804584176187487,
+     :katz-centrality 1.5613020434227387,
+     :degree 65.0,
+     :alpha-centrality 1.5613020434227387,
+     :betweenness-centrality 0.13023569023569023,
+     :local-clustering-coefficient 0.8035714285714286,
+     :closeness-centrality 0.4,
+     :eigenvector-centrality 2.2524812468783142E-5}}
+   {:id "105339",
+    :pos "105339",
+    :short-name ("Fernandinho"),
+    :current-national-team-id 6380,
+    :average-pos [46.221054 47.61052703857422],
+    :metrics
+    {:out-degree 51.0,
+     :in-degree 44.0,
+     :current_flow_betweenness_centrality 0.01959858984494974,
+     :katz-centrality 1.85032848051691,
+     :degree 95.0,
+     :alpha-centrality 1.85032848051691,
+     :betweenness-centrality 0.06228114478114477,
+     :local-clustering-coefficient 0.8611111111111112,
+     :closeness-centrality 0.25,
+     :eigenvector-centrality 3.818425120523237E-5}}
+   {:id "15808105333",
+    :pos "15808105333",
+    :short-name ("Roberto Firmino" "Willian"),
+    :current-national-team-id 6380,
+    :average-pos [64.491806 33.14753723144531],
+    :metrics
+    {:out-degree 27.0,
+     :in-degree 34.0,
+     :current_flow_betweenness_centrality -0.0038808024189615205,
+     :katz-centrality 1.6255184483665097,
+     :degree 61.0,
+     :alpha-centrality 1.6255184483665097,
+     :betweenness-centrality 0.02159211159211159,
+     :local-clustering-coefficient 0.875,
+     :closeness-centrality 0.45454545454545453,
+     :eigenvector-centrality 2.6667066495712925E-5}}
+   {:id "3802",
+    :pos "3802",
+    :short-name ("Philippe Coutinho"),
+    :current-national-team-id 6380,
+    :average-pos [30.51938 39.25581359863281],
+    :metrics
+    {:out-degree 64.0,
+     :in-degree 65.0,
+     :current_flow_betweenness_centrality -0.07986611592818105,
+     :katz-centrality 2.217970916474029,
+     :degree 129.0,
+     :alpha-centrality 2.217970916474029,
+     :betweenness-centrality 0.03172679172679172,
+     :local-clustering-coefficient 0.7666666666666667,
+     :closeness-centrality 0.4166666666666667,
+     :eigenvector-centrality 5.3056129958973014E-5}}
+   {:id "40707",
+    :pos "40707",
+    :short-name ("Fágner"),
+    :current-national-team-id 6380,
+    :average-pos [84.0339 56.084747314453125],
+    :metrics
+    {:out-degree 30.0,
+     :in-degree 29.0,
+     :current_flow_betweenness_centrality -0.08581116622482339,
+     :katz-centrality 1.4937580353960547,
+     :degree 59.0,
+     :alpha-centrality 1.4937580353960547,
+     :betweenness-centrality 0.09123977873977872,
+     :local-clustering-coefficient 0.7916666666666666,
+     :closeness-centrality 0.5263157894736842,
+     :eigenvector-centrality 1.790859606874525E-5}}
+   {:id "40810",
+    :pos "40810",
+    :short-name ("Neymar"),
+    :current-national-team-id 6380,
+    :average-pos [27.633333 31.177780151367188],
+    :metrics
+    {:out-degree 41.0,
+     :in-degree 49.0,
+     :current_flow_betweenness_centrality -0.040162194899739295,
+     :katz-centrality 1.945353878592917,
+     :degree 90.0,
+     :alpha-centrality 1.945353878592917,
+     :betweenness-centrality 0.04073232323232323,
+     :local-clustering-coefficient 0.8888888888888888,
+     :closeness-centrality 0.3448275862068966,
+     :eigenvector-centrality 4.224470105163622E-5}})},
  :links
  {:6380
-  ({:source :VOD, :target :VOC, :team-id 6380, :value 1}
-   {:source :ZAE, :target :GOL, :team-id 6380, :value 1}
-   {:source :PTD, :target :LAD, :team-id 6380, :value 1}
-   {:source :VOD, :target :LAE, :team-id 6380, :value 1}
-   {:source :PTE, :target :ZAE, :team-id 6380, :value 1}
-   {:source :ZAD, :target :GOL, :team-id 6380, :value 1}
-   {:source :LAE, :target :LAD, :team-id 6380, :value 1}
-   {:source :LAD, :target :VOC, :team-id 6380, :value 1}
-   {:source :GOL, :target :LAE, :team-id 6380, :value 1}
-   {:source :LAD, :target :LAE, :team-id 6380, :value 1}
-   {:source :GOL, :target :VOE, :team-id 6380, :value 1}
-   {:source :ZAE, :target :VOD, :team-id 6380, :value 1}
-   {:source :LAD, :target :PTE, :team-id 6380, :value 1}
-   {:source :LAE, :target :ZAD, :team-id 6380, :value 1}
-   {:source :ZAD, :target :ATC, :team-id 6380, :value 1}
-   {:source :VOC, :target :ATC, :team-id 6380, :value 1}
-   {:source :VOE, :target :ZAE, :team-id 6380, :value 1}
-   {:source :VOE, :target :LAD, :team-id 6380, :value 2}
-   {:source :GOL, :target :ZAE, :team-id 6380, :value 2}
-   {:source :PTD, :target :ZAE, :team-id 6380, :value 2}
-   {:source :LAE, :target :VOD, :team-id 6380, :value 2}
-   {:source :PTD, :target :VOE, :team-id 6380, :value 2}
-   {:source :VOE, :target :ATC, :team-id 6380, :value 2}
-   {:source :LAD, :target :GOL, :team-id 6380, :value 2}
-   {:source :VOD, :target :PTE, :team-id 6380, :value 2}
-   {:source :PTE, :target :VOD, :team-id 6380, :value 2}
-   {:source :LAD, :target :PTD, :team-id 6380, :value 2}
-   {:source :VOE, :target :ZAD, :team-id 6380, :value 2}
-   {:source :GOL, :target :ZAD, :team-id 6380, :value 2}
-   {:source :PTD, :target :ZAD, :team-id 6380, :value 2}
-   {:source :ZAD, :target :PTD, :team-id 6380, :value 2}
-   {:source :PTE, :target :PTD, :team-id 6380, :value 3}
-   {:source :ATC, :target :PTD, :team-id 6380, :value 3}
-   {:source :ATC, :target :PTE, :team-id 6380, :value 3}
-   {:source :PTD, :target :VOC, :team-id 6380, :value 3}
-   {:source :ATC, :target :LAD, :team-id 6380, :value 3}
-   {:source :ATC, :target :VOC, :team-id 6380, :value 3}
-   {:source :PTD, :target :ATC, :team-id 6380, :value 3}
-   {:source :VOD, :target :ZAE, :team-id 6380, :value 3}
-   {:source :VOD, :target :VOE, :team-id 6380, :value 3}
-   {:source :VOC, :target :LAE, :team-id 6380, :value 3}
-   {:source :ATC, :target :VOE, :team-id 6380, :value 4}
-   {:source :PTE, :target :ATC, :team-id 6380, :value 4}
-   {:source :VOC, :target :PTE, :team-id 6380, :value 4}
-   {:source :VOC, :target :LAD, :team-id 6380, :value 4}
-   {:source :LAD, :target :ATC, :team-id 6380, :value 4}
-   {:source :LAE, :target :ATC, :team-id 6380, :value 4}
-   {:source :VOD, :target :ATC, :team-id 6380, :value 4}
-   {:source :PTD, :target :PTE, :team-id 6380, :value 4}
-   {:source :ZAD, :target :VOC, :team-id 6380, :value 4}
-   {:source :ZAD, :target :PTE, :team-id 6380, :value 4}
-   {:source :ATC, :target :LAE, :team-id 6380, :value 5}
-   {:source :LAE, :target :PTD, :team-id 6380, :value 5}
-   {:source :ZAE, :target :PTE, :team-id 6380, :value 5}
-   {:source :VOE, :target :PTD, :team-id 6380, :value 5}
-   {:source :VOE, :target :VOD, :team-id 6380, :value 5}
-   {:source :VOD, :target :ZAD, :team-id 6380, :value 5}
-   {:source :ZAD, :target :VOD, :team-id 6380, :value 5}
-   {:source :PTD, :target :VOD, :team-id 6380, :value 5}
-   {:source :LAD, :target :VOD, :team-id 6380, :value 5}
-   {:source :VOC, :target :ZAE, :team-id 6380, :value 5}
-   {:source :ZAE, :target :VOC, :team-id 6380, :value 5}
-   {:source :ZAE, :target :VOE, :team-id 6380, :value 5}
-   {:source :PTE, :target :VOC, :team-id 6380, :value 5}
-   {:source :PTD, :target :LAE, :team-id 6380, :value 5}
-   {:source :ZAD, :target :VOE, :team-id 6380, :value 6}
-   {:source :LAE, :target :VOC, :team-id 6380, :value 6}
-   {:source :VOC, :target :ZAD, :team-id 6380, :value 7}
-   {:source :VOC, :target :PTD, :team-id 6380, :value 7}
-   {:source :VOD, :target :PTD, :team-id 6380, :value 7}
-   {:source :ZAE, :target :LAE, :team-id 6380, :value 8}
-   {:source :VOC, :target :VOD, :team-id 6380, :value 8}
-   {:source :LAE, :target :ZAE, :team-id 6380, :value 8}
-   {:source :ZAD, :target :LAE, :team-id 6380, :value 8}
-   {:source :ZAD, :target :LAD, :team-id 6380, :value 9}
-   {:source :ZAE, :target :ZAD, :team-id 6380, :value 9}
-   {:source :VOD, :target :LAD, :team-id 6380, :value 9}
-   {:source :ZAD, :target :ZAE, :team-id 6380, :value 9}
-   {:source :VOC, :target :VOE, :team-id 6380, :value 12}
-   {:source :PTE, :target :VOE, :team-id 6380, :value 12}
-   {:source :LAE, :target :PTE, :team-id 6380, :value 13}
-   {:source :VOE, :target :PTE, :team-id 6380, :value 13}
-   {:source :PTE, :target :LAE, :team-id 6380, :value 14}
-   {:source :LAD, :target :ZAD, :team-id 6380, :value 14}
-   {:source :VOE, :target :VOC, :team-id 6380, :value 16}
-   {:source :VOE, :target :LAE, :team-id 6380, :value 18}
-   {:source :LAE, :target :VOE, :team-id 6380, :value 20}),
+  ({:source "3431", :target "1478540550", :team-id 6380, :value 1}
+   {:source "40707", :target "3310", :team-id 6380, :value 1}
+   {:source "214220", :target "3310", :team-id 6380, :value 1}
+   {:source "1478540550", :target "105339", :team-id 6380, :value 1}
+   {:source "40810", :target "3431", :team-id 6380, :value 1}
+   {:source "3802", :target "3431", :team-id 6380, :value 1}
+   {:source "40707", :target "105339", :team-id 6380, :value 1}
+   {:source "3431", :target "214220", :team-id 6380, :value 1}
+   {:source "20394", :target "214220", :team-id 6380, :value 1}
+   {:source "40707", :target "40810", :team-id 6380, :value 1}
+   {:source "214220", :target "3802", :team-id 6380, :value 1}
+   {:source "3310", :target "20394", :team-id 6380, :value 1}
+   {:source "1478540550", :target "3310", :team-id 6380, :value 1}
+   {:source "20394", :target "105334340386", :team-id 6380, :value 1}
+   {:source "105339", :target "105334340386", :team-id 6380, :value 1}
+   {:source "3310", :target "40707", :team-id 6380, :value 1}
+   {:source "15808105333", :target "40707", :team-id 6380, :value 1}
+   {:source "1478540550", :target "40810", :team-id 6380, :value 2}
+   {:source "15808105333", :target "3431", :team-id 6380, :value 2}
+   {:source "214220", :target "20394", :team-id 6380, :value 2}
+   {:source "3802", :target "40707", :team-id 6380, :value 2}
+   {:source "20394", :target "15808105333", :team-id 6380, :value 2}
+   {:source "15808105333", :target "20394", :team-id 6380, :value 2}
+   {:source "3310", :target "1478540550", :team-id 6380, :value 2}
+   {:source "40707", :target "214220", :team-id 6380, :value 2}
+   {:source "15808105333", :target "3802", :team-id 6380, :value 2}
+   {:source "40707", :target "15808105333", :team-id 6380, :value 2}
+   {:source "3802", :target "105334340386", :team-id 6380, :value 2}
+   {:source "40810", :target "1478540550", :team-id 6380, :value 2}
+   {:source "3802", :target "20394", :team-id 6380, :value 2}
+   {:source "214220", :target "3431", :team-id 6380, :value 2}
+   {:source "105334340386", :target "105339", :team-id 6380, :value 3}
+   {:source "105339", :target "3310", :team-id 6380, :value 3}
+   {:source "15808105333",
+    :target "105334340386",
+    :team-id 6380,
+    :value 3}
+   {:source "15808105333", :target "105339", :team-id 6380, :value 3}
+   {:source "1478540550", :target "3802", :team-id 6380, :value 3}
+   {:source "1478540550", :target "3431", :team-id 6380, :value 3}
+   {:source "105334340386",
+    :target "15808105333",
+    :team-id 6380,
+    :value 3}
+   {:source "40810", :target "15808105333", :team-id 6380, :value 3}
+   {:source "105334340386", :target "40707", :team-id 6380, :value 3}
+   {:source "105334340386", :target "40810", :team-id 6380, :value 3}
+   {:source "105334340386", :target "3802", :team-id 6380, :value 4}
+   {:source "15808105333", :target "40810", :team-id 6380, :value 4}
+   {:source "1478540550",
+    :target "105334340386",
+    :team-id 6380,
+    :value 4}
+   {:source "105339", :target "40810", :team-id 6380, :value 4}
+   {:source "40707", :target "105334340386", :team-id 6380, :value 4}
+   {:source "20394", :target "40810", :team-id 6380, :value 4}
+   {:source "105339", :target "40707", :team-id 6380, :value 4}
+   {:source "20394", :target "105339", :team-id 6380, :value 4}
+   {:source "3310", :target "105334340386", :team-id 6380, :value 4}
+   {:source "40810", :target "105334340386", :team-id 6380, :value 4}
+   {:source "15808105333", :target "3310", :team-id 6380, :value 5}
+   {:source "105339", :target "3431", :team-id 6380, :value 5}
+   {:source "3431", :target "3802", :team-id 6380, :value 5}
+   {:source "20394", :target "1478540550", :team-id 6380, :value 5}
+   {:source "3310", :target "15808105333", :team-id 6380, :value 5}
+   {:source "3802", :target "1478540550", :team-id 6380, :value 5}
+   {:source "105334340386", :target "3310", :team-id 6380, :value 5}
+   {:source "40810", :target "105339", :team-id 6380, :value 5}
+   {:source "3431", :target "40810", :team-id 6380, :value 5}
+   {:source "15808105333",
+    :target "1478540550",
+    :team-id 6380,
+    :value 5}
+   {:source "3431", :target "105339", :team-id 6380, :value 5}
+   {:source "40707", :target "1478540550", :team-id 6380, :value 5}
+   {:source "1478540550", :target "20394", :team-id 6380, :value 5}
+   {:source "3802", :target "15808105333", :team-id 6380, :value 5}
+   {:source "20394", :target "3802", :team-id 6380, :value 6}
+   {:source "3310", :target "105339", :team-id 6380, :value 6}
+   {:source "105339", :target "15808105333", :team-id 6380, :value 7}
+   {:source "105339", :target "20394", :team-id 6380, :value 7}
+   {:source "1478540550",
+    :target "15808105333",
+    :team-id 6380,
+    :value 7}
+   {:source "105339", :target "1478540550", :team-id 6380, :value 8}
+   {:source "20394", :target "3310", :team-id 6380, :value 8}
+   {:source "3310", :target "3431", :team-id 6380, :value 8}
+   {:source "3431", :target "3310", :team-id 6380, :value 8}
+   {:source "1478540550", :target "40707", :team-id 6380, :value 9}
+   {:source "3431", :target "20394", :team-id 6380, :value 9}
+   {:source "20394", :target "40707", :team-id 6380, :value 9}
+   {:source "20394", :target "3431", :team-id 6380, :value 9}
+   {:source "40810", :target "3802", :team-id 6380, :value 12}
+   {:source "105339", :target "3802", :team-id 6380, :value 12}
+   {:source "3310", :target "40810", :team-id 6380, :value 13}
+   {:source "3802", :target "40810", :team-id 6380, :value 13}
+   {:source "40707", :target "20394", :team-id 6380, :value 14}
+   {:source "40810", :target "3310", :team-id 6380, :value 14}
+   {:source "3802", :target "105339", :team-id 6380, :value 16}
+   {:source "3802", :target "3310", :team-id 6380, :value 18}
+   {:source "3310", :target "3802", :team-id 6380, :value 20}),
   :5629
-  ({:source :LAD, :target :PTD, :team-id 5629, :value 1}
-   {:source :GOL, :target :PTE, :team-id 5629, :value 1}
-   {:source :PTD, :target :VOE, :team-id 5629, :value 1}
-   {:source :LAD, :target :GOL, :team-id 5629, :value 1}
-   {:source :PTE, :target :ZAE, :team-id 5629, :value 1}
-   {:source :VOD, :target :PTE, :team-id 5629, :value 1}
-   {:source :PTE, :target :VOD, :team-id 5629, :value 1}
-   {:source :VOE, :target :PTD, :team-id 5629, :value 1}
-   {:source :GOL, :target :ZAE, :team-id 5629, :value 1}
-   {:source :VOD, :target :PTD, :team-id 5629, :value 1}
-   {:source :PTD, :target :PTE, :team-id 5629, :value 1}
-   {:source :VOE, :target :VOC, :team-id 5629, :value 1}
-   {:source :GOL, :target :ATC, :team-id 5629, :value 1}
-   {:source :GOL, :target :PTD, :team-id 5629, :value 1}
-   {:source :VOD, :target :ZAD, :team-id 5629, :value 2}
-   {:source :VOC, :target :VOE, :team-id 5629, :value 2}
-   {:source :VOC, :target :PTD, :team-id 5629, :value 2}
-   {:source :PTD, :target :LAD, :team-id 5629, :value 2}
-   {:source :VOC, :target :ZAD, :team-id 5629, :value 2}
-   {:source :LAD, :target :ZAD, :team-id 5629, :value 2}
-   {:source :ZAE, :target :VOD, :team-id 5629, :value 2}
-   {:source :VOE, :target :ZAE, :team-id 5629, :value 2}
-   {:source :ZAD, :target :PTD, :team-id 5629, :value 2}
-   {:source :VOE, :target :GOL, :team-id 5629, :value 2}
-   {:source :PTD, :target :VOC, :team-id 5629, :value 2}
-   {:source :VOC, :target :ATC, :team-id 5629, :value 2}
-   {:source :LAE, :target :ZAD, :team-id 5629, :value 2}
-   {:source :PTD, :target :ATC, :team-id 5629, :value 2}
-   {:source :ATC, :target :VOD, :team-id 5629, :value 2}
-   {:source :GOL, :target :LAD, :team-id 5629, :value 2}
-   {:source :LAD, :target :ATC, :team-id 5629, :value 2}
-   {:source :PTE, :target :LAE, :team-id 5629, :value 2}
-   {:source :ATC, :target :VOE, :team-id 5629, :value 2}
-   {:source :ATC, :target :LAD, :team-id 5629, :value 2}
-   {:source :GOL, :target :ZAD, :team-id 5629, :value 2}
-   {:source :LAE, :target :VOD, :team-id 5629, :value 2}
-   {:source :LAD, :target :VOC, :team-id 5629, :value 2}
-   {:source :GOL, :target :VOE, :team-id 5629, :value 2}
-   {:source :ZAD, :target :LAE, :team-id 5629, :value 2}
-   {:source :ZAD, :target :ATC, :team-id 5629, :value 3}
-   {:source :GOL, :target :LAE, :team-id 5629, :value 3}
-   {:source :PTE, :target :LAD, :team-id 5629, :value 3}
-   {:source :LAE, :target :ATC, :team-id 5629, :value 3}
-   {:source :ATC, :target :PTD, :team-id 5629, :value 3}
-   {:source :ZAD, :target :LAD, :team-id 5629, :value 3}
-   {:source :ZAD, :target :VOC, :team-id 5629, :value 3}
-   {:source :ZAE, :target :LAD, :team-id 5629, :value 3}
-   {:source :ZAE, :target :GOL, :team-id 5629, :value 3}
-   {:source :ZAE, :target :PTE, :team-id 5629, :value 3}
-   {:source :ZAE, :target :ATC, :team-id 5629, :value 3}
-   {:source :VOE, :target :ATC, :team-id 5629, :value 3}
-   {:source :VOD, :target :LAE, :team-id 5629, :value 3}
-   {:source :LAE, :target :VOC, :team-id 5629, :value 4}
-   {:source :LAE, :target :PTE, :team-id 5629, :value 4}
-   {:source :LAE, :target :GOL, :team-id 5629, :value 4}
-   {:source :PTE, :target :VOC, :team-id 5629, :value 4}
-   {:source :VOD, :target :ATC, :team-id 5629, :value 4}
-   {:source :ZAE, :target :VOE, :team-id 5629, :value 4}
-   {:source :VOD, :target :LAD, :team-id 5629, :value 4}
-   {:source :ATC, :target :LAE, :team-id 5629, :value 4}
-   {:source :ZAD, :target :VOD, :team-id 5629, :value 4}
-   {:source :VOC, :target :LAE, :team-id 5629, :value 4}
-   {:source :ZAE, :target :VOC, :team-id 5629, :value 4}
-   {:source :ATC, :target :VOC, :team-id 5629, :value 4}
-   {:source :VOC, :target :VOD, :team-id 5629, :value 4}
-   {:source :VOD, :target :ZAE, :team-id 5629, :value 4}
-   {:source :ATC, :target :PTE, :team-id 5629, :value 4}
-   {:source :VOD, :target :VOC, :team-id 5629, :value 5}
-   {:source :ZAD, :target :GOL, :team-id 5629, :value 5}
-   {:source :PTE, :target :ATC, :team-id 5629, :value 5}
-   {:source :LAE, :target :VOE, :team-id 5629, :value 5}
-   {:source :VOC, :target :ZAE, :team-id 5629, :value 6}
-   {:source :ZAD, :target :ZAE, :team-id 5629, :value 6}
-   {:source :ZAE, :target :LAE, :team-id 5629, :value 6}
-   {:source :VOC, :target :PTE, :team-id 5629, :value 7}
-   {:source :VOE, :target :PTE, :team-id 5629, :value 8}
-   {:source :LAD, :target :VOD, :team-id 5629, :value 8}
-   {:source :VOE, :target :LAE, :team-id 5629, :value 9}
-   {:source :PTE, :target :VOE, :team-id 5629, :value 10}
-   {:source :ZAE, :target :ZAD, :team-id 5629, :value 13}
-   {:source :LAE, :target :ZAE, :team-id 5629, :value 13})},
+  ({:source "3429", :target "7905263802", :team-id 5629, :value 1}
+   {:source "8249", :target "25707", :team-id 5629, :value 1}
+   {:source "37824", :target "3429", :team-id 5629, :value 1}
+   {:source "7905263802", :target "2617860", :team-id 5629, :value 1}
+   {:source "3429", :target "8307", :team-id 5629, :value 1}
+   {:source "37824", :target "7905263802", :team-id 5629, :value 1}
+   {:source "3429", :target "38021", :team-id 5629, :value 1}
+   {:source "25707", :target "8307", :team-id 5629, :value 1}
+   {:source "25707", :target "8249", :team-id 5629, :value 1}
+   {:source "2617860", :target "70123", :team-id 5629, :value 1}
+   {:source "7905263802", :target "25707", :team-id 5629, :value 1}
+   {:source "3429", :target "25707", :team-id 5629, :value 1}
+   {:source "2617860", :target "7905263802", :team-id 5629, :value 1}
+   {:source "8249", :target "7905263802", :team-id 5629, :value 1}
+   {:source "38021", :target "2617860", :team-id 5629, :value 2}
+   {:source "3429", :target "36", :team-id 5629, :value 2}
+   {:source "70123", :target "38021", :team-id 5629, :value 2}
+   {:source "7905263802", :target "37824", :team-id 5629, :value 2}
+   {:source "37824", :target "38021", :team-id 5629, :value 2}
+   {:source "38021", :target "37824", :team-id 5629, :value 2}
+   {:source "8307", :target "8249", :team-id 5629, :value 2}
+   {:source "8249", :target "36", :team-id 5629, :value 2}
+   {:source "48", :target "36", :team-id 5629, :value 2}
+   {:source "2617860", :target "8307", :team-id 5629, :value 2}
+   {:source "3429", :target "37824", :team-id 5629, :value 2}
+   {:source "25707", :target "48", :team-id 5629, :value 2}
+   {:source "7905263802", :target "70123", :team-id 5629, :value 2}
+   {:source "70123", :target "36", :team-id 5629, :value 2}
+   {:source "37824", :target "36", :team-id 5629, :value 2}
+   {:source "36", :target "7905263802", :team-id 5629, :value 2}
+   {:source "36", :target "48", :team-id 5629, :value 2}
+   {:source "70123", :target "2617860", :team-id 5629, :value 2}
+   {:source "7905263802", :target "38021", :team-id 5629, :value 2}
+   {:source "2617860", :target "3429", :team-id 5629, :value 2}
+   {:source "70123", :target "7905263802", :team-id 5629, :value 2}
+   {:source "48", :target "8249", :team-id 5629, :value 2}
+   {:source "37824", :target "70123", :team-id 5629, :value 2}
+   {:source "38021", :target "8249", :team-id 5629, :value 2}
+   {:source "3429", :target "2617860", :team-id 5629, :value 2}
+   {:source "8307", :target "37824", :team-id 5629, :value 3}
+   {:source "8307", :target "25707", :team-id 5629, :value 3}
+   {:source "8307", :target "3429", :team-id 5629, :value 3}
+   {:source "2617860", :target "38021", :team-id 5629, :value 3}
+   {:source "3429", :target "48", :team-id 5629, :value 3}
+   {:source "25707", :target "37824", :team-id 5629, :value 3}
+   {:source "38021", :target "7905263802", :team-id 5629, :value 3}
+   {:source "48", :target "38021", :team-id 5629, :value 3}
+   {:source "8307", :target "38021", :team-id 5629, :value 3}
+   {:source "36", :target "38021", :team-id 5629, :value 3}
+   {:source "36", :target "70123", :team-id 5629, :value 3}
+   {:source "36", :target "37824", :team-id 5629, :value 3}
+   {:source "8249", :target "48", :team-id 5629, :value 3}
+   {:source "8249", :target "37824", :team-id 5629, :value 4}
+   {:source "48", :target "70123", :team-id 5629, :value 4}
+   {:source "36", :target "8249", :team-id 5629, :value 4}
+   {:source "70123", :target "48", :team-id 5629, :value 4}
+   {:source "38021", :target "70123", :team-id 5629, :value 4}
+   {:source "48", :target "25707", :team-id 5629, :value 4}
+   {:source "70123", :target "8249", :team-id 5629, :value 4}
+   {:source "8249", :target "38021", :team-id 5629, :value 4}
+   {:source "8307", :target "70123", :team-id 5629, :value 4}
+   {:source "8249", :target "8307", :team-id 5629, :value 4}
+   {:source "48", :target "3429", :team-id 5629, :value 4}
+   {:source "25707", :target "70123", :team-id 5629, :value 4}
+   {:source "38021", :target "25707", :team-id 5629, :value 4}
+   {:source "38021", :target "48", :team-id 5629, :value 4}
+   {:source "8307", :target "2617860", :team-id 5629, :value 4}
+   {:source "48", :target "2617860", :team-id 5629, :value 5}
+   {:source "25707", :target "38021", :team-id 5629, :value 5}
+   {:source "36", :target "3429", :team-id 5629, :value 5}
+   {:source "8249", :target "70123", :team-id 5629, :value 5}
+   {:source "36", :target "8307", :team-id 5629, :value 6}
+   {:source "70123", :target "8307", :team-id 5629, :value 6}
+   {:source "8307", :target "48", :team-id 5629, :value 6}
+   {:source "70123", :target "25707", :team-id 5629, :value 7}
+   {:source "37824", :target "8249", :team-id 5629, :value 8}
+   {:source "2617860", :target "25707", :team-id 5629, :value 8}
+   {:source "2617860", :target "48", :team-id 5629, :value 9}
+   {:source "25707", :target "2617860", :team-id 5629, :value 10}
+   {:source "8307", :target "36", :team-id 5629, :value 13}
+   {:source "48", :target "8307", :team-id 5629, :value 13})},
  :min-max-values
  {:out-degree {:min 6.0, :max 64.0},
   :passes {:min 1, :max 20},
   :in-degree {:min 4.0, :max 65.0},
   :current_flow_betweenness_centrality
-  {:min -0.1259803377885527, :max 0.05648567517894387},
+  {:min -0.12212383341541953, :max 0.04150629348342747},
   :katz-centrality {:min 1.062276550737211, :max 2.217970916474029},
   :degree {:min 10.0, :max 129.0},
   :alpha-centrality {:min 1.062276550737211, :max 2.217970916474029},
   :betweenness-centrality
-  {:min 0.0037037037037037034, :max 0.15537037037037035},
+  {:min 0.0037037037037037034, :max 0.14584656084656084},
   :local-clustering-coefficient
   {:min 0.6785714285714286, :max 0.9464285714285714},
   :closeness-centrality {:min 0.25, :max 0.5555555555555556},
   :eigenvector-centrality
-  {:min 1.7877474822232194E-6, :max 5.305612995897303E-5}},
+  {:min 1.7877474822232194E-6, :max 5.3056129958973014E-5}},
  :graph-metrics
  {:5629
-  {:algebraic-connectivity 19.933895874629314,
+  {:algebraic-connectivity 19.933895874629307,
    :average-node-connectivity 6.654545454545454,
-   :average-clustering-coefficient 0.7183261183261183,
+   :average-clustering-coefficient 0.7183261183261184,
    :global-clustering-coefficient 0.8157894736842105},
   :6380
-  {:algebraic-connectivity 10.68807644673216,
+  {:algebraic-connectivity 10.68807644673217,
    :average-node-connectivity 6.9,
    :average-clustering-coefficient 0.8345959595959596,
    :global-clustering-coefficient 0.8976377952755905}}}

@@ -95,9 +95,9 @@
     (doseq [node nodes]
       ; networkx
       (doto mg
-        (py. add_node (-> node :pos name)))
+        (py. add_node (-> node :pos)))
       (doto mdg
-        (py. add_node (-> node :pos name)))
+        (py. add_node (-> node :pos)))
 
       ; jgrapht
       (doto sdwg
@@ -109,15 +109,17 @@
     ; Links
     ; ====================================
     (doseq [link links]
-      (let [source (-> link :source keyword)
+      (let [s (-> link :source)
+            t (-> link :target)
+            source (-> link :source keyword)
             target (-> link :target keyword)
             weight (-> link :value)]
 
         ; networkx
         (doto mg
-          (py. add_edge (-> source name) (-> target name) :weight weight))
+          (py. add_edge s t :weight weight))
         (doto mdg
-          (py. add_edge (-> source name) (-> target name) :weight weight))
+          (py. add_edge s t :weight weight))
 
       ; jgrapht
         (doto sdwg
