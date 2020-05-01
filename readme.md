@@ -113,7 +113,7 @@ or
 clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=edn
 ```
 
-#### Spit All World Cup Matches
+#### Spit all World Cup Matches
 ```sh
 # just once
 chmod +x sh/get_all_world_cup_matches.sh
@@ -122,31 +122,31 @@ chmod +x sh/get_all_world_cup_matches.sh
 ./sh/get_all_world_cup_matches.sh
 ```
 
-#### Spit all Brazil matches graphs
+#### Spit all World Cup Graphs
 ```sh
 # just once
-chmod +x sh/get_all_brazil_graphs.sh
+chmod +x sh/get_all_world_cup_graphs.sh
 
 # whenever you want
-./sh/get_all_brazil_graphs.sh
+./sh/get_all_world_cup_graphs.sh
 ```
 
-#### Spit all Brazil analysis
+#### Spit all World Cup Analysis
 ```sh
 # just once
-chmod +x sh/get_all_brazil_analysis.sh
+chmod +x sh/get_all_world_cup_analysis.sh
 
 # whenever you want
-./sh/get_all_brazil_graphs.sh
+./sh/get_all_world_cup_graphs.sh
 ```
 
-#### Get matches -> graphs -> analysis of Brazil Games
+#### Get Matches -> Graphs -> Analysis of World Cup Games
 ```sh
 # just once
-chmod +x sh/streamline_brazil_matches.sh
+chmod +x sh/streamline_world_cup.sh
 
 # whenever you want
-./sh/streamline_brazil_matches.sh
+./sh/streamline_world_cup.sh
 ```
 
 
