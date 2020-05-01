@@ -6,11 +6,9 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
-   [clojure.string :refer [split trim]]
-   ; [clojure.pprint :refer [pprint]]
+   [clojure.string :refer [split trim join]]
+   [clojure.pprint :refer [pprint]]
 
-   [mapping.matches :refer [map->pos]]
-   [mapping.tatical :refer [positions]]
    [utils.core :refer [output-file-type hash-by-id hash-by-name hash-by metric-range]]))
 
 ; ==================================
@@ -140,24 +138,23 @@
     data))
 
 (def data (get-data))
-(def team-positions (-> map->pos id-keyword :players))
-(def tatical-scheme (-> map->pos id-keyword :tatical))
 
 ; ==================================
 ; Formatting Data
 ; ==================================
 (defn get-nodes
   []
-  (let [player-position (fn [p] (team-positions (-> p :wy-id str keyword)))
-        scheme-position (fn [p] (assoc p
-                                       :coord-pos
-                                       (-> p
-                                           :current-national-team-id
-                                           str
-                                           keyword
-                                           tatical-scheme
-                                           positions
-                                           ((fn [scheme-pos] (-> p :pos scheme-pos))))))
+  (let [pair-subs (fn [t] (mapv
+                           (fn [s] (-> [(-> s :player-in) (-> s :player-out)] sort vec)) t))
+        formation (->> data
+                       :match
+                       :teams-data
+                       vals
+                       (map :formation))
+        substitutions (->> formation
+                           (map (fn [t] (->> t :substitutions
+                                             pair-subs)))
+                           (reduce concat))
         aggregate-players (fn [t]
                             (reduce (fn [acc cur]
                                       (assoc-in
@@ -171,26 +168,30 @@
                                                    :short-name
                                                    (#(clojure.edn/read-string (str "" \" % "\""))))))))
                                     {} t))
-        players-with-position (-> data
-                                  :players
-                                  vals
-                                  (#(map
-                                     (fn [p]
-                                       (assoc p
-                                              :pos (player-position p)
-                                              :id (player-position p))) %)))]
+        players-with-position (->> data
+                                   :players
+                                   vals
+                                   (map (fn [p] (assoc p :pos [(p :wy-id)] :id [(p :wy-id)])))
+                                   (map (fn [p]
+                                          (let [compose-pos (->> substitutions
+                                                                 (filter (fn [[a b]] (or
+                                                                                      (= a (-> p :wy-id))
+                                                                                      (= b (-> p :wy-id)))))
+                                                                 first)
+                                                pos (or compose-pos [(p :wy-id)])]
+                                            (assoc p :pos (join "" pos) :id (join "" pos))))))]
+
     {:players-hash (-> players-with-position hash-by-id)
      :nodes (-> players-with-position
-                (#(remove (fn [p] (= (-> p :pos) :???)) %))
                 (project [:id :pos :short-name :current-national-team-id])
                 vec
-                (#(map scheme-position %))
                 (#(group-by :current-national-team-id %))
                 vals
                 (#(map aggregate-players %))
                 (#(map vals %)))}))
 
 (def nodes (get-nodes))
+
 (defn links
   []
   (let [assoc-player-data
@@ -243,7 +244,7 @@
                    (map (fn
                           [[key all-pos]]
                           (let [sum-pos (fn [pos] (fn [v] (->> (map pos v) (apply +))))]
-                            {:role (-> key name)
+                            {:role key
                              :med-position
                              ; ====================================
                              ; About x and y positions in this dataset:
@@ -263,7 +264,8 @@
                                  ((fn [[x y c]] [(/ x c) (/ y c)]))
                                  ((fn [v] (map float v)))
                                  ((fn [[x y]] [y (- 100 x)])))}))
-                        positions))}) %))
+                        positions))})
+               %))
         (#(reduce (partial hash-by :team-id) (sorted-map) %)))))
 
 ; ==================================
@@ -313,7 +315,7 @@
                                            (-> average-pos
                                                (get-in [(-> node :current-national-team-id str keyword)
                                                         :positions
-                                                        (-> node :pos)
+                                                        (-> node :pos str keyword)
                                                         :med-position]))}))
                               team)) %))
                     (#(reduce
