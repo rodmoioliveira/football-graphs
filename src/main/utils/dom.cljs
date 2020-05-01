@@ -6,7 +6,6 @@
   {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
    :node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
    :coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
-   :position-select (-> js/document (.querySelector (str "[data-metric='position']")))
    :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
    :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
    :menu (-> js/document (.querySelector ".nav-menu"))

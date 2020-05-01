@@ -48,7 +48,7 @@
 ; Get canvas from DOM
 ; ==================================
 (defn all-canvas
-  [{:keys [position-metric scale]}]
+  [{:keys [scale]}]
   (-> js/document
       (.querySelectorAll ".graph__canvas")
       array-seq
@@ -64,7 +64,7 @@
                                                    (.getAttribute "data-orientation")
                                                    keyword
                                                    ((fn [k] (if (mobile?) (mobile-mapping k) k))))
-                                   nodes (-> v :nodes id (assoc-pos position-metric el orientation))]
+                                   nodes (-> v :nodes id (assoc-pos el orientation))]
                                (((set-canvas-dimensions scale) orientation) el)
                                {:match-id (-> v :match-id)
                                 :nodes nodes
@@ -88,11 +88,10 @@
            name-position
            scale
            min-passes-to-display
-           position-metric
            theme-background
            theme-lines-color
            theme-font-color]}]
-  (doseq [canvas (all-canvas {:position-metric position-metric :scale scale})]
+  (doseq [canvas (all-canvas {:scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
                                                       {:min-passes-to-display min-passes-to-display}
                                                       :field

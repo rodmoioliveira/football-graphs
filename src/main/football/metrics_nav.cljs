@@ -18,7 +18,6 @@
         is-global? (fn [v] (= v :global))
         get-metrics (fn [] {:node-color-metric (-> dom :node-color-select .-value keyword)
                             :node-radius-metric (-> dom :node-area-select .-value keyword)
-                            :position-metric (-> dom :position-select .-value keyword)
                             :min-passes-to-display (-> dom :min-passes-input .-value int)
                             :global-metrics? (-> dom :coverage-select .-value keyword is-global?)})
         current-theme (fn [] (-> dom :body-theme (.getAttribute "data-theme") keyword))
@@ -26,7 +25,6 @@
                     (-> dom :node-color-select)
                     (-> dom :node-area-select)
                     (-> dom :coverage-select)
-                    (-> dom :position-select)
                     (-> dom :min-passes-input))
                    (.pipe
                     (rx-op/mergeMap #(-> (rx/fromEvent % "input")
