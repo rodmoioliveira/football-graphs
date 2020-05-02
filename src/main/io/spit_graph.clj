@@ -238,6 +238,7 @@
         ((fn [teams] (map (fn [team] (map #(partition 2 1 %) team)) teams)))
         get-event-positions
         ((fn [teams] (map (fn [team] (flatten team)) teams)))
+        ((fn [teams] (map (fn [team] (filter (fn [e] (->> e vals (every? some?))) team)) teams)))
         ; FIXME: this transformation MUST be remove at some point
         remove-reflexivity
         aggregate-positions
