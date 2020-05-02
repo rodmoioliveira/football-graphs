@@ -12,7 +12,7 @@ do
   clj src/main/io/spit_graph.clj --id=$id --type=edn
   clj src/main/io/spit_graph.clj --id=$id --type=json
   printf "===========================================================\n"
-  printf "Calculating metrics..."
+  printf "Calculating metrics...\n"
   printf "This operations may take a while, please be patient...\n"
   printf "===========================================================\n"
   clj src/main/io/spit_graph_analysis.clj --id=$id --type=edn

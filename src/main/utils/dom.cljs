@@ -1,6 +1,6 @@
 (ns utils.dom
   (:require
-   [clojure.string :refer [split join]]))
+   [clojure.string :refer [split join trim]]))
 
 (def dom
   {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
@@ -50,7 +50,7 @@
      "</span>
         <span class='label__vs'>x</span>
         <span class='label__score2'>"
-     score2
+     (-> score2 trim (split " ") first)
      "</span>
         <span class='label__team2'>"
      team2
