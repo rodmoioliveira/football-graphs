@@ -1,7 +1,6 @@
 (ns io.spit-match
   (:require
    [camel-snake-kebab.core :as csk]
-   [clojure.set :refer [project]]
    [clojure.edn :as edn]
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
@@ -58,12 +57,6 @@
                  (#(assoc match :teams-data %)))
 
      :players players
-     :project (-> players
-                  vals
-                  (#(map (fn [p] (assoc p :pos :???)) %))
-                  (project [:pos :wy-id :short-name])
-                  vec
-                  hash-by-id)
      :events (-> (get-file "events_World_Cup.json")
                  slurp
                  json->edn
