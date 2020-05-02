@@ -5,6 +5,7 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [clojure.pprint :refer [pprint]]
 
    [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]))
 
@@ -44,34 +45,48 @@
                       vals
                       (#(map (fn [{:keys [team-id]}] team-id) %)))
         reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
+        events-filtered (-> (get-file "events_World_Cup.json")
+                            slurp
+                            json->edn
+                            (#(filter (fn [e] (= (-> e :match-id) id)) %)))
+        players-national-teams-hash (->> events-filtered
+                                         (map (fn [{:keys [player-id team-id]}]
+                                                {:player-id player-id :team-id team-id}))
+                                         (reduce-by :player-id))
+        players-in-match (->> events-filtered (map :player-id) set)
+        events (-> events-filtered
+                   (#(map (fn [e]
+                            (assoc
+                             e
+                             :tags
+                             (map (fn [t]
+                                    (assoc
+                                     t
+                                     :description
+                                     (get-in tags [(-> t :id str keyword) :description])))
+                                  (-> e :tags))))
+                          %)))
         players (-> (get-file "players.json")
                     slurp
                     json->edn
-                    (#(filter (fn [{:keys [current-national-team-id]}]
-                                (some (fn [id] (= id current-national-team-id)) teams-ids))
+                    (#(filter (fn [{:keys [wy-id current-national-team-id]}]
+                                (or
+                                 (some (fn [id] (= id current-national-team-id)) teams-ids)
+                                 (some (set [wy-id]) players-in-match)))
                               %))
+                    (#(map (fn [p] (assoc
+                                    p
+                                    :current-national-team-id
+                                    (if (= (-> p :current-national-team-id) "null")
+                                      (get-in players-national-teams-hash [(-> p :wy-id str keyword) :team-id])
+                                      (-> p :current-national-team-id)))) %))
                     hash-by-id)]
     {:match (->> match
                  (assoc-names players)
                  (reduce-by :team-id)
                  (#(assoc match :teams-data %)))
-
      :players players
-     :events (-> (get-file "events_World_Cup.json")
-                 slurp
-                 json->edn
-                 (#(filter (fn [e] (= (-> e :match-id) id)) %))
-                 (#(map (fn [e]
-                          (assoc
-                           e
-                           :tags
-                           (map (fn [t]
-                                  (assoc
-                                   t
-                                   :description
-                                   (get-in tags [(-> t :id str keyword) :description])))
-                                (-> e :tags))))
-                        %)))}))
+     :events events}))
 
 ; ==================================
 ; IO
