@@ -22,6 +22,7 @@
 (def world-cup-matches
   [(-> (rc/inline "../data/analysis/argentina_croatia,_0_3.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/australia_peru,_0_2.edn") reader/read-string)
+   (-> (rc/inline "../data/analysis/belgium_england,_2_0.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/belgium_japan,_3_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/belgium_panama,_3_0.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/brazil_belgium,_1_2.edn") reader/read-string)
@@ -38,6 +39,7 @@
    (-> (rc/inline "../data/analysis/england_belgium,_0_1.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/france_australia,_2_1.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/france_belgium,_1_0.edn") reader/read-string)
+   (-> (rc/inline "../data/analysis/france_croatia,_4_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/germany_sweden,_2_1.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/iceland_croatia,_1_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/iran_portugal,_1_1.edn") reader/read-string)
