@@ -54,6 +54,16 @@ label,
   );
 }
 
+.title--no-strip {
+  @include strip(
+    transparent,
+    var(--strip-height),
+    var(--strip-width),
+    2rem auto,
+    1rem auto
+  );
+}
+
 .subtitle {
   @include margin;
   @include padding;
@@ -120,4 +130,3 @@ blockquote {
   font-weight: 600;
   margin-top: 0.5rem;
 }
-

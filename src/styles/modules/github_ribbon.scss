@@ -2,6 +2,19 @@
   animation: octocat-wave 560ms ease-in-out;
 }
 
+.github__svg {
+  fill: var(--accent-color);
+  position: fixed;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+
+.octo-arm,
+.octo-body {
+  fill: white;
+}
+
 @keyframes octocat-wave {
   0%,
   100% {
@@ -25,4 +38,3 @@
     animation: octocat-wave 560ms ease-in-out;
   }
 }
-

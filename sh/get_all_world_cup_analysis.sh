@@ -7,5 +7,5 @@ do
   printf "===========================================================\n"
   clj src/main/io/spit_graph_analysis.clj --id=$id --type=edn
   clj src/main/io/spit_graph_analysis.clj --id=$id --type=json
-  printf "Done!"
+  printf "Done!\n"
 done

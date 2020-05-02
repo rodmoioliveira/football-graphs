@@ -66,6 +66,11 @@
     :short-name ("R. Lewandowski"),
     :current-national-team-id 13869,
     :average-pos [50.71875 41.9375]}
+   {:id "25537",
+    :pos "25537",
+    :short-name ("G. Krychowiak"),
+    :current-national-team-id 13869,
+    :average-pos [54.603306 55.29751968383789]}
    {:id "99661",
     :pos "99661",
     :short-name ("T. Cionek"),
@@ -75,7 +80,12 @@
     :pos "14804240032",
     :short-name ("J. Błaszczykowski" "J. Bednarek"),
     :current-national-team-id 13869,
-    :average-pos [59.2 57.3411750793457]}),
+    :average-pos [59.2 57.3411750793457]}
+   {:id "99438",
+    :pos "99438",
+    :short-name ("M. Pazdan"),
+    :current-national-team-id 13869,
+    :average-pos [24.80625 59.224998474121094]}),
   :19314
   ({:id "28529",
     :pos "28529",
@@ -232,86 +242,104 @@
   :13869
   ({:source "99391", :target "14817", :team-id 13869, :value 1}
    {:source "99661", :target "14817", :team-id 13869, :value 1}
+   {:source "1479899833", :target "99438", :team-id 13869, :value 1}
    {:source "99661", :target "99902", :team-id 13869, :value 1}
+   {:source "14817", :target "99438", :team-id 13869, :value 1}
    {:source "99391", :target "99452240042", :team-id 13869, :value 1}
    {:source "99452240042", :target "99391", :team-id 13869, :value 1}
    {:source "7849", :target "1479899833", :team-id 13869, :value 1}
    {:source "99391", :target "99661", :team-id 13869, :value 1}
    {:source "99661", :target "99391", :team-id 13869, :value 1}
+   {:source "33032", :target "25537", :team-id 13869, :value 1}
    {:source "1479899833", :target "33032", :team-id 13869, :value 1}
    {:source "99452240042", :target "14817", :team-id 13869, :value 1}
    {:source "14817", :target "99661", :team-id 13869, :value 1}
+   {:source "25537", :target "7849", :team-id 13869, :value 1}
    {:source "14804240032", :target "7849", :team-id 13869, :value 1}
+   {:source "25537", :target "99391", :team-id 13869, :value 1}
+   {:source "99391", :target "25537", :team-id 13869, :value 1}
    {:source "99661", :target "33032", :team-id 13869, :value 1}
    {:source "33032", :target "14817", :team-id 13869, :value 1}
    {:source "14817", :target "33032", :team-id 13869, :value 1}
    {:source "1479899833", :target "14817", :team-id 13869, :value 1}
    {:source "14804240032", :target "99391", :team-id 13869, :value 1}
+   {:source "99452240042", :target "99438", :team-id 13869, :value 1}
    {:source "1479899833",
     :target "99452240042",
     :team-id 13869,
     :value 2}
+   {:source "99438", :target "7849", :team-id 13869, :value 2}
    {:source "14804240032",
     :target "99452240042",
     :team-id 13869,
     :value 2}
+   {:source "99438", :target "1479899833", :team-id 13869, :value 2}
    {:source "99452240042",
     :target "1479899833",
     :team-id 13869,
     :value 2}
    {:source "14817", :target "14804240032", :team-id 13869, :value 2}
+   {:source "25537", :target "99452240042", :team-id 13869, :value 2}
+   {:source "99438", :target "33032", :team-id 13869, :value 3}
    {:source "14817", :target "1479899833", :team-id 13869, :value 3}
    {:source "99661", :target "99452240042", :team-id 13869, :value 3}
    {:source "99391", :target "7849", :team-id 13869, :value 3}
    {:source "99452240042", :target "99661", :team-id 13869, :value 3}
-   {:source nil, :target "7849", :team-id 13869, :value 3}
    {:source "33032", :target "99452240042", :team-id 13869, :value 3}
    {:source "14804240032", :target "14817", :team-id 13869, :value 3}
    {:source "99902", :target "14817", :team-id 13869, :value 3}
    {:source "33032", :target "1479899833", :team-id 13869, :value 3}
+   {:source "33032", :target "99438", :team-id 13869, :value 3}
+   {:source "99452240042", :target "25537", :team-id 13869, :value 3}
+   {:source "14817", :target "25537", :team-id 13869, :value 3}
    {:source "99902", :target "99661", :team-id 13869, :value 3}
    {:source "1479899833",
     :target "14804240032",
     :team-id 13869,
     :value 3}
-   {:source "99452240042", :target nil, :team-id 13869, :value 4}
    {:source "33032", :target "99391", :team-id 13869, :value 4}
    {:source "1479899833", :target "99902", :team-id 13869, :value 4}
-   {:source "33032", :target nil, :team-id 13869, :value 4}
-   {:source "14817", :target nil, :team-id 13869, :value 4}
+   {:source "25537", :target "1479899833", :team-id 13869, :value 4}
+   {:source "14804240032", :target "25537", :team-id 13869, :value 4}
    {:source "99391", :target "33032", :team-id 13869, :value 4}
+   {:source "25537", :target "33032", :team-id 13869, :value 4}
    {:source "99902", :target "1479899833", :team-id 13869, :value 4}
    {:source "99902", :target "99452240042", :team-id 13869, :value 4}
    {:source "33032", :target "99902", :team-id 13869, :value 4}
-   {:source nil, :target "14817", :team-id 13869, :value 5}
+   {:source "25537", :target "14817", :team-id 13869, :value 5}
    {:source "7849", :target "99661", :team-id 13869, :value 5}
    {:source "14817", :target "99902", :team-id 13869, :value 5}
+   {:source "99438", :target "99452240042", :team-id 13869, :value 5}
    {:source "99391", :target "99902", :team-id 13869, :value 6}
    {:source "99902", :target "33032", :team-id 13869, :value 6}
    {:source "99661", :target "7849", :team-id 13869, :value 6}
    {:source "99902", :target "99391", :team-id 13869, :value 6}
    {:source "99452240042", :target "99902", :team-id 13869, :value 6}
-   {:source nil, :target "1479899833", :team-id 13869, :value 6}
+   {:source "25537", :target "14804240032", :team-id 13869, :value 7}
    {:source "14804240032", :target "99902", :team-id 13869, :value 7}
    {:source "14804240032", :target "99661", :team-id 13869, :value 7}
+   {:source "7849", :target "99438", :team-id 13869, :value 7}
    {:source "99902", :target "14804240032", :team-id 13869, :value 7}
-   {:source nil, :target "99452240042", :team-id 13869, :value 7}
-   {:source nil, :target "33032", :team-id 13869, :value 7}
    {:source "14804240032",
     :target "1479899833",
     :team-id 13869,
     :value 7}
-   {:source "7849", :target nil, :team-id 13869, :value 7}
-   {:source "1479899833", :target nil, :team-id 13869, :value 10}
+   {:source "99438", :target "14804240032", :team-id 13869, :value 8}
+   {:source "1479899833", :target "25537", :team-id 13869, :value 9}
+   {:source "25537", :target "99902", :team-id 13869, :value 9}
+   {:source "99902", :target "99438", :team-id 13869, :value 12}
    {:source "99661", :target "1479899833", :team-id 13869, :value 12}
+   {:source "99438", :target "99661", :team-id 13869, :value 12}
+   {:source "99391", :target "99438", :team-id 13869, :value 12}
+   {:source "25537", :target "99661", :team-id 13869, :value 12}
    {:source "1479899833", :target "99661", :team-id 13869, :value 12}
+   {:source "99438", :target "99391", :team-id 13869, :value 12}
+   {:source "99438", :target "25537", :team-id 13869, :value 13}
+   {:source "14804240032", :target "99438", :team-id 13869, :value 13}
    {:source "99661", :target "14804240032", :team-id 13869, :value 13}
-   {:source nil, :target "99391", :team-id 13869, :value 13}
-   {:source "99391", :target nil, :team-id 13869, :value 13}
-   {:source nil, :target "14804240032", :team-id 13869, :value 15}
-   {:source "14804240032", :target nil, :team-id 13869, :value 17}
-   {:source nil, :target "99661", :team-id 13869, :value 24}
-   {:source "99902", :target nil, :team-id 13869, :value 25}
-   {:source "99661", :target nil, :team-id 13869, :value 27}
-   {:source nil, :target "99902", :team-id 13869, :value 32})},
- :min-max-values {:passes {:min 1, :max 32}}}
+   {:source "99661", :target "25537", :team-id 13869, :value 13}
+   {:source "99902", :target "25537", :team-id 13869, :value 13}
+   {:source "99661", :target "99438", :team-id 13869, :value 14}
+   {:source "25537", :target "99438", :team-id 13869, :value 16}
+   {:source "99438", :target "99902", :team-id 13869, :value 23})},
+ :min-max-values {:passes {:min 1, :max 23}}}

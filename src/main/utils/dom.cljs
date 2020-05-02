@@ -74,19 +74,19 @@
   (str
    "<p class='graph__stats'>
       <span>
-      Coesão:
+      Cohesion:
       </span>
       <span class='graph__metric'>"
    algebraic-connectivity
    "</span>
       <span>
-      | Triangulação:
+      | Triangulation:
       </span>
       <span class='graph__metric'>"
    global-clustering
    "</span>
       <span>
-      | Resistência:
+      | Resistance:
       </span>
       <span class='graph__metric'>"
    average-node-connectivity

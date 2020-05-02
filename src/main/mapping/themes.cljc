@@ -3,13 +3,13 @@
 (def theme-mapping
   {:light {:reverse :dark
            :theme "dark"
-           :text "escuro"
+           :text "dark"
            :background "#121212"
            :font-color "white"
            :lines-color "#333"}
    :dark {:reverse :light
           :theme "light"
-          :text "claro"
+          :text "light"
           :background "white"
           :font-color "black"
           :lines-color "#ccc"}})
