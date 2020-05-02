@@ -7,7 +7,7 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric min-max-values name-position]}]
+  [{:keys [id node-radius-metric node-color-metric min-max-values name-position font-color]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
 
@@ -17,15 +17,16 @@
         mapping {:domains
                  {:passes (-> (get-ranges :passes) clj->js)
                   :degree (-> (get-ranges :degree) clj->js)
-                  :in-degree (-> (get-ranges :in-degree) clj->js)
-                  :out-degree (-> (get-ranges :out-degree) clj->js)
-                  :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
+                  ; :in-degree (-> (get-ranges :in-degree) clj->js)
+                  ; :out-degree (-> (get-ranges :out-degree) clj->js)
+                  ; :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
                   :betweenness-centrality (-> (get-ranges :betweenness-centrality) clj->js)
-                  :current_flow_betweenness_centrality (-> (get-ranges :current_flow_betweenness_centrality) clj->js)
+                  ; :current_flow_betweenness_centrality (-> (get-ranges :current_flow_betweenness_centrality) clj->js)
                   :local-clustering-coefficient (-> (get-ranges :local-clustering-coefficient) reverse clj->js)
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
-                  :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
-                  :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
+                  ; :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
+                  ; :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)
+                  }
                  :codomains {:edges-width #js [1 10]
                              :radius #js [8 23]
                              :colors {:edges #js ["#FFCC80", "#EF6C00"]
@@ -37,7 +38,7 @@
         font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
-              :color "black"
+              :color (or font-color "black")
               :text-align "center"
               :base-line "middle"}
 

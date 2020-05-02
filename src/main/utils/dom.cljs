@@ -1,6 +1,31 @@
 (ns utils.dom
   (:require
-   [clojure.string :refer [split join]]))
+   [clojure.string :refer [split join trim]]))
+
+(def dom
+  {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
+   :node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
+   :coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
+   :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
+   :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
+   :menu (-> js/document (.querySelector ".nav-menu"))
+   :document js/document
+   :theme-btn (-> js/document (.querySelector "[data-toogle-theme]"))
+   :body-theme (-> js/document (.querySelector "[data-theme]"))
+   :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
+   :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
+   :nav (-> js/document (.querySelector ".nav-metrics"))
+   :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
+
+(defn toogle-theme-btn
+  [theme-text]
+  (do
+    (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text))))))
+
+(defn toogle-theme
+  [theme]
+  (do
+    (-> dom :body-theme (.setAttribute "data-theme" theme))))
 
 (defn label-dom
   "Create a label for each match."
@@ -25,7 +50,7 @@
      "</span>
         <span class='label__vs'>x</span>
         <span class='label__score2'>"
-     score2
+     (-> score2 trim (split " ") first)
      "</span>
         <span class='label__team2'>"
      team2

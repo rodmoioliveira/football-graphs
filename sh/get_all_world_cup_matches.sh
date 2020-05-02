@@ -4,5 +4,5 @@ do
   printf "Getting match $id"
   clj src/main/io/spit_match.clj --id=$id --type=edn
   clj src/main/io/spit_match.clj --id=$id --type=json
-  printf "Done with match $id"
+  printf "Done with match $id\n"
 done

@@ -9,16 +9,16 @@ h4,
 h5,
 p {
   font-family: 'Open Sans', sans-serif;
-  color: $text-color;
+  color: var(--text-color);
   font-weight: 300;
 }
 
 a {
-  color: $link-color;
+  color: var(--link-color);
 }
 
 ::selection {
-  background-color: $select-text-color;
+  background-color: var(--select-text-color);
   color: white;
 }
 
@@ -46,9 +46,9 @@ label,
   }
 
   @include strip(
-    $strip-color,
-    $strip-height,
-    $strip-width,
+    var(--strip-color),
+    var(--strip-height),
+    var(--strip-width),
     2rem auto,
     1rem auto
   );
@@ -61,7 +61,7 @@ label,
   font-size: 3rem;
   line-height: 1.2;
   letter-spacing: -1px;
-  max-width: $text-width;
+  max-width: var(--text-width);
   font-weight: 700;
   margin-bottom: 1rem;
   margin-top: 5rem;
@@ -71,9 +71,9 @@ label,
   }
 
   @include strip(
-    $strip-color,
-    $strip-height,
-    $strip-width,
+    var(--strip-color),
+    var(--strip-height),
+    var(--strip-width),
     1rem auto 1rem 0,
     1rem auto 0.5rem 0
   );
@@ -81,7 +81,7 @@ label,
 
 .paragraph {
   font-size: 1.3rem;
-  max-width: $text-width;
+  max-width: var(--text-width);
   line-height: 1.5;
 
   @include margin;
@@ -96,7 +96,7 @@ label,
 .short-explanation {
   font-style: italic;
   font-size: 1.5rem;
-  color: $accent-color;
+  color: var(--accent-color);
 
   @media (max-width: 600px) {
     font-size: 5vw;
@@ -107,8 +107,8 @@ blockquote {
   display: none;
   margin: 0 auto;
   background: #fcfbe9;
-  outline: 1px solid $text-color;
-  max-width: $text-width;
+  outline: 1px solid var(text-color);
+  max-width: var(--text-width);
 }
 
 .quote-text {
