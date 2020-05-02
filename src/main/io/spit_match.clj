@@ -69,7 +69,6 @@
         players (-> (get-file "players.json")
                     slurp
                     json->edn
-                    ; TODO: filtrar os jogadores com base nos eventos!
                     (#(filter (fn [{:keys [wy-id current-national-team-id]}]
                                 (or
                                  (some (fn [id] (= id current-national-team-id)) teams-ids)

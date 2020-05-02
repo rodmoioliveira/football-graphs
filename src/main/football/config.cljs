@@ -109,7 +109,7 @@
              :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
-             :radius-click 5
+             :radius-click 1
              :active {:color "#ebd1fe"
                       :outline "#333"}
              :name-position (or name-position :top)

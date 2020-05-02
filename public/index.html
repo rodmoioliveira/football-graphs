@@ -16,7 +16,9 @@
     />
     <meta
       name="description"
-      content="Quando representamos a rede de passes de um time de futebol como um grafo, podemos utilizar diversos instrumentos matemáticos para medir a centralidade de cada um dos seus vértices (jodagores)."
+      content="When we represent a football team's passing network as a graph,
+      we can use several mathematical instruments to measure the centrality of
+      each of its vertices (players)."
     />
     <meta name="language" content="pt-br" />
     <meta name="author" content="Rodolfo Mói, rodmoi.oliveira@gmail.com" />
@@ -24,8 +26,8 @@
     <meta name="copyright" content="Rodolfo Mói" />
     <meta name="reply-to" content="rodmoi.oliveira@gmail.com" />
     <meta name="owner" content="Rodolfo Mói" />
-    <meta name="url" content="https://grafos-da-bola.netlify.com/" />
-    <meta name="identifier-URL" content="https://grafos-da-bola.netlify.com/" />
+    <meta name="url" content="https://grafos-da-bola.netlify.app/" />
+    <meta name="identifier-URL" content="https://grafos-da-bola.netlify.app/" />
     <meta name="coverage" content="Worldwide" />
     <meta name="distribution" content="Global" />
     <meta name="rating" content="General" />
@@ -37,38 +39,35 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <!-- Google / Search Engine Tags -->
-    <meta itemprop="name" content="Grafos da Bola" />
+    <meta itemprop="name" content="Football Passing Networks" />
     <meta
       itemprop="description"
-      content="Quando representamos a rede de passes
-    de um time de futebol como um grafo, podemos utilizar diversos instrumentos
-    matemáticos para medir a centralidade de cada um dos seus vértices
-    (jodagores)."
+      content="When we represent a football team's passing network as a graph,
+      we can use several mathematical instruments to measure the centrality of
+      each of its vertices (players)."
     />
     <meta itemprop="image" content="img/network.png" />
 
     <!-- Facebook Meta Tags -->
-    <meta property="og:url" content="https://grafos-da-bola.netlify.com/" />
+    <meta property="og:url" content="https://grafos-da-bola.netlify.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Grafos da Bola" />
+    <meta property="og:title" content="Football Passing Networks" />
     <meta
       property="og:description"
-      content="Quando representamos a rede de
-    passes de um time de futebol como um grafo, podemos utilizar diversos
-    instrumentos matemáticos para medir a centralidade de cada um dos seus
-    vértices (jodagores)."
+      content="When we represent a football team's passing network as a graph,
+      we can use several mathematical instruments to measure the centrality of
+      each of its vertices (players)."
     />
     <meta property="og:image" content="img/network.png" />
 
     <!-- Twitter Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Grafos da Bola" />
+    <meta name="twitter:title" content="Football Passing Networks" />
     <meta
       name="twitter:description"
-      content="Quando representamos a rede de
-    passes de um time de futebol como um grafo, podemos utilizar diversos
-    instrumentos matemáticos para medir a centralidade de cada um dos seus
-    vértices (jodagores)."
+      content="When we represent a football team's passing network as a graph,
+      we can use several mathematical instruments to measure the centrality of
+      each of its vertices (players)."
     />
     <meta name="twitter:image" content="img/android-chrome-192x192.png" />
 
@@ -96,7 +95,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <title>Grafos da Bola</title>
+    <title>Football Passing Networks</title>
   </head>
   <body data-theme="light">
     <a
@@ -122,22 +121,22 @@
         ></path></svg
     ></a>
     <section class="intro section">
-      <h1 class="title">Rede de Passes</h1>
+      <h1 class="title">Football Passing Networks</h1>
       <p class="paragraph">
-        Uma rede de passes é apenas a aplicação da
+        A passing network is just the application of
         <a
           target="_blank"
-          href="https://pt.wikipedia.org/wiki/Teoria_das_redes_complexas"
+          href="https://en.wikipedia.org/wiki/Network_theory"
         >
-          teoria de redes</a
-        >
-        e dos seus instrumentos de análise para compreender o desempenho de um
-        time de futebol em uma partida.
+          network theory
+        </a>
+        and its analysis tools to understand the performance of a football team
+        in a match.
       </p>
       <p class="paragraph">
-        Cada jogador é representado por um vértice. Cada vértice está conectado
-        com muitos outros por linhas, que representam os passes trocados entre
-        os jogadores.
+        Each player is represented by a vertex. Each vertex is connected with
+        many others by edges, which represent the passes exchanged between
+        players.
       </p>
     </section>
     <!-- <section class="metrics section"> -->
@@ -858,11 +857,11 @@
     <!-- </section> -->
     <div class="sticky-nav-breakpoint"></div>
     <section class="graphs section">
-      <h1 class="title">Copa de 2018</h1>
+      <h1 class="title">2018 World Cup</h1>
       <p class="paragraph">
-        Vamos ver alguns grafos de jogos da última Copa do Mundo.
-        Abaixo é possível selecionar diversas métricas diferentes para comparar
-        o desempenho dos jogadores:
+        Let's check out some graphs of matches from the last World Cup. Below
+        you can select several different metrics to compare the players
+        performance:
       </p>
       <nav class="nav-menu" data-sticky="0">
         <button class="btn btn--hamburger" data-active-metrics>
@@ -871,11 +870,11 @@
           <span class="btn-strip"></span>
         </button>
       </nav>
-      <button class="btn btn--theme-toogle" data-toogle-theme>claro</button>
+      <button class="btn btn--theme-toogle" data-toogle-theme>light</button>
       <nav class="nav-metrics" data-active="0">
         <div class="nav-controls">
           <fieldset>
-            <label class="metric-label" for="node-area">Área</label>
+            <label class="metric-label" for="node-area">Area</label>
             <select
               class="metric-select"
               data-metric="node-area"
@@ -883,24 +882,24 @@
               id="node-area"
             >
               <option class="metric-option" value="degree" selected>
-                Grau
+                Degree
               </option>
               <option class="metric-option" value="betweenness-centrality">
-                Intermediação
+                Betweenness
               </option>
               <option class="metric-option" value="closeness-centrality">
-                Proximidade
+                Closeness
               </option>
               <option
                 class="metric-option"
                 value="local-clustering-coefficient"
               >
-                Agrupamento
+                Clustering
               </option>
             </select>
           </fieldset>
           <fieldset>
-            <label class="metric-label" for="node-color">Cor</label>
+            <label class="metric-label" for="node-color">Color</label>
             <select
               class="metric-select"
               data-metric="node-color"
@@ -908,29 +907,29 @@
               id="node-color"
             >
               <option class="metric-option" value="degree">
-                Grau
+                Degree
               </option>
               <option
                 class="metric-option"
                 value="betweenness-centrality"
                 selected
               >
-                Intermediação
+                Betweenness
               </option>
               <option class="metric-option" value="closeness-centrality">
-                Proximidade
+                Closeness
               </option>
               <option
                 class="metric-option"
                 value="local-clustering-coefficient"
               >
-                Agrupamento
+                Clustering
               </option>
             </select>
           </fieldset>
           <fieldset data-fieldset="coverage">
             <label class="metric-label" for="coverage">
-              Abrangência
+              Coverage
             </label>
             <select
               class="metric-select"
@@ -939,7 +938,7 @@
               id="coverage"
             >
               <option class="metric-option" value="match" selected>
-                Jogo
+                Match
               </option>
               <option class="metric-option" value="global">
                 Global
@@ -948,7 +947,7 @@
           </fieldset>
           <fieldset data-fieldset="min-passes-to-display">
             <label class="metric-label" for="min-passes-to-display">
-              Passes mínimos
+              Minimum passes
               <span data-min-passes-value></span>
             </label>
             <input
@@ -962,7 +961,9 @@
               max="50"
             />
           </fieldset>
-          <button class="btn btn--secondary" data-deactivate-metrics>fechar</button>
+          <button class="btn btn--secondary" data-deactivate-metrics>
+            close
+          </button>
         </div>
       </nav>
       <section data-plot-graphs></section>
