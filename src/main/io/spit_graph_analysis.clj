@@ -1,3 +1,16 @@
+; FIXME:
+; Calculating metrics for graph 2057988 2057987
+; Execution error (IllegalArgumentException) at org.jgrapht.graph.AbstractGraph/assertVertexExist (AbstractGraph.java:131).
+; no such vertex in graph: :107623
+
+; Calculating metrics for graph 2057998
+; Execution error (NullPointerException) at org.jgrapht.graph.AbstractGraph/assertVertexExist (AbstractGraph.java:129).
+; null
+
+; Calculating metrics for graph 2057997
+; Execution error (NullPointerException) at org.jgrapht.graph.AbstractGraph/assertVertexExist (AbstractGraph.java:129).
+; null
+
 (ns io.spit-graph-analysis
   ; https://jgrapht.org/guide/UserOverview#graph-structures
   ; https://jgrapht.org/javadoc/overview-summary.html
