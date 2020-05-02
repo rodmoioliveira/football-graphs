@@ -17,15 +17,16 @@
         mapping {:domains
                  {:passes (-> (get-ranges :passes) clj->js)
                   :degree (-> (get-ranges :degree) clj->js)
-                  :in-degree (-> (get-ranges :in-degree) clj->js)
-                  :out-degree (-> (get-ranges :out-degree) clj->js)
-                  :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
+                  ; :in-degree (-> (get-ranges :in-degree) clj->js)
+                  ; :out-degree (-> (get-ranges :out-degree) clj->js)
+                  ; :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
                   :betweenness-centrality (-> (get-ranges :betweenness-centrality) clj->js)
-                  :current_flow_betweenness_centrality (-> (get-ranges :current_flow_betweenness_centrality) clj->js)
+                  ; :current_flow_betweenness_centrality (-> (get-ranges :current_flow_betweenness_centrality) clj->js)
                   :local-clustering-coefficient (-> (get-ranges :local-clustering-coefficient) reverse clj->js)
                   :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
-                  :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
-                  :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)}
+                  ; :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
+                  ; :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)
+                  }
                  :codomains {:edges-width #js [1 10]
                              :radius #js [8 23]
                              :colors {:edges #js ["#FFCC80", "#EF6C00"]
