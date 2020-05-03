@@ -57,3 +57,19 @@
     margin-top: 5px;
   }
 }
+
+.btn--back {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 6;
+  transition: transform 200ms ease;
+
+  &[data-sticky='0'] {
+    transform: translateX(-10rem);
+  }
+
+  &[data-sticky='1'] {
+    transform: translateX(0);
+  }
+}

@@ -3,7 +3,14 @@
    ["rxjs" :as rx]
    ["rxjs/operators" :as rx-op]
 
-   [utils.dom :refer [dom]]
+   [utils.dom :refer [dom
+                      slide-graph
+                      slide-home
+                      is-body-click?
+                      fix-nav
+                      fix-back
+                      activate-nav
+                      deactivate-nav]]
    [mapping.themes :refer [theme-mapping
                            theme-identity
                            theme-reverse
@@ -47,39 +54,34 @@
 
 (defn sticky-nav$
   []
-  (let [activate-nav (fn [_] (-> dom :nav (.setAttribute "data-active" 1)))
-        deactivate-nav (fn [_] (-> dom :nav (.setAttribute "data-active" 0)))
-        is-body-click? (fn [e] (->> e
-                                    .-path
-                                    array-seq
-                                    (map #(-> % .-tagName))
-                                    set
-                                    (#(or (contains? % "NAV") (contains? % "BUTTON")))
-                                    not))]
-    (do
-      (-> dom :activate-btn
-          (rx/fromEvent "click")
-          (.subscribe activate-nav))
+  (do
+    (-> dom :activate-btn
+        (rx/fromEvent "click")
+        (.subscribe activate-nav))
 
-      (-> dom :document
-          (rx/fromEvent "click")
-          (.pipe
-           (rx-op/filter is-body-click?))
-          (.subscribe deactivate-nav))
+    (-> dom :document
+        (rx/fromEvent "click")
+        (.pipe
+         (rx-op/filter is-body-click?))
+        (.subscribe deactivate-nav))
 
-      (-> dom :deactivate-btn
-          (rx/fromEvent "click")
-          (.subscribe deactivate-nav)))))
+    (-> dom :deactivate-btn
+        (rx/fromEvent "click")
+        (.subscribe deactivate-nav))))
 
 (defn slider$
   []
-  (let [slide-home (fn [_] (-> dom :slide-view (.setAttribute "data-view" "home")))
-        slide-graph (fn [_] (-> dom :slide-view (.setAttribute "data-view" "graph")))]
-    (do
-      (-> dom :slide-to-graph
-          (rx/fromEvent "click")
-          (.subscribe slide-graph))
+  (do
+    (-> dom :slide-to-graph
+        (rx/fromEvent "click")
+        (.subscribe (fn [_] (do
+                              (slide-graph)
+                              (fix-back 1)
+                              (fix-nav 1)))))
 
-      (-> dom :slide-to-home
-          (rx/fromEvent "click")
-          (.subscribe slide-home)))))
+    (-> dom :slide-to-home
+        (rx/fromEvent "click")
+        (.subscribe (fn [_] (do
+                              (slide-home)
+                              (fix-back 0)
+                              (fix-nav 0)))))))

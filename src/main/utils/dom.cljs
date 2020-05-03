@@ -24,6 +24,33 @@
   (do
     (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text))))))
 
+(defn slide-home
+  [] (-> dom :slide-view (.setAttribute "data-view" "home")))
+
+(defn slide-graph
+  [] (-> dom :slide-view (.setAttribute "data-view" "graph")))
+
+(defn activate-nav
+  [_] (-> dom :nav (.setAttribute "data-active" 1)))
+
+(defn deactivate-nav
+  [_] (-> dom :nav (.setAttribute "data-active" 0)))
+
+(defn fix-nav
+  [v] (-> dom :menu (.setAttribute "data-sticky" v)))
+
+(defn fix-back
+  [v] (-> dom :slide-to-home (.setAttribute "data-sticky" v)))
+
+(defn is-body-click?
+  [e] (->> e
+           .-path
+           array-seq
+           (map #(-> % .-tagName))
+           set
+           (#(or (contains? % "NAV") (contains? % "BUTTON")))
+           not))
+
 (defn toogle-theme
   [theme]
   (do

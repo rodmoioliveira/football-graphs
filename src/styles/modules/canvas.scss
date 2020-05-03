@@ -15,7 +15,7 @@
   font-size: 4rem;
   font-weight: 700;
   text-align: center;
-  margin: 3rem auto 0;
+  margin: 0 auto;
   letter-spacing: -1px;
   display: flex;
   flex-wrap: wrap;
@@ -24,6 +24,7 @@
   max-width: 1000px;
 
   @media (max-width: 850px) {
+    margin: 3rem auto 0;
     font-size: 8vw;
   }
 }
