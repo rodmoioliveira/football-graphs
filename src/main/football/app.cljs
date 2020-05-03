@@ -6,13 +6,20 @@
                        mobile-mapping
                        hash-by
                        get-global-metrics]]
-   [utils.dom :refer [plot-dom
-                      plot-matches-list
+   [utils.dom :refer [plot-matches-list
                       reset-dom
+                      slide-graph
+                      fix-nav
+                      set-collapse
+                      fix-back
                       toogle-theme-btn
-                      toogle-theme dom]]
+                      plot-dom
+                      toogle-theme
+                      dom]]
 
-   [football.observables :refer [select-metrics$ sticky-nav$ slider$]]
+   [football.observables :refer [select-metrics$
+                                 sticky-nav$
+                                 slider$]]
    [football.matches :refer [world-cup-matches matches-hash]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -96,6 +103,7 @@
   (let [metrics (select-metrics$)
         input$ (-> metrics :input$)
         click$ (-> metrics :click$)
+        list$ (-> metrics :list$)
         opts {:matches world-cup-matches
               :scale 9
               :get-global-metrics get-global-metrics
@@ -103,10 +111,18 @@
     (do
       (reset-dom)
       (plot-matches-list world-cup-matches)
-      ; TODO: rodar função no clique da lista apenas
-      (plot-dom (-> world-cup-matches first vector))
       (sticky-nav$)
       (slider$)
+      (-> list$
+          (.subscribe (fn [obj]
+                        (do
+                          (slide-graph)
+                          (fix-back 1)
+                          (fix-nav 1)
+                          (set-collapse (-> dom :slider-home) 1)
+                          (set-collapse (-> dom :slider-graph) 0)
+                          (-> matches-hash (get-in [(obj :select-match)]) vector plot-dom)
+                          (-> obj (merge opts) plot-graphs)))))
       (-> input$
           (.subscribe #(-> % (merge opts) plot-graphs)))
       (-> click$

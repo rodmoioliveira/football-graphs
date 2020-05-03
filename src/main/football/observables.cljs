@@ -15,7 +15,8 @@
    [mapping.themes :refer [theme-mapping
                            theme-identity
                            theme-reverse
-                           get-theme-with]]))
+                           get-theme-with]]
+   [football.matches :refer [matches-hash]]))
 
 (set! *warn-on-infer* true)
 
@@ -44,6 +45,18 @@
                                       (get-metrics)
                                       (get-theme-with (partial theme-identity (current-theme)))))
                     (rx-op/tap display-passes)))
+        list$ (-> dom
+                  :matches-list
+                  (rx/fromEvent "click")
+                  (.pipe
+                   (rx-op/filter (fn [e] (-> e .-target (.hasAttribute "data-match-id"))))
+                   (rx-op/map (fn [e] (-> e .-target (.getAttribute "data-match-id") keyword)))
+                   (rx-op/map (fn [match-id]
+                                (print match-id)
+                                (merge
+                                 {:select-match match-id}
+                                 (get-metrics)
+                                 (get-theme-with (partial theme-identity (current-theme))))))))
         click$ (-> dom
                    :theme-btn
                    (rx/fromEvent "click")
@@ -51,7 +64,8 @@
                                               (get-metrics)
                                               (get-theme-with (partial theme-reverse (current-theme))))))))]
     {:input$ input$
-     :click$ click$}))
+     :click$ click$
+     :list$ list$}))
 
 (defn sticky-nav$
   []

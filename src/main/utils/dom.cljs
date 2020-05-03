@@ -221,7 +221,7 @@
   (doseq [match matches]
     (-> dom
         :plot-section
-        (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %)))))))
+        ((fn [el] (set! (.-innerHTML el) (-> ((juxt label-dom canvas-dom) match) (#(join "" %)))))))))
 
 (defn plot-matches-list
   "Plot list of matches in the dom."
