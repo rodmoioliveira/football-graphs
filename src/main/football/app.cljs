@@ -10,6 +10,7 @@
                       reset-dom
                       slide-graph
                       fix-nav
+                      scroll-top
                       set-collapse
                       fix-back
                       toogle-theme-btn
@@ -119,6 +120,7 @@
                           (slide-graph)
                           (fix-back 1)
                           (fix-nav 1)
+                          (scroll-top)
                           (set-collapse (-> dom :slider-home) 1)
                           (set-collapse (-> dom :slider-graph) 0)
                           (-> matches-hash (get-in [(obj :select-match)]) vector plot-dom)

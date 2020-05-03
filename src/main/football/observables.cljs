@@ -8,6 +8,7 @@
                       slide-home
                       is-body-click?
                       fix-nav
+                      scroll-top
                       fix-back
                       activate-nav
                       deactivate-nav
@@ -87,20 +88,13 @@
 (defn slider$
   []
   (do
-    (-> dom :slide-to-graph
-        (rx/fromEvent "click")
-        (.subscribe (fn [_] (do
-                              (slide-graph)
-                              (fix-back 1)
-                              (fix-nav 1)
-                              (set-collapse (-> dom :slider-home) 1)
-                              (set-collapse (-> dom :slider-graph) 0)))))
-
     (-> dom :slide-to-home
         (rx/fromEvent "click")
         (.subscribe (fn [_] (do
                               (slide-home)
                               (fix-back 0)
                               (fix-nav 0)
+                              ; TODO: scroll to last match viewed
+                              (scroll-top)
                               (set-collapse (-> dom :slider-home) 0)
                               (set-collapse (-> dom :slider-graph) 1)))))))

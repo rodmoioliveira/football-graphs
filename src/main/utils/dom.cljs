@@ -19,7 +19,6 @@
    :matches-list (-> js/document (.getElementById "matches__list"))
    :slider-graph (-> js/document (.querySelector ".slider__graph"))
    :slider-home (-> js/document (.querySelector ".slider__home"))
-   :slide-to-graph (-> js/document (.querySelector "[data-slide-to-graph]"))
    :slide-to-home (-> js/document (.querySelector "[data-slide-to-home]"))
    :slide-view (-> js/document (.querySelector "[data-view]"))})
 
@@ -49,6 +48,10 @@
 (defn set-collapse
   [el v]
   (-> el (.setAttribute "data-collapse" v)))
+
+(defn scroll-top
+  []
+  (-> js/window (.scrollTo 0 0)))
 
 (defn is-body-click?
   [e] (->> e
