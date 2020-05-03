@@ -6,7 +6,11 @@
                        mobile-mapping
                        hash-by
                        get-global-metrics]]
-   [utils.dom :refer [plot-dom reset-dom toogle-theme-btn toogle-theme]]
+   [utils.dom :refer [plot-dom
+                      plot-matches-list
+                      reset-dom
+                      toogle-theme-btn
+                      toogle-theme dom]]
 
    [football.observables :refer [select-metrics$ sticky-nav$ slider$]]
    [football.matches :refer [world-cup-matches matches-hash]]
@@ -98,7 +102,9 @@
               :name-position :bottom}]
     (do
       (reset-dom)
-      (plot-dom world-cup-matches)
+      (plot-matches-list world-cup-matches)
+      ; TODO: rodar função no clique da lista apenas
+      (plot-dom (-> world-cup-matches first vector))
       (sticky-nav$)
       (slider$)
       (-> input$

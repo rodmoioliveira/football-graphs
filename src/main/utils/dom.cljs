@@ -15,6 +15,8 @@
    :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
+   :plot-section (-> js/document (.querySelector "[data-plot-graphs]"))
+   :matches-list (-> js/document (.getElementById "matches__list"))
    :slider-graph (-> js/document (.querySelector ".slider__graph"))
    :slider-home (-> js/document (.querySelector ".slider__home"))
    :slide-to-graph (-> js/document (.querySelector "[data-slide-to-graph]"))
@@ -46,7 +48,7 @@
 
 (defn set-collapse
   [el v]
-    (-> el (.setAttribute "data-collapse" v)))
+  (-> el (.setAttribute "data-collapse" v)))
 
 (defn is-body-click?
   [e] (->> e
@@ -201,16 +203,34 @@
      </div>
      </div>")))
 
+(defn match-item
+  "Plot a match item in the dom."
+  [match]
+  (str
+   "<li
+      data-match-id='"
+   (-> match :match-id)
+   "'>"
+   (-> match :label)
+   "
+   </li>"))
+
 (defn plot-dom
   "Plot graphs in the dom."
   [matches]
-  (let [plot-section (-> js/document (.querySelector "[data-plot-graphs]"))]
-    (doseq [match matches]
-      (-> plot-section (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %))))))))
+  (doseq [match matches]
+    (-> dom
+        :plot-section
+        (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %)))))))
+
+(defn plot-matches-list
+  "Plot list of matches in the dom."
+  [matches]
+  (doseq [match matches]
+    (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match)))))
 
 (defn reset-dom
   "Reset graphs in the dom."
   []
-  (let [plot-section (-> js/document (.querySelector "[data-plot-graphs]"))]
-    (-> plot-section (#(set! (.-innerHTML %) "")))))
+  (-> dom :plot-section (#(set! (.-innerHTML %) ""))))
 
