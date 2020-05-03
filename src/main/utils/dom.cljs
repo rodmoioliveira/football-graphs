@@ -229,8 +229,10 @@
 (defn plot-matches-list
   "Plot list of matches in the dom."
   [matches]
-  (doseq [match matches]
-    (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match)))))
+  (do
+    (-> dom :matches-list (#(set! (.-innerHTML %) "")))
+    (doseq [match matches]
+      (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match))))))
 
 (defn reset-dom
   "Reset graphs in the dom."
