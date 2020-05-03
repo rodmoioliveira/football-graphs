@@ -9,6 +9,7 @@
                       is-body-click?
                       fix-nav
                       scroll-top
+                      scroll-to-current-match
                       fix-back
                       activate-nav
                       deactivate-nav
@@ -53,7 +54,6 @@
                    (rx-op/filter (fn [e] (-> e .-target (.hasAttribute "data-match-id"))))
                    (rx-op/map (fn [e] (-> e .-target (.getAttribute "data-match-id") keyword)))
                    (rx-op/map (fn [match-id]
-                                (print match-id)
                                 (merge
                                  {:select-match match-id}
                                  (get-metrics)
@@ -94,7 +94,6 @@
                               (slide-home)
                               (fix-back 0)
                               (fix-nav 0)
-                              ; TODO: scroll to last match viewed
-                              (scroll-top)
                               (set-collapse (-> dom :slider-home) 0)
-                              (set-collapse (-> dom :slider-graph) 1)))))))
+                              (set-collapse (-> dom :slider-graph) 1)
+                              (scroll-to-current-match)))))))

@@ -49,6 +49,14 @@
   [el v]
   (-> el (.setAttribute "data-collapse" v)))
 
+(defn scroll-to-current-match
+  []
+  (-> js/document
+      (.getElementById "graph__label")
+      (.getAttribute "data-match-id")
+      (#(-> dom :matches-list (.querySelector (str "[data-match-id='" % "']"))))
+      (.scrollIntoView #js {:block "center"})))
+
 (defn scroll-top
   []
   (-> js/window (.scrollTo 0 0)))
@@ -79,7 +87,8 @@
         match-id (-> match :match-id)]
     (str
      "<h2 class='graph__label'
-        data-match-id='"
+       id='graph__label'
+       data-match-id='"
      match-id
      "'>
         <span class='label__team1'>"
