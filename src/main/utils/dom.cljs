@@ -211,6 +211,7 @@
   [match]
   (str
    "<li
+      class='match-item'
       data-match-id='"
    (-> match :match-id)
    "'>"
