@@ -15,7 +15,9 @@
    :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
-   :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
+   :slide-to-graph (-> js/document (.querySelector (str "[data-slide-to-graph]")))
+   :slide-to-home (-> js/document (.querySelector (str "[data-slide-to-home]")))
+   :slide-view (-> js/document (.querySelector (str "[data-view]")))})
 
 (defn toogle-theme-btn
   [theme-text]

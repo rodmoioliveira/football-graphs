@@ -1,0 +1,28 @@
+.slider__wrapper {
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 200vw;
+  transition: all 300ms ease;
+  justify-content: space-between;
+}
+
+[data-view='home'] {
+  transform: translate(0);
+}
+
+[data-view='graph'] {
+  transform: translate(-100vw);
+}
+
+.slider__graph {
+  position: relative;
+}
+
+.slider__home,
+.slider__graph {
+  width: 100vw;
+}
+

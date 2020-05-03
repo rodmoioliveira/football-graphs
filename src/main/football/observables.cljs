@@ -1,4 +1,4 @@
-(ns football.metrics-nav
+(ns football.observables
   (:require
    ["rxjs" :as rx]
    ["rxjs/operators" :as rx-op]
@@ -57,15 +57,6 @@
                                     (#(or (contains? % "NAV") (contains? % "BUTTON")))
                                     not))]
     (do
-      (-> js/document
-          (rx/fromEvent "scroll")
-          (.pipe
-           (rx-op/map (fn [] (-> dom :breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
-           (rx-op/distinctUntilChanged))
-          (.subscribe (fn [v]
-                        (do
-                          (-> dom :menu (.setAttribute "data-sticky" v))))))
-
       (-> dom :activate-btn
           (rx/fromEvent "click")
           (.subscribe activate-nav))
@@ -79,3 +70,16 @@
       (-> dom :deactivate-btn
           (rx/fromEvent "click")
           (.subscribe deactivate-nav)))))
+
+(defn slider$
+  []
+  (let [slide-home (fn [_] (-> dom :slide-view (.setAttribute "data-view" "home")))
+        slide-graph (fn [_] (-> dom :slide-view (.setAttribute "data-view" "graph")))]
+    (do
+      (-> dom :slide-to-graph
+          (rx/fromEvent "click")
+          (.subscribe slide-graph))
+
+      (-> dom :slide-to-home
+          (rx/fromEvent "click")
+          (.subscribe slide-home)))))

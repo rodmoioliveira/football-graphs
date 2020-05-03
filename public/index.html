@@ -120,136 +120,154 @@
           class="octo-body"
         ></path></svg
     ></a>
-    <section class="intro section">
-      <h1 class="title">Football Passing Networks</h1>
-      <p class="paragraph">
-        A passing network is just the application of
-        <a target="_blank" href="https://en.wikipedia.org/wiki/Network_theory">
-          network theory
-        </a>
-        and its analysis tools to understand the performance of a football team
-        in a match.
-      </p>
-      <p class="paragraph">
-        Each player is represented by a vertex. Each vertex is connected with
-        many others by edges, which represent the passes exchanged between
-        players.
-      </p>
-    </section>
-    <nav class="sticky-nav-breakpoint"></nav>
-    <section class="graphs section">
-      <h1 class="title">2018 World Cup</h1>
-      <p class="paragraph">
-        Let's check out the graphs of matches from the last World Cup. Below you
-        can select several different metrics to compare the players performance:
-      </p>
-      <nav class="nav-menu" data-sticky="0">
-        <button class="btn btn--hamburger" data-active-metrics>
-          <span class="btn-strip"></span>
-          <span class="btn-strip"></span>
-          <span class="btn-strip"></span>
-        </button>
-      </nav>
-      <button class="btn btn--theme-toogle" data-toogle-theme>light</button>
-      <nav class="nav-metrics" data-active="0">
-        <div class="nav-controls">
-          <fieldset>
-            <label class="metric-label" for="node-area">Area</label>
-            <select
-              class="metric-select"
-              data-metric="node-area"
-              name="node-area"
-              id="node-area"
-            >
-              <option class="metric-option" value="degree" selected>
-                Degree
-              </option>
-              <option class="metric-option" value="betweenness-centrality">
-                Betweenness
-              </option>
-              <option class="metric-option" value="closeness-centrality">
-                Closeness
-              </option>
-              <option
-                class="metric-option"
-                value="local-clustering-coefficient"
+    <button class="btn btn--theme-toogle" data-toogle-theme>
+      light
+    </button>
+    <div class="slider__wrapper">
+      <div class="slider" data-view="home">
+        <aside class="slider__home">
+          <section class="intro section">
+            <h1 class="title">Football Passing Networks</h1>
+            <p class="paragraph">
+              A passing network is just the application of
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Network_theory"
               >
-                Clustering
-              </option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <label class="metric-label" for="node-color">Color</label>
-            <select
-              class="metric-select"
-              data-metric="node-color"
-              name="node-color"
-              id="node-color"
-            >
-              <option class="metric-option" value="degree">
-                Degree
-              </option>
-              <option
-                class="metric-option"
-                value="betweenness-centrality"
-                selected
-              >
-                Betweenness
-              </option>
-              <option class="metric-option" value="closeness-centrality">
-                Closeness
-              </option>
-              <option
-                class="metric-option"
-                value="local-clustering-coefficient"
-              >
-                Clustering
-              </option>
-            </select>
-          </fieldset>
-          <fieldset data-fieldset="coverage">
-            <label class="metric-label" for="coverage">
-              Coverage
-            </label>
-            <select
-              class="metric-select"
-              data-metric="coverage"
-              name="coverage"
-              id="coverage"
-            >
-              <option class="metric-option" value="match" selected>
-                Match
-              </option>
-              <option class="metric-option" value="global">
-                Global
-              </option>
-            </select>
-          </fieldset>
-          <fieldset data-fieldset="min-passes-to-display">
-            <label class="metric-label" for="min-passes-to-display">
-              Minimum passes
-              <span data-min-passes-value></span>
-            </label>
-            <input
-              type="range"
-              class="metric-input"
-              data-metric="min-passes-to-display"
-              name="min-passes-to-display"
-              id="min-passes-to-display"
-              value="5"
-              min="1"
-              max="50"
-            />
-          </fieldset>
-          <button class="btn btn--secondary" data-deactivate-metrics>
-            close
-          </button>
-        </div>
-      </nav>
-    </section>
-    <section data-plot-graphs>
-      <h1 class="title title--no-strip">Loading...</h1>
-    </section>
+                network theory
+              </a>
+              and its analysis tools to understand the performance of a football
+              team in a match.
+            </p>
+            <p class="paragraph">
+              Each player is represented by a vertex. Each vertex is connected
+              with many others by edges, which represent the passes exchanged
+              between players.
+            </p>
+          </section>
+          <section class="graphs section">
+            <h1 class="title">2018 World Cup</h1>
+            <p class="paragraph">
+              Let's check out the graphs of matches from the last World Cup.
+              Below you can select several different metrics to compare the
+              players performance:
+            </p>
+            <nav class="nav-metrics" data-active="0">
+              <div class="nav-controls">
+                <fieldset>
+                  <label class="metric-label" for="node-area">Area</label>
+                  <select
+                    class="metric-select"
+                    data-metric="node-area"
+                    name="node-area"
+                    id="node-area"
+                  >
+                    <option class="metric-option" value="degree" selected>
+                      Degree
+                    </option>
+                    <option
+                      class="metric-option"
+                      value="betweenness-centrality"
+                    >
+                      Betweenness
+                    </option>
+                    <option class="metric-option" value="closeness-centrality">
+                      Closeness
+                    </option>
+                    <option
+                      class="metric-option"
+                      value="local-clustering-coefficient"
+                    >
+                      Clustering
+                    </option>
+                  </select>
+                </fieldset>
+                <fieldset>
+                  <label class="metric-label" for="node-color">Color</label>
+                  <select
+                    class="metric-select"
+                    data-metric="node-color"
+                    name="node-color"
+                    id="node-color"
+                  >
+                    <option class="metric-option" value="degree">
+                      Degree
+                    </option>
+                    <option
+                      class="metric-option"
+                      value="betweenness-centrality"
+                      selected
+                    >
+                      Betweenness
+                    </option>
+                    <option class="metric-option" value="closeness-centrality">
+                      Closeness
+                    </option>
+                    <option
+                      class="metric-option"
+                      value="local-clustering-coefficient"
+                    >
+                      Clustering
+                    </option>
+                  </select>
+                </fieldset>
+                <fieldset data-fieldset="coverage">
+                  <label class="metric-label" for="coverage">
+                    Coverage
+                  </label>
+                  <select
+                    class="metric-select"
+                    data-metric="coverage"
+                    name="coverage"
+                    id="coverage"
+                  >
+                    <option class="metric-option" value="match" selected>
+                      Match
+                    </option>
+                    <option class="metric-option" value="global">
+                      Global
+                    </option>
+                  </select>
+                </fieldset>
+                <fieldset data-fieldset="min-passes-to-display">
+                  <label class="metric-label" for="min-passes-to-display">
+                    Minimum passes
+                    <span data-min-passes-value></span>
+                  </label>
+                  <input
+                    type="range"
+                    class="metric-input"
+                    data-metric="min-passes-to-display"
+                    name="min-passes-to-display"
+                    id="min-passes-to-display"
+                    value="5"
+                    min="1"
+                    max="50"
+                  />
+                </fieldset>
+                <button class="btn btn--secondary" data-deactivate-metrics>
+                  close
+                </button>
+              </div>
+            </nav>
+          </section>
+          <button class="btn" data-slide-to-graph>slide</button>
+        </aside>
+        <aside class="slider__graph">
+          <nav class="nav-menu">
+            <button class="btn btn--hamburger" data-active-metrics>
+              <span class="btn-strip"></span>
+              <span class="btn-strip"></span>
+              <span class="btn-strip"></span>
+            </button>
+          </nav>
+          <section data-plot-graphs>
+            <h1 class="title title--no-strip">Loading...</h1>
+          </section>
+          <button class="btn" data-slide-to-home>back</button>
+        </aside>
+      </div>
+    </div>
     <script src="js/main.js" async></script>
   </body>
 </html>
