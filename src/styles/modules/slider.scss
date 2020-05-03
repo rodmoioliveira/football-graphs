@@ -22,3 +22,12 @@
   width: 100vw;
 }
 
+[data-collapse='1'] {
+  max-height: 0;
+  overflow: hidden;
+}
+
+[data-collapse='0'] {
+  max-height: auto;
+  overflow: initial;
+}

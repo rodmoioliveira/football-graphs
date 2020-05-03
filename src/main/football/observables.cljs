@@ -10,7 +10,8 @@
                       fix-nav
                       fix-back
                       activate-nav
-                      deactivate-nav]]
+                      deactivate-nav
+                      set-collapse]]
    [mapping.themes :refer [theme-mapping
                            theme-identity
                            theme-reverse
@@ -77,11 +78,15 @@
         (.subscribe (fn [_] (do
                               (slide-graph)
                               (fix-back 1)
-                              (fix-nav 1)))))
+                              (fix-nav 1)
+                              (set-collapse (-> dom :slider-home) 1)
+                              (set-collapse (-> dom :slider-graph) 0)))))
 
     (-> dom :slide-to-home
         (rx/fromEvent "click")
         (.subscribe (fn [_] (do
                               (slide-home)
                               (fix-back 0)
-                              (fix-nav 0)))))))
+                              (fix-nav 0)
+                              (set-collapse (-> dom :slider-home) 0)
+                              (set-collapse (-> dom :slider-graph) 1)))))))

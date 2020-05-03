@@ -219,10 +219,16 @@
         <span class="btn-strip"></span>
       </button>
     </nav>
-    <button class="btn btn--secondary btn--back" data-slide-to-home data-sticky="0">back</button>
+    <button
+      class="btn btn--secondary btn--back"
+      data-slide-to-home
+      data-sticky="0"
+    >
+      back
+    </button>
     <div class="slider__wrapper">
       <div class="slider" data-view="home">
-        <aside class="slider__home">
+        <aside class="slider__home" data-collapse="0">
           <section class="intro section">
             <h1 class="title">Football Passing Networks</h1>
             <p class="paragraph">
@@ -252,7 +258,7 @@
           </section>
           <button class="btn btn--secondary" data-slide-to-graph>slide</button>
         </aside>
-        <aside class="slider__graph">
+        <aside class="slider__graph" data-collapse="1">
           <section data-plot-graphs>
             <h1 class="title title--no-strip">Loading...</h1>
           </section>
