@@ -5,7 +5,7 @@
 .slider {
   display: flex;
   width: 200vw;
-  transition: all 300ms ease;
+  transition: transform 1ms ease;
   justify-content: space-between;
 }
 
@@ -20,6 +20,25 @@
 .slider__home,
 .slider__graph {
   width: 100vw;
+  transition: opacity 300ms ease;
+}
+
+.slider__home {
+  [data-view='graph'] & {
+    opacity: 0;
+  }
+  [data-view='home'] & {
+    opacity: 1;
+  }
+}
+
+.slider__graph {
+  [data-view='graph'] & {
+    opacity: 1;
+  }
+  [data-view='home'] & {
+    opacity: 0;
+  }
 }
 
 [data-collapse='1'] {
