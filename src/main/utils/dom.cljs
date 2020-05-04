@@ -16,7 +16,7 @@
    :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
-   :plot-section (-> js/document (.querySelector "[data-plot-graphs]"))
+   :plot-section (-> js/document (.getElementById "data-plot-graphs"))
    :matches-list (-> js/document (.getElementById "matches__list"))
    :slider-graph (-> js/document (.querySelector ".slider__graph"))
    :slider-home (-> js/document (.querySelector ".slider__home"))
@@ -32,7 +32,10 @@
   [] (-> dom :slide-view (.setAttribute "data-view" "home")))
 
 (defn slide-graph
-  [] (-> dom :slide-view (.setAttribute "data-view" "graph")))
+  [match-id]
+  (do
+    (-> dom :plot-section (.setAttribute "data-match-id" match-id))
+    (-> dom :slide-view (.setAttribute "data-view" "graph"))))
 
 (defn activate-nav
   [_] (-> dom :nav (.setAttribute "data-active" 1)))
@@ -70,8 +73,8 @@
 
 (defn scroll-to-current-match
   []
-  (-> js/document
-      (.getElementById "graph__label")
+  (-> dom
+      :plot-section
       (.getAttribute "data-match-id")
       (#(-> dom :matches-list (.querySelector (str "[data-match-id='" % "']"))))
       (.scrollIntoView #js {:block "center"})))
@@ -246,6 +249,8 @@
    (-> match :label)
    "
    </li>"))
+
+(def loader-element "<div class='loader'></div>")
 
 (defn plot-dom
   "Plot graphs in the dom."

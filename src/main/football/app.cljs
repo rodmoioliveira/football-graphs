@@ -8,6 +8,7 @@
    [utils.dom :refer [plot-matches-list
                       reset-dom
                       slide-graph
+                      loader-element
                       mobile?
                       fix-nav
                       scroll-top
@@ -102,7 +103,7 @@
       (-> list$
           (.subscribe (fn [obj]
                         (do
-                          (slide-graph)
+                          (slide-graph (-> obj :select-match name))
                           (fix-back 1)
                           (fix-nav 1)
                           (scroll-top)
@@ -119,11 +120,13 @@
                                             (do
                                               (plot-dom d)
                                               (-> obj (merge opts) plot-graphs)))))
-                                     (fetch-file
-                                      filename
-                                      [update-store
-                                       (fn [d] (-> d vector plot-dom))
-                                       (fn [] (-> obj (merge opts) plot-graphs))]))))))))))
+                                     (do
+                                       (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
+                                       (fetch-file
+                                        filename
+                                        [update-store
+                                         (fn [d] (-> d vector plot-dom))
+                                         (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
 
       (-> input$
           (.subscribe #(-> % (merge opts) plot-graphs)))
