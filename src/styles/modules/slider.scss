@@ -20,7 +20,8 @@
 .slider__home,
 .slider__graph {
   width: 100vw;
-  transition: opacity 300ms ease;
+  // TODO: better transition...
+  // transition: opacity 500ms ease;
 }
 
 .slider__home {
@@ -42,7 +43,7 @@
 }
 
 [data-collapse='1'] {
-  max-height: 0;
+  max-height: 100vh;
   overflow: hidden;
 }
 

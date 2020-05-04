@@ -38,59 +38,6 @@
 (defn get-min-max [v] ((juxt min-val max-val) v))
 (defn metric-range [metric] (fn [v] (-> (map metric v) get-min-max merge-maps)))
 
-#?(:cljs
-   (defn get-global-metrics
-     [matches]
-     (let [in-degree (metric-range :in-degree)
-           out-degree (metric-range :out-degree)
-           degree (metric-range :degree)
-           katz-centrality (metric-range :katz-centrality)
-           passes (metric-range :passes)
-           betweenness-centrality (metric-range :betweenness-centrality)
-           local-clustering-coefficient (metric-range :local-clustering-coefficient)
-           closeness-centrality (metric-range :closeness-centrality)
-           alpha-centrality (metric-range :alpha-centrality)
-           current_flow_betweenness_centrality (metric-range :current_flow_betweenness_centrality)
-           eigenvector-centrality (metric-range :eigenvector-centrality)]
-
-       (-> matches
-           (#(map (fn [v] (get-in v [:min-max-values])) %))
-           (#((juxt
-               degree
-               in-degree
-               out-degree
-               betweenness-centrality
-               local-clustering-coefficient
-               closeness-centrality
-               alpha-centrality
-               eigenvector-centrality
-               passes
-               katz-centrality
-               current_flow_betweenness_centrality)
-              %))
-           ((fn [[degree
-                  in-degree
-                  out-degree
-                  betweenness-centrality
-                  local-clustering-coefficient
-                  closeness-centrality
-                  alpha-centrality
-                  eigenvector-centrality
-                  passes
-                  katz-centrality
-                  current_flow_betweenness_centrality]]
-              {:degree degree
-               :in-degree in-degree
-               :out-degree out-degree
-               :betweenness-centrality betweenness-centrality
-               :local-clustering-coefficient local-clustering-coefficient
-               :closeness-centrality closeness-centrality
-               :alpha-centrality alpha-centrality
-               :eigenvector-centrality eigenvector-centrality
-               :passes passes
-               :katz-centrality katz-centrality
-               :current_flow_betweenness_centrality current_flow_betweenness_centrality}))))))
-
 #?(:clj
    (defn hash-by
      "Hashmap a collection by a given key"

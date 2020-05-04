@@ -173,24 +173,6 @@
             </option>
           </select>
         </fieldset>
-        <fieldset data-fieldset="coverage">
-          <label class="metric-label" for="coverage">
-            Coverage
-          </label>
-          <select
-            class="metric-select"
-            data-metric="coverage"
-            name="coverage"
-            id="coverage"
-          >
-            <option class="metric-option" value="match" selected>
-              Match
-            </option>
-            <option class="metric-option" value="global">
-              Global
-            </option>
-          </select>
-        </fieldset>
         <fieldset data-fieldset="min-passes-to-display">
           <label class="metric-label" for="min-passes-to-display">
             Minimum passes
@@ -254,14 +236,12 @@
               Let's check out the passing networks from the last World Cup:
             </p>
             <ul class="matches__list" id="matches__list">
-              <h1 class="title title--no-strip">Loading...</h1>
+              <div class="loader"></div>
             </ul>
           </section>
         </aside>
         <aside class="slider__graph" data-collapse="1">
-          <section data-plot-graphs>
-            <h1 class="title title--no-strip">Loading...</h1>
-          </section>
+          <section data-plot-graphs id="data-plot-graphs"></section>
         </aside>
       </div>
     </div>

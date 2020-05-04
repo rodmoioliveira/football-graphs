@@ -4,11 +4,12 @@
                        set-canvas-dimensions
                        canvas-dimensions
                        mobile-mapping
-                       hash-by
-                       get-global-metrics]]
+                       hash-by]]
    [utils.dom :refer [plot-matches-list
                       reset-dom
                       slide-graph
+                      loader-element
+                      is-mobile?
                       fix-nav
                       scroll-top
                       set-collapse
@@ -16,30 +17,21 @@
                       toogle-theme-btn
                       plot-dom
                       toogle-theme
+                      fetch-file
                       dom]]
 
    [football.observables :refer [select-metrics$
                                  sticky-nav$
                                  slider$]]
-   [football.matches :refer [world-cup-matches matches-hash]]
+   [football.matches :refer [matches-files-hash]]
+   [football.store :refer [store update-store]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
 (set! *warn-on-infer* true)
 
-; ==================================
-; Viewport
-; ==================================
-; TODO: apply RXjs to event resize
-(defn mobile?
-  []
-  (< (-> js/window .-innerWidth) 901))
-
-; ==================================
-; Get canvas from DOM
-; ==================================
 (defn all-canvas
-  [{:keys [scale]}]
+  [{:keys [scale mobile?]}]
   (-> js/document
       (.querySelectorAll ".graph__canvas")
       array-seq
@@ -48,20 +40,19 @@
                 :data (-> el
                           (.getAttribute "data-match-id")
                           keyword
-                          matches-hash
+                          ((fn [k] (-> @store (get-in [k]))))
                           ((fn [v]
                              (let [id (-> el (.getAttribute "data-team-id") keyword)
                                    orientation (-> el
                                                    (.getAttribute "data-orientation")
                                                    keyword
-                                                   ((fn [k] (if (mobile?) (mobile-mapping k) k))))
+                                                   ((fn [k] (if mobile? (mobile-mapping k) k))))
                                    nodes (-> v :nodes id (assoc-pos el orientation))]
                                (((set-canvas-dimensions scale) orientation) el)
                                {:match-id (-> v :match-id)
                                 :nodes nodes
                                 :canvas-dimensions (canvas-dimensions scale)
                                 :orientation orientation
-                                ; TODO: move hashs to preprocessing data..
                                 :nodeshash (-> nodes
                                                ((fn [n]
                                                   (reduce (partial hash-by :id) (sorted-map) n))))
@@ -71,32 +62,31 @@
 
 (defn plot-graphs
   "Plot all data inside canvas."
-  [{:keys [global-metrics?
-           node-radius-metric
+  [{:keys [node-radius-metric
            node-color-metric
-           matches
-           get-global-metrics
            name-position
            scale
+           mobile?
            min-passes-to-display
            theme-background
            theme-lines-color
            theme-font-color]}]
-  (doseq [canvas (all-canvas {:scale scale})]
-    (force-graph {:data (-> (merge (-> canvas :data) {:graphs-options
-                                                      {:min-passes-to-display min-passes-to-display}
-                                                      :field
-                                                      {:background theme-background
-                                                       :lines-color theme-lines-color
-                                                       :lines-width 2}}) clj->js)
+  (doseq [canvas (all-canvas {:scale scale :mobile? mobile?})]
+    (force-graph {:data (-> (merge (-> canvas :data)
+                                   {:graphs-options
+                                    {:min-passes-to-display min-passes-to-display}
+                                    :field
+                                    {:background theme-background
+                                     :lines-color theme-lines-color
+                                     :lines-width 2}}) clj->js)
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
                                    :name-position name-position
                                    :font-color theme-font-color
-                                   :min-max-values (if global-metrics?
-                                                     (get-global-metrics matches)
-                                                     (-> canvas :data :min-max-values))})})))
+                                   :mobile? mobile?
+                                   :min-max-values
+                                   (-> canvas :data :min-max-values)})})))
 
 (defn init
   "Init graph interations."
@@ -105,26 +95,42 @@
         input$ (-> metrics :input$)
         click$ (-> metrics :click$)
         list$ (-> metrics :list$)
-        opts {:matches world-cup-matches
+        opts {:mobile? (is-mobile?)
               :scale 9
-              :get-global-metrics get-global-metrics
               :name-position :bottom}]
     (do
       (reset-dom)
-      (plot-matches-list world-cup-matches)
+      (plot-matches-list (-> matches-files-hash vals))
       (sticky-nav$)
       (slider$)
       (-> list$
           (.subscribe (fn [obj]
                         (do
-                          (slide-graph)
+                          (slide-graph (-> obj :select-match name))
                           (fix-back 1)
                           (fix-nav 1)
                           (scroll-top)
                           (set-collapse (-> dom :slider-home) 1)
                           (set-collapse (-> dom :slider-graph) 0)
-                          (-> matches-hash (get-in [(obj :select-match)]) vector plot-dom)
-                          (-> obj (merge opts) plot-graphs)))))
+                          (-> matches-files-hash
+                              (get-in [(-> obj :select-match)])
+                              ((fn [{:keys [filename match-id]}]
+                                 (let [store-data (get-in @store [(-> match-id str keyword)])]
+                                   (if store-data
+                                     (-> store-data
+                                         vector
+                                         ((fn [d]
+                                            (do
+                                              (plot-dom d)
+                                              (-> obj (merge opts) plot-graphs)))))
+                                     (do
+                                       (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
+                                       (fetch-file
+                                        filename
+                                        [update-store
+                                         (fn [d] (-> d vector plot-dom))
+                                         (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
+
       (-> input$
           (.subscribe #(-> % (merge opts) plot-graphs)))
       (-> click$
