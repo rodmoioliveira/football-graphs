@@ -9,7 +9,7 @@
                       reset-dom
                       slide-graph
                       loader-element
-                      mobile?
+                      is-mobile?
                       fix-nav
                       scroll-top
                       set-collapse
@@ -31,7 +31,7 @@
 (set! *warn-on-infer* true)
 
 (defn all-canvas
-  [{:keys [scale]}]
+  [{:keys [scale mobile?]}]
   (-> js/document
       (.querySelectorAll ".graph__canvas")
       array-seq
@@ -46,7 +46,7 @@
                                    orientation (-> el
                                                    (.getAttribute "data-orientation")
                                                    keyword
-                                                   ((fn [k] (if (mobile?) (mobile-mapping k) k))))
+                                                   ((fn [k] (if mobile? (mobile-mapping k) k))))
                                    nodes (-> v :nodes id (assoc-pos el orientation))]
                                (((set-canvas-dimensions scale) orientation) el)
                                {:match-id (-> v :match-id)
@@ -66,11 +66,12 @@
            node-color-metric
            name-position
            scale
+           mobile?
            min-passes-to-display
            theme-background
            theme-lines-color
            theme-font-color]}]
-  (doseq [canvas (all-canvas {:scale scale})]
+  (doseq [canvas (all-canvas {:scale scale :mobile? mobile?})]
     (force-graph {:data (-> (merge (-> canvas :data)
                                    {:graphs-options
                                     {:min-passes-to-display min-passes-to-display}
@@ -83,6 +84,7 @@
                                    :node-color-metric node-color-metric
                                    :name-position name-position
                                    :font-color theme-font-color
+                                   :mobile? mobile?
                                    :min-max-values
                                    (-> canvas :data :min-max-values)})})))
 
@@ -93,7 +95,8 @@
         input$ (-> metrics :input$)
         click$ (-> metrics :click$)
         list$ (-> metrics :list$)
-        opts {:scale 9
+        opts {:mobile? (is-mobile?)
+              :scale 9
               :name-position :bottom}]
     (do
       (reset-dom)

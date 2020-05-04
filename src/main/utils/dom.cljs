@@ -67,7 +67,7 @@
   [filename fns]
   (-> (str base-url filename) (fetch-then fns)))
 
-(defn mobile?
+(defn is-mobile?
   []
   (< (-> js/window .-innerWidth) 901))
 

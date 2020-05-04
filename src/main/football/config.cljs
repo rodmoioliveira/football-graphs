@@ -7,7 +7,7 @@
 ; Configuration hashmap
 ; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric min-max-values name-position font-color]}]
+  [{:keys [id node-radius-metric node-color-metric min-max-values name-position font-color mobile?]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
 
@@ -109,7 +109,7 @@
              :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
-             :radius-click 1
+             :radius-click (if mobile? 5 1)
              :active {:color "#ebd1fe"
                       :outline "#333"}
              :name-position (or name-position :top)
