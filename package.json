@@ -39,7 +39,7 @@
   "scripts": {
     "deploy": "npm-run-all --serial compile-once build",
     "compile-once": "shadow-cljs compile dev",
-    "start": "npm-run-all --parallel build:css-once dev:sass dev:cljs",
+    "start": "npm-run-all --parallel build:css-once build:html dev:sass dev:cljs",
     "dev:cljs": "npx shadow-cljs watch dev",
     "dev:sass": "node-sass src/styles/main.scss -w public/styles/main.css",
     "build": "npm-run-all --parallel build:css build:js build:html",
