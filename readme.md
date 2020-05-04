@@ -4,7 +4,7 @@ This is a personal project to study soccer passing networks and investigate data
 
 # :globe_with_meridians: Website
 
-#### https://grafos-da-bola.netlify.com/
+#### https://football-passing-networks.netlify.app/
 
 # :soccer: About passing networks
 
