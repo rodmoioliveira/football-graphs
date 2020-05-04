@@ -44,6 +44,7 @@
                   (rx/fromEvent "click")
                   (.pipe
                    (rx-op/filter (fn [e] (-> e .-target (.hasAttribute "data-match-id"))))
+                   (rx-op/tap (fn [e] (-> e .-target (.setAttribute "data-visited" ""))))
                    (rx-op/map (fn [e] (-> e .-target (.getAttribute "data-match-id") keyword)))
                    (rx-op/map (fn [match-id]
                                 (merge

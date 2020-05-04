@@ -4,7 +4,7 @@
   border-radius: 50%;
   width: 16vw;
   height: 16vw;
-  animation: spin 1s linear infinite;
+  animation: spin 1s ease-in-out infinite;
   margin: 0 auto;
 
   .slider__graph & {
@@ -16,6 +16,6 @@
 }
 @keyframes spin {
   to {
-    transform: translate(-50%, -50%) rotate(1turn);
+    transform: translate(-50%, -50%) rotate(2turn);
   }
 }
