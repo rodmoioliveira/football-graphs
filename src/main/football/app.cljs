@@ -31,7 +31,7 @@
 (set! *warn-on-infer* true)
 
 (defn all-canvas
-  [{:keys [scale mobile?]}]
+  [{:keys [scale]}]
   (-> js/document
       (.querySelectorAll ".graph__canvas")
       array-seq
@@ -46,7 +46,7 @@
                                    orientation (-> el
                                                    (.getAttribute "data-orientation")
                                                    keyword
-                                                   ((fn [k] (if mobile? (mobile-mapping k) k))))
+                                                   ((fn [k] (if (is-mobile?) (mobile-mapping k) k))))
                                    nodes (-> v :nodes id (assoc-pos el orientation))]
                                (((set-canvas-dimensions scale) orientation) el)
                                {:match-id (-> v :match-id)
@@ -71,7 +71,7 @@
            theme-background
            theme-lines-color
            theme-font-color]}]
-  (doseq [canvas (all-canvas {:scale scale :mobile? mobile?})]
+  (doseq [canvas (all-canvas {:scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data)
                                    {:graphs-options
                                     {:min-passes-to-display min-passes-to-display}
