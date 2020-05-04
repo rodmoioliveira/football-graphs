@@ -182,8 +182,9 @@
 (defn on-node-click
   "On node click, only display that player passes network."
   [{:keys [edges nodes config nodeshash data]}]
-  (let [canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
-        x-domain #js [0 (-> canvas-current-dimensions .-width)]
+  (let [screen-width (-> js/window .-innerWidth)
+        canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
+        x-domain #js [(- screen-width) (- (-> canvas-current-dimensions .-width) screen-width)]
         y-domain #js [0 (-> canvas-current-dimensions .-height)]
         x-codomain #js [0 (-> config :canvas .-width)]
         y-codomain #js [0 (-> config :canvas .-height)]

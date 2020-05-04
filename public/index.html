@@ -120,852 +120,131 @@
           class="octo-body"
         ></path></svg
     ></a>
-    <section class="intro section">
-      <h1 class="title">Football Passing Networks</h1>
-      <p class="paragraph">
-        A passing network is just the application of
-        <a target="_blank" href="https://en.wikipedia.org/wiki/Network_theory">
-          network theory
-        </a>
-        and its analysis tools to understand the performance of a football team
-        in a match.
-      </p>
-      <p class="paragraph">
-        Each player is represented by a vertex. Each vertex is connected with
-        many others by edges, which represent the passes exchanged between
-        players.
-      </p>
-    </section>
-    <!-- <section class="metrics section"> -->
-    <!--   <h1 class="title">Explicando as métricas</h1> -->
-    <!--   <p class="paragraph"> -->
-    <!--     Quando representamos a rede de passes de um time de futebol como um -->
-    <!--     <a -->
-    <!--       target="_blank" -->
-    <!--       href="https://pt.wikipedia.org/wiki/Teoria_dos_grafos" -->
-    <!--     > -->
-    <!--       grafo</a -->
-    <!--     > -->
-    <!--     , podemos utilizar diversos instrumentos matemáticos para medir a -->
-    <!--     <a target="_blank" href="https://pt.wikipedia.org/wiki/Centralidade"> -->
-    <!--       centralidade</a -->
-    <!--     > -->
-    <!--     de cada um dos seus vértices (jodagores). Veja alguns deles: -->
-    <!--   </p> -->
-    <!--   <figure> -->
-    <!--     <img class="graphs-examples" src="img/graphs.png" /> -->
-    <!--     <figcaption class="figcaption"> -->
-    <!--       Exemplos de A) centralidade de intermediação, B) centralidade de -->
-    <!--       proximidade, C) centralidade de autovetor, D) centralidade de grau, E) -->
-    <!--       centralidade Harmônica e F) centralidade de Katz no mesmo grafo. -->
-    <!--       <a href="https://en.wikipedia.org/wiki/Centrality"> -->
-    <!--         Wikipedia -->
-    <!--       </a> -->
-    <!--     </figcaption> -->
-    <!--   </figure> -->
-    <!--   <ul class="metric-list"> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Grau (passes feitos e recebidos) -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Centralidade de grau é definida como o número de ligações incidentes -->
-    <!--         de um vértice. O grau pode ser interpretado como a probabilidade que -->
-    <!--         o vértice tem de receber alguma informação da rede. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph"> -->
-    <!--         No caso de uma rede orientada (onde os laços tem direção), define-se -->
-    <!--         duas medidas distintas de centralidade de grau: indegree e -->
-    <!--         outdegree. Indegree é uma contagem do número de ligações -->
-    <!--         direcionadas para o nó e outdegree é o número de ligações que o nó -->
-    <!--         encaminha para outros. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph"> -->
-    <!--         A centralidade de Katz é uma generalização da centralidade de grau. -->
-    <!--         Como a centralidade de grau mede o número de vizinhos diretos, a -->
-    <!--         centralidade Katz mede o número de todos os nós que podem ser -->
-    <!--         conectados através de um caminho, enquanto a contribuição de um nó -->
-    <!--         distante é penalizado por um fator de atenuação. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         Representa o número de passes feitos e recebidos por um jogador. -->
-    <!--       </p> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             Perhaps the simplest centrality measure in a network is just the -->
-    <!--             degree of a vertex, the number of edges connected to it (see -->
-    <!--             Section 6.9). Degree is sometimes called degree centrality in -->
-    <!--             the social networks literature, to emphasize its use as a -->
-    <!--             centrality measure. In directed networks, vertices have both an -->
-    <!--             in-degree and an out-degree, and both may be useful as measures -->
-    <!--             of centrality in the appropriate circumstances. -->
-    <!--             <br /> -->
-    <!--             <br /> -->
-    <!--             Although degree centrality is a simple centrality measure, it -->
-    <!--             can be very illuminating. In a social network, for instance, it -->
-    <!--             seems reasonable to suppose that individuals who have -->
-    <!--             connections to many others might have more influence, more -->
-    <!--             access to information, or more prestige than those who have -->
-    <!--             fewer connections. A non-social network example is the use of -->
-    <!--             citation counts in the evaluation of scientific papers. The -->
-    <!--             number of citations a paper receives from other papers, which is -->
-    <!--             simply its in-degree in the citation network, gives a crude -->
-    <!--             measure of whether the paper has been influential or not and is -->
-    <!--             widely used as a metric for judging the impact of scientific -->
-    <!--             research. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 168 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--     </li> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Autovetor (Influência) -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Centralidade de vetor próprio é uma medida da influência de um nó -->
-    <!--         numa rede. Ele atribui pontuações relativas a todos os nós da rede, -->
-    <!--         baseada no conceito de que as ligações para os nós de alta pontuação -->
-    <!--         contribuem mais para a pontuação do nó em questão do que ligações -->
-    <!--         iguais a nós baixa pontuação. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph"> -->
-    <!--         O sistema de PageRank do Google é uma variante da medida de -->
-    <!--         centralidade de vetor próprio. Outra medida de centralidade -->
-    <!--         relacionada é a centralidade de Katz. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         A medida de importância de um jogador está relacionada com o fato -->
-    <!--         dele estar ou não conectado com outros jogadores que também são -->
-    <!--         importantes. -->
-    <!--       </p> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             A natural extension of the simple degree centrality is -->
-    <!--             eigenvector centrality. We can think of degree centrality as -->
-    <!--             awarding one “centrality point” for every network neighbor a -->
-    <!--             vertex has. But not all neighbors are equivalent. In many -->
-    <!--             circumstances a vertex’s importance in a network is increased by -->
-    <!--             having connections to other vertices that are themselves -->
-    <!--             important. This is the concept behind eigenvector centrality. -->
-    <!--             Instead of awarding vertices just one point for each neighbor, -->
-    <!--             eigenvector centrality gives each vertex a score proportional to -->
-    <!--             the sum of the scores of its neighbors. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 169 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             In theory eigenvector centrality can be calculated for either -->
-    <!--             undirected or directed networks. It works best however for the -->
-    <!--             undirected case. In the directed case other complications arise. -->
-    <!--             First of all, a directed network has an adjacency matrix that -->
-    <!--             is, in general, asymmetric (see Section 6.4). This means that it -->
-    <!--             has two sets of eigenvectors, the left eigenvectors and the -->
-    <!--             right eigenvectors, and hence two leading eigenvectors. So which -->
-    <!--             of the two should we use to define the centrality? In most cases -->
-    <!--             the correct answer is to use the right eigenvector. The reason -->
-    <!--             is that centrality in directed networks is usually bestowed by -->
-    <!--             other vertices pointing towards you, rather than by you pointing -->
-    <!--             to others. On the World Wide Web, for instance, the number and -->
-    <!--             stature of web pages that point to your page can give a -->
-    <!--             reasonable indication of how important or useful your page is. -->
-    <!--             On the other hand, the fact that your page might point to other -->
-    <!--             important pages is neither here nor there. Anyone can set up a -->
-    <!--             page that points to a thousand others, but that does not make -->
-    <!--             the page important. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 171 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--     </li> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Proximidade -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Em grafos conectados existe uma distância natural métrica entre -->
-    <!--         todos os pares de nós, definido pelo comprimento de seus caminhos -->
-    <!--         mais curtos. O afastamento de um nó s é definido como a soma de suas -->
-    <!--         distâncias para todos os outros nós, e sua proximidade é definida -->
-    <!--         como o inverso do afastamento. Assim, quanto mais central é o nó, -->
-    <!--         menor é a distância do seu total para todos os outros nós. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Proximidade pode ser considerada como uma medida de rapidez, para -->
-    <!--         determinar a velocidade que ela necessitará para difundir -->
-    <!--         informações de s a todos os outros nós sequencialmente. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Na definição clássica de centralidade de proximidade, a disseminação -->
-    <!--         de informações é modelada através da utilização dos caminhos mais -->
-    <!--         curtos. Este modelo pode não ser o mais realista de todos os tipos -->
-    <!--         de cenários de comunicação. Assim, as definições relacionadas foram -->
-    <!--         discutidas para medir proximidade, como a centralidade de -->
-    <!--         proximidade de caminhos aleatórios introduzida por Noh e Rieger -->
-    <!--         (2004). Mede a velocidade com que as mensagens aleatórias chegam a -->
-    <!--         um vértice de fora da rede, digamos que é uma espécie de versão -->
-    <!--         aleatória das mensagens da centralidade de proximidade. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         Este índice mede a proximidade de um jogador em relação a todos os -->
-    <!--         outros do seu time. -->
-    <!--       </p> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             An entirely different measure of centrality is provided by the -->
-    <!--             closeness centrality, which measures the mean distance from a -->
-    <!--             vertex to other vertices. (...) Such vertices might have better -->
-    <!--             access to information at other vertices or more direct influence -->
-    <!--             on other vertices. In a social network, for instance, a person -->
-    <!--             with lower mean distance to others might find that their -->
-    <!--             opinions reach others in the community more quickly than the -->
-    <!--             opinions of someone with higher mean distance. (...) The mean -->
-    <!--             distance li is not a centrality measure in the same sense as the -->
-    <!--             others in this chapter, since it gives low values for more -->
-    <!--             central vertices and high values for less central ones, which is -->
-    <!--             the opposite of our other measures. In the social networks -->
-    <!--             literature, therefore, researchers commonly calculate the -->
-    <!--             inverse of li rather than li itself. This inverse is called the -->
-    <!--             closeness centrality (...) -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 183 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             Closeness centrality is a very natural measure of centrality and -->
-    <!--             is often used in social and other network studies. But it has -->
-    <!--             some problems. One issue is that its values tend to span a -->
-    <!--             rather small dynamic range from largest to smallest. (...) What -->
-    <!--             this means in practice is that it is difficult to distinguish -->
-    <!--             between central and less central vertices using this measure: -->
-    <!--             the values tend to be cramped together with the differences -->
-    <!--             between adjacent values showing up only when you examine the -->
-    <!--             trailing digits. This means that even small fluctuations in the -->
-    <!--             structure of the network can change the order of the values -->
-    <!--             substantially. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 184 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote -->
-    <!--         cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--       > -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             (...) closeness, measuring the minimum number of steps that the -->
-    <!--             ball has to under go from one player to reach any other in the -->
-    <!--             team. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--             > -->
-    <!--               Using Network Science to Analyse Football Passing Networks: -->
-    <!--               Dynamics, Space, Time, and the Multilayer Nature of the Game. -->
-    <!--               Javier M. Buldú, Javier Busquets, [...], and Jordi Luque -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote -->
-    <!--         cite="https://www.researchgate.net/publication/313141210_Exploring_Team_Passing_Networks_and_Player_Movement_Dynamics_in_Youth_Association_Football" -->
-    <!--       > -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             A closeness score indicates how easy it is for a player to be -->
-    <!--             connected with teammates (by passing relation) and, therefore, -->
-    <!--             that player is requested by the team as a target to pass the -->
-    <!--             ball. Thus, it quantifies the proximity of how close is such -->
-    <!--             player to his peers. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.researchgate.net/publication/313141210_Exploring_Team_Passing_Networks_and_Player_Movement_Dynamics_in_Youth_Association_Football" -->
-    <!--             > -->
-    <!--               Exploring Team Passing Networks and Player Movement Dynamics -->
-    <!--               in Youth Association Football. Bruno Gonçalves, Sara Santos, -->
-    <!--               Diogo Coutinho, [...], and Carlos Lago Peñas -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--     </li> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Intermediação (Ponte) -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Centralidade de intermediação quantifica o número de vezes que um nó -->
-    <!--         age como ponte ao longo do caminho mais curto entre dois outros nós. -->
-    <!--         Foi introduzido por Linton Freeman como uma medida para quantificar -->
-    <!--         o controle de um ser humano sobre a comunicação entre outros seres -->
-    <!--         humanos numa rede social. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         Mede quantas vezes um jogador aparece como conector na cadeia de -->
-    <!--         passes realizada entre dois jogadores do time. -->
-    <!--       </p> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             A very different concept of centrality is betweenness -->
-    <!--             centrality, which measures the extent to which a vertex lies on -->
-    <!--             paths between other vertices. (...) Vertices with high -->
-    <!--             betweenness centrality may have considerable influence within a -->
-    <!--             network by virtue of their control over information passing -->
-    <!--             between others. (...) The vertices with highest betweenness are -->
-    <!--             also the ones whose removal from the network will most disrupt -->
-    <!--             communications between other vertices because they lie on the -->
-    <!--             largest number of paths taken by messages. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 187 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             Betweenness centrality differs from the other centrality -->
-    <!--             measures we have considered in being not principally a measure -->
-    <!--             of how well-connected a vertex is. Instead it measures how much -->
-    <!--             a vertex falls “between” others. Indeed a vertex can have quite -->
-    <!--             low degree, be connected to others that have low degree, even be -->
-    <!--             a long way from others on average, and still have high -->
-    <!--             betweenness. (...) Betweenness centrality also has another -->
-    <!--             interesting property: its values are typically distributed over -->
-    <!--             a wide range. The maximum possible value for the betweenness of -->
-    <!--             a vertex occurs when thevertex lies on the shortest path between -->
-    <!--             every other pair of vertices. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 189-190 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             Some other variations on the betweenness centrality idea are -->
-    <!--             worth mentioning. Betweenness gets at an important idea in -->
-    <!--             network analysis, that of the flow of information or other -->
-    <!--             traffic and of the influence vertices might have over that flow. -->
-    <!--             However, betweenness as defined by Freeman is based on counting -->
-    <!--             only the shortest paths between vertex pairs, effectively -->
-    <!--             assuming that all or at least most traffic passes along those -->
-    <!--             shortest paths. In reality traffic flows along paths other than -->
-    <!--             the shortest in many networks. Most of us, for instance, will -->
-    <!--             have had the experience of hearing news about one of our friends -->
-    <!--             not from that friend directly but from another mutual -->
-    <!--             acquaintance—the message has passed along a path of length two -->
-    <!--             via the mutual acquaintance, rather than along the direct -->
-    <!--             (geodesic) path of length one. A version of betweenness -->
-    <!--             centrality that makes some allowance for effects like this is -->
-    <!--             the flow betweenness, which was proposed by Freeman et al. and -->
-    <!--             is based on the idea of maximum flow. Imagine each edge in a -->
-    <!--             network as a pipe that can carry a unit flow of some fluid. We -->
-    <!--             can ask what the maximum possible flow then is between a given -->
-    <!--             source vertex s and target vertex t through these pipes. In -->
-    <!--             general the answer is that more than a single unit of flow can -->
-    <!--             be carried between source and target by making simultaneous use -->
-    <!--             of several different paths through the network. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 191 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             In terms of our information analogy, one can think of flow -->
-    <!--             betweenness as measuring the betweenness of vertices in a -->
-    <!--             network in which a maximal amount of information is continuously -->
-    <!--             pumped between all sources and targets. Flow betweenness takes -->
-    <!--             account of more than just the geodesic paths between vertices, -->
-    <!--             since flow can go along non-geodesic paths as well as geodesic -->
-    <!--             ones. (For example, the paths through vertices A and B in the -->
-    <!--             example above are not geodesic.) Indeed, in some cases none of -->
-    <!--             the paths that appear in the solution of the maximum flow -->
-    <!--             problem are geodesic paths, so geodesic paths may not be counted -->
-    <!--             at all by this measure. But this point highlights a problem with -->
-    <!--             flow betweenness: although it typically counts more paths than -->
-    <!--             the standard shortest-path betweenness, flow betweenness still -->
-    <!--             only counts a subset of possible paths, and some important ones -->
-    <!--             (such as geodesic paths) may be missed out altogether. One way -->
-    <!--             to look at the issue is that both shortest-path betweenness and -->
-    <!--             flow betweenness assume flows that are optimal in some -->
-    <!--             sense—passing only along shortest paths in the first case and -->
-    <!--             maximizing total flow in the second. Just as there is no reason -->
-    <!--             to suppose that information or other traffic always takes the -->
-    <!--             shortest path, there is no reason in general to suppose it -->
-    <!--             should act to maximize flow (although of course there may be -->
-    <!--             special cases in which it does). (...) A betweenness variant -->
-    <!--             that does count all paths is the random-walk betweenness. In -->
-    <!--             this variant traffic between vertices s and t is thought of as -->
-    <!--             performing an (absorbing) random walk that starts at vertex s -->
-    <!--             and continues un til it reaches vertex t. (...) Random walk -->
-    <!--             betweenness would be an appropriate betweenness measure for -->
-    <!--             traffic that traverses a network with no idea of where it is -->
-    <!--             going—it simply wanders around at random until it reaches its -->
-    <!--             destination. Shortest-path betweenness is the exact opposite. It -->
-    <!--             is the appropriate measure for information that knows exactly -->
-    <!--             where it is going and takes the most direct path to get there. -->
-    <!--             It seems likely that most real-world situations fall somewhere -->
-    <!--             in between these two extremes. However, it is found in practice -->
-    <!--             that the two measures often give quite similar results, in which -->
-    <!--             case one can with reasonable justification assume that the -->
-    <!--             “correct” answer, the one lying between the limits set by the -->
-    <!--             shortest-path and random-walk measures, is similar to both. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 192-193 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote -->
-    <!--         cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--       > -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             (...) betweenness centrality, which accounts how many times a -->
-    <!--             given player is necessary for completing the routes (made by the -->
-    <!--             ball) connecting any other two players of its team -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--             > -->
-    <!--               Using Network Science to Analyse Football Passing Networks: -->
-    <!--               Dynamics, Space, Time, and the Multilayer Nature of the Game. -->
-    <!--               Javier M. Buldú, Javier Busquets, [...], and Jordi Luque -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote -->
-    <!--         cite="https://www.researchgate.net/publication/313141210_Exploring_Team_Passing_Networks_and_Player_Movement_Dynamics_in_Youth_Association_Football" -->
-    <!--       > -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             A player with higher betweenness scores is crucial to -->
-    <!--             maintainteam passing connections by acting as a connecting -->
-    <!--             bridge. Also, low scores and spread across certain players may -->
-    <!--             be related with well-balanced passing strategy and less specific -->
-    <!--             players dependence. Betweenness centrality quantifies the -->
-    <!--             occurrences that a node acts as a bridge along the geodesic path -->
-    <!--             between other nodes. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.researchgate.net/publication/313141210_Exploring_Team_Passing_Networks_and_Player_Movement_Dynamics_in_Youth_Association_Football" -->
-    <!--             > -->
-    <!--               Exploring Team Passing Networks and Player Movement Dynamics -->
-    <!--               in Youth Association Football. Bruno Gonçalves, Sara Santos, -->
-    <!--               Diogo Coutinho, [...], and Carlos Lago Peñas -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--     </li> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Coeficiente Local de Agrupamento (Triangulação) -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         O coeficiente de agrupamento local de um vértice (nó) num grafo mede -->
-    <!--         o quão perto os seus vizinhos estão de serem um clique (grafo -->
-    <!--         completo). -->
-    <!--       </p> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Em outras palavras, pode dizer-se que o coeficiente de agrupamento -->
-    <!--         local mede o grau da densidade de ligações da vizinhança de um -->
-    <!--         determinado nó, isto é, corresponde ao grau com que os vizinhos de -->
-    <!--         um nó se interligam. Esta medida foi introduzida por Duncan J. Watts -->
-    <!--         e Steven Strogatz em 1998 para determinar se um grafo constitui uma -->
-    <!--         rede de pequeno mundo. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         Mede a frequência de triangulação de passes entre jogadores. -->
-    <!--         Jogadores com alto índice neste indicador são mais necessários para -->
-    <!--         manter a triangulação de passes entre os jogadores ao seu redor. -->
-    <!--         Baixos índices neste indicador revelam uma rede de passe bem -->
-    <!--         balenceada. -->
-    <!--       </p> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             We can quantify the level of transitivity in a network as -->
-    <!--             follows. If u knows v and v knows w, then we have a path uvw of -->
-    <!--             two edges in the network. If u also knows w, we say that the -->
-    <!--             path is closed—it forms a loop of length three, or a triangle, -->
-    <!--             in the network. In the social network jargon, u, v, and w are -->
-    <!--             said to form a closed triad. We define the clustering -->
-    <!--             coefficient to be the fraction of paths of length two in the -->
-    <!--             network that are closed. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 200 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             Some social networks, such as the email network above, are -->
-    <!--             directed networks. In calculating clustering coefficients for -->
-    <!--             direct networks, scientists have typically just ignored their -->
-    <!--             directed nature (...) as if the edges were undirected. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 203 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             (...) clustering coefficient (...) represents the average -->
-    <!--             probability that a pair of i′s friends are friends of one -->
-    <!--             another. Local clustering is interesting for several reasons. -->
-    <!--             First, in many networks it is found empirically to have a rough -->
-    <!--             dependence on degree, vertices with higher degree having a lower -->
-    <!--             local clustering coefficient on average. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 204 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             (...) local clustering can be used as a probe for the existence -->
-    <!--             of so-called 'structural holes' in a network. While it is common -->
-    <!--             in many networks, especially social networks, for the neighbors -->
-    <!--             of a vertex to be connected among themselves, it happens -->
-    <!--             sometimes that these expected connections between neighbors are -->
-    <!--             missing. The missing links are called structural holes and were -->
-    <!--             first studied in this context by Burt. If we are interested in -->
-    <!--             efficient spread of information or other traffic around a -->
-    <!--             network, as we were in Section 7.7, then structural holes are a -->
-    <!--             bad thing— they reduce the number of alternative routes -->
-    <!--             information can take through the network. On the other hand -->
-    <!--             structural holes can be a good thing for the central vertex i -->
-    <!--             whose friends lack connections, because they give i power over -->
-    <!--             information flow between those friends. If two friends of i are -->
-    <!--             not connected directly and their information about one another -->
-    <!--             comes instead via their mutual connection with i then i can -->
-    <!--             control the flow of that information. The local clustering -->
-    <!--             coefficient measures how influential i is in this sense, taking -->
-    <!--             lower values the more structural holes there are in the network -->
-    <!--             around i. Thus local clustering can be regarded as a type of -->
-    <!--             centrality measure, albeit one that takes small values for -->
-    <!--             powerful individuals rather than large ones. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 204 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             In this sense, local clustering can also be thought of as akin -->
-    <!--             to the betweenness centrality of Section 7.7. Where betweenness -->
-    <!--             measures a vertex’s control over information flowing between all -->
-    <!--             pairs of vertices in its component, local clustering is like a -->
-    <!--             local version of betweenness that measures control over flows -->
-    <!--             between just the immediate neighbors of a vertex. One measure is -->
-    <!--             not necessarily better than another. There may be cases in which -->
-    <!--             we want to take all vertices into account and others where we -->
-    <!--             want to consider only immediate neighbors—the choice will depend -->
-    <!--             on the particular questions we want to answer. It is worth -->
-    <!--             pointing out however that betweenness is much more -->
-    <!--             computationally intensive to calculate than local clustering -->
-    <!--             (see Section 10.3.6), and that in practice betweenness and local -->
-    <!--             clustering are strongly correlated -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 205 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             The clustering coefficient (...) measures the frequency with -->
-    <!--             which loops of length three—triangles—appear in a network. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             Networks: An Introduction. M. E. J. Newman, Oxford University -->
-    <!--             Press, 2010, p. 207 -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote -->
-    <!--         cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--       > -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             Other metrics, such as the clustering coefficient, which -->
-    <!--             measures the number of 'neighbors' of a player that also have -->
-    <!--             passed the ball between them (i.e., the number of triangles -->
-    <!--             around a player), has also been quantified to evaluate the -->
-    <!--             contribution of a given player to the local robustness of the -->
-    <!--             passing network. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--             > -->
-    <!--               Using Network Science to Analyse Football Passing Networks: -->
-    <!--               Dynamics, Space, Time, and the Multilayer Nature of the Game. -->
-    <!--               Javier M. Buldú, Javier Busquets, [...], and Jordi Luque -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--       <blockquote -->
-    <!--         cite="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--       > -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             In Fig. 3A, we plot the clustering coefficient C, which is -->
-    <!--             related to the amount of triangles created between any triplet -->
-    <!--             of players. Clustering coefficient is an indicator of the local -->
-    <!--             robustness of networks, since when a triangle connecting three -->
-    <!--             nodes (i.e. players) exists, and a link (i.e., pass) between two -->
-    <!--             nodes is lost (i.e., not possible to make the pass), there is an -->
-    <!--             alternative way of reaching the other node passing through the -->
-    <!--             other two edges of the triangle. In football, the clustering -->
-    <!--             coefficient mesures the triangulation between three players. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.nature.com/articles/s41598-019-49969-2" -->
-    <!--             > -->
-    <!--               Defining a historic football team: Using Network Science to -->
-    <!--               analyze Guardiola’s F.C. Barcelona J. M. Buldú, J. Busquets, -->
-    <!--               I. Echegoyen & F. Seirul.lo -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--     </li> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Conectividade Algébrica (Coesão) -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         A conectividade algébrica de um grafo é o segundo menor autovalor da -->
-    <!--         sua matriz Laplaciana associada. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         Quantifica a coesão de um time. Baixos valores nesta métrica são -->
-    <!--         indicativo de que a rede de passes está próxima de se dividir em -->
-    <!--         duas redes distintas. -->
-    <!--       </p> -->
-    <!--       <blockquote> -->
-    <!--         <p class="paragraph"> -->
-    <!--           <span class="quote-text"> -->
-    <!--             It is also worth analyzing the behavior of the second smallest -->
-    <!--             eigenvalue λ of the Laplacian matrix L, also known as the -->
-    <!--             algebraic connectivity (see Methods). The value of λ is related -->
-    <!--             to several network properties. In synchronization, networks with -->
-    <!--             higher λ require less time to synchronize54 and in diffusion -->
-    <!--             processes, the time to reach equilibrium also goes with the -->
-    <!--             inverse of λ. In the context of football passing networks, λ can -->
-    <!--             be interpreted as a metric for quantifying the division of a -->
-    <!--             team. The reason is that low values of λ indicate that a network -->
-    <!--             is close to be split into two groups, eventually breaking for -->
-    <!--             λ=0. In this way, the higher the value of λ the more -->
-    <!--             interconnected the team is, being a measure of structural -->
-    <!--             cohesion. -->
-    <!--           </span> -->
-    <!--           <span class="quote-reference"> -->
-    <!--             <a -->
-    <!--               target="_blank" -->
-    <!--               href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/" -->
-    <!--             > -->
-    <!--               Using Network Science to Analyse Football Passing Networks: -->
-    <!--               Dynamics, Space, Time, and the Multilayer Nature of the Game. -->
-    <!--               Javier M. Buldú, Javier Busquets, [...], and Jordi Luque -->
-    <!--             </a> -->
-    <!--           </span> -->
-    <!--         </p> -->
-    <!--       </blockquote> -->
-    <!--     </li> -->
-    <!--     <li class="metric-item"> -->
-    <!--       <h3 class="subtitle"> -->
-    <!--         Conectividade (Resistência) -->
-    <!--       </h3> -->
-    <!--       <p class="paragraph"> -->
-    <!--         Conectividade é um dos conceitos básicos da teoria dos grafos que -->
-    <!--         fala sobre o número mínimo de elementos (vértices ou arestas) que -->
-    <!--         precisam ser removidos para desconectar os vértices restantes uns -->
-    <!--         dos outros. É um tema fortemente ligado a teoria dos problemas de -->
-    <!--         fluxo de redes. A conectividade de um grafo é uma importante medida -->
-    <!--         da robustez de uma rede. -->
-    <!--       </p> -->
-    <!--       <p class="paragraph short-explanation"> -->
-    <!--         Indica a força e resiliência da rede de passes do time. -->
-    <!--       </p> -->
-    <!--     </li> -->
-    <!--   </ul> -->
-    <!-- </section> -->
-    <div class="sticky-nav-breakpoint"></div>
-    <section class="graphs section">
-      <h1 class="title">2018 World Cup</h1>
-      <p class="paragraph">
-        Let's check out the graphs of matches from the last World Cup. Below you
-        can select several different metrics to compare the players performance:
-      </p>
-      <nav class="nav-menu" data-sticky="0">
-        <button class="btn btn--hamburger" data-active-metrics>
-          <span class="btn-strip"></span>
-          <span class="btn-strip"></span>
-          <span class="btn-strip"></span>
+    <button class="btn btn--theme-toogle" data-toogle-theme>
+      light
+    </button>
+    <nav class="nav-metrics" data-active="0">
+      <div class="nav-controls">
+        <fieldset>
+          <label class="metric-label" for="node-area">Area</label>
+          <select
+            class="metric-select"
+            data-metric="node-area"
+            name="node-area"
+            id="node-area"
+          >
+            <option class="metric-option" value="degree" selected>
+              Degree
+            </option>
+            <option class="metric-option" value="betweenness-centrality">
+              Betweenness
+            </option>
+            <option class="metric-option" value="closeness-centrality">
+              Closeness
+            </option>
+            <option class="metric-option" value="local-clustering-coefficient">
+              Clustering
+            </option>
+          </select>
+        </fieldset>
+        <fieldset>
+          <label class="metric-label" for="node-color">Color</label>
+          <select
+            class="metric-select"
+            data-metric="node-color"
+            name="node-color"
+            id="node-color"
+          >
+            <option class="metric-option" value="degree">
+              Degree
+            </option>
+            <option
+              class="metric-option"
+              value="betweenness-centrality"
+              selected
+            >
+              Betweenness
+            </option>
+            <option class="metric-option" value="closeness-centrality">
+              Closeness
+            </option>
+            <option class="metric-option" value="local-clustering-coefficient">
+              Clustering
+            </option>
+          </select>
+        </fieldset>
+        <fieldset data-fieldset="min-passes-to-display">
+          <label class="metric-label" for="min-passes-to-display">
+            Minimum passes
+            <span data-min-passes-value></span>
+          </label>
+          <input
+            type="range"
+            class="metric-input"
+            data-metric="min-passes-to-display"
+            name="min-passes-to-display"
+            id="min-passes-to-display"
+            value="5"
+            min="1"
+            max="50"
+          />
+        </fieldset>
+        <button class="btn btn--secondary" data-deactivate-metrics>
+          close
         </button>
-      </nav>
-      <button class="btn btn--theme-toogle" data-toogle-theme>light</button>
-      <nav class="nav-metrics" data-active="0">
-        <div class="nav-controls">
-          <fieldset>
-            <label class="metric-label" for="node-area">Area</label>
-            <select
-              class="metric-select"
-              data-metric="node-area"
-              name="node-area"
-              id="node-area"
-            >
-              <option class="metric-option" value="degree" selected>
-                Degree
-              </option>
-              <option class="metric-option" value="betweenness-centrality">
-                Betweenness
-              </option>
-              <option class="metric-option" value="closeness-centrality">
-                Closeness
-              </option>
-              <option
-                class="metric-option"
-                value="local-clustering-coefficient"
+      </div>
+    </nav>
+    <nav class="nav-menu" data-sticky="0">
+      <button class="btn btn--hamburger" data-active-metrics>
+        <span class="btn-strip"></span>
+        <span class="btn-strip"></span>
+        <span class="btn-strip"></span>
+      </button>
+    </nav>
+    <button
+      class="btn btn--secondary btn--back"
+      data-slide-to-home
+      data-sticky="0"
+    >
+      back
+    </button>
+    <div class="slider__wrapper">
+      <div class="slider" data-view="home">
+        <aside class="slider__home" data-collapse="0">
+          <section class="intro section">
+            <h1 class="title">Football Passing Networks</h1>
+            <p class="paragraph">
+              A passing network is just the application of
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Network_theory"
               >
-                Clustering
-              </option>
-            </select>
-          </fieldset>
-          <fieldset>
-            <label class="metric-label" for="node-color">Color</label>
-            <select
-              class="metric-select"
-              data-metric="node-color"
-              name="node-color"
-              id="node-color"
-            >
-              <option class="metric-option" value="degree">
-                Degree
-              </option>
-              <option
-                class="metric-option"
-                value="betweenness-centrality"
-                selected
-              >
-                Betweenness
-              </option>
-              <option class="metric-option" value="closeness-centrality">
-                Closeness
-              </option>
-              <option
-                class="metric-option"
-                value="local-clustering-coefficient"
-              >
-                Clustering
-              </option>
-            </select>
-          </fieldset>
-          <fieldset data-fieldset="coverage">
-            <label class="metric-label" for="coverage">
-              Coverage
-            </label>
-            <select
-              class="metric-select"
-              data-metric="coverage"
-              name="coverage"
-              id="coverage"
-            >
-              <option class="metric-option" value="match" selected>
-                Match
-              </option>
-              <option class="metric-option" value="global">
-                Global
-              </option>
-            </select>
-          </fieldset>
-          <fieldset data-fieldset="min-passes-to-display">
-            <label class="metric-label" for="min-passes-to-display">
-              Minimum passes
-              <span data-min-passes-value></span>
-            </label>
-            <input
-              type="range"
-              class="metric-input"
-              data-metric="min-passes-to-display"
-              name="min-passes-to-display"
-              id="min-passes-to-display"
-              value="5"
-              min="1"
-              max="50"
-            />
-          </fieldset>
-          <button class="btn btn--secondary" data-deactivate-metrics>
-            close
-          </button>
-        </div>
-      </nav>
-      <section data-plot-graphs>
-        <h1 class="title title--no-strip">Loading...</h1>
-      </section>
-    </section>
+                network theory
+              </a>
+              and its analysis tools to understand the performance of a football
+              team in a match.
+            </p>
+            <p class="paragraph">
+              Each player is represented by a vertex. Each vertex is connected
+              with many others by edges, which represent the passes exchanged
+              between players.
+            </p>
+          </section>
+          <section class="graphs section">
+            <h1 class="title">2018 World Cup</h1>
+            <p class="paragraph">
+              Let's check out the passing networks from the last World Cup:
+            </p>
+            <ul class="matches__list" id="matches__list">
+              <div class="loader"></div>
+            </ul>
+          </section>
+        </aside>
+        <aside class="slider__graph" data-collapse="1">
+          <section data-plot-graphs id="data-plot-graphs"></section>
+        </aside>
+      </div>
+    </div>
     <script src="js/main.js" async></script>
   </body>
 </html>

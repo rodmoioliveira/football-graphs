@@ -1,5 +1,6 @@
 (ns utils.dom
   (:require
+   [cljs.reader :as reader]
    [clojure.string :refer [split join trim]]))
 
 (def dom
@@ -15,12 +16,81 @@
    :activate-btn (-> js/document (.querySelector "[data-active-metrics]"))
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
-   :breakpoint (-> js/document (.querySelector ".sticky-nav-breakpoint"))})
+   :plot-section (-> js/document (.getElementById "data-plot-graphs"))
+   :matches-list (-> js/document (.getElementById "matches__list"))
+   :slider-graph (-> js/document (.querySelector ".slider__graph"))
+   :slider-home (-> js/document (.querySelector ".slider__home"))
+   :slide-to-home (-> js/document (.querySelector "[data-slide-to-home]"))
+   :slide-view (-> js/document (.querySelector "[data-view]"))})
 
 (defn toogle-theme-btn
   [theme-text]
   (do
     (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text))))))
+
+(defn slide-home
+  [] (-> dom :slide-view (.setAttribute "data-view" "home")))
+
+(defn slide-graph
+  [match-id]
+  (do
+    (-> dom :plot-section (.setAttribute "data-match-id" match-id))
+    (-> dom :slide-view (.setAttribute "data-view" "graph"))))
+
+(defn activate-nav
+  [_] (-> dom :nav (.setAttribute "data-active" 1)))
+
+(defn deactivate-nav
+  [_] (-> dom :nav (.setAttribute "data-active" 0)))
+
+(defn fix-nav
+  [v] (-> dom :menu (.setAttribute "data-sticky" v)))
+
+(defn fix-back
+  [v] (-> dom :slide-to-home (.setAttribute "data-sticky" v)))
+
+(defn set-collapse
+  [el v]
+  (-> el (.setAttribute "data-collapse" v)))
+
+(defn fetch-then
+  [url fns]
+  (-> js/window
+      (.fetch url)
+      (.then #(.text %))
+      (.then (fn [data] (-> (reader/read-string data)
+                            ((fn [v] (doseq [f fns] (f v)))))))))
+
+(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/src/main/data/analysis/")
+
+(defn fetch-file
+  [filename fns]
+  (-> (str base-url filename) (fetch-then fns)))
+
+(defn is-mobile?
+  []
+  (< (-> js/window .-innerWidth) 901))
+
+(defn scroll-to-current-match
+  []
+  (-> dom
+      :plot-section
+      (.getAttribute "data-match-id")
+      (#(-> dom :matches-list (.querySelector (str "[data-match-id='" % "']"))))
+      (.scrollIntoView #js {:block "center"})))
+
+(defn scroll-top
+  []
+  (-> js/window (.scrollTo 0 0)))
+
+(defn is-body-click?
+  [e] (->> e
+           .-path
+           array-seq
+           (map #(-> % .-tagName))
+           set
+           (#(or (contains? % "NAV") (contains? % "BUTTON")))
+           not))
 
 (defn toogle-theme
   [theme]
@@ -39,7 +109,8 @@
         match-id (-> match :match-id)]
     (str
      "<h2 class='graph__label'
-        data-match-id='"
+       id='graph__label'
+       data-match-id='"
      match-id
      "'>
         <span class='label__team1'>"
@@ -166,16 +237,39 @@
      </div>
      </div>")))
 
+(defn match-item
+  "Plot a match item in the dom."
+  [match]
+  (str
+   "<li
+      class='match-item'
+      data-match-id='"
+   (-> match :match-id)
+   "'>"
+   (-> match :label)
+   "
+   </li>"))
+
+(def loader-element "<div class='loader'></div>")
+
 (defn plot-dom
   "Plot graphs in the dom."
   [matches]
-  (let [plot-section (-> js/document (.querySelector "[data-plot-graphs]"))]
+  (doseq [match matches]
+    (-> dom
+        :plot-section
+        ((fn [el] (set! (.-innerHTML el) (-> ((juxt label-dom canvas-dom) match) (#(join "" %)))))))))
+
+(defn plot-matches-list
+  "Plot list of matches in the dom."
+  [matches]
+  (do
+    (-> dom :matches-list (#(set! (.-innerHTML %) "")))
     (doseq [match matches]
-      (-> plot-section (.insertAdjacentHTML "beforeend" (-> ((juxt label-dom canvas-dom) match) (#(join "" %))))))))
+      (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match))))))
 
 (defn reset-dom
   "Reset graphs in the dom."
   []
-  (let [plot-section (-> js/document (.querySelector "[data-plot-graphs]"))]
-    (-> plot-section (#(set! (.-innerHTML %) "")))))
+  (-> dom :plot-section (#(set! (.-innerHTML %) ""))))
 

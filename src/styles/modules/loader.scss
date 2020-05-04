@@ -1,0 +1,32 @@
+.loader {
+  border: 0.7vw solid var(--loader-background);
+  border-top-color: var(--accent-color);
+  border-radius: 50%;
+  width: 16vw;
+  height: 16vw;
+  margin: 0 auto;
+
+  .matches__list & {
+    animation: spin1 1s ease-in-out infinite;
+  }
+
+  .slider__graph & {
+    position: fixed;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    animation: spin2 1s ease-in-out infinite;
+  }
+}
+
+@keyframes spin1 {
+  to {
+    transform: rotate(2turn);
+  }
+}
+
+@keyframes spin2 {
+  to {
+    transform: translate(-50%, -50%) rotate(2turn);
+  }
+}

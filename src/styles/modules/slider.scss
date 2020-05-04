@@ -1,0 +1,53 @@
+.slider__wrapper {
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  width: 200vw;
+  transition: transform 1ms ease;
+  justify-content: space-between;
+}
+
+[data-view='home'] {
+  transform: translate(0);
+}
+
+[data-view='graph'] {
+  transform: translate(-100vw);
+}
+
+.slider__home,
+.slider__graph {
+  width: 100vw;
+  // TODO: better transition...
+  // transition: opacity 500ms ease;
+}
+
+.slider__home {
+  [data-view='graph'] & {
+    opacity: 0;
+  }
+  [data-view='home'] & {
+    opacity: 1;
+  }
+}
+
+.slider__graph {
+  [data-view='graph'] & {
+    opacity: 1;
+  }
+  [data-view='home'] & {
+    opacity: 0;
+  }
+}
+
+[data-collapse='1'] {
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+[data-collapse='0'] {
+  max-height: auto;
+  overflow: initial;
+}
