@@ -4,7 +4,6 @@
    ["rxjs/operators" :as rx-op]
 
    [utils.dom :refer [dom
-                      slide-graph
                       slide-home
                       is-body-click?
                       fix-nav
@@ -39,9 +38,6 @@
                                                              (merge
                                                               (get-metrics)
                                                               (get-theme-with (partial theme-identity (current-theme)))))))))
-                    (rx-op/startWith (merge
-                                      (get-metrics)
-                                      (get-theme-with (partial theme-identity (current-theme)))))
                     (rx-op/tap display-passes)))
         list$ (-> dom
                   :matches-list
