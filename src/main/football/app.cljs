@@ -1,93 +1,31 @@
 (ns football.app
   (:require
-   [shadow.resource :as rc]
-   [cljs.reader :as reader]
-
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
                        canvas-dimensions
                        mobile-mapping
                        hash-by
                        get-global-metrics]]
-   [utils.dom :refer [plot-dom reset-dom toogle-theme-btn toogle-theme]]
-   [football.metrics-nav :refer [select-metrics$ sticky-nav$]]
+   [utils.dom :refer [plot-matches-list
+                      reset-dom
+                      slide-graph
+                      fix-nav
+                      scroll-top
+                      set-collapse
+                      fix-back
+                      toogle-theme-btn
+                      plot-dom
+                      toogle-theme
+                      dom]]
+
+   [football.observables :refer [select-metrics$
+                                 sticky-nav$
+                                 slider$]]
+   [football.matches :refer [world-cup-matches matches-hash]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
 (set! *warn-on-infer* true)
-
-; ==================================
-; Matches
-; ==================================
-(def world-cup-matches
-  [(-> (rc/inline "../data/analysis/argentina_croatia,_0_3.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/argentina_iceland,_1_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/australia_peru,_0_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/belgium_england,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/belgium_japan,_3_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/belgium_panama,_3_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/belgium_tunisia,_5_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/brazil_belgium,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/brazil_costa_rica,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/brazil_mexico,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/brazil_switzerland,_1_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/colombia_england,_1_1_(_p).edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/colombia_japan,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/costa_rica_serbia,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/croatia_denmark,_1_1_(_p).edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/croatia_england,_2_1_(_e).edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/croatia_nigeria,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/denmark_australia,_1_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/denmark_france,_0_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/egypt_uruguay,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/england_belgium,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/england_panama,_6_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/france_argentina,_4_3.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/france_australia,_2_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/france_belgium,_1_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/france_croatia,_4_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/france_peru,_1_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/germany_mexico,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/germany_sweden,_2_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/iceland_croatia,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/iran_portugal,_1_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/iran_spain,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/japan_poland,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/japan_senegal,_2_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/korea_republic_mexico,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/mexico_sweden,_0_3.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/morocco_iran,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/nigeria_argentina,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/nigeria_iceland,_2_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/panama_tunisia,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/peru_denmark,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/poland_colombia,_0_3.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/poland_senegal,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/portugal_morocco,_1_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/portugal_spain,_3_3.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/russia_croatia,_2_2_(_p).edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/russia_egypt,_3_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/russia_saudi_arabia,_5_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/saudi_arabia_egypt,_2_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/senegal_colombia,_0_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/serbia_brazil,_0_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/serbia_switzerland,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/spain_morocco,_2_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/spain_russia,_1_1_(_p).edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/sweden_england,_0_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/sweden_korea_republic,_1_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/sweden_switzerland,_1_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/switzerland_costa_rica,_2_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/tunisia_england,_1_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/uruguay_france,_0_2.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/uruguay_portugal,_2_1.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/uruguay_russia,_3_0.edn") reader/read-string)
-   (-> (rc/inline "../data/analysis/uruguay_saudi_arabia,_1_0.edn") reader/read-string)])
-
-(def matches-hash
-  (reduce (fn [acc cur] (assoc-in acc [(-> cur :match-id str keyword)] cur))
-          {}
-          world-cup-matches))
 
 ; ==================================
 ; Viewport
@@ -166,14 +104,27 @@
   (let [metrics (select-metrics$)
         input$ (-> metrics :input$)
         click$ (-> metrics :click$)
+        list$ (-> metrics :list$)
         opts {:matches world-cup-matches
               :scale 9
               :get-global-metrics get-global-metrics
               :name-position :bottom}]
     (do
       (reset-dom)
-      (plot-dom world-cup-matches)
+      (plot-matches-list world-cup-matches)
       (sticky-nav$)
+      (slider$)
+      (-> list$
+          (.subscribe (fn [obj]
+                        (do
+                          (slide-graph)
+                          (fix-back 1)
+                          (fix-nav 1)
+                          (scroll-top)
+                          (set-collapse (-> dom :slider-home) 1)
+                          (set-collapse (-> dom :slider-graph) 0)
+                          (-> matches-hash (get-in [(obj :select-match)]) vector plot-dom)
+                          (-> obj (merge opts) plot-graphs)))))
       (-> input$
           (.subscribe #(-> % (merge opts) plot-graphs)))
       (-> click$

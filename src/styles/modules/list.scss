@@ -1,0 +1,36 @@
+.matches__list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.match-item {
+  font-size: 1.5rem;
+  max-width: var(--text-width);
+  cursor: pointer;
+  margin: 0 auto;
+  color: var(--text-color);
+  transition: transform 200ms ease;
+  flex: 31%;
+
+  @media (max-width: 1010px) {
+    flex: 100%;
+
+    @include padding;
+  }
+
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+
+  @media (max-width: 490px) {
+    font-size: 6vw;
+  }
+
+  &:hover {
+    transform: translateX(2rem);
+    color: var(--accent-color);
+  }
+}

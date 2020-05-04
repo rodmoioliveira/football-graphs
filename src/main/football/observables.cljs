@@ -1,13 +1,24 @@
-(ns football.metrics-nav
+(ns football.observables
   (:require
    ["rxjs" :as rx]
    ["rxjs/operators" :as rx-op]
 
-   [utils.dom :refer [dom]]
+   [utils.dom :refer [dom
+                      slide-graph
+                      slide-home
+                      is-body-click?
+                      fix-nav
+                      scroll-top
+                      scroll-to-current-match
+                      fix-back
+                      activate-nav
+                      deactivate-nav
+                      set-collapse]]
    [mapping.themes :refer [theme-mapping
                            theme-identity
                            theme-reverse
-                           get-theme-with]]))
+                           get-theme-with]]
+   [football.matches :refer [matches-hash]]))
 
 (set! *warn-on-infer* true)
 
@@ -36,6 +47,17 @@
                                       (get-metrics)
                                       (get-theme-with (partial theme-identity (current-theme)))))
                     (rx-op/tap display-passes)))
+        list$ (-> dom
+                  :matches-list
+                  (rx/fromEvent "click")
+                  (.pipe
+                   (rx-op/filter (fn [e] (-> e .-target (.hasAttribute "data-match-id"))))
+                   (rx-op/map (fn [e] (-> e .-target (.getAttribute "data-match-id") keyword)))
+                   (rx-op/map (fn [match-id]
+                                (merge
+                                 {:select-match match-id}
+                                 (get-metrics)
+                                 (get-theme-with (partial theme-identity (current-theme))))))))
         click$ (-> dom
                    :theme-btn
                    (rx/fromEvent "click")
@@ -43,39 +65,35 @@
                                               (get-metrics)
                                               (get-theme-with (partial theme-reverse (current-theme))))))))]
     {:input$ input$
-     :click$ click$}))
+     :click$ click$
+     :list$ list$}))
 
 (defn sticky-nav$
   []
-  (let [activate-nav (fn [_] (-> dom :nav (.setAttribute "data-active" 1)))
-        deactivate-nav (fn [_] (-> dom :nav (.setAttribute "data-active" 0)))
-        is-body-click? (fn [e] (->> e
-                                    .-path
-                                    array-seq
-                                    (map #(-> % .-tagName))
-                                    set
-                                    (#(or (contains? % "NAV") (contains? % "BUTTON")))
-                                    not))]
-    (do
-      (-> js/document
-          (rx/fromEvent "scroll")
-          (.pipe
-           (rx-op/map (fn [] (-> dom :breakpoint (.getBoundingClientRect) .-top (#(if (neg? %) 1 0)))))
-           (rx-op/distinctUntilChanged))
-          (.subscribe (fn [v]
-                        (do
-                          (-> dom :menu (.setAttribute "data-sticky" v))))))
+  (do
+    (-> dom :activate-btn
+        (rx/fromEvent "click")
+        (.subscribe activate-nav))
 
-      (-> dom :activate-btn
-          (rx/fromEvent "click")
-          (.subscribe activate-nav))
+    (-> dom :document
+        (rx/fromEvent "click")
+        (.pipe
+         (rx-op/filter is-body-click?))
+        (.subscribe deactivate-nav))
 
-      (-> dom :document
-          (rx/fromEvent "click")
-          (.pipe
-           (rx-op/filter is-body-click?))
-          (.subscribe deactivate-nav))
+    (-> dom :deactivate-btn
+        (rx/fromEvent "click")
+        (.subscribe deactivate-nav))))
 
-      (-> dom :deactivate-btn
-          (rx/fromEvent "click")
-          (.subscribe deactivate-nav)))))
+(defn slider$
+  []
+  (do
+    (-> dom :slide-to-home
+        (rx/fromEvent "click")
+        (.subscribe (fn [_] (do
+                              (slide-home)
+                              (fix-back 0)
+                              (fix-nav 0)
+                              (set-collapse (-> dom :slider-home) 0)
+                              (set-collapse (-> dom :slider-graph) 1)
+                              (scroll-to-current-match)))))))

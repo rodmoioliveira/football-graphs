@@ -20,11 +20,13 @@ fieldset {
   justify-content: center;
   position: fixed;
   top: 0;
+  right: 0;
   width: 20rem;
-  height: 100%;
-  border-right: 1px solid var(--nav-border-color);
+  height: 100vh;
+  border-left: 1px solid var(--nav-border-color);
   box-shadow: var(--nav-box-shadow);
   transition: transform 200ms ease;
+  z-index: 7;
 
   [data-theme='dark'] & {
     box-shadow: none;
@@ -32,7 +34,7 @@ fieldset {
 }
 
 [data-active='0'] {
-  transform: translateX(-24rem);
+  transform: translateX(24rem);
 }
 
 [data-active='1'] {
@@ -93,17 +95,18 @@ fieldset {
 
 .nav-menu {
   top: 0;
-  left: 0;
+  right: 0;
   position: fixed;
+  z-index: 6;
   transition: transform 200ms ease;
-}
 
-[data-sticky='0'] {
-  transform: translateX(-15rem);
-}
+  &[data-sticky='0'] {
+    transform: translateX(5rem);
+  }
 
-[data-sticky='1'] {
-  transform: translateX(0);
+  &[data-sticky='1'] {
+    transform: translateX(0);
+  }
 }
 
 [data-deactivate-metrics] {

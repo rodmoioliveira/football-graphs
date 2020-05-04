@@ -12,10 +12,10 @@
 
 .graph__label {
   display: block;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
   text-align: center;
-  margin: 3rem auto 0;
+  margin: 0 auto;
   letter-spacing: -1px;
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +24,8 @@
   max-width: 1000px;
 
   @media (max-width: 850px) {
-    font-size: 8vw;
+    margin: 3rem auto 0;
+    font-size: 5.8vw;
   }
 }
 
@@ -34,13 +35,14 @@
   text-align: center;
   font-size: 2rem;
   color: var(--gray);
+  margin: 0;
   margin-top: -20px;
 
   @include strip(
     var(--strip-color),
     var(--strip-height),
     var(--strip-width),
-    2rem auto,
+    1rem auto,
     1rem auto
   );
 
@@ -65,18 +67,21 @@
 
   @media (max-width: 850px) {
     margin: 0 0.5rem;
-    font-size: 14vw;
+    font-size: 12vw;
   }
 }
 
-.label__score1,
-.label__team1 {
+.label__score2,
+.label__score1 {
   text-align: center;
 }
 
-.label__score2,
+.label__team1 {
+  text-align: right;
+}
+
 .label__team2 {
-  text-align: center;
+  text-align: left;
 }
 
 .label__vs {
@@ -142,4 +147,8 @@
 
 .graph__metric {
   color: var(--text-color);
+}
+
+[data-plot-graphs] {
+  margin-bottom: 3rem;
 }
