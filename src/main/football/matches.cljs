@@ -107,7 +107,7 @@
     :filename "iran_portugal,_1_1.edn"},
    :2058015
    {:match-id 2058015,
-    :label "Croatia - England, 2 - 1 (E)",
+    :label "Croatia - England, 2 - 1",
     :filename "croatia_england,_2_1_(_e).edn"},
    :2057955
    {:match-id 2057955,
@@ -195,7 +195,7 @@
     :filename "france_belgium,_1_0.edn"},
    :2058012
    {:match-id 2058012,
-    :label "Russia - Croatia, 2 - 2 (P)",
+    :label "Russia - Croatia, 2 - 2",
     :filename "russia_croatia,_2_2_(_p).edn"},
    :2058000
    {:match-id 2058000,
@@ -231,7 +231,7 @@
     :filename "france_australia,_2_1.edn"},
    :2058004
    {:match-id 2058004,
-    :label "Spain - Russia, 1 - 1 (P)",
+    :label "Spain - Russia, 1 - 1",
     :filename "spain_russia,_1_1_(_p).edn"},
    :2057962
    {:match-id 2057962,
@@ -291,7 +291,7 @@
     :filename "nigeria_iceland,_2_0.edn"},
    :2058009
    {:match-id 2058009,
-    :label "Colombia - England, 1 - 1 (P)",
+    :label "Colombia - England, 1 - 1",
     :filename "colombia_england,_1_1_(_p).edn"},
    :2057991
    {:match-id 2057991,
@@ -331,7 +331,7 @@
     :filename "uruguay_russia,_3_0.edn"},
    :2058005
    {:match-id 2058005,
-    :label "Croatia - Denmark, 1 - 1 (P)",
+    :label "Croatia - Denmark, 1 - 1",
     :filename "croatia_denmark,_1_1_(_p).edn"}})
 
 
