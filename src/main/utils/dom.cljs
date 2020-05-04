@@ -1,5 +1,6 @@
 (ns utils.dom
   (:require
+   [cljs.reader :as reader]
    [clojure.string :refer [split join trim]]))
 
 (def dom
@@ -48,6 +49,24 @@
 (defn set-collapse
   [el v]
   (-> el (.setAttribute "data-collapse" v)))
+
+(defn fetch-then
+  [url fns]
+  (-> js/window
+      (.fetch url)
+      (.then #(.text %))
+      (.then (fn [data] (-> (reader/read-string data)
+                            ((fn [v] (doseq [f fns] (f v)))))))))
+
+(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/src/main/data/analysis/")
+
+(defn fetch-file
+  [filename fns]
+  (-> (str base-url filename) (fetch-then fns)))
+
+(defn mobile?
+  []
+  (< (-> js/window .-innerWidth) 901))
 
 (defn scroll-to-current-match
   []
