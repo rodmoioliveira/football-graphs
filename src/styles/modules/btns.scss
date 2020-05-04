@@ -64,12 +64,15 @@
   position: fixed;
   z-index: 6;
   transition: transform 200ms ease;
+  background: var(--body-color);
+  border-radius: 3px;
+  border: 1px solid var(--accent-color);
 
   &[data-sticky='0'] {
-    transform: translateX(-10rem);
+    transform: translate(-10rem, 1rem);
   }
 
   &[data-sticky='1'] {
-    transform: translateX(0);
+    transform: translate(5rem, 1rem);
   }
 }
