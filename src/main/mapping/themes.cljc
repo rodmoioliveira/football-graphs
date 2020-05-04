@@ -5,13 +5,13 @@
            :theme "dark"
            :text "dark"
            :background "#121212"
-           :font-color "white"
+           :font-color "#f5f5f5"
            :lines-color "#333"}
    :dark {:reverse :light
           :theme "light"
           :text "light"
-          :background "white"
-          :font-color "black"
+          :background "#f9f9f9"
+          :font-color "#222"
           :lines-color "#ccc"}})
 
 (defn theme-reverse
