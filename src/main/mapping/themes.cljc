@@ -14,7 +14,7 @@
           :background "#f9f9f9"
           :font-color "#222"
           :lines-color "#ccc"
-          :outline-node-color "#000"}})
+          :outline-node-color "#222"}})
 
 (defn theme-reverse
   [theme prop]

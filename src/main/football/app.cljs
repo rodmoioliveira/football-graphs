@@ -102,7 +102,7 @@
               :name-position :bottom}]
     (do
       (reset-dom)
-      (plot-matches-list (-> matches-files-hash vals))
+      (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
       (sticky-nav$)
       (slider$)
       (-> list$
