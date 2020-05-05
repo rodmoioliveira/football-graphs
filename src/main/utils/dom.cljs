@@ -71,6 +71,10 @@
   []
   (< (-> js/window .-innerWidth) 901))
 
+(defn is-development?
+  []
+  (-> js/window .-location .-hostname (= "localhost")))
+
 (defn scroll-to-current-match
   []
   (-> dom
