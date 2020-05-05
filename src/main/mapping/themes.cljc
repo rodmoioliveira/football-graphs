@@ -8,8 +8,9 @@
            :font-color "#f5f5f5"
            :lines-color "#333"
            :outline-node-color "#eee"
-           :node-color-range #js ["#4E3F3C", "#FF7B00"]
-           :edge-color-range #js ["#4E3F3C", "#FF7B00"]}
+           ; https://www.colorbox.io/
+           :node-color-range #js ["#2C2A2A", "#FF7B00"]
+           :edge-color-range #js ["#2C2A2A", "#FF7B00"]}
    :dark {:reverse :light
           :theme "light"
           :text "light"
@@ -17,8 +18,9 @@
           :font-color "#222"
           :lines-color "#ccc"
           :outline-node-color "#222"
-          :node-color-range #js ["#FFCEC5", "#FF7B00"]
-          :edge-color-range #js ["#FFCEC5", "#FF7B00"]}})
+          ; https://www.colorbox.io/
+          :node-color-range #js ["#FFF2F2", "#FF4D00"]
+          :edge-color-range #js ["#FFD9D9", "#FF4D00"]}})
 
 (defn theme-reverse
   [theme prop]

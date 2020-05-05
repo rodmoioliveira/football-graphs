@@ -41,7 +41,8 @@
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
         edges->colors (-> d3
-                          (.scaleLinear)
+                          (.scalePow)
+                          (.exponent 1)
                           (.domain (-> mapping :domains :passes))
                           (.range (-> mapping :codomains :colors :edges))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
@@ -50,10 +51,11 @@
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
         node-color-scale #(-> d3
-                              (.scaleLinear)
+                              (.scalePow)
+                              (.exponent 1)
                               (.domain (-> mapping :domains %))
                               (.range (-> mapping :codomains :colors :nodes))
-                              (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
+                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         node-radius-scale #(-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
                                (.scaleSqrt)
