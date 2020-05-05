@@ -6,13 +6,15 @@
            :text "dark"
            :background "#121212"
            :font-color "#f5f5f5"
-           :lines-color "#333"}
+           :lines-color "#333"
+           :outline-node-color "#fff"}
    :dark {:reverse :light
           :theme "light"
           :text "light"
           :background "#f9f9f9"
           :font-color "#222"
-          :lines-color "#ccc"}})
+          :lines-color "#ccc"
+          :outline-node-color "#000"}})
 
 (defn theme-reverse
   [theme prop]
@@ -28,4 +30,5 @@
    :theme-text (func :text)
    :theme-background (func :background)
    :theme-lines-color (func :lines-color)
-   :theme-font-color (func :font-color)})
+   :theme-font-color (func :font-color)
+   :theme-outline-node-color (func :outline-node-color)})

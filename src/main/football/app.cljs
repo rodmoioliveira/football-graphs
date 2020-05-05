@@ -70,7 +70,8 @@
            min-passes-to-display
            theme-background
            theme-lines-color
-           theme-font-color]}]
+           theme-font-color
+           theme-outline-node-color]}]
   (doseq [canvas (all-canvas {:scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data)
                                    {:graphs-options
@@ -82,6 +83,7 @@
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
+                                   :outline-node-color theme-outline-node-color
                                    :name-position name-position
                                    :font-color theme-font-color
                                    :mobile? mobile?

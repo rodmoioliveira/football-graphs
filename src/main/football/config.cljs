@@ -1,19 +1,19 @@
 (ns football.config
   (:require
-   [clojure.string :as str]
-   ["d3" :as d3]))
+   ["d3" :as d3]
+   [clojure.string :as str]))
 
-; ==================================
-; Configuration hashmap
-; ==================================
 (defn config
-  [{:keys [id node-radius-metric node-color-metric min-max-values name-position font-color mobile?]}]
+  [{:keys [id
+           node-radius-metric
+           node-color-metric
+           min-max-values
+           name-position
+           font-color
+           mobile?
+           outline-node-color]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
-
-        ; ==================================
-        ; Domains and Codomains
-        ; ==================================
         mapping {:domains
                  {:passes (-> (get-ranges :passes) clj->js)
                   :degree (-> (get-ranges :degree) clj->js)
@@ -31,25 +31,13 @@
                              :radius #js [8 23]
                              :colors {:edges #js ["#FFCC80", "#EF6C00"]
                                       :nodes #js ["#FFF3E0", "#F57C00"]}}}
-
-        ; ==================================
-        ; Font
-        ; ==================================
         font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
               :color (or font-color "black")
               :text-align "center"
               :base-line "middle"}
-
-        ; ==================================
-        ; Canvas
-        ; ==================================
         canvas (-> js/document (.getElementById id))
-
-        ; ==================================
-        ; Scales
-        ; ==================================
         edges->colors (-> d3
                           (.scalePow)
                           (.exponent 0.1)
@@ -95,10 +83,6 @@
                 :current_flow_betweenness_centrality current_flow_betweenness_centrality
                 :edges->colors edges->colors
                 :edges->width edges->width}]
-
-    ; ==================================
-    ; Config Object
-    ; ==================================
     {:arrows {:recoil 12
               :expansion 1.5
               :width 34}
@@ -111,10 +95,10 @@
              :node-color-metric node-color-metric
              :radius-click (if mobile? 5 1)
              :active {:color "#ebd1fe"
-                      :outline "#333"}
+                      :outline outline-node-color}
              :name-position (or name-position :top)
-             :outline {:color "#333"
-                       :width 1}
+             :outline {:color outline-node-color
+                       :width 1.5}
              :font (assoc font :full (str/join " " [(font :weight)
                                                     (font :size)
                                                     (font :type)]))}
