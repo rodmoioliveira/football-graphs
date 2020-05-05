@@ -63,10 +63,10 @@
    (-> (rc/inline "../data/analysis/spain_russia,_1_1_(_p).edn") reader/read-string)
    (-> (rc/inline "../data/analysis/sweden_england,_0_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/sweden_korea_republic,_1_0.edn") reader/read-string)
-   ; FIXME: on spit_graph_analysis:
+   ; FIXME issue for this match in spit_graph_analysis:
    ; Execution error (IllegalArgumentException) at org.jgrapht.graph.AbstractGraph/assertVertexExist (AbstractGraph.java:131).
 ; no such vertex in graph: :107623
-   ; (-> (rc/inline "../data/analysis/korea_republic_germany,_2_0.edn") reader/read-string)
+   (-> (rc/inline "../data/analysis/korea_republic_germany,_2_0.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/sweden_switzerland,_1_0.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/switzerland_costa_rica,_2_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/tunisia_england,_1_2.edn") reader/read-string)
@@ -85,6 +85,10 @@
    {:match-id 2057965,
     :label "Spain - Morocco, 2 - 2",
     :filename "spain_morocco,_2_2.edn"},
+   :2057988
+   {:match-id 2057988,
+    :label "Korea Republic - Germany, 2 - 0",
+    :filename "korea_republic_germany,_2_0.edn"}
    :2057960
    {:match-id 2057960,
     :label "Portugal - Spain, 3 - 3",
