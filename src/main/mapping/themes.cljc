@@ -8,7 +8,8 @@
            :font-color "#f5f5f5"
            :lines-color "#333"
            :outline-node-color "#eee"
-           :color-range #js ["#410804", "#f99d97"]}
+           :node-color-range #js ["#FFF3E0", "#F57C00"]
+           :edge-color-range #js ["#FFCC80", "#EF6C00"]}
    :dark {:reverse :light
           :theme "light"
           :text "light"
@@ -16,7 +17,8 @@
           :font-color "#222"
           :lines-color "#ccc"
           :outline-node-color "#222"
-          :color-range #js ["#ffd5d5", "#ff3c3c"]}})
+          :node-color-range #js ["#FFF3E0", "#F57C00"]
+          :edge-color-range #js ["#FFCC80", "#EF6C00"]}})
 
 (defn theme-reverse
   [theme prop]
@@ -34,4 +36,5 @@
    :theme-lines-color (func :lines-color)
    :theme-font-color (func :font-color)
    :theme-outline-node-color (func :outline-node-color)
-   :theme-color-range (func :color-range)})
+   :theme-node-color-range (func :node-color-range)
+   :theme-edge-color-range (func :edge-color-range)})

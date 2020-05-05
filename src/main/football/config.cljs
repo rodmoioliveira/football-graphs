@@ -11,7 +11,8 @@
            name-position
            font-color
            mobile?
-           color-range
+           node-color-range
+           edge-color-range
            outline-node-color]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
@@ -30,8 +31,8 @@
                   }
                  :codomains {:edges-width #js [1 10]
                              :radius #js [8 23]
-                             :colors {:edges color-range
-                                      :nodes color-range}}}
+                             :colors {:edges edge-color-range
+                                      :nodes node-color-range}}}
         font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
