@@ -20,7 +20,7 @@ fieldset {
   justify-content: center;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -1000px;
   width: 20rem;
   height: 100vh;
   border-left: 1px solid var(--nav-border-color);
@@ -35,10 +35,12 @@ fieldset {
 
 [data-active='0'] {
   transform: translateX(24rem);
+  transition: transform 200ms ease, right 200ms ease 200ms;
 }
 
 [data-active='1'] {
   transform: translateX(0);
+  right: 0;
 }
 
 .nav-controls {
@@ -102,6 +104,8 @@ fieldset {
 
   &[data-sticky='0'] {
     transform: translateX(5rem);
+    transition: transform 200ms ease, right 200ms ease 200ms;
+    right: -200px;
   }
 
   &[data-sticky='1'] {
