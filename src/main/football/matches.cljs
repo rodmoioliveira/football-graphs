@@ -63,6 +63,10 @@
    (-> (rc/inline "../data/analysis/spain_russia,_1_1_(_p).edn") reader/read-string)
    (-> (rc/inline "../data/analysis/sweden_england,_0_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/sweden_korea_republic,_1_0.edn") reader/read-string)
+   ; FIXME: on spit_graph_analysis:
+   ; Execution error (IllegalArgumentException) at org.jgrapht.graph.AbstractGraph/assertVertexExist (AbstractGraph.java:131).
+; no such vertex in graph: :107623
+   ; (-> (rc/inline "../data/analysis/korea_republic_germany,_2_0.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/sweden_switzerland,_1_0.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/switzerland_costa_rica,_2_2.edn") reader/read-string)
    (-> (rc/inline "../data/analysis/tunisia_england,_1_2.edn") reader/read-string)
