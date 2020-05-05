@@ -23,21 +23,24 @@
   color: var(--text-color);
   transition: transform 200ms ease;
   flex: 0 0 25%;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 
   @media (max-width: 1400px) {
     flex: 0 0 44%;
 
     @include padding;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
   }
 
   @media (max-width: 750px) {
     flex: 100%;
 
     @include padding;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
   }
-
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
 
   @media (max-width: 750px) {
     font-size: 6vw;

@@ -11,7 +11,8 @@
            name-position
            font-color
            mobile?
-           color-range
+           node-color-range
+           edge-color-range
            outline-node-color]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
@@ -30,8 +31,8 @@
                   }
                  :codomains {:edges-width #js [1 10]
                              :radius #js [8 23]
-                             :colors {:edges color-range
-                                      :nodes color-range}}}
+                             :colors {:edges edge-color-range
+                                      :nodes node-color-range}}}
         font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
@@ -54,7 +55,7 @@
                               (.exponent 1)
                               (.domain (-> mapping :domains %))
                               (.range (-> mapping :codomains :colors :nodes))
-                              (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
+                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
         node-radius-scale #(-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
                                (.scaleSqrt)
@@ -94,7 +95,7 @@
              :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
-             :radius-click (if mobile? 5 1)
+             :radius-click (if mobile? 5 0.5)
              :active {:color "#ebd1fe"
                       :outline outline-node-color}
              :name-position (or name-position :top)
