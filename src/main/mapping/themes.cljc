@@ -9,8 +9,8 @@
            :lines-color "#333"
            :outline-node-color "#eee"
            ; https://www.colorbox.io/
-           :node-color-range #js ["#2C2A2A", "#FF7B00"]
-           :edge-color-range #js ["#2C2A2A", "#FF7B00"]}
+           :node-color-range #js ["#2C2A2A", "#FF4D00"]
+           :edge-color-range #js ["#2C2A2A", "#FF4D00"]}
    :dark {:reverse :light
           :theme "light"
           :text "light"
