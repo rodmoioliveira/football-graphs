@@ -7,7 +7,7 @@
            :background "#121212"
            :font-color "#f5f5f5"
            :lines-color "#333"
-           :outline-node-color "#fff"
+           :outline-node-color "#eee"
            :color-range #js ["#410804", "#f99d97"]}
    :dark {:reverse :light
           :theme "light"
