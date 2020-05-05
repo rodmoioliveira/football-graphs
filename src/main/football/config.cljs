@@ -11,6 +11,7 @@
            name-position
            font-color
            mobile?
+           color-range
            outline-node-color]}]
   ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
   (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
@@ -29,8 +30,8 @@
                   }
                  :codomains {:edges-width #js [1 10]
                              :radius #js [8 23]
-                             :colors {:edges #js ["#FFCC80", "#EF6C00"]
-                                      :nodes #js ["#FFF3E0", "#F57C00"]}}}
+                             :colors {:edges color-range
+                                      :nodes color-range}}}
         font {:weight "400"
               :size "22px"
               :type "'Alegreya', serif"
@@ -40,7 +41,7 @@
         canvas (-> js/document (.getElementById id))
         edges->colors (-> d3
                           (.scalePow)
-                          (.exponent 0.1)
+                          (.exponent 1)
                           (.domain (-> mapping :domains :passes))
                           (.range (-> mapping :codomains :colors :edges))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
