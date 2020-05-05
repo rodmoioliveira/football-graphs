@@ -41,8 +41,7 @@
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
         edges->colors (-> d3
-                          (.scalePow)
-                          (.exponent 1)
+                          (.scaleLinear)
                           (.domain (-> mapping :domains :passes))
                           (.range (-> mapping :codomains :colors :edges))
                           (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
@@ -51,8 +50,7 @@
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
         node-color-scale #(-> d3
-                              (.scalePow)
-                              (.exponent 1)
+                              (.scaleLinear)
                               (.domain (-> mapping :domains %))
                               (.range (-> mapping :codomains :colors :nodes))
                               (.interpolate (-> d3 (.-interpolateRgb) (.gamma 3))))
