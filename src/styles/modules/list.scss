@@ -3,29 +3,43 @@
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
-  max-width: 960px;
+  max-width: 1500px;
   margin: 0 auto;
+
+  @media (max-width: 1400px) {
+    max-width: 800px;
+  }
+
+  @media (max-width: 750px) {
+    max-width: 1500px;
+  }
 }
 
 .match-item {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   max-width: var(--text-width);
   cursor: pointer;
   margin: 0 auto;
   color: var(--text-color);
   transition: transform 200ms ease;
-  flex: 31%;
+  flex: 0 0 25%;
 
-  @media (max-width: 1010px) {
+  @media (max-width: 1400px) {
+    flex: 0 0 44%;
+
+    @include padding;
+  }
+
+  @media (max-width: 750px) {
     flex: 100%;
 
     @include padding;
   }
 
-  padding-top: 0.2rem;
-  padding-bottom: 0.2rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
 
-  @media (max-width: 490px) {
+  @media (max-width: 750px) {
     font-size: 6vw;
   }
 

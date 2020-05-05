@@ -5,7 +5,7 @@
 .slider {
   display: flex;
   width: 200vw;
-  transition: transform 1ms ease;
+  transition: transform 0.00001ms ease 1ms;
   justify-content: space-between;
 }
 
@@ -20,8 +20,6 @@
 .slider__home,
 .slider__graph {
   width: 100vw;
-  // TODO: better transition...
-  // transition: opacity 500ms ease;
 }
 
 .slider__home {
@@ -48,6 +46,7 @@
 }
 
 [data-collapse='0'] {
+  transition: opacity 500ms ease;
   max-height: auto;
   overflow: initial;
 }

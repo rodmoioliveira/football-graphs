@@ -70,7 +70,9 @@
            min-passes-to-display
            theme-background
            theme-lines-color
-           theme-font-color]}]
+           theme-font-color
+           theme-color-range
+           theme-outline-node-color]}]
   (doseq [canvas (all-canvas {:scale scale})]
     (force-graph {:data (-> (merge (-> canvas :data)
                                    {:graphs-options
@@ -82,9 +84,11 @@
                   :config (config {:id (canvas :id)
                                    :node-radius-metric node-radius-metric
                                    :node-color-metric node-color-metric
+                                   :outline-node-color theme-outline-node-color
                                    :name-position name-position
                                    :font-color theme-font-color
                                    :mobile? mobile?
+                                   :color-range theme-color-range
                                    :min-max-values
                                    (-> canvas :data :min-max-values)})})))
 
@@ -100,7 +104,7 @@
               :name-position :bottom}]
     (do
       (reset-dom)
-      (plot-matches-list (-> matches-files-hash vals))
+      (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
       (sticky-nav$)
       (slider$)
       (-> list$
