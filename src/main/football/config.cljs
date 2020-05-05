@@ -94,7 +94,7 @@
              :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
-             :radius-click (if mobile? 5 1)
+             :radius-click (if mobile? 5 0.5)
              :active {:color "#ebd1fe"
                       :outline outline-node-color}
              :name-position (or name-position :top)
