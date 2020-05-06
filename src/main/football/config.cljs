@@ -91,7 +91,7 @@
      :canvas canvas
      :ctx (-> canvas (.getContext "2d"))
      :edges {:padding 15
-             :distance-between 10
+             :distance-between 8
              :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
