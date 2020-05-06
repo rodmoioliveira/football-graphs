@@ -1,5 +1,6 @@
 (ns football.app
   (:require
+   [clojure.string :refer [split]]
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
                        canvas-dimensions
@@ -20,6 +21,8 @@
                       plot-dom
                       toogle-theme
                       fetch-file
+                      set-hash!
+                      get-hash
                       dom]]
 
    [football.observables :refer [select-metrics$
@@ -27,7 +30,7 @@
                                  slider$]]
    [mapping.themes :refer [theme-identity
                            get-theme-with]]
-   [football.matches :refer [matches-files-hash]]
+   [football.matches :refer [matches-files-hash labels-hash]]
    [football.store :refer [store update-store]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -112,6 +115,10 @@
 
     (when-not dev-reload?
       (do
+
+        ; dispath event to click match on list
+        (-> labels-hash (get-in [(get-hash) :match-id]) print)
+
         (reset-dom)
         (sticky-nav$)
         (slider$)
@@ -138,6 +145,15 @@
                                 (get-in [(-> obj :select-match)])
                                 ((fn [{:keys [filename match-id]}]
                                    (let [store-data (get-in @store [(-> match-id str keyword)])]
+                                     (-> store-data
+                                         :match-id
+                                         str
+                                         keyword
+                                         matches-files-hash
+                                         :filename
+                                         (split #"\.")
+                                         first
+                                         set-hash!)
                                      (if store-data
                                        (-> store-data
                                            vector
