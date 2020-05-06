@@ -256,6 +256,16 @@
 
 (def loader-element "<div class='loader'></div>")
 
+(defn get-current-theme
+  []
+  (-> dom :body-theme (.getAttribute "data-theme") keyword))
+
+(defn get-metrics
+  []
+  {:node-color-metric (-> dom :node-color-select .-value keyword)
+   :node-radius-metric (-> dom :node-area-select .-value keyword)
+   :min-passes-to-display (-> dom :min-passes-input .-value int)})
+
 (defn plot-dom
   "Plot graphs in the dom."
   [matches]

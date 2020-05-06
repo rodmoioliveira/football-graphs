@@ -9,6 +9,8 @@
                       reset-dom
                       slide-graph
                       loader-element
+                      get-metrics
+                      get-current-theme
                       is-mobile?
                       fix-nav
                       scroll-top
@@ -23,6 +25,8 @@
    [football.observables :refer [select-metrics$
                                  sticky-nav$
                                  slider$]]
+   [mapping.themes :refer [theme-identity
+                           get-theme-with]]
    [football.matches :refer [matches-files-hash]]
    [football.store :refer [store update-store]]
    [football.config :refer [config]]
@@ -96,55 +100,69 @@
 
 (defn init
   "Init graph interations."
-  []
+  [dev?]
   (let [metrics (select-metrics$)
+        dev-reload? (-> dev? (= :development))
         input$ (-> metrics :input$)
         click$ (-> metrics :click$)
         list$ (-> metrics :list$)
         opts {:mobile? (is-mobile?)
               :scale 9
               :name-position :bottom}]
-    (do
-      (reset-dom)
-      (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
-      (sticky-nav$)
-      (slider$)
-      (-> list$
-          (.subscribe (fn [obj]
-                        (do
-                          (slide-graph (-> obj :select-match name))
-                          (fix-back 1)
-                          (fix-nav 1)
-                          (scroll-top)
-                          (set-collapse (-> dom :slider-home) 1)
-                          (set-collapse (-> dom :slider-graph) 0)
-                          (-> matches-files-hash
-                              (get-in [(-> obj :select-match)])
-                              ((fn [{:keys [filename match-id]}]
-                                 (let [store-data (get-in @store [(-> match-id str keyword)])]
-                                   (if store-data
-                                     (-> store-data
-                                         vector
-                                         ((fn [d]
-                                            (do
-                                              (plot-dom d)
-                                              (-> obj (merge opts) plot-graphs)))))
-                                     (do
-                                       (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
-                                       (fetch-file
-                                        filename
-                                        [update-store
-                                         (fn [d] (-> d vector plot-dom))
-                                         (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
 
-      (-> input$
-          (.subscribe #(-> % (merge opts) plot-graphs)))
-      (-> click$
-          (.subscribe #(-> % (merge opts)
-                           ((fn [{:keys [theme-text theme] :as obj}]
-                              (do
-                                (toogle-theme-btn theme-text)
-                                (toogle-theme theme)
-                                (plot-graphs obj))))))))))
+    (when-not dev-reload?
+      (do
+        (reset-dom)
+        (sticky-nav$)
+        (slider$)
+        (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
+        (-> click$
+            (.subscribe #(-> % (merge opts)
+                             ((fn [{:keys [theme-text theme] :as obj}]
+                                (do
+                                  (toogle-theme-btn theme-text)
+                                  (toogle-theme theme)
+                                  (plot-graphs obj)))))))
+        (-> input$
+            (.subscribe #(-> % (merge opts) plot-graphs)))
+        (-> list$
+            (.subscribe (fn [obj]
+                          (do
+                            (slide-graph (-> obj :select-match name))
+                            (fix-back 1)
+                            (fix-nav 1)
+                            (scroll-top)
+                            (set-collapse (-> dom :slider-home) 1)
+                            (set-collapse (-> dom :slider-graph) 0)
+                            (-> matches-files-hash
+                                (get-in [(-> obj :select-match)])
+                                ((fn [{:keys [filename match-id]}]
+                                   (let [store-data (get-in @store [(-> match-id str keyword)])]
+                                     (if store-data
+                                       (-> store-data
+                                           vector
+                                           ((fn [d]
+                                              (do
+                                                (plot-dom d)
+                                                (-> obj (merge opts) plot-graphs)))))
+                                       (do
+                                         (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
+                                         (fetch-file
+                                          filename
+                                          [update-store
+                                           (fn [d] (-> d vector plot-dom))
+                                           (fn [] (-> obj (merge opts) plot-graphs))])))))))))))))
+    (when dev-reload?
+      (do
+        (->
+         (merge
+          (get-metrics)
+          (get-theme-with (partial theme-identity (get-current-theme)))
+          opts)
+         ((fn [{:keys [theme-text theme] :as obj}]
+            (do
+              (toogle-theme-btn theme-text)
+              (toogle-theme theme)
+              (plot-graphs obj)))))))))
 
-(defn reload! [] (init))
+(defn reload! [] (init :development))
