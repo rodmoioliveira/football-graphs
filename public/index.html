@@ -61,7 +61,8 @@
     <meta property="og:image" content="img/network.png" />
 
     <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@rodmoi" />
     <meta name="twitter:title" content="Football Passing Networks" />
     <meta
       name="twitter:description"
@@ -95,6 +96,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
+    <link rel="preload" href="fonts/alegreya-v13-latin-500.woff2" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="fonts/alegreya-v13-latin-regular.woff2" as="font" crossorigin="anonymous" />
     <title>Football Passing Networks</title>
   </head>
   <body data-theme="light">
@@ -176,7 +179,7 @@
         <fieldset data-fieldset="min-passes-to-display">
           <label class="metric-label" for="min-passes-to-display">
             Minimum passes
-            <span data-min-passes-value></span>
+            <span data-min-passes-value>(5)</span>
           </label>
           <input
             type="range"

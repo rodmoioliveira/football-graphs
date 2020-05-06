@@ -71,6 +71,8 @@
 
   &[data-sticky='0'] {
     transform: translate(-10rem, 1rem);
+    transition: transform 200ms ease, left 200ms ease 200ms;
+    left: -1000px;
   }
 
   &[data-sticky='1'] {

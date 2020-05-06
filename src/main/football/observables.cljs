@@ -6,6 +6,8 @@
    [utils.dom :refer [dom
                       slide-home
                       is-body-click?
+                      get-metrics
+                      get-current-theme
                       fix-nav
                       scroll-top
                       scroll-to-current-match
@@ -24,20 +26,17 @@
   []
   (let [display-passes (fn [{:keys [min-passes-to-display]}]
                          (set! (.-innerHTML (dom :min-passes-span)) (str "(" min-passes-to-display ")")))
-        get-metrics (fn [] {:node-color-metric (-> dom :node-color-select .-value keyword)
-                            :node-radius-metric (-> dom :node-area-select .-value keyword)
-                            :min-passes-to-display (-> dom :min-passes-input .-value int)})
-        current-theme (fn [] (-> dom :body-theme (.getAttribute "data-theme") keyword))
         input$ (-> (rx/of
                     (-> dom :node-color-select)
                     (-> dom :node-area-select)
                     (-> dom :min-passes-input))
                    (.pipe
                     (rx-op/mergeMap #(-> (rx/fromEvent % "input")
-                                         (.pipe (rx-op/map (fn [_]
-                                                             (merge
-                                                              (get-metrics)
-                                                              (get-theme-with (partial theme-identity (current-theme)))))))))
+                                         (.pipe (rx-op/map
+                                                 (fn [_]
+                                                   (merge
+                                                    (get-metrics)
+                                                    (get-theme-with (partial theme-identity (get-current-theme)))))))))
                     (rx-op/tap display-passes)))
         list$ (-> dom
                   :matches-list
@@ -50,13 +49,13 @@
                                 (merge
                                  {:select-match match-id}
                                  (get-metrics)
-                                 (get-theme-with (partial theme-identity (current-theme))))))))
+                                 (get-theme-with (partial theme-identity (get-current-theme))))))))
         click$ (-> dom
                    :theme-btn
                    (rx/fromEvent "click")
                    (.pipe (rx-op/map (fn [_] (merge
                                               (get-metrics)
-                                              (get-theme-with (partial theme-reverse (current-theme))))))))]
+                                              (get-theme-with (partial theme-reverse (get-current-theme))))))))]
     {:input$ input$
      :click$ click$
      :list$ list$}))
