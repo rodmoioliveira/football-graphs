@@ -112,8 +112,17 @@
         list$ (-> metrics :list$)
         opts {:mobile? (is-mobile?)
               :scale 9
-              :name-position :bottom}]
-
+              :name-position :bottom}
+        apply-hash (fn [data]
+                     (-> data
+                         :match-id
+                         str
+                         keyword
+                         matches-files-hash
+                         :filename
+                         (split #"\.")
+                         first
+                         set-hash!))]
     (when-not dev-reload?
       (do
         (reset-dom)
@@ -143,27 +152,21 @@
                      (get-in [(-> obj :select-match)])
                      ((fn [{:keys [filename match-id]}]
                         (let [store-data (get-in @store [(-> match-id str keyword)])]
-                          (-> store-data
-                              :match-id
-                              str
-                              keyword
-                              matches-files-hash
-                              :filename
-                              (split #"\.")
-                              first
-                              set-hash!)
                           (if store-data
-                            (-> store-data
-                                vector
-                                ((fn [d]
-                                   (do
-                                     (plot-dom d)
-                                     (-> obj (merge opts) plot-graphs)))))
+                            (do
+                              (apply-hash store-data)
+                              (-> store-data
+                                  vector
+                                  ((fn [d]
+                                     (do
+                                       (plot-dom d)
+                                       (-> obj (merge opts) plot-graphs))))))
                             (do
                               (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
                               (fetch-file
                                filename
                                [update-store
+                                apply-hash
                                 (fn [d] (-> d vector plot-dom))
                                 (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
           ; routing
