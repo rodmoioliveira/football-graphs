@@ -96,11 +96,21 @@
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <link rel="preload" href="fonts/alegreya-v13-latin-500.woff2" as="font" crossorigin="anonymous" />
-    <link rel="preload" href="fonts/alegreya-v13-latin-regular.woff2" as="font" crossorigin="anonymous" />
+    <link
+      rel="preload"
+      href="fonts/alegreya-v13-latin-500.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="fonts/alegreya-v13-latin-regular.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
     <title>Football Passing Networks</title>
   </head>
-  <body data-theme="light">
+  <body data-theme="light" id="body">
     <a
       href="https://github.com/rodmoioliveira/football-graphs"
       class="github-corner"
@@ -123,9 +133,23 @@
           class="octo-body"
         ></path></svg
     ></a>
-    <button class="btn btn--theme-toogle" data-toogle-theme>
+    <button
+      class="btn btn--theme-toogle"
+      data-toogle-theme
+      id="data-toogle-theme"
+    >
       light
     </button>
+    <script>
+      var themeStorage = localStorage.getItem('data-theme');
+      if (themeStorage) {
+        document
+          .getElementById('body')
+          .setAttribute('data-theme', themeStorage);
+        var btnTheme = document.getElementById('data-toogle-theme');
+        btnTheme.innerText = themeStorage;
+      }
+    </script>
     <nav class="nav-metrics" data-active="0">
       <div class="nav-controls">
         <fieldset>

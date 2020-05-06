@@ -13,7 +13,6 @@
                       get-metrics
                       get-current-theme
                       is-mobile?
-                      get-storage-theme
                       fix-nav
                       scroll-top
                       set-collapse
@@ -126,7 +125,6 @@
                          set-hash!))]
     (when-not dev-reload?
       (do
-        (get-storage-theme)
         (reset-dom)
         (sticky-nav$)
         (slider$)

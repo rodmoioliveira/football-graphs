@@ -308,12 +308,3 @@
 (defn set-in-storage!
   [value prop]
   (-> js/localStorage (.setItem prop value)))
-
-(defn get-storage-theme
-  []
-  (let [theme-storage (-> "data-theme" get-in-storage)]
-    (when theme-storage
-      (do
-        (get-theme-with (partial theme-identity (keyword theme-storage)))
-        (-> dom :body-theme (.setAttribute "data-theme" theme-storage))
-        (toogle-theme-btn theme-storage)))))
