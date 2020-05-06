@@ -6,8 +6,8 @@
                        canvas-dimensions
                        mobile-mapping
                        hash-by]]
-   [utils.dom :refer [plot-matches-list
-                      reset-dom
+   [utils.dom :refer [reset-dom
+                      ; plot-matches-list
                       slide-graph
                       loader-element
                       get-metrics
@@ -128,7 +128,7 @@
         (reset-dom)
         (sticky-nav$)
         (slider$)
-        (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
+        ; (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
         (-> click$
             (.subscribe #(-> % (merge opts)
                              ((fn [{:keys [theme-text theme] :as obj}]
