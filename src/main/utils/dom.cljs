@@ -1,8 +1,6 @@
 (ns utils.dom
   (:require
    [cljs.reader :as reader]
-   [mapping.themes :refer [theme-identity
-                           get-theme-with]]
    [clojure.string :refer [split join trim replace]]))
 
 (def dom
