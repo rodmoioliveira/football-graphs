@@ -1,5 +1,6 @@
 (ns football.app
   (:require
+   [clojure.string :refer [split]]
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
                        canvas-dimensions
@@ -20,6 +21,8 @@
                       plot-dom
                       toogle-theme
                       fetch-file
+                      set-hash!
+                      get-hash
                       dom]]
 
    [football.observables :refer [select-metrics$
@@ -27,7 +30,7 @@
                                  slider$]]
    [mapping.themes :refer [theme-identity
                            get-theme-with]]
-   [football.matches :refer [matches-files-hash]]
+   [football.matches :refer [matches-files-hash labels-hash]]
    [football.store :refer [store update-store]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -101,7 +104,8 @@
 (defn init
   "Init graph interations."
   [dev?]
-  (let [metrics (select-metrics$)
+  (let [url-match-id (-> labels-hash (get-in [(get-hash) :match-id]))
+        metrics (select-metrics$)
         dev-reload? (-> dev? (= :development))
         input$ (-> metrics :input$)
         click$ (-> metrics :click$)
@@ -126,32 +130,49 @@
         (-> input$
             (.subscribe #(-> % (merge opts) plot-graphs)))
         (-> list$
-            (.subscribe (fn [obj]
-                          (do
-                            (slide-graph (-> obj :select-match name))
-                            (fix-back 1)
-                            (fix-nav 1)
-                            (scroll-top)
-                            (set-collapse (-> dom :slider-home) 1)
-                            (set-collapse (-> dom :slider-graph) 0)
-                            (-> matches-files-hash
-                                (get-in [(-> obj :select-match)])
-                                ((fn [{:keys [filename match-id]}]
-                                   (let [store-data (get-in @store [(-> match-id str keyword)])]
-                                     (if store-data
-                                       (-> store-data
-                                           vector
-                                           ((fn [d]
-                                              (do
-                                                (plot-dom d)
-                                                (-> obj (merge opts) plot-graphs)))))
-                                       (do
-                                         (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
-                                         (fetch-file
-                                          filename
-                                          [update-store
-                                           (fn [d] (-> d vector plot-dom))
-                                           (fn [] (-> obj (merge opts) plot-graphs))])))))))))))))
+            (.subscribe
+             (fn [obj]
+               (do
+                 (slide-graph (-> obj :select-match name))
+                 (fix-back 1)
+                 (fix-nav 1)
+                 (scroll-top)
+                 (set-collapse (-> dom :slider-home) 1)
+                 (set-collapse (-> dom :slider-graph) 0)
+                 (-> matches-files-hash
+                     (get-in [(-> obj :select-match)])
+                     ((fn [{:keys [filename match-id]}]
+                        (let [store-data (get-in @store [(-> match-id str keyword)])]
+                          (-> store-data
+                              :match-id
+                              str
+                              keyword
+                              matches-files-hash
+                              :filename
+                              (split #"\.")
+                              first
+                              set-hash!)
+                          (if store-data
+                            (-> store-data
+                                vector
+                                ((fn [d]
+                                   (do
+                                     (plot-dom d)
+                                     (-> obj (merge opts) plot-graphs)))))
+                            (do
+                              (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
+                              (fetch-file
+                               filename
+                               [update-store
+                                (fn [d] (-> d vector plot-dom))
+                                (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
+          ; routing
+        (when url-match-id
+          (-> dom
+              :matches-list
+              (.querySelector (str "[data-match-id='" url-match-id "']"))
+              (.click)))))
+
     (when dev-reload?
       (do
         (->

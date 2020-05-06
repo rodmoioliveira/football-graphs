@@ -1,7 +1,7 @@
 (ns utils.dom
   (:require
    [cljs.reader :as reader]
-   [clojure.string :refer [split join trim]]))
+   [clojure.string :refer [split join trim replace]]))
 
 (def dom
   {:node-color-select (-> js/document (.querySelector (str "[data-metric='node-color']")))
@@ -287,3 +287,14 @@
   []
   (-> dom :plot-section (#(set! (.-innerHTML %) ""))))
 
+(defn set-hash!
+  [hash]
+  (-> js/window .-history (.pushState "" "" (str "#" hash))))
+
+(defn reset-hash!
+  []
+  (-> js/window .-history (.pushState "" "" " ")))
+
+(defn get-hash
+  []
+  (-> js/window .-location .-hash (replace #"#" "") keyword))

@@ -3,6 +3,7 @@
    [shadow.resource :as rc]
    [cljs.reader :as reader]
    ; [camel-snake-kebab.core :as csk]
+   [clojure.string :refer [split]]
    [clojure.pprint :refer [pprint]]))
 
 (defn world-cup-matches
@@ -338,5 +339,7 @@
     :label "Croatia - Denmark, 1 - 1",
     :filename "croatia_denmark,_1_1_(_p).edn"}})
 
-
-
+(def labels-hash
+  (->> matches-files-hash
+       vals
+       (reduce (fn [acc cur] (assoc-in acc [(-> cur :filename (split #"\.") first keyword)] cur)) {})))

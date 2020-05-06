@@ -9,6 +9,7 @@
                       get-metrics
                       get-current-theme
                       fix-nav
+                      reset-hash!
                       scroll-top
                       scroll-to-current-match
                       fix-back
@@ -83,6 +84,7 @@
     (-> dom :slide-to-home
         (rx/fromEvent "click")
         (.subscribe (fn [_] (do
+                              (reset-hash!)
                               (slide-home)
                               (fix-back 0)
                               (fix-nav 0)
