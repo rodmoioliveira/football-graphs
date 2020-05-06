@@ -1,6 +1,8 @@
 (ns utils.dom
   (:require
    [cljs.reader :as reader]
+   [mapping.themes :refer [theme-identity
+                           get-theme-with]]
    [clojure.string :refer [split join trim replace]]))
 
 (def dom
@@ -298,3 +300,20 @@
 (defn get-hash
   []
   (-> js/window .-location .-hash (replace #"#" "") keyword))
+
+(defn get-in-storage
+  [prop]
+  (-> js/localStorage (.getItem prop)))
+
+(defn set-in-storage!
+  [value prop]
+  (-> js/localStorage (.setItem prop value)))
+
+(defn get-storage-theme
+  []
+  (let [theme-storage (-> "data-theme" get-in-storage)]
+    (when theme-storage
+      (do
+        (get-theme-with (partial theme-identity (keyword theme-storage)))
+        (-> dom :body-theme (.setAttribute "data-theme" theme-storage))
+        (toogle-theme-btn theme-storage)))))
