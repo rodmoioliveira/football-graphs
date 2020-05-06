@@ -298,3 +298,7 @@
 (defn get-hash
   []
   (-> js/window .-location .-hash (replace #"#" "") keyword))
+
+(defn set-in-storage!
+  [value prop]
+  (-> js/localStorage (.setItem prop value)))

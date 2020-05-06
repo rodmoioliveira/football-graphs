@@ -12,6 +12,7 @@
                       reset-hash!
                       scroll-top
                       scroll-to-current-match
+                      set-in-storage!
                       fix-back
                       activate-nav
                       deactivate-nav
@@ -56,7 +57,8 @@
                    (rx/fromEvent "click")
                    (.pipe (rx-op/map (fn [_] (merge
                                               (get-metrics)
-                                              (get-theme-with (partial theme-reverse (get-current-theme))))))))]
+                                              (get-theme-with (partial theme-reverse (get-current-theme))))))
+                          (rx-op/tap (fn [e] (-> e :theme (set-in-storage! "data-theme"))))))]
     {:input$ input$
      :click$ click$
      :list$ list$}))
