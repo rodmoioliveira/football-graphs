@@ -129,42 +129,43 @@
                                   (plot-graphs obj)))))))
         (-> input$
             (.subscribe #(-> % (merge opts) plot-graphs)))
-        (-> list$ (.subscribe
-                   (fn [obj]
-                     (do
-                       (slide-graph (-> obj :select-match name))
-                       (fix-back 1)
-                       (fix-nav 1)
-                       (scroll-top)
-                       (set-collapse (-> dom :slider-home) 1)
-                       (set-collapse (-> dom :slider-graph) 0)
-                       (-> matches-files-hash
-                           (get-in [(-> obj :select-match)])
-                           ((fn [{:keys [filename match-id]}]
-                              (let [store-data (get-in @store [(-> match-id str keyword)])]
-                                (-> store-data
-                                    :match-id
-                                    str
-                                    keyword
-                                    matches-files-hash
-                                    :filename
-                                    (split #"\.")
-                                    first
-                                    set-hash!)
-                                (if store-data
-                                  (-> store-data
-                                      vector
-                                      ((fn [d]
-                                         (do
-                                           (plot-dom d)
-                                           (-> obj (merge opts) plot-graphs)))))
-                                  (do
-                                    (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
-                                    (fetch-file
-                                     filename
-                                     [update-store
-                                      (fn [d] (-> d vector plot-dom))
-                                      (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
+        (-> list$
+            (.subscribe
+             (fn [obj]
+               (do
+                 (slide-graph (-> obj :select-match name))
+                 (fix-back 1)
+                 (fix-nav 1)
+                 (scroll-top)
+                 (set-collapse (-> dom :slider-home) 1)
+                 (set-collapse (-> dom :slider-graph) 0)
+                 (-> matches-files-hash
+                     (get-in [(-> obj :select-match)])
+                     ((fn [{:keys [filename match-id]}]
+                        (let [store-data (get-in @store [(-> match-id str keyword)])]
+                          (-> store-data
+                              :match-id
+                              str
+                              keyword
+                              matches-files-hash
+                              :filename
+                              (split #"\.")
+                              first
+                              set-hash!)
+                          (if store-data
+                            (-> store-data
+                                vector
+                                ((fn [d]
+                                   (do
+                                     (plot-dom d)
+                                     (-> obj (merge opts) plot-graphs)))))
+                            (do
+                              (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
+                              (fetch-file
+                               filename
+                               [update-store
+                                (fn [d] (-> d vector plot-dom))
+                                (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
           ; routing
         (when url-match-id
           (-> dom
