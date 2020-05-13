@@ -255,7 +255,8 @@
                        ; FIXME cuidar do valor do radius 10 aqui
                        (.force "collision" (-> d3 (.forceCollide) (.radius (fn [e] 10)) (.strength 1)))
                        ; (.alphaDecay 0.00001)
-                       (.velocityDecay 0.4))]
+                       ; (.velocityDecay 0.4)
+                       )]
 
     (-> d3
         (.select (-> config :canvas))
@@ -271,18 +272,6 @@
              (.on "drag" (dragged))
              (.on "end" (dragended simulation)))))
 
-    (-> simulation
-        (.nodes nodes)
-        (.on "tick" (fn []
-                      (do
-                        (print "tick")
-                        (draw-background config data)
-                        (-> data (aget "canvas-dimensions") (draw-field data config))
-                        (draw-graph {:edges (-> edges filter-min-passes)
-                                     :config config
-                                     :nodeshash nodeshash
-                                     :nodes nodes})))))
-
     (-> d3
         (.select (-> config :canvas))
         (.on "click" (fn []
@@ -297,6 +286,18 @@
                                          :mapping-x mapping-x
                                          :mapping-y mapping-y
                                          :canvas-current-dimensions canvas-current-dimensions})))))
+
+    (-> simulation
+        (.nodes nodes)
+        (.on "tick" (fn []
+                      (do
+                        (print "tick")
+                        (draw-background config data)
+                        (-> data (aget "canvas-dimensions") (draw-field data config))
+                        (draw-graph {:edges (-> edges filter-min-passes)
+                                     :config config
+                                     :nodeshash nodeshash
+                                     :nodes nodes})))))
 
     (-> simulation
         (.force "link")
