@@ -1,19 +1,20 @@
 (ns football.draw-graph
   (:require
+   ["d3" :as d3]
    [clojure.string :refer [split]]
    [utils.core :refer [get-distance radians-between find-node]]
    [football.draw-field :refer [draw-field draw-background]]
-   ["d3" :as d3]))
+   [football.simulations :refer [dragsubject dragged dragended dragstarted]]))
 
 (set! *warn-on-infer* true)
 
 (defn draw-edges
   "Draw the edges of passes between players."
   [{:keys [^js edge config active-node nodeshash]}]
-  (let [source-x (-> edge .-source .-coord .-x)
-        source-y (-> edge .-source .-coord .-y)
-        target-x (-> edge .-target .-coord .-x)
-        target-y (-> edge .-target .-coord .-y)
+  (let [source-x (-> edge .-source .-x)
+        source-y (-> edge .-source .-y)
+        target-x (-> edge .-target .-x)
+        target-y (-> edge .-target .-y)
         value (-> edge .-value)
         source-target-distance (get-distance
                                 source-x
@@ -93,8 +94,8 @@
 (defn draw-players-names
   "Draw the players names."
   [{:keys [node config]}]
-  (let [x-pos (-> node .-coord .-x)
-        y-pos (-> node .-coord .-y)
+  (let [x-pos (-> node .-x)
+        y-pos (-> node .-y)
 
         ; Metrics for sizing node
         node-radius-metric-name (-> config :nodes :node-radius-metric name)
@@ -129,8 +130,8 @@
 (defn draw-nodes
   "Draw the players nodes."
   [{:keys [node config]}]
-  (let [x-pos (-> node .-coord .-x)
-        y-pos (-> node .-coord .-y)
+  (let [x-pos (-> node .-x)
+        y-pos (-> node .-y)
         is-active? (-> node .-active)
         active-color #(if is-active? (-> config :nodes :active :color) %)
         active-outline #(if is-active? (-> config :nodes :active :outline) %)
@@ -181,22 +182,15 @@
 
 (defn on-node-click
   "On node click, only display that player passes network."
-  [{:keys [edges nodes config nodeshash data]}]
-  (let [screen-width (-> js/window .-innerWidth)
-        canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
-        x-domain #js [(- screen-width) (- (-> canvas-current-dimensions .-width) screen-width)]
-        y-domain #js [0 (-> canvas-current-dimensions .-height)]
-        x-codomain #js [0 (-> config :canvas .-width)]
-        y-codomain #js [0 (-> config :canvas .-height)]
-        mapping-x (-> d3
-                      (.scaleLinear)
-                      (.domain x-domain)
-                      (.range x-codomain))
-        mapping-y (-> d3
-                      (.scaleLinear)
-                      (.domain y-domain)
-                      (.range y-codomain))
-        x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
+  [{:keys [edges
+           nodes
+           config
+           nodeshash
+           data
+           mapping-x
+           mapping-y
+           canvas-current-dimensions]}]
+  (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
         node (find-node
               config
@@ -224,21 +218,85 @@
         min-passes-to-display (-> data (aget "graphs-options") (aget "min-passes-to-display"))
         filter-min-passes #(filter (fn [edge] (>= (-> edge .-value) min-passes-to-display)) %)
         edges (-> data .-links)
+        screen-width (-> js/window .-innerWidth)
+        canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
+        x-domain #js [(- screen-width) (- (-> canvas-current-dimensions .-width) screen-width)]
+        y-domain #js [0 (-> canvas-current-dimensions .-height)]
+        x-codomain #js [0 (-> config :canvas .-width)]
+        y-codomain #js [0 (-> config :canvas .-height)]
+        mapping-x (-> d3
+                      (.scaleLinear)
+                      (.domain x-domain)
+                      (.range x-codomain))
+        mapping-y (-> d3
+                      (.scaleLinear)
+                      (.domain y-domain)
+                      (.range y-codomain))
         simulation (-> d3
                        (.forceSimulation)
                        (.force "link" (-> d3
                                           (.forceLink)
-                                          (.id (fn [d] (-> d .-id))))))]
+                                          (.id (fn [d] (-> d .-id)))
+                                          (.strength 0)))
+                       (.force "charge" (-> d3 (.forceManyBody) (.strength 1)))
+                       (.force "x"
+                               (-> d3
+                                   (.forceX)
+                                   (.x (fn [^js d]
+                                         (-> d .-id str (#(aget nodeshash %)) js->clj (get-in ["coord" "x"]))))
+                                   (.strength 0.7)))
+                       (.force "y"
+                               (-> d3
+                                   (.forceY)
+                                   (.y (fn [^js d]
+                                         (-> d .-id str (#(aget nodeshash %)) js->clj (get-in ["coord" "y"]))))
+                                   (.strength 0.7)))
+
+                       ; FIXME cuidar do valor do radius 10 aqui
+                       (.force "collision" (-> d3 (.forceCollide) (.radius (fn [e] 10)) (.strength 1)))
+                       ; (.alphaDecay 0.00001)
+                       (.velocityDecay 0.4))]
 
     (-> d3
         (.select (-> config :canvas))
-        (.on "click" (fn [] (on-node-click {:edges (-> edges filter-min-passes)
-                                            :config config
-                                            :data data
-                                            :nodeshash nodeshash
-                                            :nodes nodes}))))
+        (.call
+         (-> d3
+             (.drag)
+             (.container (-> config :canvas))
+             (.subject (dragsubject
+                        nodes
+                        config
+                        canvas-current-dimensions))
+             (.on "start" (dragstarted simulation))
+             (.on "drag" (dragged))
+             (.on "end" (dragended simulation)))))
 
-    (-> simulation (.nodes nodes))
+    (-> simulation
+        (.nodes nodes)
+        (.on "tick" (fn []
+                      (do
+                        (print "tick")
+                        (draw-background config data)
+                        (-> data (aget "canvas-dimensions") (draw-field data config))
+                        (draw-graph {:edges (-> edges filter-min-passes)
+                                     :config config
+                                     :nodeshash nodeshash
+                                     :nodes nodes})))))
+
+    (-> d3
+        (.select (-> config :canvas))
+        (.on "click" (fn []
+                       (do
+                         ; FIXME conflito entre click e animação de drag
+                         (-> simulation (.stop))
+                         (on-node-click {:edges (-> edges filter-min-passes)
+                                         :config config
+                                         :data data
+                                         :nodeshash nodeshash
+                                         :nodes nodes
+                                         :mapping-x mapping-x
+                                         :mapping-y mapping-y
+                                         :canvas-current-dimensions canvas-current-dimensions})))))
 
     (-> simulation
         (.force "link")
@@ -249,4 +307,6 @@
     (draw-graph {:edges (-> edges filter-min-passes)
                  :config config
                  :nodeshash nodeshash
-                 :nodes nodes})))
+                 :nodes nodes})
+    ; TODO: retorna a simulação para ser utilizadas em outros lugares...
+    simulation))
