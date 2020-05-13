@@ -189,12 +189,12 @@
            data
            mapping-x
            mapping-y
-           canvas-current-dimensions]}]
+           get-canvas-current-dimensions]}]
   (let [x (or (-> d3 .-event .-layerX) (-> d3 .-event .-offsetX))
         y (or (-> d3 .-event .-layerY) (-> d3 .-event .-offsetY))
         node (find-node
               config
-              (-> canvas-current-dimensions .-width)
+              (-> (get-canvas-current-dimensions) .-width)
               nodes
               (mapping-x x)
               (mapping-y y))]
@@ -219,9 +219,9 @@
         filter-min-passes #(filter (fn [edge] (>= (-> edge .-value) min-passes-to-display)) %)
         edges (-> data .-links)
         screen-width (-> js/window .-innerWidth)
-        canvas-current-dimensions (-> config :canvas (.getBoundingClientRect))
-        x-domain #js [(- screen-width) (- (-> canvas-current-dimensions .-width) screen-width)]
-        y-domain #js [0 (-> canvas-current-dimensions .-height)]
+        get-canvas-current-dimensions (fn [] (-> config :canvas (.getBoundingClientRect)))
+        x-domain #js [(- screen-width) (- (-> (get-canvas-current-dimensions) .-width) screen-width)]
+        y-domain #js [0 (-> (get-canvas-current-dimensions) .-height)]
         x-codomain #js [0 (-> config :canvas .-width)]
         y-codomain #js [0 (-> config :canvas .-height)]
         mapping-x (-> d3
@@ -267,7 +267,7 @@
              (.subject (dragsubject
                         nodes
                         config
-                        canvas-current-dimensions))
+                        get-canvas-current-dimensions))
              (.on "start" (dragstarted simulation))
              (.on "drag" (dragged))
              (.on "end" (dragended simulation)))))
@@ -285,7 +285,7 @@
                                          :nodes nodes
                                          :mapping-x mapping-x
                                          :mapping-y mapping-y
-                                         :canvas-current-dimensions canvas-current-dimensions})))))
+                                         :get-canvas-current-dimensions get-canvas-current-dimensions})))))
 
     (-> simulation
         (.nodes nodes)

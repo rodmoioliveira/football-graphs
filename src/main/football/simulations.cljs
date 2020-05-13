@@ -8,14 +8,14 @@
 (defn dragsubject
   [nodes
    config
-   canvas-current-dimensions]
+   get-canvas-current-dimensions]
   (fn []
     (let [
           x (-> transform (.invertX (-> d3 .-event .-x)))
           y (-> transform (.invertY (-> d3 .-event .-y)))
           node (find-node
                 config
-                (-> canvas-current-dimensions .-width)
+                (-> (get-canvas-current-dimensions) .-width)
                 nodes
                 x
                 y)]
