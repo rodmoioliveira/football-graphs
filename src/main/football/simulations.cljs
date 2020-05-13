@@ -41,7 +41,6 @@
   [simulation]
   (fn []
     (do
-      (when-not (-> d3 .-event .-active)
-        (-> simulation (.alphaTarget 0)))
+      (-> simulation (.alphaTarget 0))
       (-> d3 .-event .-subject .-fx (set! nil))
       (-> d3 .-event .-subject .-fy (set! nil)))))
