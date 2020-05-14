@@ -4,21 +4,13 @@
    ["rxjs/operators" :as rx-op]
 
    [utils.dom :refer [dom
-                      slide-home
                       is-body-click?
                       get-metrics
                       get-current-theme
-                      fix-nav
-                      reset-hash!
-                      scroll-top
-                      scroll-to-current-match
                       set-in-storage!
-                      fix-back
                       activate-nav
-                      deactivate-nav
-                      set-collapse]]
-   [mapping.themes :refer [theme-mapping
-                           theme-identity
+                      deactivate-nav]]
+   [mapping.themes :refer [theme-identity
                            theme-reverse
                            get-theme-with]]))
 
@@ -52,7 +44,7 @@
                                  {:select-match match-id}
                                  (get-metrics)
                                  (get-theme-with (partial theme-identity (get-current-theme))))))))
-        click$ (-> dom
+        toogle-theme$ (-> dom
                    :theme-btn
                    (rx/fromEvent "click")
                    (.pipe (rx-op/map (fn [_] (merge
@@ -60,7 +52,7 @@
                                               (get-theme-with (partial theme-reverse (get-current-theme))))))
                           (rx-op/tap (fn [e] (-> e :theme (set-in-storage! "data-theme"))))))]
     {:input$ input$
-     :click$ click$
+     :toogle-theme$ toogle-theme$
      :list$ list$}))
 
 (defn sticky-nav$
@@ -80,16 +72,6 @@
         (rx/fromEvent "click")
         (.subscribe deactivate-nav))))
 
-(defn slider$
-  []
-  (do
-    (-> dom :slide-to-home
-        (rx/fromEvent "click")
-        (.subscribe (fn [_] (do
-                              (reset-hash!)
-                              (slide-home)
-                              (fix-back 0)
-                              (fix-nav 0)
-                              (set-collapse (-> dom :slider-home) 0)
-                              (set-collapse (-> dom :slider-graph) 1)
-                              (scroll-to-current-match)))))))
+(def slider$
+  (-> dom :slide-to-home
+      (rx/fromEvent "click")))
