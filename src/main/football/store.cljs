@@ -17,3 +17,13 @@
   []
   (doseq [simulation @all-simulations]
     (-> simulation (.stop))))
+
+(defn make-active-node-store
+  []
+  (atom nil))
+(defn update-active-node-store!
+  [store id]
+  (reset! store id))
+(defn reset-active-node-store!
+  [store]
+  (reset! store nil))
