@@ -11,14 +11,26 @@
    get-canvas-current-dimensions]
   (fn []
     (let [canvas-current-dimensions (get-canvas-current-dimensions config)
+          x-domain #js [0 (-> canvas-current-dimensions .-width)]
+          y-domain #js [0 (-> canvas-current-dimensions .-height)]
+          x-codomain #js [0 (-> config :canvas .-width)]
+          y-codomain #js [0 (-> config :canvas .-height)]
+          mapping-x (-> d3
+                        (.scaleLinear)
+                        (.domain x-domain)
+                        (.range x-codomain))
+          mapping-y (-> d3
+                        (.scaleLinear)
+                        (.domain y-domain)
+                        (.range y-codomain))
           x (-> transform (.invertX (-> d3 .-event .-x)))
           y (-> transform (.invertY (-> d3 .-event .-y)))
           node (find-node
                 config
                 (-> canvas-current-dimensions .-width)
                 nodes
-                x
-                y)]
+                (mapping-x x)
+                (mapping-y y))]
       node)))
 
 (defn dragstarted
