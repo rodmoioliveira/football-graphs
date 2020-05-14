@@ -260,9 +260,19 @@
                                    (.y (fn [^js d]
                                          (-> d .-id str (#(aget nodeshash %)) js->clj (get-in ["coord" "y"]))))
                                    (.strength 0.4)))
-
-                       ; FIXME cuidar do valor do radius 10 aqui
-                       (.force "collision" (-> d3 (.forceCollide) (.radius (fn [e] 10)) (.strength 1)))
+                       (.force
+                        "collision"
+                        (-> d3
+                            (.forceCollide)
+                            (.radius (fn [^js d]
+                                       (let [node-radius-metric-name (-> config :nodes :node-radius-metric name)
+                                             node-radius-metric-value (-> d .-metrics (#(aget % node-radius-metric-name)))
+                                             radius-scale (-> config
+                                                              :scales
+                                                              (#(get-in % [(-> config :nodes :node-radius-metric)]))
+                                                              (#(% :radius)))
+                                             radius (radius-scale node-radius-metric-value)]
+                                         radius))) (.strength 1)))
                        ; (.alphaDecay 0.00001)
                        (.velocityDecay 0.22))]
 
