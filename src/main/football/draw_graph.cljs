@@ -321,7 +321,7 @@
                  clj->js))
         (.on "tick" (fn []
                       (do
-                        (js/console.log "tick")
+                        (js/console.log "tick" "animation-stores" (-> @all-simulations count))
                         (draw-background config data)
                         (-> data (aget "canvas-dimensions") (draw-field data config))
                         (draw-graph {:edges (-> edges filter-min-passes)
