@@ -9,8 +9,11 @@
    [utils.dom :refer [reset-dom
                       ; plot-matches-list
                       slide-graph
+                      slide-home
                       loader-element
                       get-metrics
+                      reset-hash!
+                      scroll-to-current-match
                       get-current-theme
                       is-mobile?
                       fix-nav
@@ -31,7 +34,11 @@
    [mapping.themes :refer [theme-identity
                            get-theme-with]]
    [football.matches :refer [matches-files-hash labels-hash]]
-   [football.store :refer [store update-store]]
+   [football.store :refer [store
+                           update-store
+                           all-simulations
+                           flush-simulations!
+                           stop-simulations]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
 
@@ -108,7 +115,7 @@
         metrics (select-metrics$)
         dev-reload? (-> dev? (= :development))
         input$ (-> metrics :input$)
-        click$ (-> metrics :click$)
+        toogle-theme$ (-> metrics :toogle-theme$)
         list$ (-> metrics :list$)
         opts {:mobile? (is-mobile?)
               :scale 9
@@ -127,17 +134,38 @@
       (do
         (reset-dom)
         (sticky-nav$)
-        (slider$)
+        (-> slider$
+            (.subscribe (fn [_] (do
+                                  (reset-hash!)
+                                  (slide-home)
+                                  (fix-back 0)
+                                  (fix-nav 0)
+                                  (set-collapse (-> dom :slider-home) 0)
+                                  (set-collapse (-> dom :slider-graph) 1)
+                                  (scroll-to-current-match)
+                                  (stop-simulations)
+                                  (flush-simulations!)))))
         ; (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
-        (-> click$
+        (-> toogle-theme$
             (.subscribe #(-> % (merge opts)
                              ((fn [{:keys [theme-text theme] :as obj}]
                                 (do
                                   (toogle-theme-btn theme-text)
                                   (toogle-theme theme)
-                                  (plot-graphs obj)))))))
+                                  (plot-graphs obj)
+                                  ; FIXME
+                                  (stop-simulations)
+                                  (flush-simulations!)))))))
         (-> input$
-            (.subscribe #(-> % (merge opts) plot-graphs)))
+            (.subscribe #(-> %
+                             (merge opts)
+                             ((fn [obj]
+                                (do
+                                  (plot-graphs obj)
+                                  ; FIXME
+                                  (stop-simulations)
+                                  (flush-simulations!)))))))
+
         (-> list$
             (.subscribe
              (fn [obj]
