@@ -153,7 +153,7 @@
                                   (toogle-theme-btn theme-text)
                                   (toogle-theme theme)
                                   (plot-graphs obj)
-                                  ; FIXME
+                                  ; FIXME: change theme while animation is running
                                   (stop-simulations)
                                   (flush-simulations!)))))))
         (-> input$
@@ -162,7 +162,7 @@
                              ((fn [obj]
                                 (do
                                   (plot-graphs obj)
-                                  ; FIXME
+                                  ; FIXME: change metrics while animation is running
                                   (stop-simulations)
                                   (flush-simulations!)))))))
 
