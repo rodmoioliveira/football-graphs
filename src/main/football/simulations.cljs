@@ -10,12 +10,12 @@
    config
    get-canvas-current-dimensions]
   (fn []
-    (let [
+    (let [canvas-current-dimensions (get-canvas-current-dimensions config)
           x (-> transform (.invertX (-> d3 .-event .-x)))
           y (-> transform (.invertY (-> d3 .-event .-y)))
           node (find-node
                 config
-                (-> (get-canvas-current-dimensions) .-width)
+                (-> canvas-current-dimensions .-width)
                 nodes
                 x
                 y)]
