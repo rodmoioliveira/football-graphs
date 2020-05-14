@@ -1,13 +1,14 @@
-(ns football.draw-field)
+(ns football.draw-field
+  (:require
+   [football.store :refer [theme-store]]))
 
 (defn draw-background
   "Draw the field background."
   [^js config ^js data]
-  (let [ctx (-> config :ctx)
-        background-color (-> data .-field .-background)]
+  (let [ctx (-> config :ctx)]
     (doto ctx
       (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
-      ((fn [v] (set! (.-fillStyle v) background-color)))
+      ((fn [v] (set! (.-fillStyle v) (-> @theme-store :theme-background))))
       (.fillRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height)))))
 
 (defn draw-borders
@@ -81,7 +82,6 @@
            length
            width
            padding
-           background-color
            gol-length
            gol-area-length
            penal-area-length
@@ -90,7 +90,7 @@
   (if flip?
     (doto ctx
       (.save)
-      ((fn [v] (set! (.-fillStyle v) background-color)))
+      ((fn [v] (set! (.-fillStyle v) (-> @theme-store :theme-background))))
       ; ==============
       ; penal area
       ; ==============
@@ -154,7 +154,7 @@
 
     (doto ctx
       (.save)
-      ((fn [v] (set! (.-fillStyle v) background-color)))
+      ((fn [v] (set! (.-fillStyle v) (-> @theme-store :theme-background))))
       ; ==============
       ; penal area
       ; ==============
@@ -404,7 +404,6 @@
         flip? (-> data .-orientation (#(or (= % "gol-bottom") (= % "gol-top"))))
         [width length] (if flip? [b a] [a b])
         field-data (-> data .-field)
-        background-color (-> field-data .-background)
         corner-radius (if flip? (/ width 100) (/ length 100))
         padding 10
         gol-length 16
@@ -415,8 +414,8 @@
         penal-area-width 6.1
         penal-area-length 2.52]
     (doto (-> config :ctx)
-      ((fn [v] (set! (.-strokeStyle v) (aget field-data "lines-color"))))
-      ((fn [v] (set! (.-fillStyle v) (aget field-data "lines-color"))))
+      ((fn [v] (set! (.-strokeStyle v) (-> @theme-store :theme-lines-color))))
+      ((fn [v] (set! (.-fillStyle v) (-> @theme-store :theme-lines-color))))
       ((fn [v] (set! (.-lineWidth v) (aget field-data "lines-width"))))
 
       (draw-borders padding width length)
@@ -433,7 +432,6 @@
         :length length
         :width width
         :padding padding
-        :background-color background-color
         :gol-length gol-length
         :gol-area-length gol-area-length
         :penal-area-length penal-area-length

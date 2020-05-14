@@ -17,6 +17,10 @@
   []
   (doseq [simulation @all-simulations]
     (-> simulation (.stop))))
+(defn restart-simulations
+  []
+  (doseq [simulation @all-simulations]
+    (-> simulation (.restart))))
 
 (defn make-active-node-store
   []
@@ -27,3 +31,8 @@
 (defn reset-active-node-store!
   [store]
   (reset! store nil))
+
+(def theme-store (atom {}))
+(defn update-theme-store!
+  [obj]
+  (reset! theme-store obj))

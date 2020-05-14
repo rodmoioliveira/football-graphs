@@ -38,6 +38,7 @@
                            update-store
                            all-simulations
                            flush-simulations!
+                           restart-simulations
                            stop-simulations]]
    [football.config :refer [config]]
    [football.draw-graph :refer [force-graph]]))
@@ -152,10 +153,9 @@
                                 (do
                                   (toogle-theme-btn theme-text)
                                   (toogle-theme theme)
-                                  (plot-graphs obj)
-                                  ; FIXME: change theme while animation is running
-                                  (stop-simulations)
-                                  (flush-simulations!)))))))
+                                  ; TODO: remove!
+                                  (-> obj clj->js js/console.log)
+                                  (restart-simulations)))))))
         (-> input$
             (.subscribe #(-> %
                              (merge opts)

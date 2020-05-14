@@ -3,6 +3,7 @@
    ["rxjs" :as rx]
    ["rxjs/operators" :as rx-op]
 
+   [football.store :refer [update-theme-store!]]
    [utils.dom :refer [dom
                       is-body-click?
                       get-metrics
@@ -43,14 +44,26 @@
                                 (merge
                                  {:select-match match-id}
                                  (get-metrics)
-                                 (get-theme-with (partial theme-identity (get-current-theme))))))))
+                                 (get-theme-with (partial theme-identity (get-current-theme))))))
+                   (rx-op/tap (fn [e]
+                                (->
+                                  (merge
+                                    (get-metrics)
+                                    (get-theme-with (partial theme-identity (get-current-theme))))
+                                  update-theme-store!)))))
         toogle-theme$ (-> dom
                    :theme-btn
                    (rx/fromEvent "click")
                    (.pipe (rx-op/map (fn [_] (merge
                                               (get-metrics)
                                               (get-theme-with (partial theme-reverse (get-current-theme))))))
-                          (rx-op/tap (fn [e] (-> e :theme (set-in-storage! "data-theme"))))))]
+                          (rx-op/tap (fn [e] (do
+                                               (->
+                                                 (merge
+                                                   (get-metrics)
+                                                   (get-theme-with (partial theme-reverse (get-current-theme))))
+                                                 update-theme-store!)
+                                               (-> e :theme (set-in-storage! "data-theme")))))))]
     {:input$ input$
      :toogle-theme$ toogle-theme$
      :list$ list$}))
