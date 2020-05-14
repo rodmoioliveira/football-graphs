@@ -3,7 +3,11 @@
    ["d3" :as d3]
    [clojure.string :refer [split]]
    [utils.core :refer [get-distance radians-between find-node]]
-   [football.store :refer [all-simulations stop-simulations]]
+   [football.store :refer [all-simulations
+                           stop-simulations
+                           make-active-node-store
+                           update-active-node-store!
+                           reset-active-node-store!]]
    [football.draw-field :refer [draw-field draw-background]]
    [football.simulations :refer [dragsubject dragged dragended dragstarted]]))
 
@@ -11,7 +15,7 @@
 
 (defn draw-edges
   "Draw the edges of passes between players."
-  [{:keys [^js edge config active-node nodeshash]}]
+  [{:keys [^js edge config nodeshash active-node-store]}]
   (let [source-x (-> edge .-source .-x)
         source-y (-> edge .-source .-y)
         target-x (-> edge .-target .-x)
@@ -30,8 +34,8 @@
         orientation (cond (> source-y target-y) (- radians) :else radians)
 
         ; set alpha value for active edges
-        active-edges (= (-> edge .-source .-id) (-> (or active-node #js {:id nil}) .-id))
-        alpha-value (if active-node (if active-edges 1 (-> config :edges :alpha)) 1)
+        active-edges (= (-> edge .-source .-id) @active-node-store)
+        alpha-value (if (some? @active-node-store) (if active-edges 1 (-> config :edges :alpha)) 1)
 
         ; get metric name, radius scale and values
         node-radius-metric-name (-> config :nodes :node-radius-metric name)
@@ -133,10 +137,10 @@
 
 (defn draw-nodes
   "Draw the players nodes."
-  [{:keys [node config]}]
+  [{:keys [node config active-node-store]}]
   (let [x-pos (-> node .-x)
         y-pos (-> node .-y)
-        is-active? (-> node .-active)
+        is-active? (= (-> node .-id) @active-node-store)
       ; TODO: get color by atom!!!!
         active-color #(if is-active? (-> config :nodes :active :color) %)
         active-outline #(if is-active? (-> config :nodes :active :outline) %)
@@ -179,13 +183,14 @@
 
 (defn draw-graph
   "Draw all graph elements."
-  [{:keys [edges nodes config nodeshash active-node]}]
+  [{:keys [edges nodes config nodeshash active-node-store]}]
   (doseq [e edges] (draw-edges {:edge e
                                 :nodeshash nodeshash
                                 :config config
-                                :active-node active-node}))
+                                :active-node-store active-node-store}))
   (doseq [n nodes] (draw-players {:node n
-                                  :config config})))
+                                  :config config
+                                  :active-node-store active-node-store})))
 
 (defn get-canvas-current-dimensions
   [config]
@@ -197,7 +202,8 @@
            nodes
            config
            nodeshash
-           data]}]
+           data
+           active-node-store]}]
   (let [screen-width (-> js/window .-innerWidth)
         canvas-current-dimensions (get-canvas-current-dimensions config)
         x-domain #js [(- screen-width) (- (-> canvas-current-dimensions .-width) screen-width)]
@@ -221,8 +227,9 @@
               (mapping-x x)
               (mapping-y y))]
 
-    (doseq [n nodes] (set! (.-active n) false))
-    (when node (set! (.-active node) (not (-> node .-active))))
+    (if node
+      (update-active-node-store! active-node-store (-> node .-id))
+      (reset-active-node-store! active-node-store))
 
     (draw-background config data)
     (-> data (aget "canvas-dimensions") (draw-field data config))
@@ -230,12 +237,13 @@
                  :config config
                  :nodes nodes
                  :nodeshash nodeshash
-                 :active-node node})))
+                 :active-node-store active-node-store})))
 
 (defn force-graph
   "Draw force graph elements."
   [{:keys [^js data config]}]
-  (let [nodes (-> data .-nodes)
+  (let [active-node-store (make-active-node-store)
+        nodes (-> data .-nodes)
         canvas-current-dimensions (get-canvas-current-dimensions config)
         nodeshash (-> data ^:export .-nodeshash)
         min-passes-to-display (-> data (aget "graphs-options") (aget "min-passes-to-display"))
@@ -294,13 +302,12 @@
         (.select (-> config :canvas))
         (.on "click" (fn []
                        (do
-                         ; FIXME conflito entre click e animação de drag
-                         (stop-simulations)
                          (on-node-click {:edges (-> edges filter-min-passes)
                                          :config config
                                          :data data
                                          :nodeshash nodeshash
-                                         :nodes nodes})))))
+                                         :nodes nodes
+                                         :active-node-store active-node-store})))))
 
     (-> simulation
         (.nodes (->>
@@ -314,13 +321,14 @@
                  clj->js))
         (.on "tick" (fn []
                       (do
-                        (print "tick")
+                        (js/console.log "tick")
                         (draw-background config data)
                         (-> data (aget "canvas-dimensions") (draw-field data config))
                         (draw-graph {:edges (-> edges filter-min-passes)
                                      :config config
                                      :nodeshash nodeshash
-                                     :nodes nodes})))))
+                                     :nodes nodes
+                                     :active-node-store active-node-store})))))
 
     (-> simulation
         (.force "link")
@@ -331,5 +339,6 @@
     (draw-graph {:edges (-> edges filter-min-passes)
                  :config config
                  :nodeshash nodeshash
-                 :nodes nodes})
+                 :nodes nodes
+                 :active-node-store active-node-store})
     (swap! all-simulations conj simulation)))
