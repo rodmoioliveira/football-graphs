@@ -36,6 +36,7 @@
    [football.matches :refer [matches-files-hash labels-hash]]
    [football.store :refer [store
                            update-store
+                           theme-store
                            all-simulations
                            flush-simulations!
                            restart-simulations
@@ -154,17 +155,20 @@
                                   (toogle-theme-btn theme-text)
                                   (toogle-theme theme)
                                   ; TODO: remove!
-                                  (-> obj clj->js js/console.log)
+                                  (-> @theme-store clj->js js/console.log)
                                   (restart-simulations)))))))
         (-> input$
             (.subscribe #(-> %
                              (merge opts)
                              ((fn [obj]
                                 (do
-                                  (plot-graphs obj)
+                                  ; (plot-graphs obj)
                                   ; FIXME: change metrics while animation is running
-                                  (stop-simulations)
-                                  (flush-simulations!)))))))
+                                  (-> @theme-store clj->js js/console.log)
+                                  (restart-simulations)
+                                  ; (stop-simulations)
+                                  ; (flush-simulations!)
+                                  ))))))
 
         (-> list$
             (.subscribe

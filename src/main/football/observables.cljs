@@ -32,7 +32,10 @@
                                                    (merge
                                                     (get-metrics)
                                                     (get-theme-with (partial theme-identity (get-current-theme)))))))))
-                    (rx-op/tap display-passes)))
+                    (rx-op/tap (fn [obj]
+                                 (do
+                                   (display-passes obj)
+                                   (-> obj update-theme-store!))))))
         list$ (-> dom
                   :matches-list
                   (rx/fromEvent "click")
