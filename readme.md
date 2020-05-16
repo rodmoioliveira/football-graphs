@@ -9,15 +9,12 @@ This is a personal project to study soccer passing networks and investigate data
 # :soccer: About passing networks
 
 ### :books: Papers
-- Pappalardo, L., Cintia, P., Rossi, A. et al. A public data set of spatio-temporal match events in soccer competitions. Sci Data 6, 236 (2019). https://doi.org/10.1038/s41597-019-0247-7
 
-- Buldú JM, Busquets J, Martínez JH, Herrera-Diestra JL, Echegoyen I, Galeano J and Luque J (2018) Using Network Science to Analyse Football Passing Networks: Dynamics, Space, Time, and the Multilayer Nature of the Game. Front. Psychol. 9:1900. https://doi.org/10.3389/fpsyg.2018.01900
-
-- Buldú, J.M., Busquets, J., Echegoyen, I. et al. Defining a historic football team: Using Network Science to analyze Guardiola’s F.C. Barcelona. Sci Rep 9, 13602 (2019). https://doi.org/10.1038/s41598-019-49969-2
-
-- Gonçalves, Bruno & Coutinho, Diogo & Santos, Sara & Peñas, Carlos & Saiz, Sergio & Sampaio, Jaime. (2017). Exploring Team Passing Networks and Player Movement Dynamics in Youth Association Football. PLoS ONE. 12. https://doi.org/10.1371/journal.pone.0171156.
-
-- Korte F, Link D, Groll J and Lames M (2019) Play-by-Play Network Analysis in Football. Front. Psychol. 10:1738. doi:  https://doi.org/10.3389/fpsyg.2019.01738
+- **Pappalardo, L., Cintia, P., Rossi, A. et al.** [A public data set of spatio-temporal match events in soccer competitions.](https://doi.org/10.1038/s41597-019-0247-7) Sci Data 6, 236. 2019.
+- **Buldú JM, Busquets J, Martínez JH, Herrera-Diestra JL, Echegoyen I, Galeano J and Luque J (2018).** [Using Network Science to Analyse Football Passing Networks: Dynamics, Space, Time, and the Multilayer Nature of the Game.](https://doi.org/10.3389/fpsyg.2018.01900) Front. Psychol. 9:1900
+- **Buldú, J.M., Busquets, J., Echegoyen, I. et al.** [Defining a historic football team: Using Network Science to analyze Guardiola’s F.C. Barcelona.](https://doi.org/10.1038/s41598-019-49969-2) Sci Rep 9, 13602, 2019.
+- **Gonçalves, Bruno & Coutinho, Diogo & Santos, Sara & Peñas, Carlos & Saiz, Sergio & Sampaio, Jaime.** [Exploring Team Passing Networks and Player Movement Dynamics in Youth Association Football.](https://doi.org/10.1371/journal.pone.0171156.) PLoS ONE. 12, 2017.
+- **Korte F, Link D, Groll J and Lames M.** [Play-by-Play Network Analysis in Football.](https://doi.org/10.3389/fpsyg.2019.01738) Front. Psychol. 10:1738, 2019.
 
 ### :newspaper: Articles
 
