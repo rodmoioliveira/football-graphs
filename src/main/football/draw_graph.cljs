@@ -172,7 +172,6 @@
       (.arc x-pos y-pos radius 0 (* 2 js/Math.PI))
       ((fn [v] (set! (.-fillStyle v) (-> color active-color))))
       (.fill)
-      ; TODO: get color by atom!!!!
       ((fn [v] (set! (.-strokeStyle v) (-> @theme-store :theme-outline-node-color active-outline))))
       ((fn [v] (set! (.-lineWidth v) (-> config :nodes :outline :width))))
       (.stroke))))
@@ -325,7 +324,7 @@
                  clj->js))
         (.on "tick" (fn []
                       (do
-                        (js/console.log "tick" "animation-stores" (-> @all-simulations count))
+                        ; (js/console.log "tick" "animation-stores" (-> @all-simulations count))
                         (draw-background config data)
                         (-> data (aget "canvas-dimensions") (draw-field data config))
                         (draw-graph {:edges (-> edges filter-min-passes)

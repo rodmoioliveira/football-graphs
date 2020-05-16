@@ -150,21 +150,13 @@
         ; (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
         (-> toogle-theme$
             (.subscribe #(-> % (merge opts)
-                             ((fn [{:keys [theme-text theme] :as obj}]
+                             ((fn [{:keys [theme-text theme]}]
                                 (do
                                   (toogle-theme-btn theme-text)
                                   (toogle-theme theme)
-                                  ; TODO: remove!
-                                  (-> @theme-store clj->js js/console.log)
                                   (restart-simulations)))))))
         (-> input$
-            (.subscribe #(-> %
-                             (merge opts)
-                             ((fn [obj]
-                                (do
-                                  ; FIXME: change metrics while animation is running
-                                  (-> @theme-store clj->js js/console.log)
-                                  (restart-simulations)))))))
+            (.subscribe (fn [_] (restart-simulations))))
 
         (-> list$
             (.subscribe
