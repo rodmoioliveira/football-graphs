@@ -8,6 +8,7 @@
                            make-active-node-store
                            update-active-node-store!
                            reset-active-node-store!]]
+   [utils.dom :refer [is-mobile?]]
    [football.draw-field :refer [draw-field draw-background]]
    [football.simulations :refer [dragsubject dragged dragended dragstarted]]))
 
@@ -85,9 +86,9 @@
       ; draw arrows
       (.beginPath)
       ((fn [v] (set! (.-fillStyle v) (((-> config
-                                             :scales
-                                             :edges->colors-partial)
-                                         (-> @theme-store :theme-edge-color-range)) value))))
+                                           :scales
+                                           :edges->colors-partial)
+                                       (-> @theme-store :theme-edge-color-range)) value))))
       (.moveTo
        (-> base-vector first (- target-radius (-> config :edges :padding)))
        (-> base-vector second))
@@ -286,19 +287,20 @@
                        ; (.alphaDecay 0.00001)
                        (.velocityDecay 0.22))]
 
-    (-> d3
-        (.select (-> config :canvas))
-        (.call
-         (-> d3
-             (.drag)
-             (.container (-> config :canvas))
-             (.subject (dragsubject
-                        nodes
-                        config
-                        get-canvas-current-dimensions))
-             (.on "start" (dragstarted simulation))
-             (.on "drag" (dragged))
-             (.on "end" (dragended simulation)))))
+    (when-not (is-mobile?)
+      (-> d3
+          (.select (-> config :canvas))
+          (.call
+           (-> d3
+               (.drag)
+               (.container (-> config :canvas))
+               (.subject (dragsubject
+                          nodes
+                          config
+                          get-canvas-current-dimensions))
+               (.on "start" (dragstarted simulation))
+               (.on "drag" (dragged))
+               (.on "end" (dragended simulation))))))
 
     (-> d3
         (.select (-> config :canvas))
