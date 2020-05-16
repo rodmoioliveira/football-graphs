@@ -36,8 +36,6 @@
    [football.matches :refer [matches-files-hash labels-hash]]
    [football.store :refer [store
                            update-store
-                           theme-store
-                           all-simulations
                            flush-simulations!
                            restart-simulations
                            stop-simulations]]

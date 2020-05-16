@@ -4,7 +4,6 @@
    [clojure.string :refer [split]]
    [utils.core :refer [get-distance radians-between find-node]]
    [football.store :refer [all-simulations
-                           stop-simulations
                            theme-store
                            make-active-node-store
                            update-active-node-store!
@@ -233,7 +232,7 @@
       (update-active-node-store! active-node-store (-> node .-id))
       (reset-active-node-store! active-node-store))
 
-    (draw-background config data)
+    (draw-background config)
     (-> data (aget "canvas-dimensions") (draw-field data config))
     (draw-graph {:edges edges
                  :config config
@@ -325,7 +324,7 @@
         (.on "tick" (fn []
                       (do
                         ; (js/console.log "tick" "animation-stores" (-> @all-simulations count))
-                        (draw-background config data)
+                        (draw-background config)
                         (-> data (aget "canvas-dimensions") (draw-field data config))
                         (draw-graph {:edges (-> edges filter-min-passes)
                                      :config config
@@ -337,7 +336,7 @@
         (.force "link")
         (.links edges))
 
-    (draw-background config data)
+    (draw-background config)
     (-> data (aget "canvas-dimensions") (draw-field data config))
     (draw-graph {:edges (-> edges filter-min-passes)
                  :config config

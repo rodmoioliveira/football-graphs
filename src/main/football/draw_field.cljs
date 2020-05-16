@@ -4,7 +4,7 @@
 
 (defn draw-background
   "Draw the field background."
-  [^js config ^js data]
+  [^js config]
   (let [ctx (-> config :ctx)]
     (doto ctx
       (.clearRect 0 0 (-> config :canvas .-width) (-> config :canvas .-height))
@@ -444,4 +444,3 @@
         :midfield-point-radius midfield-point-radius})
       (draw-midfield-circle width length flip? midfield-cicle-radius)
       (draw-midfield-point width length midfield-point-radius))))
-
