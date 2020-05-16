@@ -51,12 +51,14 @@
                          (.scaleLinear)
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
-        node-color-scale #(-> d3
-                              (.scalePow)
-                              (.exponent 1)
-                              (.domain (-> mapping :domains %))
-                              (.range (-> mapping :codomains :colors :nodes))
-                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
+        node-color-scale (fn [domain]
+                              (fn [codomain]
+                                (-> d3
+                                    (.scalePow)
+                                    (.exponent 1)
+                                    (.domain (-> mapping :domains domain))
+                                    (.range codomain)
+                                    (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))))
         node-radius-scale #(-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
                                (.scaleSqrt)

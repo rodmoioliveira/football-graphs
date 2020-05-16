@@ -152,12 +152,11 @@
         ; Metrics for coloring node
         node-color-metric-name (-> @theme-store :node-color-metric name)
         node-color-metric-value (-> node .-metrics (#(aget % node-color-metric-name)))
-      ; TODO: get color by atom!!!!
         color-scale (-> config
                         :scales
                         (#(get-in % [(-> @theme-store :node-color-metric)]))
                         (#(% :color)))
-        color (color-scale node-color-metric-value)
+        color ((color-scale (-> @theme-store :theme-node-color-range)) node-color-metric-value)
 
         ; Metrics for sizing node
         node-radius-metric-name (-> @theme-store :node-radius-metric name)
