@@ -4,7 +4,7 @@ This is a personal project to study soccer passing networks and investigate data
 
 # :globe_with_meridians: Website
 
-#### https://grafos-da-bola.netlify.com/
+- #### https://grafos-da-bola.netlify.app/
 
 # :soccer: About passing networks
 
@@ -20,23 +20,47 @@ This is a personal project to study soccer passing networks and investigate data
 - Korte F, Link D, Groll J and Lames M (2019) Play-by-Play Network Analysis in Football. Front. Psychol. 10:1738. doi:  https://doi.org/10.3389/fpsyg.2019.01738
 
 ### :newspaper: Articles
-- https://tsj101sports.com/2018/06/20/football-with-graph-theory/
-- https://www.optasports.com/news/opta-legends-series-andrea-pirlo/
-- https://karun.in/blog/interactive-passing-networks.html
-- https://phys.org/news/2010-06-science-true-soccer-stars.html
-- https://statsbomb.com/2018/08/explaining-xgchain-passing-networks/
-- https://rpubs.com/ihatestudying/passing-network-
+
+- [World Cup 2018: Football With Graph Theory](https://tsj101sports.com/2018/06/20/football-with-graph-theory/)
+- [The Opta Legends Series - Part 1: Andrea Pirlo](https://www.optasports.com/news/opta-legends-series-andrea-pirlo/)
+- [Interactive Passing Networks](https://karun.in/blog/interactive-passing-networks.html)
+- [Using science to identify true soccer stars](https://phys.org/news/2010-06-science-true-soccer-stars.html)
+- [Explaining xGChain Passing Networks](https://statsbomb.com/2018/08/explaining-xgchain-passing-networks/)
+- [Passing Network of Football](https://rpubs.com/ihatestudying/passing-network-)
+- [Network Analysis and Visualization with R and igraph](https://kateto.net/netscix2016.html)
+- [Static and dynamic network visualization with R](https://kateto.net/network-visualization)
 
 ### :pushpin: Blogs
-- https://scientometrics.wordpress.com/
+- [BetweenThePosts](https://betweentheposts.net/)
+- [Fútbolismo](https://futbolismo.it/)
+- [James' Blog](https://jameswgrayson.wordpress.com/)
+- [R, Scientometrics, Knowledge Management, and Social Network Analysis](https://scientometrics.wordpress.com/)
+- [Katya Ognyanova](https://kateto.net/)
+- [soccermetrics](https://www.soccermetrics.net/)
 
-### :eyes: People to follow
+### :open_file_folder: Resources
+- [matiasmascioto/awesome-soccer-analytics](https://github.com/matiasmascioto/awesome-soccer-analytics)
+- [devinpleuler/analytics-handbook](https://github.com/devinpleuler/analytics-handbook)
+- [Friends-of-Tracking-Data-FoTD/passing-networks-in-python](https://github.com/Friends-of-Tracking-Data-FoTD/passing-networks-in-python)
+- [jokecamp/FootballData](https://github.com/jokecamp/FootballData)
+- [planetopendata/awesome-football](https://github.com/planetopendata/awesome-football)
+
+# :eyes: People to follow
+- [Katherine Ognyanova](https://twitter.com/ognyanova)
+- [Carlo Zapponi](https://twitter.com/littleark)
 - [Karun Singh](https://twitter.com/karun1710)
 - [Luca Pappalardo](https://github.com/jonpappalord)
 - [Ricardo Tavares](https://github.com/rjtavares)
-
-### :open_file_folder: Resources
-- https://github.com/matiasmascioto/awesome-soccer-analytics
+- [William Spearman](https://twitter.com/the_spearman)
+- [Sergio Llana](https://twitter.com/SergioMinuto90)
+- [Adrià Arbués](https://twitter.com/arbues6)
+- [Devin Pleuler](https://twitter.com/devinpleuler)
+- [Mladen Sormaz](https://twitter.com/Mladen_Sormaz)
+- [David Sumpter](https://twitter.com/Soccermatics)
+- [Jernej](https://twitter.com/jernejfl)
+- [David Fombella](https://twitter.com/bigdatasport)
+- [Dato Fútbol](https://twitter.com/DatoFutbol_cl)
+- [James Grayson](https://twitter.com/JamesWGrayson)
 
 # :floppy_disk: Dataset
 - Pappalardo, Luca; Massucco, Emanuele (2019): Soccer match event dataset. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.4415000
@@ -204,6 +228,9 @@ chmod +x sh/streamline_world_cup.sh
 </p>
 <p align="center">
   <img src="https://i2.wp.com/statsbomb.com/wp-content/uploads/2018/08/Liverpool_Swansea_passnetwork.png" width="700">
+</p>
+<p align="center">
+  <img src="https://betweentheposts.net/wp-content/uploads/01-03-2020-Barcelona-Passing-plot-Real-Madrid-Barcelona.png" width="700">
 </p>
 
 # :paperclip: License
