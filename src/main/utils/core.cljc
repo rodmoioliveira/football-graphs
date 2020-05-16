@@ -155,8 +155,8 @@
        (loop [i 0]
          (let [interate? (< i nodes-length)
                node (get nodes i)
-               dx (- x (-> node .-coord .-x))
-               dy (- y (-> node .-coord .-y))
+               dx (- x (-> node (aget "coord") .-x))
+               dy (- y (-> node (aget "coord") .-y))
                dist-sq (+ (* dx dx) (* dy dy))
                node-found? (< dist-sq rsq)]
            (if node-found?
