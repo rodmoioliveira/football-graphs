@@ -32,7 +32,7 @@
   [store]
   (reset! store nil))
 
-(def theme-store (atom {}))
+(defonce theme-store (atom {}))
 (defn update-theme-store!
   [obj]
   (reset! theme-store obj))
