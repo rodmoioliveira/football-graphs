@@ -95,12 +95,22 @@
     <link rel="manifest" href="./manifest/site.webmanifest" />
 
     <!-- Styles -->
-    <link rel="stylesheet" type="text/css" href="styles/main.css" />
-    <link rel="preload" href="fonts/alegreya-v13-latin-500.woff2" as="font" crossorigin="anonymous" />
-    <link rel="preload" href="fonts/alegreya-v13-latin-regular.woff2" as="font" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="styles/main.css" media="all" />
+    <link
+      rel="preload"
+      href="fonts/alegreya-v13-latin-500.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="fonts/alegreya-v13-latin-regular.woff2"
+      as="font"
+      crossorigin="anonymous"
+    />
     <title>Football Passing Networks</title>
   </head>
-  <body data-theme="light">
+  <body data-theme="light" id="body">
     <a
       href="https://github.com/rodmoioliveira/football-graphs"
       class="github-corner"
@@ -123,9 +133,23 @@
           class="octo-body"
         ></path></svg
     ></a>
-    <button class="btn btn--theme-toogle" data-toogle-theme>
+    <button
+      class="btn btn--theme-toogle"
+      data-toogle-theme
+      id="data-toogle-theme"
+    >
       light
     </button>
+    <script>
+      var themeStorage = localStorage.getItem('data-theme');
+      if (themeStorage) {
+        document
+          .getElementById('body')
+          .setAttribute('data-theme', themeStorage);
+        var btnTheme = document.getElementById('data-toogle-theme');
+        btnTheme.innerText = themeStorage;
+      }
+    </script>
     <nav class="nav-metrics" data-active="0">
       <div class="nav-controls">
         <fieldset>
@@ -239,7 +263,199 @@
               Let's check out the passing networks from the last World Cup:
             </p>
             <ul class="matches__list" id="matches__list">
-              <div class="loader"></div>
+              <!-- <div class="loader"></div> -->
+              <li class="match-item" data-match-id="2057974">
+                Argentina - Croatia, 0 - 3
+              </li>
+              <li class="match-item" data-match-id="2057972">
+                Argentina - Iceland, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2057971">
+                Australia - Peru, 0 - 2
+              </li>
+              <li class="match-item" data-match-id="2058016">
+                Belgium - England, 2 - 0
+              </li>
+              <li class="match-item" data-match-id="2058007">
+                Belgium - Japan, 3 - 2
+              </li>
+              <li class="match-item" data-match-id="2057990">
+                Belgium - Panama, 3 - 0
+              </li>
+              <li class="match-item" data-match-id="2057992">
+                Belgium - Tunisia, 5 - 2
+              </li>
+              <li class="match-item" data-match-id="2058011">
+                Brazil - Belgium, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057980">
+                Brazil - Costa Rica, 2 - 0
+              </li>
+              <li class="match-item" data-match-id="2058006">
+                Brazil - Mexico, 2 - 0
+              </li>
+              <li class="match-item" data-match-id="2057978">
+                Brazil - Switzerland, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2058009">
+                Colombia - England, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2057997">
+                Colombia - Japan, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057979">
+                Costa Rica - Serbia, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2058005">
+                Croatia - Denmark, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2058015">
+                Croatia - England, 2 - 1
+              </li>
+              <li class="match-item" data-match-id="2057973">
+                Croatia - Nigeria, 2 - 0
+              </li>
+              <li class="match-item" data-match-id="2057969">
+                Denmark - Australia, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2057970">
+                Denmark - France, 0 - 0
+              </li>
+              <li class="match-item" data-match-id="2057955">
+                Egypt - Uruguay, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057994">
+                England - Belgium, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057993">
+                England - Panama, 6 - 1
+              </li>
+              <li class="match-item" data-match-id="2058003">
+                France - Argentina, 4 - 3
+              </li>
+              <li class="match-item" data-match-id="2057966">
+                France - Australia, 2 - 1
+              </li>
+              <li class="match-item" data-match-id="2058014">
+                France - Belgium, 1 - 0
+              </li>
+              <li class="match-item" data-match-id="2058017">
+                France - Croatia, 4 - 2
+              </li>
+              <li class="match-item" data-match-id="2057968">
+                France - Peru, 1 - 0
+              </li>
+              <li class="match-item" data-match-id="2057984">
+                Germany - Mexico, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057986">
+                Germany - Sweden, 2 - 1
+              </li>
+              <li class="match-item" data-match-id="2057977">
+                Iceland - Croatia, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057964">
+                Iran - Portugal, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2057963">
+                Iran - Spain, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2058000">
+                Japan - Poland, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057999">
+                Japan - Senegal, 2 - 2
+              </li>
+              <li class="match-item" data-match-id="2057988">
+                Korea Republic - Germany, 2 - 0
+              </li>
+              <li class="match-item" data-match-id="2057987">
+                Korea Republic - Mexico, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057989">
+                Mexico - Sweden, 0 - 3
+              </li>
+              <li class="match-item" data-match-id="2057961">
+                Morocco - Iran, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057976">
+                Nigeria - Argentina, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057975">
+                Nigeria - Iceland, 2 - 0
+              </li>
+              <li class="match-item" data-match-id="2057995">
+                Panama - Tunisia, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057967">
+                Peru - Denmark, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057998">
+                Poland - Colombia, 0 - 3
+              </li>
+              <li class="match-item" data-match-id="2057996">
+                Poland - Senegal, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057962">
+                Portugal - Morocco, 1 - 0
+              </li>
+              <li class="match-item" data-match-id="2057960">
+                Portugal - Spain, 3 - 3
+              </li>
+              <li class="match-item" data-match-id="2058012">
+                Russia - Croatia, 2 - 2
+              </li>
+              <li class="match-item" data-match-id="2057956">
+                Russia - Egypt, 3 - 1
+              </li>
+              <li class="match-item" data-match-id="2057954">
+                Russia - Saudi Arabia, 5 - 0
+              </li>
+              <li class="match-item" data-match-id="2057959">
+                Saudi Arabia - Egypt, 2 - 1
+              </li>
+              <li class="match-item" data-match-id="2058001">
+                Senegal - Colombia, 0 - 1
+              </li>
+              <li class="match-item" data-match-id="2057982">
+                Serbia - Brazil, 0 - 2
+              </li>
+              <li class="match-item" data-match-id="2057981">
+                Serbia - Switzerland, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2057965">
+                Spain - Morocco, 2 - 2
+              </li>
+              <li class="match-item" data-match-id="2058004">
+                Spain - Russia, 1 - 1
+              </li>
+              <li class="match-item" data-match-id="2058013">
+                Sweden - England, 0 - 2
+              </li>
+              <li class="match-item" data-match-id="2057985">
+                Sweden - Korea Republic, 1 - 0
+              </li>
+              <li class="match-item" data-match-id="2058008">
+                Sweden - Switzerland, 1 - 0
+              </li>
+              <li class="match-item" data-match-id="2057983">
+                Switzerland - Costa Rica, 2 - 2
+              </li>
+              <li class="match-item" data-match-id="2057991">
+                Tunisia - England, 1 - 2
+              </li>
+              <li class="match-item" data-match-id="2058010">
+                Uruguay - France, 0 - 2
+              </li>
+              <li class="match-item" data-match-id="2058002">
+                Uruguay - Portugal, 2 - 1
+              </li>
+              <li class="match-item" data-match-id="2057958">
+                Uruguay - Russia, 3 - 0
+              </li>
+              <li class="match-item" data-match-id="2057957">
+                Uruguay - Saudi Arabia, 1 - 0
+              </li>
             </ul>
           </section>
         </aside>

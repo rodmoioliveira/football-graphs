@@ -3,20 +3,15 @@
    ["rxjs" :as rx]
    ["rxjs/operators" :as rx-op]
 
+   [football.store :refer [update-theme-store!]]
    [utils.dom :refer [dom
-                      slide-home
                       is-body-click?
                       get-metrics
                       get-current-theme
-                      fix-nav
-                      scroll-top
-                      scroll-to-current-match
-                      fix-back
+                      set-in-storage!
                       activate-nav
-                      deactivate-nav
-                      set-collapse]]
-   [mapping.themes :refer [theme-mapping
-                           theme-identity
+                      deactivate-nav]]
+   [mapping.themes :refer [theme-identity
                            theme-reverse
                            get-theme-with]]))
 
@@ -37,7 +32,10 @@
                                                    (merge
                                                     (get-metrics)
                                                     (get-theme-with (partial theme-identity (get-current-theme)))))))))
-                    (rx-op/tap display-passes)))
+                    (rx-op/tap (fn [obj]
+                                 (do
+                                   (display-passes obj)
+                                   (-> obj update-theme-store!))))))
         list$ (-> dom
                   :matches-list
                   (rx/fromEvent "click")
@@ -49,15 +47,19 @@
                                 (merge
                                  {:select-match match-id}
                                  (get-metrics)
-                                 (get-theme-with (partial theme-identity (get-current-theme))))))))
-        click$ (-> dom
+                                 (get-theme-with (partial theme-identity (get-current-theme))))))
+                   (rx-op/tap update-theme-store!)))
+        toogle-theme$ (-> dom
                    :theme-btn
                    (rx/fromEvent "click")
                    (.pipe (rx-op/map (fn [_] (merge
                                               (get-metrics)
-                                              (get-theme-with (partial theme-reverse (get-current-theme))))))))]
+                                              (get-theme-with (partial theme-reverse (get-current-theme))))))
+                          (rx-op/tap (fn [obj] (do
+                                                 (-> obj update-theme-store!)
+                                                 (-> obj :theme (set-in-storage! "data-theme")))))))]
     {:input$ input$
-     :click$ click$
+     :toogle-theme$ toogle-theme$
      :list$ list$}))
 
 (defn sticky-nav$
@@ -77,15 +79,6 @@
         (rx/fromEvent "click")
         (.subscribe deactivate-nav))))
 
-(defn slider$
-  []
-  (do
-    (-> dom :slide-to-home
-        (rx/fromEvent "click")
-        (.subscribe (fn [_] (do
-                              (slide-home)
-                              (fix-back 0)
-                              (fix-nav 0)
-                              (set-collapse (-> dom :slider-home) 0)
-                              (set-collapse (-> dom :slider-graph) 1)
-                              (scroll-to-current-match)))))))
+(def slider$
+  (-> dom :slide-to-home
+      (rx/fromEvent "click")))
