@@ -155,7 +155,7 @@
                                   (toogle-theme-btn theme-text)
                                   (toogle-theme theme)
                                   ; TODO: remove!
-                                  ; (-> @theme-store clj->js js/console.log)
+                                  (-> @theme-store clj->js js/console.log)
                                   (restart-simulations)))))))
         (-> input$
             (.subscribe #(-> %
@@ -164,7 +164,7 @@
                                 (do
                                   ; (plot-graphs obj)
                                   ; FIXME: change metrics while animation is running
-                                  ; (-> @theme-store clj->js js/console.log)
+                                  (-> @theme-store clj->js js/console.log)
                                   (restart-simulations)
                                   ; (stop-simulations)
                                   ; (flush-simulations!)
