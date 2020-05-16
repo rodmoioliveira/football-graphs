@@ -40,12 +40,13 @@
               :text-align "center"
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
-        edges->colors (-> d3
+        edges->colors (fn [domain range]
+                        (-> d3
                           (.scalePow)
                           (.exponent 1)
-                          (.domain (-> mapping :domains :passes))
-                          (.range (-> mapping :codomains :colors :edges))
-                          (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
+                          (.domain domain)
+                          (.range range)
+                          (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3)))))
         edges->width (-> d3
                          (.scaleLinear)
                          (.domain (-> mapping :domains :passes))
@@ -83,7 +84,7 @@
                 :alpha-centrality alpha-centrality
                 :eigenvector-centrality eigenvector-centrality
                 :current_flow_betweenness_centrality current_flow_betweenness_centrality
-                :edges->colors edges->colors
+                :edges->colors-partial (partial edges->colors (-> mapping :domains :passes))
                 :edges->width edges->width}]
     {:arrows {:recoil 12
               :expansion 1.5

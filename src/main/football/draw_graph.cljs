@@ -76,14 +76,18 @@
        (second base-vector))
       ((fn [v] (set! (.-lineWidth v) ((-> config :scales :edges->width) value))))
       ((fn [v] (set! (.-globalAlpha v) alpha-value)))
-      ; TODO: get color by atom!!!!
-      ((fn [v] (set! (.-strokeStyle v) ((-> config :scales :edges->colors) value))))
+      ((fn [v] (set! (.-strokeStyle v) (((-> config
+                                             :scales
+                                             :edges->colors-partial)
+                                         (-> @theme-store :theme-edge-color-range)) value))))
       (.stroke)
 
       ; draw arrows
       (.beginPath)
-      ; TODO: get color by atom!!!!
-      ((fn [v] (set! (.-fillStyle v) ((-> config :scales :edges->colors) value))))
+      ((fn [v] (set! (.-fillStyle v) (((-> config
+                                             :scales
+                                             :edges->colors-partial)
+                                         (-> @theme-store :theme-edge-color-range)) value))))
       (.moveTo
        (-> base-vector first (- target-radius (-> config :edges :padding)))
        (-> base-vector second))
