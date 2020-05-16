@@ -39,8 +39,9 @@
         alpha-value (if (some? @active-node-store) (if active-edges 1 (-> config :edges :alpha)) 1)
 
         ; get metric name, radius scale and values
-        node-radius-metric-name (-> config :nodes :node-radius-metric name)
-        radius-scale (-> config :scales (#(get-in % [(-> config :nodes :node-radius-metric)])) (#(% :radius)))
+        node-radius-metric-name (-> @theme-store :node-radius-metric name)
+
+        radius-scale (-> config :scales (#(get-in % [(-> @theme-store :node-radius-metric)])) (#(% :radius)))
         source-radius (-> edge
                           .-source
                           .-id
@@ -110,11 +111,11 @@
         y-pos (-> node .-y)
 
         ; Metrics for sizing node
-        node-radius-metric-name (-> config :nodes :node-radius-metric name)
+        node-radius-metric-name (-> @theme-store :node-radius-metric name)
         node-radius-metric-value (-> node .-metrics (#(aget % node-radius-metric-name)))
         radius-scale (-> config
                          :scales
-                         (#(get-in % [(-> config :nodes :node-radius-metric)]))
+                         (#(get-in % [(-> @theme-store :node-radius-metric)]))
                          (#(% :radius)))
         radius (radius-scale node-radius-metric-value)
 
@@ -160,11 +161,11 @@
         color (color-scale node-color-metric-value)
 
         ; Metrics for sizing node
-        node-radius-metric-name (-> config :nodes :node-radius-metric name)
+        node-radius-metric-name (-> @theme-store :node-radius-metric name)
         node-radius-metric-value (-> node .-metrics (#(aget % node-radius-metric-name)))
         radius-scale (-> config
                          :scales
-                         (#(get-in % [(-> config :nodes :node-radius-metric)]))
+                         (#(get-in % [(-> @theme-store :node-radius-metric)]))
                          (#(% :radius)))
         radius (radius-scale node-radius-metric-value)]
     (doto (-> config :ctx)
@@ -277,11 +278,12 @@
                         (-> d3
                             (.forceCollide)
                             (.radius (fn [^js d]
-                                       (let [node-radius-metric-name (-> config :nodes :node-radius-metric name)
+                                       ; TODO: check if this dinamic binding is really working
+                                       (let [node-radius-metric-name (-> @theme-store :node-radius-metric name)
                                              node-radius-metric-value (-> d .-metrics (#(aget % node-radius-metric-name)))
                                              radius-scale (-> config
                                                               :scales
-                                                              (#(get-in % [(-> config :nodes :node-radius-metric)]))
+                                                              (#(get-in % [(-> @theme-store :node-radius-metric)]))
                                                               (#(% :radius)))
                                              radius (radius-scale node-radius-metric-value)]
                                          radius))) (.strength 1)))
