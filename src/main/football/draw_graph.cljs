@@ -251,8 +251,8 @@
         nodes (-> data .-nodes)
         canvas-current-dimensions (get-canvas-current-dimensions config)
         nodeshash (-> data ^:export .-nodeshash)
-        min-passes-to-display (-> data (aget "graphs-options") (aget "min-passes-to-display"))
-        filter-min-passes #(filter (fn [edge] (>= (-> edge .-value) min-passes-to-display)) %)
+        min-passes-to-display (fn [] (-> @theme-store :min-passes-to-display))
+        filter-min-passes #(filter (fn [edge] (>= (-> edge .-value) (min-passes-to-display))) %)
         edges (-> data .-links)
         simulation (-> d3
                        (.forceSimulation)
