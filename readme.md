@@ -46,8 +46,6 @@ This is a personal project to study soccer passing networks and investigate data
 - [planetopendata/awesome-football](https://github.com/planetopendata/awesome-football)
 
 # :eyes: People to follow
-- [Katherine Ognyanova](https://twitter.com/ognyanova)
-- [Carlo Zapponi](https://twitter.com/littleark)
 - [Karun Singh](https://twitter.com/karun1710)
 - [Luca Pappalardo](https://github.com/jonpappalord)
 - [Ricardo Tavares](https://github.com/rjtavares)
@@ -60,7 +58,9 @@ This is a personal project to study soccer passing networks and investigate data
 - [Jernej](https://twitter.com/jernejfl)
 - [David Fombella](https://twitter.com/bigdatasport)
 - [Dato Fútbol](https://twitter.com/DatoFutbol_cl)
+- [Carlo Zapponi](https://twitter.com/littleark)
 - [James Grayson](https://twitter.com/JamesWGrayson)
+- [Katherine Ognyanova](https://twitter.com/ognyanova)
 
 # :floppy_disk: Dataset
 - Pappalardo, Luca; Massucco, Emanuele (2019): Soccer match event dataset. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.4415000
