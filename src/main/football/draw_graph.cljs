@@ -5,6 +5,7 @@
    [utils.core :refer [get-distance radians-between find-node]]
    [football.store :refer [all-simulations
                            stop-simulations
+                           theme-store
                            make-active-node-store
                            update-active-node-store!
                            reset-active-node-store!]]
@@ -120,8 +121,7 @@
                    :bottom (+ y-pos 6 radius)}]
     (doto (-> config :ctx)
       ((fn [v] (set! (.-font v) (-> config :nodes :font :full))))
-      ; TODO: get color by atom!!!!
-      ((fn [v] (set! (.-fillStyle v) (-> config :nodes :font :color))))
+      ((fn [v] (set! (.-fillStyle v) (-> @theme-store :theme-font-color))))
       ((fn [v] (set! (.-textAlign v) (-> config :nodes :font :text-align))))
       ((fn [v] (set! (.-textBaseline v) (-> config :nodes :font :base-line))))
       (.fillText (-> node
