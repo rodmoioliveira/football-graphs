@@ -146,17 +146,16 @@
   (let [x-pos (-> node .-x)
         y-pos (-> node .-y)
         is-active? (= (-> node .-id) @active-node-store)
-      ; TODO: get color by atom!!!!
         active-color #(if is-active? (-> config :nodes :active :color) %)
         active-outline #(if is-active? (-> config :nodes :active :outline) %)
 
         ; Metrics for coloring node
-        node-color-metric-name (-> config :nodes :node-color-metric name)
+        node-color-metric-name (-> @theme-store :node-color-metric name)
         node-color-metric-value (-> node .-metrics (#(aget % node-color-metric-name)))
+      ; TODO: get color by atom!!!!
         color-scale (-> config
                         :scales
-                        (#(get-in % [(-> config :nodes :node-color-metric)]))
-      ; TODO: get color by atom!!!!
+                        (#(get-in % [(-> @theme-store :node-color-metric)]))
                         (#(% :color)))
         color (color-scale node-color-metric-value)
 
@@ -175,7 +174,7 @@
       ((fn [v] (set! (.-fillStyle v) (-> color active-color))))
       (.fill)
       ; TODO: get color by atom!!!!
-      ((fn [v] (set! (.-strokeStyle v) (-> config :nodes :outline :color active-outline))))
+      ((fn [v] (set! (.-strokeStyle v) (-> @theme-store :theme-outline-node-color active-outline))))
       ((fn [v] (set! (.-lineWidth v) (-> config :nodes :outline :width))))
       (.stroke))))
 

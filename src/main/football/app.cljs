@@ -162,13 +162,9 @@
                              (merge opts)
                              ((fn [obj]
                                 (do
-                                  ; (plot-graphs obj)
                                   ; FIXME: change metrics while animation is running
                                   (-> @theme-store clj->js js/console.log)
-                                  (restart-simulations)
-                                  ; (stop-simulations)
-                                  ; (flush-simulations!)
-                                  ))))))
+                                  (restart-simulations)))))))
 
         (-> list$
             (.subscribe
