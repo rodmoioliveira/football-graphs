@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/public/img/animation_grafos.gif" width="700">
+</p>
+
 # :dart: About this project
 
 This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
