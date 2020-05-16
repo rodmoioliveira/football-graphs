@@ -40,22 +40,25 @@
               :text-align "center"
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
-        edges->colors (-> d3
+        edges->colors (fn [domain range]
+                        (-> d3
                           (.scalePow)
                           (.exponent 1)
-                          (.domain (-> mapping :domains :passes))
-                          (.range (-> mapping :codomains :colors :edges))
-                          (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
+                          (.domain domain)
+                          (.range range)
+                          (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3)))))
         edges->width (-> d3
                          (.scaleLinear)
                          (.domain (-> mapping :domains :passes))
                          (.range (-> mapping :codomains :edges-width)))
-        node-color-scale #(-> d3
-                              (.scalePow)
-                              (.exponent 1)
-                              (.domain (-> mapping :domains %))
-                              (.range (-> mapping :codomains :colors :nodes))
-                              (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))
+        node-color-scale (fn [domain]
+                              (fn [codomain]
+                                (-> d3
+                                    (.scalePow)
+                                    (.exponent 1)
+                                    (.domain (-> mapping :domains domain))
+                                    (.range codomain)
+                                    (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))))
         node-radius-scale #(-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
                                (.scaleSqrt)
@@ -83,7 +86,7 @@
                 :alpha-centrality alpha-centrality
                 :eigenvector-centrality eigenvector-centrality
                 :current_flow_betweenness_centrality current_flow_betweenness_centrality
-                :edges->colors edges->colors
+                :edges->colors-partial (partial edges->colors (-> mapping :domains :passes))
                 :edges->width edges->width}]
     {:arrows {:recoil 12
               :expansion 1.5
@@ -95,9 +98,9 @@
              :alpha 0}
      :nodes {:node-radius-metric node-radius-metric
              :node-color-metric node-color-metric
-             :radius-click (if mobile? 5 0.5)
+             :radius-click (if mobile? 10 0.5)
              :active {:color "#ebd1fe"
-                      :outline outline-node-color}
+                      :outline "#9811fa"}
              :name-position (or name-position :top)
              :outline {:color outline-node-color
                        :width 1.5}
