@@ -16,10 +16,10 @@
 (defn draw-edges
   "Draw the edges of passes between players."
   [{:keys [^js edge config nodeshash active-node-store]}]
-  (let [source-x (-> edge .-source .-x)
-        source-y (-> edge .-source .-y)
-        target-x (-> edge .-target .-x)
-        target-y (-> edge .-target .-y)
+  (let [source-x (-> edge (aget "source") .-x)
+        source-y (-> edge (aget "source") .-y)
+        target-x (-> edge (aget "target") .-x)
+        target-y (-> edge (aget "target") .-y)
         value (-> edge .-value)
         source-target-distance (get-distance
                                 source-x
