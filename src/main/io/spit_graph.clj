@@ -151,9 +151,7 @@
                        :teams-data
                        vals
                        (map :formation))
-        lineup (->> formation
-                    (map (fn [t] (->> (->> t :lineup) (map :player-id))))
-                    (reduce concat))
+        lineup (->> data :players-in-match vec)
         substitutions (->> formation
                            (map (fn [t] (->> t :substitutions
                                              pair-subs)))
