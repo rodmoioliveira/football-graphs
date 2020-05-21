@@ -153,9 +153,21 @@
                        (map :formation))
         lineup (->> data :players-in-match vec)
         substitutions (->> formation
-                           (map (fn [t] (->> t :substitutions
-                                             pair-subs)))
-                           (reduce concat))
+                            (map (fn [t] (->> t :substitutions
+                                              pair-subs
+                                              ((fn [pair-ids]
+                                                 (vec
+                                                   (set
+                                                     (map (fn [[id1 id2]]
+                                                        (vec
+                                                         (set
+                                                          (reduce
+                                                           concat
+                                                           (concat
+                                                            (filter (fn [ids] (some (fn [id] (= id id1)) ids)) pair-ids)
+                                                            (filter (fn [ids] (some (fn [id] (= id id2)) ids)) pair-ids))))))
+                                                      pair-ids))))))))
+                            (reduce concat))
         players-in-game (set (concat lineup (->> substitutions (reduce concat))))
         aggregate-players (fn [t]
                             (reduce (fn [acc cur]
@@ -176,9 +188,8 @@
                                    (map (fn [p] (assoc p :pos [(p :wy-id)] :id [(p :wy-id)])))
                                    (map (fn [p]
                                           (let [compose-pos (->> substitutions
-                                                                 (filter (fn [[a b]] (or
-                                                                                      (= a (-> p :wy-id))
-                                                                                      (= b (-> p :wy-id)))))
+                                                                 (filter
+                                                                  (fn [ids] (some #(= % (-> p :wy-id)) ids)))
                                                                  first)
                                                 pos (or compose-pos [(p :wy-id)])]
                                             (assoc p :pos (join "" pos) :id (join "" pos))))))]
