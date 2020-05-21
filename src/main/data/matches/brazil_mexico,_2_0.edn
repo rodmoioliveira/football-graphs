@@ -13,7 +13,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Corona"}
+       :player-name nil}
       {:player-id 112813,
        :assists "0",
        :goals "null",
@@ -27,7 +27,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Fabi\\u00e1n"}
+       :player-name nil}
       {:player-id 112710,
        :assists "0",
        :goals "null",
@@ -41,7 +41,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Aquino"}
+       :player-name nil}
       {:player-id 112542,
        :assists "0",
        :goals "null",
@@ -55,14 +55,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. dos Santos"}
+       :player-name nil}
       {:player-id 284267,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u00c9. Guti\\u00e9rrez"}
+       :player-name nil}
       {:player-id 3349,
        :assists "0",
        :goals "0",
@@ -198,21 +198,21 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Marcelo"}
+       :player-name nil}
       {:player-id 70083,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Danilo"}
+       :player-name nil}
       {:player-id 14785,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Renato Augusto"}
+       :player-name nil}
       {:player-id 105802,
        :assists "0",
        :goals "null",
@@ -226,28 +226,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C\\u00e1ssio"}
+       :player-name nil}
       {:player-id 15272,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Geromel"}
+       :player-name nil}
       {:player-id 71654,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ederson"}
+       :player-name nil}
       {:player-id 40335,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Fred"}
+       :player-name nil}
       {:player-id 15808,
        :assists "0",
        :goals "1",
@@ -388,6 +388,10 @@
   :label "Brazil - Mexico, 2 - 0",
   :venue "Samara Arena",
   :dateutc "2018-07-02 14:00:00"},
+ :players-in-match
+ #{112777 40810 112459 112392 112366 105339 20394 3431 40539 3802
+   255387 3685 7941 3434 59003 336178 3349 40550 15808 25816 448210
+   40756 214220 40707 105333 340386 295156 3384},
  :players
  {:105333
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -406,26 +410,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 175},
-  :105334
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 105334,
-   :short-name "Douglas Costa",
-   :middle-name "",
-   :last-name "Costa de Souza",
-   :first-name "Douglas ",
-   :birth-date "1990-09-14",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 65,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 170},
   :105339
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 105339,
@@ -443,23 +427,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 179},
-  :112253
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 112253,
-   :short-name "M. Fabi\\u00e1n",
-   :middle-name "",
-   :last-name "Fabi\\u00e1n De La Mora",
-   :first-name "Marco Jhonfai",
-   :birth-date "1989-07-21",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 65,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 170},
   :112366
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 112366,
@@ -511,40 +478,6 @@
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 180},
-  :112522
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 112522,
-   :short-name "J. Corona",
-   :middle-name "",
-   :last-name "Corona Ru\\u00edz",
-   :first-name "Jes\\u00fas Manuel",
-   :birth-date "1993-01-06",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 62,
-   :current-team-id 9606,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 173},
-  :112556
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 112556,
-   :short-name "J. Aquino",
-   :middle-name "",
-   :last-name "Aquino Carmona",
-   :first-name "Javier Ignacio",
-   :birth-date "1990-02-11",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 59,
-   :current-team-id 15417,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 168},
   :112777
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 112777,
@@ -562,40 +495,6 @@
    {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 183},
-  :14785
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14785,
-   :short-name "Renato Augusto",
-   :middle-name "",
-   :last-name "Soares de Oliveira Augusto",
-   :first-name "Renato ",
-   :birth-date "1988-02-08",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 9130,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 186},
-  :15272
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 15272,
-   :short-name "Geromel",
-   :middle-name "",
-   :last-name "Tonon Geromel",
-   :first-name "Pedro",
-   :birth-date "1985-09-21",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 5649,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 6380,
-   :height 190},
   :15808
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 15808,
@@ -681,23 +580,6 @@
    {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 183},
-  :284267
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284267,
-   :short-name "\\u00c9. Guti\\u00e9rrez",
-   :middle-name "",
-   :last-name "Guti\\u00e9rrez Galaviz",
-   :first-name "\\u00c9rick Gabriel",
-   :birth-date "1995-06-15",
-   :birth-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 11,
-   :passport-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 176},
   :295156
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 295156,
@@ -715,23 +597,6 @@
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 177},
-  :3310
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3310,
-   :short-name "Marcelo",
-   :middle-name "",
-   :last-name "Vieira da Silva J\\u00fanior",
-   :first-name "Marcelo",
-   :birth-date "1988-05-12",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 675,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 6380,
-   :height 174},
   :3349
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3349,
@@ -851,40 +716,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15473,
    :height 177},
-  :377071
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 377071,
-   :short-name "Richarlison",
-   :middle-name "",
-   :last-name "de Andrade",
-   :first-name "Richarlison",
-   :birth-date "1997-05-10",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 179},
-  :3795
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3795,
-   :short-name "H. Moreno",
-   :middle-name "",
-   :last-name "Moreno Herrera",
-   :first-name "H\\u00e9ctor Alfredo",
-   :birth-date "1988-01-17",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 687,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 183},
   :3802
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3802,
@@ -902,40 +733,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 171},
-  :40335
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 40335,
-   :short-name "Fred",
-   :middle-name "",
-   :last-name "Rodrigues Santos",
-   :first-name "Frederico",
-   :birth-date "1993-03-05",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 64,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 169},
-  :40536
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 40536,
-   :short-name "C\\u00e1ssio",
-   :middle-name "",
-   :last-name "Ramos",
-   :first-name "C\\u00e1ssio Roberto",
-   :birth-date "1987-06-06",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 5656,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 195},
   :40539
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 40539,
@@ -1007,23 +804,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 185},
-  :40765
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 40765,
-   :short-name "Lucas Moura",
-   :middle-name "",
-   :last-name "Rodrigues Moura da Silva",
-   :first-name "Lucas",
-   :birth-date "1992-08-13",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 172},
   :40810
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 40810,
@@ -1075,43 +855,6 @@
    {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15473,
    :height 184},
-  :70083
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 70083,
-   :short-name "Danilo",
-   :middle-name "",
-   :last-name "da Silva",
-   :first-name "Danilo Luiz",
-   :birth-date "1991-07-15",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 184},
-  :71654
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 71654,
-   :short-name "Ederson",
-   :middle-name "",
-   :last-name "Santana de Moraes",
-   :first-name "Ederson",
-   :birth-date "1993-08-17",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 89,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 187},
   :7941
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 7941,
@@ -1127,23 +870,6 @@
    :current-team-id 1633,
    :passport-area
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 175},
-  :8297
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 8297,
-   :short-name "G. dos Santos",
-   :middle-name "",
-   :last-name "dos Santos Ram\\u00edrez",
-   :first-name "Giovani",
-   :birth-date "1989-05-11",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 7847,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15473,
    :height 175}},
  :events

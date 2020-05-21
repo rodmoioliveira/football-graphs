@@ -13,7 +13,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Zapata"}
+       :player-name nil}
       {:player-id 90999,
        :assists "0",
        :goals "null",
@@ -27,14 +27,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "O. Murillo"}
+       :player-name nil}
       {:player-id 91039,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Vargas"}
+       :player-name nil}
       {:player-id 91381,
        :assists "0",
        :goals "null",
@@ -48,7 +48,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Muriel"}
+       :player-name nil}
       {:player-id 91082,
        :assists "0",
        :goals "null",
@@ -62,7 +62,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Borja"}
+       :player-name nil}
       {:player-id 255738,
        :assists "0",
        :goals "0",
@@ -198,28 +198,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Cionek"}
+       :player-name nil}
       {:player-id 225324,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Kurzawa"}
+       :player-name nil}
       {:player-id 99381,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. J\\u0119drzejczyk"}
+       :player-name nil}
       {:player-id 99452,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Milik"}
+       :player-name nil}
       {:player-id 8121,
        :assists "0",
        :goals "null",
@@ -233,28 +233,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. B\\u0142aszczykowski"}
+       :player-name nil}
       {:player-id 15282,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Peszko"}
+       :player-name nil}
       {:player-id 138174,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Linetty"}
+       :player-name nil}
       {:player-id 7847,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u0141. Fabia\\u0144ski"}
+       :player-name nil}
       {:player-id 99479,
        :assists "0",
        :goals "0",
@@ -395,6 +395,10 @@
   :label "Poland - Colombia, 0 - 3",
   :venue "Kazan' Arena",
   :dateutc "2018-06-24 18:00:00"},
+ :players-in-match
+ #{246928 99391 256634 20751 4814 99833 99479 91702 7849 257762 99438
+   33032 100140 91502 21097 3450 25662 70096 14817 91019 240032 255738
+   70136 25537 37831 14798 99902 240042},
  :players
  {:100140
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -413,23 +417,6 @@
    {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 172},
-  :138174
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 138174,
-   :short-name "K. Linetty",
-   :middle-name "",
-   :last-name "Linetty",
-   :first-name "Karol",
-   :birth-date "1995-02-02",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 3164,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 176},
   :14798
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 14798,
@@ -447,23 +434,6 @@
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 184},
-  :14804
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14804,
-   :short-name "J. B\\u0142aszczykowski",
-   :middle-name "",
-   :last-name "B\\u0142aszczykowski",
-   :first-name "Jakub",
-   :birth-date "1985-12-14",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 2451,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 176},
   :14817
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 14817,
@@ -481,23 +451,6 @@
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 185},
-  :15282
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 15282,
-   :short-name "S. Peszko",
-   :middle-name "",
-   :last-name "Peszko",
-   :first-name "S\\u0142awomir",
-   :birth-date "1985-02-19",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 69,
-   :current-team-id 13559,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 173},
   :20751
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 20751,
@@ -521,29 +474,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 179},
-  :20764
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 20764,
-   :short-name "L. Muriel",
-   :middle-name "",
-   :last-name "Muriel Fruto",
-   :first-name "Luis Fernando",
-   :birth-date "1991-04-16",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 680,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 178},
   :21097
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 21097,
@@ -561,23 +491,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 13869,
    :height 190},
-  :225324
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 225324,
-   :short-name "R. Kurzawa",
-   :middle-name "",
-   :last-name "Kurzawa",
-   :first-name "Rafa\\u0142",
-   :birth-date "1993-01-29",
-   :birth-area
-   {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 3789,
-   :passport-area
-   {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 182},
   :240032
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 240032,
@@ -732,29 +645,6 @@
    {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 187},
-  :26518
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 26518,
-   :short-name "C. S\\u00e1nchez",
-   :middle-name "",
-   :last-name "S\\u00e1nchez Moreno",
-   :first-name "Carlos Alberto",
-   :birth-date "1986-02-06",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 1633,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 182},
   :33032
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 33032,
@@ -795,29 +685,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 177},
-  :3531
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3531,
-   :short-name "C. Zapata",
-   :middle-name "",
-   :last-name "Zapata Valencia",
-   :first-name "Cristian Eduardo",
-   :birth-date "1986-09-30",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 187},
   :37831
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 37831,
@@ -910,23 +777,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 175},
-  :7847
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 7847,
-   :short-name "\\u0141. Fabia\\u0144ski",
-   :middle-name "",
-   :last-name "Fabia\\u0144ski",
-   :first-name "\\u0141ukasz",
-   :birth-date "1985-04-18",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 1633,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 190},
   :7849
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 7849,
@@ -944,23 +794,6 @@
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 196},
-  :91002
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 91002,
-   :short-name "O. Murillo",
-   :middle-name "",
-   :last-name "Murillo Murillo",
-   :first-name "Oscar Fabi\\u00e1n",
-   :birth-date "1988-04-18",
-   :birth-area
-   {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
-   :foot "left",
-   :weight 82,
-   :current-team-id 15413,
-   :passport-area
-   {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 184},
   :91019
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 91019,
@@ -984,52 +817,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 169},
-  :91039
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 91039,
-   :short-name "C. Vargas",
-   :middle-name "",
-   :last-name "Vargas Gil",
-   :first-name "Camilo Andr\\u00e9s",
-   :birth-date "1989-03-09",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 12394,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 185},
-  :91156
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 91156,
-   :short-name "M. Borja",
-   :middle-name "",
-   :last-name "Borja Hern\\u00e1ndez",
-   :first-name "Miguel \\u00c1ngel",
-   :birth-date "1993-01-26",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 5646,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 183},
   :91502
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 91502,
@@ -1070,23 +857,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 179},
-  :99381
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 99381,
-   :short-name "A. J\\u0119drzejczyk",
-   :middle-name "",
-   :last-name "J\\u0119drzejczyk",
-   :first-name "Artur",
-   :birth-date "1987-11-04",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 13505,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 189},
   :99391
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 99391,
@@ -1121,23 +891,6 @@
    {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 181},
-  :99452
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 99452,
-   :short-name "A. Milik",
-   :middle-name "",
-   :last-name "Milik",
-   :first-name "Arkadiusz",
-   :birth-date "1994-02-28",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "left",
-   :weight 78,
-   :current-team-id 3187,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 186},
   :99479
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 99479,
@@ -1155,23 +908,6 @@
    {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 188},
-  :99661
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 99661,
-   :short-name "T. Cionek",
-   :middle-name "",
-   :last-name "Rangel Cionek",
-   :first-name "Thiago",
-   :birth-date "1986-04-21",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3204,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 183},
   :99833
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 99833,

@@ -13,7 +13,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Corona"}
+       :player-name nil}
       {:player-id 112813,
        :assists "0",
        :goals "0",
@@ -27,14 +27,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. dos Santos"}
+       :player-name nil}
       {:player-id 112253,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Fabi\\u00e1n"}
+       :player-name nil}
       {:player-id 112710,
        :assists "0",
        :goals "0",
@@ -48,7 +48,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Aquino"}
+       :player-name nil}
       {:player-id 112542,
        :assists "0",
        :goals "null",
@@ -62,14 +62,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. dos Santos"}
+       :player-name nil}
       {:player-id 284267,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u00c9. Guti\\u00e9rrez"}
+       :player-name nil}
       {:player-id 112392,
        :assists "0",
        :goals "0",
@@ -205,56 +205,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Rudy"}
+       :player-name nil}
       {:player-id 14991,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Ginter"}
+       :player-name nil}
       {:player-id 15008,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. ter Stegen"}
+       :player-name nil}
       {:player-id 134383,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. S\\u00fcle"}
+       :player-name nil}
       {:player-id 134387,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Goretzka"}
+       :player-name nil}
       {:player-id 15062,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Trapp"}
+       :player-name nil}
       {:player-id 14808,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u0130. G\\u00fcndo\\u011fan"}
+       :player-name nil}
       {:player-id 14748,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. R\\u00fcdiger"}
+       :player-name nil}
       {:player-id 15024,
        :assists "0",
        :goals "0",
@@ -395,25 +395,12 @@
   :label "Germany - Mexico, 0 - 1",
   :venue "Stadion Luzhniki",
   :dateutc "2018-06-17 15:00:00"},
+ :players-in-match
+ #{112777 14716 173214 14723 112459 112392 112366 14731 14732 14795
+   255387 3685 15125 7941 59003 3795 3319 336178 25816 448210 146583
+   14862 224593 295156 15024 3384 14712 3318},
  :players
- {:112253
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 112253,
-   :short-name "M. Fabi\\u00e1n",
-   :middle-name "",
-   :last-name "Fabi\\u00e1n De La Mora",
-   :first-name "Marco Jhonfai",
-   :birth-date "1989-07-21",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 65,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 170},
-  :112366
+ {:112366
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 112366,
    :short-name "M. Lay\\u00fan",
@@ -464,40 +451,6 @@
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 180},
-  :112522
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 112522,
-   :short-name "J. Corona",
-   :middle-name "",
-   :last-name "Corona Ru\\u00edz",
-   :first-name "Jes\\u00fas Manuel",
-   :birth-date "1993-01-06",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 62,
-   :current-team-id 9606,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 173},
-  :112556
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 112556,
-   :short-name "J. Aquino",
-   :middle-name "",
-   :last-name "Aquino Carmona",
-   :first-name "Javier Ignacio",
-   :birth-date "1990-02-11",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 59,
-   :current-team-id 15417,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 168},
   :112777
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 112777,
@@ -515,40 +468,6 @@
    {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 183},
-  :134383
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 134383,
-   :short-name "N. S\\u00fcle",
-   :middle-name "",
-   :last-name "S\\u00fcle",
-   :first-name "Niklas",
-   :birth-date "1995-09-03",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 97,
-   :current-team-id 2444,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 195},
-  :134387
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 134387,
-   :short-name "L. Goretzka",
-   :middle-name "",
-   :last-name "Goretzka",
-   :first-name "Leon ",
-   :birth-date "1995-02-06",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 2444,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 189},
   :146583
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 146583,
@@ -651,26 +570,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 186},
-  :14748
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14748,
-   :short-name "A. R\\u00fcdiger",
-   :middle-name "",
-   :last-name "R\\u00fcdiger",
-   :first-name "Antonio",
-   :birth-date "1993-03-03",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Sierra Leone",
-    :id "694",
-    :alpha-3code "SLE",
-    :alpha-2code "SL"},
-   :current-national-team-id 3148,
-   :height 191},
   :14795
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 14795,
@@ -688,23 +587,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 191},
-  :14808
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14808,
-   :short-name "\\u0130. G\\u00fcndo\\u011fan",
-   :middle-name "",
-   :last-name "G\\u00fcndo\\u011fan",
-   :first-name "\\u0130lkay",
-   :birth-date "1990-10-24",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 180},
   :14862
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 14862,
@@ -718,40 +600,6 @@
    :foot "right",
    :weight 72,
    :current-team-id 3767,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 187},
-  :14991
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14991,
-   :short-name "M. Ginter",
-   :middle-name "",
-   :last-name "Ginter",
-   :first-name "Matthias",
-   :birth-date "1994-01-19",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 2454,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 191},
-  :15008
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 15008,
-   :short-name "M. ter Stegen",
-   :middle-name "",
-   :last-name "ter Stegen",
-   :first-name "Marc-Andr\\u00e9",
-   :birth-date "1992-04-30",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 676,
    :passport-area
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
@@ -773,23 +621,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 180},
-  :15062
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 15062,
-   :short-name "K. Trapp",
-   :middle-name "",
-   :last-name "Trapp",
-   :first-name "Kevin",
-   :birth-date "1990-07-08",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 88,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 189},
   :15125
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 15125,
@@ -807,23 +638,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 181},
-  :15811
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 15811,
-   :short-name "S. Rudy",
-   :middle-name "",
-   :last-name "Rudy",
-   :first-name "Sebastian",
-   :birth-date "1990-02-28",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 2444,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 180},
   :173214
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 173214,
@@ -841,40 +655,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 180},
-  :18550
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 18550,
-   :short-name "E. Can",
-   :middle-name "",
-   :last-name "Can",
-   :first-name "Emre",
-   :birth-date "1994-01-12",
-   :birth-area
-   {:name "Germany", :id 276, :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Turkey", :id 792, :alpha-3code "TUR", :alpha-2code "TR"},
-   :current-national-team-id 3148,
-   :height 184},
-  :18669
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 18669,
-   :short-name "J. Hector",
-   :middle-name "",
-   :last-name "Hector",
-   :first-name "Jonas",
-   :birth-date "1990-05-27",
-   :birth-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 2463,
-   :passport-area
-   {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 3148,
-   :height 185},
   :224593
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 224593,
@@ -892,23 +672,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 176},
-  :245364
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 245364,
-   :short-name "L. San\\u00e9",
-   :middle-name "",
-   :last-name "San\\u00e9",
-   :first-name "Leroy",
-   :birth-date "1996-01-11",
-   :birth-area
-   {:name "Germany", :id 276, :alpha-3code "DEU", :alpha-2code "DE"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 1625,
-   :passport-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 3148,
-   :height 184},
   :255387
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 255387,
@@ -943,23 +706,6 @@
    {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 183},
-  :284267
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284267,
-   :short-name "\\u00c9. Guti\\u00e9rrez",
-   :middle-name "",
-   :last-name "Guti\\u00e9rrez Galaviz",
-   :first-name "\\u00c9rick Gabriel",
-   :birth-date "1995-06-15",
-   :birth-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 11,
-   :passport-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 176},
   :295156
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 295156,
@@ -1011,23 +757,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 3148,
    :height 180},
-  :3349
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3349,
-   :short-name "J. dos Santos",
-   :middle-name "",
-   :last-name "dos Santos Ram\\u00edrez",
-   :first-name "Jonathan",
-   :birth-date "1990-04-26",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 7847,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 15473,
-   :height 172},
   :336178
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 336178,
@@ -1145,23 +874,6 @@
    :current-team-id 1633,
    :passport-area
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 175},
-  :8297
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 8297,
-   :short-name "G. dos Santos",
-   :middle-name "",
-   :last-name "dos Santos Ram\\u00edrez",
-   :first-name "Giovani",
-   :birth-date "1989-05-11",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 7847,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15473,
    :height 175}},
  :events

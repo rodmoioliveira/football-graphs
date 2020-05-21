@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Arrizabalaga"}
+       :player-name nil}
       {:player-id 3304,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Nacho"}
+       :player-name nil}
       {:player-id 3443,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Koke"}
+       :player-name nil}
       {:player-id 7949,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Pepe Reina"}
+       :player-name nil}
       {:player-id 4488,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Sa\\u00fal"}
+       :player-name nil}
       {:player-id 3560,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Nacho Monreal"}
+       :player-name nil}
       {:player-id 278289,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Odriozola"}
+       :player-name nil}
       {:player-id 25553,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Azpilicueta"}
+       :player-name nil}
       {:player-id 4498,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Lucas V\\u00e1zquez"}
+       :player-name nil}
       {:player-id 288091,
        :assists "0",
        :goals "null",
@@ -205,49 +205,49 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "H. Mendyl"}
+       :player-name nil}
       {:player-id 285590,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Amrabat"}
+       :player-name nil}
       {:player-id 552555,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. El Kaabi"}
+       :player-name nil}
       {:player-id 372915,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Harit"}
+       :player-name nil}
       {:player-id 101847,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Carcela-Gonz\\u00e1lez"}
+       :player-name nil}
       {:player-id 20579,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Benatia"}
+       :player-name nil}
       {:player-id 120631,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Bounou"}
+       :player-name nil}
       {:player-id 447821,
        :assists "0",
        :goals "1",
@@ -388,6 +388,10 @@
   :label "Spain - Morocco, 2 - 2",
   :venue "Kaliningrad Stadium",
   :dateutc "2018-06-25 18:00:00"},
+ :players-in-match
+ #{15727 6509 101846 101620 3840 447821 221039 25888 8317 149074 25998
+   3269 3563 288091 4338 3346 4501 142 32968 3353 7910 3306 3341 29625
+   396475 3345 26226 70129},
  :players
  {:101620
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -426,40 +430,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 168},
-  :101847
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101847,
-   :short-name "M. Carcela-Gonz\\u00e1lez",
-   :middle-name "",
-   :last-name "Carcela-Gonz\\u00e1lez",
-   :first-name "Mehdi",
-   :birth-date "1989-07-01",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "left",
-   :weight 67,
-   :current-team-id 5083,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 176},
-  :120631
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120631,
-   :short-name "Y. Bounou",
-   :middle-name "",
-   :last-name "Bounou",
-   :first-name "Yassine",
-   :birth-date "1991-04-05",
-   :birth-area
-   {:name "Canada", :id "124", :alpha-3code "CAN", :alpha-2code "CA"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 756,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 192},
   :142
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 142,
@@ -514,23 +484,6 @@
    {:name "Germany", :id 276, :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 16216,
    :height 188},
-  :20579
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 20579,
-   :short-name "M. Benatia",
-   :middle-name "",
-   :last-name "El Mouttaqi Benatia",
-   :first-name "Medhi Amine",
-   :birth-date "1987-04-17",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 190},
   :221039
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 221039,
@@ -551,23 +504,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 180},
-  :25553
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25553,
-   :short-name "Azpilicueta",
-   :middle-name "",
-   :last-name "Azpilicueta Tanco",
-   :first-name "C\\u00e9sar",
-   :birth-date "1989-08-28",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 178},
   :25888
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25888,
@@ -619,43 +555,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 190},
-  :278289
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 278289,
-   :short-name "Odriozola",
-   :middle-name "",
-   :last-name "Odriozola Arzallus",
-   :first-name "\\u00c1lvaro",
-   :birth-date "1995-12-14",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 66,
-   :current-team-id 675,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 175},
-  :285590
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 285590,
-   :short-name "S. Amrabat",
-   :middle-name "",
-   :last-name "Amrabat",
-   :first-name "Sofyan",
-   :birth-date "1996-08-21",
-   :birth-area
-   {:name "Netherlands",
-    :id "528",
-    :alpha-3code "NLD",
-    :alpha-2code "NL"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 12,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 182},
   :288091
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 288091,
@@ -676,23 +575,6 @@
     :alpha-2code "NL"},
    :current-national-team-id 1598,
    :height 182},
-  :289359
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 289359,
-   :short-name "Y. A\\u00eft Bennasser",
-   :middle-name "",
-   :last-name "A\\u00eft Bennasser",
-   :first-name "Youssef",
-   :birth-date "1996-07-07",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 19830,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 184},
   :29625
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 29625,
@@ -710,23 +592,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 189},
-  :30320
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 30320,
-   :short-name "O. El Hajjam",
-   :middle-name "",
-   :last-name "El Hajjam",
-   :first-name "Oualid",
-   :birth-date "1991-02-19",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 3789,
-   :passport-area
-   {:name "Morocco", :id 504, :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 181},
   :3269
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3269,
@@ -764,23 +629,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 178},
-  :3304
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3304,
-   :short-name "Nacho",
-   :middle-name "",
-   :last-name "Fern\\u00e1ndez Iglesias",
-   :first-name "Jos\\u00e9 Ignacio",
-   :birth-date "1990-01-18",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 675,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 180},
   :3306
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3306,
@@ -798,23 +646,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 184},
-  :3324
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 3324,
-   :short-name "\\u00c1lvaro Morata",
-   :middle-name "",
-   :last-name "Morata Mart\\u00edn",
-   :first-name "\\u00c1lvaro Borja",
-   :birth-date "1992-10-23",
-   :birth-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 189},
   :3341
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3341,
@@ -883,57 +714,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 171},
-  :3397
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 3397,
-   :short-name "Arrizabalaga",
-   :middle-name "",
-   :last-name "Arrizabalaga Revuelta",
-   :first-name "Kepa",
-   :birth-date "1994-10-03",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 189},
-  :3443
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3443,
-   :short-name "Koke",
-   :middle-name "",
-   :last-name "Resurrecci\\u00f3n Merodio",
-   :first-name "Jorge",
-   :birth-date "1992-01-08",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 679,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 177},
-  :3560
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3560,
-   :short-name "Nacho Monreal",
-   :middle-name "",
-   :last-name "Monreal Eraso",
-   :first-name "Ignacio",
-   :birth-date "1986-02-26",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "left",
-   :weight 72,
-   :current-team-id 1609,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 179},
   :3563
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3563,
@@ -951,23 +731,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 176},
-  :372915
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 372915,
-   :short-name "A. Harit",
-   :middle-name "",
-   :last-name "Harit",
-   :first-name "Amine",
-   :birth-date "1997-06-18",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 67,
-   :current-team-id 2449,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 179},
   :3840
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3840,
@@ -1000,26 +763,6 @@
    :current-team-id 2447,
    :passport-area
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 179},
-  :426702
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 426702,
-   :short-name "H. Mendyl",
-   :middle-name "",
-   :last-name "Mendyl",
-   :first-name "Hamza",
-   :birth-date "1997-10-21",
-   :birth-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 2449,
-   :passport-area
-   {:name "C\\u00f4te d'Ivoire",
-    :id "384",
-    :alpha-3code "CIV",
-    :alpha-2code "CI"},
    :current-national-team-id 16216,
    :height 179},
   :4338
@@ -1056,40 +799,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 189},
-  :4488
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 4488,
-   :short-name "Sa\\u00fal",
-   :middle-name "",
-   :last-name "\\u00d1\\u00edguez Esclapez",
-   :first-name "Sa\\u00fal",
-   :birth-date "1994-11-21",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 679,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 184},
-  :4498
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 4498,
-   :short-name "Lucas V\\u00e1zquez",
-   :middle-name "",
-   :last-name "V\\u00e1zquez Iglesias",
-   :first-name "Lucas",
-   :birth-date "1991-07-01",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 675,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 173},
   :4501
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 4501,
@@ -1107,23 +816,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 173},
-  :552555
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 552555,
-   :short-name "A. El Kaabi",
-   :middle-name "",
-   :last-name "El Kaabi",
-   :first-name "Ayoub",
-   :birth-date "1993-06-25",
-   :birth-area
-   {:name "Morocco", :id 504, :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 22275,
-   :passport-area
-   {:name "Morocco", :id 504, :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 182},
   :6509
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 6509,
@@ -1175,40 +867,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 193},
-  :7949
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 7949,
-   :short-name "Pepe Reina",
-   :middle-name "",
-   :last-name "Reina P\\u00e1ez",
-   :first-name "Jos\\u00e9 Manuel ",
-   :birth-date "1982-08-31",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 188},
-  :8032
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 8032,
-   :short-name "Marcos Alonso",
-   :middle-name "",
-   :last-name "Alonso Mendoza",
-   :first-name "Marcos ",
-   :birth-date "1990-12-28",
-   :birth-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "left",
-   :weight 81,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 188},
   :8317
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 8317,

@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Ar\\u00e9ola"}
+       :player-name nil}
       {:player-id 7936,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Pogba"}
+       :player-name nil}
       {:player-id 209091,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Tolisso"}
+       :player-name nil}
       {:player-id 3276,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Rami"}
+       :player-name nil}
       {:player-id 25770,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Thauvin"}
+       :player-name nil}
       {:player-id 340646,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Pavard"}
+       :player-name nil}
       {:player-id 25397,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Umtiti"}
+       :player-name nil}
       {:player-id 25437,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Matuidi"}
+       :player-name nil}
       {:player-id 25381,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "H. Lloris"}
+       :player-name nil}
       {:player-id 353833,
        :assists "0",
        :goals "null",
@@ -205,35 +205,35 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Knudsen"}
+       :player-name nil}
       {:player-id 15806,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Vestergaard"}
+       :player-name nil}
       {:player-id 56025,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Krohn-Dehli"}
+       :player-name nil}
       {:player-id 56454,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. R\\u00f8nnow"}
+       :player-name nil}
       {:player-id 56038,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. L\\u00f6ssl"}
+       :player-name nil}
       {:player-id 14744,
        :assists "0",
        :goals "null",
@@ -247,21 +247,21 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Sch\\u00f6ne"}
+       :player-name nil}
       {:player-id 15080,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. J\\u00f8rgensen"}
+       :player-name nil}
       {:player-id 56441,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Lerager"}
+       :player-name nil}
       {:player-id 281254,
        :assists "0",
        :goals "null",
@@ -371,7 +371,7 @@
        :assists "0",
        :player-out 55990,
        :minute 92,
-       :player-in-name "L. Lerager",
+       :player-in-name nil,
        :player-out-name "T. Delaney"})},
     :has-formation 1,
     :score-et 0,
@@ -395,6 +395,10 @@
   :label "Denmark - France, 0 - 0",
   :venue "Olimpiyskiy stadion Luzhniki",
   :dateutc "2018-06-26 14:00:00"},
+ :players-in-match
+ #{286390 1722 55979 54 56026 31528 353833 8200 135150 3682 26010
+   231138 55990 28115 55968 241945 28922 279545 26196 281254 3309 25552
+   20433 8480 56394 135103 26136},
  :players
  {:135103
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -413,23 +417,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 188},
-  :135114
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 135114,
-   :short-name "P. H\\u00f8jbjerg",
-   :middle-name "",
-   :last-name "H\\u00f8jbjerg",
-   :first-name "Pierre-Emile",
-   :birth-date "1995-08-05",
-   :birth-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 1619,
-   :passport-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 7712,
-   :height 185},
   :135150
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 135150,
@@ -447,40 +434,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 193},
-  :15080
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 15080,
-   :short-name "N. J\\u00f8rgensen",
-   :middle-name "",
-   :last-name "J\\u00f8rgensen",
-   :first-name "Nicolai",
-   :birth-date "1991-01-15",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 12,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 190},
-  :15806
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 15806,
-   :short-name "J. Vestergaard",
-   :middle-name "",
-   :last-name "Vestergaard",
-   :first-name "Jannik",
-   :birth-date "1992-08-03",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 98,
-   :current-team-id 1619,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 199},
   :1722
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 1722,
@@ -515,23 +468,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 189},
-  :209091
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 209091,
-   :short-name "C. Tolisso",
-   :middle-name "",
-   :last-name "Tolisso",
-   :first-name "Corentin",
-   :birth-date "1994-08-03",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 2444,
-   :passport-area
-   {:name "Togo", :id "764", :alpha-3code "TGO", :alpha-2code "TG"},
-   :current-national-team-id 4418,
-   :height 181},
   :231138
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 231138,
@@ -572,97 +508,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 171},
-  :25381
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25381,
-   :short-name "H. Lloris",
-   :middle-name "",
-   :last-name "Lloris",
-   :first-name "Hugo",
-   :birth-date "1986-12-26",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 82,
-   :current-team-id 1624,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 188},
-  :25397
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25397,
-   :short-name "S. Umtiti",
-   :middle-name "",
-   :last-name "Umtiti",
-   :first-name "Samuel Yves",
-   :birth-date "1993-11-14",
-   :birth-area
-   {:name "Cameroon",
-    :id "120",
-    :alpha-3code "CMR",
-    :alpha-2code "CM"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 676,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 182},
-  :25418
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25418,
-   :short-name "A. Ar\\u00e9ola",
-   :middle-name "",
-   :last-name "Ar\\u00e9ola",
-   :first-name "Alphonse",
-   :birth-date "1993-02-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 94,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Philippines",
-    :id "608",
-    :alpha-3code "PHL",
-    :alpha-2code "PH"},
-   :current-national-team-id 4418,
-   :height 195},
-  :25430
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25430,
-   :short-name "M. Sakho",
-   :middle-name "",
-   :last-name "Sakho",
-   :first-name "Mamadou",
-   :birth-date "1990-02-13",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 83,
-   :current-team-id 1628,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 187},
-  :25437
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 25437,
-   :short-name "B. Matuidi",
-   :middle-name "",
-   :last-name "Matuidi",
-   :first-name "Blaise",
-   :birth-date "1987-04-09",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Angola", :id "24", :alpha-3code "AGO", :alpha-2code "AO"},
-   :current-national-team-id 4418,
-   :height 175},
   :25552
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 25552,
@@ -683,60 +528,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 185},
-  :25770
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 25770,
-   :short-name "F. Thauvin",
-   :middle-name "",
-   :last-name "Thauvin",
-   :first-name "Florian",
-   :birth-date "1993-01-26",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 3771,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 179},
-  :25804
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 25804,
-   :short-name "M. Sissoko",
-   :middle-name "",
-   :last-name "Sissoko",
-   :first-name "Moussa",
-   :birth-date "1989-08-16",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 91,
-   :current-team-id 1624,
-   :passport-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 187},
-  :25854
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25854,
-   :short-name "K. Zouma",
-   :middle-name "",
-   :last-name "Zouma",
-   :first-name "Kurt Happy",
-   :birth-date "1994-10-27",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Central African Republic",
-    :id 140,
-    :alpha-3code "CAF",
-    :alpha-2code "CF"},
-   :current-national-team-id 4418,
-   :height 190},
   :26010
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 26010,
@@ -879,23 +670,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 170},
-  :294695
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 294695,
-   :short-name "T. Ndomb\\u00e8l\\u00e9",
-   :middle-name "",
-   :last-name "Ndomb\\u00e8l\\u00e9 Alvaro",
-   :first-name "Tanguy",
-   :birth-date "1996-12-28",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3766,
-   :passport-area
-   {:name "Congo DR", :id 180, :alpha-3code "COD", :alpha-2code "CD"},
-   :current-national-team-id 4418,
-   :height 181},
   :31528
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 31528,
@@ -913,23 +687,6 @@
    {:name "Mali", :id 466, :alpha-3code "MLI", :alpha-2code "ML"},
    :current-national-team-id 4418,
    :height 168},
-  :3276
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3276,
-   :short-name "A. Rami",
-   :middle-name "",
-   :last-name "Rami",
-   :first-name "Adil",
-   :birth-date "1985-12-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 90,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 4418,
-   :height 190},
   :3309
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3309,
@@ -950,23 +707,6 @@
     :alpha-2code "MQ"},
    :current-national-team-id 4418,
    :height 191},
-  :340646
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 340646,
-   :short-name "B. Pavard",
-   :middle-name "",
-   :last-name "Pavard",
-   :first-name "Benjamin",
-   :birth-date "1996-03-28",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 2445,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 186},
   :353833
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 353833,
@@ -1004,23 +744,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 175},
-  :405
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 405,
-   :short-name "L. Sch\\u00f6ne",
-   :middle-name "",
-   :last-name "Sch\\u00f6ne",
-   :first-name "Lasse",
-   :birth-date "1986-05-27",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 9,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 177},
   :54
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 54,
@@ -1038,23 +761,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 180},
-  :55957
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 55957,
-   :short-name "J. Knudsen",
-   :middle-name "",
-   :last-name "Knudsen",
-   :first-name "Jonas",
-   :birth-date "1992-09-16",
-   :birth-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "left",
-   :weight 72,
-   :current-team-id 1634,
-   :passport-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 185},
   :55968
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 55968,
@@ -1109,23 +815,6 @@
     :alpha-2code "US"},
    :current-national-team-id 7712,
    :height 182},
-  :56025
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 56025,
-   :short-name "M. Krohn-Dehli",
-   :middle-name "",
-   :last-name "Krohn-Dehli",
-   :first-name "Michael",
-   :birth-date "1983-06-06",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 677,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 170},
   :56026
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 56026,
@@ -1143,43 +832,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 180},
-  :56038
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 56038,
-   :short-name "J. L\\u00f6ssl",
-   :middle-name "",
-   :last-name "L\\u00f6ssl",
-   :first-name "Jonas",
-   :birth-date "1989-02-01",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 88,
-   :current-team-id 1673,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 195},
-  :56274
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 56274,
-   :short-name "Y. Poulsen",
-   :middle-name "",
-   :last-name "Yurary Poulsen",
-   :first-name "Yussuf",
-   :birth-date "1994-06-15",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 2975,
-   :passport-area
-   {:name "Tanzania",
-    :id "834",
-    :alpha-3code "TZA",
-    :alpha-2code "TZ"},
-   :current-national-team-id 7712,
-   :height 193},
   :56394
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 56394,
@@ -1197,57 +849,6 @@
    {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 192},
-  :56441
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 56441,
-   :short-name "L. Lerager",
-   :middle-name "",
-   :last-name "Lerager",
-   :first-name "Lukas",
-   :birth-date "1993-07-12",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3772,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 185},
-  :56454
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 56454,
-   :short-name "F. R\\u00f8nnow",
-   :middle-name "",
-   :last-name "R\\u00f8nnow",
-   :first-name "Frederik",
-   :birth-date "1992-08-04",
-   :birth-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 190},
-  :7936
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 7936,
-   :short-name "P. Pogba",
-   :middle-name "",
-   :last-name "Pogba",
-   :first-name "Paul",
-   :birth-date "1993-03-15",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Guinea", :id "324", :alpha-3code "GIN", :alpha-2code "GN"},
-   :current-national-team-id 4418,
-   :height 191},
   :8200
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 8200,

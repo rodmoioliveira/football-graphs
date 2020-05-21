@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Maxi G\\u00f3mez"}
+       :player-name nil}
       {:player-id 116259,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Silva"}
+       :player-name nil}
       {:player-id 70379,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Urretavizcaya"}
+       :player-name nil}
       {:player-id 7954,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Coates"}
+       :player-name nil}
       {:player-id 113995,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Silva"}
+       :player-name nil}
       {:player-id 116269,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Laxalt"}
+       :player-name nil}
       {:player-id 3714,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Stuani"}
+       :player-name nil}
       {:player-id 70116,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Maxi Pereira"}
+       :player-name nil}
       {:player-id 116623,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Campa\\u00f1a"}
+       :player-name nil}
       {:player-id 333571,
        :assists "0",
        :goals "0",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ayman Ashraf"}
+       :player-name nil}
       {:player-id 120042,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Saad Samir"}
+       :player-name nil}
       {:player-id 119981,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Shikabala"}
+       :player-name nil}
       {:player-id 120269,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Essam El Hadary"}
+       :player-name nil}
       {:player-id 8525,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ahmed El Mohamady"}
+       :player-name nil}
       {:player-id 120353,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Mohamed Salah"}
+       :player-name nil}
       {:player-id 296484,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Mahmoud Hamdy"}
+       :player-name nil}
       {:player-id 119987,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Omar Gaber"}
+       :player-name nil}
       {:player-id 120151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Sherif Ekramy"}
+       :player-name nil}
       {:player-id 119932,
        :assists "0",
        :goals "null",
@@ -402,6 +402,10 @@
   :label "Egypt - Uruguay, 0 - 1",
   :venue "Stadion Central'nyj",
   :dateutc "2018-06-15 12:00:00"},
+ :players-in-match
+ #{388928 116166 120167 437417 361807 120225 119975 227894 70095 20460
+   3433 119951 332605 86340 32641 220112 116349 11270 299618 120000
+   120339 7972 333571 198120 213364 21174 120156 119932},
  :players
  {:11270
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -420,23 +424,6 @@
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 175},
-  :113995
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 113995,
-   :short-name "M. Silva",
-   :middle-name "",
-   :last-name "Silva Leites",
-   :first-name "Mart\\u00edn Andr\\u00e9s",
-   :birth-date "1983-03-25",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 5657,
-   :passport-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :current-national-team-id 15670,
-   :height 187},
   :116166
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 116166,
@@ -454,40 +441,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15670,
    :height 174},
-  :116259
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 116259,
-   :short-name "G. Silva",
-   :middle-name "",
-   :last-name "Silva Perdomo",
-   :first-name "Gast\\u00f3n Alexis",
-   :birth-date "1994-03-05",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 12062,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 15670,
-   :height 185},
-  :116269
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 116269,
-   :short-name "D. Laxalt",
-   :middle-name "",
-   :last-name "Laxalt Su\\u00e1rez",
-   :first-name "Diego Sebasti\\u00e1n",
-   :birth-date "1993-02-07",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "left",
-   :weight 66,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 15670,
-   :height 178},
   :116349
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 116349,
@@ -505,23 +458,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 15670,
    :height 187},
-  :116623
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 116623,
-   :short-name "M. Campa\\u00f1a",
-   :middle-name "",
-   :last-name "Campa\\u00f1a Delgado",
-   :first-name "Mart\\u00edn Nicol\\u00e1s",
-   :birth-date "1989-05-29",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 15642,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 15670,
-   :height 185},
   :119932
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 119932,
@@ -573,40 +509,6 @@
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 179},
-  :119981
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 119981,
-   :short-name "Shikabala",
-   :middle-name "",
-   :last-name "Fadlallah",
-   :first-name "Mahmoud Abdel Razek",
-   :birth-date "1986-03-05",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 12532,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 180},
-  :119987
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 119987,
-   :short-name "Omar Gaber",
-   :middle-name "",
-   :last-name "Gaber",
-   :first-name "Omar",
-   :birth-date "1992-01-30",
-   :birth-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 27533,
-   :passport-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 174},
   :120000
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 120000,
@@ -619,40 +521,6 @@
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
    :foot "right",
    :weight 78,
-   :current-team-id 16041,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 191},
-  :120042
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 120042,
-   :short-name "Saad Samir",
-   :middle-name "",
-   :last-name "Samir",
-   :first-name "Saad Ali Saadeldin",
-   :birth-date "1989-04-01",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 16041,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 186},
-  :120151
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120151,
-   :short-name "Sherif Ekramy",
-   :middle-name "",
-   :last-name "Ekramy Ahmed",
-   :first-name "Sherif",
-   :birth-date "1983-07-01",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 91,
    :current-team-id 16041,
    :passport-area
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
@@ -709,23 +577,6 @@
    {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 184},
-  :120269
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120269,
-   :short-name "Essam El Hadary",
-   :middle-name "",
-   :last-name "El Hadary",
-   :first-name "Essam Kamal Tawfik",
-   :birth-date "1973-01-15",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 16049,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 188},
   :120339
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 120339,
@@ -743,40 +594,6 @@
    {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 180},
-  :120353
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 120353,
-   :short-name "Mohamed Salah",
-   :middle-name "",
-   :last-name "Salah Ghaly",
-   :first-name "Mohamed ",
-   :birth-date "1992-06-15",
-   :birth-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "left",
-   :weight 72,
-   :current-team-id 1612,
-   :passport-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 175},
-  :120446
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 120446,
-   :short-name "Ayman Ashraf",
-   :middle-name "",
-   :last-name "Ashraf",
-   :first-name "Ayman",
-   :birth-date "1991-04-09",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 16041,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 175},
   :198120
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 198120,
@@ -879,23 +696,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15670,
    :height 185},
-  :296484
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 296484,
-   :short-name "Mahmoud Hamdy",
-   :middle-name "",
-   :last-name "Hamdy",
-   :first-name "Mahmoud",
-   :birth-date "1995-06-01",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 16054,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 188},
   :299618
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 299618,
@@ -998,23 +798,6 @@
    {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
    :current-national-team-id 15670,
    :height 185},
-  :3714
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 3714,
-   :short-name "C. Stuani",
-   :middle-name "",
-   :last-name "Stuani Curbelo",
-   :first-name "Cristhian Ricardo",
-   :birth-date "1986-10-12",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 756,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 15670,
-   :height 184},
   :388928
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 388928,
@@ -1032,23 +815,6 @@
    {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 176},
-  :395636
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 395636,
-   :short-name "Maxi G\\u00f3mez",
-   :middle-name "",
-   :last-name "G\\u00f3mez Gonz\\u00e1lez",
-   :first-name "Maximiliano",
-   :birth-date "1996-08-14",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 692,
-   :passport-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :current-national-team-id 15670,
-   :height 186},
   :437417
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 437417,
@@ -1083,57 +849,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 15670,
    :height 177},
-  :70116
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 70116,
-   :short-name "Maxi Pereira",
-   :middle-name "",
-   :last-name "Pereira P\\u00e1ez",
-   :first-name "Victorio Maximiliano",
-   :birth-date "1984-06-08",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 9606,
-   :passport-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :current-national-team-id 15670,
-   :height 173},
-  :70379
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 70379,
-   :short-name "J. Urretavizcaya",
-   :middle-name "",
-   :last-name "Urretavizcaya da Luz",
-   :first-name "Jonathan Mat\\u00edas",
-   :birth-date "1990-03-19",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 69,
-   :current-team-id 15444,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 15670,
-   :height 174},
-  :7954
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7954,
-   :short-name "S. Coates",
-   :middle-name "",
-   :last-name "Coates Ni\\u00f3n",
-   :first-name "Sebasti\\u00e1n",
-   :birth-date "1990-10-07",
-   :birth-area
-   {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 1632,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 15670,
-   :height 196},
   :7972
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 7972,
@@ -1151,23 +866,6 @@
    {:name "Uruguay", :id "858", :alpha-3code "URY", :alpha-2code "UY"},
    :current-national-team-id 15670,
    :height 182},
-  :8525
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 8525,
-   :short-name "Ahmed El Mohamady",
-   :middle-name "",
-   :last-name "El Mohamady Abdel Fattah",
-   :first-name "Ahmed Eissa ",
-   :birth-date "1987-09-09",
-   :birth-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1614,
-   :passport-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 183},
   :86340
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 86340,

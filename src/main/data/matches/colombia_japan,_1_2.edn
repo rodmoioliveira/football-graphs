@@ -13,7 +13,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Zapata"}
+       :player-name nil}
       {:player-id 90999,
        :assists "0",
        :goals "null",
@@ -27,35 +27,35 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Aguilar"}
+       :player-name nil}
       {:player-id 91039,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Vargas"}
+       :player-name nil}
       {:player-id 20764,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Muriel"}
+       :player-name nil}
       {:player-id 91502,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Uribe"}
+       :player-name nil}
       {:player-id 256634,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Mina"}
+       :player-name nil}
       {:player-id 91082,
        :assists "0",
        :goals "null",
@@ -69,7 +69,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Borja"}
+       :player-name nil}
       {:player-id 246928,
        :assists "0",
        :goals "null",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Muto"}
+       :player-name nil}
       {:player-id 94630,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Makino"}
+       :player-name nil}
       {:player-id 95108,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Higashiguchi"}
+       :player-name nil}
       {:player-id 14749,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Sakai"}
+       :player-name nil}
       {:player-id 137653,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Nakamura"}
+       :player-name nil}
       {:player-id 137661,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Ueda"}
+       :player-name nil}
       {:player-id 95349,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "W. Endo"}
+       :player-name nil}
       {:player-id 94922,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Oshima"}
+       :player-name nil}
       {:player-id 14730,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Usami"}
+       :player-name nil}
       {:player-id 95010,
        :assists "0",
        :goals "null",
@@ -402,6 +402,10 @@
   :label "Colombia - Japan, 1 - 2",
   :venue "Mordovia Arena",
   :dateutc "2018-06-19 12:00:00"},
+ :players-in-match
+ #{246928 91381 95010 20751 94828 91702 257762 37896 14836 14929 14816
+   20517 3450 94695 25662 70096 94814 703 14763 91019 91002 94650
+   101592 255738 70136 37831 26518 94831},
  :players
  {:101592
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -420,77 +424,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 182},
-  :137653
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 137653,
-   :short-name "K. Nakamura",
-   :middle-name "",
-   :last-name "Nakamura",
-   :first-name "Kosuke",
-   :birth-date "1995-02-27",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 12807,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 184},
-  :137661
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 137661,
-   :short-name "N. Ueda",
-   :middle-name "",
-   :last-name "Ueda",
-   :first-name "Naomichi",
-   :birth-date "1994-10-24",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 5070,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 186},
-  :14730
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 14730,
-   :short-name "T. Usami",
-   :middle-name "",
-   :last-name "Usami",
-   :first-name "Takashi",
-   :birth-date "1992-05-06",
-   :birth-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 2502,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 180},
-  :14749
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14749,
-   :short-name "G. Sakai",
-   :middle-name "",
-   :last-name "Sakai",
-   :first-name "Gotoku",
-   :birth-date "1991-03-14",
-   :birth-area
-   {:name "United States",
-    :id "840",
-    :alpha-3code "USA",
-    :alpha-2code "US"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 2450,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 176},
   :14763
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 14763,
@@ -599,29 +532,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 179},
-  :20764
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 20764,
-   :short-name "L. Muriel",
-   :middle-name "",
-   :last-name "Muriel Fruto",
-   :first-name "Luis Fernando",
-   :birth-date "1991-04-16",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 680,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 178},
   :246928
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 246928,
@@ -685,29 +595,6 @@
    {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 183},
-  :256634
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 256634,
-   :short-name "Y. Mina",
-   :middle-name "",
-   :last-name "Mina Gonz\\u00e1lez",
-   :first-name "Yerry Fernando",
-   :birth-date "1994-09-23",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 195},
   :257762
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 257762,
@@ -771,29 +658,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 177},
-  :3531
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3531,
-   :short-name "C. Zapata",
-   :middle-name "",
-   :last-name "Zapata Valencia",
-   :first-name "Cristian Eduardo",
-   :birth-date "1986-09-30",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 187},
   :37831
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 37831,
@@ -834,29 +698,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 185},
-  :4814
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 4814,
-   :short-name "A. Aguilar",
-   :middle-name "",
-   :last-name "Aguilar Tapia",
-   :first-name "Abel Enrique",
-   :birth-date "1985-01-06",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 12394,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 186},
   :70096
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 70096,
@@ -960,52 +801,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 169},
-  :91039
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 91039,
-   :short-name "C. Vargas",
-   :middle-name "",
-   :last-name "Vargas Gil",
-   :first-name "Camilo Andr\\u00e9s",
-   :birth-date "1989-03-09",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 12394,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 185},
-  :91156
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 91156,
-   :short-name "M. Borja",
-   :middle-name "",
-   :last-name "Borja Hern\\u00e1ndez",
-   :first-name "Miguel \\u00c1ngel",
-   :birth-date "1993-01-26",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 5646,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 183},
   :91381
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 91381,
@@ -1023,23 +818,6 @@
    {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 171},
-  :91502
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 91502,
-   :short-name "A. Uribe",
-   :middle-name "",
-   :last-name "Uribe Villa",
-   :first-name "Andr\\u00e9s Mateus",
-   :birth-date "1991-03-21",
-   :birth-area
-   {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 15405,
-   :passport-area
-   {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 182},
   :91702
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 91702,
@@ -1063,23 +841,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 179},
-  :94630
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 94630,
-   :short-name "T. Makino",
-   :middle-name "",
-   :last-name "Makino",
-   :first-name "Tomoaki",
-   :birth-date "1987-05-11",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 12799,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 182},
   :94650
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 94650,
@@ -1114,23 +875,6 @@
    {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 183},
-  :94764
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 94764,
-   :short-name "Y. Muto",
-   :middle-name "",
-   :last-name "Muto",
-   :first-name "Yoshinori",
-   :birth-date "1992-07-15",
-   :birth-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 1613,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 179},
   :94814
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 94814,
@@ -1182,23 +926,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 182},
-  :94922
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 94922,
-   :short-name "R. Oshima",
-   :middle-name "",
-   :last-name "Oshima",
-   :first-name "Ryota",
-   :birth-date "1993-01-23",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 64,
-   :current-team-id 12812,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 168},
   :95010
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 95010,
@@ -1215,41 +942,7 @@
    :passport-area
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
-   :height 173},
-  :95108
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 95108,
-   :short-name "M. Higashiguchi",
-   :middle-name "",
-   :last-name "Higashiguchi",
-   :first-name "Masaaki",
-   :birth-date "1986-05-12",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 12803,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 184},
-  :95349
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 95349,
-   :short-name "W. Endo",
-   :middle-name "",
-   :last-name "Endo",
-   :first-name "Wataru",
-   :birth-date "1993-02-09",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 5082,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 178}},
+   :height 173}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

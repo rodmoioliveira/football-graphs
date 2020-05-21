@@ -13,7 +13,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Douglas Costa"}
+       :player-name nil}
       {:player-id 105802,
        :assists "0",
        :goals "null",
@@ -27,42 +27,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Marquinhos"}
+       :player-name nil}
       {:player-id 40536,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C\\u00e1ssio"}
+       :player-name nil}
       {:player-id 3434,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Filipe Luis"}
+       :player-name nil}
       {:player-id 40707,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F\\u00e1gner"}
+       :player-name nil}
       {:player-id 15272,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Geromel"}
+       :player-name nil}
       {:player-id 71654,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ederson"}
+       :player-name nil}
       {:player-id 15808,
        :assists "0",
        :goals "0",
@@ -198,63 +198,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Mvogo"}
+       :player-name nil}
       {:player-id 49968,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. B\\u00fcrki"}
+       :player-name nil}
       {:player-id 15199,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Gavranovi\\u0107"}
+       :player-name nil}
       {:player-id 49991,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Freuler"}
+       :player-name nil}
       {:player-id 49919,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Moubandje"}
+       :player-name nil}
       {:player-id 50023,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Drmic"}
+       :player-name nil}
       {:player-id 20591,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Fernandes"}
+       :player-name nil}
       {:player-id 7850,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Djourou"}
+       :player-name nil}
       {:player-id 236528,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Elvedi"}
+       :player-name nil}
       {:player-id 360992,
        :assists "0",
        :goals "0",
@@ -395,6 +395,10 @@
   :label "Brazil - Switzerland, 1 - 1",
   :venue "Rostov Arena",
   :dateutc "2018-06-17 18:00:00"},
+ :players-in-match
+ #{40810 50102 49997 282772 3310 14922 70083 49977 14785 105339 20394
+   3431 21169 3802 20938 49876 297957 40550 15808 49855 40756 360992
+   20465 214220 105333 340386 49872 20766},
  :players
  {:105333
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -413,26 +417,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 175},
-  :105334
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 105334,
-   :short-name "Douglas Costa",
-   :middle-name "",
-   :last-name "Costa de Souza",
-   :first-name "Douglas ",
-   :birth-date "1990-09-14",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 65,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 170},
   :105339
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 105339,
@@ -487,43 +471,6 @@
    {:name "Chile", :id "152", :alpha-3code "CHL", :alpha-2code "CL"},
    :current-national-team-id 6697,
    :height 180},
-  :15199
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 15199,
-   :short-name "M. Gavranovi\\u0107",
-   :middle-name "",
-   :last-name "Gavranovi\\u0107",
-   :first-name "Mario",
-   :birth-date "1989-11-24",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 9417,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 6697,
-   :height 175},
-  :15272
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 15272,
-   :short-name "Geromel",
-   :middle-name "",
-   :last-name "Tonon Geromel",
-   :first-name "Pedro",
-   :birth-date "1985-09-21",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 5649,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 6380,
-   :height 190},
   :15808
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 15808,
@@ -581,29 +528,6 @@
     :alpha-2code "CH"},
    :current-national-team-id 6697,
    :height 182},
-  :20591
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20591,
-   :short-name "G. Fernandes",
-   :middle-name "",
-   :last-name "Fernandes",
-   :first-name "G\\u00e9lson da Concei\\u00e7\\u00e3o Tavares",
-   :birth-date "1986-09-02",
-   :birth-area
-   {:name "Cape Verde Islands",
-    :id "132",
-    :alpha-3code "CPV",
-    :alpha-2code "CV"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 179},
   :20766
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 20766,
@@ -687,69 +611,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 6380,
    :height 191},
-  :236528
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 236528,
-   :short-name "N. Elvedi",
-   :middle-name "",
-   :last-name "Elvedi",
-   :first-name "Nico",
-   :birth-date "1996-09-30",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 2454,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 189},
-  :265318
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 265318,
-   :short-name "E. Fernandes",
-   :middle-name "",
-   :last-name "Fernandes",
-   :first-name "Edimilson",
-   :birth-date "1996-04-15",
-   :birth-area
-   {:name "Switzerland",
-    :id 756,
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 3176,
-   :passport-area
-   {:name "Portugal", :id 620, :alpha-3code "PRT", :alpha-2code "PT"},
-   :current-national-team-id 6697,
-   :height 190},
-  :282550
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 282550,
-   :short-name "F. Hadergjonaj",
-   :middle-name "",
-   :last-name "Hadergjonaj",
-   :first-name "Florent",
-   :birth-date "1994-07-31",
-   :birth-area
-   {:name "Switzerland",
-    :id 756,
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 1673,
-   :passport-area
-   {:name "Kosovo", :id 0, :alpha-3code "XKS", :alpha-2code ""},
-   :current-national-team-id 6697,
-   :height 182},
   :282772
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 282772,
@@ -844,23 +705,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 186},
-  :3434
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3434,
-   :short-name "Filipe Luis",
-   :middle-name "",
-   :last-name "Kasmirski",
-   :first-name "Filipe Luis",
-   :birth-date "1985-08-09",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 679,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 6380,
-   :height 182},
   :360992
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 360992,
@@ -884,23 +728,6 @@
     :alpha-2code "CD"},
    :current-national-team-id 6697,
    :height 191},
-  :377071
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 377071,
-   :short-name "Richarlison",
-   :middle-name "",
-   :last-name "de Andrade",
-   :first-name "Richarlison",
-   :birth-date "1997-05-10",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 179},
   :3802
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3802,
@@ -918,60 +745,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 171},
-  :40335
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 40335,
-   :short-name "Fred",
-   :middle-name "",
-   :last-name "Rodrigues Santos",
-   :first-name "Frederico",
-   :birth-date "1993-03-05",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 64,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 169},
-  :40536
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 40536,
-   :short-name "C\\u00e1ssio",
-   :middle-name "",
-   :last-name "Ramos",
-   :first-name "C\\u00e1ssio Roberto",
-   :birth-date "1987-06-06",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 5656,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 195},
-  :40539
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 40539,
-   :short-name "Marquinhos",
-   :middle-name "",
-   :last-name "Ao\\u00e1s Corr\\u00eaa ",
-   :first-name "Marcos ",
-   :birth-date "1994-05-14",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 183},
   :40550
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 40550,
@@ -989,23 +762,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 182},
-  :40707
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 40707,
-   :short-name "F\\u00e1gner",
-   :middle-name "",
-   :last-name "Conserva Lemos",
-   :first-name "F\\u00e1gner",
-   :birth-date "1989-06-11",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 67,
-   :current-team-id 5656,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 168},
   :40756
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 40756,
@@ -1023,23 +779,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 185},
-  :40765
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 40765,
-   :short-name "Lucas Moura",
-   :middle-name "",
-   :last-name "Rodrigues Moura da Silva",
-   :first-name "Lucas",
-   :birth-date "1992-08-13",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 172},
   :40810
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 40810,
@@ -1120,75 +859,6 @@
    {:name "Albania", :id "8", :alpha-3code "ALB", :alpha-2code "AL"},
    :current-national-team-id 6697,
    :height 185},
-  :49883
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 49883,
-   :short-name "Y. Mvogo",
-   :middle-name "",
-   :last-name "Mvogo",
-   :first-name "Yvon Landry ",
-   :birth-date "1994-06-06",
-   :birth-area
-   {:name "Cameroon",
-    :id "120",
-    :alpha-3code "CMR",
-    :alpha-2code "CM"},
-   :foot "right",
-   :weight 88,
-   :current-team-id 2975,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 190},
-  :49919
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 49919,
-   :short-name "F. Moubandje",
-   :middle-name "",
-   :last-name "Moubandje",
-   :first-name "Jacques Fran\\u00e7ois",
-   :birth-date "1990-06-21",
-   :birth-area
-   {:name "Cameroon",
-    :id "120",
-    :alpha-3code "CMR",
-    :alpha-2code "CM"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 3780,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 180},
-  :49968
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 49968,
-   :short-name "R. B\\u00fcrki",
-   :middle-name "",
-   :last-name "B\\u00fcrki",
-   :first-name "Roman",
-   :birth-date "1990-11-14",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 2447,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 187},
   :49977
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 49977,
@@ -1212,29 +882,6 @@
     :alpha-2code "CH"},
    :current-national-team-id 6697,
    :height 185},
-  :49991
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 49991,
-   :short-name "R. Freuler",
-   :middle-name "",
-   :last-name "Freuler",
-   :first-name "Remo",
-   :birth-date "1992-04-15",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 3172,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 181},
   :49997
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 49997,
@@ -1258,26 +905,6 @@
     :alpha-2code "CH"},
    :current-national-team-id 6697,
    :height 182},
-  :50023
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 50023,
-   :short-name "J. Drmic",
-   :middle-name "",
-   :last-name "Drmic",
-   :first-name "Josip",
-   :birth-date "1992-08-08",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 2454,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 6697,
-   :height 183},
   :50102
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 50102,
@@ -1317,50 +944,7 @@
    :passport-area
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
-   :height 184},
-  :71654
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 71654,
-   :short-name "Ederson",
-   :middle-name "",
-   :last-name "Santana de Moraes",
-   :first-name "Ederson",
-   :birth-date "1993-08-17",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 89,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 187},
-  :7850
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7850,
-   :short-name "J. Djourou",
-   :middle-name "",
-   :last-name "Djourou-Gbadjere",
-   :first-name "Johan Danon",
-   :birth-date "1987-01-18",
-   :birth-area
-   {:name "C\\u00f4te d'Ivoire",
-    :id "384",
-    :alpha-3code "CIV",
-    :alpha-2code "CI"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 3204,
-   :passport-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :current-national-team-id 6697,
-   :height 191}},
+   :height 184}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

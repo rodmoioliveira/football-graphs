@@ -13,14 +13,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "I. Smith"}
+       :player-name nil}
       {:player-id 59126,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Wallace"}
+       :player-name nil}
       {:player-id 125287,
        :assists "0",
        :goals "0",
@@ -34,42 +34,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Moreira"}
+       :player-name nil}
       {:player-id 32706,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Azofeifa"}
+       :player-name nil}
       {:player-id 55982,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Oviedo"}
+       :player-name nil}
       {:player-id 125575,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Waston"}
+       :player-name nil}
       {:player-id 125282,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Pemberton"}
+       :player-name nil}
       {:player-id 125268,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Tejeda"}
+       :player-name nil}
       {:player-id 125273,
        :assists "0",
        :goals "0",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "U. Spaji\\u0107"}
+       :player-name nil}
       {:player-id 140064,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Rajkovi\\u0107"}
+       :player-name nil}
       {:player-id 258264,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Jovi\\u0107"}
+       :player-name nil}
       {:player-id 140085,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. \\u017divkovi\\u0107"}
+       :player-name nil}
       {:player-id 237268,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Gruji\\u0107"}
+       :player-name nil}
       {:player-id 140046,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Dmitrovi\\u0107"}
+       :player-name nil}
       {:player-id 237274,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Radonji\\u0107"}
+       :player-name nil}
       {:player-id 11095,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Veljkovic"}
+       :player-name nil}
       {:player-id 127560,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Rodi\\u0107"}
+       :player-name nil}
       {:player-id 15214,
        :assists "0",
        :goals "0",
@@ -402,6 +402,10 @@
   :label "Costa Rica - Serbia, 0 - 1",
   :venue "Samara Arena",
   :dateutc "2018-06-17 12:00:00"},
+ :players-in-match
+ #{3915 128214 125452 127537 101796 424241 50411 265865 20941 127796
+   125250 15214 127671 125260 70122 125273 55988 383 8306 11155 125286
+   125512 51004 55977 26038 127530 125284 7891},
  :players
  {:101796
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
@@ -426,26 +430,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 179},
-  :11095
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 11095,
-   :short-name "M. Veljkovic",
-   :middle-name "",
-   :last-name "Veljkovic",
-   :first-name "Milos",
-   :birth-date "1995-09-26",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 2443,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 184},
   :11155
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 11155,
@@ -515,29 +499,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 178},
-  :125268
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 125268,
-   :short-name "Y. Tejeda",
-   :middle-name "",
-   :last-name "Tejeda Valverde",
-   :first-name "Yeltsin Ignacio",
-   :birth-date "1992-03-17",
-   :birth-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 66,
-   :current-team-id 6434,
-   :passport-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 177},
   :125273
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 125273,
@@ -561,29 +522,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 180},
-  :125282
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 125282,
-   :short-name "P. Pemberton",
-   :middle-name "",
-   :last-name "Pemberton Bernard",
-   :first-name "Patrick Alberto",
-   :birth-date "1982-04-24",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 16835,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 178},
   :125284
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 125284,
@@ -653,29 +591,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 183},
-  :125510
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 125510,
-   :short-name "L. Moreira",
-   :middle-name "",
-   :last-name "Moreira Ledezma",
-   :first-name "Leonel",
-   :birth-date "1990-04-02",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 16843,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 179},
   :125512
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 125512,
@@ -699,29 +614,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 180},
-  :125575
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 125575,
-   :short-name "K. Waston",
-   :middle-name "",
-   :last-name "Waston Manley",
-   :first-name "Kendall Jamaal",
-   :birth-date "1988-01-01",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 97,
-   :current-team-id 15015,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 196},
   :127530
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 127530,
@@ -756,26 +648,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 186},
-  :127560
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 127560,
-   :short-name "M. Rodi\\u0107",
-   :middle-name "",
-   :last-name "Rodi\\u0107",
-   :first-name "Milan",
-   :birth-date "1991-04-02",
-   :birth-area
-   {:name "Bosnia-Herzegovina",
-    :id "70",
-    :alpha-3code "BIH",
-    :alpha-2code "BA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 17090,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 185},
   :127671
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 127671,
@@ -827,74 +699,6 @@
    {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 189},
-  :128523
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 128523,
-   :short-name "U. Spaji\\u0107",
-   :middle-name "",
-   :last-name "Spaji\\u0107",
-   :first-name "Uro\\u0161",
-   :birth-date "1993-02-13",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 14072,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 188},
-  :140046
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 140046,
-   :short-name "M. Dmitrovi\\u0107",
-   :middle-name "",
-   :last-name "Dmitrovi\\u0107",
-   :first-name "Marko",
-   :birth-date "1992-01-24",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "left",
-   :weight 94,
-   :current-team-id 701,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 194},
-  :140064
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 140064,
-   :short-name "P. Rajkovi\\u0107",
-   :middle-name "",
-   :last-name "Rajkovi\\u0107",
-   :first-name "Predrag",
-   :birth-date "1995-10-31",
-   :birth-area
-   {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 13270,
-   :passport-area
-   {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 191},
-  :140085
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 140085,
-   :short-name "A. \\u017divkovi\\u0107",
-   :middle-name "",
-   :last-name "\\u017divkovi\\u0107",
-   :first-name "Andrija",
-   :birth-date "1996-07-11",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 9607,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 169},
   :15214
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 15214,
@@ -929,60 +733,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 182},
-  :237268
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 237268,
-   :short-name "M. Gruji\\u0107",
-   :middle-name "",
-   :last-name "Gruji\\u0107",
-   :first-name "Marko",
-   :birth-date "1996-04-13",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 1612,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 191},
-  :237274
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 237274,
-   :short-name "N. Radonji\\u0107",
-   :middle-name "",
-   :last-name "Radonji\\u0107",
-   :first-name "Nemanja",
-   :birth-date "1996-02-15",
-   :birth-area
-   {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 185},
-  :258264
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 258264,
-   :short-name "L. Jovi\\u0107",
-   :middle-name "",
-   :last-name "Jovi\\u0107",
-   :first-name "Luka",
-   :birth-date "1997-12-23",
-   :birth-area
-   {:name "Bosnia-Herzegovina",
-    :id "70",
-    :alpha-3code "BIH",
-    :alpha-2code "BA"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 181},
   :26038
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 26038,
@@ -1023,52 +773,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 192},
-  :32706
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 32706,
-   :short-name "R. Azofeifa",
-   :middle-name "",
-   :last-name "Azofeifa Corrales",
-   :first-name "R\\u00e1ndall",
-   :birth-date "1984-12-30",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 16843,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 183},
-  :373441
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 373441,
-   :short-name "I. Smith",
-   :middle-name "",
-   :last-name "Smith Quiros",
-   :first-name "Ian Rey",
-   :birth-date "1998-03-06",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 6726,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 177},
   :383
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 383,
@@ -1186,29 +890,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 175},
-  :55982
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 55982,
-   :short-name "B. Oviedo",
-   :middle-name "",
-   :last-name "Oviedo",
-   :first-name "Bryan",
-   :birth-date "1990-02-18",
-   :birth-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "left",
-   :weight 65,
-   :current-team-id 1632,
-   :passport-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 172},
   :55988
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 55988,
@@ -1232,29 +913,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 175},
-  :59126
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 59126,
-   :short-name "R. Wallace",
-   :middle-name "",
-   :last-name "Wallace Burns",
-   :first-name "Rodney",
-   :birth-date "1988-06-17",
-   :birth-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 32556,
-   :passport-area
-   {:name "United States",
-    :id "840",
-    :alpha-3code "USA",
-    :alpha-2code "US"},
-   :current-national-team-id 16871,
-   :height 182},
   :70122
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 70122,

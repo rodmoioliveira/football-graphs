@@ -20,14 +20,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Armani"}
+       :player-name nil}
       {:player-id 3463,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Fazio"}
+       :player-name nil}
       {:player-id 86537,
        :assists "0",
        :goals "null",
@@ -41,35 +41,35 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u00c9. Banega"}
+       :player-name nil}
       {:player-id 37732,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Biglia"}
+       :player-name nil}
       {:player-id 356237,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Lo Celso"}
+       :player-name nil}
       {:player-id 101742,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Ansaldi"}
+       :player-name nil}
       {:player-id 3314,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u00c1. di Mar\\u00eda"}
+       :player-name nil}
       {:player-id 89186,
        :assists "0",
        :goals "0",
@@ -205,56 +205,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Pivari\\u0107"}
+       :player-name nil}
       {:player-id 69353,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Kalini\\u0107"}
+       :player-name nil}
       {:player-id 212604,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Jedvaj"}
+       :player-name nil}
       {:player-id 69400,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Badelj"}
+       :player-name nil}
       {:player-id 230626,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. \\u0106aleta-Car"}
+       :player-name nil}
       {:player-id 135784,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Livakovi\\u0107"}
+       :player-name nil}
       {:player-id 135810,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Pjaca"}
+       :player-name nil}
       {:player-id 231713,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Bradari\\u0107"}
+       :player-name nil}
       {:player-id 69411,
        :assists "0",
        :goals "null",
@@ -395,28 +395,12 @@
   :label "Argentina - Croatia, 0 - 3",
   :venue "Stadion Nizhny Novgorod",
   :dateutc "2018-06-21 18:00:00"},
+ :players-in-match
+ #{3359 14771 86234 69404 89073 3476 8287 86722 69411 146459 3445 86220
+   70086 14943 3355 135747 89186 69409 8325 69616 3323 3551 69968 69396
+   285396 14812 25393 105361},
  :players
- {:101742
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101742,
-   :short-name "C. Ansaldi",
-   :middle-name "",
-   :last-name "Ansaldi",
-   :first-name "Cristian Daniel",
-   :birth-date "1986-09-20",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 3185,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 181},
-  :105361
+ {:105361
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 105361,
    :short-name "I. Strini\\u0107",
@@ -450,40 +434,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 191},
-  :135784
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 135784,
-   :short-name "D. Livakovi\\u0107",
-   :middle-name "",
-   :last-name "Livakovi\\u0107",
-   :first-name "Dominik",
-   :birth-date "1995-01-09",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 9417,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 187},
-  :135810
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 135810,
-   :short-name "M. Pjaca",
-   :middle-name "",
-   :last-name "Pjaca",
-   :first-name "Marko",
-   :birth-date "1995-05-06",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 3176,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 186},
   :146459
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 146459,
@@ -561,108 +511,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 187},
-  :20441
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20441,
-   :short-name "E. Lamela",
-   :middle-name "",
-   :last-name "Lamela",
-   :first-name "Erik",
-   :birth-date "1992-03-04",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 181},
-  :20593
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20593,
-   :short-name "R. Pereyra",
-   :middle-name "",
-   :last-name "Pereyra",
-   :first-name "Roberto Maximiliano",
-   :birth-date "1991-01-07",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 1644,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 182},
-  :20606
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 20606,
-   :short-name "S. Romero",
-   :middle-name "",
-   :last-name "Romero",
-   :first-name "Sergio Germ\\u00e1n",
-   :birth-date "1987-02-22",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Italy", :id 380, :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 192},
-  :212604
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 212604,
-   :short-name "T. Jedvaj",
-   :middle-name "",
-   :last-name "Jedvaj",
-   :first-name "Tin",
-   :birth-date "1995-11-28",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 2446,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 184},
-  :230626
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 230626,
-   :short-name "D. \\u0106aleta-Car",
-   :middle-name "",
-   :last-name "\\u0106aleta-Car",
-   :first-name "Duje",
-   :birth-date "1996-09-17",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 192},
-  :231713
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 231713,
-   :short-name "F. Bradari\\u0107",
-   :middle-name "",
-   :last-name "Bradari\\u0107",
-   :first-name "Filip",
-   :birth-date "1992-01-11",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 3173,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 185},
   :25393
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 25393,
@@ -680,23 +528,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 188},
-  :284476
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284476,
-   :short-name "N. Vla\\u0161i\\u0107",
-   :middle-name "",
-   :last-name "Vla\\u0161i\\u0107",
-   :first-name "Nikola",
-   :birth-date "1997-10-04",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13886,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 178},
   :285396
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 285396,
@@ -720,46 +551,6 @@
     :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 167},
-  :3280
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3280,
-   :short-name "\\u00c9. Banega",
-   :middle-name "",
-   :last-name "Banega",
-   :first-name "\\u00c9ver Maximiliano David",
-   :birth-date "1988-06-29",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 680,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 12274,
-   :height 174},
-  :3314
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3314,
-   :short-name "\\u00c1. di Mar\\u00eda",
-   :middle-name "",
-   :last-name "di Mar\\u00eda Hern\\u00e1ndez",
-   :first-name "\\u00c1ngel Fabi\\u00e1n",
-   :birth-date "1988-02-14",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 180},
   :3323
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3323,
@@ -843,26 +634,6 @@
     :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 173},
-  :3463
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3463,
-   :short-name "F. Fazio",
-   :middle-name "",
-   :last-name "Fazio",
-   :first-name "Federico Juli\\u00e1n",
-   :birth-date "1987-03-17",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 3158,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 195},
   :3476
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3476,
@@ -903,80 +674,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 12274,
    :height 186},
-  :356237
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 356237,
-   :short-name "G. Lo Celso",
-   :middle-name "",
-   :last-name "Lo Celso",
-   :first-name "Giovani",
-   :birth-date "1996-04-09",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 177},
-  :37732
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 37732,
-   :short-name "L. Biglia",
-   :middle-name "",
-   :last-name "Biglia",
-   :first-name "Lucas Rodrigo",
-   :birth-date "1986-01-30",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 178},
-  :456053
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 456053,
-   :short-name "J. Foyth",
-   :middle-name "",
-   :last-name "Foyth",
-   :first-name "Juan Marcos",
-   :birth-date "1998-01-12",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 69,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 12274,
-   :height 182},
-  :69353
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 69353,
-   :short-name "L. Kalini\\u0107",
-   :middle-name "",
-   :last-name "Kalini\\u0107",
-   :first-name "Lovre",
-   :birth-date "1990-04-03",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 96,
-   :current-team-id 5067,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 201},
   :69396
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 69396,
@@ -994,23 +691,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 184},
-  :69400
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 69400,
-   :short-name "M. Badelj",
-   :middle-name "",
-   :last-name "Badelj",
-   :first-name "Milan",
-   :birth-date "1989-02-25",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3162,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 186},
   :69404
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 69404,
@@ -1079,23 +759,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 185},
-  :69964
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 69964,
-   :short-name "J. Pivari\\u0107",
-   :middle-name "",
-   :last-name "Pivari\\u0107",
-   :first-name "Josip",
-   :birth-date "1989-01-30",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 14503,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 176},
   :69968
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 69968,
@@ -1213,23 +876,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 12274,
    :height 177},
-  :86325
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 86325,
-   :short-name "Ramiro Funes Mori",
-   :middle-name "",
-   :last-name "Funes Mori",
-   :first-name "Jos\\u00e9 Ramiro",
-   :birth-date "1991-03-05",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 682,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 186},
   :86722
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 86722,
@@ -1292,47 +938,7 @@
    :passport-area
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 12274,
-   :height 177},
-  :8992
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 8992,
-   :short-name "P. Gazzaniga",
-   :middle-name "",
-   :last-name "Gazzaniga",
-   :first-name "Paulo Dino",
-   :birth-date "1992-01-02",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 185},
-  :90991
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 90991,
-   :short-name "F. Armani",
-   :middle-name "",
-   :last-name "Armani",
-   :first-name "Franco",
-   :birth-date "1986-01-16",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 12069,
-   :passport-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 189}},
+   :height 177}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

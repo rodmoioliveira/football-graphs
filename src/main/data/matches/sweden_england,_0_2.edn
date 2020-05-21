@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Jones"}
+       :player-name nil}
       {:player-id 346101,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Alexander-Arnold"}
+       :player-name nil}
       {:player-id 7945,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Welbeck"}
+       :player-name nil}
       {:player-id 8094,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Butland"}
+       :player-name nil}
       {:player-id 8292,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Rose"}
+       :player-name nil}
       {:player-id 235555,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Loftus-Cheek"}
+       :player-name nil}
       {:player-id 12242,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Pope"}
+       :player-name nil}
       {:player-id 7887,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Cahill"}
+       :player-name nil}
       {:player-id 12829,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Vardy"}
+       :player-name nil}
       {:player-id 210044,
        :assists "0",
        :goals "null",
@@ -205,56 +205,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Johnsson"}
+       :player-name nil}
       {:player-id 149151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Nordfeldt"}
+       :player-name nil}
       {:player-id 32798,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Svensson"}
+       :player-name nil}
       {:player-id 51262,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "I. Kiese Thelin"}
+       :player-name nil}
       {:player-id 51145,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "O. Hiljemark"}
+       :player-name nil}
       {:player-id 50805,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Helander"}
+       :player-name nil}
       {:player-id 51151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Rohd\\u00e9n"}
+       :player-name nil}
       {:player-id 50812,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Durmaz"}
+       :player-name nil}
       {:player-id 8192,
        :assists "0",
        :goals "null",
@@ -395,6 +395,10 @@
   :label "Sweden - England, 0 - 2",
   :venue "Samara Arena",
   :dateutc "2018-07-07 14:00:00"},
+ :players-in-match
+ #{8192 51144 210044 51217 8529 14908 13484 51132 397178 9380 7939
+   51064 8277 151 50798 8717 10131 20876 8945 50806 7934 21275 8464
+   7964 123 11066 8653 71703},
  :players
  {:10131
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -430,43 +434,6 @@
    {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
    :current-national-team-id 2413,
    :height 170},
-  :11669
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 11669,
-   :short-name "C. Wilson",
-   :middle-name "",
-   :last-name "Wilson",
-   :first-name "Callum",
-   :birth-date "1992-02-27",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 66,
-   :current-team-id 1659,
-   :passport-area
-   {:name "Ireland Republic",
-    :id 372,
-    :alpha-3code "IRL",
-    :alpha-2code "IE"},
-   :current-national-team-id 2413,
-   :height 180},
-  :12242
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 12242,
-   :short-name "N. Pope",
-   :middle-name "",
-   :last-name "Pope",
-   :first-name "Nick",
-   :birth-date "1992-04-19",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1646,
-   :passport-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 192},
   :123
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 123,
@@ -484,23 +451,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 192},
-  :12829
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 12829,
-   :short-name "J. Vardy",
-   :middle-name "",
-   :last-name "Vardy",
-   :first-name "Jamie",
-   :birth-date "1987-01-11",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1631,
-   :passport-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 178},
   :13484
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 13484,
@@ -535,23 +485,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 184},
-  :149151
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 149151,
-   :short-name "K. Nordfeldt",
-   :middle-name "",
-   :last-name "Nordfeldt",
-   :first-name "Kristoffer",
-   :birth-date "1989-06-23",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 10531,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 190},
   :151
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 151,
@@ -623,108 +556,6 @@
    {:name "Sweden", :id 752, :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 192},
-  :235555
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 235555,
-   :short-name "R. Loftus-Cheek",
-   :middle-name "",
-   :last-name "Loftus-Cheek",
-   :first-name "Ruben",
-   :birth-date "1996-01-23",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 83,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Jamaica", :id "388", :alpha-3code "JAM", :alpha-2code "JM"},
-   :current-national-team-id 2413,
-   :height 191},
-  :240070
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 240070,
-   :short-name "H. Winks",
-   :middle-name "",
-   :last-name "Winks",
-   :first-name "Harry",
-   :birth-date "1996-02-02",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 74,
-   :current-team-id 1624,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 176},
-  :257899
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 257899,
-   :short-name "J. Gomez",
-   :middle-name "",
-   :last-name "Gomez",
-   :first-name "Joe",
-   :birth-date "1997-05-23",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 77,
-   :current-team-id 1612,
-   :passport-area
-   {:name "Gambia", :id 270, :alpha-3code "GMB", :alpha-2code "GM"},
-   :current-national-team-id 2413,
-   :height 188},
-  :32798
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 32798,
-   :short-name "G. Svensson",
-   :middle-name "",
-   :last-name "Svensson",
-   :first-name "Gustav",
-   :birth-date "1987-02-07",
-   :birth-area
-   {:name "Sweden", :id 752, :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 8067,
-   :passport-area
-   {:name "Sweden", :id 752, :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 184},
-  :346101
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 346101,
-   :short-name "T. Alexander-Arnold",
-   :middle-name "",
-   :last-name "Alexander-Arnold",
-   :first-name "Trent",
-   :birth-date "1998-10-07",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 69,
-   :current-team-id 1612,
-   :passport-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 175},
-  :350976
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 350976,
-   :short-name "B. Chilwell",
-   :middle-name "",
-   :last-name "Chilwell",
-   :first-name "Ben",
-   :birth-date "1996-12-21",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "left",
-   :weight 77,
-   :current-team-id 1631,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 178},
   :397178
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 397178,
@@ -741,23 +572,6 @@
    :passport-area
    {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
    :current-national-team-id 2413,
-   :height 187},
-  :50771
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 50771,
-   :short-name "K. Johnsson",
-   :middle-name "",
-   :last-name "Johnsson",
-   :first-name "Karl-Johan",
-   :birth-date "1990-01-28",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 3785,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
    :height 187},
   :50798
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -776,23 +590,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7047,
    :height 196},
-  :50805
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 50805,
-   :short-name "F. Helander",
-   :middle-name "",
-   :last-name "Helander",
-   :first-name "Filip",
-   :birth-date "1993-04-22",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "left",
-   :weight 84,
-   :current-team-id 3166,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 192},
   :50806
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 50806,
@@ -810,23 +607,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 196},
-  :50812
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 50812,
-   :short-name "J. Durmaz",
-   :middle-name "",
-   :last-name "Durmaz",
-   :first-name "Jimmy",
-   :birth-date "1989-03-22",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3780,
-   :passport-area
-   {:name "Turkey", :id "792", :alpha-3code "TUR", :alpha-2code "TR"},
-   :current-national-team-id 7047,
-   :height 180},
   :51064
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 51064,
@@ -878,40 +658,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 183},
-  :51145
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 51145,
-   :short-name "O. Hiljemark",
-   :middle-name "",
-   :last-name "Hiljemark",
-   :first-name "Oscar",
-   :birth-date "1992-06-28",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 3193,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 184},
-  :51151
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 51151,
-   :short-name "M. Rohd\\u00e9n",
-   :middle-name "",
-   :last-name "Rohd\\u00e9n",
-   :first-name "Marcus Christer",
-   :birth-date "1991-05-11",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3197,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 182},
   :51217
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 51217,
@@ -929,43 +675,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 181},
-  :51262
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 51262,
-   :short-name "I. Kiese Thelin",
-   :middle-name "",
-   :last-name "Kiese Thelin",
-   :first-name "Isaac",
-   :birth-date "1992-06-24",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 2446,
-   :passport-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :current-national-team-id 7047,
-   :height 189},
-  :61949
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 61949,
-   :short-name "M. Lustig",
-   :middle-name "",
-   :last-name "Lustig",
-   :first-name "Mikael",
-   :birth-date "1986-12-13",
-   :birth-area
-   {:name "Sweden", :id 752, :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 8508,
-   :passport-area
-   {:name "Sweden", :id 752, :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 189},
   :71703
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 71703,
@@ -983,77 +692,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 187},
-  :7887
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7887,
-   :short-name "G. Cahill",
-   :middle-name "",
-   :last-name "Cahill",
-   :first-name "Gary ",
-   :birth-date "1985-12-19",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 86,
-   :current-team-id 1610,
-   :passport-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 193},
-  :7888
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 7888,
-   :short-name "N. Chalobah",
-   :middle-name "",
-   :last-name "Chalobah",
-   :first-name "Nathaniel",
-   :birth-date "1994-12-12",
-   :birth-area
-   {:name "Sierra Leone",
-    :id 694,
-    :alpha-3code "SLE",
-    :alpha-2code "SL"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 1644,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 185},
-  :7918
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7918,
-   :short-name "P. Jones",
-   :middle-name "",
-   :last-name "Jones",
-   :first-name "Phil",
-   :birth-date "1992-02-21",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 71,
-   :current-team-id 1611,
-   :passport-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 185},
-  :7919
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7919,
-   :short-name "M. Keane",
-   :middle-name "",
-   :last-name "Keane",
-   :first-name "Michael",
-   :birth-date "1993-01-11",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 82,
-   :current-team-id 1623,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 188},
   :7934
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 7934,
@@ -1088,23 +726,6 @@
    {:name "Jamaica", :id "388", :alpha-3code "JAM", :alpha-2code "JM"},
    :current-national-team-id 2413,
    :height 175},
-  :7945
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 7945,
-   :short-name "D. Welbeck",
-   :middle-name "",
-   :last-name "Tackie Mensah Welbeck",
-   :first-name "Daniel Nii",
-   :birth-date "1990-11-26",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 73,
-   :current-team-id 1609,
-   :passport-area
-   {:name "Ghana", :id "288", :alpha-3code "GHA", :alpha-2code "GH"},
-   :current-national-team-id 2413,
-   :height 185},
   :7964
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 7964,
@@ -1122,40 +743,6 @@
    {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
    :current-national-team-id 2413,
    :height 182},
-  :8094
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 8094,
-   :short-name "J. Butland",
-   :middle-name "",
-   :last-name "Butland",
-   :first-name "Jack",
-   :birth-date "1993-03-10",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 95,
-   :current-team-id 1639,
-   :passport-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 196},
-  :8135
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 8135,
-   :short-name "L. Shaw",
-   :middle-name "",
-   :last-name "Shaw",
-   :first-name "Luke",
-   :birth-date "1995-07-12",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "left",
-   :weight 75,
-   :current-team-id 1611,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 185},
   :8192
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 8192,
@@ -1173,23 +760,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 178},
-  :8246
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 8246,
-   :short-name "R. Barkley",
-   :middle-name "",
-   :last-name "Barkley",
-   :first-name "Ross",
-   :birth-date "1993-12-05",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1610,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 189},
   :8277
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 8277,
@@ -1207,23 +777,6 @@
    {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
    :current-national-team-id 2413,
    :height 183},
-  :8292
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 8292,
-   :short-name "D. Rose",
-   :middle-name "",
-   :last-name "Rose",
-   :first-name "Danny",
-   :birth-date "1990-07-02",
-   :birth-area
-   {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
-   :foot "left",
-   :weight 76,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Jamaica", :id "388", :alpha-3code "JAM", :alpha-2code "JM"},
-   :current-national-team-id 2413,
-   :height 174},
   :8464
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 8464,
@@ -1258,23 +811,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 178},
-  :8580
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 8580,
-   :short-name "A. McCarthy",
-   :middle-name "",
-   :last-name "McCarthy",
-   :first-name "Alex",
-   :birth-date "1989-12-03",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 79,
-   :current-team-id 1619,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 193},
   :8653
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 8653,
@@ -1329,23 +865,6 @@
    {:name "England", :id "0", :alpha-3code "XEN", :alpha-2code ""},
    :current-national-team-id 2413,
    :height 178},
-  :9097
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 9097,
-   :short-name "L. Dunk",
-   :middle-name "",
-   :last-name "Dunk",
-   :first-name "Lewis",
-   :birth-date "1991-11-21",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 88,
-   :current-team-id 1651,
-   :passport-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :current-national-team-id 2413,
-   :height 192},
   :9380
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 9380,

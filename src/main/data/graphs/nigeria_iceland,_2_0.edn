@@ -46,6 +46,11 @@
     :short-name ("K. Árnason"),
     :current-national-team-id 7839,
     :average-pos [63.48649 61.02702713012695]}
+   {:id "5810554495",
+    :pos "5810554495",
+    :short-name ("J. Böðvarsson" "B. Sigurðarson"),
+    :current-national-team-id 7839,
+    :average-pos [42.392857 39.35714340209961]}
    {:id "77558",
     :pos "77558",
     :short-name ("G. Sigurðsson"),
@@ -71,11 +76,6 @@
     :short-name ("R. Gíslason"),
     :current-national-team-id 7839,
     :average-pos [85.333336 30.589744567871094]}
-   {:id "5449558105",
-    :pos "5449558105",
-    :short-name ("B. Sigurðarson" "J. Böðvarsson"),
-    :current-national-team-id 7839,
-    :average-pos [42.392857 39.35714340209961]}
    {:id "54451",
     :pos "54451",
     :short-name ("B. Sævarsson"),
@@ -256,17 +256,17 @@
    {:source "16443", :target "11093", :team-id 16823, :value 14}),
   :7839
   ({:source "37948", :target "56146", :team-id 7839, :value 1}
-   {:source "38084", :target "5449558105", :team-id 7839, :value 1}
    {:source "5598357347", :target "135207", :team-id 7839, :value 1}
    {:source "38084", :target "54451", :team-id 7839, :value 1}
    {:source "38084", :target "57226", :team-id 7839, :value 1}
    {:source "38084", :target "5112777521", :team-id 7839, :value 1}
    {:source "62221", :target "38084", :team-id 7839, :value 1}
    {:source "5598357347", :target "57226", :team-id 7839, :value 1}
-   {:source "62221", :target "5449558105", :team-id 7839, :value 1}
    {:source "62221", :target "5598357347", :team-id 7839, :value 1}
    {:source "77558", :target "57226", :team-id 7839, :value 1}
+   {:source "5810554495", :target "62221", :team-id 7839, :value 1}
    {:source "56146", :target "37948", :team-id 7839, :value 1}
+   {:source "56146", :target "5810554495", :team-id 7839, :value 1}
    {:source "5598357347",
     :target "5112777521",
     :team-id 7839,
@@ -278,46 +278,47 @@
    {:source "62221", :target "5112777521", :team-id 7839, :value 1}
    {:source "54451", :target "37948", :team-id 7839, :value 1}
    {:source "57226", :target "54451", :team-id 7839, :value 1}
-   {:source "56146", :target "5449558105", :team-id 7839, :value 1}
-   {:source "5112777521",
-    :target "5449558105",
-    :team-id 7839,
-    :value 1}
    {:source "135207", :target "56146", :team-id 7839, :value 1}
-   {:source "5449558105", :target "56146", :team-id 7839, :value 1}
-   {:source "5449558105", :target "135207", :team-id 7839, :value 1}
+   {:source "62221", :target "5810554495", :team-id 7839, :value 1}
+   {:source "5810554495", :target "135207", :team-id 7839, :value 1}
    {:source "5598357347", :target "56146", :team-id 7839, :value 1}
    {:source "56146", :target "62221", :team-id 7839, :value 1}
    {:source "38084", :target "37948", :team-id 7839, :value 1}
    {:source "57226", :target "62221", :team-id 7839, :value 1}
    {:source "57226", :target "5112777521", :team-id 7839, :value 1}
+   {:source "38084", :target "5810554495", :team-id 7839, :value 1}
+   {:source "5112777521",
+    :target "5810554495",
+    :team-id 7839,
+    :value 1}
    {:source "37948", :target "5598357347", :team-id 7839, :value 1}
    {:source "135207", :target "5598357347", :team-id 7839, :value 1}
-   {:source "5449558105", :target "62221", :team-id 7839, :value 1}
+   {:source "5810554495", :target "56146", :team-id 7839, :value 1}
    {:source "38084", :target "56146", :team-id 7839, :value 1}
-   {:source "5449558105", :target "77558", :team-id 7839, :value 2}
+   {:source "77558", :target "5810554495", :team-id 7839, :value 2}
    {:source "54451", :target "62221", :team-id 7839, :value 2}
+   {:source "5810554495", :target "77558", :team-id 7839, :value 2}
    {:source "62221", :target "135207", :team-id 7839, :value 2}
-   {:source "77558", :target "5449558105", :team-id 7839, :value 2}
+   {:source "5598357347",
+    :target "5810554495",
+    :team-id 7839,
+    :value 2}
    {:source "37948", :target "5112777521", :team-id 7839, :value 2}
    {:source "62221", :target "77558", :team-id 7839, :value 2}
    {:source "5112777521", :target "37948", :team-id 7839, :value 2}
-   {:source "54451", :target "5449558105", :team-id 7839, :value 2}
    {:source "54451", :target "77558", :team-id 7839, :value 2}
-   {:source "5598357347",
-    :target "5449558105",
-    :team-id 7839,
-    :value 2}
+   {:source "54451", :target "5810554495", :team-id 7839, :value 2}
    {:source "77558", :target "5112777521", :team-id 7839, :value 2}
    {:source "77558", :target "5598357347", :team-id 7839, :value 2}
    {:source "5112777521", :target "38084", :team-id 7839, :value 2}
    {:source "37948", :target "54451", :team-id 7839, :value 2}
    {:source "5598357347", :target "62221", :team-id 7839, :value 2}
    {:source "54451", :target "57226", :team-id 7839, :value 3}
-   {:source "5449558105", :target "37948", :team-id 7839, :value 3}
    {:source "57226", :target "135207", :team-id 7839, :value 3}
    {:source "37948", :target "38084", :team-id 7839, :value 3}
    {:source "37948", :target "77558", :team-id 7839, :value 3}
+   {:source "37948", :target "5810554495", :team-id 7839, :value 3}
+   {:source "5810554495", :target "37948", :team-id 7839, :value 3}
    {:source "38084", :target "135207", :team-id 7839, :value 3}
    {:source "62221", :target "56146", :team-id 7839, :value 3}
    {:source "135207", :target "77558", :team-id 7839, :value 3}
@@ -325,23 +326,22 @@
    {:source "77558", :target "38084", :team-id 7839, :value 3}
    {:source "5112777521", :target "77558", :team-id 7839, :value 3}
    {:source "57226", :target "5598357347", :team-id 7839, :value 3}
+   {:source "5810554495", :target "38084", :team-id 7839, :value 3}
    {:source "77558", :target "62221", :team-id 7839, :value 3}
-   {:source "5449558105", :target "38084", :team-id 7839, :value 3}
    {:source "77558", :target "37948", :team-id 7839, :value 3}
-   {:source "37948", :target "5449558105", :team-id 7839, :value 3}
    {:source "62221", :target "54451", :team-id 7839, :value 3}
    {:source "38084", :target "62221", :team-id 7839, :value 3}
    {:source "62221", :target "57226", :team-id 7839, :value 3}
    {:source "77558", :target "56146", :team-id 7839, :value 4}
    {:source "5112777521", :target "135207", :team-id 7839, :value 4}
    {:source "5598357347", :target "77558", :team-id 7839, :value 4}
-   {:source "77558", :target "54451", :team-id 7839, :value 4}
-   {:source "56146", :target "5112777521", :team-id 7839, :value 4}
-   {:source "5112777521", :target "62221", :team-id 7839, :value 4}
-   {:source "5449558105",
+   {:source "5810554495",
     :target "5112777521",
     :team-id 7839,
     :value 4}
+   {:source "77558", :target "54451", :team-id 7839, :value 4}
+   {:source "56146", :target "5112777521", :team-id 7839, :value 4}
+   {:source "5112777521", :target "62221", :team-id 7839, :value 4}
    {:source "5112777521", :target "56146", :team-id 7839, :value 4}
    {:source "135207", :target "38084", :team-id 7839, :value 5}
    {:source "38084", :target "77558", :team-id 7839, :value 5}

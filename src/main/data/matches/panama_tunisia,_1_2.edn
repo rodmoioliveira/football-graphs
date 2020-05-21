@@ -13,14 +13,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Khaoui"}
+       :player-name nil}
       {:player-id 354041,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Ben Amor"}
+       :player-name nil}
       {:player-id 26668,
        :assists "0",
        :goals "null",
@@ -41,7 +41,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Benalouane"}
+       :player-name nil}
       {:player-id 408827,
        :assists "0",
        :goals "0",
@@ -177,42 +177,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Pimentel"}
+       :player-name nil}
       {:player-id 116364,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "E. Davis"}
+       :player-name nil}
       {:player-id 167241,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Rodr\\u00edguez"}
+       :player-name nil}
       {:player-id 131576,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Calder\\u00f3n"}
+       :player-name nil}
       {:player-id 112679,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Baloy"}
+       :player-name nil}
       {:player-id 113517,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. P\\u00e9rez"}
+       :player-name nil}
       {:player-id 116293,
        :assists "0",
        :goals "null",
@@ -353,59 +353,12 @@
   :label "Panama - Tunisia, 1 - 2",
   :venue "Mordovia Arena",
   :dateutc "2018-06-28 18:00:00"},
+ :players-in-match
+ #{125848 91263 125774 120900 131862 293128 114864 59083 293080 241077
+   131602 26100 331763 273683 246946 28094 354043 408827 116293 120853
+   209354 116997 25776 120717 361536 401861 120898 86414},
  :players
- {:10014
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 10014,
-   :short-name "S. Ben Youssef",
-   :middle-name "",
-   :last-name "Ben Youssef",
-   :first-name "Syam",
-   :birth-date "1989-03-31",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 4551,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 186},
-  :112679
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 112679,
-   :short-name "F. Baloy",
-   :middle-name "",
-   :last-name "Baloy Ram\\u00edrez",
-   :first-name "Felipe Abdiel",
-   :birth-date "1981-02-24",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 90,
-   :current-team-id "null",
-   :passport-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 17929,
-   :height 184},
-  :113517
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 113517,
-   :short-name "B. P\\u00e9rez",
-   :middle-name "",
-   :last-name "P\\u00e9rez Ortega",
-   :first-name "Blas Antonio Miguel",
-   :birth-date "1981-03-13",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 17917,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 187},
-  :114864
+ {:114864
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 114864,
    :short-name "L. Tejada",
@@ -439,23 +392,6 @@
    {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
    :current-national-team-id 17929,
    :height 180},
-  :116364
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 116364,
-   :short-name "E. Davis",
-   :middle-name "",
-   :last-name "Davis Grajales",
-   :first-name "Erick Javier",
-   :birth-date "1991-03-31",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "left",
-   :weight 78,
-   :current-team-id 14390,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 179},
   :116997
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 116997,
@@ -490,23 +426,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 184},
-  :120784
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120784,
-   :short-name "F. Ben Mustapha",
-   :middle-name "",
-   :last-name "Ben Mustapha",
-   :first-name "Farouk",
-   :birth-date "1989-07-01",
-   :birth-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 16472,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 192},
   :120853
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 120853,
@@ -592,23 +511,6 @@
    {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
    :current-national-team-id 17929,
    :height 182},
-  :131576
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 131576,
-   :short-name "J. Calder\\u00f3n",
-   :middle-name "",
-   :last-name "Calder\\u00f3n Frias",
-   :first-name "Jos\\u00e9 De Jesus",
-   :birth-date "1985-08-14",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 16909,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 187},
   :131602
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 131602,
@@ -643,40 +545,6 @@
    {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
    :current-national-team-id 17929,
    :height 178},
-  :149050
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 149050,
-   :short-name "M. Hassen",
-   :middle-name "",
-   :last-name "Hassen",
-   :first-name "Mouez",
-   :birth-date "1995-03-05",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3775,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 186},
-  :167241
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 167241,
-   :short-name "A. Rodr\\u00edguez",
-   :middle-name "",
-   :last-name "Rodr\\u00edguez Ledezma",
-   :first-name "Alex Ra\\u00fal",
-   :birth-date "1990-08-05",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 17916,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 197},
   :209354
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 209354,
@@ -694,23 +562,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 192},
-  :21333
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 21333,
-   :short-name "Y. Benalouane",
-   :middle-name "",
-   :last-name "Benalouane",
-   :first-name "Yohan",
-   :birth-date "1987-03-28",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 1631,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 185},
   :241077
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 241077,
@@ -728,23 +579,6 @@
    {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
    :current-national-team-id 17929,
    :height 175},
-  :241134
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 241134,
-   :short-name "I. D\\u00edaz",
-   :middle-name "",
-   :last-name "D\\u00edaz De Le\\u00f3n",
-   :first-name "Ismael",
-   :birth-date "1997-05-12",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 15661,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 182},
   :246946
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 246946,
@@ -813,23 +647,6 @@
    {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
    :current-national-team-id 17929,
    :height 182},
-  :275243
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 275243,
-   :short-name "S. Khaoui",
-   :middle-name "",
-   :last-name "Khaoui",
-   :first-name "Sa\\u00eef-Eddine",
-   :birth-date "1995-04-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 68,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 182},
   :28094
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 28094,
@@ -881,23 +698,6 @@
    {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 187},
-  :295747
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 295747,
-   :short-name "D. Bronn",
-   :middle-name "",
-   :last-name "Bronn",
-   :first-name "Dylan",
-   :birth-date "1995-06-19",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 5067,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 185},
   :331763
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 331763,
@@ -915,23 +715,6 @@
    {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 188},
-  :354041
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 354041,
-   :short-name "M. Ben Amor",
-   :middle-name "",
-   :last-name "Ben Amor",
-   :first-name "Mohamed Amine",
-   :birth-date "1992-05-03",
-   :birth-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 16231,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 184},
   :354043
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 354043,
@@ -949,40 +732,6 @@
    {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 179},
-  :361498
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 361498,
-   :short-name "M. Murillo",
-   :middle-name "",
-   :last-name "Murillo Bermudez",
-   :first-name "Michael Amir",
-   :birth-date "1996-02-11",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 7945,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 183},
-  :361511
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 361511,
-   :short-name "V. Pimentel",
-   :middle-name "",
-   :last-name "Pimentel Armuelles",
-   :first-name "Valentin Enrique",
-   :birth-date "1991-05-30",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 17918,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 185},
   :361536
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 361536,
@@ -1051,23 +800,6 @@
    {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
    :current-national-team-id 17929,
    :height 189},
-  :86411
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 86411,
-   :short-name "A. Cooper",
-   :middle-name "",
-   :last-name "Cooper Whitaker",
-   :first-name "Armando Enrique",
-   :birth-date "1987-11-26",
-   :birth-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 11564,
-   :passport-area
-   {:name "Panama", :id 591, :alpha-3code "PAN", :alpha-2code "PA"},
-   :current-national-team-id 17929,
-   :height 173},
   :86414
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 86414,

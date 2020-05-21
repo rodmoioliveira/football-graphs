@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Higashiguchi"}
+       :player-name nil}
       {:player-id 94650,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Haraguchi"}
+       :player-name nil}
       {:player-id 137653,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Nakamura"}
+       :player-name nil}
       {:player-id 137661,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Ueda"}
+       :player-name nil}
       {:player-id 101592,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Honda"}
+       :player-name nil}
       {:player-id 94814,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Sh\\u014dji"}
+       :player-name nil}
       {:player-id 95349,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "W. Endo"}
+       :player-name nil}
       {:player-id 94922,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Oshima"}
+       :player-name nil}
       {:player-id 14816,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Kagawa"}
+       :player-name nil}
       {:player-id 14836,
        :assists "0",
        :goals "null",
@@ -205,7 +205,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Kownacki"}
+       :player-name nil}
       {:player-id 99438,
        :assists "0",
        :goals "null",
@@ -219,14 +219,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Milik"}
+       :player-name nil}
       {:player-id 14798,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u0141. Piszczek"}
+       :player-name nil}
       {:player-id 8121,
        :assists "0",
        :goals "null",
@@ -240,28 +240,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. B\\u0142aszczykowski"}
+       :player-name nil}
       {:player-id 138174,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Linetty"}
+       :player-name nil}
       {:player-id 99391,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Rybus"}
+       :player-name nil}
       {:player-id 7849,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "W. Szcz\\u0119sny"}
+       :player-name nil}
       {:player-id 99479,
        :assists "0",
        :goals "null",
@@ -389,6 +389,10 @@
   :label "Japan - Poland, 0 - 1",
   :venue "Volgograd Arena",
   :dateutc "2018-06-28 14:00:00"},
+ :players-in-match
+ #{15282 94630 95010 94828 14749 99833 99479 225324 37896 14836 94764
+   33032 14929 100140 14730 20517 21097 94695 703 14817 14763 7847
+   240032 25537 99381 99902 94831},
  :players
  {:100140
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -407,74 +411,6 @@
    {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 172},
-  :101592
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101592,
-   :short-name "K. Honda",
-   :middle-name "",
-   :last-name "Honda",
-   :first-name "Keisuke",
-   :birth-date "1986-06-13",
-   :birth-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 8311,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 182},
-  :137653
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 137653,
-   :short-name "K. Nakamura",
-   :middle-name "",
-   :last-name "Nakamura",
-   :first-name "Kosuke",
-   :birth-date "1995-02-27",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 12807,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 184},
-  :137661
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 137661,
-   :short-name "N. Ueda",
-   :middle-name "",
-   :last-name "Ueda",
-   :first-name "Naomichi",
-   :birth-date "1994-10-24",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 5070,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 186},
-  :138174
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 138174,
-   :short-name "K. Linetty",
-   :middle-name "",
-   :last-name "Linetty",
-   :first-name "Karol",
-   :birth-date "1995-02-02",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 3164,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 176},
   :14730
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 14730,
@@ -529,57 +465,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 174},
-  :14798
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14798,
-   :short-name "\\u0141. Piszczek",
-   :middle-name "",
-   :last-name "Piszczek",
-   :first-name "\\u0141ukasz",
-   :birth-date "1985-06-03",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 2447,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 184},
-  :14804
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14804,
-   :short-name "J. B\\u0142aszczykowski",
-   :middle-name "",
-   :last-name "B\\u0142aszczykowski",
-   :first-name "Jakub",
-   :birth-date "1985-12-14",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 2451,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 176},
-  :14816
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14816,
-   :short-name "S. Kagawa",
-   :middle-name "",
-   :last-name "Kagawa",
-   :first-name "Shinji",
-   :birth-date "1989-03-17",
-   :birth-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 2447,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 175},
   :14817
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 14817,
@@ -716,23 +601,6 @@
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 189},
-  :240042
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 240042,
-   :short-name "D. Kownacki",
-   :middle-name "",
-   :last-name "Kownacki",
-   :first-name "Dawid",
-   :birth-date "1997-03-14",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 3164,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 187},
   :25537
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25537,
@@ -818,23 +686,6 @@
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 190},
-  :7849
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 7849,
-   :short-name "W. Szcz\\u0119sny",
-   :middle-name "",
-   :last-name "Szcz\\u0119sny",
-   :first-name "Wojciech ",
-   :birth-date "1990-04-18",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 196},
   :94630
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 94630,
@@ -852,23 +703,6 @@
    {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 182},
-  :94650
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 94650,
-   :short-name "G. Haraguchi",
-   :middle-name "",
-   :last-name "Haraguchi",
-   :first-name "Genki",
-   :birth-date "1991-05-09",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 2455,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 177},
   :94695
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 94695,
@@ -903,23 +737,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 179},
-  :94814
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 94814,
-   :short-name "G. Sh\\u014dji",
-   :middle-name "",
-   :last-name "Sh\\u014dji",
-   :first-name "Gen",
-   :birth-date "1992-12-11",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 12800,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 182},
   :94828
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 94828,
@@ -954,23 +771,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 182},
-  :94922
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 94922,
-   :short-name "R. Oshima",
-   :middle-name "",
-   :last-name "Oshima",
-   :first-name "Ryota",
-   :birth-date "1993-01-23",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 64,
-   :current-team-id 12812,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 168},
   :95010
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 95010,
@@ -988,40 +788,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 173},
-  :95108
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 95108,
-   :short-name "M. Higashiguchi",
-   :middle-name "",
-   :last-name "Higashiguchi",
-   :first-name "Masaaki",
-   :birth-date "1986-05-12",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 12803,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 184},
-  :95349
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 95349,
-   :short-name "W. Endo",
-   :middle-name "",
-   :last-name "Endo",
-   :first-name "Wataru",
-   :birth-date "1993-02-09",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 5082,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 178},
   :99381
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 99381,
@@ -1039,40 +805,6 @@
    {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 189},
-  :99391
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 99391,
-   :short-name "M. Rybus",
-   :middle-name "",
-   :last-name "Rybus",
-   :first-name "Maciej",
-   :birth-date "1989-08-19",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 173},
-  :99452
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 99452,
-   :short-name "A. Milik",
-   :middle-name "",
-   :last-name "Milik",
-   :first-name "Arkadiusz",
-   :birth-date "1994-02-28",
-   :birth-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :foot "left",
-   :weight 78,
-   :current-team-id 3187,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 186},
   :99479
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 99479,
@@ -1090,23 +822,6 @@
    {:name "Poland", :id 616, :alpha-3code "POL", :alpha-2code "PL"},
    :current-national-team-id 13869,
    :height 188},
-  :99661
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 99661,
-   :short-name "T. Cionek",
-   :middle-name "",
-   :last-name "Rangel Cionek",
-   :first-name "Thiago",
-   :birth-date "1986-04-21",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3204,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 13869,
-   :height 183},
   :99833
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 99833,

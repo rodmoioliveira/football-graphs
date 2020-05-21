@@ -13,70 +13,70 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Milivojevi\\u0107"}
+       :player-name nil}
       {:player-id 7891,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Ivanovi\\u0107"}
+       :player-name nil}
       {:player-id 128523,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "U. Spaji\\u0107"}
+       :player-name nil}
       {:player-id 127530,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. To\\u0161i\\u0107"}
+       :player-name nil}
       {:player-id 50411,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Prijovi\\u0107"}
+       :player-name nil}
       {:player-id 140064,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Rajkovi\\u0107"}
+       :player-name nil}
       {:player-id 237268,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Gruji\\u0107"}
+       :player-name nil}
       {:player-id 140046,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Dmitrovi\\u0107"}
+       :player-name nil}
       {:player-id 127560,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Rodi\\u0107"}
+       :player-name nil}
       {:player-id 258264,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Jovi\\u0107"}
+       :player-name nil}
       {:player-id 140085,
        :assists "0",
        :goals "null",
@@ -186,7 +186,7 @@
        :assists "0",
        :player-out 128214,
        :minute 89,
-       :player-in-name "L. Jovi\\u0107",
+       :player-in-name nil,
        :player-out-name "A. Mitrovi\\u0107"})},
     :has-formation 1,
     :score-et 0,
@@ -205,7 +205,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Roberto Firmino"}
+       :player-name nil}
       {:player-id 105802,
        :assists "0",
        :goals "null",
@@ -219,35 +219,35 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Marquinhos"}
+       :player-name nil}
       {:player-id 40536,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C\\u00e1ssio"}
+       :player-name nil}
       {:player-id 15272,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Geromel"}
+       :player-name nil}
       {:player-id 71654,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ederson"}
+       :player-name nil}
       {:player-id 40335,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Fred"}
+       :player-name nil}
       {:player-id 14785,
        :assists "0",
        :goals "null",
@@ -388,6 +388,10 @@
   :label "Serbia - Brazil, 0 - 2",
   :venue "Otkrytiye Arena",
   :dateutc "2018-06-27 18:00:00"},
+ :players-in-match
+ #{40810 128214 3310 14785 424241 140085 265865 105339 20941 20394 3431
+   127796 15214 3802 127671 237274 70122 3434 11095 383 40550 8306
+   40756 214220 40707 105333 340386},
  :players
  {:105333
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -406,26 +410,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 175},
-  :105334
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 105334,
-   :short-name "Douglas Costa",
-   :middle-name "",
-   :last-name "Costa de Souza",
-   :first-name "Douglas ",
-   :birth-date "1990-09-14",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 65,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 170},
   :105339
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 105339,
@@ -463,60 +447,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 184},
-  :127530
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 127530,
-   :short-name "D. To\\u0161i\\u0107",
-   :middle-name "",
-   :last-name "To\\u0161i\\u0107",
-   :first-name "Du\\u0161ko",
-   :birth-date "1985-01-19",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "left",
-   :weight 85,
-   :current-team-id 9126,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 185},
-  :127537
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 127537,
-   :short-name "L. Milivojevi\\u0107",
-   :middle-name "",
-   :last-name "Milivojevi\\u0107",
-   :first-name "Luka",
-   :birth-date "1991-04-07",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 1628,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 186},
-  :127560
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 127560,
-   :short-name "M. Rodi\\u0107",
-   :middle-name "",
-   :last-name "Rodi\\u0107",
-   :first-name "Milan",
-   :birth-date "1991-04-02",
-   :birth-area
-   {:name "Bosnia-Herzegovina",
-    :id "70",
-    :alpha-3code "BIH",
-    :alpha-2code "BA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 17090,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 185},
   :127671
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 127671,
@@ -568,57 +498,6 @@
    {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 189},
-  :128523
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 128523,
-   :short-name "U. Spaji\\u0107",
-   :middle-name "",
-   :last-name "Spaji\\u0107",
-   :first-name "Uro\\u0161",
-   :birth-date "1993-02-13",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 14072,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 188},
-  :140046
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 140046,
-   :short-name "M. Dmitrovi\\u0107",
-   :middle-name "",
-   :last-name "Dmitrovi\\u0107",
-   :first-name "Marko",
-   :birth-date "1992-01-24",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "left",
-   :weight 94,
-   :current-team-id 701,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 194},
-  :140064
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 140064,
-   :short-name "P. Rajkovi\\u0107",
-   :middle-name "",
-   :last-name "Rajkovi\\u0107",
-   :first-name "Predrag",
-   :birth-date "1995-10-31",
-   :birth-area
-   {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 13270,
-   :passport-area
-   {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 191},
   :140085
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 140085,
@@ -670,40 +549,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 176},
-  :15272
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 15272,
-   :short-name "Geromel",
-   :middle-name "",
-   :last-name "Tonon Geromel",
-   :first-name "Pedro",
-   :birth-date "1985-09-21",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 5649,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 6380,
-   :height 190},
-  :15808
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 15808,
-   :short-name "Roberto Firmino",
-   :middle-name "",
-   :last-name "Barbosa de Oliveira",
-   :first-name "Roberto Firmino",
-   :birth-date "1991-10-02",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1612,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 181},
   :20394
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 20394,
@@ -755,23 +600,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 6380,
    :height 191},
-  :237268
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 237268,
-   :short-name "M. Gruji\\u0107",
-   :middle-name "",
-   :last-name "Gruji\\u0107",
-   :first-name "Marko",
-   :birth-date "1996-04-13",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 1612,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 191},
   :237274
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 237274,
@@ -789,26 +617,6 @@
    {:name "Serbia", :id 688, :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 185},
-  :258264
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 258264,
-   :short-name "L. Jovi\\u0107",
-   :middle-name "",
-   :last-name "Jovi\\u0107",
-   :first-name "Luka",
-   :birth-date "1997-12-23",
-   :birth-area
-   {:name "Bosnia-Herzegovina",
-    :id "70",
-    :alpha-3code "BIH",
-    :alpha-2code "BA"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 181},
   :265865
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 265865,
@@ -894,23 +702,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 6380,
    :height 182},
-  :377071
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 377071,
-   :short-name "Richarlison",
-   :middle-name "",
-   :last-name "de Andrade",
-   :first-name "Richarlison",
-   :birth-date "1997-05-10",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 179},
   :3802
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3802,
@@ -945,60 +736,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 181},
-  :40335
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 40335,
-   :short-name "Fred",
-   :middle-name "",
-   :last-name "Rodrigues Santos",
-   :first-name "Frederico",
-   :birth-date "1993-03-05",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 64,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 169},
-  :40536
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 40536,
-   :short-name "C\\u00e1ssio",
-   :middle-name "",
-   :last-name "Ramos",
-   :first-name "C\\u00e1ssio Roberto",
-   :birth-date "1987-06-06",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 5656,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 195},
-  :40539
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 40539,
-   :short-name "Marquinhos",
-   :middle-name "",
-   :last-name "Ao\\u00e1s Corr\\u00eaa ",
-   :first-name "Marcos ",
-   :birth-date "1994-05-14",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 183},
   :40550
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 40550,
@@ -1050,23 +787,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 185},
-  :40765
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 40765,
-   :short-name "Lucas Moura",
-   :middle-name "",
-   :last-name "Rodrigues Moura da Silva",
-   :first-name "Lucas",
-   :birth-date "1992-08-13",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 172},
   :40810
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 40810,
@@ -1101,43 +821,6 @@
    {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
    :current-national-team-id 17322,
    :height 195},
-  :50411
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 50411,
-   :short-name "A. Prijovi\\u0107",
-   :middle-name "",
-   :last-name "Prijovi\\u0107",
-   :first-name "Aleksandar",
-   :birth-date "1990-04-21",
-   :birth-area
-   {:name "Switzerland",
-    :id "756",
-    :alpha-3code "CHE",
-    :alpha-2code "CH"},
-   :foot "right",
-   :weight 88,
-   :current-team-id 12510,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 191},
-  :70083
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 70083,
-   :short-name "Danilo",
-   :middle-name "",
-   :last-name "da Silva",
-   :first-name "Danilo Luiz",
-   :birth-date "1991-07-15",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 184},
   :70122
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 70122,
@@ -1158,43 +841,6 @@
     :alpha-2code "SK"},
    :current-national-team-id 17322,
    :height 194},
-  :71654
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 71654,
-   :short-name "Ederson",
-   :middle-name "",
-   :last-name "Santana de Moraes",
-   :first-name "Ederson",
-   :birth-date "1993-08-17",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 89,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 187},
-  :7891
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7891,
-   :short-name "B. Ivanovi\\u0107",
-   :middle-name "",
-   :last-name "Ivanovi\\u0107",
-   :first-name "Branislav",
-   :birth-date "1984-02-22",
-   :birth-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :foot "right",
-   :weight 91,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Serbia", :id "688", :alpha-3code "SRB", :alpha-2code "RS"},
-   :current-national-team-id 17322,
-   :height 185},
   :8306
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 8306,

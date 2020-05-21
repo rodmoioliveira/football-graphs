@@ -40,10 +40,6 @@
                   json->edn
                   hash-by-id
                   id-keyword)
-        teams-ids (-> match
-                      :teams-data
-                      vals
-                      (#(map (fn [{:keys [team-id]}] team-id) %)))
         reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
         events-filtered (-> (get-file "events_World_Cup.json")
                             slurp
@@ -69,22 +65,19 @@
         players (-> (get-file "players.json")
                     slurp
                     json->edn
-                    (#(filter (fn [{:keys [wy-id current-national-team-id]}]
-                                (or
-                                 (some (fn [id] (= id current-national-team-id)) teams-ids)
-                                 (some (set [wy-id]) players-in-match)))
+                    (#(filter (fn [{:keys [wy-id]}]
+                                (some? (some players-in-match [wy-id])))
                               %))
                     (#(map (fn [p] (assoc
                                     p
                                     :current-national-team-id
-                                    (if (= (-> p :current-national-team-id) "null")
-                                      (get-in players-national-teams-hash [(-> p :wy-id str keyword) :team-id])
-                                      (-> p :current-national-team-id)))) %))
+                                    (get-in players-national-teams-hash [(-> p :wy-id str keyword) :team-id]))) %))
                     hash-by-id)]
     {:match (->> match
                  (assoc-names players)
                  (reduce-by :team-id)
                  (#(assoc match :teams-data %)))
+     :players-in-match players-in-match
      :players players
      :events events}))
 
