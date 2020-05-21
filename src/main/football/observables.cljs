@@ -33,9 +33,8 @@
                                                     (get-metrics)
                                                     (get-theme-with (partial theme-identity (get-current-theme)))))))))
                     (rx-op/tap (fn [obj]
-                                 (do
-                                   (display-passes obj)
-                                   (-> obj update-theme-store!))))))
+                                 (display-passes obj)
+                                 (-> obj update-theme-store!)))))
         list$ (-> dom
                   :matches-list
                   (rx/fromEvent "click")
@@ -50,34 +49,33 @@
                                  (get-theme-with (partial theme-identity (get-current-theme))))))
                    (rx-op/tap update-theme-store!)))
         toogle-theme$ (-> dom
-                   :theme-btn
-                   (rx/fromEvent "click")
-                   (.pipe (rx-op/map (fn [_] (merge
-                                              (get-metrics)
-                                              (get-theme-with (partial theme-reverse (get-current-theme))))))
-                          (rx-op/tap (fn [obj] (do
-                                                 (-> obj update-theme-store!)
-                                                 (-> obj :theme (set-in-storage! "data-theme")))))))]
+                          :theme-btn
+                          (rx/fromEvent "click")
+                          (.pipe (rx-op/map (fn [_] (merge
+                                                     (get-metrics)
+                                                     (get-theme-with (partial theme-reverse (get-current-theme))))))
+                                 (rx-op/tap (fn [obj]
+                                              (-> obj update-theme-store!)
+                                              (-> obj :theme (set-in-storage! "data-theme"))))))]
     {:input$ input$
      :toogle-theme$ toogle-theme$
      :list$ list$}))
 
 (defn sticky-nav$
   []
-  (do
-    (-> dom :activate-btn
-        (rx/fromEvent "click")
-        (.subscribe activate-nav))
+  (-> dom :activate-btn
+      (rx/fromEvent "click")
+      (.subscribe activate-nav))
 
-    (-> dom :document
-        (rx/fromEvent "click")
-        (.pipe
-         (rx-op/filter is-body-click?))
-        (.subscribe deactivate-nav))
+  (-> dom :document
+      (rx/fromEvent "click")
+      (.pipe
+       (rx-op/filter is-body-click?))
+      (.subscribe deactivate-nav))
 
-    (-> dom :deactivate-btn
-        (rx/fromEvent "click")
-        (.subscribe deactivate-nav))))
+  (-> dom :deactivate-btn
+      (rx/fromEvent "click")
+      (.subscribe deactivate-nav)))
 
 (def slider$
   (-> dom :slide-to-home

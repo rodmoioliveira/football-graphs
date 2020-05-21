@@ -36,23 +36,20 @@
 (defn dragstarted
   [simulation]
   (fn []
-    (do
-      (when (-> d3 .-event .-active)
-        (-> simulation (.alphaTarget 1) (.restart)))
-      (-> d3 .-event .-subject .-fx (set! (-> d3 .-event .-x)))
-      (-> d3 .-event .-subject .-fy (set! (-> d3 .-event .-y))))))
+    (when (-> d3 .-event .-active)
+      (-> simulation (.alphaTarget 1) (.restart)))
+    (-> d3 .-event .-subject .-fx (set! (-> d3 .-event .-x)))
+    (-> d3 .-event .-subject .-fy (set! (-> d3 .-event .-y)))))
 
 (defn dragged
   []
   (fn []
-    (do
-      (-> d3 .-event .-subject .-fx (set! (-> transform (.invertY (-> d3 .-event .-x)))))
-      (-> d3 .-event .-subject .-fy (set! (-> transform (.invertX (-> d3 .-event .-y))))))))
+    (-> d3 .-event .-subject .-fx (set! (-> transform (.invertY (-> d3 .-event .-x)))))
+    (-> d3 .-event .-subject .-fy (set! (-> transform (.invertX (-> d3 .-event .-y)))))))
 
 (defn dragended
   [simulation]
   (fn []
-    (do
-      (-> simulation (.alphaTarget 0))
-      (-> d3 .-event .-subject .-fx (set! nil))
-      (-> d3 .-event .-subject .-fy (set! nil)))))
+    (-> simulation (.alphaTarget 0))
+    (-> d3 .-event .-subject .-fx (set! nil))
+    (-> d3 .-event .-subject .-fy (set! nil))))

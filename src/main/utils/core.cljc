@@ -1,6 +1,5 @@
 (ns utils.core
   (:require
-   [clojure.string :refer [split]]
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
    [project-specs :as pspecs]
@@ -86,18 +85,18 @@
 #?(:cljs
    (defn set-canvas-dimensions
      [scale]
-     {:gol-bottom (fn [c] (do
-                            (set! (.-height c) (-> (canvas-dimensions scale) first))
-                            (set! (.-width c) (-> (canvas-dimensions scale) second))))
-      :gol-top (fn [c] (do
-                         (set! (.-height c) (-> (canvas-dimensions scale) first))
-                         (set! (.-width c) (-> (canvas-dimensions scale) second))))
-      :gol-left (fn [c] (do
-                          (set! (.-height c) (-> (canvas-dimensions scale) second))
-                          (set! (.-width c) (-> (canvas-dimensions scale) first))))
-      :gol-right (fn [c] (do
-                           (set! (.-height c) (-> (canvas-dimensions scale) second))
-                           (set! (.-width c) (-> (canvas-dimensions scale) first))))}))
+     {:gol-bottom (fn [c]
+                    (set! (.-height c) (-> (canvas-dimensions scale) first))
+                    (set! (.-width c) (-> (canvas-dimensions scale) second)))
+      :gol-top (fn [c]
+                 (set! (.-height c) (-> (canvas-dimensions scale) first))
+                 (set! (.-width c) (-> (canvas-dimensions scale) second)))
+      :gol-left (fn [c]
+                  (set! (.-height c) (-> (canvas-dimensions scale) second))
+                  (set! (.-width c) (-> (canvas-dimensions scale) first)))
+      :gol-right (fn [c]
+                   (set! (.-height c) (-> (canvas-dimensions scale) second))
+                   (set! (.-width c) (-> (canvas-dimensions scale) first)))}))
 
 #?(:cljs
    (def mobile-mapping
