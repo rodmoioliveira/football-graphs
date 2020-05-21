@@ -13,14 +13,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Ben Amor"}
+       :player-name nil}
       {:player-id 408827,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Srarfi"}
+       :player-name nil}
       {:player-id 26668,
        :assists "0",
        :goals "null",
@@ -34,14 +34,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Bedoui"}
+       :player-name nil}
       {:player-id 354043,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Chaalali"}
+       :player-name nil}
       {:player-id 120898,
        :assists "0",
        :goals "null",
@@ -55,14 +55,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "O. Haddadi"}
+       :player-name nil}
       {:player-id 293128,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Khalil"}
+       :player-name nil}
       {:player-id 26100,
        :assists "0",
        :goals "0",
@@ -198,63 +198,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Casteels"}
+       :player-name nil}
       {:player-id 25622,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Hazard"}
+       :player-name nil}
       {:player-id 261127,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Januzaj"}
+       :player-name nil}
       {:player-id 134702,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Dendoncker"}
+       :player-name nil}
       {:player-id 261,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Chadli"}
+       :player-name nil}
       {:player-id 7860,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Vermaelen"}
+       :player-name nil}
       {:player-id 11152,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Demb\\u00e9l\\u00e9"}
+       :player-name nil}
       {:player-id 8514,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Mignolet"}
+       :player-name nil}
       {:player-id 8307,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Kompany"}
+       :player-name nil}
       {:player-id 263802,
        :assists "1",
        :goals "0",
@@ -395,6 +395,10 @@
   :label "Belgium - Tunisia, 5 - 2",
   :venue "Otkrytiye Arena",
   :dateutc "2018-06-23 12:00:00"},
+ :players-in-match
+ #{3429 21333 263802 293080 48 120784 10014 26100 36 331763 38093 122
+   246946 8034 134769 28094 25707 295747 8249 120839 275243 120853
+   37824 38021 209354 7905 25776 70123},
  :players
  {:10014
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -413,40 +417,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 186},
-  :11152
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 11152,
-   :short-name "M. Demb\\u00e9l\\u00e9",
-   :middle-name "",
-   :last-name "Demb\\u00e9l\\u00e9",
-   :first-name "Moussa Sidi Yaya",
-   :birth-date "1987-07-16",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "left",
-   :weight 88,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Mali", :id "466", :alpha-3code "MLI", :alpha-2code "ML"},
-   :current-national-team-id 5629,
-   :height 185},
-  :120717
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 120717,
-   :short-name "O. Haddadi",
-   :middle-name "",
-   :last-name "Haddadi",
-   :first-name "Oussama",
-   :birth-date "1992-01-28",
-   :birth-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 3804,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 184},
   :120784
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 120784,
@@ -498,23 +468,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 177},
-  :120900
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 120900,
-   :short-name "R. Bedoui",
-   :middle-name "",
-   :last-name "Bedoui",
-   :first-name "Rami",
-   :birth-date "1990-01-19",
-   :birth-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 16231,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 190},
   :122
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 122,
@@ -532,23 +485,6 @@
    {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
    :current-national-team-id 5629,
    :height 169},
-  :134702
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 134702,
-   :short-name "L. Dendoncker",
-   :middle-name "",
-   :last-name "Dendoncker",
-   :first-name "Leander",
-   :birth-date "1995-04-15",
-   :birth-area
-   {:name "Belgium", :id 56, :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1629,
-   :passport-area
-   {:name "Belgium", :id 56, :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 5629,
-   :height 188},
   :134769
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 134769,
@@ -566,40 +502,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 5629,
    :height 180},
-  :149050
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 149050,
-   :short-name "M. Hassen",
-   :middle-name "",
-   :last-name "Hassen",
-   :first-name "Mouez",
-   :birth-date "1995-03-05",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3775,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 186},
-  :15795
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 15795,
-   :short-name "K. Casteels",
-   :middle-name "",
-   :last-name "Casteels",
-   :first-name "Koen",
-   :birth-date "1992-06-25",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "left",
-   :weight 86,
-   :current-team-id 2451,
-   :passport-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 5629,
-   :height 197},
   :209354
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 209354,
@@ -651,23 +553,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 185},
-  :25622
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 25622,
-   :short-name "T. Hazard",
-   :middle-name "",
-   :last-name "Hazard",
-   :first-name "Thorgan",
-   :birth-date "1993-03-29",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "right",
-   :weight 69,
-   :current-team-id 2454,
-   :passport-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 5629,
-   :height 174},
   :25707
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 25707,
@@ -702,23 +587,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 182},
-  :261
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 261,
-   :short-name "N. Chadli",
-   :middle-name "",
-   :last-name "Chadli",
-   :first-name "Nacer",
-   :birth-date "1989-08-02",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 1627,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 5629,
-   :height 187},
   :26100
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 26100,
@@ -736,23 +604,6 @@
    {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 173},
-  :261127
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 261127,
-   :short-name "A. Januzaj",
-   :middle-name "",
-   :last-name "Januzaj",
-   :first-name "Adnan",
-   :birth-date "1995-02-05",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 687,
-   :passport-area
-   {:name "Kosovo", :id "0", :alpha-3code "XKS", :alpha-2code ""},
-   :current-national-team-id 5629,
-   :height 182},
   :263802
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 263802,
@@ -824,23 +675,6 @@
    {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
    :current-national-team-id 16276,
    :height 195},
-  :293128
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 293128,
-   :short-name "A. Khalil",
-   :middle-name "",
-   :last-name "Khalil",
-   :first-name "Ahmed ",
-   :birth-date "1994-12-21",
-   :birth-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 16225,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 187},
   :295747
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 295747,
@@ -892,40 +726,6 @@
    {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
    :current-national-team-id 5629,
    :height 199},
-  :354041
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 354041,
-   :short-name "M. Ben Amor",
-   :middle-name "",
-   :last-name "Ben Amor",
-   :first-name "Mohamed Amine",
-   :birth-date "1992-05-03",
-   :birth-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 16231,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 184},
-  :354043
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 354043,
-   :short-name "G. Chaalali",
-   :middle-name "",
-   :last-name "Chaalali",
-   :first-name "Ghilane",
-   :birth-date "1994-02-28",
-   :birth-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 16232,
-   :passport-area
-   {:name "Tunisia", :id 788, :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 179},
   :36
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 36,
@@ -997,23 +797,6 @@
     :alpha-2code "CD"},
    :current-national-team-id 5629,
    :height 185},
-  :408827
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 408827,
-   :short-name "B. Srarfi",
-   :middle-name "",
-   :last-name "Srarfi",
-   :first-name "Bassem ",
-   :birth-date "1997-06-25",
-   :birth-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :foot "left",
-   :weight 71,
-   :current-team-id 3775,
-   :passport-area
-   {:name "Tunisia", :id "788", :alpha-3code "TUN", :alpha-2code "TN"},
-   :current-national-team-id 16276,
-   :height 176},
   :48
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 48,
@@ -1031,23 +814,6 @@
    {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
    :current-national-team-id 5629,
    :height 189},
-  :68085
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 68085,
-   :short-name "C. Kabasele",
-   :middle-name "",
-   :last-name "Kabasele",
-   :first-name "Christian",
-   :birth-date "1991-02-24",
-   :birth-area
-   {:name "Congo DR", :id 180, :alpha-3code "COD", :alpha-2code "CD"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 1644,
-   :passport-area
-   {:name "Belgium", :id 56, :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 5629,
-   :height 187},
   :70123
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 70123,
@@ -1068,23 +834,6 @@
     :alpha-2code "MQ"},
    :current-national-team-id 5629,
    :height 188},
-  :7860
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 7860,
-   :short-name "T. Vermaelen",
-   :middle-name "",
-   :last-name "Vermaelen",
-   :first-name "Thomas",
-   :birth-date "1985-11-14",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 676,
-   :passport-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 5629,
-   :height 183},
   :7905
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 7905,
@@ -1141,44 +890,7 @@
    :passport-area
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 5629,
-   :height 194},
-  :8307
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 8307,
-   :short-name "V. Kompany",
-   :middle-name "",
-   :last-name "Kompany",
-   :first-name "Vincent",
-   :birth-date "1986-04-10",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :current-national-team-id 5629,
-   :height 193},
-  :8514
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 8514,
-   :short-name "S. Mignolet",
-   :middle-name "",
-   :last-name "Mignolet",
-   :first-name "Simon",
-   :birth-date "1988-03-06",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 1612,
-   :passport-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 5629,
-   :height 193}},
+   :height 194}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

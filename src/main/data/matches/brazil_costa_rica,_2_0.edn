@@ -13,14 +13,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "I. Smith"}
+       :player-name nil}
       {:player-id 59126,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Wallace"}
+       :player-name nil}
       {:player-id 125287,
        :assists "0",
        :goals "0",
@@ -34,42 +34,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Colindres"}
+       :player-name nil}
       {:player-id 125510,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Moreira"}
+       :player-name nil}
       {:player-id 32706,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Azofeifa"}
+       :player-name nil}
       {:player-id 125575,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Waston"}
+       :player-name nil}
       {:player-id 125282,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Pemberton"}
+       :player-name nil}
       {:player-id 26038,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Campbell"}
+       :player-name nil}
       {:player-id 125512,
        :assists "0",
        :goals "0",
@@ -205,7 +205,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Renato Augusto"}
+       :player-name nil}
       {:player-id 105802,
        :assists "0",
        :goals "0",
@@ -219,42 +219,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Marquinhos"}
+       :player-name nil}
       {:player-id 40536,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C\\u00e1ssio"}
+       :player-name nil}
       {:player-id 3434,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Filipe Luis"}
+       :player-name nil}
       {:player-id 15272,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Geromel"}
+       :player-name nil}
       {:player-id 71654,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ederson"}
+       :player-name nil}
       {:player-id 40335,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Fred"}
+       :player-name nil}
       {:player-id 105334,
        :assists "1",
        :goals "0",
@@ -395,6 +395,10 @@
   :label "Brazil - Costa Rica, 2 - 0",
   :venue "Stadion Krestovskyi",
   :dateutc "2018-06-22 12:00:00"},
+ :players-in-match
+ #{40810 3915 125452 3310 101796 105339 20394 3431 125250 3802 125260
+   105334 125268 55988 55982 40550 15808 11155 125286 125512 40756
+   51004 55977 214220 40707 105333 340386 125284},
  :players
  {:101796
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
@@ -565,52 +569,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 177},
-  :125273
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 125273,
-   :short-name "D. Colindres",
-   :middle-name "",
-   :last-name "Colindres Solera",
-   :first-name "Daniel",
-   :birth-date "1985-01-10",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id "null",
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 180},
-  :125282
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 125282,
-   :short-name "P. Pemberton",
-   :middle-name "",
-   :last-name "Pemberton Bernard",
-   :first-name "Patrick Alberto",
-   :birth-date "1982-04-24",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 16835,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 178},
   :125284
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 125284,
@@ -680,29 +638,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 183},
-  :125510
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 125510,
-   :short-name "L. Moreira",
-   :middle-name "",
-   :last-name "Moreira Ledezma",
-   :first-name "Leonel",
-   :birth-date "1990-04-02",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 16843,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 179},
   :125512
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 125512,
@@ -726,63 +661,6 @@
     :alpha-2code "CR"},
    :current-national-team-id 16871,
    :height 180},
-  :125575
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 125575,
-   :short-name "K. Waston",
-   :middle-name "",
-   :last-name "Waston Manley",
-   :first-name "Kendall Jamaal",
-   :birth-date "1988-01-01",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 97,
-   :current-team-id 15015,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 196},
-  :14785
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14785,
-   :short-name "Renato Augusto",
-   :middle-name "",
-   :last-name "Soares de Oliveira Augusto",
-   :first-name "Renato ",
-   :birth-date "1988-02-08",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 9130,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 186},
-  :15272
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 15272,
-   :short-name "Geromel",
-   :middle-name "",
-   :last-name "Tonon Geromel",
-   :first-name "Pedro",
-   :birth-date "1985-09-21",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 5649,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 6380,
-   :height 190},
   :15808
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 15808,
@@ -834,52 +712,6 @@
    {:name "Germany", :id "276", :alpha-3code "DEU", :alpha-2code "DE"},
    :current-national-team-id 6380,
    :height 191},
-  :26038
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 26038,
-   :short-name "J. Campbell",
-   :middle-name "",
-   :last-name "Campbell Samuels",
-   :first-name "Joel Nathaniel",
-   :birth-date "1992-06-26",
-   :birth-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "left",
-   :weight 72,
-   :current-team-id 3254,
-   :passport-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 178},
-  :32706
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 32706,
-   :short-name "R. Azofeifa",
-   :middle-name "",
-   :last-name "Azofeifa Corrales",
-   :first-name "R\\u00e1ndall",
-   :birth-date "1984-12-30",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 16843,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 183},
   :3310
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3310,
@@ -931,63 +763,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 186},
-  :3434
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3434,
-   :short-name "Filipe Luis",
-   :middle-name "",
-   :last-name "Kasmirski",
-   :first-name "Filipe Luis",
-   :birth-date "1985-08-09",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 679,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 6380,
-   :height 182},
-  :373441
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 373441,
-   :short-name "I. Smith",
-   :middle-name "",
-   :last-name "Smith Quiros",
-   :first-name "Ian Rey",
-   :birth-date "1998-03-06",
-   :birth-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 6726,
-   :passport-area
-   {:name "Costa Rica",
-    :id 188,
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :current-national-team-id 16871,
-   :height 177},
-  :377071
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 377071,
-   :short-name "Richarlison",
-   :middle-name "",
-   :last-name "de Andrade",
-   :first-name "Richarlison",
-   :birth-date "1997-05-10",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 179},
   :3802
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3802,
@@ -1025,60 +800,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 16871,
    :height 185},
-  :40335
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 40335,
-   :short-name "Fred",
-   :middle-name "",
-   :last-name "Rodrigues Santos",
-   :first-name "Frederico",
-   :birth-date "1993-03-05",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 64,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 169},
-  :40536
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 40536,
-   :short-name "C\\u00e1ssio",
-   :middle-name "",
-   :last-name "Ramos",
-   :first-name "C\\u00e1ssio Roberto",
-   :birth-date "1987-06-06",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 5656,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 195},
-  :40539
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 40539,
-   :short-name "Marquinhos",
-   :middle-name "",
-   :last-name "Ao\\u00e1s Corr\\u00eaa ",
-   :first-name "Marcos ",
-   :birth-date "1994-05-14",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 183},
   :40550
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 40550,
@@ -1130,23 +851,6 @@
    {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
    :current-national-team-id 6380,
    :height 185},
-  :40765
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 40765,
-   :short-name "Lucas Moura",
-   :middle-name "",
-   :last-name "Rodrigues Moura da Silva",
-   :first-name "Lucas",
-   :birth-date "1992-08-13",
-   :birth-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Brazil", :id 76, :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 172},
   :40810
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 40810,
@@ -1252,67 +956,7 @@
     :alpha-3code "CRI",
     :alpha-2code "CR"},
    :current-national-team-id 16871,
-   :height 175},
-  :59126
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 59126,
-   :short-name "R. Wallace",
-   :middle-name "",
-   :last-name "Wallace Burns",
-   :first-name "Rodney",
-   :birth-date "1988-06-17",
-   :birth-area
-   {:name "Costa Rica",
-    :id "188",
-    :alpha-3code "CRI",
-    :alpha-2code "CR"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 32556,
-   :passport-area
-   {:name "United States",
-    :id "840",
-    :alpha-3code "USA",
-    :alpha-2code "US"},
-   :current-national-team-id 16871,
-   :height 182},
-  :70083
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 70083,
-   :short-name "Danilo",
-   :middle-name "",
-   :last-name "da Silva",
-   :first-name "Danilo Luiz",
-   :birth-date "1991-07-15",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 6380,
-   :height 184},
-  :71654
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 71654,
-   :short-name "Ederson",
-   :middle-name "",
-   :last-name "Santana de Moraes",
-   :first-name "Ederson",
-   :birth-date "1993-08-17",
-   :birth-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :foot "left",
-   :weight 89,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 6380,
-   :height 187}},
+   :height 175}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

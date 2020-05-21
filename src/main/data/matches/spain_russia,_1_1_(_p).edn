@@ -13,49 +13,49 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Gazinskiy"}
+       :player-name nil}
       {:player-id 101834,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Gabulov"}
+       :player-name nil}
       {:player-id 262048,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Al. Miranchuk"}
+       :player-name nil}
       {:player-id 101971,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Lunev"}
+       :player-name nil}
       {:player-id 101590,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Dzagoev"}
+       :player-name nil}
       {:player-id 288708,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "An. Miranchuk"}
+       :player-name nil}
       {:player-id 102629,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Semenov"}
+       :player-name nil}
       {:player-id 101682,
        :assists "0",
        :goals "null",
@@ -204,56 +204,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Arrizabalaga"}
+       :player-name nil}
       {:player-id 7949,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Pepe Reina"}
+       :player-name nil}
       {:player-id 4488,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Sa\\u00fal"}
+       :player-name nil}
       {:player-id 3560,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Nacho Monreal"}
+       :player-name nil}
       {:player-id 278289,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Odriozola"}
+       :player-name nil}
       {:player-id 3345,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Thiago Alc\\u00e2ntara"}
+       :player-name nil}
       {:player-id 25553,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Azpilicueta"}
+       :player-name nil}
       {:player-id 4498,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Lucas V\\u00e1zquez"}
+       :player-name nil}
       {:player-id 4501,
        :assists "0",
        :goals "null",
@@ -407,6 +407,10 @@
   :label "Spain - Russia, 1 - 1 (P)",
   :venue "Olimpiyskiy stadion Luzhniki",
   :dateutc "2018-07-01 14:00:00"},
+ :players-in-match
+ #{101707 3840 103682 101669 4513 8317 101682 101647 3269 101583 3563
+   288091 101857 257800 41123 101953 4338 3346 3304 103668 4501 3353
+   101699 7910 3306 3341 220971 3443 101576 70129},
  :players
  {:101576
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -442,23 +446,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 187},
-  :101590
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101590,
-   :short-name "A. Dzagoev",
-   :middle-name "",
-   :last-name "Dzagoev",
-   :first-name "Alan",
-   :birth-date "1990-06-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 13886,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 179},
   :101647
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 101647,
@@ -544,40 +531,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 187},
-  :101825
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101825,
-   :short-name "I. Smolnikov",
-   :middle-name "",
-   :last-name "Smolnikov",
-   :first-name "Igor",
-   :birth-date "1988-08-08",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 178},
-  :101834
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101834,
-   :short-name "V. Gabulov",
-   :middle-name "",
-   :last-name "Gabulov",
-   :first-name "Vladimir",
-   :birth-date "1983-10-19",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 5072,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :101857
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101857,
@@ -612,57 +565,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 195},
-  :101971
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101971,
-   :short-name "A. Lunev",
-   :middle-name "",
-   :last-name "Lunev",
-   :first-name "Andrey",
-   :birth-date "1991-11-13",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 189},
-  :102157
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 102157,
-   :short-name "Y. Gazinskiy",
-   :middle-name "",
-   :last-name "Gazinskiy",
-   :first-name "Yury",
-   :birth-date "1989-07-20",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 14072,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 184},
-  :102629
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 102629,
-   :short-name "A. Semenov",
-   :middle-name "",
-   :last-name "Semenov",
-   :first-name "Andrey",
-   :birth-date "1989-03-24",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 13898,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :103668
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 103668,
@@ -717,23 +619,6 @@
     :alpha-2code "TJ"},
    :current-national-team-id 14358,
    :height 182},
-  :25553
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25553,
-   :short-name "Azpilicueta",
-   :middle-name "",
-   :last-name "Azpilicueta Tanco",
-   :first-name "C\\u00e9sar",
-   :birth-date "1989-08-28",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 178},
   :257800
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 257800,
@@ -751,40 +636,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 180},
-  :262048
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 262048,
-   :short-name "Al. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Aleksey",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 182},
-  :278289
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 278289,
-   :short-name "Odriozola",
-   :middle-name "",
-   :last-name "Odriozola Arzallus",
-   :first-name "\\u00c1lvaro",
-   :birth-date "1995-12-14",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 66,
-   :current-team-id 675,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 175},
   :288091
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 288091,
@@ -805,23 +656,6 @@
     :alpha-2code "NL"},
    :current-national-team-id 1598,
    :height 182},
-  :288708
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 288708,
-   :short-name "An. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Anton",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 183},
   :3269
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3269,
@@ -873,23 +707,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 184},
-  :3324
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 3324,
-   :short-name "\\u00c1lvaro Morata",
-   :middle-name "",
-   :last-name "Morata Mart\\u00edn",
-   :first-name "\\u00c1lvaro Borja",
-   :birth-date "1992-10-23",
-   :birth-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 189},
   :3341
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3341,
@@ -907,23 +724,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 194},
-  :3345
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3345,
-   :short-name "Thiago Alc\\u00e2ntara",
-   :middle-name "",
-   :last-name "Alc\\u00e2ntara do Nascimento",
-   :first-name "Thiago",
-   :birth-date "1991-04-11",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 2444,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 1598,
-   :height 174},
   :3346
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3346,
@@ -958,23 +758,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 171},
-  :3397
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 3397,
-   :short-name "Arrizabalaga",
-   :middle-name "",
-   :last-name "Arrizabalaga Revuelta",
-   :first-name "Kepa",
-   :birth-date "1994-10-03",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 189},
   :3443
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3443,
@@ -992,23 +775,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 177},
-  :3560
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3560,
-   :short-name "Nacho Monreal",
-   :middle-name "",
-   :last-name "Monreal Eraso",
-   :first-name "Ignacio",
-   :birth-date "1986-02-26",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "left",
-   :weight 72,
-   :current-team-id 1609,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 179},
   :3563
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3563,
@@ -1077,40 +843,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 188},
-  :4488
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 4488,
-   :short-name "Sa\\u00fal",
-   :middle-name "",
-   :last-name "\\u00d1\\u00edguez Esclapez",
-   :first-name "Sa\\u00fal",
-   :birth-date "1994-11-21",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 679,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 184},
-  :4498
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 4498,
-   :short-name "Lucas V\\u00e1zquez",
-   :middle-name "",
-   :last-name "V\\u00e1zquez Iglesias",
-   :first-name "Lucas",
-   :birth-date "1991-07-01",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 675,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 173},
   :4501
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 4501,
@@ -1179,40 +911,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 1598,
    :height 193},
-  :7949
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 7949,
-   :short-name "Pepe Reina",
-   :middle-name "",
-   :last-name "Reina P\\u00e1ez",
-   :first-name "Jos\\u00e9 Manuel ",
-   :birth-date "1982-08-31",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 92,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 188},
-  :8032
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 8032,
-   :short-name "Marcos Alonso",
-   :middle-name "",
-   :last-name "Alonso Mendoza",
-   :first-name "Marcos ",
-   :birth-date "1990-12-28",
-   :birth-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "left",
-   :weight 81,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 1598,
-   :height 188},
   :8317
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 8317,

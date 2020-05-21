@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Gabulov"}
+       :player-name nil}
       {:player-id 101682,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Granat"}
+       :player-name nil}
       {:player-id 262048,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Al. Miranchuk"}
+       :player-name nil}
       {:player-id 101971,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Lunev"}
+       :player-name nil}
       {:player-id 101953,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Erokhin"}
+       :player-name nil}
       {:player-id 101825,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "I. Smolnikov"}
+       :player-name nil}
       {:player-id 101647,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Kudryashov"}
+       :player-name nil}
       {:player-id 288708,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "An. Miranchuk"}
+       :player-name nil}
       {:player-id 102629,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Semenov"}
+       :player-name nil}
       {:player-id 220971,
        :assists "0",
        :goals "null",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Hussain Al Mogahwi"}
+       :player-name nil}
       {:player-id 487023,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Abdullah Al Khaibari"}
+       :player-name nil}
       {:player-id 122568,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Mansour Al Harbi"}
+       :player-name nil}
       {:player-id 398219,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ali Al Bulayhi"}
+       :player-name nil}
       {:player-id 284147,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Mohammed Kanno"}
+       :player-name nil}
       {:player-id 122696,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Abdulmalek Al Khaibri"}
+       :player-name nil}
       {:player-id 248328,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Mohammed Al Owais"}
+       :player-name nil}
       {:player-id 122562,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Yasser Al Mosailem"}
+       :player-name nil}
       {:player-id 139391,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Motaz Hawsawi"}
+       :player-name nil}
       {:player-id 122749,
        :assists "0",
        :goals "null",
@@ -402,6 +402,10 @@
   :label "Russia - Saudi Arabia, 5 - 0",
   :venue "Olimpiyskiy stadion Luzhniki",
   :dateutc "2018-06-14 15:00:00"},
+ :players-in-match
+ #{122651 122671 122888 101707 292954 103682 122749 102157 101669 4513
+   122832 122577 101583 101857 257800 101590 41123 122623 103668 122615
+   101699 122847 122940 139393 122561 220971 122839 101576},
  :players
  {:101576
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -454,23 +458,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 179},
-  :101647
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101647,
-   :short-name "F. Kudryashov",
-   :middle-name "",
-   :last-name "Kudryashov",
-   :first-name "Fedor",
-   :birth-date "1987-04-05",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 81,
-   :current-team-id 13895,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 181},
   :101669
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 101669,
@@ -488,23 +475,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 196},
-  :101682
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101682,
-   :short-name "V. Granat",
-   :middle-name "",
-   :last-name "Granat",
-   :first-name "Vladimir",
-   :birth-date "1987-05-22",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 13895,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 184},
   :101699
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101699,
@@ -539,40 +509,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 187},
-  :101825
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101825,
-   :short-name "I. Smolnikov",
-   :middle-name "",
-   :last-name "Smolnikov",
-   :first-name "Igor",
-   :birth-date "1988-08-08",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 178},
-  :101834
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101834,
-   :short-name "V. Gabulov",
-   :middle-name "",
-   :last-name "Gabulov",
-   :first-name "Vladimir",
-   :birth-date "1983-10-19",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 5072,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :101857
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101857,
@@ -590,40 +526,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 180},
-  :101953
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101953,
-   :short-name "A. Erokhin",
-   :middle-name "",
-   :last-name "Erokhin",
-   :first-name "Aleksandr",
-   :birth-date "1989-10-13",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 195},
-  :101971
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101971,
-   :short-name "A. Lunev",
-   :middle-name "",
-   :last-name "Lunev",
-   :first-name "Andrey",
-   :birth-date "1991-11-13",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 189},
   :102157
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 102157,
@@ -641,23 +543,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 184},
-  :102629
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 102629,
-   :short-name "A. Semenov",
-   :middle-name "",
-   :last-name "Semenov",
-   :first-name "Andrey",
-   :birth-date "1989-03-24",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 13898,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :103668
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 103668,
@@ -715,52 +600,6 @@
     :alpha-2code "SA"},
    :current-national-team-id 16521,
    :height 187},
-  :122562
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 122562,
-   :short-name "Yasser Al Mosailem",
-   :middle-name "",
-   :last-name "Al Mosailem",
-   :first-name "Yasser Abdullah",
-   :birth-date "1984-02-27",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "right",
-   :weight 88,
-   :current-team-id 16465,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 186},
-  :122568
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 122568,
-   :short-name "Mansour Al Harbi",
-   :middle-name "",
-   :last-name "Al Harbi",
-   :first-name "Mansour Althaqfi",
-   :birth-date "1987-10-19",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "left",
-   :weight 68,
-   :current-team-id 16469,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 173},
   :122577
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 122577,
@@ -876,29 +715,6 @@
     :alpha-2code "SA"},
    :current-national-team-id 16521,
    :height 179},
-  :122696
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 122696,
-   :short-name "Abdulmalek Al Khaibri",
-   :middle-name "",
-   :last-name "Al Khaibri",
-   :first-name "Abdulmalek Abdullah",
-   :birth-date "1986-03-13",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 16467,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 177},
   :122749
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 122749,
@@ -1014,29 +830,6 @@
     :alpha-2code "SA"},
    :current-national-team-id 16521,
    :height 164},
-  :122918
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 122918,
-   :short-name "Hussain Al Mogahwi",
-   :middle-name "",
-   :last-name "Al Mogahwi",
-   :first-name "Hussain",
-   :birth-date "1988-03-24",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 16465,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 174},
   :122940
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 122940,
@@ -1060,29 +853,6 @@
     :alpha-2code "SA"},
    :current-national-team-id 16521,
    :height 170},
-  :139391
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 139391,
-   :short-name "Motaz Hawsawi",
-   :middle-name "",
-   :last-name "Hawsawi",
-   :first-name "Motaz Ali Hassan",
-   :birth-date "1992-02-17",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 16465,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 180},
   :139393
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 139393,
@@ -1126,29 +896,6 @@
     :alpha-2code "TJ"},
    :current-national-team-id 14358,
    :height 182},
-  :248328
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 248328,
-   :short-name "Mohammed Al Owais",
-   :middle-name "",
-   :last-name "Al Owais",
-   :first-name "Mohammed Khalil",
-   :birth-date "1991-10-10",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 16465,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 187},
   :257800
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 257800,
@@ -1166,63 +913,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 180},
-  :262048
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 262048,
-   :short-name "Al. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Aleksey",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 182},
-  :284147
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284147,
-   :short-name "Mohammed Kanno",
-   :middle-name "",
-   :last-name "Kanno",
-   :first-name "Mohammed",
-   :birth-date "1994-09-22",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 16467,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 192},
-  :288708
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 288708,
-   :short-name "An. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Anton",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 183},
   :292954
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 292954,
@@ -1246,29 +936,6 @@
     :alpha-2code "SA"},
    :current-national-team-id 16521,
    :height 173},
-  :398219
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 398219,
-   :short-name "Ali Al Bulayhi",
-   :middle-name "",
-   :last-name "Al Bulayhi",
-   :first-name "Ali",
-   :birth-date "1989-11-21",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "left",
-   :weight 83,
-   :current-team-id 16467,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 182},
   :41123
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 41123,
@@ -1302,30 +969,7 @@
    :passport-area
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 14358,
-   :height 179},
-  :487023
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 487023,
-   :short-name "Abdullah Al Khaibari",
-   :middle-name "",
-   :last-name "Al Khaibari",
-   :first-name "Abdullah",
-   :birth-date "1996-08-16",
-   :birth-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :foot "right",
-   :weight 66,
-   :current-team-id 16472,
-   :passport-area
-   {:name "Saudi Arabia",
-    :id 682,
-    :alpha-3code "SAU",
-    :alpha-2code "SA"},
-   :current-national-team-id 16521,
-   :height 175}},
+   :height 179}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

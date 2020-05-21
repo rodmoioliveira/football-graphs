@@ -13,42 +13,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Vestergaard"}
+       :player-name nil}
       {:player-id 56441,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Lerager"}
+       :player-name nil}
       {:player-id 56454,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. R\\u00f8nnow"}
+       :player-name nil}
       {:player-id 281254,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Dolberg"}
+       :player-name nil}
       {:player-id 1722,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Fischer"}
+       :player-name nil}
       {:player-id 56038,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. L\\u00f6ssl"}
+       :player-name nil}
       {:player-id 14744,
        :assists "0",
        :goals "null",
@@ -62,7 +62,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Stryger Larsen"}
+       :player-name nil}
       {:player-id 241945,
        :assists "0",
        :goals "0",
@@ -211,49 +211,49 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Kalini\\u0107"}
+       :player-name nil}
       {:player-id 212604,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Jedvaj"}
+       :player-name nil}
       {:player-id 230626,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. \\u0106aleta-Car"}
+       :player-name nil}
       {:player-id 135784,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Livakovi\\u0107"}
+       :player-name nil}
       {:player-id 14771,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. \\u0106orluka"}
+       :player-name nil}
       {:player-id 135810,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Pjaca"}
+       :player-name nil}
       {:player-id 231713,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Bradari\\u0107"}
+       :player-name nil}
       {:player-id 69964,
        :assists "0",
        :goals "0",
@@ -407,6 +407,10 @@
   :label "Croatia - Denmark, 1 - 1 (P)",
   :venue "Stadion Nizhny Novgorod",
   :dateutc "2018-07-01 18:00:00"},
+ :players-in-match
+ #{69404 3476 15080 55979 8287 405 69411 54 135150 14943 55990 135747
+   69409 55968 69400 55957 241945 69616 69968 20433 8480 69396 69964
+   14812 56025 56394 135103 56274 25393 105361},
  :players
  {:105361
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -442,23 +446,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 188},
-  :135114
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 135114,
-   :short-name "P. H\\u00f8jbjerg",
-   :middle-name "",
-   :last-name "H\\u00f8jbjerg",
-   :first-name "Pierre-Emile",
-   :birth-date "1995-08-05",
-   :birth-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 1619,
-   :passport-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 7712,
-   :height 185},
   :135150
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 135150,
@@ -493,60 +480,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 191},
-  :135784
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 135784,
-   :short-name "D. Livakovi\\u0107",
-   :middle-name "",
-   :last-name "Livakovi\\u0107",
-   :first-name "Dominik",
-   :birth-date "1995-01-09",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 9417,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 187},
-  :135810
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 135810,
-   :short-name "M. Pjaca",
-   :middle-name "",
-   :last-name "Pjaca",
-   :first-name "Marko",
-   :birth-date "1995-05-06",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 3176,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 186},
-  :14771
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14771,
-   :short-name "V. \\u0106orluka",
-   :middle-name "",
-   :last-name "\\u0106orluka",
-   :first-name "Vedran",
-   :birth-date "1986-02-05",
-   :birth-area
-   {:name "Bosnia-Herzegovina",
-    :id "70",
-    :alpha-3code "BIH",
-    :alpha-2code "BA"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 192},
   :14812
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 14812,
@@ -598,40 +531,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 190},
-  :15806
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 15806,
-   :short-name "J. Vestergaard",
-   :middle-name "",
-   :last-name "Vestergaard",
-   :first-name "Jannik",
-   :birth-date "1992-08-03",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 98,
-   :current-team-id 1619,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 199},
-  :1722
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 1722,
-   :short-name "V. Fischer",
-   :middle-name "",
-   :last-name "Fischer",
-   :first-name "Viktor",
-   :birth-date "1994-06-09",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 7452,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 180},
   :20433
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 20433,
@@ -649,57 +548,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 189},
-  :212604
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 212604,
-   :short-name "T. Jedvaj",
-   :middle-name "",
-   :last-name "Jedvaj",
-   :first-name "Tin",
-   :birth-date "1995-11-28",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 2446,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 184},
-  :230626
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 230626,
-   :short-name "D. \\u0106aleta-Car",
-   :middle-name "",
-   :last-name "\\u0106aleta-Car",
-   :first-name "Duje",
-   :birth-date "1996-09-17",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 192},
-  :231713
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 231713,
-   :short-name "F. Bradari\\u0107",
-   :middle-name "",
-   :last-name "Bradari\\u0107",
-   :first-name "Filip",
-   :birth-date "1992-01-11",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 3173,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 185},
   :241945
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 241945,
@@ -737,40 +585,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 188},
-  :281254
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 281254,
-   :short-name "K. Dolberg",
-   :middle-name "",
-   :last-name "Dolberg",
-   :first-name "Kasper",
-   :birth-date "1997-10-06",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 9,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 187},
-  :284476
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284476,
-   :short-name "N. Vla\\u0161i\\u0107",
-   :middle-name "",
-   :last-name "Vla\\u0161i\\u0107",
-   :first-name "Nikola",
-   :birth-date "1997-10-04",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13886,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 178},
   :3476
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3476,
@@ -913,40 +727,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 170},
-  :56026
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 56026,
-   :short-name "J. Stryger Larsen",
-   :middle-name "",
-   :last-name "Larsen",
-   :first-name "Jens Stryger",
-   :birth-date "1991-02-21",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 3163,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 180},
-  :56038
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 56038,
-   :short-name "J. L\\u00f6ssl",
-   :middle-name "",
-   :last-name "L\\u00f6ssl",
-   :first-name "Jonas",
-   :birth-date "1989-02-01",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 88,
-   :current-team-id 1673,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 195},
   :56274
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 56274,
@@ -984,57 +764,6 @@
    {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7712,
    :height 192},
-  :56441
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 56441,
-   :short-name "L. Lerager",
-   :middle-name "",
-   :last-name "Lerager",
-   :first-name "Lukas",
-   :birth-date "1993-07-12",
-   :birth-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3772,
-   :passport-area
-   {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 185},
-  :56454
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 56454,
-   :short-name "F. R\\u00f8nnow",
-   :middle-name "",
-   :last-name "R\\u00f8nnow",
-   :first-name "Frederik",
-   :birth-date "1992-08-04",
-   :birth-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 2462,
-   :passport-area
-   {:name "Denmark", :id 208, :alpha-3code "DNK", :alpha-2code "DK"},
-   :current-national-team-id 7712,
-   :height 190},
-  :69353
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 69353,
-   :short-name "L. Kalini\\u0107",
-   :middle-name "",
-   :last-name "Kalini\\u0107",
-   :first-name "Lovre",
-   :birth-date "1990-04-03",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 96,
-   :current-team-id 5067,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 201},
   :69396
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 69396,

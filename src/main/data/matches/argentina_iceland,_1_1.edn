@@ -13,28 +13,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Acu\\u00f1a"}
+       :player-name nil}
       {:player-id 90991,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Armani"}
+       :player-name nil}
       {:player-id 3463,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Fazio"}
+       :player-name nil}
       {:player-id 86234,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "E. P\\u00e9rez"}
+       :player-name nil}
       {:player-id 86537,
        :assists "0",
        :goals "0",
@@ -48,28 +48,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Dybala"}
+       :player-name nil}
       {:player-id 356237,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Lo Celso"}
+       :player-name nil}
       {:player-id 101742,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Ansaldi"}
+       :player-name nil}
       {:player-id 86220,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Mercado"}
+       :player-name nil}
       {:player-id 3280,
        :assists "0",
        :goals "0",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Traustason"}
+       :player-name nil}
       {:player-id 135174,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. R\\u00fanarsson"}
+       :player-name nil}
       {:player-id 38241,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u00d3. Sk\\u00falason"}
+       :player-name nil}
       {:player-id 14826,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "H. Eyj\\u00f3lfsson"}
+       :player-name nil}
       {:player-id 58105,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. B\\u00f6\\u00f0varsson"}
+       :player-name nil}
       {:player-id 216568,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Gudmundsson"}
+       :player-name nil}
       {:player-id 57347,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Ingason"}
+       :player-name nil}
       {:player-id 240906,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Schram"}
+       :player-name nil}
       {:player-id 233276,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Fridj\\u00f3nsson"}
+       :player-name nil}
       {:player-id 54495,
        :assists "0",
        :goals "0",
@@ -402,6 +402,10 @@
   :label "Argentina - Iceland, 1 - 1",
   :venue "Otkrytiye Arena",
   :dateutc "2018-06-16 13:00:00"},
+ :players-in-match
+ #{3359 3280 101652 51127 86722 54451 146459 3445 70086 3355 56146
+   37948 77521 62221 57226 135207 8325 93 3323 21314 3551 77558 37732
+   55983 54495 38084 285396 3314},
  :players
  {:101652
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -420,43 +424,6 @@
    {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 187},
-  :101742
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101742,
-   :short-name "C. Ansaldi",
-   :middle-name "",
-   :last-name "Ansaldi",
-   :first-name "Cristian Daniel",
-   :birth-date "1986-09-20",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 3185,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 181},
-  :135174
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 135174,
-   :short-name "R. R\\u00fanarsson",
-   :middle-name "",
-   :last-name "R\\u00fanarsson",
-   :first-name "R\\u00fanar Alex",
-   :birth-date "1995-02-18",
-   :birth-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3804,
-   :passport-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 186},
   :135207
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 135207,
@@ -497,91 +464,6 @@
     :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 180},
-  :14826
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14826,
-   :short-name "H. Eyj\\u00f3lfsson",
-   :middle-name "",
-   :last-name "Eyj\\u00f3lfsson",
-   :first-name "H\\u00f3lmar \\u00d6rn",
-   :birth-date "1990-08-06",
-   :birth-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 9218,
-   :passport-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 190},
-  :1735
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 1735,
-   :short-name "H. Hermannsson",
-   :middle-name "",
-   :last-name "Hermannsson",
-   :first-name "Hj\\u00f6rtur",
-   :birth-date "1995-02-08",
-   :birth-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 7453,
-   :passport-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 189},
-  :20441
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20441,
-   :short-name "E. Lamela",
-   :middle-name "",
-   :last-name "Lamela",
-   :first-name "Erik",
-   :birth-date "1992-03-04",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 181},
-  :20593
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20593,
-   :short-name "R. Pereyra",
-   :middle-name "",
-   :last-name "Pereyra",
-   :first-name "Roberto Maximiliano",
-   :birth-date "1991-01-07",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 1644,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 182},
-  :20606
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 20606,
-   :short-name "S. Romero",
-   :middle-name "",
-   :last-name "Romero",
-   :first-name "Sergio Germ\\u00e1n",
-   :birth-date "1987-02-22",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Italy", :id 380, :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 192},
   :21314
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 21314,
@@ -599,57 +481,6 @@
    {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
    :current-national-team-id 7839,
    :height 185},
-  :216568
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 216568,
-   :short-name "A. Gudmundsson",
-   :middle-name "",
-   :last-name "Gudmundsson",
-   :first-name "Albert",
-   :birth-date "1997-06-15",
-   :birth-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 66,
-   :current-team-id 10,
-   :passport-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 177},
-  :233276
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 233276,
-   :short-name "S. Fridj\\u00f3nsson",
-   :middle-name "",
-   :last-name "Fridj\\u00f3nsson",
-   :first-name "Sam\\u00fael K\\u00e1ri",
-   :birth-date "1996-02-22",
-   :birth-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 7092,
-   :passport-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 181},
-  :240906
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 240906,
-   :short-name "F. Schram",
-   :middle-name "",
-   :last-name "Albrecht Schram",
-   :first-name "Frederik August",
-   :birth-date "1995-01-19",
-   :birth-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 7497,
-   :passport-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 195},
   :285396
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 285396,
@@ -796,26 +627,6 @@
     :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 173},
-  :3463
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3463,
-   :short-name "F. Fazio",
-   :middle-name "",
-   :last-name "Fazio",
-   :first-name "Federico Juli\\u00e1n",
-   :birth-date "1987-03-17",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 3158,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 195},
   :3551
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 3551,
@@ -836,26 +647,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 12274,
    :height 186},
-  :356237
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 356237,
-   :short-name "G. Lo Celso",
-   :middle-name "",
-   :last-name "Lo Celso",
-   :first-name "Giovani",
-   :birth-date "1996-04-09",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 177},
   :37732
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 37732,
@@ -910,40 +701,6 @@
    {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
    :current-national-team-id 7839,
    :height 178},
-  :38241
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 38241,
-   :short-name "\\u00d3. Sk\\u00falason",
-   :middle-name "",
-   :last-name "Sk\\u00falason",
-   :first-name "\\u00d3lafur Ingi",
-   :birth-date "1983-04-01",
-   :birth-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 7727,
-   :passport-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 183},
-  :456053
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 456053,
-   :short-name "J. Foyth",
-   :middle-name "",
-   :last-name "Foyth",
-   :first-name "Juan Marcos",
-   :birth-date "1998-01-12",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 69,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 12274,
-   :height 182},
   :51127
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 51127,
@@ -1046,57 +803,6 @@
    {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
    :current-national-team-id 7839,
    :height 194},
-  :57347
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 57347,
-   :short-name "S. Ingason",
-   :middle-name "",
-   :last-name "Ingason",
-   :first-name "Sverrir Ingi",
-   :birth-date "1993-08-05",
-   :birth-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 13897,
-   :passport-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 188},
-  :57480
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 57480,
-   :short-name "A. Traustason",
-   :middle-name "",
-   :last-name "Traustason",
-   :first-name "Arn\\u00f3r Ingvi",
-   :birth-date "1993-04-30",
-   :birth-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 6709,
-   :passport-area
-   {:name "Iceland", :id "352", :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 182},
-  :58105
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 58105,
-   :short-name "J. B\\u00f6\\u00f0varsson",
-   :middle-name "",
-   :last-name "B\\u00f6\\u00f0varsson",
-   :first-name "J\\u00f3n Da\\u00f0i",
-   :birth-date "1992-05-25",
-   :birth-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1637,
-   :passport-area
-   {:name "Iceland", :id 352, :alpha-3code "ISL", :alpha-2code "IS"},
-   :current-national-team-id 7839,
-   :height 190},
   :62221
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 62221,
@@ -1191,63 +897,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 12274,
    :height 173},
-  :86220
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 86220,
-   :short-name "G. Mercado",
-   :middle-name "",
-   :last-name "Mercado",
-   :first-name "Gabriel Iv\\u00e1n",
-   :birth-date "1987-03-18",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 680,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 12274,
-   :height 180},
-  :86234
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 86234,
-   :short-name "E. P\\u00e9rez",
-   :middle-name "",
-   :last-name "P\\u00e9rez",
-   :first-name "Enzo Nicol\\u00e1s",
-   :birth-date "1986-02-22",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 12069,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 177},
-  :86325
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 86325,
-   :short-name "Ramiro Funes Mori",
-   :middle-name "",
-   :last-name "Funes Mori",
-   :first-name "Jos\\u00e9 Ramiro",
-   :birth-date "1991-03-05",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 682,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 186},
   :86722
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 86722,
@@ -1268,89 +917,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 12274,
    :height 169},
-  :89073
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 89073,
-   :short-name "M. Acu\\u00f1a",
-   :middle-name "",
-   :last-name "Acu\\u00f1a",
-   :first-name "Marcos Javier",
-   :birth-date "1991-10-28",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 9608,
-   :passport-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 172},
-  :89186
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 89186,
-   :short-name "P. Dybala",
-   :middle-name "",
-   :last-name "Exequiel Dybala",
-   :first-name "Paulo Bruno",
-   :birth-date "1993-11-15",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 12274,
-   :height 177},
-  :8992
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 8992,
-   :short-name "P. Gazzaniga",
-   :middle-name "",
-   :last-name "Gazzaniga",
-   :first-name "Paulo Dino",
-   :birth-date "1992-01-02",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 185},
-  :90991
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 90991,
-   :short-name "F. Armani",
-   :middle-name "",
-   :last-name "Armani",
-   :first-name "Franco",
-   :birth-date "1986-01-16",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 12069,
-   :passport-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 189},
   :93
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 93,

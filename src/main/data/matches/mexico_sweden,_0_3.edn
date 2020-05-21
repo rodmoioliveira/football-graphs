@@ -27,21 +27,21 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. dos Santos"}
+       :player-name nil}
       {:player-id 112392,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Jim\\u00e9nez"}
+       :player-name nil}
       {:player-id 112556,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Aquino"}
+       :player-name nil}
       {:player-id 112542,
        :assists "0",
        :goals "null",
@@ -62,14 +62,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. dos Santos"}
+       :player-name nil}
       {:player-id 284267,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "\\u00c9. Guti\\u00e9rrez"}
+       :player-name nil}
       {:player-id 112522,
        :assists "0",
        :goals "null",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Johnsson"}
+       :player-name nil}
       {:player-id 149151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Nordfeldt"}
+       :player-name nil}
       {:player-id 51064,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "E. Krafth"}
+       :player-name nil}
       {:player-id 8192,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Olsson"}
+       :player-name nil}
       {:player-id 50806,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Jansson"}
+       :player-name nil}
       {:player-id 50805,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Helander"}
+       :player-name nil}
       {:player-id 51151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Rohd\\u00e9n"}
+       :player-name nil}
       {:player-id 151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Guidetti"}
+       :player-name nil}
       {:player-id 50812,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Durmaz"}
+       :player-name nil}
       {:player-id 32798,
        :assists "0",
        :goals "null",
@@ -402,6 +402,10 @@
   :label "Mexico - Sweden, 0 - 3",
   :venue "Stadion Central'nyj",
   :dateutc "2018-06-27 14:00:00"},
+ :players-in-match
+ #{51144 51145 112459 51217 8529 112366 14908 112710 51132 61949 255387
+   3685 7941 50798 20876 3795 51262 112522 336178 112253 25816 21275
+   448210 123 295156 3384 32798 71703},
  :players
  {:112253
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -437,23 +441,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15473,
    :height 179},
-  :112392
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 112392,
-   :short-name "R. Jim\\u00e9nez",
-   :middle-name "",
-   :last-name "Jim\\u00e9nez Rodr\\u00edguez",
-   :first-name "Ra\\u00fal Alonso",
-   :birth-date "1991-05-05",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 1629,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 187},
   :112459
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 112459,
@@ -488,23 +475,6 @@
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 173},
-  :112556
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 112556,
-   :short-name "J. Aquino",
-   :middle-name "",
-   :last-name "Aquino Carmona",
-   :first-name "Javier Ignacio",
-   :birth-date "1990-02-11",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 59,
-   :current-team-id 15417,
-   :passport-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 168},
   :112710
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 112710,
@@ -556,40 +526,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 184},
-  :149151
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 149151,
-   :short-name "K. Nordfeldt",
-   :middle-name "",
-   :last-name "Nordfeldt",
-   :first-name "Kristoffer",
-   :birth-date "1989-06-23",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 10531,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 190},
-  :151
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 151,
-   :short-name "J. Guidetti",
-   :middle-name "",
-   :last-name "Guidetti",
-   :first-name "John",
-   :birth-date "1992-04-15",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 696,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 185},
   :20876
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 20876,
@@ -658,23 +594,6 @@
    {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 183},
-  :284267
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284267,
-   :short-name "\\u00c9. Guti\\u00e9rrez",
-   :middle-name "",
-   :last-name "Guti\\u00e9rrez Galaviz",
-   :first-name "\\u00c9rick Gabriel",
-   :birth-date "1995-06-15",
-   :birth-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 11,
-   :passport-area
-   {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 176},
   :295156
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 295156,
@@ -709,23 +628,6 @@
    {:name "Sweden", :id 752, :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 184},
-  :3349
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3349,
-   :short-name "J. dos Santos",
-   :middle-name "",
-   :last-name "dos Santos Ram\\u00edrez",
-   :first-name "Jonathan",
-   :birth-date "1990-04-26",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "right",
-   :weight 68,
-   :current-team-id 7847,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 15473,
-   :height 172},
   :336178
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 336178,
@@ -811,23 +713,6 @@
    {:name "Mexico", :id 484, :alpha-3code "MEX", :alpha-2code "MX"},
    :current-national-team-id 15473,
    :height 185},
-  :50771
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 50771,
-   :short-name "K. Johnsson",
-   :middle-name "",
-   :last-name "Johnsson",
-   :first-name "Karl-Johan",
-   :birth-date "1990-01-28",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 3785,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 187},
   :50798
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 50798,
@@ -845,74 +730,6 @@
    {:name "Denmark", :id "208", :alpha-3code "DNK", :alpha-2code "DK"},
    :current-national-team-id 7047,
    :height 196},
-  :50805
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 50805,
-   :short-name "F. Helander",
-   :middle-name "",
-   :last-name "Helander",
-   :first-name "Filip",
-   :birth-date "1993-04-22",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "left",
-   :weight 84,
-   :current-team-id 3166,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 192},
-  :50806
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 50806,
-   :short-name "P. Jansson",
-   :middle-name "",
-   :last-name "Jansson",
-   :first-name "Pontus",
-   :birth-date "1991-02-13",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 1630,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 196},
-  :50812
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 50812,
-   :short-name "J. Durmaz",
-   :middle-name "",
-   :last-name "Durmaz",
-   :first-name "Jimmy",
-   :birth-date "1989-03-22",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3780,
-   :passport-area
-   {:name "Turkey", :id "792", :alpha-3code "TUR", :alpha-2code "TR"},
-   :current-national-team-id 7047,
-   :height 180},
-  :51064
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 51064,
-   :short-name "E. Krafth",
-   :middle-name "",
-   :last-name "Krafth",
-   :first-name "Emil",
-   :birth-date "1994-08-02",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 3789,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 181},
   :51132
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 51132,
@@ -964,23 +781,6 @@
    {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
    :current-national-team-id 7047,
    :height 184},
-  :51151
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 51151,
-   :short-name "M. Rohd\\u00e9n",
-   :middle-name "",
-   :last-name "Rohd\\u00e9n",
-   :first-name "Marcus Christer",
-   :birth-date "1991-05-11",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3197,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 182},
   :51217
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 51217,
@@ -1067,40 +867,6 @@
    :current-team-id 1633,
    :passport-area
    {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :current-national-team-id 15473,
-   :height 175},
-  :8192
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 8192,
-   :short-name "M. Olsson",
-   :middle-name "",
-   :last-name "Olsson",
-   :first-name "Martin",
-   :birth-date "1988-05-17",
-   :birth-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :foot "left",
-   :weight 81,
-   :current-team-id 10531,
-   :passport-area
-   {:name "Sweden", :id "752", :alpha-3code "SWE", :alpha-2code "SE"},
-   :current-national-team-id 7047,
-   :height 178},
-  :8297
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 8297,
-   :short-name "G. dos Santos",
-   :middle-name "",
-   :last-name "dos Santos Ram\\u00edrez",
-   :first-name "Giovani",
-   :birth-date "1989-05-11",
-   :birth-area
-   {:name "Mexico", :id "484", :alpha-3code "MEX", :alpha-2code "MX"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 7847,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 15473,
    :height 175},
   :8529

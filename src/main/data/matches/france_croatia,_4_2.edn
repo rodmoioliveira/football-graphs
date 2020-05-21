@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Ar\\u00e9ola"}
+       :player-name nil}
       {:player-id 26196,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Sidib\\u00e9"}
+       :player-name nil}
       {:player-id 25552,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Mandanda"}
+       :player-name nil}
       {:player-id 3276,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Rami"}
+       :player-name nil}
       {:player-id 28922,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Lemar"}
+       :player-name nil}
       {:player-id 25770,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Thauvin"}
+       :player-name nil}
       {:player-id 286390,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "O. Demb\\u00e9l\\u00e9"}
+       :player-name nil}
       {:player-id 231138,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Kimpembe"}
+       :player-name nil}
       {:player-id 26136,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Mendy"}
+       :player-name nil}
       {:player-id 209091,
        :assists "0",
        :goals "0",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "J. Pivari\\u0107"}
+       :player-name nil}
       {:player-id 69353,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Kalini\\u0107"}
+       :player-name nil}
       {:player-id 212604,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Jedvaj"}
+       :player-name nil}
       {:player-id 69400,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Badelj"}
+       :player-name nil}
       {:player-id 230626,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. \\u0106aleta-Car"}
+       :player-name nil}
       {:player-id 69404,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Kova\\u010di\\u0107"}
+       :player-name nil}
       {:player-id 135784,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Livakovi\\u0107"}
+       :player-name nil}
       {:player-id 14771,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. \\u0106orluka"}
+       :player-name nil}
       {:player-id 231713,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Bradari\\u0107"}
+       :player-name nil}
       {:player-id 69411,
        :assists "0",
        :goals "0",
@@ -389,6 +389,10 @@
   :label "France - Croatia, 4 - 2",
   :venue "Olimpiyskiy stadion Luzhniki",
   :dateutc "2018-07-15 15:00:00"},
+ :players-in-match
+ #{25397 3476 8287 69411 31528 353833 8200 3682 14943 209091 26010
+   28115 135747 69409 25381 69616 279545 340646 3309 69968 25437 135810
+   69396 14812 7936 25393 105361},
  :players
  {:105361
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -424,23 +428,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 191},
-  :135784
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 135784,
-   :short-name "D. Livakovi\\u0107",
-   :middle-name "",
-   :last-name "Livakovi\\u0107",
-   :first-name "Dominik",
-   :birth-date "1995-01-09",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 9417,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 187},
   :135810
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 135810,
@@ -458,26 +445,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 186},
-  :14771
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14771,
-   :short-name "V. \\u0106orluka",
-   :middle-name "",
-   :last-name "\\u0106orluka",
-   :first-name "Vedran",
-   :birth-date "1986-02-05",
-   :birth-area
-   {:name "Bosnia-Herzegovina",
-    :id "70",
-    :alpha-3code "BIH",
-    :alpha-2code "BA"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 192},
   :14812
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 14812,
@@ -529,77 +496,6 @@
    {:name "Togo", :id "764", :alpha-3code "TGO", :alpha-2code "TG"},
    :current-national-team-id 4418,
    :height 181},
-  :212604
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 212604,
-   :short-name "T. Jedvaj",
-   :middle-name "",
-   :last-name "Jedvaj",
-   :first-name "Tin",
-   :birth-date "1995-11-28",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 2446,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 184},
-  :230626
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 230626,
-   :short-name "D. \\u0106aleta-Car",
-   :middle-name "",
-   :last-name "\\u0106aleta-Car",
-   :first-name "Duje",
-   :birth-date "1996-09-17",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 192},
-  :231138
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 231138,
-   :short-name "P. Kimpembe",
-   :middle-name "",
-   :last-name "Kimpembe",
-   :first-name "Presnel",
-   :birth-date "1995-08-13",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 67,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :current-national-team-id 4418,
-   :height 183},
-  :231713
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 231713,
-   :short-name "F. Bradari\\u0107",
-   :middle-name "",
-   :last-name "Bradari\\u0107",
-   :first-name "Filip",
-   :birth-date "1992-01-11",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 3173,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 185},
   :25381
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 25381,
@@ -654,43 +550,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 182},
-  :25418
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25418,
-   :short-name "A. Ar\\u00e9ola",
-   :middle-name "",
-   :last-name "Ar\\u00e9ola",
-   :first-name "Alphonse",
-   :birth-date "1993-02-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 94,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Philippines",
-    :id "608",
-    :alpha-3code "PHL",
-    :alpha-2code "PH"},
-   :current-national-team-id 4418,
-   :height 195},
-  :25430
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25430,
-   :short-name "M. Sakho",
-   :middle-name "",
-   :last-name "Sakho",
-   :first-name "Mamadou",
-   :birth-date "1990-02-13",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 83,
-   :current-team-id 1628,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 187},
   :25437
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25437,
@@ -708,80 +567,6 @@
    {:name "Angola", :id "24", :alpha-3code "AGO", :alpha-2code "AO"},
    :current-national-team-id 4418,
    :height 175},
-  :25552
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25552,
-   :short-name "S. Mandanda",
-   :middle-name "",
-   :last-name "Mandanda",
-   :first-name "Steve",
-   :birth-date "1985-03-28",
-   :birth-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3771,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 185},
-  :25770
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 25770,
-   :short-name "F. Thauvin",
-   :middle-name "",
-   :last-name "Thauvin",
-   :first-name "Florian",
-   :birth-date "1993-01-26",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 3771,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 179},
-  :25804
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 25804,
-   :short-name "M. Sissoko",
-   :middle-name "",
-   :last-name "Sissoko",
-   :first-name "Moussa",
-   :birth-date "1989-08-16",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 91,
-   :current-team-id 1624,
-   :passport-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 187},
-  :25854
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25854,
-   :short-name "K. Zouma",
-   :middle-name "",
-   :last-name "Zouma",
-   :first-name "Kurt Happy",
-   :birth-date "1994-10-27",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Central African Republic",
-    :id 140,
-    :alpha-3code "CAF",
-    :alpha-2code "CF"},
-   :current-national-team-id 4418,
-   :height 190},
   :26010
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 26010,
@@ -799,40 +584,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 192},
-  :26136
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 26136,
-   :short-name "B. Mendy",
-   :middle-name "",
-   :last-name "Mendy",
-   :first-name "Benjamin",
-   :birth-date "1994-07-17",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 85,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 185},
-  :26196
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 26196,
-   :short-name "D. Sidib\\u00e9",
-   :middle-name "",
-   :last-name "Sidib\\u00e9",
-   :first-name "Djibril",
-   :birth-date "1992-07-29",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 19830,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 182},
   :279545
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 279545,
@@ -867,80 +618,6 @@
    {:name "Algeria", :id 12, :alpha-3code "DZA", :alpha-2code "DZ"},
    :current-national-team-id 4418,
    :height 173},
-  :284476
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284476,
-   :short-name "N. Vla\\u0161i\\u0107",
-   :middle-name "",
-   :last-name "Vla\\u0161i\\u0107",
-   :first-name "Nikola",
-   :birth-date "1997-10-04",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13886,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 178},
-  :286390
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 286390,
-   :short-name "O. Demb\\u00e9l\\u00e9",
-   :middle-name "",
-   :last-name "Demb\\u00e9l\\u00e9",
-   :first-name "Ousmane",
-   :birth-date "1997-05-15",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "both",
-   :weight 67,
-   :current-team-id 676,
-   :passport-area
-   {:name "Mauritania",
-    :id "478",
-    :alpha-3code "MRT",
-    :alpha-2code "MR"},
-   :current-national-team-id 4418,
-   :height 178},
-  :28922
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 28922,
-   :short-name "T. Lemar",
-   :middle-name "",
-   :last-name "Lemar",
-   :first-name "Thomas",
-   :birth-date "1995-11-12",
-   :birth-area
-   {:name "Guadeloupe",
-    :id "312",
-    :alpha-3code "GLP",
-    :alpha-2code "GP"},
-   :foot "left",
-   :weight 58,
-   :current-team-id 679,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 170},
-  :294695
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 294695,
-   :short-name "T. Ndomb\\u00e8l\\u00e9",
-   :middle-name "",
-   :last-name "Ndomb\\u00e8l\\u00e9 Alvaro",
-   :first-name "Tanguy",
-   :birth-date "1996-12-28",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3766,
-   :passport-area
-   {:name "Congo DR", :id 180, :alpha-3code "COD", :alpha-2code "CD"},
-   :current-national-team-id 4418,
-   :height 181},
   :31528
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 31528,
@@ -958,23 +635,6 @@
    {:name "Mali", :id 466, :alpha-3code "MLI", :alpha-2code "ML"},
    :current-national-team-id 4418,
    :height 168},
-  :3276
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3276,
-   :short-name "A. Rami",
-   :middle-name "",
-   :last-name "Rami",
-   :first-name "Adil",
-   :birth-date "1985-12-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 90,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 4418,
-   :height 190},
   :3309
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3309,
@@ -1069,23 +729,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 175},
-  :69353
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 69353,
-   :short-name "L. Kalini\\u0107",
-   :middle-name "",
-   :last-name "Kalini\\u0107",
-   :first-name "Lovre",
-   :birth-date "1990-04-03",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 96,
-   :current-team-id 5067,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 201},
   :69396
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 69396,
@@ -1103,40 +746,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 184},
-  :69400
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 69400,
-   :short-name "M. Badelj",
-   :middle-name "",
-   :last-name "Badelj",
-   :first-name "Milan",
-   :birth-date "1989-02-25",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3162,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 186},
-  :69404
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 69404,
-   :short-name "M. Kova\\u010di\\u0107",
-   :middle-name "",
-   :last-name "Kova\\u010di\\u0107",
-   :first-name "Mateo",
-   :birth-date "1994-05-06",
-   :birth-area
-   {:name "Austria", :id "40", :alpha-3code "AUT", :alpha-2code "AT"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 178},
   :69409
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 69409,
@@ -1188,23 +797,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 185},
-  :69964
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 69964,
-   :short-name "J. Pivari\\u0107",
-   :middle-name "",
-   :last-name "Pivari\\u0107",
-   :first-name "Josip",
-   :birth-date "1989-01-30",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 14503,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 176},
   :69968
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 69968,

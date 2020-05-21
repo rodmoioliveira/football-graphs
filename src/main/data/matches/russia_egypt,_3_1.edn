@@ -13,56 +13,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Gabulov"}
+       :player-name nil}
       {:player-id 101682,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Granat"}
+       :player-name nil}
       {:player-id 262048,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Al. Miranchuk"}
+       :player-name nil}
       {:player-id 101971,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Lunev"}
+       :player-name nil}
       {:player-id 101953,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Erokhin"}
+       :player-name nil}
       {:player-id 101825,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "I. Smolnikov"}
+       :player-name nil}
       {:player-id 288708,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "An. Miranchuk"}
+       :player-name nil}
       {:player-id 102629,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Semenov"}
+       :player-name nil}
       {:player-id 220971,
        :assists "0",
        :goals "null",
@@ -198,63 +198,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ayman Ashraf"}
+       :player-name nil}
       {:player-id 120042,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Saad Samir"}
+       :player-name nil}
       {:player-id 119981,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Shikabala"}
+       :player-name nil}
       {:player-id 120269,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Essam El Hadary"}
+       :player-name nil}
       {:player-id 8525,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ahmed El Mohamady"}
+       :player-name nil}
       {:player-id 296484,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Mahmoud Hamdy"}
+       :player-name nil}
       {:player-id 119987,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Omar Gaber"}
+       :player-name nil}
       {:player-id 120151,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Sherif Ekramy"}
+       :player-name nil}
       {:player-id 11270,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Morsy"}
+       :player-name nil}
       {:player-id 388928,
        :assists "0",
        :goals "null",
@@ -395,6 +395,10 @@
   :label "Russia - Egypt, 3 - 1",
   :venue "Stadion Krestovskyi",
   :dateutc "2018-06-19 18:00:00"},
+ :players-in-match
+ #{101707 388928 120167 437417 103682 102157 120225 101669 119975 4513
+   101647 101583 101857 257800 119951 332605 41123 220112 120000 103668
+   120339 101699 198120 220971 120156 119932 120353 101576},
  :players
  {:101576
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -430,23 +434,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 187},
-  :101590
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101590,
-   :short-name "A. Dzagoev",
-   :middle-name "",
-   :last-name "Dzagoev",
-   :first-name "Alan",
-   :birth-date "1990-06-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 13886,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 179},
   :101647
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 101647,
@@ -481,23 +468,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 196},
-  :101682
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101682,
-   :short-name "V. Granat",
-   :middle-name "",
-   :last-name "Granat",
-   :first-name "Vladimir",
-   :birth-date "1987-05-22",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 13895,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 184},
   :101699
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101699,
@@ -532,40 +502,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 187},
-  :101825
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101825,
-   :short-name "I. Smolnikov",
-   :middle-name "",
-   :last-name "Smolnikov",
-   :first-name "Igor",
-   :birth-date "1988-08-08",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 178},
-  :101834
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101834,
-   :short-name "V. Gabulov",
-   :middle-name "",
-   :last-name "Gabulov",
-   :first-name "Vladimir",
-   :birth-date "1983-10-19",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 5072,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :101857
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101857,
@@ -583,40 +519,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 180},
-  :101953
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101953,
-   :short-name "A. Erokhin",
-   :middle-name "",
-   :last-name "Erokhin",
-   :first-name "Aleksandr",
-   :birth-date "1989-10-13",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 195},
-  :101971
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101971,
-   :short-name "A. Lunev",
-   :middle-name "",
-   :last-name "Lunev",
-   :first-name "Andrey",
-   :birth-date "1991-11-13",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 189},
   :102157
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 102157,
@@ -634,23 +536,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 184},
-  :102629
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 102629,
-   :short-name "A. Semenov",
-   :middle-name "",
-   :last-name "Semenov",
-   :first-name "Andrey",
-   :birth-date "1989-03-24",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 13898,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :103668
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 103668,
@@ -685,23 +570,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 182},
-  :11270
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 11270,
-   :short-name "S. Morsy",
-   :middle-name "",
-   :last-name "Morsy",
-   :first-name "Sam",
-   :birth-date "1991-09-10",
-   :birth-area
-   {:name "England", :id 0, :alpha-3code "XEN", :alpha-2code ""},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1635,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 175},
   :119932
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 119932,
@@ -753,40 +621,6 @@
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 179},
-  :119981
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 119981,
-   :short-name "Shikabala",
-   :middle-name "",
-   :last-name "Fadlallah",
-   :first-name "Mahmoud Abdel Razek",
-   :birth-date "1986-03-05",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 12532,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 180},
-  :119987
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 119987,
-   :short-name "Omar Gaber",
-   :middle-name "",
-   :last-name "Gaber",
-   :first-name "Omar",
-   :birth-date "1992-01-30",
-   :birth-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 27533,
-   :passport-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 174},
   :120000
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 120000,
@@ -799,40 +633,6 @@
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
    :foot "right",
    :weight 78,
-   :current-team-id 16041,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 191},
-  :120042
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 120042,
-   :short-name "Saad Samir",
-   :middle-name "",
-   :last-name "Samir",
-   :first-name "Saad Ali Saadeldin",
-   :birth-date "1989-04-01",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 16041,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 186},
-  :120151
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120151,
-   :short-name "Sherif Ekramy",
-   :middle-name "",
-   :last-name "Ekramy Ahmed",
-   :first-name "Sherif",
-   :birth-date "1983-07-01",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 91,
    :current-team-id 16041,
    :passport-area
    {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
@@ -889,23 +689,6 @@
    {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 184},
-  :120269
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120269,
-   :short-name "Essam El Hadary",
-   :middle-name "",
-   :last-name "El Hadary",
-   :first-name "Essam Kamal Tawfik",
-   :birth-date "1973-01-15",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 16049,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 188},
   :120339
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 120339,
@@ -938,23 +721,6 @@
    :current-team-id 1612,
    :passport-area
    {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 175},
-  :120446
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 120446,
-   :short-name "Ayman Ashraf",
-   :middle-name "",
-   :last-name "Ashraf",
-   :first-name "Ayman",
-   :birth-date "1991-04-09",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 16041,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
    :current-national-team-id 16129,
    :height 175},
   :198120
@@ -1028,57 +794,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 180},
-  :262048
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 262048,
-   :short-name "Al. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Aleksey",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 182},
-  :288708
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 288708,
-   :short-name "An. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Anton",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 183},
-  :296484
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 296484,
-   :short-name "Mahmoud Hamdy",
-   :middle-name "",
-   :last-name "Hamdy",
-   :first-name "Mahmoud",
-   :birth-date "1995-06-01",
-   :birth-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 16054,
-   :passport-area
-   {:name "Egypt", :id 818, :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 188},
   :332605
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 332605,
@@ -1163,24 +878,7 @@
    :passport-area
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 14358,
-   :height 179},
-  :8525
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 8525,
-   :short-name "Ahmed El Mohamady",
-   :middle-name "",
-   :last-name "El Mohamady Abdel Fattah",
-   :first-name "Ahmed Eissa ",
-   :birth-date "1987-09-09",
-   :birth-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1614,
-   :passport-area
-   {:name "Egypt", :id "818", :alpha-3code "EGY", :alpha-2code "EG"},
-   :current-national-team-id 16129,
-   :height 183}},
+   :height 179}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

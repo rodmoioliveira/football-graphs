@@ -13,7 +13,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Zapata"}
+       :player-name nil}
       {:player-id 90999,
        :assists "0",
        :goals "0",
@@ -27,28 +27,28 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "W. Barrios"}
+       :player-name nil}
       {:player-id 91002,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "O. Murillo"}
+       :player-name nil}
       {:player-id 37831,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Bacca"}
+       :player-name nil}
       {:player-id 91039,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Vargas"}
+       :player-name nil}
       {:player-id 91381,
        :assists "0",
        :goals "0",
@@ -198,63 +198,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Diouf"}
+       :player-name nil}
       {:player-id 215281,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Mbengue"}
+       :player-name nil}
       {:player-id 207164,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. N'Diaye"}
+       :player-name nil}
       {:player-id 21098,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Gomis"}
+       :player-name nil}
       {:player-id 25633,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Diallo"}
+       :player-name nil}
       {:player-id 54315,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Mbodji"}
+       :player-name nil}
       {:player-id 32544,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Sow"}
+       :player-name nil}
       {:player-id 27412,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. N'Doye"}
+       :player-name nil}
       {:player-id 32793,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. N'Diaye"}
+       :player-name nil}
       {:player-id 375348,
        :assists "0",
        :goals "0",
@@ -395,6 +395,10 @@
   :label "Senegal - Colombia, 0 - 1",
   :venue "Samara Arena",
   :dateutc "2018-06-28 14:00:00"},
+ :players-in-match
+ #{375348 256634 20751 28529 37725 26022 256480 91702 448079 257762
+   133897 25747 26610 97582 91502 25898 3450 25706 26115 25662 70096
+   91156 91019 20764 25726 255738 70136 26518},
  :players
  {:133897
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -413,40 +417,6 @@
    {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 191},
-  :15054
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 15054,
-   :short-name "M. Diouf",
-   :middle-name "",
-   :last-name "Diouf",
-   :first-name "Mame Biram",
-   :birth-date "1987-12-16",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 1639,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 185},
-  :207164
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 207164,
-   :short-name "B. N'Diaye",
-   :middle-name "",
-   :last-name "N'Diaye",
-   :first-name "Papa Alioune",
-   :birth-date "1990-10-27",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 1639,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 180},
   :20751
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 20751,
@@ -493,63 +463,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 178},
-  :21098
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 21098,
-   :short-name "A. Gomis",
-   :middle-name "",
-   :last-name "Gomis",
-   :first-name "Alfred Benjamin",
-   :birth-date "1993-09-05",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 3204,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 19314,
-   :height 194},
-  :215281
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 215281,
-   :short-name "A. Mbengue",
-   :middle-name "",
-   :last-name "Mbengue",
-   :first-name "Adama",
-   :birth-date "1993-12-01",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "left",
-   :weight 68,
-   :current-team-id 3783,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 178},
-  :246928
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 246928,
-   :short-name "W. Barrios",
-   :middle-name "",
-   :last-name "Barrios Ter\\u00e1n",
-   :first-name "W\\u00edlmar Enrique",
-   :birth-date "1993-10-16",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 12057,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 178},
   :255738
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 255738,
@@ -573,23 +486,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 179},
-  :25633
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25633,
-   :short-name "A. Diallo",
-   :middle-name "",
-   :last-name "Diallo",
-   :first-name "Abdoulaye",
-   :birth-date "1992-03-30",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3774,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 191},
   :256480
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 256480,
@@ -806,23 +702,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 19314,
    :height 184},
-  :27412
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 27412,
-   :short-name "C. N'Doye",
-   :middle-name "",
-   :last-name "N'Doye",
-   :first-name "Cheikh",
-   :birth-date "1986-03-29",
-   :birth-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 90,
-   :current-team-id 3799,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 192},
   :28529
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 28529,
@@ -840,74 +719,6 @@
    {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 173},
-  :28965
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 28965,
-   :short-name "O. Nguette",
-   :middle-name "",
-   :last-name "Nguette",
-   :first-name "Opa",
-   :birth-date "1994-07-08",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3777,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 182},
-  :32544
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 32544,
-   :short-name "M. Sow",
-   :middle-name "",
-   :last-name "Sow",
-   :first-name "Moussa",
-   :birth-date "1986-01-19",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 16925,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 180},
-  :326946
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 326946,
-   :short-name "R. Coly",
-   :middle-name "",
-   :last-name "Coly",
-   :first-name "Racine",
-   :birth-date "1995-12-08",
-   :birth-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 3775,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 185},
-  :32793
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 32793,
-   :short-name "A. N'Diaye",
-   :middle-name "",
-   :last-name "N'Diaye",
-   :first-name "Alfred John Momar",
-   :birth-date "1990-03-06",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 683,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 187},
   :3450
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3450,
@@ -931,29 +742,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 177},
-  :3531
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3531,
-   :short-name "C. Zapata",
-   :middle-name "",
-   :last-name "Zapata Valencia",
-   :first-name "Cristian Eduardo",
-   :birth-date "1986-09-30",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 187},
   :375348
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 375348,
@@ -988,29 +776,6 @@
    {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
    :current-national-team-id 19314,
    :height 193},
-  :37831
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 37831,
-   :short-name "C. Bacca",
-   :middle-name "",
-   :last-name "Bacca Ahumada",
-   :first-name "Carlos Arturo",
-   :birth-date "1986-09-08",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 682,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 181},
   :448079
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 448079,
@@ -1028,46 +793,6 @@
    {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 178},
-  :4814
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 4814,
-   :short-name "A. Aguilar",
-   :middle-name "",
-   :last-name "Aguilar Tapia",
-   :first-name "Abel Enrique",
-   :birth-date "1985-01-06",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 12394,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 186},
-  :54315
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 54315,
-   :short-name "K. Mbodji",
-   :middle-name "",
-   :last-name "Mbodji",
-   :first-name "Serigne Modou Kara",
-   :birth-date "1989-11-22",
-   :birth-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 3770,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 192},
   :70096
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 70096,
@@ -1114,23 +839,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 175},
-  :91002
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 91002,
-   :short-name "O. Murillo",
-   :middle-name "",
-   :last-name "Murillo Murillo",
-   :first-name "Oscar Fabi\\u00e1n",
-   :birth-date "1988-04-18",
-   :birth-area
-   {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
-   :foot "left",
-   :weight 82,
-   :current-team-id 15413,
-   :passport-area
-   {:name "Colombia", :id 170, :alpha-3code "COL", :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 184},
   :91019
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 91019,
@@ -1154,29 +862,6 @@
     :alpha-2code "CO"},
    :current-national-team-id 12430,
    :height 169},
-  :91039
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 91039,
-   :short-name "C. Vargas",
-   :middle-name "",
-   :last-name "Vargas Gil",
-   :first-name "Camilo Andr\\u00e9s",
-   :birth-date "1989-03-09",
-   :birth-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 12394,
-   :passport-area
-   {:name "Colombia",
-    :id "170",
-    :alpha-3code "COL",
-    :alpha-2code "CO"},
-   :current-national-team-id 12430,
-   :height 185},
   :91156
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 91156,

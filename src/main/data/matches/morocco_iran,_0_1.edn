@@ -13,56 +13,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Montazeri"}
+       :player-name nil}
       {:player-id 79658,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Khanzadeh"}
+       :player-name nil}
       {:player-id 79038,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Mazaheri"}
+       :player-name nil}
       {:player-id 14939,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Dejagah"}
+       :player-name nil}
       {:player-id 333803,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Mohammadi"}
+       :player-name nil}
       {:player-id 264476,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Torabi"}
+       :player-name nil}
       {:player-id 60144,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Abedzadeh"}
+       :player-name nil}
       {:player-id 38064,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Ghoochannejhad"}
+       :player-name nil}
       {:player-id 285538,
        :assists "0",
        :goals "null",
@@ -198,7 +198,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "H. Mendyl"}
+       :player-name nil}
       {:player-id 285583,
        :assists "0",
        :goals "null",
@@ -212,49 +212,49 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. En-Nesyri"}
+       :player-name nil}
       {:player-id 29625,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Bouta\\u00efb"}
+       :player-name nil}
       {:player-id 149074,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Dirar"}
+       :player-name nil}
       {:player-id 101847,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Carcela-Gonz\\u00e1lez"}
+       :player-name nil}
       {:player-id 120631,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Bounou"}
+       :player-name nil}
       {:player-id 289359,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. A\\u00eft Bennasser"}
+       :player-name nil}
       {:player-id 25888,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Fajr"}
+       :player-name nil}
       {:player-id 285590,
        :assists "0",
        :goals "null",
@@ -395,6 +395,10 @@
   :label "Morocco - Iran, 0 - 1",
   :venue "Stadion Krestovskyi",
   :dateutc "2018-06-15 15:00:00"},
+ :players-in-match
+ #{79320 15727 285538 6509 101846 101620 78991 221039 552555 79149
+   238031 25998 79098 372915 3509 79006 142 32968 79449 237836 272829
+   20579 285590 79381 79248 53562 396475 26226},
  :players
  {:101620
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -433,40 +437,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 168},
-  :101847
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101847,
-   :short-name "M. Carcela-Gonz\\u00e1lez",
-   :middle-name "",
-   :last-name "Carcela-Gonz\\u00e1lez",
-   :first-name "Mehdi",
-   :birth-date "1989-07-01",
-   :birth-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :foot "left",
-   :weight 67,
-   :current-team-id 5083,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 176},
-  :120631
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120631,
-   :short-name "Y. Bounou",
-   :middle-name "",
-   :last-name "Bounou",
-   :first-name "Yassine",
-   :birth-date "1991-04-05",
-   :birth-area
-   {:name "Canada", :id "124", :alpha-3code "CAN", :alpha-2code "CA"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 756,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 192},
   :142
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 142,
@@ -487,40 +457,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 179},
-  :149074
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 149074,
-   :short-name "N. Dirar",
-   :middle-name "",
-   :last-name "Dirar",
-   :first-name "Nabil",
-   :birth-date "1986-02-25",
-   :birth-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 4487,
-   :passport-area
-   {:name "Belgium", :id "56", :alpha-3code "BEL", :alpha-2code "BE"},
-   :current-national-team-id 16216,
-   :height 187},
-  :14939
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 14939,
-   :short-name "A. Dejagah",
-   :middle-name "",
-   :last-name "Dejagah",
-   :first-name "Ashkan",
-   :birth-date "1986-07-05",
-   :birth-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 10788,
-   :passport-area
-   {:name "Germany", :id 276, :alpha-3code "DEU", :alpha-2code "DE"},
-   :current-national-team-id 10840,
-   :height 181},
   :15727
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 15727,
@@ -609,40 +545,6 @@
    {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
    :current-national-team-id 10840,
    :height 192},
-  :241647
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 241647,
-   :short-name "S. Ezatolahi",
-   :middle-name "",
-   :last-name "Ezatolahi Afagh",
-   :first-name "Saeid",
-   :birth-date "1996-10-01",
-   :birth-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 13897,
-   :passport-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
-   :height 190},
-  :25888
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 25888,
-   :short-name "F. Fajr",
-   :middle-name "",
-   :last-name "Fajr",
-   :first-name "Fay\\u00e7al",
-   :birth-date "1988-08-01",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 3783,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 178},
   :25998
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25998,
@@ -677,23 +579,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 190},
-  :264476
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 264476,
-   :short-name "M. Torabi",
-   :middle-name "",
-   :last-name "Torabi",
-   :first-name "Mehdi",
-   :birth-date "1994-09-10",
-   :birth-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 10771,
-   :passport-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
-   :height 185},
   :272829
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 272829,
@@ -748,57 +633,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 182},
-  :289359
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 289359,
-   :short-name "Y. A\\u00eft Bennasser",
-   :middle-name "",
-   :last-name "A\\u00eft Bennasser",
-   :first-name "Youssef",
-   :birth-date "1996-07-07",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 19830,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 184},
-  :29625
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 29625,
-   :short-name "K. Bouta\\u00efb",
-   :middle-name "",
-   :last-name "Bouta\\u00efb",
-   :first-name "Khalid",
-   :birth-date "1987-04-24",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 4622,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 189},
-  :30320
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 30320,
-   :short-name "O. El Hajjam",
-   :middle-name "",
-   :last-name "El Hajjam",
-   :first-name "Oualid",
-   :birth-date "1991-02-19",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 3789,
-   :passport-area
-   {:name "Morocco", :id 504, :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 181},
   :32968
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 32968,
@@ -818,23 +652,6 @@
    :passport-area
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
-   :height 178},
-  :333803
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 333803,
-   :short-name "M. Mohammadi",
-   :middle-name "",
-   :last-name "Mohammadi",
-   :first-name "Milad",
-   :birth-date "1993-09-29",
-   :birth-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 13898,
-   :passport-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
    :height 178},
   :3509
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -870,26 +687,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 179},
-  :38064
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 38064,
-   :short-name "R. Ghoochannejhad",
-   :middle-name "",
-   :last-name "Ghoochannejhad Nournia",
-   :first-name "Reza",
-   :birth-date "1987-09-20",
-   :birth-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 10689,
-   :passport-area
-   {:name "Netherlands",
-    :id "528",
-    :alpha-3code "NLD",
-    :alpha-2code "NL"},
-   :current-national-team-id 10840,
-   :height 180},
   :396475
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 396475,
@@ -907,43 +704,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 179},
-  :426702
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 426702,
-   :short-name "H. Mendyl",
-   :middle-name "",
-   :last-name "Mendyl",
-   :first-name "Hamza",
-   :birth-date "1997-10-21",
-   :birth-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 2449,
-   :passport-area
-   {:name "C\\u00f4te d'Ivoire",
-    :id "384",
-    :alpha-3code "CIV",
-    :alpha-2code "CI"},
-   :current-national-team-id 16216,
-   :height 179},
-  :447821
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 447821,
-   :short-name "Y. En-Nesyri",
-   :middle-name "",
-   :last-name "En-Nesyri",
-   :first-name "Youssef",
-   :birth-date "1997-06-01",
-   :birth-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 712,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 189},
   :53562
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 53562,
@@ -978,23 +738,6 @@
    {:name "Morocco", :id 504, :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 182},
-  :60144
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 60144,
-   :short-name "A. Abedzadeh",
-   :middle-name "",
-   :last-name "Abedzadeh",
-   :first-name "Amir",
-   :birth-date "1993-04-26",
-   :birth-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 9612,
-   :passport-area
-   {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
-   :height 186},
   :6509
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 6509,
@@ -1046,23 +789,6 @@
    {:name "Iran", :id "364", :alpha-3code "IRN", :alpha-2code "IR"},
    :current-national-team-id 10840,
    :height 186},
-  :79038
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 79038,
-   :short-name "M. Mazaheri",
-   :middle-name "",
-   :last-name "Mazaheri",
-   :first-name "Mohammad Rashid",
-   :birth-date "1989-05-18",
-   :birth-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 84,
-   :current-team-id 10770,
-   :passport-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
-   :height 193},
   :79098
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 79098,
@@ -1080,23 +806,6 @@
    {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
    :current-national-team-id 10840,
    :height 185},
-  :79115
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 79115,
-   :short-name "P. Montazeri",
-   :middle-name "",
-   :last-name "Montazeri",
-   :first-name "Pejman",
-   :birth-date "1983-09-06",
-   :birth-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 10767,
-   :passport-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
-   :height 186},
   :79149
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 79149,
@@ -1181,24 +890,7 @@
    :passport-area
    {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
    :current-national-team-id 10840,
-   :height 185},
-  :79658
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 79658,
-   :short-name "M. Khanzadeh",
-   :middle-name "",
-   :last-name "Khanzadeh",
-   :first-name "Mohammad Reza",
-   :birth-date "1991-05-11",
-   :birth-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 16442,
-   :passport-area
-   {:name "Iran", :id 364, :alpha-3code "IRN", :alpha-2code "IR"},
-   :current-national-team-id 10840,
-   :height 180}},
+   :height 185}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

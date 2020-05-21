@@ -13,14 +13,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "W. Caballero"}
+       :player-name nil}
       {:player-id 89073,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Acu\\u00f1a"}
+       :player-name nil}
       {:player-id 86537,
        :assists "0",
        :goals "null",
@@ -34,42 +34,42 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Dybala"}
+       :player-name nil}
       {:player-id 3323,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Higua\\u00edn"}
+       :player-name nil}
       {:player-id 3445,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "E. Salvio"}
+       :player-name nil}
       {:player-id 37732,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Biglia"}
+       :player-name nil}
       {:player-id 356237,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Lo Celso"}
+       :player-name nil}
       {:player-id 101742,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "C. Ansaldi"}
+       :player-name nil}
       {:player-id 3463,
        :assists "0",
        :goals "null",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Ar\\u00e9ola"}
+       :player-name nil}
       {:player-id 26196,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Sidib\\u00e9"}
+       :player-name nil}
       {:player-id 25552,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Mandanda"}
+       :player-name nil}
       {:player-id 3276,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Rami"}
+       :player-name nil}
       {:player-id 28922,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Lemar"}
+       :player-name nil}
       {:player-id 286390,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "O. Demb\\u00e9l\\u00e9"}
+       :player-name nil}
       {:player-id 231138,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "P. Kimpembe"}
+       :player-name nil}
       {:player-id 8200,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. N'Zonzi"}
+       :player-name nil}
       {:player-id 26136,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Mendy"}
+       :player-name nil}
       {:player-id 209091,
        :assists "0",
        :goals "null",
@@ -402,6 +402,10 @@
   :label "France - Argentina, 4 - 3",
   :venue "Kazan' Arena",
   :dateutc "2018-06-30 14:00:00"},
+ :players-in-match
+ #{3359 86234 3280 25397 101652 86722 31528 353833 146459 86220 3682
+   70086 3463 209091 26010 3355 28115 25381 8325 25770 279545 90991
+   340646 3309 25437 285396 7936 3314},
  :players
  {:101652
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
@@ -420,26 +424,6 @@
    {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 187},
-  :101742
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101742,
-   :short-name "C. Ansaldi",
-   :middle-name "",
-   :last-name "Ansaldi",
-   :first-name "Cristian Daniel",
-   :birth-date "1986-09-20",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 3185,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 181},
   :146459
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 146459,
@@ -463,57 +447,6 @@
     :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 180},
-  :20441
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20441,
-   :short-name "E. Lamela",
-   :middle-name "",
-   :last-name "Lamela",
-   :first-name "Erik",
-   :birth-date "1992-03-04",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 181},
-  :20593
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 20593,
-   :short-name "R. Pereyra",
-   :middle-name "",
-   :last-name "Pereyra",
-   :first-name "Roberto Maximiliano",
-   :birth-date "1991-01-07",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 1644,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 182},
-  :20606
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 20606,
-   :short-name "S. Romero",
-   :middle-name "",
-   :last-name "Romero",
-   :first-name "Sergio Germ\\u00e1n",
-   :birth-date "1987-02-22",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 87,
-   :current-team-id 1611,
-   :passport-area
-   {:name "Italy", :id 380, :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 192},
   :209091
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 209091,
@@ -531,26 +464,6 @@
    {:name "Togo", :id "764", :alpha-3code "TGO", :alpha-2code "TG"},
    :current-national-team-id 4418,
    :height 181},
-  :231138
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 231138,
-   :short-name "P. Kimpembe",
-   :middle-name "",
-   :last-name "Kimpembe",
-   :first-name "Presnel",
-   :birth-date "1995-08-13",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 67,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :current-national-team-id 4418,
-   :height 183},
   :25381
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 25381,
@@ -588,43 +501,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 182},
-  :25418
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25418,
-   :short-name "A. Ar\\u00e9ola",
-   :middle-name "",
-   :last-name "Ar\\u00e9ola",
-   :first-name "Alphonse",
-   :birth-date "1993-02-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 94,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Philippines",
-    :id "608",
-    :alpha-3code "PHL",
-    :alpha-2code "PH"},
-   :current-national-team-id 4418,
-   :height 195},
-  :25430
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25430,
-   :short-name "M. Sakho",
-   :middle-name "",
-   :last-name "Sakho",
-   :first-name "Mamadou",
-   :birth-date "1990-02-13",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 83,
-   :current-team-id 1628,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 187},
   :25437
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25437,
@@ -642,26 +518,6 @@
    {:name "Angola", :id "24", :alpha-3code "AGO", :alpha-2code "AO"},
    :current-national-team-id 4418,
    :height 175},
-  :25552
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25552,
-   :short-name "S. Mandanda",
-   :middle-name "",
-   :last-name "Mandanda",
-   :first-name "Steve",
-   :birth-date "1985-03-28",
-   :birth-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3771,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 185},
   :25770
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 25770,
@@ -679,43 +535,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 179},
-  :25804
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 25804,
-   :short-name "M. Sissoko",
-   :middle-name "",
-   :last-name "Sissoko",
-   :first-name "Moussa",
-   :birth-date "1989-08-16",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 91,
-   :current-team-id 1624,
-   :passport-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 187},
-  :25854
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 25854,
-   :short-name "K. Zouma",
-   :middle-name "",
-   :last-name "Zouma",
-   :first-name "Kurt Happy",
-   :birth-date "1994-10-27",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 1623,
-   :passport-area
-   {:name "Central African Republic",
-    :id 140,
-    :alpha-3code "CAF",
-    :alpha-2code "CF"},
-   :current-national-team-id 4418,
-   :height 190},
   :26010
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 26010,
@@ -733,40 +552,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 192},
-  :26136
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 26136,
-   :short-name "B. Mendy",
-   :middle-name "",
-   :last-name "Mendy",
-   :first-name "Benjamin",
-   :birth-date "1994-07-17",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 85,
-   :current-team-id 1625,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 185},
-  :26196
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 26196,
-   :short-name "D. Sidib\\u00e9",
-   :middle-name "",
-   :last-name "Sidib\\u00e9",
-   :first-name "Djibril",
-   :birth-date "1992-07-29",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 71,
-   :current-team-id 19830,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 4418,
-   :height 182},
   :279545
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 279545,
@@ -824,63 +609,6 @@
     :alpha-2code "AR"},
    :current-national-team-id 12274,
    :height 167},
-  :286390
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 286390,
-   :short-name "O. Demb\\u00e9l\\u00e9",
-   :middle-name "",
-   :last-name "Demb\\u00e9l\\u00e9",
-   :first-name "Ousmane",
-   :birth-date "1997-05-15",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "both",
-   :weight 67,
-   :current-team-id 676,
-   :passport-area
-   {:name "Mauritania",
-    :id "478",
-    :alpha-3code "MRT",
-    :alpha-2code "MR"},
-   :current-national-team-id 4418,
-   :height 178},
-  :28922
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 28922,
-   :short-name "T. Lemar",
-   :middle-name "",
-   :last-name "Lemar",
-   :first-name "Thomas",
-   :birth-date "1995-11-12",
-   :birth-area
-   {:name "Guadeloupe",
-    :id "312",
-    :alpha-3code "GLP",
-    :alpha-2code "GP"},
-   :foot "left",
-   :weight 58,
-   :current-team-id 679,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 4418,
-   :height 170},
-  :294695
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 294695,
-   :short-name "T. Ndomb\\u00e8l\\u00e9",
-   :middle-name "",
-   :last-name "Ndomb\\u00e8l\\u00e9 Alvaro",
-   :first-name "Tanguy",
-   :birth-date "1996-12-28",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3766,
-   :passport-area
-   {:name "Congo DR", :id 180, :alpha-3code "COD", :alpha-2code "CD"},
-   :current-national-team-id 4418,
-   :height 181},
   :31528
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 31528,
@@ -898,23 +626,6 @@
    {:name "Mali", :id 466, :alpha-3code "MLI", :alpha-2code "ML"},
    :current-national-team-id 4418,
    :height 168},
-  :3276
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 3276,
-   :short-name "A. Rami",
-   :middle-name "",
-   :last-name "Rami",
-   :first-name "Adil",
-   :birth-date "1985-12-27",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 90,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 4418,
-   :height 190},
   :3280
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3280,
@@ -975,26 +686,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 12274,
    :height 180},
-  :3323
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 3323,
-   :short-name "G. Higua\\u00edn",
-   :middle-name "",
-   :last-name "Higua\\u00edn",
-   :first-name "Gonzalo Gerardo",
-   :birth-date "1987-12-10",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 184},
   :3355
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3355,
@@ -1052,29 +743,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 186},
-  :3445
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 3445,
-   :short-name "E. Salvio",
-   :middle-name "",
-   :last-name "Salvio",
-   :first-name "Eduardo Antonio",
-   :birth-date "1990-07-13",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 9607,
-   :passport-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 173},
   :3463
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 3463,
@@ -1115,46 +783,6 @@
     :alpha-2code "CM"},
    :current-national-team-id 4418,
    :height 178},
-  :3551
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 3551,
-   :short-name "W. Caballero",
-   :middle-name "",
-   :last-name "Caballero",
-   :first-name "Wilfredo Daniel",
-   :birth-date "1981-09-28",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 1610,
-   :passport-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 12274,
-   :height 186},
-  :356237
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 356237,
-   :short-name "G. Lo Celso",
-   :middle-name "",
-   :last-name "Lo Celso",
-   :first-name "Giovani",
-   :birth-date "1996-04-09",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3767,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 177},
   :3682
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 3682,
@@ -1172,43 +800,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 4418,
    :height 175},
-  :37732
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 37732,
-   :short-name "L. Biglia",
-   :middle-name "",
-   :last-name "Biglia",
-   :first-name "Lucas Rodrigo",
-   :birth-date "1986-01-30",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 3157,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 12274,
-   :height 178},
-  :456053
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 456053,
-   :short-name "J. Foyth",
-   :middle-name "",
-   :last-name "Foyth",
-   :first-name "Juan Marcos",
-   :birth-date "1998-01-12",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 69,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Spain", :id 724, :alpha-3code "ESP", :alpha-2code "ES"},
-   :current-national-team-id 12274,
-   :height 182},
   :70086
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 70086,
@@ -1249,26 +840,6 @@
    {:name "Guinea", :id "324", :alpha-3code "GIN", :alpha-2code "GN"},
    :current-national-team-id 4418,
    :height 191},
-  :8200
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 8200,
-   :short-name "S. N'Zonzi",
-   :middle-name "",
-   :last-name "N'Zonzi",
-   :first-name "Steven N'Kemboanza Mike Christopher",
-   :birth-date "1988-12-15",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 3158,
-   :passport-area
-   {:name "Congo DR",
-    :id "180",
-    :alpha-3code "COD",
-    :alpha-2code "CD"},
-   :current-national-team-id 4418,
-   :height 196},
   :8325
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 8325,
@@ -1329,23 +900,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 12274,
    :height 177},
-  :86325
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 86325,
-   :short-name "Ramiro Funes Mori",
-   :middle-name "",
-   :last-name "Funes Mori",
-   :first-name "Jos\\u00e9 Ramiro",
-   :birth-date "1991-03-05",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "left",
-   :weight 79,
-   :current-team-id 682,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 186},
   :86722
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 86722,
@@ -1366,66 +920,6 @@
    {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
    :current-national-team-id 12274,
    :height 169},
-  :89073
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 89073,
-   :short-name "M. Acu\\u00f1a",
-   :middle-name "",
-   :last-name "Acu\\u00f1a",
-   :first-name "Marcos Javier",
-   :birth-date "1991-10-28",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 9608,
-   :passport-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 172},
-  :89186
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 89186,
-   :short-name "P. Dybala",
-   :middle-name "",
-   :last-name "Exequiel Dybala",
-   :first-name "Paulo Bruno",
-   :birth-date "1993-11-15",
-   :birth-area
-   {:name "Argentina",
-    :id "32",
-    :alpha-3code "ARG",
-    :alpha-2code "AR"},
-   :foot "left",
-   :weight 69,
-   :current-team-id 3159,
-   :passport-area
-   {:name "Poland", :id "616", :alpha-3code "POL", :alpha-2code "PL"},
-   :current-national-team-id 12274,
-   :height 177},
-  :8992
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 8992,
-   :short-name "P. Gazzaniga",
-   :middle-name "",
-   :last-name "Gazzaniga",
-   :first-name "Paulo Dino",
-   :birth-date "1992-01-02",
-   :birth-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 1624,
-   :passport-area
-   {:name "Argentina", :id 32, :alpha-3code "ARG", :alpha-2code "AR"},
-   :current-national-team-id 12274,
-   :height 185},
   :90991
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
    :wy-id 90991,

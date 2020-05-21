@@ -13,14 +13,14 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "H. Mendyl"}
+       :player-name nil}
       {:player-id 285590,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "S. Amrabat"}
+       :player-name nil}
       {:player-id 285583,
        :assists "0",
        :goals "0",
@@ -34,7 +34,7 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. En-Nesyri"}
+       :player-name nil}
       {:player-id 15727,
        :assists "0",
        :goals "0",
@@ -48,21 +48,21 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Sa\\u00efss"}
+       :player-name nil}
       {:player-id 372915,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Harit"}
+       :player-name nil}
       {:player-id 120631,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Bounou"}
+       :player-name nil}
       {:player-id 552555,
        :assists "0",
        :goals "0",
@@ -198,63 +198,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Manuel Fernandes"}
+       :player-name nil}
       {:player-id 25382,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Lopes"}
+       :player-name nil}
       {:player-id 70381,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ricardo Pereira"}
+       :player-name nil}
       {:player-id 83876,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Beto"}
+       :player-name nil}
       {:player-id 135927,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Andr\\u00e9 Silva"}
+       :player-name nil}
       {:player-id 258154,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R\\u00faben Dias"}
+       :player-name nil}
       {:player-id 22107,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M\\u00e1rio Rui"}
+       :player-name nil}
       {:player-id 32597,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Ricardo Quaresma"}
+       :player-name nil}
       {:player-id 101558,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Bruno Alves"}
+       :player-name nil}
       {:player-id 243588,
        :assists "0",
        :goals "0",
@@ -395,28 +395,12 @@
   :label "Portugal - Morocco, 1 - 0",
   :venue "Olimpiyskiy stadion Luzhniki",
   :dateutc "2018-06-20 12:00:00"},
+ :players-in-match
+ #{6509 101846 101620 221039 552555 3305 25888 70134 28907 8126 265673
+   149074 237034 25998 70403 37762 70389 243588 142 32968 70093 70965
+   101847 20579 29625 3322 396475 227059},
  :players
- {:101558
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101558,
-   :short-name "Bruno Alves",
-   :middle-name "",
-   :last-name "Regufe Alves",
-   :first-name "Bruno Eduardo",
-   :birth-date "1981-11-27",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 3160,
-   :passport-area
-   {:name "Brazil", :id "76", :alpha-3code "BRA", :alpha-2code "BR"},
-   :current-national-team-id 9905,
-   :height 187},
-  :101620
+ {:101620
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 101620,
    :short-name "M. da Costa",
@@ -470,46 +454,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 176},
-  :120631
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 120631,
-   :short-name "Y. Bounou",
-   :middle-name "",
-   :last-name "Bounou",
-   :first-name "Yassine",
-   :birth-date "1991-04-05",
-   :birth-area
-   {:name "Canada", :id "124", :alpha-3code "CAN", :alpha-2code "CA"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 756,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 192},
-  :135927
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 135927,
-   :short-name "Andr\\u00e9 Silva",
-   :middle-name "",
-   :last-name "Valente Silva",
-   :first-name "Andr\\u00e9 Miguel",
-   :birth-date "1995-11-06",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 680,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 9905,
-   :height 182},
   :142
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 142,
@@ -584,29 +528,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 180},
-  :22107
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 22107,
-   :short-name "M\\u00e1rio Rui",
-   :middle-name "",
-   :last-name "Silva Duarte",
-   :first-name "M\\u00e1rio Rui",
-   :birth-date "1991-05-27",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "left",
-   :weight 67,
-   :current-team-id 3187,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 9905,
-   :height 170},
   :227059
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 227059,
@@ -676,69 +597,6 @@
     :alpha-2code "PT"},
    :current-national-team-id 9905,
    :height 179},
-  :25382
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25382,
-   :short-name "A. Lopes",
-   :middle-name "",
-   :last-name "Lopes",
-   :first-name "Anthony",
-   :birth-date "1990-10-01",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 81,
-   :current-team-id 3766,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 9905,
-   :height 184},
-  :258154
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 258154,
-   :short-name "R\\u00faben Dias",
-   :middle-name "",
-   :last-name "Santos Gato Alves Dias",
-   :first-name "R\\u00faben ",
-   :birth-date "1997-05-14",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 9607,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 9905,
-   :height 187},
-  :258162
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 258162,
-   :short-name "Renato Sanches",
-   :middle-name "",
-   :last-name "Luz Sanches",
-   :first-name "Renato J\\u00fanior",
-   :birth-date "1997-08-18",
-   :birth-area
-   {:name "Portugal", :id 620, :alpha-3code "PRT", :alpha-2code "PT"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 2444,
-   :passport-area
-   {:name "S\\u00e3o Tom\\u00e9 e Pr\\u00edncipe",
-    :id 678,
-    :alpha-3code "STP",
-    :alpha-2code "ST"},
-   :current-national-team-id 9905,
-   :height 176},
   :25888
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25888,
@@ -773,23 +631,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 175},
-  :26226
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 26226,
-   :short-name "R. Sa\\u00efss",
-   :middle-name "",
-   :last-name "Sa\\u00efss",
-   :first-name "Romain",
-   :birth-date "1990-03-26",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "left",
-   :weight 76,
-   :current-team-id 1629,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 190},
   :265673
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 265673,
@@ -810,26 +651,6 @@
    {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
    :current-national-team-id 9905,
    :height 173},
-  :285590
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 285590,
-   :short-name "S. Amrabat",
-   :middle-name "",
-   :last-name "Amrabat",
-   :first-name "Sofyan",
-   :birth-date "1996-08-21",
-   :birth-area
-   {:name "Netherlands",
-    :id "528",
-    :alpha-3code "NLD",
-    :alpha-2code "NL"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 12,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 182},
   :28907
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 28907,
@@ -850,23 +671,6 @@
     :alpha-2code "PT"},
    :current-national-team-id 9905,
    :height 170},
-  :289359
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 289359,
-   :short-name "Y. A\\u00eft Bennasser",
-   :middle-name "",
-   :last-name "A\\u00eft Bennasser",
-   :first-name "Youssef",
-   :birth-date "1996-07-07",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 19830,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 184},
   :29625
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 29625,
@@ -884,69 +688,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 189},
-  :30320
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 30320,
-   :short-name "O. El Hajjam",
-   :middle-name "",
-   :last-name "El Hajjam",
-   :first-name "Oualid",
-   :birth-date "1991-02-19",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 73,
-   :current-team-id 3789,
-   :passport-area
-   {:name "Morocco", :id 504, :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 181},
-  :32597
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 32597,
-   :short-name "Ricardo Quaresma",
-   :middle-name "",
-   :last-name "Andrade Quaresma Bernardo",
-   :first-name "Ricardo",
-   :birth-date "1983-09-26",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 67,
-   :current-team-id 4489,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 9905,
-   :height 175},
-  :32599
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 32599,
-   :short-name "Manuel Fernandes",
-   :middle-name "",
-   :last-name "Tavares Fernandes",
-   :first-name "Manuel Henrique",
-   :birth-date "1986-02-05",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Cape Verde Islands",
-    :id "132",
-    :alpha-3code "CPV",
-    :alpha-2code "CV"},
-   :current-national-team-id 9905,
-   :height 176},
   :32968
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 32968,
@@ -1010,23 +751,6 @@
     :alpha-2code "PT"},
    :current-national-team-id 9905,
    :height 187},
-  :372915
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 372915,
-   :short-name "A. Harit",
-   :middle-name "",
-   :last-name "Harit",
-   :first-name "Amine",
-   :birth-date "1997-06-18",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 67,
-   :current-team-id 2449,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 179},
   :37762
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 37762,
@@ -1064,43 +788,6 @@
    {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
    :current-national-team-id 16216,
    :height 179},
-  :426702
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 426702,
-   :short-name "H. Mendyl",
-   :middle-name "",
-   :last-name "Mendyl",
-   :first-name "Hamza",
-   :birth-date "1997-10-21",
-   :birth-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 2449,
-   :passport-area
-   {:name "C\\u00f4te d'Ivoire",
-    :id "384",
-    :alpha-3code "CIV",
-    :alpha-2code "CI"},
-   :current-national-team-id 16216,
-   :height 179},
-  :447821
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 447821,
-   :short-name "Y. En-Nesyri",
-   :middle-name "",
-   :last-name "En-Nesyri",
-   :first-name "Youssef",
-   :birth-date "1997-06-01",
-   :birth-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :foot "left",
-   :weight 73,
-   :current-team-id 712,
-   :passport-area
-   {:name "Morocco", :id "504", :alpha-3code "MAR", :alpha-2code "MA"},
-   :current-national-team-id 16216,
-   :height 189},
   :552555
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 552555,
@@ -1181,29 +868,6 @@
     :alpha-2code "PT"},
    :current-national-team-id 9905,
    :height 190},
-  :70381
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 70381,
-   :short-name "Ricardo Pereira",
-   :middle-name "",
-   :last-name "Barbosa Pereira",
-   :first-name "Ricardo Domingos",
-   :birth-date "1993-10-06",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 1631,
-   :passport-area
-   {:name "Cape Verde Islands",
-    :id "132",
-    :alpha-3code "CPV",
-    :alpha-2code "CV"},
-   :current-national-team-id 9905,
-   :height 175},
   :70389
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 70389,
@@ -1286,30 +950,7 @@
     :alpha-3code "PRT",
     :alpha-2code "PT"},
    :current-national-team-id 9905,
-   :height 191},
-  :83876
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 83876,
-   :short-name "Beto",
-   :middle-name "",
-   :last-name "Bastos Pimparel",
-   :first-name "Ant\\u00f3nio Alberto",
-   :birth-date "1982-05-01",
-   :birth-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 4522,
-   :passport-area
-   {:name "Portugal",
-    :id "620",
-    :alpha-3code "PRT",
-    :alpha-2code "PT"},
-   :current-national-team-id 9905,
-   :height 180}},
+   :height 191}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",

@@ -13,56 +13,56 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Gabulov"}
+       :player-name nil}
       {:player-id 101682,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "V. Granat"}
+       :player-name nil}
       {:player-id 262048,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Al. Miranchuk"}
+       :player-name nil}
       {:player-id 101971,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Lunev"}
+       :player-name nil}
       {:player-id 101825,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "I. Smolnikov"}
+       :player-name nil}
       {:player-id 101857,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Zhirkov"}
+       :player-name nil}
       {:player-id 288708,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "An. Miranchuk"}
+       :player-name nil}
       {:player-id 102629,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Semenov"}
+       :player-name nil}
       {:player-id 102157,
        :assists "0",
        :goals "0",
@@ -211,49 +211,49 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Kalini\\u0107"}
+       :player-name nil}
       {:player-id 212604,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Jedvaj"}
+       :player-name nil}
       {:player-id 69400,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Badelj"}
+       :player-name nil}
       {:player-id 230626,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. \\u0106aleta-Car"}
+       :player-name nil}
       {:player-id 135784,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Livakovi\\u0107"}
+       :player-name nil}
       {:player-id 135810,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Pjaca"}
+       :player-name nil}
       {:player-id 231713,
        :assists "0",
        :goals "null",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "F. Bradari\\u0107"}
+       :player-name nil}
       {:player-id 69964,
        :assists "0",
        :goals "0",
@@ -407,6 +407,10 @@
   :label "Russia - Croatia, 2 - 2 (P)",
   :venue "Olimpiyskiy Stadion Fisht",
   :dateutc "2018-07-07 18:00:00"},
+ :players-in-match
+ #{14771 69404 101707 3476 8287 103682 102157 69411 101669 4513 101647
+   14943 101583 135747 69409 257800 101590 41123 69616 101953 103668
+   101699 69968 69396 220971 69964 14812 25393 105361 101576},
  :players
  {:101576
   {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
@@ -493,23 +497,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 196},
-  :101682
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101682,
-   :short-name "V. Granat",
-   :middle-name "",
-   :last-name "Granat",
-   :first-name "Vladimir",
-   :birth-date "1987-05-22",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 80,
-   :current-team-id 13895,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 184},
   :101699
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101699,
@@ -544,57 +531,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 187},
-  :101825
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 101825,
-   :short-name "I. Smolnikov",
-   :middle-name "",
-   :last-name "Smolnikov",
-   :first-name "Igor",
-   :birth-date "1988-08-08",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 70,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 178},
-  :101834
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101834,
-   :short-name "V. Gabulov",
-   :middle-name "",
-   :last-name "Gabulov",
-   :first-name "Vladimir",
-   :birth-date "1983-10-19",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 5072,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
-  :101857
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 101857,
-   :short-name "Y. Zhirkov",
-   :middle-name "",
-   :last-name "Zhirkov",
-   :first-name "Yuri",
-   :birth-date "1983-08-20",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 75,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 180},
   :101953
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 101953,
@@ -612,23 +548,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 195},
-  :101971
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 101971,
-   :short-name "A. Lunev",
-   :middle-name "",
-   :last-name "Lunev",
-   :first-name "Andrey",
-   :birth-date "1991-11-13",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13885,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 189},
   :102157
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 102157,
@@ -646,23 +565,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 184},
-  :102629
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 102629,
-   :short-name "A. Semenov",
-   :middle-name "",
-   :last-name "Semenov",
-   :first-name "Andrey",
-   :birth-date "1989-03-24",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 86,
-   :current-team-id 13898,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 190},
   :103668
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 103668,
@@ -731,40 +633,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 191},
-  :135784
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 135784,
-   :short-name "D. Livakovi\\u0107",
-   :middle-name "",
-   :last-name "Livakovi\\u0107",
-   :first-name "Dominik",
-   :birth-date "1995-01-09",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 9417,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 187},
-  :135810
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 135810,
-   :short-name "M. Pjaca",
-   :middle-name "",
-   :last-name "Pjaca",
-   :first-name "Marko",
-   :birth-date "1995-05-06",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 3176,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 186},
   :14771
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 14771,
@@ -819,23 +687,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 187},
-  :212604
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 212604,
-   :short-name "T. Jedvaj",
-   :middle-name "",
-   :last-name "Jedvaj",
-   :first-name "Tin",
-   :birth-date "1995-11-28",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 81,
-   :current-team-id 2446,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 184},
   :220971
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 220971,
@@ -856,40 +707,6 @@
     :alpha-2code "TJ"},
    :current-national-team-id 14358,
    :height 182},
-  :230626
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 230626,
-   :short-name "D. \\u0106aleta-Car",
-   :middle-name "",
-   :last-name "\\u0106aleta-Car",
-   :first-name "Duje",
-   :birth-date "1996-09-17",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 89,
-   :current-team-id 3771,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 192},
-  :231713
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 231713,
-   :short-name "F. Bradari\\u0107",
-   :middle-name "",
-   :last-name "Bradari\\u0107",
-   :first-name "Filip",
-   :birth-date "1992-01-11",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 3173,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 185},
   :25393
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 25393,
@@ -924,57 +741,6 @@
    {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
    :current-national-team-id 14358,
    :height 180},
-  :262048
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 262048,
-   :short-name "Al. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Aleksey",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "left",
-   :weight 74,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 182},
-  :284476
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 284476,
-   :short-name "N. Vla\\u0161i\\u0107",
-   :middle-name "",
-   :last-name "Vla\\u0161i\\u0107",
-   :first-name "Nikola",
-   :birth-date "1997-10-04",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 13886,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 178},
-  :288708
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 288708,
-   :short-name "An. Miranchuk",
-   :middle-name "",
-   :last-name "Miranchuk",
-   :first-name "Anton",
-   :birth-date "1995-10-17",
-   :birth-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 13887,
-   :passport-area
-   {:name "Russia", :id "643", :alpha-3code "RUS", :alpha-2code "RU"},
-   :current-national-team-id 14358,
-   :height 183},
   :3476
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 3476,
@@ -1029,23 +795,6 @@
    {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
    :current-national-team-id 14358,
    :height 179},
-  :69353
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 69353,
-   :short-name "L. Kalini\\u0107",
-   :middle-name "",
-   :last-name "Kalini\\u0107",
-   :first-name "Lovre",
-   :birth-date "1990-04-03",
-   :birth-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 96,
-   :current-team-id 5067,
-   :passport-area
-   {:name "Croatia", :id 191, :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 201},
   :69396
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 69396,
@@ -1063,23 +812,6 @@
    {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
    :current-national-team-id 9598,
    :height 184},
-  :69400
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 69400,
-   :short-name "M. Badelj",
-   :middle-name "",
-   :last-name "Badelj",
-   :first-name "Milan",
-   :birth-date "1989-02-25",
-   :birth-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3162,
-   :passport-area
-   {:name "Croatia", :id "191", :alpha-3code "HRV", :alpha-2code "HR"},
-   :current-national-team-id 9598,
-   :height 186},
   :69404
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 69404,

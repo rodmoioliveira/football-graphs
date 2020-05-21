@@ -13,63 +13,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "Y. Muto"}
+       :player-name nil}
       {:player-id 94630,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "T. Makino"}
+       :player-name nil}
       {:player-id 95108,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Higashiguchi"}
+       :player-name nil}
       {:player-id 14749,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "G. Sakai"}
+       :player-name nil}
       {:player-id 137653,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Nakamura"}
+       :player-name nil}
       {:player-id 137661,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "N. Ueda"}
+       :player-name nil}
       {:player-id 95010,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "H. Yamaguchi"}
+       :player-name nil}
       {:player-id 95349,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "W. Endo"}
+       :player-name nil}
       {:player-id 94922,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "R. Oshima"}
+       :player-name nil}
       {:player-id 14763,
        :assists "0",
        :goals "0",
@@ -205,63 +205,63 @@
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Mbengue"}
+       :player-name nil}
       {:player-id 256480,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "B. Keita"}
+       :player-name nil}
       {:player-id 21098,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Gomis"}
+       :player-name nil}
       {:player-id 25633,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "A. Diallo"}
+       :player-name nil}
       {:player-id 54315,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "K. Mbodji"}
+       :player-name nil}
       {:player-id 26022,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "L. Gassama"}
+       :player-name nil}
       {:player-id 32544,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Sow"}
+       :player-name nil}
       {:player-id 97582,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "M. Konat\\u00e9"}
+       :player-name nil}
       {:player-id 26610,
        :assists "0",
        :goals "0",
        :own-goals "0",
        :red-cards "0",
        :yellow-cards "0",
-       :player-name "D. Sakho"}
+       :player-name nil}
       {:player-id 15054,
        :assists "0",
        :goals "0",
@@ -402,6 +402,10 @@
   :label "Japan - Senegal, 2 - 2",
   :venue "Stadion Central'nyj",
   :dateutc "2018-06-24 15:00:00"},
+ :players-in-match
+ #{375348 28529 94828 27412 37725 448079 133897 37896 14836 25747 14929
+   14816 14730 20517 25898 25706 15054 94695 26115 94814 703 14763
+   94650 101592 25726 32793 207164 94831},
  :players
  {:101592
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
@@ -437,40 +441,6 @@
    {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 191},
-  :137653
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 137653,
-   :short-name "K. Nakamura",
-   :middle-name "",
-   :last-name "Nakamura",
-   :first-name "Kosuke",
-   :birth-date "1995-02-27",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 12807,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 184},
-  :137661
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 137661,
-   :short-name "N. Ueda",
-   :middle-name "",
-   :last-name "Ueda",
-   :first-name "Naomichi",
-   :birth-date "1994-10-24",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 5070,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 186},
   :14730
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 14730,
@@ -488,26 +458,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 180},
-  :14749
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 14749,
-   :short-name "G. Sakai",
-   :middle-name "",
-   :last-name "Sakai",
-   :first-name "Gotoku",
-   :birth-date "1991-03-14",
-   :birth-area
-   {:name "United States",
-    :id "840",
-    :alpha-3code "USA",
-    :alpha-2code "US"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 2450,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 176},
   :14763
   {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
    :wy-id 14763,
@@ -627,74 +577,6 @@
    {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 180},
-  :21098
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 21098,
-   :short-name "A. Gomis",
-   :middle-name "",
-   :last-name "Gomis",
-   :first-name "Alfred Benjamin",
-   :birth-date "1993-09-05",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 83,
-   :current-team-id 3204,
-   :passport-area
-   {:name "Italy", :id "380", :alpha-3code "ITA", :alpha-2code "IT"},
-   :current-national-team-id 19314,
-   :height 194},
-  :215281
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 215281,
-   :short-name "A. Mbengue",
-   :middle-name "",
-   :last-name "Mbengue",
-   :first-name "Adama",
-   :birth-date "1993-12-01",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "left",
-   :weight 68,
-   :current-team-id 3783,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 178},
-  :25633
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 25633,
-   :short-name "A. Diallo",
-   :middle-name "",
-   :last-name "Diallo",
-   :first-name "Abdoulaye",
-   :birth-date "1992-03-30",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 82,
-   :current-team-id 3774,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 191},
-  :256480
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 256480,
-   :short-name "B. Keita",
-   :middle-name "",
-   :last-name "Bald\\u00e9 Diao",
-   :first-name "Keita",
-   :birth-date "1995-03-08",
-   :birth-area
-   {:name "Spain", :id "724", :alpha-3code "ESP", :alpha-2code "ES"},
-   :foot "right",
-   :weight 80,
-   :current-team-id 3161,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 181},
   :25706
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 25706,
@@ -763,23 +645,6 @@
    {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 184},
-  :26022
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 26022,
-   :short-name "L. Gassama",
-   :middle-name "",
-   :last-name "Gassama",
-   :first-name "Lamine",
-   :birth-date "1989-10-20",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 74,
-   :current-team-id 4522,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 181},
   :26115
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 26115,
@@ -797,23 +662,6 @@
    {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 196},
-  :26610
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 26610,
-   :short-name "D. Sakho",
-   :middle-name "",
-   :last-name "Sakho",
-   :first-name "Diafra",
-   :birth-date "1989-12-24",
-   :birth-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 79,
-   :current-team-id 3774,
-   :passport-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :current-national-team-id 19314,
-   :height 184},
   :27412
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 27412,
@@ -848,57 +696,6 @@
    {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 173},
-  :28965
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 28965,
-   :short-name "O. Nguette",
-   :middle-name "",
-   :last-name "Nguette",
-   :first-name "Opa",
-   :birth-date "1994-07-08",
-   :birth-area
-   {:name "France", :id 250, :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 76,
-   :current-team-id 3777,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 182},
-  :32544
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 32544,
-   :short-name "M. Sow",
-   :middle-name "",
-   :last-name "Sow",
-   :first-name "Moussa",
-   :birth-date "1986-01-19",
-   :birth-area
-   {:name "France", :id "250", :alpha-3code "FRA", :alpha-2code "FR"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 16925,
-   :passport-area
-   {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 180},
-  :326946
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 326946,
-   :short-name "R. Coly",
-   :middle-name "",
-   :last-name "Coly",
-   :first-name "Racine",
-   :birth-date "1995-12-08",
-   :birth-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "left",
-   :weight 70,
-   :current-team-id 3775,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 185},
   :32793
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 32793,
@@ -984,23 +781,6 @@
    {:name "Senegal", :id "686", :alpha-3code "SEN", :alpha-2code "SN"},
    :current-national-team-id 19314,
    :height 178},
-  :54315
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 54315,
-   :short-name "K. Mbodji",
-   :middle-name "",
-   :last-name "Mbodji",
-   :first-name "Serigne Modou Kara",
-   :birth-date "1989-11-22",
-   :birth-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 85,
-   :current-team-id 3770,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 192},
   :703
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 703,
@@ -1018,23 +798,6 @@
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 189},
-  :94630
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 94630,
-   :short-name "T. Makino",
-   :middle-name "",
-   :last-name "Makino",
-   :first-name "Tomoaki",
-   :birth-date "1987-05-11",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 77,
-   :current-team-id 12799,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 182},
   :94650
   {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
    :wy-id 94650,
@@ -1069,23 +832,6 @@
    {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
    :height 183},
-  :94764
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 94764,
-   :short-name "Y. Muto",
-   :middle-name "",
-   :last-name "Muto",
-   :first-name "Yoshinori",
-   :birth-date "1992-07-15",
-   :birth-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 1613,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 179},
   :94814
   {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
    :wy-id 94814,
@@ -1136,92 +882,7 @@
    :passport-area
    {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
    :current-national-team-id 12913,
-   :height 182},
-  :94922
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 94922,
-   :short-name "R. Oshima",
-   :middle-name "",
-   :last-name "Oshima",
-   :first-name "Ryota",
-   :birth-date "1993-01-23",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 64,
-   :current-team-id 12812,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 168},
-  :95010
-  {:role {:code-2 "MD", :code-3 "MID", :name "Midfielder"},
-   :wy-id 95010,
-   :short-name "H. Yamaguchi",
-   :middle-name "",
-   :last-name "Yamaguchi",
-   :first-name "Hotaru",
-   :birth-date "1990-06-10",
-   :birth-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 72,
-   :current-team-id 12811,
-   :passport-area
-   {:name "Japan", :id "392", :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 173},
-  :95108
-  {:role {:code-2 "GK", :code-3 "GKP", :name "Goalkeeper"},
-   :wy-id 95108,
-   :short-name "M. Higashiguchi",
-   :middle-name "",
-   :last-name "Higashiguchi",
-   :first-name "Masaaki",
-   :birth-date "1986-05-12",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 12803,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 184},
-  :95349
-  {:role {:code-2 "DF", :code-3 "DEF", :name "Defender"},
-   :wy-id 95349,
-   :short-name "W. Endo",
-   :middle-name "",
-   :last-name "Endo",
-   :first-name "Wataru",
-   :birth-date "1993-02-09",
-   :birth-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :foot "right",
-   :weight 75,
-   :current-team-id 5082,
-   :passport-area
-   {:name "Japan", :id 392, :alpha-3code "JPN", :alpha-2code "JP"},
-   :current-national-team-id 12913,
-   :height 178},
-  :97582
-  {:role {:code-2 "FW", :code-3 "FWD", :name "Forward"},
-   :wy-id 97582,
-   :short-name "M. Konat\\u00e9",
-   :middle-name "",
-   :last-name "Konat\\u00e9",
-   :first-name "Moussa",
-   :birth-date "1993-04-03",
-   :birth-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :foot "right",
-   :weight 78,
-   :current-team-id 3789,
-   :passport-area
-   {:name "Senegal", :id 686, :alpha-3code "SEN", :alpha-2code "SN"},
-   :current-national-team-id 19314,
-   :height 181}},
+   :height 182}},
  :events
  ({:tags ({:id 1801, :description "Accurate"}),
    :event-name "Pass",
