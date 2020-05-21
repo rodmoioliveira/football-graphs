@@ -25,17 +25,15 @@
 
 (defn toogle-theme-btn
   [theme-text]
-  (do
-    (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text))))))
+    (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text)))))
 
 (defn slide-home
   [] (-> dom :slide-view (.setAttribute "data-view" "home")))
 
 (defn slide-graph
   [match-id]
-  (do
     (-> dom :plot-section (.setAttribute "data-match-id" match-id))
-    (-> dom :slide-view (.setAttribute "data-view" "graph"))))
+    (-> dom :slide-view (.setAttribute "data-view" "graph")))
 
 (defn activate-nav
   [_] (-> dom :nav (.setAttribute "data-active" 1)))
@@ -98,8 +96,7 @@
 
 (defn toogle-theme
   [theme]
-  (do
-    (-> dom :body-theme (.setAttribute "data-theme" theme))))
+    (-> dom :body-theme (.setAttribute "data-theme" theme)))
 
 (defn label-dom
   "Create a label for each match."
@@ -277,10 +274,9 @@
 (defn plot-matches-list
   "Plot list of matches in the dom."
   [matches]
-  (do
     (-> dom :matches-list (#(set! (.-innerHTML %) "")))
     (doseq [match matches]
-      (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match))))))
+      (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match)))))
 
 (defn reset-dom
   "Reset graphs in the dom."
