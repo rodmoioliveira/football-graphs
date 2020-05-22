@@ -9,7 +9,12 @@
    [clojure.string :refer [split trim join]]
    [clojure.pprint :refer [pprint]]
 
-   [utils.core :refer [output-file-type hash-by-id hash-by-name hash-by metric-range]]))
+   [utils.core :refer [output-file-type
+                       hash-by-id
+                       hash-by-name
+                       hash-by
+                       metric-range
+                       championships]]))
 
 ; ==================================
 ; Utils
@@ -76,11 +81,16 @@
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
                :parse-fn keyword
-               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]])
+               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]
+              ["-c" "--championship CHAMPIONSHIP" "Championship"
+               :parse-fn str
+               :validate [#(some? (some #{%} championships))
+                          (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
+(def championship (-> args :options :championship))
 (def errors (-> args :errors))
 
 ; ==================================
@@ -126,7 +136,7 @@
         get-file #(io/resource (str path %))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
         parse (if (= file-type :edn) edn/read-string json->edn)
-        filename (->> (get-file "soccer_match_event_dataset/matches_World_Cup.json")
+        filename (->> (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
                       slurp
                       json->edn
                       hash-by-id
@@ -153,21 +163,21 @@
                        (map :formation))
         lineup (->> data :players-in-match vec)
         substitutions (->> formation
-                            (map (fn [t] (->> t :substitutions
-                                              pair-subs
-                                              ((fn [pair-ids]
-                                                 (vec
-                                                   (set
-                                                     (map (fn [[id1 id2]]
-                                                        (vec
-                                                         (set
-                                                          (reduce
-                                                           concat
-                                                           (concat
-                                                            (filter (fn [ids] (some (fn [id] (= id id1)) ids)) pair-ids)
-                                                            (filter (fn [ids] (some (fn [id] (= id id2)) ids)) pair-ids))))))
-                                                      pair-ids))))))))
-                            (reduce concat))
+                           (map (fn [t] (->> t :substitutions
+                                             pair-subs
+                                             ((fn [pair-ids]
+                                                (vec
+                                                 (set
+                                                  (map (fn [[id1 id2]]
+                                                         (vec
+                                                          (set
+                                                           (reduce
+                                                            concat
+                                                            (concat
+                                                             (filter (fn [ids] (some (fn [id] (= id id1)) ids)) pair-ids)
+                                                             (filter (fn [ids] (some (fn [id] (= id id2)) ids)) pair-ids))))))
+                                                       pair-ids))))))))
+                           (reduce concat))
         players-in-game (set (concat lineup (->> substitutions (reduce concat))))
         aggregate-players (fn [t]
                             (reduce (fn [acc cur]
