@@ -2,6 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
+   [clojure.string :refer [split replace]]
    [project-specs :as pspecs]
    #?(:clj [clojure.spec.test.alpha :as stest]
       :cljs [cljs.spec.test.alpha :as stest])
@@ -17,6 +18,15 @@
    "Italy"
    "Spain"
    "World_Cup"])
+
+(defn normalize-filename
+  [s]
+  (-> s
+      (split #"\.")
+      first
+      (replace #"\(_p\)_" "")
+      (replace #"\(_e\)_" "")
+      (replace #"," "")))
 
 #?(:clj (defn max-val [m] {:max (reduce max m)}))
 #?(:cljs (defn max-val [m] (reduce max m)))

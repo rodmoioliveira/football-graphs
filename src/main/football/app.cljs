@@ -1,9 +1,9 @@
 (ns football.app
   (:require
-   [clojure.string :refer [split]]
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
                        canvas-dimensions
+                       normalize-filename
                        mobile-mapping
                        hash-by]]
    [utils.dom :refer [reset-dom
@@ -127,8 +127,7 @@
                          keyword
                          matches-files-hash
                          :filename
-                         (split #"\.")
-                         first
+                         normalize-filename
                          set-hash!))]
     (when-not dev-reload?
       (do
