@@ -276,8 +276,8 @@
         dist "src/main/data/analysis/"
         ext (name file-type)]
     (spit
-     (str dist match-label "." ext)
+     (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
      ((output-file-type file-type) graph))
-    (print (str "Success on spit " dist match-label "." ext))
+    (print (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))
     (System/exit 0))
   (print errors))

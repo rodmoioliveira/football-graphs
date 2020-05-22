@@ -363,7 +363,7 @@
         dist "src/main/data/graphs/"
         ext (name file-type)]
     (spit
-     (str dist match-label "." ext)
+     (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
      ((output-file-type file-type) graph))
-    (print (str "Success on spit " dist match-label "." ext)))
+    (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext)))
   (print errors))
