@@ -4,46 +4,44 @@
   display: flex;
   flex-wrap: wrap;
   max-width: 1500px;
-  margin: 0 auto;
+  margin: 0 auto 5vw;
 
-  @media (max-width: 1400px) {
-    max-width: 800px;
+  @media (max-width: 1515px) {
+    max-width: 95%;
+    margin: 0 auto 7vw;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 860px) {
     max-width: 1500px;
   }
 }
 
 .match-item {
-  font-size: 1.6rem;
-  max-width: var(--text-width);
+  font-size: 1.5rem;
   cursor: pointer;
-  margin: 0 auto;
   color: var(--text-color);
   transition: transform 200ms ease;
   flex: 0 0 25%;
   padding-top: 0.3rem;
   padding-bottom: 0.3rem;
 
-  @media (max-width: 1400px) {
-    flex: 0 0 44%;
+  @media (max-width: 1515px) {
+    flex: 0 0 46%;
 
     @include padding;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
+    font-size: 1.6rem;
   }
 
-  @media (max-width: 750px) {
+  @media (max-width: 860px) {
     flex: 100%;
 
     @include padding;
     padding-top: 0.3rem;
     padding-bottom: 0.3rem;
-  }
-
-  @media (max-width: 750px) {
-    font-size: 6vw;
+    margin: 0 auto;
+    font-size: 5vw;
   }
 
   &:hover {
