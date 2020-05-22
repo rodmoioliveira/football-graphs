@@ -144,7 +144,12 @@
                           (scroll-to-current-match)
                           (stop-simulations)
                           (flush-simulations!))))
-        ; (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
+        ; (plot-matches-list
+        ;  (-> js/document (.querySelector (str "[data-championship='european_championship']")))
+        ;  (->> matches-files-hash
+        ;       vals
+        ;       (filter #(-> % :championship (= "european_championship")))
+        ;       (sort-by :label)))
         (-> toogle-theme$
             (.subscribe #(-> % (merge opts)
                              ((fn [{:keys [theme-text theme]}]
@@ -186,7 +191,7 @@
           ; routing
         (when url-match-id
           (-> dom
-              :matches-list
+              :matches-lists
               (.querySelector (str "[data-match-id='" url-match-id "']"))
               (.click)))))
 

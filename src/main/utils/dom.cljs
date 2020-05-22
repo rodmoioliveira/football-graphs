@@ -17,7 +17,7 @@
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
    :plot-section (-> js/document (.getElementById "data-plot-graphs"))
-   :matches-list (-> js/document (.getElementById "matches__list"))
+   :matches-lists (-> js/document (.getElementById "matches__lists"))
    :slider-graph (-> js/document (.querySelector ".slider__graph"))
    :slider-home (-> js/document (.querySelector ".slider__home"))
    :slide-to-home (-> js/document (.querySelector "[data-slide-to-home]"))
@@ -59,7 +59,8 @@
       (.then (fn [data] (-> (reader/read-string data)
                             ((fn [v] (doseq [f fns] (f v)))))))))
 
-(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/src/main/data/analysis/")
+; TODO: change do master
+(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/import-all-dataset/src/main/data/analysis/")
 
 (defn fetch-file
   [filename fns]
@@ -78,7 +79,7 @@
   (-> dom
       :plot-section
       (.getAttribute "data-match-id")
-      (#(-> dom :matches-list (.querySelector (str "[data-match-id='" % "']"))))
+      (#(-> dom :matches-lists (.querySelector (str "[data-match-id='" % "']"))))
       (.scrollIntoView #js {:block "center"})))
 
 (defn scroll-top
@@ -273,10 +274,9 @@
 
 (defn plot-matches-list
   "Plot list of matches in the dom."
-  [matches]
-    (-> dom :matches-list (#(set! (.-innerHTML %) "")))
+  [el matches]
     (doseq [match matches]
-      (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match)))))
+      (-> el (.insertAdjacentHTML "beforeend" (match-item match)))))
 
 (defn reset-dom
   "Reset graphs in the dom."
