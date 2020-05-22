@@ -5,16 +5,7 @@
    [clojure.java.io :as io]
    [clojure.data.json :as json]
 
-   [utils.core :refer [output-file-type]]))
-
-(def championships
-  ["England"
-   "European_Championship"
-   "France"
-   "Germany"
-   "Italy"
-   "Spain"
-   "World_Cup"])
+   [utils.core :refer [output-file-type championships]]))
 
 ; ==================================
 ; Command Line Options

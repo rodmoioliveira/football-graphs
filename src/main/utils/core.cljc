@@ -9,6 +9,15 @@
       :cljs [cljs.spec.alpha :as s])
    #?(:clj [clojure.data.json :as json])))
 
+(def championships
+  ["England"
+   "European_Championship"
+   "France"
+   "Germany"
+   "Italy"
+   "Spain"
+   "World_Cup"])
+
 #?(:clj (defn max-val [m] {:max (reduce max m)}))
 #?(:cljs (defn max-val [m] (reduce max m)))
 #?(:clj
