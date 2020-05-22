@@ -1,5 +1,330 @@
 {:files
- ({:championship "world_cup",
+ ({:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_albania_switzerland,_0_1_1694391.edn",
+   :match-id 1694391,
+   :label "Albania - Switzerland, 0 - 1",
+   :filename
+   "european_championship_albania_switzerland,_0_1_1694391.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_austria_hungary,_0_2_1694420.edn",
+   :match-id 1694420,
+   :label "Austria - Hungary, 0 - 2",
+   :filename "european_championship_austria_hungary,_0_2_1694420.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_belgium_italy,_0_2_1694415.edn",
+   :match-id 1694415,
+   :label "Belgium - Italy, 0 - 2",
+   :filename "european_championship_belgium_italy,_0_2_1694415.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_belgium_republic_of_ireland,_3_0_1694417.edn",
+   :match-id 1694417,
+   :label "Belgium - Republic of Ireland, 3 - 0",
+   :filename
+   "european_championship_belgium_republic_of_ireland,_3_0_1694417.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_croatia_portugal,_0_1_(_e)_1694428.edn",
+   :match-id 1694428,
+   :label "Croatia - Portugal, 0 - 1 (E)",
+   :filename
+   "european_championship_croatia_portugal,_0_1_(_e)_1694428.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_croatia_spain,_2_1_1694412.edn",
+   :match-id 1694412,
+   :label "Croatia - Spain, 2 - 1",
+   :filename "european_championship_croatia_spain,_2_1_1694412.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_czech_republic_croatia,_2_2_1694410.edn",
+   :match-id 1694410,
+   :label "Czech Republic - Croatia, 2 - 2",
+   :filename
+   "european_championship_czech_republic_croatia,_2_2_1694410.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_czech_republic_turkey,_0_2_1694413.edn",
+   :match-id 1694413,
+   :label "Czech Republic - Turkey, 0 - 2",
+   :filename
+   "european_championship_czech_republic_turkey,_0_2_1694413.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_iceland,_1_2_1694433.edn",
+   :match-id 1694433,
+   :label "England - Iceland, 1 - 2",
+   :filename "european_championship_england_iceland,_1_2_1694433.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_russia,_1_1_1694397.edn",
+   :match-id 1694397,
+   :label "England - Russia, 1 - 1",
+   :filename "european_championship_england_russia,_1_1_1694397.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_wales,_2_1_1694399.edn",
+   :match-id 1694399,
+   :label "England - Wales, 2 - 1",
+   :filename "european_championship_england_wales,_2_1_1694399.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_albania,_2_0_1694393.edn",
+   :match-id 1694393,
+   :label "France - Albania, 2 - 0",
+   :filename "european_championship_france_albania,_2_0_1694393.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_iceland,_5_2_1694437.edn",
+   :match-id 1694437,
+   :label "France - Iceland, 5 - 2",
+   :filename "european_championship_france_iceland,_5_2_1694437.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_republic_of_ireland,_2_1_1694429.edn",
+   :match-id 1694429,
+   :label "France - Republic of Ireland, 2 - 1",
+   :filename
+   "european_championship_france_republic_of_ireland,_2_1_1694429.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_romania,_2_1_1694390.edn",
+   :match-id 1694390,
+   :label "France - Romania, 2 - 1",
+   :filename "european_championship_france_romania,_2_1_1694390.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_france,_0_2_1694439.edn",
+   :match-id 1694439,
+   :label "Germany - France, 0 - 2",
+   :filename "european_championship_germany_france,_0_2_1694439.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_italy,_1_1_(_p)_1694436.edn",
+   :match-id 1694436,
+   :label "Germany - Italy, 1 - 1 (P)",
+   :filename
+   "european_championship_germany_italy,_1_1_(_p)_1694436.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_poland,_0_0_1694405.edn",
+   :match-id 1694405,
+   :label "Germany - Poland, 0 - 0",
+   :filename "european_championship_germany_poland,_0_0_1694405.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_slovakia,_3_0_1694430.edn",
+   :match-id 1694430,
+   :label "Germany - Slovakia, 3 - 0",
+   :filename "european_championship_germany_slovakia,_3_0_1694430.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_ukraine,_2_0_1694403.edn",
+   :match-id 1694403,
+   :label "Germany - Ukraine, 2 - 0",
+   :filename "european_championship_germany_ukraine,_2_0_1694403.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_hungary_belgium,_0_4_1694431.edn",
+   :match-id 1694431,
+   :label "Hungary - Belgium, 0 - 4",
+   :filename "european_championship_hungary_belgium,_0_4_1694431.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_hungary_portugal,_3_3_1694424.edn",
+   :match-id 1694424,
+   :label "Hungary - Portugal, 3 - 3",
+   :filename "european_championship_hungary_portugal,_3_3_1694424.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_iceland_austria,_2_1_1694425.edn",
+   :match-id 1694425,
+   :label "Iceland - Austria, 2 - 1",
+   :filename "european_championship_iceland_austria,_2_1_1694425.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_iceland_hungary,_1_1_1694422.edn",
+   :match-id 1694422,
+   :label "Iceland - Hungary, 1 - 1",
+   :filename "european_championship_iceland_hungary,_1_1_1694422.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_republic_of_ireland,_0_1_1694418.edn",
+   :match-id 1694418,
+   :label "Italy - Republic of Ireland, 0 - 1",
+   :filename
+   "european_championship_italy_republic_of_ireland,_0_1_1694418.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_spain,_2_0_1694432.edn",
+   :match-id 1694432,
+   :label "Italy - Spain, 2 - 0",
+   :filename "european_championship_italy_spain,_2_0_1694432.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_sweden,_1_0_1694416.edn",
+   :match-id 1694416,
+   :label "Italy - Sweden, 1 - 0",
+   :filename "european_championship_italy_sweden,_1_0_1694416.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_northern_ireland_germany,_0_1_1694407.edn",
+   :match-id 1694407,
+   :label "Northern Ireland - Germany, 0 - 1",
+   :filename
+   "european_championship_northern_ireland_germany,_0_1_1694407.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_poland_northern_ireland,_1_0_1694402.edn",
+   :match-id 1694402,
+   :label "Poland - Northern Ireland, 1 - 0",
+   :filename
+   "european_championship_poland_northern_ireland,_1_0_1694402.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_poland_portugal,_1_1_(_p)_1694434.edn",
+   :match-id 1694434,
+   :label "Poland - Portugal, 1 - 1 (P)",
+   :filename
+   "european_championship_poland_portugal,_1_1_(_p)_1694434.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_austria,_0_0_1694423.edn",
+   :match-id 1694423,
+   :label "Portugal - Austria, 0 - 0",
+   :filename "european_championship_portugal_austria,_0_0_1694423.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_france,_1_0_(_e)_1694440.edn",
+   :match-id 1694440,
+   :label "Portugal - France, 1 - 0 (E)",
+   :filename
+   "european_championship_portugal_france,_1_0_(_e)_1694440.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_iceland,_1_1_1694421.edn",
+   :match-id 1694421,
+   :label "Portugal - Iceland, 1 - 1",
+   :filename "european_championship_portugal_iceland,_1_1_1694421.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_wales,_2_0_1694438.edn",
+   :match-id 1694438,
+   :label "Portugal - Wales, 2 - 0",
+   :filename "european_championship_portugal_wales,_2_0_1694438.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_republic_of_ireland_sweden,_1_1_1694414.edn",
+   :match-id 1694414,
+   :label "Republic of Ireland - Sweden, 1 - 1",
+   :filename
+   "european_championship_republic_of_ireland_sweden,_1_1_1694414.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_romania_albania,_0_1_1694395.edn",
+   :match-id 1694395,
+   :label "Romania - Albania, 0 - 1",
+   :filename "european_championship_romania_albania,_0_1_1694395.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_romania_switzerland,_1_1_1694392.edn",
+   :match-id 1694392,
+   :label "Romania - Switzerland, 1 - 1",
+   :filename
+   "european_championship_romania_switzerland,_1_1_1694392.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_russia_slovakia,_1_2_1694398.edn",
+   :match-id 1694398,
+   :label "Russia - Slovakia, 1 - 2",
+   :filename "european_championship_russia_slovakia,_1_2_1694398.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_russia_wales,_0_3_1694401.edn",
+   :match-id 1694401,
+   :label "Russia - Wales, 0 - 3",
+   :filename "european_championship_russia_wales,_0_3_1694401.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_slovakia_england,_0_0_1694400.edn",
+   :match-id 1694400,
+   :label "Slovakia - England, 0 - 0",
+   :filename "european_championship_slovakia_england,_0_0_1694400.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_spain_czech_republic,_1_0_1694409.edn",
+   :match-id 1694409,
+   :label "Spain - Czech Republic, 1 - 0",
+   :filename
+   "european_championship_spain_czech_republic,_1_0_1694409.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_spain_turkey,_3_0_1694411.edn",
+   :match-id 1694411,
+   :label "Spain - Turkey, 3 - 0",
+   :filename "european_championship_spain_turkey,_3_0_1694411.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_sweden_belgium,_0_1_1694419.edn",
+   :match-id 1694419,
+   :label "Sweden - Belgium, 0 - 1",
+   :filename "european_championship_sweden_belgium,_0_1_1694419.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_switzerland_france,_0_0_1694394.edn",
+   :match-id 1694394,
+   :label "Switzerland - France, 0 - 0",
+   :filename
+   "european_championship_switzerland_france,_0_0_1694394.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_switzerland_poland,_1_1_(_p)_1694426.edn",
+   :match-id 1694426,
+   :label "Switzerland - Poland, 1 - 1 (P)",
+   :filename
+   "european_championship_switzerland_poland,_1_1_(_p)_1694426.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_turkey_croatia,_0_1_1694408.edn",
+   :match-id 1694408,
+   :label "Turkey - Croatia, 0 - 1",
+   :filename "european_championship_turkey_croatia,_0_1_1694408.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_ukraine_northern_ireland,_0_2_1694404.edn",
+   :match-id 1694404,
+   :label "Ukraine - Northern Ireland, 0 - 2",
+   :filename
+   "european_championship_ukraine_northern_ireland,_0_2_1694404.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_ukraine_poland,_0_1_1694406.edn",
+   :match-id 1694406,
+   :label "Ukraine - Poland, 0 - 1",
+   :filename "european_championship_ukraine_poland,_0_1_1694406.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_belgium,_3_1_1694435.edn",
+   :match-id 1694435,
+   :label "Wales - Belgium, 3 - 1",
+   :filename "european_championship_wales_belgium,_3_1_1694435.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_northern_ireland,_1_0_1694427.edn",
+   :match-id 1694427,
+   :label "Wales - Northern Ireland, 1 - 0",
+   :filename
+   "european_championship_wales_northern_ireland,_1_0_1694427.edn"}
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_slovakia,_2_1_1694396.edn",
+   :match-id 1694396,
+   :label "Wales - Slovakia, 2 - 1",
+   :filename "european_championship_wales_slovakia,_2_1_1694396.edn"}
+  {:championship "world_cup",
    :path
    "../data/analysis/world_cup_argentina_croatia,_0_3_2057974.edn",
    :match-id 2057974,
@@ -346,18 +671,73 @@
    :label "Uruguay - Saudi Arabia, 1 - 0",
    :filename "world_cup_uruguay_saudi_arabia,_1_0_2057957.edn"}),
  :files-ids-hash
- {:2057965
+ {:1694394
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_switzerland_france,_0_0_1694394.edn",
+   :match-id 1694394,
+   :label "Switzerland - France, 0 - 0",
+   :filename
+   "european_championship_switzerland_france,_0_0_1694394.edn"},
+  :1694421
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_iceland,_1_1_1694421.edn",
+   :match-id 1694421,
+   :label "Portugal - Iceland, 1 - 1",
+   :filename
+   "european_championship_portugal_iceland,_1_1_1694421.edn"},
+  :2057965
   {:championship "world_cup",
    :path "../data/analysis/world_cup_spain_morocco,_2_2_2057965.edn",
    :match-id 2057965,
    :label "Spain - Morocco, 2 - 2",
    :filename "world_cup_spain_morocco,_2_2_2057965.edn"},
+  :1694434
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_poland_portugal,_1_1_(_p)_1694434.edn",
+   :match-id 1694434,
+   :label "Poland - Portugal, 1 - 1 (P)",
+   :filename
+   "european_championship_poland_portugal,_1_1_(_p)_1694434.edn"},
+  :1694428
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_croatia_portugal,_0_1_(_e)_1694428.edn",
+   :match-id 1694428,
+   :label "Croatia - Portugal, 0 - 1 (E)",
+   :filename
+   "european_championship_croatia_portugal,_0_1_(_e)_1694428.edn"},
+  :1694411
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_spain_turkey,_3_0_1694411.edn",
+   :match-id 1694411,
+   :label "Spain - Turkey, 3 - 0",
+   :filename "european_championship_spain_turkey,_3_0_1694411.edn"},
+  :1694436
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_italy,_1_1_(_p)_1694436.edn",
+   :match-id 1694436,
+   :label "Germany - Italy, 1 - 1 (P)",
+   :filename
+   "european_championship_germany_italy,_1_1_(_p)_1694436.edn"},
   :2057960
   {:championship "world_cup",
    :path "../data/analysis/world_cup_portugal_spain,_3_3_2057960.edn",
    :match-id 2057960,
    :label "Portugal - Spain, 3 - 3",
    :filename "world_cup_portugal_spain,_3_3_2057960.edn"},
+  :1694429
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_republic_of_ireland,_2_1_1694429.edn",
+   :match-id 1694429,
+   :label "France - Republic of Ireland, 2 - 1",
+   :filename
+   "european_championship_france_republic_of_ireland,_2_1_1694429.edn"},
   :2057988
   {:championship "world_cup",
    :path
@@ -378,18 +758,42 @@
    :match-id 2057976,
    :label "Nigeria - Argentina, 1 - 2",
    :filename "world_cup_nigeria_argentina,_1_2_2057976.edn"},
+  :1694417
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_belgium_republic_of_ireland,_3_0_1694417.edn",
+   :match-id 1694417,
+   :label "Belgium - Republic of Ireland, 3 - 0",
+   :filename
+   "european_championship_belgium_republic_of_ireland,_3_0_1694417.edn"},
   :2057963
   {:championship "world_cup",
    :path "../data/analysis/world_cup_iran_spain,_0_1_2057963.edn",
    :match-id 2057963,
    :label "Iran - Spain, 0 - 1",
    :filename "world_cup_iran_spain,_0_1_2057963.edn"},
+  :1694404
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_ukraine_northern_ireland,_0_2_1694404.edn",
+   :match-id 1694404,
+   :label "Ukraine - Northern Ireland, 0 - 2",
+   :filename
+   "european_championship_ukraine_northern_ireland,_0_2_1694404.edn"},
   :2057964
   {:championship "world_cup",
    :path "../data/analysis/world_cup_iran_portugal,_1_1_2057964.edn",
    :match-id 2057964,
    :label "Iran - Portugal, 1 - 1",
    :filename "world_cup_iran_portugal,_1_1_2057964.edn"},
+  :1694392
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_romania_switzerland,_1_1_1694392.edn",
+   :match-id 1694392,
+   :label "Romania - Switzerland, 1 - 1",
+   :filename
+   "european_championship_romania_switzerland,_1_1_1694392.edn"},
   :2058015
   {:championship "world_cup",
    :path
@@ -449,6 +853,13 @@
    :match-id 2057987,
    :label "Korea Republic - Mexico, 1 - 2",
    :filename "world_cup_korea_republic_mexico,_1_2_2057987.edn"},
+  :1694390
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_romania,_2_1_1694390.edn",
+   :match-id 1694390,
+   :label "France - Romania, 2 - 1",
+   :filename "european_championship_france_romania,_2_1_1694390.edn"},
   :2058002
   {:championship "world_cup",
    :path
@@ -469,6 +880,21 @@
    :match-id 2057979,
    :label "Costa Rica - Serbia, 0 - 1",
    :filename "world_cup_costa_rica_serbia,_0_1_2057979.edn"},
+  :1694423
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_austria,_0_0_1694423.edn",
+   :match-id 1694423,
+   :label "Portugal - Austria, 0 - 0",
+   :filename
+   "european_championship_portugal_austria,_0_0_1694423.edn"},
+  :1694431
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_hungary_belgium,_0_4_1694431.edn",
+   :match-id 1694431,
+   :label "Hungary - Belgium, 0 - 4",
+   :filename "european_championship_hungary_belgium,_0_4_1694431.edn"},
   :2057989
   {:championship "world_cup",
    :path "../data/analysis/world_cup_mexico_sweden,_0_3_2057989.edn",
@@ -487,6 +913,13 @@
    :match-id 2057968,
    :label "France - Peru, 1 - 0",
    :filename "world_cup_france_peru,_1_0_2057968.edn"},
+  :1694420
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_austria_hungary,_0_2_1694420.edn",
+   :match-id 1694420,
+   :label "Austria - Hungary, 0 - 2",
+   :filename "european_championship_austria_hungary,_0_2_1694420.edn"},
   :2057980
   {:championship "world_cup",
    :path
@@ -538,12 +971,71 @@
    :match-id 2058012,
    :label "Russia - Croatia, 2 - 2 (P)",
    :filename "world_cup_russia_croatia,_2_2_(_p)_2058012.edn"},
+  :1694433
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_iceland,_1_2_1694433.edn",
+   :match-id 1694433,
+   :label "England - Iceland, 1 - 2",
+   :filename "european_championship_england_iceland,_1_2_1694433.edn"},
+  :1694407
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_northern_ireland_germany,_0_1_1694407.edn",
+   :match-id 1694407,
+   :label "Northern Ireland - Germany, 0 - 1",
+   :filename
+   "european_championship_northern_ireland_germany,_0_1_1694407.edn"},
   :2058000
   {:championship "world_cup",
    :path "../data/analysis/world_cup_japan_poland,_0_1_2058000.edn",
    :match-id 2058000,
    :label "Japan - Poland, 0 - 1",
    :filename "world_cup_japan_poland,_0_1_2058000.edn"},
+  :1694403
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_ukraine,_2_0_1694403.edn",
+   :match-id 1694403,
+   :label "Germany - Ukraine, 2 - 0",
+   :filename "european_championship_germany_ukraine,_2_0_1694403.edn"},
+  :1694406
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_ukraine_poland,_0_1_1694406.edn",
+   :match-id 1694406,
+   :label "Ukraine - Poland, 0 - 1",
+   :filename "european_championship_ukraine_poland,_0_1_1694406.edn"},
+  :1694397
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_russia,_1_1_1694397.edn",
+   :match-id 1694397,
+   :label "England - Russia, 1 - 1",
+   :filename "european_championship_england_russia,_1_1_1694397.edn"},
+  :1694416
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_sweden,_1_0_1694416.edn",
+   :match-id 1694416,
+   :label "Italy - Sweden, 1 - 0",
+   :filename "european_championship_italy_sweden,_1_0_1694416.edn"},
+  :1694440
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_france,_1_0_(_e)_1694440.edn",
+   :match-id 1694440,
+   :label "Portugal - France, 1 - 0 (E)",
+   :filename
+   "european_championship_portugal_france,_1_0_(_e)_1694440.edn"},
+  :1694391
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_albania_switzerland,_0_1_1694391.edn",
+   :match-id 1694391,
+   :label "Albania - Switzerland, 0 - 1",
+   :filename
+   "european_championship_albania_switzerland,_0_1_1694391.edn"},
   :2057969
   {:championship "world_cup",
    :path
@@ -557,12 +1049,28 @@
    :match-id 2057970,
    :label "Denmark - France, 0 - 0",
    :filename "world_cup_denmark_france,_0_0_2057970.edn"},
+  :1694426
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_switzerland_poland,_1_1_(_p)_1694426.edn",
+   :match-id 1694426,
+   :label "Switzerland - Poland, 1 - 1 (P)",
+   :filename
+   "european_championship_switzerland_poland,_1_1_(_p)_1694426.edn"},
   :2058006
   {:championship "world_cup",
    :path "../data/analysis/world_cup_brazil_mexico,_2_0_2058006.edn",
    :match-id 2058006,
    :label "Brazil - Mexico, 2 - 0",
    :filename "world_cup_brazil_mexico,_2_0_2058006.edn"},
+  :1694430
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_slovakia,_3_0_1694430.edn",
+   :match-id 1694430,
+   :label "Germany - Slovakia, 3 - 0",
+   :filename
+   "european_championship_germany_slovakia,_3_0_1694430.edn"},
   :2058008
   {:championship "world_cup",
    :path
@@ -570,18 +1078,63 @@
    :match-id 2058008,
    :label "Sweden - Switzerland, 1 - 0",
    :filename "world_cup_sweden_switzerland,_1_0_2058008.edn"},
+  :1694439
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_france,_0_2_1694439.edn",
+   :match-id 1694439,
+   :label "Germany - France, 0 - 2",
+   :filename "european_championship_germany_france,_0_2_1694439.edn"},
+  :1694396
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_slovakia,_2_1_1694396.edn",
+   :match-id 1694396,
+   :label "Wales - Slovakia, 2 - 1",
+   :filename "european_championship_wales_slovakia,_2_1_1694396.edn"},
   :2057982
   {:championship "world_cup",
    :path "../data/analysis/world_cup_serbia_brazil,_0_2_2057982.edn",
    :match-id 2057982,
    :label "Serbia - Brazil, 0 - 2",
    :filename "world_cup_serbia_brazil,_0_2_2057982.edn"},
+  :1694425
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_iceland_austria,_2_1_1694425.edn",
+   :match-id 1694425,
+   :label "Iceland - Austria, 2 - 1",
+   :filename "european_championship_iceland_austria,_2_1_1694425.edn"},
   :2057971
   {:championship "world_cup",
    :path "../data/analysis/world_cup_australia_peru,_0_2_2057971.edn",
    :match-id 2057971,
    :label "Australia - Peru, 0 - 2",
    :filename "world_cup_australia_peru,_0_2_2057971.edn"},
+  :1694409
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_spain_czech_republic,_1_0_1694409.edn",
+   :match-id 1694409,
+   :label "Spain - Czech Republic, 1 - 0",
+   :filename
+   "european_championship_spain_czech_republic,_1_0_1694409.edn"},
+  :1694418
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_republic_of_ireland,_0_1_1694418.edn",
+   :match-id 1694418,
+   :label "Italy - Republic of Ireland, 0 - 1",
+   :filename
+   "european_championship_italy_republic_of_ireland,_0_1_1694418.edn"},
+  :1694427
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_northern_ireland,_1_0_1694427.edn",
+   :match-id 1694427,
+   :label "Wales - Northern Ireland, 1 - 0",
+   :filename
+   "european_championship_wales_northern_ireland,_1_0_1694427.edn"},
   :2057966
   {:championship "world_cup",
    :path
@@ -596,6 +1149,13 @@
    :match-id 2058004,
    :label "Spain - Russia, 1 - 1 (P)",
    :filename "world_cup_spain_russia,_1_1_(_p)_2058004.edn"},
+  :1694398
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_russia_slovakia,_1_2_1694398.edn",
+   :match-id 1694398,
+   :label "Russia - Slovakia, 1 - 2",
+   :filename "european_championship_russia_slovakia,_1_2_1694398.edn"},
   :2057962
   {:championship "world_cup",
    :path
@@ -603,6 +1163,27 @@
    :match-id 2057962,
    :label "Portugal - Morocco, 1 - 0",
    :filename "world_cup_portugal_morocco,_1_0_2057962.edn"},
+  :1694401
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_russia_wales,_0_3_1694401.edn",
+   :match-id 1694401,
+   :label "Russia - Wales, 0 - 3",
+   :filename "european_championship_russia_wales,_0_3_1694401.edn"},
+  :1694435
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_belgium,_3_1_1694435.edn",
+   :match-id 1694435,
+   :label "Wales - Belgium, 3 - 1",
+   :filename "european_championship_wales_belgium,_3_1_1694435.edn"},
+  :1694438
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_wales,_2_0_1694438.edn",
+   :match-id 1694438,
+   :label "Portugal - Wales, 2 - 0",
+   :filename "european_championship_portugal_wales,_2_0_1694438.edn"},
   :2057954
   {:championship "world_cup",
    :path
@@ -640,6 +1221,14 @@
    :match-id 2058007,
    :label "Belgium - Japan, 3 - 2",
    :filename "world_cup_belgium_japan,_3_2_2058007.edn"},
+  :1694413
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_czech_republic_turkey,_0_2_1694413.edn",
+   :match-id 1694413,
+   :label "Czech Republic - Turkey, 0 - 2",
+   :filename
+   "european_championship_czech_republic_turkey,_0_2_1694413.edn"},
   :2057974
   {:championship "world_cup",
    :path
@@ -667,6 +1256,22 @@
    :match-id 2058013,
    :label "Sweden - England, 0 - 2",
    :filename "world_cup_sweden_england,_0_2_2058013.edn"},
+  :1694402
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_poland_northern_ireland,_1_0_1694402.edn",
+   :match-id 1694402,
+   :label "Poland - Northern Ireland, 1 - 0",
+   :filename
+   "european_championship_poland_northern_ireland,_1_0_1694402.edn"},
+  :1694410
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_czech_republic_croatia,_2_2_1694410.edn",
+   :match-id 1694410,
+   :label "Czech Republic - Croatia, 2 - 2",
+   :filename
+   "european_championship_czech_republic_croatia,_2_2_1694410.edn"},
   :2058003
   {:championship "world_cup",
    :path
@@ -674,6 +1279,13 @@
    :match-id 2058003,
    :label "France - Argentina, 4 - 3",
    :filename "world_cup_france_argentina,_4_3_2058003.edn"},
+  :1694393
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_albania,_2_0_1694393.edn",
+   :match-id 1694393,
+   :label "France - Albania, 2 - 0",
+   :filename "european_championship_france_albania,_2_0_1694393.edn"},
   :2058001
   {:championship "world_cup",
    :path
@@ -681,12 +1293,42 @@
    :match-id 2058001,
    :label "Senegal - Colombia, 0 - 1",
    :filename "world_cup_senegal_colombia,_0_1_2058001.edn"},
+  :1694414
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_republic_of_ireland_sweden,_1_1_1694414.edn",
+   :match-id 1694414,
+   :label "Republic of Ireland - Sweden, 1 - 1",
+   :filename
+   "european_championship_republic_of_ireland_sweden,_1_1_1694414.edn"},
+  :1694424
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_hungary_portugal,_3_3_1694424.edn",
+   :match-id 1694424,
+   :label "Hungary - Portugal, 3 - 3",
+   :filename
+   "european_championship_hungary_portugal,_3_3_1694424.edn"},
+  :1694432
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_spain,_2_0_1694432.edn",
+   :match-id 1694432,
+   :label "Italy - Spain, 2 - 0",
+   :filename "european_championship_italy_spain,_2_0_1694432.edn"},
   :2057975
   {:championship "world_cup",
    :path "../data/analysis/world_cup_nigeria_iceland,_2_0_2057975.edn",
    :match-id 2057975,
    :label "Nigeria - Iceland, 2 - 0",
    :filename "world_cup_nigeria_iceland,_2_0_2057975.edn"},
+  :1694422
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_iceland_hungary,_1_1_1694422.edn",
+   :match-id 1694422,
+   :label "Iceland - Hungary, 1 - 1",
+   :filename "european_championship_iceland_hungary,_1_1_1694422.edn"},
   :2058009
   {:championship "world_cup",
    :path
@@ -706,6 +1348,27 @@
    :match-id 2057973,
    :label "Croatia - Nigeria, 2 - 0",
    :filename "world_cup_croatia_nigeria,_2_0_2057973.edn"},
+  :1694405
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_poland,_0_0_1694405.edn",
+   :match-id 1694405,
+   :label "Germany - Poland, 0 - 0",
+   :filename "european_championship_germany_poland,_0_0_1694405.edn"},
+  :1694412
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_croatia_spain,_2_1_1694412.edn",
+   :match-id 1694412,
+   :label "Croatia - Spain, 2 - 1",
+   :filename "european_championship_croatia_spain,_2_1_1694412.edn"},
+  :1694395
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_romania_albania,_0_1_1694395.edn",
+   :match-id 1694395,
+   :label "Romania - Albania, 0 - 1",
+   :filename "european_championship_romania_albania,_0_1_1694395.edn"},
   :2058017
   {:championship "world_cup",
    :path "../data/analysis/world_cup_france_croatia,_4_2_2058017.edn",
@@ -718,6 +1381,13 @@
    :match-id 2057998,
    :label "Poland - Colombia, 0 - 3",
    :filename "world_cup_poland_colombia,_0_3_2057998.edn"},
+  :1694399
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_wales,_2_1_1694399.edn",
+   :match-id 1694399,
+   :label "England - Wales, 2 - 1",
+   :filename "european_championship_england_wales,_2_1_1694399.edn"},
   :2057983
   {:championship "world_cup",
    :path
@@ -731,18 +1401,54 @@
    :match-id 2057961,
    :label "Morocco - Iran, 0 - 1",
    :filename "world_cup_morocco_iran,_0_1_2057961.edn"},
+  :1694400
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_slovakia_england,_0_0_1694400.edn",
+   :match-id 1694400,
+   :label "Slovakia - England, 0 - 0",
+   :filename
+   "european_championship_slovakia_england,_0_0_1694400.edn"},
+  :1694408
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_turkey_croatia,_0_1_1694408.edn",
+   :match-id 1694408,
+   :label "Turkey - Croatia, 0 - 1",
+   :filename "european_championship_turkey_croatia,_0_1_1694408.edn"},
   :2057992
   {:championship "world_cup",
    :path "../data/analysis/world_cup_belgium_tunisia,_5_2_2057992.edn",
    :match-id 2057992,
    :label "Belgium - Tunisia, 5 - 2",
    :filename "world_cup_belgium_tunisia,_5_2_2057992.edn"},
+  :1694437
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_iceland,_5_2_1694437.edn",
+   :match-id 1694437,
+   :label "France - Iceland, 5 - 2",
+   :filename "european_championship_france_iceland,_5_2_1694437.edn"},
   :2057956
   {:championship "world_cup",
    :path "../data/analysis/world_cup_russia_egypt,_3_1_2057956.edn",
    :match-id 2057956,
    :label "Russia - Egypt, 3 - 1",
    :filename "world_cup_russia_egypt,_3_1_2057956.edn"},
+  :1694419
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_sweden_belgium,_0_1_1694419.edn",
+   :match-id 1694419,
+   :label "Sweden - Belgium, 0 - 1",
+   :filename "european_championship_sweden_belgium,_0_1_1694419.edn"},
+  :1694415
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_belgium_italy,_0_2_1694415.edn",
+   :match-id 1694415,
+   :label "Belgium - Italy, 0 - 2",
+   :filename "european_championship_belgium_italy,_0_2_1694415.edn"},
   :2057958
   {:championship "world_cup",
    :path "../data/analysis/world_cup_uruguay_russia,_3_0_2057958.edn",
@@ -757,7 +1463,15 @@
    :label "Croatia - Denmark, 1 - 1 (P)",
    :filename "world_cup_croatia_denmark,_1_1_(_p)_2058005.edn"}},
  :files-labels-hash
- {:world_cup_senegal_colombia_0_1_2058001
+ {:european_championship_northern_ireland_germany_0_1_1694407
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_northern_ireland_germany,_0_1_1694407.edn",
+   :match-id 1694407,
+   :label "Northern Ireland - Germany, 0 - 1",
+   :filename
+   "european_championship_northern_ireland_germany,_0_1_1694407.edn"},
+  :world_cup_senegal_colombia_0_1_2058001
   {:championship "world_cup",
    :path
    "../data/analysis/world_cup_senegal_colombia,_0_1_2058001.edn",
@@ -782,18 +1496,84 @@
    :match-id 2057975,
    :label "Nigeria - Iceland, 2 - 0",
    :filename "world_cup_nigeria_iceland,_2_0_2057975.edn"},
+  :european_championship_england_russia_1_1_1694397
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_russia,_1_1_1694397.edn",
+   :match-id 1694397,
+   :label "England - Russia, 1 - 1",
+   :filename "european_championship_england_russia,_1_1_1694397.edn"},
+  :european_championship_turkey_croatia_0_1_1694408
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_turkey_croatia,_0_1_1694408.edn",
+   :match-id 1694408,
+   :label "Turkey - Croatia, 0 - 1",
+   :filename "european_championship_turkey_croatia,_0_1_1694408.edn"},
+  :european_championship_wales_belgium_3_1_1694435
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_belgium,_3_1_1694435.edn",
+   :match-id 1694435,
+   :label "Wales - Belgium, 3 - 1",
+   :filename "european_championship_wales_belgium,_3_1_1694435.edn"},
   :world_cup_panama_tunisia_1_2_2057995
   {:championship "world_cup",
    :path "../data/analysis/world_cup_panama_tunisia,_1_2_2057995.edn",
    :match-id 2057995,
    :label "Panama - Tunisia, 1 - 2",
    :filename "world_cup_panama_tunisia,_1_2_2057995.edn"},
+  :european_championship_portugal_austria_0_0_1694423
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_austria,_0_0_1694423.edn",
+   :match-id 1694423,
+   :label "Portugal - Austria, 0 - 0",
+   :filename
+   "european_championship_portugal_austria,_0_0_1694423.edn"},
+  :european_championship_ukraine_northern_ireland_0_2_1694404
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_ukraine_northern_ireland,_0_2_1694404.edn",
+   :match-id 1694404,
+   :label "Ukraine - Northern Ireland, 0 - 2",
+   :filename
+   "european_championship_ukraine_northern_ireland,_0_2_1694404.edn"},
+  :european_championship_russia_wales_0_3_1694401
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_russia_wales,_0_3_1694401.edn",
+   :match-id 1694401,
+   :label "Russia - Wales, 0 - 3",
+   :filename "european_championship_russia_wales,_0_3_1694401.edn"},
   :world_cup_england_belgium_0_1_2057994
   {:championship "world_cup",
    :path "../data/analysis/world_cup_england_belgium,_0_1_2057994.edn",
    :match-id 2057994,
    :label "England - Belgium, 0 - 1",
    :filename "world_cup_england_belgium,_0_1_2057994.edn"},
+  :european_championship_germany_france_0_2_1694439
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_france,_0_2_1694439.edn",
+   :match-id 1694439,
+   :label "Germany - France, 0 - 2",
+   :filename "european_championship_germany_france,_0_2_1694439.edn"},
+  :european_championship_belgium_republic_of_ireland_3_0_1694417
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_belgium_republic_of_ireland,_3_0_1694417.edn",
+   :match-id 1694417,
+   :label "Belgium - Republic of Ireland, 3 - 0",
+   :filename
+   "european_championship_belgium_republic_of_ireland,_3_0_1694417.edn"},
+  :european_championship_croatia_spain_2_1_1694412
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_croatia_spain,_2_1_1694412.edn",
+   :match-id 1694412,
+   :label "Croatia - Spain, 2 - 1",
+   :filename "european_championship_croatia_spain,_2_1_1694412.edn"},
   :world_cup_belgium_england_2_0_2058016
   {:championship "world_cup",
    :path "../data/analysis/world_cup_belgium_england,_2_0_2058016.edn",
@@ -807,6 +1587,13 @@
    :match-id 2057980,
    :label "Brazil - Costa Rica, 2 - 0",
    :filename "world_cup_brazil_costa_rica,_2_0_2057980.edn"},
+  :european_championship_germany_poland_0_0_1694405
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_poland,_0_0_1694405.edn",
+   :match-id 1694405,
+   :label "Germany - Poland, 0 - 0",
+   :filename "european_championship_germany_poland,_0_0_1694405.edn"},
   :world_cup_sweden_switzerland_1_0_2058008
   {:championship "world_cup",
    :path
@@ -821,18 +1608,46 @@
    :match-id 2057979,
    :label "Costa Rica - Serbia, 0 - 1",
    :filename "world_cup_costa_rica_serbia,_0_1_2057979.edn"},
+  :european_championship_england_iceland_1_2_1694433
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_iceland,_1_2_1694433.edn",
+   :match-id 1694433,
+   :label "England - Iceland, 1 - 2",
+   :filename "european_championship_england_iceland,_1_2_1694433.edn"},
+  :european_championship_spain_turkey_3_0_1694411
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_spain_turkey,_3_0_1694411.edn",
+   :match-id 1694411,
+   :label "Spain - Turkey, 3 - 0",
+   :filename "european_championship_spain_turkey,_3_0_1694411.edn"},
   :world_cup_peru_denmark_0_1_2057967
   {:championship "world_cup",
    :path "../data/analysis/world_cup_peru_denmark,_0_1_2057967.edn",
    :match-id 2057967,
    :label "Peru - Denmark, 0 - 1",
    :filename "world_cup_peru_denmark,_0_1_2057967.edn"},
+  :european_championship_iceland_hungary_1_1_1694422
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_iceland_hungary,_1_1_1694422.edn",
+   :match-id 1694422,
+   :label "Iceland - Hungary, 1 - 1",
+   :filename "european_championship_iceland_hungary,_1_1_1694422.edn"},
   :world_cup_france_belgium_1_0_2058014
   {:championship "world_cup",
    :path "../data/analysis/world_cup_france_belgium,_1_0_2058014.edn",
    :match-id 2058014,
    :label "France - Belgium, 1 - 0",
    :filename "world_cup_france_belgium,_1_0_2058014.edn"},
+  :european_championship_france_iceland_5_2_1694437
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_iceland,_5_2_1694437.edn",
+   :match-id 1694437,
+   :label "France - Iceland, 5 - 2",
+   :filename "european_championship_france_iceland,_5_2_1694437.edn"},
   :world_cup_france_croatia_4_2_2058017
   {:championship "world_cup",
    :path "../data/analysis/world_cup_france_croatia,_4_2_2058017.edn",
@@ -857,12 +1672,89 @@
    :match-id 2057982,
    :label "Serbia - Brazil, 0 - 2",
    :filename "world_cup_serbia_brazil,_0_2_2057982.edn"},
+  :european_championship_wales_slovakia_2_1_1694396
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_slovakia,_2_1_1694396.edn",
+   :match-id 1694396,
+   :label "Wales - Slovakia, 2 - 1",
+   :filename "european_championship_wales_slovakia,_2_1_1694396.edn"},
+  :european_championship_portugal_iceland_1_1_1694421
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_iceland,_1_1_1694421.edn",
+   :match-id 1694421,
+   :label "Portugal - Iceland, 1 - 1",
+   :filename
+   "european_championship_portugal_iceland,_1_1_1694421.edn"},
+  :european_championship_germany_slovakia_3_0_1694430
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_slovakia,_3_0_1694430.edn",
+   :match-id 1694430,
+   :label "Germany - Slovakia, 3 - 0",
+   :filename
+   "european_championship_germany_slovakia,_3_0_1694430.edn"},
+  :european_championship_switzerland_poland_1_1_1694426
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_switzerland_poland,_1_1_(_p)_1694426.edn",
+   :match-id 1694426,
+   :label "Switzerland - Poland, 1 - 1 (P)",
+   :filename
+   "european_championship_switzerland_poland,_1_1_(_p)_1694426.edn"},
+  :european_championship_czech_republic_croatia_2_2_1694410
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_czech_republic_croatia,_2_2_1694410.edn",
+   :match-id 1694410,
+   :label "Czech Republic - Croatia, 2 - 2",
+   :filename
+   "european_championship_czech_republic_croatia,_2_2_1694410.edn"},
+  :european_championship_romania_albania_0_1_1694395
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_romania_albania,_0_1_1694395.edn",
+   :match-id 1694395,
+   :label "Romania - Albania, 0 - 1",
+   :filename "european_championship_romania_albania,_0_1_1694395.edn"},
+  :european_championship_croatia_portugal_0_1_1694428
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_croatia_portugal,_0_1_(_e)_1694428.edn",
+   :match-id 1694428,
+   :label "Croatia - Portugal, 0 - 1 (E)",
+   :filename
+   "european_championship_croatia_portugal,_0_1_(_e)_1694428.edn"},
   :world_cup_belgium_japan_3_2_2058007
   {:championship "world_cup",
    :path "../data/analysis/world_cup_belgium_japan,_3_2_2058007.edn",
    :match-id 2058007,
    :label "Belgium - Japan, 3 - 2",
    :filename "world_cup_belgium_japan,_3_2_2058007.edn"},
+  :european_championship_switzerland_france_0_0_1694394
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_switzerland_france,_0_0_1694394.edn",
+   :match-id 1694394,
+   :label "Switzerland - France, 0 - 0",
+   :filename
+   "european_championship_switzerland_france,_0_0_1694394.edn"},
+  :european_championship_germany_italy_1_1_1694436
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_italy,_1_1_(_p)_1694436.edn",
+   :match-id 1694436,
+   :label "Germany - Italy, 1 - 1 (P)",
+   :filename
+   "european_championship_germany_italy,_1_1_(_p)_1694436.edn"},
+  :european_championship_hungary_belgium_0_4_1694431
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_hungary_belgium,_0_4_1694431.edn",
+   :match-id 1694431,
+   :label "Hungary - Belgium, 0 - 4",
+   :filename "european_championship_hungary_belgium,_0_4_1694431.edn"},
   :world_cup_spain_russia_1_1_2058004
   {:championship "world_cup",
    :path
@@ -877,6 +1769,14 @@
    :match-id 2057985,
    :label "Sweden - Korea Republic, 1 - 0",
    :filename "world_cup_sweden_korea_republic,_1_0_2057985.edn"},
+  :european_championship_romania_switzerland_1_1_1694392
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_romania_switzerland,_1_1_1694392.edn",
+   :match-id 1694392,
+   :label "Romania - Switzerland, 1 - 1",
+   :filename
+   "european_championship_romania_switzerland,_1_1_1694392.edn"},
   :world_cup_france_argentina_4_3_2058003
   {:championship "world_cup",
    :path
@@ -884,6 +1784,14 @@
    :match-id 2058003,
    :label "France - Argentina, 4 - 3",
    :filename "world_cup_france_argentina,_4_3_2058003.edn"},
+  :european_championship_republic_of_ireland_sweden_1_1_1694414
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_republic_of_ireland_sweden,_1_1_1694414.edn",
+   :match-id 1694414,
+   :label "Republic of Ireland - Sweden, 1 - 1",
+   :filename
+   "european_championship_republic_of_ireland_sweden,_1_1_1694414.edn"},
   :world_cup_germany_sweden_2_1_2057986
   {:championship "world_cup",
    :path "../data/analysis/world_cup_germany_sweden,_2_1_2057986.edn",
@@ -897,12 +1805,26 @@
    :match-id 2057974,
    :label "Argentina - Croatia, 0 - 3",
    :filename "world_cup_argentina_croatia,_0_3_2057974.edn"},
+  :european_championship_belgium_italy_0_2_1694415
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_belgium_italy,_0_2_1694415.edn",
+   :match-id 1694415,
+   :label "Belgium - Italy, 0 - 2",
+   :filename "european_championship_belgium_italy,_0_2_1694415.edn"},
   :world_cup_australia_peru_0_2_2057971
   {:championship "world_cup",
    :path "../data/analysis/world_cup_australia_peru,_0_2_2057971.edn",
    :match-id 2057971,
    :label "Australia - Peru, 0 - 2",
    :filename "world_cup_australia_peru,_0_2_2057971.edn"},
+  :european_championship_ukraine_poland_0_1_1694406
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_ukraine_poland,_0_1_1694406.edn",
+   :match-id 1694406,
+   :label "Ukraine - Poland, 0 - 1",
+   :filename "european_championship_ukraine_poland,_0_1_1694406.edn"},
   :world_cup_russia_croatia_2_2_2058012
   {:championship "world_cup",
    :path
@@ -935,12 +1857,35 @@
    :match-id 2057992,
    :label "Belgium - Tunisia, 5 - 2",
    :filename "world_cup_belgium_tunisia,_5_2_2057992.edn"},
+  :european_championship_slovakia_england_0_0_1694400
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_slovakia_england,_0_0_1694400.edn",
+   :match-id 1694400,
+   :label "Slovakia - England, 0 - 0",
+   :filename
+   "european_championship_slovakia_england,_0_0_1694400.edn"},
   :world_cup_japan_senegal_2_2_2057999
   {:championship "world_cup",
    :path "../data/analysis/world_cup_japan_senegal,_2_2_2057999.edn",
    :match-id 2057999,
    :label "Japan - Senegal, 2 - 2",
    :filename "world_cup_japan_senegal,_2_2_2057999.edn"},
+  :european_championship_france_republic_of_ireland_2_1_1694429
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_republic_of_ireland,_2_1_1694429.edn",
+   :match-id 1694429,
+   :label "France - Republic of Ireland, 2 - 1",
+   :filename
+   "european_championship_france_republic_of_ireland,_2_1_1694429.edn"},
+  :european_championship_russia_slovakia_1_2_1694398
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_russia_slovakia,_1_2_1694398.edn",
+   :match-id 1694398,
+   :label "Russia - Slovakia, 1 - 2",
+   :filename "european_championship_russia_slovakia,_1_2_1694398.edn"},
   :world_cup_uruguay_saudi_arabia_1_0_2057957
   {:championship "world_cup",
    :path
@@ -981,18 +1926,55 @@
    :match-id 2057976,
    :label "Nigeria - Argentina, 1 - 2",
    :filename "world_cup_nigeria_argentina,_1_2_2057976.edn"},
+  :european_championship_austria_hungary_0_2_1694420
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_austria_hungary,_0_2_1694420.edn",
+   :match-id 1694420,
+   :label "Austria - Hungary, 0 - 2",
+   :filename "european_championship_austria_hungary,_0_2_1694420.edn"},
+  :european_championship_france_albania_2_0_1694393
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_albania,_2_0_1694393.edn",
+   :match-id 1694393,
+   :label "France - Albania, 2 - 0",
+   :filename "european_championship_france_albania,_2_0_1694393.edn"},
   :world_cup_belgium_panama_3_0_2057990
   {:championship "world_cup",
    :path "../data/analysis/world_cup_belgium_panama,_3_0_2057990.edn",
    :match-id 2057990,
    :label "Belgium - Panama, 3 - 0",
    :filename "world_cup_belgium_panama,_3_0_2057990.edn"},
+  :european_championship_hungary_portugal_3_3_1694424
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_hungary_portugal,_3_3_1694424.edn",
+   :match-id 1694424,
+   :label "Hungary - Portugal, 3 - 3",
+   :filename
+   "european_championship_hungary_portugal,_3_3_1694424.edn"},
+  :european_championship_poland_portugal_1_1_1694434
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_poland_portugal,_1_1_(_p)_1694434.edn",
+   :match-id 1694434,
+   :label "Poland - Portugal, 1 - 1 (P)",
+   :filename
+   "european_championship_poland_portugal,_1_1_(_p)_1694434.edn"},
   :world_cup_england_panama_6_1_2057993
   {:championship "world_cup",
    :path "../data/analysis/world_cup_england_panama,_6_1_2057993.edn",
    :match-id 2057993,
    :label "England - Panama, 6 - 1",
    :filename "world_cup_england_panama,_6_1_2057993.edn"},
+  :european_championship_france_romania_2_1_1694390
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_france_romania,_2_1_1694390.edn",
+   :match-id 1694390,
+   :label "France - Romania, 2 - 1",
+   :filename "european_championship_france_romania,_2_1_1694390.edn"},
   :world_cup_saudi_arabia_egypt_2_1_2057959
   {:championship "world_cup",
    :path
@@ -1012,12 +1994,35 @@
    :match-id 2057958,
    :label "Uruguay - Russia, 3 - 0",
    :filename "world_cup_uruguay_russia,_3_0_2057958.edn"},
+  :european_championship_albania_switzerland_0_1_1694391
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_albania_switzerland,_0_1_1694391.edn",
+   :match-id 1694391,
+   :label "Albania - Switzerland, 0 - 1",
+   :filename
+   "european_championship_albania_switzerland,_0_1_1694391.edn"},
   :world_cup_portugal_spain_3_3_2057960
   {:championship "world_cup",
    :path "../data/analysis/world_cup_portugal_spain,_3_3_2057960.edn",
    :match-id 2057960,
    :label "Portugal - Spain, 3 - 3",
    :filename "world_cup_portugal_spain,_3_3_2057960.edn"},
+  :european_championship_germany_ukraine_2_0_1694403
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_germany_ukraine,_2_0_1694403.edn",
+   :match-id 1694403,
+   :label "Germany - Ukraine, 2 - 0",
+   :filename "european_championship_germany_ukraine,_2_0_1694403.edn"},
+  :european_championship_portugal_france_1_0_1694440
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_france,_1_0_(_e)_1694440.edn",
+   :match-id 1694440,
+   :label "Portugal - France, 1 - 0 (E)",
+   :filename
+   "european_championship_portugal_france,_1_0_(_e)_1694440.edn"},
   :world_cup_croatia_england_2_1_2058015
   {:championship "world_cup",
    :path
@@ -1025,6 +2030,13 @@
    :match-id 2058015,
    :label "Croatia - England, 2 - 1 (E)",
    :filename "world_cup_croatia_england,_2_1_(_e)_2058015.edn"},
+  :european_championship_italy_sweden_1_0_1694416
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_sweden,_1_0_1694416.edn",
+   :match-id 1694416,
+   :label "Italy - Sweden, 1 - 0",
+   :filename "european_championship_italy_sweden,_1_0_1694416.edn"},
   :world_cup_morocco_iran_0_1_2057961
   {:championship "world_cup",
    :path "../data/analysis/world_cup_morocco_iran,_0_1_2057961.edn",
@@ -1077,12 +2089,27 @@
    :match-id 2057973,
    :label "Croatia - Nigeria, 2 - 0",
    :filename "world_cup_croatia_nigeria,_2_0_2057973.edn"},
+  :european_championship_sweden_belgium_0_1_1694419
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_sweden_belgium,_0_1_1694419.edn",
+   :match-id 1694419,
+   :label "Sweden - Belgium, 0 - 1",
+   :filename "european_championship_sweden_belgium,_0_1_1694419.edn"},
   :world_cup_iceland_croatia_1_2_2057977
   {:championship "world_cup",
    :path "../data/analysis/world_cup_iceland_croatia,_1_2_2057977.edn",
    :match-id 2057977,
    :label "Iceland - Croatia, 1 - 2",
    :filename "world_cup_iceland_croatia,_1_2_2057977.edn"},
+  :european_championship_italy_republic_of_ireland_0_1_1694418
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_republic_of_ireland,_0_1_1694418.edn",
+   :match-id 1694418,
+   :label "Italy - Republic of Ireland, 0 - 1",
+   :filename
+   "european_championship_italy_republic_of_ireland,_0_1_1694418.edn"},
   :world_cup_croatia_denmark_1_1_2058005
   {:championship "world_cup",
    :path
@@ -1097,6 +2124,20 @@
    :match-id 2057978,
    :label "Brazil - Switzerland, 1 - 1",
    :filename "world_cup_brazil_switzerland,_1_1_2057978.edn"},
+  :european_championship_iceland_austria_2_1_1694425
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_iceland_austria,_2_1_1694425.edn",
+   :match-id 1694425,
+   :label "Iceland - Austria, 2 - 1",
+   :filename "european_championship_iceland_austria,_2_1_1694425.edn"},
+  :european_championship_italy_spain_2_0_1694432
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_italy_spain,_2_0_1694432.edn",
+   :match-id 1694432,
+   :label "Italy - Spain, 2 - 0",
+   :filename "european_championship_italy_spain,_2_0_1694432.edn"},
   :world_cup_germany_mexico_0_1_2057984
   {:championship "world_cup",
    :path "../data/analysis/world_cup_germany_mexico,_0_1_2057984.edn",
@@ -1121,6 +2162,14 @@
    :match-id 2057998,
    :label "Poland - Colombia, 0 - 3",
    :filename "world_cup_poland_colombia,_0_3_2057998.edn"},
+  :european_championship_wales_northern_ireland_1_0_1694427
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_wales_northern_ireland,_1_0_1694427.edn",
+   :match-id 1694427,
+   :label "Wales - Northern Ireland, 1 - 0",
+   :filename
+   "european_championship_wales_northern_ireland,_1_0_1694427.edn"},
   :world_cup_egypt_uruguay_0_1_2057955
   {:championship "world_cup",
    :path "../data/analysis/world_cup_egypt_uruguay,_0_1_2057955.edn",
@@ -1134,6 +2183,21 @@
    :match-id 2057966,
    :label "France - Australia, 2 - 1",
    :filename "world_cup_france_australia,_2_1_2057966.edn"},
+  :european_championship_england_wales_2_1_1694399
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_england_wales,_2_1_1694399.edn",
+   :match-id 1694399,
+   :label "England - Wales, 2 - 1",
+   :filename "european_championship_england_wales,_2_1_1694399.edn"},
+  :european_championship_spain_czech_republic_1_0_1694409
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_spain_czech_republic,_1_0_1694409.edn",
+   :match-id 1694409,
+   :label "Spain - Czech Republic, 1 - 0",
+   :filename
+   "european_championship_spain_czech_republic,_1_0_1694409.edn"},
   :world_cup_sweden_england_0_2_2058013
   {:championship "world_cup",
    :path "../data/analysis/world_cup_sweden_england,_0_2_2058013.edn",
@@ -1153,6 +2217,22 @@
    :match-id 2057964,
    :label "Iran - Portugal, 1 - 1",
    :filename "world_cup_iran_portugal,_1_1_2057964.edn"},
+  :european_championship_poland_northern_ireland_1_0_1694402
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_poland_northern_ireland,_1_0_1694402.edn",
+   :match-id 1694402,
+   :label "Poland - Northern Ireland, 1 - 0",
+   :filename
+   "european_championship_poland_northern_ireland,_1_0_1694402.edn"},
+  :european_championship_czech_republic_turkey_0_2_1694413
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_czech_republic_turkey,_0_2_1694413.edn",
+   :match-id 1694413,
+   :label "Czech Republic - Turkey, 0 - 2",
+   :filename
+   "european_championship_czech_republic_turkey,_0_2_1694413.edn"},
   :world_cup_colombia_england_1_1_2058009
   {:championship "world_cup",
    :path
@@ -1160,6 +2240,13 @@
    :match-id 2058009,
    :label "Colombia - England, 1 - 1 (P)",
    :filename "world_cup_colombia_england,_1_1_(_p)_2058009.edn"},
+  :european_championship_portugal_wales_2_0_1694438
+  {:championship "european_championship",
+   :path
+   "../data/analysis/european_championship_portugal_wales,_2_0_1694438.edn",
+   :match-id 1694438,
+   :label "Portugal - Wales, 2 - 0",
+   :filename "european_championship_portugal_wales,_2_0_1694438.edn"},
   :world_cup_denmark_australia_1_1_2057969
   {:championship "world_cup",
    :path
