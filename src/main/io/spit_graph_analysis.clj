@@ -65,7 +65,7 @@
                       id-keyword
                       :label
                       csk/->snake_case
-                      (#(str % "." (name file-type))))
+                      (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
         data (-> (str path "graphs/" filename) io/resource slurp parse)]
     data))
 

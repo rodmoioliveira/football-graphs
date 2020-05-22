@@ -2,7 +2,7 @@
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
-   [clojure.string :refer [split replace]]
+   [clojure.string :as str]
    [project-specs :as pspecs]
    #?(:clj [clojure.spec.test.alpha :as stest]
       :cljs [cljs.spec.test.alpha :as stest])
@@ -22,11 +22,11 @@
 (defn normalize-filename
   [s]
   (-> s
-      (split #"\.")
+      (str/split #"\.")
       first
-      (replace #"\(_p\)_" "")
-      (replace #"\(_e\)_" "")
-      (replace #"," "")))
+      (str/replace #"\(_p\)_" "")
+      (str/replace #"\(_e\)_" "")
+      (str/replace #"," "")))
 
 #?(:clj (defn max-val [m] {:max (reduce max m)}))
 #?(:cljs (defn max-val [m] (reduce max m)))

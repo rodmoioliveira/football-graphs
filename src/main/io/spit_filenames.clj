@@ -1,7 +1,7 @@
 (ns io.spit-filenames
   (:require
    [clojure.edn :as edn]
-   [clojure.string :refer [split replace]]
+   [clojure.string :as s]
    [clojure.java.io :as io]
 
    [utils.core :refer [output-file-type normalize-filename]]))
@@ -21,13 +21,19 @@
         all-files (->>
                    (take 1000 files)
                    (map #(-> % (.getName)))
-                   (filter #(-> % (split #"\.") second (= "edn")))
+                   (filter #(-> % (s/split #"\.") second (= "edn")))
                    sort
                    (map (fn [f]
                           (let [data (get-data f)]
-                            {:championship (-> f  (split #"_") first (#(if (= % "world") "world_cup" %)))
+                            {:championship (-> f
+                                               (s/split #"_")
+                                               first
+                                               (#(cond
+                                                   (= % "world") "world_cup"
+                                                   (= % "european") "european_championship"
+                                                   :else %)))
                              :path (str "../data/analysis/" f)
-                             :match-id (-> f (split #"\.") first (split #"_") last Integer.)
+                             :match-id (-> f (s/split #"\.") first (s/split #"_") last Integer.)
                              :label (-> data :match :label)
                              :filename f}))))]
 

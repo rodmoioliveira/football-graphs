@@ -6,7 +6,7 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
-   [clojure.string :refer [split trim join]]
+   [clojure.string :as s]
    [clojure.pprint :refer [pprint]]
 
    [utils.core :refer [output-file-type
@@ -143,7 +143,7 @@
                       id-keyword
                       :label
                       csk/->snake_case
-                      (#(str % "." (name file-type))))
+                      (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
         data (-> (str path "matches/" filename) io/resource slurp parse)]
     data))
 
@@ -202,7 +202,7 @@
                                                                   (fn [ids] (some #(= % (-> p :wy-id)) ids)))
                                                                  first)
                                                 pos (or compose-pos [(p :wy-id)])]
-                                            (assoc p :pos (join "" pos) :id (join "" pos))))))]
+                                            (assoc p :pos (s/join "" pos) :id (s/join "" pos))))))]
 
     {:players-hash (-> players-with-position hash-by-id)
      :substitutions substitutions
@@ -300,8 +300,8 @@
 (if (-> errors some? not)
   (let [links (links)
         average-pos (get-average-pos)
-        [teams-str] (-> data :match :label (split #","))
-        [team1 team2] (-> teams-str (split #"-") (#(map trim %)) (#(map keyword %)))
+        [teams-str] (-> data :match :label (s/split #","))
+        [team1 team2] (-> teams-str (s/split #"-") (#(map s/trim %)) (#(map keyword %)))
         edges (-> links
                   (#(reduce
                      (fn

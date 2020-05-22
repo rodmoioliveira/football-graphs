@@ -22,4 +22,8 @@ do
   clj src/main/io/spit_graph_analysis.clj --id=$id --type=json --championship=$championship
   printf "Done!\n"
 done
+printf "===========================================================\n"
+printf "Generating filenames... \n"
+clj src/main/io/spit_filenames.clj
+printf "===========================================================\n"
 
