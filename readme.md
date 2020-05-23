@@ -132,6 +132,8 @@ src/main/data/analysis/italy_genoa_torino,_1_2_2576338.edn
 src/main/data/analysis/italy_genoa_torino,_1_2_2576338.json
 ```
 
+Missing matches analysis can be found within `src/main/data/analysis/missing.edn`.
+
 # :triangular_ruler: Understanding the Metrics
 
 > #### [Using Network Science to Analyse Football Passing Networks: Dynamics, Space, Time, and the Multilayer Nature of the Game](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6186964/)
