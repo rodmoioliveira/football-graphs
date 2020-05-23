@@ -96,7 +96,30 @@ npm test
 
 # :minidisc: IO Usage
 
-The data generation was simplified:
+First of all, download the [dataset](https://doi.org/10.6084/m9.figshare.c.4415000) inside the directory `src/main/data/soccer_match_event_dataset` like so:
+
+```sh
+src/main/data/soccer_match_event_dataset
+├── competitions.json
+├── events_England.json
+├── events_European_Championship.json
+├── events_France.json
+├── events_Germany.json
+├── events_Italy.json
+├── events_Spain.json
+├── events_World_Cup.json
+├── matches_England.json
+├── matches_European_Championship.json
+├── matches_France.json
+├── matches_Germany.json
+├── matches_Italy.json
+├── matches_Spain.json
+├── matches_World_Cup.json
+├── players.json
+└── teams.json
+```
+
+Then, you can generate some data like this:
 
 ```sh
 # just once
@@ -116,7 +139,7 @@ chmod +x sh/streamline.sh
 ./sh/streamline.sh Italy 2576338
 ```
 
-The `streamline.sh` will generate six files for each match:
+The [streamline.sh](sh/streamline.sh) will generate six files for each match:
 
 ```sh
 # raw data from the match
@@ -132,7 +155,7 @@ src/main/data/analysis/italy_genoa_torino,_1_2_2576338.edn
 src/main/data/analysis/italy_genoa_torino,_1_2_2576338.json
 ```
 
-Missing matches analysis can be found within `src/main/data/analysis/missing.edn`.
+Missing matches analysis can be found within [missing.edn](src/main/data/analysis/missing.edn).
 
 # :triangular_ruler: Understanding the Metrics
 
