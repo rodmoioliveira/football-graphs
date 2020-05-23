@@ -145,10 +145,13 @@
                           (stop-simulations)
                           (flush-simulations!))))
         ; (plot-matches-list
-        ;  (-> js/document (.querySelector (str "[data-championship='european_championship']")))
+        ;  (-> js/document (.querySelector (str "[data-championship='spain-2017']")))
         ;  (->> matches-files-hash
         ;       vals
-        ;       (filter #(-> % :championship (= "european_championship")))
+        ;       (filter #(-> % :championship (= "spain")))
+        ;       (group-by :year)
+        ;       vals
+        ;       first
         ;       (sort-by :label)))
         (-> toogle-theme$
             (.subscribe #(-> % (merge opts)
