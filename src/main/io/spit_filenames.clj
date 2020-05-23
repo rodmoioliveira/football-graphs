@@ -11,7 +11,7 @@
 ; ==================================
 (defn get-data
   []
-  (let [directory (clojure.java.io/file "./src/main/data/matches/")
+  (let [directory (clojure.java.io/file "./src/main/data/analysis/")
         files (file-seq directory)
         path "data/matches/"
         get-file #(io/resource (str path %))
@@ -19,7 +19,7 @@
                               slurp
                               edn/read-string))
         all-files (->>
-                   (take 1000 files)
+                   (take 10000 files)
                    (map #(-> % (.getName)))
                    (filter #(-> % (s/split #"\.") second (= "edn")))
                    (remove #(or (= % "filenames.edn") (= % "missing.edn")))
