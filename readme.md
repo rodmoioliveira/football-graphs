@@ -64,7 +64,7 @@ This is a personal project to study soccer passing networks and investigate data
 - [Katherine Ognyanova](https://twitter.com/ognyanova)
 
 # :floppy_disk: Dataset
-- Pappalardo, Luca; Massucco, Emanuele (2019): Soccer match event dataset. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.4415000
+- **Pappalardo, Luca; Massucco, Emanuele (2019).** [Soccer match event dataset](https://doi.org/10.6084/m9.figshare.c.4415000). figshare. Collection.
 
 # :computer: Development Stack
 - [Clojure](https://clojure.org/guides/getting_started)
@@ -96,84 +96,41 @@ npm test
 
 # :minidisc: IO Usage
 
-### Params
-```sh
---id [Id of a match]
---type [Filetype output]
-```
+The data generation was simplified:
 
-#### Metadata
-```sh
-clj src/main/io/meta_data.clj --type=json
-```
-or
-```sh
-clj src/main/io/meta_data.clj --type=edn
-```
-
-#### Spit match
-```sh
-clj src/main/io/spit_match.clj --id=2057978 --type=json
-```
-or
-```sh
-clj src/main/io/spit_match.clj --id=2057978 --type=edn
-```
-
-#### Spit graph
-```sh
-clj src/main/io/spit_graph.clj --id=2057978 --type=json
-```
-or
-```sh
-clj src/main/io/spit_graph.clj --id=2057978 --type=edn
-```
-
-#### Spit graph analysis
-```sh
-clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=json
-```
-or
-```sh
-clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=edn
-```
-
-#### Spit all World Cup Matches
 ```sh
 # just once
-chmod +x sh/get_all_world_cup_matches.sh
+chmod +x sh/streamline.sh
 
-# whenever you want
-./sh/get_all_world_cup_matches.sh
+# Params
+# - championship [England | European_Championship | France | Germany | Italy | Spain | World_Cup]
+# - match-id (check out src/main/data/match_ids)
+
+# Use
+# ./sh/streamline.sh championship match-id
+
+# get all the data for Italian championship
+./sh/streamline.sh Italy
+
+# get data for match 2576338
+./sh/streamline.sh Italy 2576338
 ```
 
-#### Spit all World Cup Graphs
+The `streamline.sh` will generate six files for each match:
+
 ```sh
-# just once
-chmod +x sh/get_all_world_cup_graphs.sh
+# raw data from the match
+src/main/data/matches/italy_genoa_torino,_1_2_2576338.edn
+src/main/data/matches/italy_genoa_torino,_1_2_2576338.json
 
-# whenever you want
-./sh/get_all_world_cup_graphs.sh
+# processed data to create a passing network
+src/main/data/graphs/italy_genoa_torino,_1_2_2576338.edn
+src/main/data/graphs/italy_genoa_torino,_1_2_2576338.json
+
+# passing network with metrics calculations
+src/main/data/analysis/italy_genoa_torino,_1_2_2576338.edn
+src/main/data/analysis/italy_genoa_torino,_1_2_2576338.json
 ```
-
-#### Spit all World Cup Analysis
-```sh
-# just once
-chmod +x sh/get_all_world_cup_analysis.sh
-
-# whenever you want
-./sh/get_all_world_cup_graphs.sh
-```
-
-#### Get Matches -> Graphs -> Analysis of World Cup Games
-```sh
-# just once
-chmod +x sh/streamline_world_cup.sh
-
-# whenever you want
-./sh/streamline_world_cup.sh
-```
-
 
 # :triangular_ruler: Understanding the Metrics
 
