@@ -36,6 +36,8 @@
                              :path (str "../data/analysis/" f)
                              :match-id (-> f (s/split #"\.") first (s/split #"_") last Integer.)
                              :label (-> data :match :label (#(clojure.edn/read-string (str "" \" % "\""))))
+                             :dateutc (-> data :match :dateutc)
+                             :year (-> data :match :dateutc (s/split #"-") first Integer.)
                              :filename f}))))]
 
     {:files all-files
