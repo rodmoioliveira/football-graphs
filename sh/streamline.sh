@@ -26,4 +26,6 @@ printf "===========================================================\n"
 printf "Generating filenames... \n"
 clj src/main/io/spit_filenames.clj
 printf "===========================================================\n"
-
+printf "Generating missing files... \n"
+clj src/main/io/spit_missing.clj
+printf "===========================================================\n"
