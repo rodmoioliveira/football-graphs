@@ -35,7 +35,7 @@
                                                    :else %)))
                              :path (str "../data/analysis/" f)
                              :match-id (-> f (s/split #"\.") first (s/split #"_") last Integer.)
-                             :label (-> data :match :label)
+                             :label (-> data :match :label (#(clojure.edn/read-string (str "" \" % "\""))))
                              :filename f}))))]
 
     {:files all-files
