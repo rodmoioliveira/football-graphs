@@ -19,7 +19,12 @@
    [libpython-clj.require :refer [require-python]]
    [libpython-clj.python :as py :refer [py. py.. py.-]]
 
-   [utils.core :refer [output-file-type hash-by hash-by-id metric-range]]))
+   [utils.core :refer [output-file-type
+                       hash-by
+                       deaccent
+                       hash-by-id
+                       metric-range
+                       championships]]))
 
 ; ==================================
 ; Python interop code...
@@ -33,11 +38,16 @@
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
                :parse-fn keyword
-               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]])
+               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]
+              ["-c" "--championship CHAMPIONSHIP" "Championship"
+               :parse-fn str
+               :validate [#(some? (some #{%} championships))
+                          (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
+(def championship (-> args :options :championship))
 (def errors (-> args :errors))
 
 ; ==================================
@@ -49,14 +59,16 @@
         get-file #(io/resource (str path %))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
         parse (if (= file-type :edn) edn/read-string json->edn)
-        filename (->> (get-file "soccer_match_event_dataset/matches_World_Cup.json")
+        filename (->> (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
                       slurp
                       json->edn
                       hash-by-id
                       id-keyword
                       :label
+                      (#(clojure.edn/read-string (str "" \" % "\"")))
+                      deaccent
                       csk/->snake_case
-                      (#(str % "." (name file-type))))
+                      (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
         data (-> (str path "graphs/" filename) io/resource slurp parse)]
     data))
 
@@ -263,12 +275,16 @@
                       :graph-metrics
                       {(-> teams-ids first) (get-in metrics [0 :graph-metrics])
                        (-> teams-ids second) (get-in metrics [1 :graph-metrics])}))))
-        match-label (-> data :label csk/->snake_case)
+        match-label (-> data
+                        :label
+                        (#(clojure.edn/read-string (str "" \" % "\"")))
+                        deaccent
+                        csk/->snake_case)
         dist "src/main/data/analysis/"
         ext (name file-type)]
     (spit
-     (str dist match-label "." ext)
+     (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
      ((output-file-type file-type) graph))
-    (print (str "Success on spit " dist match-label "." ext))
+    (print (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))
     (System/exit 0))
   (print errors))

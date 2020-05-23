@@ -36,7 +36,7 @@
                                  (display-passes obj)
                                  (-> obj update-theme-store!)))))
         list$ (-> dom
-                  :matches-list
+                  :matches-lists
                   (rx/fromEvent "click")
                   (.pipe
                    (rx-op/filter (fn [e] (-> e .-target (.hasAttribute "data-match-id"))))

@@ -6,10 +6,16 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
-   [clojure.string :refer [split trim join]]
+   [clojure.string :as s]
    [clojure.pprint :refer [pprint]]
 
-   [utils.core :refer [output-file-type hash-by-id hash-by-name hash-by metric-range]]))
+   [utils.core :refer [output-file-type
+                       hash-by-id
+                       deaccent
+                       hash-by-name
+                       hash-by
+                       metric-range
+                       championships]]))
 
 ; ==================================
 ; Utils
@@ -76,11 +82,16 @@
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
                :parse-fn keyword
-               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]])
+               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]
+              ["-c" "--championship CHAMPIONSHIP" "Championship"
+               :parse-fn str
+               :validate [#(some? (some #{%} championships))
+                          (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
+(def championship (-> args :options :championship))
 (def errors (-> args :errors))
 
 ; ==================================
@@ -126,14 +137,16 @@
         get-file #(io/resource (str path %))
         json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
         parse (if (= file-type :edn) edn/read-string json->edn)
-        filename (->> (get-file "soccer_match_event_dataset/matches_World_Cup.json")
+        filename (->> (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
                       slurp
                       json->edn
                       hash-by-id
                       id-keyword
                       :label
+                      (#(clojure.edn/read-string (str "" \" % "\"")))
+                      deaccent
                       csk/->snake_case
-                      (#(str % "." (name file-type))))
+                      (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
         data (-> (str path "matches/" filename) io/resource slurp parse)]
     data))
 
@@ -153,21 +166,21 @@
                        (map :formation))
         lineup (->> data :players-in-match vec)
         substitutions (->> formation
-                            (map (fn [t] (->> t :substitutions
-                                              pair-subs
-                                              ((fn [pair-ids]
-                                                 (vec
-                                                   (set
-                                                     (map (fn [[id1 id2]]
-                                                        (vec
-                                                         (set
-                                                          (reduce
-                                                           concat
-                                                           (concat
-                                                            (filter (fn [ids] (some (fn [id] (= id id1)) ids)) pair-ids)
-                                                            (filter (fn [ids] (some (fn [id] (= id id2)) ids)) pair-ids))))))
-                                                      pair-ids))))))))
-                            (reduce concat))
+                           (map (fn [t] (->> t :substitutions
+                                             pair-subs
+                                             ((fn [pair-ids]
+                                                (vec
+                                                 (set
+                                                  (map (fn [[id1 id2]]
+                                                         (vec
+                                                          (set
+                                                           (reduce
+                                                            concat
+                                                            (concat
+                                                             (filter (fn [ids] (some (fn [id] (= id id1)) ids)) pair-ids)
+                                                             (filter (fn [ids] (some (fn [id] (= id id2)) ids)) pair-ids))))))
+                                                       pair-ids))))))))
+                           (reduce concat))
         players-in-game (set (concat lineup (->> substitutions (reduce concat))))
         aggregate-players (fn [t]
                             (reduce (fn [acc cur]
@@ -192,7 +205,7 @@
                                                                   (fn [ids] (some #(= % (-> p :wy-id)) ids)))
                                                                  first)
                                                 pos (or compose-pos [(p :wy-id)])]
-                                            (assoc p :pos (join "" pos) :id (join "" pos))))))]
+                                            (assoc p :pos (s/join "" pos) :id (s/join "" pos))))))]
 
     {:players-hash (-> players-with-position hash-by-id)
      :substitutions substitutions
@@ -290,8 +303,8 @@
 (if (-> errors some? not)
   (let [links (links)
         average-pos (get-average-pos)
-        [teams-str] (-> data :match :label (split #","))
-        [team1 team2] (-> teams-str (split #"-") (#(map trim %)) (#(map keyword %)))
+        [teams-str] (-> data :match :label (s/split #","))
+        [team1 team2] (-> teams-str (s/split #"-") (#(map s/trim %)) (#(map keyword %)))
         edges (-> links
                   (#(reduce
                      (fn
@@ -349,11 +362,16 @@
                            ((juxt value) v))))
                       first)}}
 
-        match-label (-> data :match :label csk/->snake_case)
+        match-label (-> data
+                        :match
+                        :label
+                        (#(clojure.edn/read-string (str "" \" % "\"")))
+                        deaccent
+                        csk/->snake_case)
         dist "src/main/data/graphs/"
         ext (name file-type)]
     (spit
-     (str dist match-label "." ext)
+     (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
      ((output-file-type file-type) graph))
-    (print (str "Success on spit " dist match-label "." ext)))
+    (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext)))
   (print errors))

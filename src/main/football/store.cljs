@@ -1,9 +1,6 @@
-(ns football.store
-  (:require
-   [utils.dom :refer [is-development?]]
-   [football.matches :refer [world-cup-matches-hash]]))
+(ns football.store)
 
-(defonce initial-state (if (is-development?) (world-cup-matches-hash) {}))
+(defonce initial-state {})
 (defonce store (atom initial-state))
 (defn update-store
   [data]

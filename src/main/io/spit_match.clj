@@ -7,7 +7,12 @@
    [clojure.data.json :as json]
    [clojure.pprint :refer [pprint]]
 
-   [utils.core :refer [hash-by output-file-type assoc-names hash-by-id]]))
+   [utils.core :refer [hash-by
+                       output-file-type
+                       assoc-names
+                       deaccent
+                       hash-by-id
+                       championships]]))
 
 ; ==================================
 ; Command Line Options
@@ -16,11 +21,16 @@
               ["-t" "--type TYPE" "File Type (json or edn)"
                :default :edn
                :parse-fn keyword
-               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]])
+               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]
+              ["-c" "--championship CHAMPIONSHIP" "Championship"
+               :parse-fn str
+               :validate [#(some? (some #{%} championships))
+                          (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
 (def file-type (-> args :options :type))
+(def championship (-> args :options :championship))
 (def errors (-> args :errors))
 
 ; ==================================
@@ -35,13 +45,13 @@
                  slurp
                  edn/read-string
                  :tags)
-        match (-> (get-file "matches_World_Cup.json")
+        match (-> (get-file (str "matches_" championship ".json"))
                   slurp
                   json->edn
                   hash-by-id
                   id-keyword)
         reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
-        events-filtered (-> (get-file "events_World_Cup.json")
+        events-filtered (-> (get-file (str "events_" championship ".json"))
                             slurp
                             json->edn
                             (#(filter (fn [e] (= (-> e :match-id) id)) %)))
@@ -86,11 +96,16 @@
 ; ==================================
 (if (-> errors some? not)
   (let [data (get-data)
-        match-label (-> data :match :label csk/->snake_case)
+        match-label (-> data
+                        :match
+                        :label
+                        (#(clojure.edn/read-string (str "" \" % "\"")))
+                        deaccent
+                        csk/->snake_case)
         dist "src/main/data/matches/"
         ext (name file-type)]
     (spit
-     (str dist match-label "." ext)
+     (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
      ((output-file-type file-type) data))
-    (println (str "Success on spit " dist match-label "." ext)))
+    (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext)))
   (print errors))

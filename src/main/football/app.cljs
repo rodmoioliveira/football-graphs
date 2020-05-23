@@ -1,9 +1,9 @@
 (ns football.app
   (:require
-   [clojure.string :refer [split]]
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
                        canvas-dimensions
+                       normalize-filename
                        mobile-mapping
                        hash-by]]
    [utils.dom :refer [reset-dom
@@ -127,8 +127,7 @@
                          keyword
                          matches-files-hash
                          :filename
-                         (split #"\.")
-                         first
+                         normalize-filename
                          set-hash!))]
     (when-not dev-reload?
       (do
@@ -145,7 +144,15 @@
                           (scroll-to-current-match)
                           (stop-simulations)
                           (flush-simulations!))))
-        ; (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
+        ; (plot-matches-list
+        ;  (-> js/document (.querySelector (str "[data-championship='spain-2017']")))
+        ;  (->> matches-files-hash
+        ;       vals
+        ;       (filter #(-> % :championship (= "spain")))
+        ;       (group-by :year)
+        ;       vals
+        ;       first
+        ;       (sort-by :label)))
         (-> toogle-theme$
             (.subscribe #(-> % (merge opts)
                              ((fn [{:keys [theme-text theme]}]
@@ -187,7 +194,7 @@
           ; routing
         (when url-match-id
           (-> dom
-              :matches-list
+              :matches-lists
               (.querySelector (str "[data-match-id='" url-match-id "']"))
               (.click)))))
 
