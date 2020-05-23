@@ -1,4 +1,7 @@
 (ns utils.core
+  #?(:clj
+     (:import java.text.Normalizer
+              java.text.Normalizer$Form))
   (:require
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
@@ -18,6 +21,12 @@
    "Italy"
    "Spain"
    "World_Cup"])
+
+#?(:clj
+   (defn deaccent
+     [str]
+     (let [normalized (java.text.Normalizer/normalize str java.text.Normalizer$Form/NFD)]
+       (str/replace normalized #"\p{InCombiningDiacriticalMarks}+" ""))))
 
 (defn normalize-filename
   [s]
