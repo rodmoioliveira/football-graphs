@@ -22,6 +22,7 @@
                    (take 1000 files)
                    (map #(-> % (.getName)))
                    (filter #(-> % (s/split #"\.") second (= "edn")))
+                   (remove #(or (= % "filenames.edn") (= % "missing.edn")))
                    sort
                    (map (fn [f]
                           (let [data (get-data f)]
@@ -55,4 +56,5 @@
       dist "src/main/data/analysis/"]
   (spit
    (str dist  "filenames.edn")
-   ((output-file-type :edn) data)))
+   ((output-file-type :edn) data))
+  (println (str "Success on spit " dist "filenames.edn")))
