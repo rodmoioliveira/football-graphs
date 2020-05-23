@@ -1,6 +1,7 @@
 (ns utils.dom
   (:require
    [cljs.reader :as reader]
+   [clojure.edn :as edn]
    [clojure.string :refer [split join trim replace]]))
 
 (def dom
@@ -25,15 +26,15 @@
 
 (defn toogle-theme-btn
   [theme-text]
-    (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text)))))
+  (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text)))))
 
 (defn slide-home
   [] (-> dom :slide-view (.setAttribute "data-view" "home")))
 
 (defn slide-graph
   [match-id]
-    (-> dom :plot-section (.setAttribute "data-match-id" match-id))
-    (-> dom :slide-view (.setAttribute "data-view" "graph")))
+  (-> dom :plot-section (.setAttribute "data-match-id" match-id))
+  (-> dom :slide-view (.setAttribute "data-view" "graph")))
 
 (defn activate-nav
   [_] (-> dom :nav (.setAttribute "data-active" 1)))
@@ -97,7 +98,7 @@
 
 (defn toogle-theme
   [theme]
-    (-> dom :body-theme (.setAttribute "data-theme" theme)))
+  (-> dom :body-theme (.setAttribute "data-theme" theme)))
 
 (defn label-dom
   "Create a label for each match."
@@ -116,7 +117,7 @@
      match-id
      "'>
         <span class='label__team1'>"
-     team1
+     (clojure.edn/read-string (str "" \" team1 "\""))
      "</span>
       <span class='label__score1'>"
      score1
@@ -126,7 +127,7 @@
      (-> score2 trim (split " ") first)
      "</span>
         <span class='label__team2'>"
-     team2
+     (clojure.edn/read-string (str "" \" team2 "\""))
      "</span>
       </h2>
      <h3 class='graph__info'>"
@@ -134,7 +135,7 @@
        (str
         group-name
         " | "))
-     venue
+     (clojure.edn/read-string (str "" \" venue "\""))
      " | "
      (-> dateutc (split #" ") first (split #"-") ((fn [[y m d]] [d m y])) (#(join "-" %)))
      "</h3>")))
@@ -190,11 +191,11 @@
       <div class='graph'>
       <p class='graph__confront'>
       <span class='graph__team'>"
-     team1-name
+     (clojure.edn/read-string (str "" \" team1-name "\""))
      "</span>
       <span>
       vs "
-     team2-name
+     (clojure.edn/read-string (str "" \" team2-name "\""))
      "</span>
       </p>"
      (stats-dom team1-ac team1-gc team1-anc)
@@ -215,11 +216,11 @@
      "<div class='graph'>
      <p class='graph__confront'>
       <span class='graph__team'>"
-     team2-name
+     (clojure.edn/read-string (str "" \" team2-name "\""))
      "</span>
       <span>
       vs "
-     team1-name
+     (clojure.edn/read-string (str "" \" team1-name "\""))
      "</span>
       </p>"
      (stats-dom team2-ac team2-gc team2-anc)
@@ -275,8 +276,8 @@
 (defn plot-matches-list
   "Plot list of matches in the dom."
   [el matches]
-    (doseq [match matches]
-      (-> el (.insertAdjacentHTML "beforeend" (match-item match)))))
+  (doseq [match matches]
+    (-> el (.insertAdjacentHTML "beforeend" (match-item match)))))
 
 (defn reset-dom
   "Reset graphs in the dom."
