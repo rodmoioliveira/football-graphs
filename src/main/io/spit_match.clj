@@ -10,6 +10,7 @@
    [utils.core :refer [hash-by
                        output-file-type
                        assoc-names
+                       deaccent
                        hash-by-id
                        championships]]))
 
@@ -95,7 +96,12 @@
 ; ==================================
 (if (-> errors some? not)
   (let [data (get-data)
-        match-label (-> data :match :label csk/->snake_case)
+        match-label (-> data
+                        :match
+                        :label
+                        (#(clojure.edn/read-string (str "" \" % "\"")))
+                        deaccent
+                        csk/->snake_case)
         dist "src/main/data/matches/"
         ext (name file-type)]
     (spit

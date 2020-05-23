@@ -21,6 +21,7 @@
 
    [utils.core :refer [output-file-type
                        hash-by
+                       deaccent
                        hash-by-id
                        metric-range
                        championships]]))
@@ -64,6 +65,8 @@
                       hash-by-id
                       id-keyword
                       :label
+                      (#(clojure.edn/read-string (str "" \" % "\"")))
+                      deaccent
                       csk/->snake_case
                       (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
         data (-> (str path "graphs/" filename) io/resource slurp parse)]
@@ -272,7 +275,11 @@
                       :graph-metrics
                       {(-> teams-ids first) (get-in metrics [0 :graph-metrics])
                        (-> teams-ids second) (get-in metrics [1 :graph-metrics])}))))
-        match-label (-> data :label csk/->snake_case)
+        match-label (-> data
+                        :label
+                        (#(clojure.edn/read-string (str "" \" % "\"")))
+                        deaccent
+                        csk/->snake_case)
         dist "src/main/data/analysis/"
         ext (name file-type)]
     (spit

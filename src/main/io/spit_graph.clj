@@ -11,6 +11,7 @@
 
    [utils.core :refer [output-file-type
                        hash-by-id
+                       deaccent
                        hash-by-name
                        hash-by
                        metric-range
@@ -142,6 +143,8 @@
                       hash-by-id
                       id-keyword
                       :label
+                      (#(clojure.edn/read-string (str "" \" % "\"")))
+                      deaccent
                       csk/->snake_case
                       (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
         data (-> (str path "matches/" filename) io/resource slurp parse)]
@@ -359,7 +362,12 @@
                            ((juxt value) v))))
                       first)}}
 
-        match-label (-> data :match :label csk/->snake_case)
+        match-label (-> data
+                        :match
+                        :label
+                        (#(clojure.edn/read-string (str "" \" % "\"")))
+                        deaccent
+                        csk/->snake_case)
         dist "src/main/data/graphs/"
         ext (name file-type)]
     (spit
