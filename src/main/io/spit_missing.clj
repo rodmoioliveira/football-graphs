@@ -23,7 +23,8 @@
             (-> (difference
                  (-> (get-files-from "matches"))
                  (-> (get-files-from "analysis")))
-                vec)}
+                vec
+                sort)}
       dist "src/main/data/analysis/"]
   (spit
    (str dist "missing.edn")
