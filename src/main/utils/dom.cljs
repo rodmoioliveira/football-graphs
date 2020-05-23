@@ -131,7 +131,7 @@
      "</span>
       </h2>
      <h3 class='graph__info'>"
-     (when (not= "" group-name)
+     (when (and (not= "" group-name) (not= nil group-name))
        (str
         group-name
         " | "))

@@ -12,7 +12,7 @@
 
 .graph__label {
   display: block;
-  font-size: 3rem;
+  font-size: 3vw;
   font-weight: 700;
   text-align: center;
   margin: 0 auto;
@@ -21,11 +21,10 @@
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
-  max-width: 1000px;
 
   @media (max-width: 850px) {
     margin: 3rem auto 0;
-    font-size: 5.8vw;
+    font-size: 4.5vw;
   }
 }
 
@@ -33,10 +32,10 @@
   font-family: 'Alegreya', serif;
   font-weight: 400;
   text-align: center;
-  font-size: 2rem;
+  font-size: 2vw;
   color: var(--gray);
   margin: 0;
-  margin-top: -20px;
+  margin-top: -1vw;
 
   @include strip(
     var(--strip-color),
@@ -47,27 +46,30 @@
   );
 
   @media (max-width: 850px) {
-    margin: 0 0.5rem;
-    font-size: 4.5vw;
+    font-size: 3.5vw;
   }
 }
 
 .label__team1,
 .label__team2 {
-  flex: 0 0 36%;
+  flex: 0 0 42%;
   font-weight: 500;
+
+  @media (max-width: 1220px) {
+    flex: 0 0 39%;
+  }
 }
 
 .label__score1,
 .label__score2 {
   flex: 0 0 3%;
   margin: 0 1rem;
-  font-size: 7rem;
+  font-size: 6vw;
   transition: margin 200ms ease;
 
   @media (max-width: 850px) {
     margin: 0 0.5rem;
-    font-size: 12vw;
+    font-size: 10vw;
   }
 }
 
