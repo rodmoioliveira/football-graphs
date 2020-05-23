@@ -27,8 +27,16 @@ figure {
   display: block;
   margin: 0 auto;
   height: 120px;
+
+  @media (max-width: 490px) {
+    height: 25vw;
+  }
 }
 
 .world_cup_2018 {
   height: 170px;
+
+  @media (max-width: 490px) {
+    height: 30vw;
+  }
 }
