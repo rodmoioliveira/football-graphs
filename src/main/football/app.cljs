@@ -144,14 +144,22 @@
                           (scroll-to-current-match)
                           (stop-simulations)
                           (flush-simulations!))))
+        ; (->> matches-files-hash
+        ;      vals
+        ;      (filter #(-> % :championship (= "italy")))
+        ;      (group-by :year)
+        ;      vals
+        ;      first
+        ;      clj->js
+        ;      js/console.log)
         ; (plot-matches-list
-        ;  (-> js/document (.querySelector (str "[data-championship='spain-2017']")))
+        ;  (-> js/document (.querySelector (str "[data-championship='italy-2017']")))
         ;  (->> matches-files-hash
         ;       vals
-        ;       (filter #(-> % :championship (= "spain")))
+        ;       (filter #(-> % :championship (= "italy")))
         ;       (group-by :year)
         ;       vals
-        ;       first
+        ;       second
         ;       (sort-by :label)))
         (-> toogle-theme$
             (.subscribe #(-> % (merge opts)

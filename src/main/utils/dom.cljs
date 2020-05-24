@@ -135,8 +135,10 @@
        (str
         group-name
         " | "))
-     (clojure.edn/read-string (str "" \" venue "\""))
-     " | "
+     (when (and (not= "" venue) (not= nil venue))
+       (str
+        (clojure.edn/read-string (str "" \" venue "\""))
+        " | "))
      (-> dateutc (split #" ") first (split #"-") ((fn [[y m d]] [d m y])) (#(join "-" %)))
      "</h3>")))
 
