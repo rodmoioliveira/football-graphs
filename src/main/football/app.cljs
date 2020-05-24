@@ -146,17 +146,17 @@
                           (flush-simulations!))))
         ; (->> matches-files-hash
         ;      vals
-        ;      (filter #(-> % :championship (= "italy")))
+        ;      (filter #(-> % :championship (= "germany")))
         ;      (group-by :year)
         ;      vals
-        ;      first
+        ;      ; first
         ;      clj->js
         ;      js/console.log)
         ; (plot-matches-list
-        ;  (-> js/document (.querySelector (str "[data-championship='italy-2017']")))
+        ;  (-> js/document (.querySelector (str "[data-championship='germany-2017']")))
         ;  (->> matches-files-hash
         ;       vals
-        ;       (filter #(-> % :championship (= "italy")))
+        ;       (filter #(-> % :championship (= "germany")))
         ;       (group-by :year)
         ;       vals
         ;       second
