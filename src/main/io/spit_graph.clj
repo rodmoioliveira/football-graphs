@@ -84,8 +84,8 @@
                :validate [#(some? (some #{%} championships))
                           (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
-(def id (-> args :options :id edn/read-string))
-(def id-keyword (-> id str keyword))
+(def ids (-> args :options :id (s/split #" ") (#(map (fn [id] (-> id Integer.)) %))))
+(def ids-keyword (->> ids (map str) (map keyword)))
 (def championship (-> args :options :championship))
 (def errors (-> args :errors))
 
@@ -113,26 +113,29 @@
 
 (def teams-id-hashmap (get-teams-id-hashmap))
 (def teams-name-hashmap (get-teams-name-hashmap))
+(def path "data/")
+(def get-file #(io/resource (str path %)))
+(def json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case))))
+(def matches
+  (->>
+   (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
+   slurp
+   json->edn
+   hash-by-id))
 
 ; ==================================
 ; Fetch Data
 ; ==================================
 (defn get-data
-  [file-type]
-  (let [path "data/"
-        get-file #(io/resource (str path %))
-        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
-        parse (if (= file-type :edn) edn/read-string json->edn)
-        filename (->> (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
-                      slurp
-                      json->edn
-                      hash-by-id
+  [file-type id-keyword]
+  (let [parse (if (= file-type :edn) edn/read-string json->edn)
+        filename (->> matches
                       id-keyword
                       :label
                       (#(clojure.edn/read-string (str "" \" % "\"")))
                       deaccent
                       csk/->snake_case
-                      (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-type))))
+                      (#(str (csk/->snake_case championship) "_" % "_" (-> id-keyword name) "." (name file-type))))
         data (-> (str path "matches/" filename) io/resource slurp parse)]
     data))
 
@@ -285,8 +288,9 @@
 ; IO
 ; ==================================
 (if (-> errors some? not)
-  (doseq [file-ext [:edn :json]]
-    (let [data (get-data file-ext)
+  (doseq [id-keyword ids-keyword]
+    (let [data (get-data :edn id-keyword)
+          id (-> id-keyword name)
           nodes (get-nodes data)
           links (links data nodes)
           average-pos (get-average-pos data nodes)
@@ -355,10 +359,11 @@
                           (#(clojure.edn/read-string (str "" \" % "\"")))
                           deaccent
                           csk/->snake_case)
-          dist "src/main/data/graphs/"
-          ext (name file-ext)]
-      (spit
-       (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
-       ((output-file-type file-ext) graph))
-      (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))))
+          dist "src/main/data/graphs/"]
+      (doseq [file-ext [:edn :json]]
+        (let [ext (name file-ext)]
+          (spit
+           (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
+           ((output-file-type file-ext) graph))
+          (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))))))
   (print errors))
