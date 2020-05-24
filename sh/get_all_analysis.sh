@@ -8,8 +8,7 @@ do
   printf "Calculating metrics for graph $id \n"
   printf "This operations may take a while, please be patient...\n"
   printf "===========================================================\n"
-  clj src/main/io/spit_graph_analysis.clj --id=$id --type=edn --championship=$championship
-  clj src/main/io/spit_graph_analysis.clj --id=$id --type=json --championship=$championship
+  clj src/main/io/spit_graph_analysis.clj --id=$id --championship=$championship
   printf "Done!\n"
 done
 

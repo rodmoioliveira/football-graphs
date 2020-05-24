@@ -7,8 +7,7 @@ do
   printf "===========================================================\n"
   printf "Creating graph for match $id \n"
   printf "===========================================================\n"
-  clj src/main/io/spit_graph.clj --id=$id --type=edn --championship=$championship
-  clj src/main/io/spit_graph.clj --id=$id --type=json --championship=$championship
+  clj src/main/io/spit_graph.clj --id=$id --championship=$championship
   printf "Done!"
 done
 

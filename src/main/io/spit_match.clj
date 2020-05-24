@@ -18,10 +18,6 @@
 ; Command Line Options
 ; ==================================
 (def options [["-i" "--id ID" "Match ID"]
-              ["-t" "--type TYPE" "File Type (json or edn)"
-               :default :edn
-               :parse-fn keyword
-               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]
               ["-c" "--championship CHAMPIONSHIP" "Championship"
                :parse-fn str
                :validate [#(some? (some #{%} championships))
@@ -29,7 +25,6 @@
 (def args (-> *command-line-args* (parse-opts options)))
 (def id (-> args :options :id edn/read-string))
 (def id-keyword (-> id str keyword))
-(def file-type (-> args :options :type))
 (def championship (-> args :options :championship))
 (def errors (-> args :errors))
 
@@ -103,9 +98,10 @@
                         deaccent
                         csk/->snake_case)
         dist "src/main/data/matches/"
-        ext (name file-type)]
-    (spit
-     (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
-     ((output-file-type file-type) data))
-    (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext)))
+        file-extentions [:edn :json]]
+    (doseq [file-ext file-extentions]
+      (spit
+       (str dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))
+       ((output-file-type file-ext) data))
+      (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext)))))
   (print errors))
