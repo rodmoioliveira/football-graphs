@@ -45,6 +45,8 @@
   (-> (get-file (str "events_" championship ".json"))
       slurp
       json->edn))
+(def events-hash
+  (->> events-raw (group-by :match-id)))
 
 ; ==================================
 ; Fetch Data
@@ -54,8 +56,8 @@
   (let [match (-> matches-raw
                   id-keyword)
         reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
-        events-filtered (-> events-raw
-                            (#(filter (fn [e] (= (-> e :match-id) (-> id-keyword name Integer.))) %)))
+        events-filtered (-> events-hash
+                            (get-in [(-> id-keyword name Integer.)]))
         players-national-teams-hash (->> events-filtered
                                          (map (fn [{:keys [player-id team-id]}]
                                                 {:player-id player-id :team-id team-id}))
