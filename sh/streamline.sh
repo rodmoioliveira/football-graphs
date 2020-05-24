@@ -34,12 +34,15 @@ else
   printf "===========================================================\n"
   clj src/main/io/spit_match.clj --id="$ids" --championship=$championship
   printf "Done!\n"
+
+  printf "===========================================================\n"
+  printf "Creating graphs for $championship. Please wait...\n"
+  printf "===========================================================\n"
+  clj src/main/io/spit_graph.clj --id="$ids" --championship=$championship
+  printf "Done!\n"
+
   for id in $ids
   do
-    printf "===========================================================\n"
-    printf "Creating graph...\n"
-    printf "===========================================================\n"
-    clj src/main/io/spit_graph.clj --id=$id --championship=$championship
     printf "===========================================================\n"
     printf "Calculating metrics...\n"
     printf "This operations may take a while, please be patient...\n"
