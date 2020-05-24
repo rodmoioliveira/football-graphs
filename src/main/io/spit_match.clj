@@ -5,6 +5,7 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [clojure.string :as s]
    [clojure.pprint :refer [pprint]]
 
    [utils.core :refer [hash-by
@@ -23,33 +24,38 @@
                :validate [#(some? (some #{%} championships))
                           (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
-(def id (-> args :options :id edn/read-string))
-(def id-keyword (-> id str keyword))
+(def ids (-> args :options :id (s/split #" ") (#(map (fn [id] (-> id Integer.)) %))))
+(def ids-keyword (->> ids (map str) (map keyword)))
 (def championship (-> args :options :championship))
 (def errors (-> args :errors))
+
+(def path "data/soccer_match_event_dataset/")
+(def get-file #(io/resource (str path %)))
+(def json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case))))
+(def tags (-> (io/resource "data/meta/meta.edn")
+              slurp
+              edn/read-string
+              :tags))
+(def matches-raw
+  (-> (get-file (str "matches_" championship ".json"))
+      slurp
+      json->edn
+      hash-by-id))
+(def events-raw
+  (-> (get-file (str "events_" championship ".json"))
+      slurp
+      json->edn))
 
 ; ==================================
 ; Fetch Data
 ; ==================================
 (defn get-data
-  []
-  (let [path "data/soccer_match_event_dataset/"
-        get-file #(io/resource (str path %))
-        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
-        tags (-> (io/resource "data/meta/meta.edn")
-                 slurp
-                 edn/read-string
-                 :tags)
-        match (-> (get-file (str "matches_" championship ".json"))
-                  slurp
-                  json->edn
-                  hash-by-id
+  [id-keyword]
+  (let [match (-> matches-raw
                   id-keyword)
         reduce-by (fn [prop v] (reduce (partial hash-by prop) (sorted-map) v))
-        events-filtered (-> (get-file (str "events_" championship ".json"))
-                            slurp
-                            json->edn
-                            (#(filter (fn [e] (= (-> e :match-id) id)) %)))
+        events-filtered (-> events-raw
+                            (#(filter (fn [e] (= (-> e :match-id) (-> id-keyword name Integer.))) %)))
         players-national-teams-hash (->> events-filtered
                                          (map (fn [{:keys [player-id team-id]}]
                                                 {:player-id player-id :team-id team-id}))
@@ -90,18 +96,20 @@
 ; IO
 ; ==================================
 (if (-> errors some? not)
-  (let [data (get-data)
-        match-label (-> data
-                        :match
-                        :label
-                        (#(clojure.edn/read-string (str "" \" % "\"")))
-                        deaccent
-                        csk/->snake_case)
-        dist "src/main/data/matches/"
-        file-extentions [:edn :json]]
-    (doseq [file-ext file-extentions]
-      (spit
-       (str dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))
-       ((output-file-type file-ext) data))
-      (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext)))))
+  (doseq [id-keyword ids-keyword]
+    (let [data (get-data id-keyword)
+          id (-> id-keyword name)
+          match-label (-> data
+                          :match
+                          :label
+                          (#(clojure.edn/read-string (str "" \" % "\"")))
+                          deaccent
+                          csk/->snake_case)
+          dist "src/main/data/matches/"
+          file-extentions [:edn :json]]
+      (doseq [file-ext file-extentions]
+        (spit
+         (str dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))
+         ((output-file-type file-ext) data))
+        (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))))))
   (print errors))

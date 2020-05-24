@@ -29,12 +29,13 @@ then
   clj src/main/io/spit_missing.clj
   printf "===========================================================\n"
 else
+  printf "===========================================================\n"
+  printf "Fetching matches of $championship from dataset. Please wait...\n"
+  printf "===========================================================\n"
+  clj src/main/io/spit_match.clj --id="$ids" --championship=$championship
+  printf "Done!\n"
   for id in $ids
   do
-    printf "===========================================================\n"
-    printf "Fetching match $id from dataset. Please wait...\n"
-    printf "===========================================================\n"
-    clj src/main/io/spit_match.clj --id=$id --championship=$championship
     printf "===========================================================\n"
     printf "Creating graph...\n"
     printf "===========================================================\n"
