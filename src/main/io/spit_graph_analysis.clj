@@ -226,67 +226,70 @@
 (if (-> errors some? not)
   (do
     (doseq [id-keyword ids-keyword]
-      (let [data (get-data :edn id-keyword)
-            id (-> id-keyword name)
-            teams-ids (-> data
-                          :nodes
-                          keys
-                          (#(map (fn [id] (-> id name Integer.)) %))
-                          (#(sort %))
-                          (#(map (fn [id] (-> id str keyword)) %)))
-            nodes (-> data
+      (try
+        (let [data (get-data :edn id-keyword)
+              id (-> id-keyword name)
+              teams-ids (-> data
+                            :nodes
+                            keys
+                            (#(map (fn [id] (-> id name Integer.)) %))
+                            (#(sort %))
+                            (#(map (fn [id] (-> id str keyword)) %)))
+              nodes (-> data
+                        :nodes
+                        vals
+                        (#(sort-by (fn [t] (-> t first :current-national-team-id)) %)))
+              links (-> data
+                        :links
+                        vals
+                        (#(sort-by (fn [t] (-> t first :team-id)) %)))
+              team-1 (-> [nodes links] (#(map first %)))
+              team-2 (-> [nodes links] (#(map second %)))
+              metrics [(create-graph team-1)
+                       (create-graph team-2)]
+              graph
+              (-> data
+                  ((fn [d]
+                     (assoc
+                      d
                       :nodes
-                      vals
-                      (#(sort-by (fn [t] (-> t first :current-national-team-id)) %)))
-            links (-> data
-                      :links
-                      vals
-                      (#(sort-by (fn [t] (-> t first :team-id)) %)))
-            team-1 (-> [nodes links] (#(map first %)))
-            team-2 (-> [nodes links] (#(map second %)))
-            metrics [(create-graph team-1)
-                     (create-graph team-2)]
-            graph
-            (-> data
-                ((fn [d]
-                   (assoc
-                    d
-                    :nodes
-                    {(-> teams-ids first)
-                     (-> nodes
-                         first
-                         (#(map (fn
-                                  [n]
-                                  (assoc
-                                   n
-                                   :metrics
-                                   (get-in metrics [0 :vertex-set (-> n :id keyword) :metrics])))
-                                %)))
-                     (-> teams-ids second)
-                     (-> nodes
-                         second
-                         (#(map (fn
-                                  [n]
-                                  (assoc
-                                   n
-                                   :metrics
-                                   (get-in metrics [1 :vertex-set (-> n :id keyword) :metrics])))
-                                %)))}
-                    :min-max-values (merge (-> data :min-max-values) (get-metrics-ranges metrics))
-                    :graph-metrics
-                    {(-> teams-ids first) (get-in metrics [0 :graph-metrics])
-                     (-> teams-ids second) (get-in metrics [1 :graph-metrics])}))))
-            match-label (-> data
-                            :label
-                            (#(clojure.edn/read-string (str "" \" % "\"")))
-                            deaccent
-                            csk/->snake_case)
-            dist "src/main/data/analysis/"]
-        (doseq [file-ext [:edn :json]]
-          (let [ext (name file-ext)]
-            (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))
-            (spit
-             (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
-             ((output-file-type file-ext) graph))))))
+                      {(-> teams-ids first)
+                       (-> nodes
+                           first
+                           (#(map (fn
+                                    [n]
+                                    (assoc
+                                     n
+                                     :metrics
+                                     (get-in metrics [0 :vertex-set (-> n :id keyword) :metrics])))
+                                  %)))
+                       (-> teams-ids second)
+                       (-> nodes
+                           second
+                           (#(map (fn
+                                    [n]
+                                    (assoc
+                                     n
+                                     :metrics
+                                     (get-in metrics [1 :vertex-set (-> n :id keyword) :metrics])))
+                                  %)))}
+                      :min-max-values (merge (-> data :min-max-values) (get-metrics-ranges metrics))
+                      :graph-metrics
+                      {(-> teams-ids first) (get-in metrics [0 :graph-metrics])
+                       (-> teams-ids second) (get-in metrics [1 :graph-metrics])}))))
+              match-label (-> data
+                              :label
+                              (#(clojure.edn/read-string (str "" \" % "\"")))
+                              deaccent
+                              csk/->snake_case)
+              dist "src/main/data/analysis/"]
+          (doseq [file-ext [:edn :json]]
+            (let [ext (name file-ext)]
+              (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))
+              (spit
+               (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
+               ((output-file-type file-ext) graph)))))
+        (catch Exception e (println (str "caught exception: " (.getMessage e))))))
+
     (System/exit 0))
   (print errors))

@@ -289,81 +289,84 @@
 ; ==================================
 (if (-> errors some? not)
   (doseq [id-keyword ids-keyword]
-    (let [data (get-data :edn id-keyword)
-          id (-> id-keyword name)
-          nodes (get-nodes data)
-          links (links data nodes)
-          average-pos (get-average-pos data nodes)
-          [teams-str] (-> data :match :label (s/split #","))
-          [team1 team2] (-> teams-str (s/split #"-") (#(map s/trim %)) (#(map keyword %)))
-          edges (-> links
-                    (#(reduce
-                       (fn
-                         [acc cur]
-                         (assoc-in
-                          acc
-                          [(-> cur first :team-id str keyword)]
-                          cur)) {} %)))
-          graph
-          {:match-id (-> id Integer.)
-           :label (-> data :match :label)
-           :teams-info (-> edges
-                           keys
-                           ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
-                           hash-by-id)
-           :match-info
-           {:winner (-> data :match :winner)
-            :competition-id (-> data :match :competition-id)
-            :home-away {:home (-> teams-name-hashmap team1 :wy-id)
-                        :away (-> teams-name-hashmap team2 :wy-id)}
-            :gameweek (-> data :match :gameweek)
-            :duration (-> data :match :duration)
-            :season-id (-> data :match :season-id)
-            :round-id (-> data :match :round-id)
-            :group-name (-> data :match :group-name)
-            :status (-> data :match :status)
-            :venue (-> data :match :venue)
-            :dateutc (-> data :match :dateutc)}
-           :nodes (-> nodes
-                      :nodes
-                      (#(map (fn
-                               [team]
-                               (map
-                                (fn [node] (merge
-                                            node
-                                            {:average-pos
-                                             (-> average-pos
-                                                 (get-in [(-> node :current-national-team-id str keyword)
-                                                          :positions
-                                                          (-> node :pos str keyword)
-                                                          :med-position]))}))
-                                team)) %))
+    (try
+      (let [data (get-data :edn id-keyword)
+            id (-> id-keyword name)
+            nodes (get-nodes data)
+            links (links data nodes)
+            average-pos (get-average-pos data nodes)
+            [teams-str] (-> data :match :label (s/split #","))
+            [team1 team2] (-> teams-str (s/split #"-") (#(map s/trim %)) (#(map keyword %)))
+            edges (-> links
                       (#(reduce
-                         (fn [acc cur]
+                         (fn
+                           [acc cur]
                            (assoc-in
                             acc
-                            [(-> cur first :current-national-team-id str keyword)]
+                            [(-> cur first :team-id str keyword)]
                             cur)) {} %)))
-           :links edges
-           :min-max-values
-           {:passes (-> links
-                        flatten
-                        ((fn [v]
-                           (let [value (metric-range :value)]
-                             ((juxt value) v))))
-                        first)}}
+            graph
+            {:match-id (-> id Integer.)
+             :label (-> data :match :label)
+             :teams-info (-> edges
+                             keys
+                             ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
+                             hash-by-id)
+             :match-info
+             {:winner (-> data :match :winner)
+              :competition-id (-> data :match :competition-id)
+              :home-away {:home (-> teams-name-hashmap team1 :wy-id)
+                          :away (-> teams-name-hashmap team2 :wy-id)}
+              :gameweek (-> data :match :gameweek)
+              :duration (-> data :match :duration)
+              :season-id (-> data :match :season-id)
+              :round-id (-> data :match :round-id)
+              :group-name (-> data :match :group-name)
+              :status (-> data :match :status)
+              :venue (-> data :match :venue)
+              :dateutc (-> data :match :dateutc)}
+             :nodes (-> nodes
+                        :nodes
+                        (#(map (fn
+                                 [team]
+                                 (map
+                                  (fn [node] (merge
+                                              node
+                                              {:average-pos
+                                               (-> average-pos
+                                                   (get-in [(-> node :current-national-team-id str keyword)
+                                                            :positions
+                                                            (-> node :pos str keyword)
+                                                            :med-position]))}))
+                                  team)) %))
+                        (#(reduce
+                           (fn [acc cur]
+                             (assoc-in
+                              acc
+                              [(-> cur first :current-national-team-id str keyword)]
+                              cur)) {} %)))
+             :links edges
+             :min-max-values
+             {:passes (-> links
+                          flatten
+                          ((fn [v]
+                             (let [value (metric-range :value)]
+                               ((juxt value) v))))
+                          first)}}
 
-          match-label (-> data
-                          :match
-                          :label
-                          (#(clojure.edn/read-string (str "" \" % "\"")))
-                          deaccent
-                          csk/->snake_case)
-          dist "src/main/data/graphs/"]
-      (doseq [file-ext [:edn :json]]
-        (let [ext (name file-ext)]
-          (spit
-           (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
-           ((output-file-type file-ext) graph))
-          (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))))))
+            match-label (-> data
+                            :match
+                            :label
+                            (#(clojure.edn/read-string (str "" \" % "\"")))
+                            deaccent
+                            csk/->snake_case)
+            dist "src/main/data/graphs/"]
+        (doseq [file-ext [:edn :json]]
+          (let [ext (name file-ext)]
+            (spit
+             (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
+             ((output-file-type file-ext) graph))
+            (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext)))))
+      (catch Exception e (println (str "caught exception: " (.getMessage e))))))
+
   (print errors))

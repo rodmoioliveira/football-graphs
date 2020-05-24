@@ -99,19 +99,21 @@
 ; ==================================
 (if (-> errors some? not)
   (doseq [id-keyword ids-keyword]
-    (let [data (get-data id-keyword)
-          id (-> id-keyword name)
-          match-label (-> data
-                          :match
-                          :label
-                          (#(clojure.edn/read-string (str "" \" % "\"")))
-                          deaccent
-                          csk/->snake_case)
-          dist "src/main/data/matches/"
-          file-extentions [:edn :json]]
-      (doseq [file-ext file-extentions]
-        (spit
-         (str dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))
-         ((output-file-type file-ext) data))
-        (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))))))
+    (try
+      (let [data (get-data id-keyword)
+            id (-> id-keyword name)
+            match-label (-> data
+                            :match
+                            :label
+                            (#(clojure.edn/read-string (str "" \" % "\"")))
+                            deaccent
+                            csk/->snake_case)
+            dist "src/main/data/matches/"
+            file-extentions [:edn :json]]
+        (doseq [file-ext file-extentions]
+          (spit
+           (str dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext))
+           ((output-file-type file-ext) data))
+          (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." (name file-ext)))))
+      (catch Exception e (println (str "caught exception: " (.getMessage e))))))
   (print errors))
