@@ -16,6 +16,7 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [clojure.string :as st]
    [libpython-clj.require :refer [require-python]]
    [libpython-clj.python :as py :refer [py. py.. py.-]]
 
@@ -40,30 +41,34 @@
                :validate [#(some? (some #{%} championships))
                           (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
-(def id (-> args :options :id edn/read-string))
-(def id-keyword (-> id str keyword))
+(def ids (-> args :options :id (st/split #" ") (#(map (fn [id] (-> id Integer.)) %))))
+(def ids-keyword (->> ids (map str) (map keyword)))
 (def championship (-> args :options :championship))
 (def errors (-> args :errors))
+
+(def path "data/")
+(def get-file #(io/resource (str path %)))
+(def json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case))))
+(def matches
+  (->>
+   (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
+   slurp
+   json->edn
+   hash-by-id))
 
 ; ==================================
 ; Fetch Data
 ; ==================================
 (defn get-data
-  [file-ext]
-  (let [path "data/"
-        get-file #(io/resource (str path %))
-        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
-        parse (if (= file-ext :edn) edn/read-string json->edn)
-        filename (->> (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
-                      slurp
-                      json->edn
-                      hash-by-id
+  [file-ext id-keyword]
+  (let [parse (if (= file-ext :edn) edn/read-string json->edn)
+        filename (->> matches
                       id-keyword
                       :label
                       (#(clojure.edn/read-string (str "" \" % "\"")))
                       deaccent
                       csk/->snake_case
-                      (#(str (csk/->snake_case championship) "_" % "_" id "." (name file-ext))))
+                      (#(str (csk/->snake_case championship) "_" % "_" (-> id-keyword name) "." (name file-ext))))
         data (-> (str path "graphs/" filename) io/resource slurp parse)]
     data))
 
@@ -220,8 +225,9 @@
 ; ==================================
 (if (-> errors some? not)
   (do
-    (doseq [file-ext [:edn :json]]
-      (let [data (get-data file-ext)
+    (doseq [id-keyword ids-keyword]
+      (let [data (get-data :edn id-keyword)
+            id (-> id-keyword name)
             teams-ids (-> data
                           :nodes
                           keys
@@ -275,11 +281,12 @@
                             (#(clojure.edn/read-string (str "" \" % "\"")))
                             deaccent
                             csk/->snake_case)
-            dist "src/main/data/analysis/"
-            ext (name file-ext)]
-        (spit
-         (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
-         ((output-file-type file-ext) graph))
-        (print (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))))
+            dist "src/main/data/analysis/"]
+        (doseq [file-ext [:edn :json]]
+          (let [ext (name file-ext)]
+            (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))
+            (spit
+             (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
+             ((output-file-type file-ext) graph))))))
     (System/exit 0))
   (print errors))
