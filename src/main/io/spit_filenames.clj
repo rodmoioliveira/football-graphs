@@ -19,7 +19,7 @@
                               slurp
                               edn/read-string))
         all-files (->>
-                   (take 10000 files)
+                   (take 100000 files)
                    (map #(-> % (.getName)))
                    (filter #(-> % (s/split #"\.") second (= "edn")))
                    (remove #(or (= % "filenames.edn") (= % "missing.edn")))

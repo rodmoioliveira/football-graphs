@@ -60,8 +60,7 @@
       (.then (fn [data] (-> (reader/read-string data)
                             ((fn [v] (doseq [f fns] (f v)))))))))
 
-; TODO: change do master
-(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/import-all-dataset/src/main/data/analysis/")
+(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/src/main/data/analysis/")
 
 (defn fetch-file
   [filename fns]
@@ -135,8 +134,10 @@
        (str
         group-name
         " | "))
-     (clojure.edn/read-string (str "" \" venue "\""))
-     " | "
+     (when (and (not= "" venue) (not= nil venue))
+       (str
+        (clojure.edn/read-string (str "" \" venue "\""))
+        " | "))
      (-> dateutc (split #" ") first (split #"-") ((fn [[y m d]] [d m y])) (#(join "-" %)))
      "</h3>")))
 
