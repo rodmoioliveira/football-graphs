@@ -10,7 +10,7 @@
   (->>
    (clojure.java.io/file (str "./src/main/data/" dir "/"))
    file-seq
-   (take 1000)
+   (take 100000)
    (map #(-> % (.getName)))
    (filter #(-> % (s/split #"\.") second (= "edn")))
    (remove #(or (= % "filenames.edn") (= % "missing.edn")))
