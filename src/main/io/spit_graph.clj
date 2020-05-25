@@ -12,7 +12,6 @@
    [utils.core :refer [output-file-type
                        hash-by-id
                        deaccent
-                       hash-by-name
                        hash-by
                        metric-range
                        championships]]))
@@ -100,19 +99,7 @@
                   hash-by-id)]
     data))
 
-(defn get-teams-name-hashmap
-  []
-  (let [path "data/"
-        get-file #(io/resource (str path %))
-        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
-        data (->> (get-file "soccer_match_event_dataset/teams.json")
-                  slurp
-                  json->edn
-                  hash-by-name)]
-    data))
-
 (def teams-id-hashmap (get-teams-id-hashmap))
-(def teams-name-hashmap (get-teams-name-hashmap))
 (def path "data/")
 (def get-file #(io/resource (str path %)))
 (def json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case))))
@@ -296,7 +283,7 @@
             links (links data nodes)
             average-pos (get-average-pos data nodes)
             [teams-str] (-> data :match :label (s/split #","))
-            [team1 team2] (-> teams-str (s/split #"-") (#(map s/trim %)) (#(map keyword %)))
+            [team1 team2] (-> teams-str (s/split #" - ") (#(map s/trim %)) (#(map keyword %)))
             edges (-> links
                       (#(reduce
                          (fn
@@ -305,18 +292,28 @@
                             acc
                             [(-> cur first :team-id str keyword)]
                             cur)) {} %)))
+            teams-info (-> edges
+                           keys
+                           ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
+                           hash-by-id)
+            teams-info-pool (-> teams-info
+                                vals
+                                (project [:name :wy-id]))
             graph
             {:match-id (-> id Integer.)
              :label (-> data :match :label)
-             :teams-info (-> edges
-                             keys
-                             ((fn [ks] (map (fn [k] (-> teams-id-hashmap k)) ks)))
-                             hash-by-id)
+             :teams-info teams-info
              :match-info
              {:winner (-> data :match :winner)
               :competition-id (-> data :match :competition-id)
-              :home-away {:home (-> teams-name-hashmap team1 :wy-id)
-                          :away (-> teams-name-hashmap team2 :wy-id)}
+              :home-away {:home (->> teams-info-pool
+                                     (filter (fn [{:keys [name]}] (s/includes? team1 name)))
+                                     (map :wy-id)
+                                     first)
+                          :away (->> teams-info-pool
+                                     (filter (fn [{:keys [name]}] (s/includes? team2 name)))
+                                     (map :wy-id)
+                                     first)}
               :gameweek (-> data :match :gameweek)
               :duration (-> data :match :duration)
               :season-id (-> data :match :season-id)
