@@ -60,8 +60,7 @@
       (.then (fn [data] (-> (reader/read-string data)
                             ((fn [v] (doseq [f fns] (f v)))))))))
 
-; TODO: change do master
-(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/import-all-dataset/src/main/data/analysis/")
+(def base-url "https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/src/main/data/analysis/")
 
 (defn fetch-file
   [filename fns]
