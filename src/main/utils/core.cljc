@@ -1,14 +1,41 @@
 (ns utils.core
+  #?(:clj
+     (:import java.text.Normalizer
+              java.text.Normalizer$Form))
   (:require
-   [clojure.string :refer [split]]
    [camel-snake-kebab.core :as csk]
    [clojure.pprint :as pp]
+   [clojure.string :as str]
    [project-specs :as pspecs]
    #?(:clj [clojure.spec.test.alpha :as stest]
       :cljs [cljs.spec.test.alpha :as stest :include-macros true])
    #?(:clj [clojure.spec.alpha :as s]
       :cljs [cljs.spec.alpha :as s] :include-macros true)
    #?(:clj [clojure.data.json :as json])))
+
+(def championships
+  ["England"
+   "European_Championship"
+   "France"
+   "Germany"
+   "Italy"
+   "Spain"
+   "World_Cup"])
+
+#?(:clj
+   (defn deaccent
+     [str]
+     (let [normalized (java.text.Normalizer/normalize str java.text.Normalizer$Form/NFD)]
+       (str/replace normalized #"\p{InCombiningDiacriticalMarks}+" ""))))
+
+(defn normalize-filename
+  [s]
+  (-> s
+      (str/split #"\.")
+      first
+      (str/replace #"\(_p\)_" "")
+      (str/replace #"\(_e\)_" "")
+      (str/replace #"," "")))
 
 #?(:clj (defn max-val [m] {:max (reduce max m)}))
 #?(:cljs (defn max-val [m] (reduce max m)))
@@ -76,18 +103,18 @@
 #?(:cljs
    (defn set-canvas-dimensions
      [scale]
-     {:gol-bottom (fn [c] (do
-                            (set! (.-height c) (-> (canvas-dimensions scale) first))
-                            (set! (.-width c) (-> (canvas-dimensions scale) second))))
-      :gol-top (fn [c] (do
-                         (set! (.-height c) (-> (canvas-dimensions scale) first))
-                         (set! (.-width c) (-> (canvas-dimensions scale) second))))
-      :gol-left (fn [c] (do
-                          (set! (.-height c) (-> (canvas-dimensions scale) second))
-                          (set! (.-width c) (-> (canvas-dimensions scale) first))))
-      :gol-right (fn [c] (do
-                           (set! (.-height c) (-> (canvas-dimensions scale) second))
-                           (set! (.-width c) (-> (canvas-dimensions scale) first))))}))
+     {:gol-bottom (fn [c]
+                    (set! (.-height c) (-> (canvas-dimensions scale) first))
+                    (set! (.-width c) (-> (canvas-dimensions scale) second)))
+      :gol-top (fn [c]
+                 (set! (.-height c) (-> (canvas-dimensions scale) first))
+                 (set! (.-width c) (-> (canvas-dimensions scale) second)))
+      :gol-left (fn [c]
+                  (set! (.-height c) (-> (canvas-dimensions scale) second))
+                  (set! (.-width c) (-> (canvas-dimensions scale) first)))
+      :gol-right (fn [c]
+                   (set! (.-height c) (-> (canvas-dimensions scale) second))
+                   (set! (.-width c) (-> (canvas-dimensions scale) first)))}))
 
 #?(:cljs
    (def mobile-mapping

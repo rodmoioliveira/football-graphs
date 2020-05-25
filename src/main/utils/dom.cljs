@@ -1,6 +1,7 @@
 (ns utils.dom
   (:require
    [cljs.reader :as reader]
+   [clojure.edn :as edn]
    [clojure.string :refer [split join trim replace]]))
 
 (def dom
@@ -17,7 +18,7 @@
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
    :plot-section (-> js/document (.getElementById "data-plot-graphs"))
-   :matches-list (-> js/document (.getElementById "matches__list"))
+   :matches-lists (-> js/document (.getElementById "matches__lists"))
    :slider-graph (-> js/document (.querySelector ".slider__graph"))
    :slider-home (-> js/document (.querySelector ".slider__home"))
    :slide-to-home (-> js/document (.querySelector "[data-slide-to-home]"))
@@ -25,17 +26,15 @@
 
 (defn toogle-theme-btn
   [theme-text]
-  (do
-    (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text))))))
+  (-> dom :theme-btn ((fn [el] (set! (.-innerHTML el) theme-text)))))
 
 (defn slide-home
   [] (-> dom :slide-view (.setAttribute "data-view" "home")))
 
 (defn slide-graph
   [match-id]
-  (do
-    (-> dom :plot-section (.setAttribute "data-match-id" match-id))
-    (-> dom :slide-view (.setAttribute "data-view" "graph"))))
+  (-> dom :plot-section (.setAttribute "data-match-id" match-id))
+  (-> dom :slide-view (.setAttribute "data-view" "graph")))
 
 (defn activate-nav
   [_] (-> dom :nav (.setAttribute "data-active" 1)))
@@ -80,7 +79,7 @@
   (-> dom
       :plot-section
       (.getAttribute "data-match-id")
-      (#(-> dom :matches-list (.querySelector (str "[data-match-id='" % "']"))))
+      (#(-> dom :matches-lists (.querySelector (str "[data-match-id='" % "']"))))
       (.scrollIntoView #js {:block "center"})))
 
 (defn scroll-top
@@ -98,8 +97,7 @@
 
 (defn toogle-theme
   [theme]
-  (do
-    (-> dom :body-theme (.setAttribute "data-theme" theme))))
+  (-> dom :body-theme (.setAttribute "data-theme" theme)))
 
 (defn label-dom
   "Create a label for each match."
@@ -118,7 +116,7 @@
      match-id
      "'>
         <span class='label__team1'>"
-     team1
+     (clojure.edn/read-string (str "" \" team1 "\""))
      "</span>
       <span class='label__score1'>"
      score1
@@ -128,16 +126,18 @@
      (-> score2 trim (split " ") first)
      "</span>
         <span class='label__team2'>"
-     team2
+     (clojure.edn/read-string (str "" \" team2 "\""))
      "</span>
       </h2>
      <h3 class='graph__info'>"
-     (when (not= "" group-name)
+     (when (and (not= "" group-name) (not= nil group-name))
        (str
         group-name
         " | "))
-     venue
-     " | "
+     (when (and (not= "" venue) (not= nil venue))
+       (str
+        (clojure.edn/read-string (str "" \" venue "\""))
+        " | "))
      (-> dateutc (split #" ") first (split #"-") ((fn [[y m d]] [d m y])) (#(join "-" %)))
      "</h3>")))
 
@@ -192,11 +192,11 @@
       <div class='graph'>
       <p class='graph__confront'>
       <span class='graph__team'>"
-     team1-name
+     (clojure.edn/read-string (str "" \" team1-name "\""))
      "</span>
       <span>
       vs "
-     team2-name
+     (clojure.edn/read-string (str "" \" team2-name "\""))
      "</span>
       </p>"
      (stats-dom team1-ac team1-gc team1-anc)
@@ -217,11 +217,11 @@
      "<div class='graph'>
      <p class='graph__confront'>
       <span class='graph__team'>"
-     team2-name
+     (clojure.edn/read-string (str "" \" team2-name "\""))
      "</span>
       <span>
       vs "
-     team1-name
+     (clojure.edn/read-string (str "" \" team1-name "\""))
      "</span>
       </p>"
      (stats-dom team2-ac team2-gc team2-anc)
@@ -276,11 +276,9 @@
 
 (defn plot-matches-list
   "Plot list of matches in the dom."
-  [matches]
-  (do
-    (-> dom :matches-list (#(set! (.-innerHTML %) "")))
-    (doseq [match matches]
-      (-> dom :matches-list (.insertAdjacentHTML "beforeend" (match-item match))))))
+  [el matches]
+  (doseq [match matches]
+    (-> el (.insertAdjacentHTML "beforeend" (match-item match)))))
 
 (defn reset-dom
   "Reset graphs in the dom."

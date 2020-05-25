@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/public/img/animation_grafos.gif" width="700">
+</p>
+
 # :dart: About this project
 
 This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
@@ -60,7 +64,7 @@ This is a personal project to study soccer passing networks and investigate data
 - [Katherine Ognyanova](https://twitter.com/ognyanova)
 
 # :floppy_disk: Dataset
-- Pappalardo, Luca; Massucco, Emanuele (2019): Soccer match event dataset. figshare. Collection. https://doi.org/10.6084/m9.figshare.c.4415000
+- **Pappalardo, Luca; Massucco, Emanuele (2019).** [Soccer match event dataset](https://doi.org/10.6084/m9.figshare.c.4415000). figshare. Collection.
 
 # :computer: Development Stack
 - [Clojure](https://clojure.org/guides/getting_started)
@@ -92,84 +96,66 @@ npm test
 
 # :minidisc: IO Usage
 
-### Params
+First of all, download the [dataset](https://doi.org/10.6084/m9.figshare.c.4415000) inside the directory `src/main/data/soccer_match_event_dataset` like so:
+
 ```sh
---id [Id of a match]
---type [Filetype output]
+src/main/data/soccer_match_event_dataset
+├── competitions.json
+├── events_England.json
+├── events_European_Championship.json
+├── events_France.json
+├── events_Germany.json
+├── events_Italy.json
+├── events_Spain.json
+├── events_World_Cup.json
+├── matches_England.json
+├── matches_European_Championship.json
+├── matches_France.json
+├── matches_Germany.json
+├── matches_Italy.json
+├── matches_Spain.json
+├── matches_World_Cup.json
+├── players.json
+└── teams.json
 ```
 
-#### Metadata
-```sh
-clj src/main/io/meta_data.clj --type=json
-```
-or
-```sh
-clj src/main/io/meta_data.clj --type=edn
-```
+Then, you can generate some data like this:
 
-#### Spit match
-```sh
-clj src/main/io/spit_match.clj --id=2057978 --type=json
-```
-or
-```sh
-clj src/main/io/spit_match.clj --id=2057978 --type=edn
-```
-
-#### Spit graph
-```sh
-clj src/main/io/spit_graph.clj --id=2057978 --type=json
-```
-or
-```sh
-clj src/main/io/spit_graph.clj --id=2057978 --type=edn
-```
-
-#### Spit graph analysis
-```sh
-clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=json
-```
-or
-```sh
-clj src/main/io/spit_graph_analysis.clj --id=2057978 --type=edn
-```
-
-#### Spit all World Cup Matches
 ```sh
 # just once
-chmod +x sh/get_all_world_cup_matches.sh
+chmod +x sh/streamline.sh
 
-# whenever you want
-./sh/get_all_world_cup_matches.sh
+# Params
+# - championship [England | European_Championship | France | Germany | Italy | Spain | World_Cup]
+# - match-id (check out src/main/data/match_ids)
+
+# Use
+# ./sh/streamline.sh championship match-id
+
+# get all the data for Italian championship
+./sh/streamline.sh Italy
+
+# get data for match 2576338
+./sh/streamline.sh Italy 2576338
 ```
 
-#### Spit all World Cup Graphs
+The [streamline.sh](sh/streamline.sh) will generate six files for each match:
+
 ```sh
-# just once
-chmod +x sh/get_all_world_cup_graphs.sh
+# raw data from the match
+src/main/data/matches/italy_genoa_torino,_1_2_2576338.edn
+src/main/data/matches/italy_genoa_torino,_1_2_2576338.json
 
-# whenever you want
-./sh/get_all_world_cup_graphs.sh
+# processed data to create a passing network
+src/main/data/graphs/italy_genoa_torino,_1_2_2576338.edn
+src/main/data/graphs/italy_genoa_torino,_1_2_2576338.json
+
+# passing network with metrics calculations
+src/main/data/analysis/italy_genoa_torino,_1_2_2576338.edn
+src/main/data/analysis/italy_genoa_torino,_1_2_2576338.json
 ```
 
-#### Spit all World Cup Analysis
-```sh
-# just once
-chmod +x sh/get_all_world_cup_analysis.sh
-
-# whenever you want
-./sh/get_all_world_cup_graphs.sh
-```
-
-#### Get Matches -> Graphs -> Analysis of World Cup Games
-```sh
-# just once
-chmod +x sh/streamline_world_cup.sh
-
-# whenever you want
-./sh/streamline_world_cup.sh
-```
-
+Missing matches analysis can be found within [missing.edn](src/main/data/analysis/missing.edn).
 
 # :triangular_ruler: Understanding the Metrics
 

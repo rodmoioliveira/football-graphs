@@ -1,9 +1,9 @@
 (ns football.app
   (:require
-   [clojure.string :refer [split]]
    [utils.core :refer [assoc-pos
                        set-canvas-dimensions
                        canvas-dimensions
+                       normalize-filename
                        mobile-mapping
                        hash-by]]
    [utils.dom :refer [reset-dom
@@ -127,84 +127,94 @@
                          keyword
                          matches-files-hash
                          :filename
-                         (split #"\.")
-                         first
+                         normalize-filename
                          set-hash!))]
     (when-not dev-reload?
       (do
         (reset-dom)
         (sticky-nav$)
         (-> slider$
-            (.subscribe (fn [_] (do
-                                  (reset-hash!)
-                                  (slide-home)
-                                  (fix-back 0)
-                                  (fix-nav 0)
-                                  (set-collapse (-> dom :slider-home) 0)
-                                  (set-collapse (-> dom :slider-graph) 1)
-                                  (scroll-to-current-match)
-                                  (stop-simulations)
-                                  (flush-simulations!)))))
-        ; (plot-matches-list (->> matches-files-hash vals (sort-by :label)))
+            (.subscribe (fn [_]
+                          (reset-hash!)
+                          (slide-home)
+                          (fix-back 0)
+                          (fix-nav 0)
+                          (set-collapse (-> dom :slider-home) 0)
+                          (set-collapse (-> dom :slider-graph) 1)
+                          (scroll-to-current-match)
+                          (stop-simulations)
+                          (flush-simulations!))))
+        ; (->> matches-files-hash
+        ;      vals
+        ;      (filter #(-> % :championship (= "france")))
+        ;      (group-by :year)
+        ;      vals
+        ;      ; first
+        ;      clj->js
+        ;      js/console.log)
+        ; (plot-matches-list
+        ;  (-> js/document (.querySelector (str "[data-championship='france-2018']")))
+        ;  (->> matches-files-hash
+        ;       vals
+        ;       (filter #(-> % :championship (= "france")))
+        ;       (group-by :year)
+        ;       vals
+        ;       second
+        ;       (sort-by :label)))
         (-> toogle-theme$
             (.subscribe #(-> % (merge opts)
                              ((fn [{:keys [theme-text theme]}]
-                                (do
-                                  (toogle-theme-btn theme-text)
-                                  (toogle-theme theme)
-                                  (restart-simulations)))))))
+                                (toogle-theme-btn theme-text)
+                                (toogle-theme theme)
+                                (restart-simulations))))))
         (-> input$
             (.subscribe (fn [_] (restart-simulations))))
 
         (-> list$
             (.subscribe
              (fn [obj]
-               (do
-                 (slide-graph (-> obj :select-match name))
-                 (fix-back 1)
-                 (fix-nav 1)
-                 (scroll-top)
-                 (set-collapse (-> dom :slider-home) 1)
-                 (set-collapse (-> dom :slider-graph) 0)
-                 (-> matches-files-hash
-                     (get-in [(-> obj :select-match)])
-                     ((fn [{:keys [filename match-id]}]
-                        (let [store-data (get-in @store [(-> match-id str keyword)])]
-                          (if store-data
-                            (do
-                              (apply-hash store-data)
-                              (-> store-data
-                                  vector
-                                  ((fn [d]
-                                     (do
-                                       (plot-dom d)
-                                       (-> obj (merge opts) plot-graphs))))))
-                            (do
-                              (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
-                              (fetch-file
-                               filename
-                               [update-store
-                                apply-hash
-                                (fn [d] (-> d vector plot-dom))
-                                (fn [] (-> obj (merge opts) plot-graphs))])))))))))))
+               (slide-graph (-> obj :select-match name))
+               (fix-back 1)
+               (fix-nav 1)
+               (scroll-top)
+               (set-collapse (-> dom :slider-home) 1)
+               (set-collapse (-> dom :slider-graph) 0)
+               (-> matches-files-hash
+                   (get-in [(-> obj :select-match)])
+                   ((fn [{:keys [filename match-id]}]
+                      (let [store-data (get-in @store [(-> match-id str keyword)])]
+                        (if store-data
+                          (do
+                            (apply-hash store-data)
+                            (-> store-data
+                                vector
+                                ((fn [d]
+                                   (plot-dom d)
+                                   (-> obj (merge opts) plot-graphs)))))
+                          (do
+                            (-> dom :plot-section (#(set! (.-innerHTML %) loader-element)))
+                            (fetch-file
+                             filename
+                             [update-store
+                              apply-hash
+                              (fn [d] (-> d vector plot-dom))
+                              (fn [] (-> obj (merge opts) plot-graphs))]))))))))))
           ; routing
         (when url-match-id
           (-> dom
-              :matches-list
+              :matches-lists
               (.querySelector (str "[data-match-id='" url-match-id "']"))
               (.click)))))
 
     (when dev-reload?
-      (do
-        (->
-         (merge
-          (get-metrics)
-          (get-theme-with (partial theme-identity (get-current-theme)))
-          opts)
-         ((fn [{:keys [theme-text theme] :as obj}]
-            (do
-              (toogle-theme-btn theme-text)
-              (toogle-theme theme)
-              (plot-graphs obj)))))))))
+      (->
+       (merge
+        (get-metrics)
+        (get-theme-with (partial theme-identity (get-current-theme)))
+        opts)
+       ((fn [{:keys [theme-text theme] :as obj}]
+          (toogle-theme-btn theme-text)
+          (toogle-theme theme)
+          (plot-graphs obj)))))))
 
 (defn reload! [] (init :development))

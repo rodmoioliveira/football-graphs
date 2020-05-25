@@ -16,10 +16,16 @@
    [clojure.tools.cli :refer [parse-opts]]
    [clojure.java.io :as io]
    [clojure.data.json :as json]
+   [clojure.string :as st]
    [libpython-clj.require :refer [require-python]]
    [libpython-clj.python :as py :refer [py. py.. py.-]]
 
-   [utils.core :refer [output-file-type hash-by hash-by-id metric-range]]))
+   [utils.core :refer [output-file-type
+                       hash-by
+                       deaccent
+                       hash-by-id
+                       metric-range
+                       championships]]))
 
 ; ==================================
 ; Python interop code...
@@ -30,53 +36,41 @@
 ; Command Line Options
 ; ==================================
 (def options [["-i" "--id ID" "Match ID"]
-              ["-t" "--type TYPE" "File Type (json or edn)"
-               :default :edn
-               :parse-fn keyword
-               :validate [#(or (= % :edn) (= % :json)) "Must be json or edn"]]])
+              ["-c" "--championship CHAMPIONSHIP" "Championship"
+               :parse-fn str
+               :validate [#(some? (some #{%} championships))
+                          (str "Must be a valid championship " championships)]]])
 (def args (-> *command-line-args* (parse-opts options)))
-(def id (-> args :options :id edn/read-string))
-(def id-keyword (-> id str keyword))
-(def file-type (-> args :options :type))
+(def ids (-> args :options :id (st/split #" ") (#(map (fn [id] (-> id Integer.)) %))))
+(def ids-keyword (->> ids (map str) (map keyword)))
+(def championship (-> args :options :championship))
 (def errors (-> args :errors))
+
+(def path "data/")
+(def get-file #(io/resource (str path %)))
+(def json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case))))
+(def matches
+  (->>
+   (get-file (str "soccer_match_event_dataset/matches_" championship ".json"))
+   slurp
+   json->edn
+   hash-by-id))
 
 ; ==================================
 ; Fetch Data
 ; ==================================
 (defn get-data
-  []
-  (let [path "data/"
-        get-file #(io/resource (str path %))
-        json->edn #(json/read-str % :key-fn (fn [v] (-> v keyword csk/->kebab-case)))
-        parse (if (= file-type :edn) edn/read-string json->edn)
-        filename (->> (get-file "soccer_match_event_dataset/matches_World_Cup.json")
-                      slurp
-                      json->edn
-                      hash-by-id
+  [file-ext id-keyword]
+  (let [parse (if (= file-ext :edn) edn/read-string json->edn)
+        filename (->> matches
                       id-keyword
                       :label
+                      (#(clojure.edn/read-string (str "" \" % "\"")))
+                      deaccent
                       csk/->snake_case
-                      (#(str % "." (name file-type))))
+                      (#(str (csk/->snake_case championship) "_" % "_" (-> id-keyword name) "." (name file-ext))))
         data (-> (str path "graphs/" filename) io/resource slurp parse)]
     data))
-
-(def data (get-data))
-(def teams-ids (-> data
-                   :nodes
-                   keys
-                   (#(map (fn [id] (-> id name Integer.)) %))
-                   (#(sort %))
-                   (#(map (fn [id] (-> id str keyword)) %))))
-(def nodes (-> data
-               :nodes
-               vals
-               (#(sort-by (fn [t] (-> t first :current-national-team-id)) %))))
-(def links (-> data
-               :links
-               vals
-               (#(sort-by (fn [t] (-> t first :team-id)) %))))
-(def team-1 (-> [nodes links] (#(map first %))))
-(def team-2 (-> [nodes links] (#(map second %))))
 
 ; ==================================
 ; Create Graph Data Structure
@@ -176,12 +170,8 @@
         :average-clustering-coefficient average-clustering-coefficient
         :global-clustering-coefficient global-clustering-coefficient}})))
 
-(def metrics
-  [(create-graph team-1)
-   (create-graph team-2)])
-
 (defn get-metrics-ranges
-  []
+  [metrics]
   (let [in-degree (metric-range :in-degree)
         out-degree (metric-range :out-degree)
         degree (metric-range :degree)
@@ -234,7 +224,31 @@
 ; IO
 ; ==================================
 (if (-> errors some? not)
-  (let [graph (-> data
+  (do
+    (doseq [id-keyword ids-keyword]
+      (try
+        (let [data (get-data :edn id-keyword)
+              id (-> id-keyword name)
+              teams-ids (-> data
+                            :nodes
+                            keys
+                            (#(map (fn [id] (-> id name Integer.)) %))
+                            (#(sort %))
+                            (#(map (fn [id] (-> id str keyword)) %)))
+              nodes (-> data
+                        :nodes
+                        vals
+                        (#(sort-by (fn [t] (-> t first :current-national-team-id)) %)))
+              links (-> data
+                        :links
+                        vals
+                        (#(sort-by (fn [t] (-> t first :team-id)) %)))
+              team-1 (-> [nodes links] (#(map first %)))
+              team-2 (-> [nodes links] (#(map second %)))
+              metrics [(create-graph team-1)
+                       (create-graph team-2)]
+              graph
+              (-> data
                   ((fn [d]
                      (assoc
                       d
@@ -259,16 +273,23 @@
                                      :metrics
                                      (get-in metrics [1 :vertex-set (-> n :id keyword) :metrics])))
                                   %)))}
-                      :min-max-values (merge (-> data :min-max-values) (get-metrics-ranges))
+                      :min-max-values (merge (-> data :min-max-values) (get-metrics-ranges metrics))
                       :graph-metrics
                       {(-> teams-ids first) (get-in metrics [0 :graph-metrics])
                        (-> teams-ids second) (get-in metrics [1 :graph-metrics])}))))
-        match-label (-> data :label csk/->snake_case)
-        dist "src/main/data/analysis/"
-        ext (name file-type)]
-    (spit
-     (str dist match-label "." ext)
-     ((output-file-type file-type) graph))
-    (print (str "Success on spit " dist match-label "." ext))
+              match-label (-> data
+                              :label
+                              (#(clojure.edn/read-string (str "" \" % "\"")))
+                              deaccent
+                              csk/->snake_case)
+              dist "src/main/data/analysis/"]
+          (doseq [file-ext [:edn :json]]
+            (let [ext (name file-ext)]
+              (println (str "Success on spit " dist (csk/->snake_case championship) "_" match-label "_" id "." ext))
+              (spit
+               (str dist (csk/->snake_case championship) "_" match-label "_" id "." ext)
+               ((output-file-type file-ext) graph)))))
+        (catch Exception e (println (str "caught exception: " (.getMessage e))))))
+
     (System/exit 0))
   (print errors))

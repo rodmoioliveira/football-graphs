@@ -305,13 +305,12 @@
     (-> d3
         (.select (-> config :canvas))
         (.on "click" (fn []
-                       (do
-                         (on-node-click {:edges (-> edges filter-min-passes)
-                                         :config config
-                                         :data data
-                                         :nodeshash nodeshash
-                                         :nodes nodes
-                                         :active-node-store active-node-store})))))
+                       (on-node-click {:edges (-> edges filter-min-passes)
+                                       :config config
+                                       :data data
+                                       :nodeshash nodeshash
+                                       :nodes nodes
+                                       :active-node-store active-node-store}))))
 
     (-> simulation
         (.nodes (->>
@@ -324,15 +323,14 @@
                         #js {:y (/ (-> canvas-current-dimensions .-height) 2)})))
                  clj->js))
         (.on "tick" (fn []
-                      (do
                         ; (js/console.log "tick" "animation-stores" (-> @all-simulations count))
-                        (draw-background config)
-                        (-> data (aget "canvas-dimensions") (draw-field data config))
-                        (draw-graph {:edges (-> edges filter-min-passes)
-                                     :config config
-                                     :nodeshash nodeshash
-                                     :nodes nodes
-                                     :active-node-store active-node-store})))))
+                      (draw-background config)
+                      (-> data (aget "canvas-dimensions") (draw-field data config))
+                      (draw-graph {:edges (-> edges filter-min-passes)
+                                   :config config
+                                   :nodeshash nodeshash
+                                   :nodes nodes
+                                   :active-node-store active-node-store}))))
 
     (-> simulation
         (.force "link")
