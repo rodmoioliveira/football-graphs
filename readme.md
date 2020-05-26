@@ -62,6 +62,12 @@ This is a personal project to study soccer passing networks and investigate data
 - [Carlo Zapponi](https://twitter.com/littleark)
 - [James Grayson](https://twitter.com/JamesWGrayson)
 - [Katherine Ognyanova](https://twitter.com/ognyanova)
+- [Tussen de linies](https://twitter.com/Tussendelinies)
+- [Marton Balla](https://twitter.com/MartonBalla1)
+- [Statified Football](https://twitter.com/StatifiedF)
+- [Robin Wilhelmus](https://twitter.com/RobinWilhelmus)
+- [American Soccer Analysis](https://twitter.com/AnalysisEvolved)
+- [Peter McKeever](https://twitter.com/petermckeever)
 
 # :floppy_disk: Dataset
 - **Pappalardo, Luca; Massucco, Emanuele (2019).** [Soccer match event dataset](https://doi.org/10.6084/m9.figshare.c.4415000). figshare. Collection.
