@@ -19,6 +19,11 @@
 ; ==================================
 ; Utils
 ; ==================================
+(defn value-range
+  [v]
+  (let [value (metric-range :value)]
+    ((juxt value) v)))
+
 (defn passes-count
   [v]
   (-> (map (fn [x] (apply + (map (fn [y] (y :value)) x))) v) print)
@@ -299,6 +304,14 @@
             teams-info-pool (-> teams-info
                                 vals
                                 (project [:name :wy-id]))
+            home-team-id (->> teams-info-pool
+                              (filter (fn [{:keys [name]}] (s/includes? team1 name)))
+                              (map :wy-id)
+                              first)
+            away-team-id (->> teams-info-pool
+                              (filter (fn [{:keys [name]}] (s/includes? team2 name)))
+                              (map :wy-id)
+                              first)
             graph
             {:match-id (-> id Integer.)
              :label (-> data :match :label)
@@ -306,14 +319,8 @@
              :match-info
              {:winner (-> data :match :winner)
               :competition-id (-> data :match :competition-id)
-              :home-away {:home (->> teams-info-pool
-                                     (filter (fn [{:keys [name]}] (s/includes? team1 name)))
-                                     (map :wy-id)
-                                     first)
-                          :away (->> teams-info-pool
-                                     (filter (fn [{:keys [name]}] (s/includes? team2 name)))
-                                     (map :wy-id)
-                                     first)}
+              :home-away {:home home-team-id
+                          :away away-team-id}
               :gameweek (-> data :match :gameweek)
               :duration (-> data :match :duration)
               :season-id (-> data :match :season-id)
@@ -343,13 +350,20 @@
                               [(-> cur first :current-national-team-id str keyword)]
                               cur)) {} %)))
              :links edges
-             :min-max-values
-             {:passes (-> links
-                          flatten
-                          ((fn [v]
-                             (let [value (metric-range :value)]
-                               ((juxt value) v))))
-                          first)}}
+             :stats
+             {:global {:passes (-> links
+                                   flatten
+                                   value-range
+                                   first)}
+
+              :home {:passes (-> edges
+                                 (get-in [(-> home-team-id str keyword)])
+                                 value-range
+                                 first)}
+              :away {:passes (-> edges
+                                 (get-in [(-> away-team-id str keyword)])
+                                 value-range
+                                 first)}}}
 
             match-label (-> data
                             :match
