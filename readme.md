@@ -46,7 +46,16 @@ This is a personal project to study soccer passing networks and investigate data
 - [jokecamp/FootballData](https://github.com/jokecamp/FootballData)
 - [planetopendata/awesome-football](https://github.com/planetopendata/awesome-football)
 
-# :eyes: People to follow
+### :camera: Visualizations
+
+- [Julien Demeaux](https://public.tableau.com/profile/padatawan#!/)
+
+# :eyes: Accounts to follow
+
+- [Women's Soccer Visualizations](https://twitter.com/WSOCViz)
+- [WomensFootyStat](https://twitter.com/WomensFootyStat)
+- [Eilidh Thomson](https://twitter.com/CoachEilidh)
+- [Peter McKeever](https://twitter.com/petermckeever)
 - [Karun Singh](https://twitter.com/karun1710)
 - [Luca Pappalardo](https://github.com/jonpappalord)
 - [Ricardo Tavares](https://github.com/rjtavares)
@@ -67,7 +76,9 @@ This is a personal project to study soccer passing networks and investigate data
 - [Statified Football](https://twitter.com/StatifiedF)
 - [Robin Wilhelmus](https://twitter.com/RobinWilhelmus)
 - [American Soccer Analysis](https://twitter.com/AnalysisEvolved)
-- [Peter McKeever](https://twitter.com/petermckeever)
+- [Julien Demeaux](https://twitter.com/JuDems14)
+- [Sounders Sports Science & Analytics](https://twitter.com/SSFCSpSci)
+- [Ravi Ramineni](https://twitter.com/analyseFooty)
 
 # :floppy_disk: Dataset
 - **Pappalardo, Luca; Massucco, Emanuele (2019).** [Soccer match event dataset](https://doi.org/10.6084/m9.figshare.c.4415000). figshare. Collection.
@@ -191,6 +202,10 @@ Missing matches analysis can be found within [missing.edn](src/main/data/analysi
 > 3) **Weighted betweenness** - assesses how often a player is in-between any other two players of its team measured by their strongest passing connections across a match. Thus, its betweenness character is built on aggregated match data and does not necessarily imply that the player functioned as a bridging unit within plays. It is often used as a playmaker indicator (Pena and Touchette, 2012; Clemente and Martins, 2017). The values of weighted betweenness are bounded between 0 and 1 reflecting the proportion of strongest passing connections between any two players in the network that lead via a particular player.
 
 # :art: Visual Reference
+
+<p align="center">
+  <img src="https://pbs.twimg.com/media/ER75u4gWoAAkK9q?format=jpg" width="700">
+</p>
 <p align="center">
   <img src="https://i0.wp.com/tsj101sports.com/wp-content/uploads/2018/06/ateamsstrate.png?w=1344&ssl=1" width="700">
 </p>
