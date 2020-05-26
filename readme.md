@@ -34,17 +34,35 @@ This is a personal project to study soccer passing networks and investigate data
 ### :pushpin: Blogs
 - [BetweenThePosts](https://betweentheposts.net/)
 - [Fútbolismo](https://futbolismo.it/)
+- [Joe Gallagher](https://jogall.github.io/)
 - [James' Blog](https://jameswgrayson.wordpress.com/)
 - [R, Scientometrics, Knowledge Management, and Social Network Analysis](https://scientometrics.wordpress.com/)
 - [Katya Ognyanova](https://kateto.net/)
 - [soccermetrics](https://www.soccermetrics.net/)
 
-### :open_file_folder: Resources
+### :open_file_folder: Resources & Tools
+
 - [matiasmascioto/awesome-soccer-analytics](https://github.com/matiasmascioto/awesome-soccer-analytics)
 - [devinpleuler/analytics-handbook](https://github.com/devinpleuler/analytics-handbook)
 - [Friends-of-Tracking-Data-FoTD/passing-networks-in-python](https://github.com/Friends-of-Tracking-Data-FoTD/passing-networks-in-python)
+- [Friends-of-Tracking-Data-FoTD/mapping-match-events-in-Python](https://github.com/Friends-of-Tracking-Data-FoTD/mapping-match-events-in-Python)
+- [openfootball/world-cup.json](https://github.com/openfootball/world-cup.json)
+- [openfootball/world-cup](https://github.com/openfootball/world-cup)
+- [lsv/fifa-worldcup-2018](https://github.com/lsv/fifa-worldcup-2018)
 - [jokecamp/FootballData](https://github.com/jokecamp/FootballData)
 - [planetopendata/awesome-football](https://github.com/planetopendata/awesome-football)
+- [JoGall/soccermatics](https://github.com/JoGall/soccermatics)
+- [yorobot/football.csv](https://github.com/yorobot/football.csv)
+- [martj42/international_results](https://github.com/martj42/international_results)
+- [SciSports-Labs/fot-valuing-actions](https://github.com/SciSports-Labs/fot-valuing-actions)
+- [CleKraus/soccer_analytics](https://github.com/CleKraus/soccer_analytics)
+- [Dato-Futbol/passing-networks](https://github.com/Dato-Futbol/passing-networks)
+- [sharmaabhishekk/passmaps](https://github.com/sharmaabhishekk/passmaps)
+- [metrica-sports/sample-data](https://github.com/metrica-sports/sample-data)
+- [Bustami/DatoFutbol](https://github.com/Bustami/DatoFutbol)
+- [kateto/R-Network-Visualization-Workshop](https://github.com/kateto/R-Network-Visualization-Workshop)
+- [kateto/Network_Analysis_R_Examples](https://github.com/kateto/Network_Analysis_R_Examples)
+- [kateto/R-Network-Visualization-Basics-to-Advanced](https://github.com/kateto/R-Network-Visualization-Basics-to-Advanced)
 
 ### :camera: Visualizations
 
@@ -58,6 +76,7 @@ This is a personal project to study soccer passing networks and investigate data
 - [Peter McKeever](https://twitter.com/petermckeever)
 - [Karun Singh](https://twitter.com/karun1710)
 - [Luca Pappalardo](https://github.com/jonpappalord)
+- [Joe Gallagher](https://twitter.com/joedgallagher)
 - [Ricardo Tavares](https://github.com/rjtavares)
 - [William Spearman](https://twitter.com/the_spearman)
 - [Sergio Llana](https://twitter.com/SergioMinuto90)
