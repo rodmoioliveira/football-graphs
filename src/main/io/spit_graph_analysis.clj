@@ -273,14 +273,14 @@
                                      :metrics
                                      (get-in metrics [1 :vertex-set (-> n :id keyword) :metrics])))
                                   %)))}
-                      :min-max-values (merge (-> data :stats :global) (get-metrics-ranges metrics))
-                      :graph-metrics
-                      {(-> teams-ids first) (merge (-> data :stats :home)
-                                                   (get-in metrics [0 :graph-metrics])
-                                                   (-> [(get-in metrics [0])] get-metrics-ranges))
-                       (-> teams-ids second) (merge (-> data :stats :away)
-                                                    (get-in metrics [1 :graph-metrics])
-                                                    (-> [(get-in metrics [1])] get-metrics-ranges))}))))
+                      :stats
+                      {:global (merge (-> data :stats :global) (get-metrics-ranges metrics))
+                       :home (merge (-> data :stats :home)
+                                    (get-in metrics [0 :graph-metrics])
+                                    (-> [(get-in metrics [0])] get-metrics-ranges))
+                       :away (merge (-> data :stats :away)
+                                    (get-in metrics [1 :graph-metrics])
+                                    (-> [(get-in metrics [1])] get-metrics-ranges))}))))
 
               match-label (-> data
                               :label
