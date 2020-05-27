@@ -321,6 +321,8 @@
               :competition-id (-> data :match :competition-id)
               :home-away {:home home-team-id
                           :away away-team-id}
+              :home-away-id {(-> home-team-id str keyword) :home
+                             (-> away-team-id str keyword) :away}
               :gameweek (-> data :match :gameweek)
               :duration (-> data :match :duration)
               :season-id (-> data :match :season-id)
