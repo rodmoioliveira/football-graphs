@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Weserstadion",
-  :dateutc "2017-09-23 13:30:00"},
+  :dateutc "2017-09-23 13:30:00",
+  :home-away-id {:2443 :home, :2453 :away}},
  :nodes
  {:2443
   ({:id "20692",
@@ -338,4 +339,7 @@
     :target "26949015487",
     :team-id 2453,
     :value 8})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 21}},
+  :away {:passes {:min 1, :max 8}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Louis II.",
-  :dateutc "2017-09-16 15:00:00"},
+  :dateutc "2017-09-16 15:00:00",
+  :home-away-id {:19830 :home, :3779 :away}},
  :nodes
  {:3779
   ({:id "39400626285",
@@ -353,4 +354,7 @@
    {:source "28117", :target "26196", :team-id 19830, :value 16}
    {:source "21097", :target "263766", :team-id 19830, :value 18}
    {:source "26196", :target "28117", :team-id 19830, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 10}}}}

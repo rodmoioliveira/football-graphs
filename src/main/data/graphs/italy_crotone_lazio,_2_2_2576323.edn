@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "",
-  :dateutc "2018-05-13 13:00:00"},
+  :dateutc "2018-05-13 13:00:00",
+  :home-away-id {:3197 :home, :3162 :away}},
  :nodes
  {:3197
   ({:id "20815250956",
@@ -331,4 +332,7 @@
    {:source "21280", :target "2051621655", :team-id 3197, :value 6}
    {:source "21528", :target "21280", :team-id 3197, :value 6}
    {:source "21370", :target "22185", :team-id 3197, :value 8})},
- :min-max-values {:passes {:min 1, :max 16}}}
+ :stats
+ {:global {:passes {:min 1, :max 16}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 16}}}}

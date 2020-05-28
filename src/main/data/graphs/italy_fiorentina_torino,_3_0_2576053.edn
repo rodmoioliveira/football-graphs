@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Artemio Franchi",
-  :dateutc "2017-10-25 18:45:00"},
+  :dateutc "2017-10-25 18:45:00",
+  :home-away-id {:3176 :home, :3185 :away}},
  :nodes
  {:3185
   ({:id "1490321019",
@@ -350,4 +351,7 @@
    {:source "22313222766", :target "22380", :team-id 3176, :value 9}
    {:source "20866", :target "69400", :team-id 3176, :value 10}
    {:source "69400", :target "22380", :team-id 3176, :value 10})},
- :min-max-values {:passes {:min 1, :max 10}}}
+ :stats
+ {:global {:passes {:min 1, :max 10}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 10}}}}

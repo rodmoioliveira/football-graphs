@@ -27,7 +27,8 @@
   :group-name nil,
   :status "Played",
   :venue "Liberty Stadium",
-  :dateutc "2018-01-22 20:00:00"},
+  :dateutc "2018-01-22 20:00:00",
+  :home-away-id {:10531 :home, :1612 :away}},
  :nodes
  {:10531
   ({:id "7847",
@@ -309,4 +310,7 @@
    {:source "14870", :target "370", :team-id 1612, :value 31}
    {:source "370", :target "222220", :team-id 1612, :value 32}
    {:source "222220", :target "370", :team-id 1612, :value 33})},
- :min-max-values {:passes {:min 1, :max 33}}}
+ :stats
+ {:global {:passes {:min 1, :max 33}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 33}}}}

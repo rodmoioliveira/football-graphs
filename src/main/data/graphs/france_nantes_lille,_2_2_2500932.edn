@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade de la Beaujoire - Louis Fonteneau",
-  :dateutc "2018-02-11 16:00:00"},
+  :dateutc "2018-02-11 16:00:00",
+  :home-away-id {:3770 :home, :3776 :away}},
  :nodes
  {:3770
   ({:id "43515",
@@ -352,4 +353,7 @@
    {:source "213308", :target "286917", :team-id 3776, :value 16}
    {:source "372904", :target "213308", :team-id 3776, :value 16}
    {:source "286917", :target "257750", :team-id 3776, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 18}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Giuseppe Meazza",
-  :dateutc "2018-02-18 19:45:00"},
+  :dateutc "2018-02-18 19:45:00",
+  :home-away-id {:3157 :home, :3164 :away}},
  :nodes
  {:3157
   ({:id "14922",
@@ -336,4 +337,7 @@
    {:source "20811", :target "99833", :team-id 3164, :value 14}
    {:source "22270", :target "20811", :team-id 3164, :value 25}
    {:source "20811", :target "22270", :team-id 3164, :value 31})},
- :min-max-values {:passes {:min 1, :max 31}}}
+ :stats
+ {:global {:passes {:min 1, :max 31}},
+  :home {:passes {:min 1, :max 25}},
+  :away {:passes {:min 1, :max 31}}}}

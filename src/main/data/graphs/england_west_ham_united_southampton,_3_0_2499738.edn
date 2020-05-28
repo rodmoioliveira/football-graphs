@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "London Stadium",
-  :dateutc "2018-03-31 14:00:00"},
+  :dateutc "2018-03-31 14:00:00",
+  :home-away-id {:1633 :home, :1619 :away}},
  :nodes
  {:1633
   ({:id "8301",
@@ -327,4 +328,7 @@
    {:source "8561", :target "379209", :team-id 1633, :value 9}
    {:source "70965", :target "26499", :team-id 1633, :value 11}
    {:source "8582", :target "26499", :team-id 1633, :value 13})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 12}}}}

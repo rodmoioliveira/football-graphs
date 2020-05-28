@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Selhurst Park",
-  :dateutc "2017-12-28 20:00:00"},
+  :dateutc "2017-12-28 20:00:00",
+  :home-away-id {:1628 :home, :1609 :away}},
  :nodes
  {:1628
   ({:id "3971687958",
@@ -312,4 +313,7 @@
    {:source "7873", :target "27971749876", :team-id 1609, :value 19}
    {:source "20612", :target "7855", :team-id 1609, :value 25}
    {:source "7855", :target "20612", :team-id 1609, :value 25})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 25}}}}

@@ -28,7 +28,8 @@
   :group-name "Group D",
   :status "Played",
   :venue "Otkrytiye Arena",
-  :dateutc "2018-06-16 13:00:00"},
+  :dateutc "2018-06-16 13:00:00",
+  :home-away-id {:12274 :home, :7839 :away}},
  :nodes
  {:7839
   ({:id "57226",
@@ -324,4 +325,7 @@
    {:source "3355", :target "3445", :team-id 12274, :value 24}
    {:source "101652", :target "3355", :team-id 12274, :value 27}
    {:source "328037732", :target "3355", :team-id 12274, :value 32})},
- :min-max-values {:passes {:min 1, :max 32}}}
+ :stats
+ {:global {:passes {:min 1, :max 32}},
+  :home {:passes {:min 1, :max 32}},
+  :away {:passes {:min 1, :max 5}}}}

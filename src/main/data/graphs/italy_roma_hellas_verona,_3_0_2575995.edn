@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Olimpico",
-  :dateutc "2017-09-16 18:45:00"},
+  :dateutc "2017-09-16 18:45:00",
+  :home-away-id {:3158 :home, :3194 :away}},
  :nodes
  {:3158
   ({:id "22566",
@@ -356,4 +357,7 @@
    {:source "20438", :target "328333", :team-id 3158, :value 14}
    {:source "3463", :target "8306", :team-id 3158, :value 17}
    {:source "328333", :target "22566", :team-id 3158, :value 17})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 17}},
+  :away {:passes {:min 1, :max 9}}}}

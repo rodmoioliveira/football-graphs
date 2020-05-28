@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Signal-Iduna-Park",
-  :dateutc "2017-09-23 16:30:00"},
+  :dateutc "2017-09-23 16:30:00",
+  :home-away-id {:2447 :home, :2454 :away}},
  :nodes
  {:2447
   ({:id "14816391530",
@@ -351,4 +352,7 @@
    {:source "25622", :target "1859114838", :team-id 2454, :value 5}
    {:source "236528", :target "14991", :team-id 2454, :value 5}
    {:source "236528", :target "25622", :team-id 2454, :value 7})},
- :min-max-values {:passes {:min 1, :max 51}}}
+ :stats
+ {:global {:passes {:min 1, :max 51}},
+  :home {:passes {:min 1, :max 51}},
+  :away {:passes {:min 1, :max 7}}}}

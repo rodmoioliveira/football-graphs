@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "The Hawthorns",
-  :dateutc "2018-02-03 15:00:00"},
+  :dateutc "2018-02-03 15:00:00",
+  :home-away-id {:1627 :home, :1619 :away}},
  :nodes
  {:1619
   ({:id "7885",
@@ -330,4 +331,7 @@
    {:source "70389", :target "8136", :team-id 1619, :value 11}
    {:source "29640", :target "7899", :team-id 1619, :value 13}
    {:source "8144", :target "70389", :team-id 1619, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 14}}}}

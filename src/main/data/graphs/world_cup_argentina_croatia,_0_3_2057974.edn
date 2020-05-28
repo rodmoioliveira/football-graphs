@@ -28,7 +28,8 @@
   :group-name "Group D",
   :status "Played",
   :venue "Stadion Nizhny Novgorod",
-  :dateutc "2018-06-21 18:00:00"},
+  :dateutc "2018-06-21 18:00:00",
+  :home-away-id {:12274 :home, :9598 :away}},
  :nodes
  {:12274
   ({:id "3445285396",
@@ -333,4 +334,7 @@
    {:source "86220", :target "70086", :team-id 12274, :value 11}
    {:source "70086", :target "86722", :team-id 12274, :value 19}
    {:source "86722", :target "70086", :team-id 12274, :value 21})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 21}},
+  :away {:passes {:min 1, :max 11}}}}

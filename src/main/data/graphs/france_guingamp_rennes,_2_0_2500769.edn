@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade du Roudourou",
-  :dateutc "2017-10-14 18:00:00"},
+  :dateutc "2017-10-14 18:00:00",
+  :home-away-id {:3785 :home, :3774 :away}},
  :nodes
  {:3774
   ({:id "325781222761",
@@ -352,4 +353,7 @@
    {:source "25800", :target "25943", :team-id 3785, :value 8}
    {:source "25943", :target "25800", :team-id 3785, :value 8}
    {:source "28528", :target "2547426956", :team-id 3785, :value 9})},
- :min-max-values {:passes {:min 1, :max 9}}}
+ :stats
+ {:global {:passes {:min 1, :max 9}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 9}}}}

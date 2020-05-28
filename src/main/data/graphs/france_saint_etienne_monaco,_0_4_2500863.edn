@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Geoffroy-Guichard",
-  :dateutc "2017-12-15 19:45:00"},
+  :dateutc "2017-12-15 19:45:00",
+  :home-away-id {:3782 :home, :19830 :away}},
  :nodes
  {:3782
   ({:id "21550",
@@ -333,4 +334,7 @@
    {:source "70093", :target "207143", :team-id 19830, :value 16}
    {:source "70093", :target "26196", :team-id 19830, :value 16}
    {:source "26196", :target "70093", :team-id 19830, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 18}}}}

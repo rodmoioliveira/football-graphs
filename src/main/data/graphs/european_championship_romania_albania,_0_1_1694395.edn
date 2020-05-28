@@ -28,7 +28,8 @@
   :group-name "Group A",
   :status "Played",
   :venue "Groupama Stadium",
-  :dateutc "2016-06-19 19:00:00"},
+  :dateutc "2016-06-19 19:00:00",
+  :home-away-id {:11944 :home, :8731 :away}},
  :nodes
  {:11944
   ({:id "2059638598",
@@ -345,4 +346,7 @@
    {:source "49982", :target "1528550318", :team-id 8731, :value 7}
    {:source "93339", :target "22323", :team-id 8731, :value 8}
    {:source "22323", :target "93339", :team-id 8731, :value 10})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 17}},
+  :away {:passes {:min 1, :max 10}}}}

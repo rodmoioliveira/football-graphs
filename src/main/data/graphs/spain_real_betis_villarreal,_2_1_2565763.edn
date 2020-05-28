@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Benito Villamar\\u00edn",
-  :dateutc "2018-02-03 15:15:00"},
+  :dateutc "2018-02-03 15:15:00",
+  :home-away-id {:684 :home, :682 :away}},
  :nodes
  {:682
   ({:id "3277",
@@ -324,4 +325,7 @@
    {:source "26307", :target "3270", :team-id 684, :value 13}
    {:source "346195", :target "3270", :team-id 684, :value 15}
    {:source "3791247219", :target "56009", :team-id 684, :value 17})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 17}},
+  :away {:passes {:min 1, :max 11}}}}

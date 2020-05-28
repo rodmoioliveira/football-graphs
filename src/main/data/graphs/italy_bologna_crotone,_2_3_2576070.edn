@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Renato Dall'Ara",
-  :dateutc "2017-11-04 17:00:00"},
+  :dateutc "2017-11-04 17:00:00",
+  :home-away-id {:3166 :home, :3197 :away}},
  :nodes
  {:3166
   ({:id "20796295273",
@@ -340,4 +341,7 @@
    {:source "20815", :target "21280", :team-id 3197, :value 5}
    {:source "21280", :target "272878", :team-id 3197, :value 5}
    {:source "21528", :target "49979", :team-id 3197, :value 6})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 6}}}}

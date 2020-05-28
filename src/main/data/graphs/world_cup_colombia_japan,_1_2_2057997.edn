@@ -28,7 +28,8 @@
   :group-name "Group H",
   :status "Played",
   :venue "Mordovia Arena",
-  :dateutc "2018-06-19 12:00:00"},
+  :dateutc "2018-06-19 12:00:00",
+  :home-away-id {:12430 :home, :12913 :away}},
  :nodes
  {:12430
   ({:id "257762",
@@ -350,4 +351,7 @@
     :target "9138137831",
     :team-id 12430,
     :value 13})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 24}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Ezio Scida",
-  :dateutc "2017-10-29 14:00:00"},
+  :dateutc "2017-10-29 14:00:00",
+  :home-away-id {:3197 :home, :3176 :away}},
  :nodes
  {:3197
   ({:id "20815",
@@ -329,4 +330,7 @@
    {:source "302799", :target "49979", :team-id 3197, :value 4}
    {:source "272878", :target "21280", :team-id 3197, :value 5}
    {:source "4985711156", :target "272878", :team-id 3197, :value 7})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 7}},
+  :away {:passes {:min 1, :max 20}}}}

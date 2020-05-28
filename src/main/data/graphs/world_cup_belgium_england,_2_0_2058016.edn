@@ -27,7 +27,8 @@
   :group-name "",
   :status "Played",
   :venue "Stadion Krestovskyi",
-  :dateutc "2018-07-14 14:00:00"},
+  :dateutc "2018-07-14 14:00:00",
+  :home-away-id {:5629 :home, :2413 :away}},
  :nodes
  {:2413
   ({:id "210044",
@@ -339,4 +340,7 @@
    {:source "9380", :target "210044", :team-id 2413, :value 22}
    {:source "7918", :target "8945", :team-id 2413, :value 24}
    {:source "8945", :target "7918", :team-id 2413, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 24}}}}

@@ -31,7 +31,8 @@
   :group-name "Group A",
   :status "Played",
   :venue "Rostov Arena",
-  :dateutc "2018-06-20 15:00:00"},
+  :dateutc "2018-06-20 15:00:00",
+  :home-away-id {:15670 :home, :16521 :away}},
  :nodes
  {:15670
   ({:id "32641",
@@ -387,4 +388,7 @@
     :team-id 15670,
     :value 16}
    {:source "227894", :target "361807", :team-id 15670, :value 16})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 16}},
+  :away {:passes {:min 1, :max 20}}}}

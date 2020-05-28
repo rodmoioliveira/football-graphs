@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Ciudad de Valencia",
-  :dateutc "2018-04-19 19:30:00"},
+  :dateutc "2018-04-19 19:30:00",
+  :home-away-id {:695 :home, :683 :away}},
  :nodes
  {:683
   ({:id "3705",
@@ -333,4 +334,7 @@
    {:source "37836", :target "254", :team-id 683, :value 11}
    {:source "38664009", :target "254", :team-id 683, :value 13}
    {:source "254", :target "37836", :team-id 683, :value 13})},
- :min-max-values {:passes {:min 1, :max 16}}}
+ :stats
+ {:global {:passes {:min 1, :max 16}},
+  :home {:passes {:min 1, :max 16}},
+  :away {:passes {:min 1, :max 13}}}}

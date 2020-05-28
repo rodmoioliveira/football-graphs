@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Ciudad de Valencia",
-  :dateutc "2017-09-16 11:00:00"},
+  :dateutc "2017-09-16 11:00:00",
+  :home-away-id {:695 :home, :674 :away}},
  :nodes
  {:674
   ({:id "240445237034",
@@ -324,4 +325,7 @@
    {:source "4065", :target "70112", :team-id 674, :value 15}
    {:source "4065", :target "3286", :team-id 674, :value 16}
    {:source "70112", :target "4065", :team-id 674, :value 21})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 21}}}}

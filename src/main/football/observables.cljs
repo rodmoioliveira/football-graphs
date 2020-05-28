@@ -8,6 +8,7 @@
                       is-body-click?
                       get-metrics
                       get-current-theme
+                      set-compare-text!
                       set-in-storage!
                       activate-nav
                       deactivate-nav]]
@@ -24,7 +25,8 @@
         input$ (-> (rx/of
                     (-> dom :node-color-select)
                     (-> dom :node-area-select)
-                    (-> dom :min-passes-input))
+                    (-> dom :min-passes-input)
+                    (-> dom :compare?))
                    (.pipe
                     (rx-op/mergeMap #(-> (rx/fromEvent % "input")
                                          (.pipe (rx-op/map
@@ -33,6 +35,7 @@
                                                     (get-metrics)
                                                     (get-theme-with (partial theme-identity (get-current-theme)))))))))
                     (rx-op/tap (fn [obj]
+                                 (set-compare-text! obj)
                                  (display-passes obj)
                                  (-> obj update-theme-store!)))))
         list$ (-> dom

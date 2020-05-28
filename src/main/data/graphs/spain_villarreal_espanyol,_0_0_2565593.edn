@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio de la Cer\\u00e1mica",
-  :dateutc "2017-09-21 18:00:00"},
+  :dateutc "2017-09-21 18:00:00",
+  :home-away-id {:682 :home, :691 :away}},
  :nodes
  {:691
   ({:id "5400",
@@ -312,4 +313,7 @@
    {:source "3695", :target "3277", :team-id 682, :value 13}
    {:source "3277", :target "3542399676", :team-id 682, :value 14}
    {:source "3277", :target "3534", :team-id 682, :value 20})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 13}}}}

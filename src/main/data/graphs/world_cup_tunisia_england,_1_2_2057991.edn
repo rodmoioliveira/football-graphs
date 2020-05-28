@@ -27,7 +27,8 @@
   :group-name "Group G",
   :status "Played",
   :venue "Volgograd Arena",
-  :dateutc "2018-06-18 18:00:00"},
+  :dateutc "2018-06-18 18:00:00",
+  :home-away-id {:16276 :home, :2413 :away}},
  :nodes
  {:2413
   ({:id "13484235555",
@@ -339,4 +340,7 @@
    {:source "209354", :target "120853", :team-id 16276, :value 9}
    {:source "331763", :target "120839", :team-id 16276, :value 10}
    {:source "295747", :target "209354", :team-id 16276, :value 10})},
- :min-max-values {:passes {:min 1, :max 22}}}
+ :stats
+ {:global {:passes {:min 1, :max 22}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 22}}}}

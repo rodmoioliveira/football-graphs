@@ -40,8 +40,8 @@
 
         ; get metric name, radius scale and values
         node-radius-metric-name (-> @theme-store :node-radius-metric name)
-
-        radius-scale (-> config :scales (#(get-in % [(-> @theme-store :node-radius-metric)])) (#(% :radius)))
+        global-stats? (-> @theme-store :compare?)
+        radius-scale ((-> config :scales (#(get-in % [(-> @theme-store :node-radius-metric)])) (#(% :radius))) global-stats?)
         source-radius (-> edge
                           .-source
                           .-id
@@ -55,7 +55,14 @@
                           (#(aget nodeshash %))
                           ((fn [^js v] (-> v .-metrics)))
                           (#(aget % node-radius-metric-name))
-                          radius-scale)]
+                          radius-scale)
+        theme-edge-color-range (-> @theme-store :theme-edge-color-range)
+        edges->width-fn ((-> config :scales :edges->width) global-stats?)
+        edges->color-fn ((-> config
+                             :scales
+                             :edges->colors)
+                         global-stats?
+                         theme-edge-color-range)]
 
     (doto (-> config :ctx)
       (.save)
@@ -75,29 +82,23 @@
               (-> config :edges :padding)
               (-> config :arrows :recoil)))
        (second base-vector))
-      ((fn [v] (set! (.-lineWidth v) ((-> config :scales :edges->width) value))))
+      ((fn [v] (set! (.-lineWidth v) (edges->width-fn value))))
       ((fn [v] (set! (.-globalAlpha v) alpha-value)))
-      ((fn [v] (set! (.-strokeStyle v) (((-> config
-                                             :scales
-                                             :edges->colors-partial)
-                                         (-> @theme-store :theme-edge-color-range)) value))))
+      ((fn [v] (set! (.-strokeStyle v) (edges->color-fn value))))
       (.stroke)
 
       ; draw arrows
       (.beginPath)
-      ((fn [v] (set! (.-fillStyle v) (((-> config
-                                           :scales
-                                           :edges->colors-partial)
-                                       (-> @theme-store :theme-edge-color-range)) value))))
+      ((fn [v] (set! (.-fillStyle v) (edges->color-fn value))))
       (.moveTo
        (-> base-vector first (- target-radius (-> config :edges :padding)))
        (-> base-vector second))
       (.lineTo
        (-> base-vector first (- target-radius (-> config :arrows :width)))
-       (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion)))
+       (* (edges->width-fn value) (-> config :arrows :expansion)))
       (.lineTo
        (-> base-vector first (- target-radius (-> config :arrows :width)))
-       (- (* ((-> config :scales :edges->width) value) (-> config :arrows :expansion))))
+       (- (* (edges->width-fn value) (-> config :arrows :expansion))))
       (.fill)
 
       ; restore canvas
@@ -112,11 +113,12 @@
 
         ; Metrics for sizing node
         node-radius-metric-name (-> @theme-store :node-radius-metric name)
+        global-stats? (-> @theme-store :compare?)
         node-radius-metric-value (-> node .-metrics (#(aget % node-radius-metric-name)))
-        radius-scale (-> config
+        radius-scale ((-> config
                          :scales
                          (#(get-in % [(-> @theme-store :node-radius-metric)]))
-                         (#(% :radius)))
+                         (#(% :radius))) global-stats?)
         radius (radius-scale node-radius-metric-value)
 
         ; Player name position
@@ -151,20 +153,21 @@
 
         ; Metrics for coloring node
         node-color-metric-name (-> @theme-store :node-color-metric name)
+        global-stats? (-> @theme-store :compare?)
         node-color-metric-value (-> node .-metrics (#(aget % node-color-metric-name)))
         color-scale (-> config
                         :scales
                         (#(get-in % [(-> @theme-store :node-color-metric)]))
                         (#(% :color)))
-        color ((color-scale (-> @theme-store :theme-node-color-range)) node-color-metric-value)
+        color ((color-scale (-> @theme-store :theme-node-color-range) global-stats?) node-color-metric-value)
 
         ; Metrics for sizing node
         node-radius-metric-name (-> @theme-store :node-radius-metric name)
         node-radius-metric-value (-> node .-metrics (#(aget % node-radius-metric-name)))
-        radius-scale (-> config
+        radius-scale ((-> config
                          :scales
                          (#(get-in % [(-> @theme-store :node-radius-metric)]))
-                         (#(% :radius)))
+                         (#(% :radius))) global-stats?)
         radius (radius-scale node-radius-metric-value)]
     (doto (-> config :ctx)
       (.beginPath)
@@ -278,10 +281,11 @@
                                        ; TODO: check if this dinamic binding is really working
                                        (let [node-radius-metric-name (-> @theme-store :node-radius-metric name)
                                              node-radius-metric-value (-> d .-metrics (#(aget % node-radius-metric-name)))
-                                             radius-scale (-> config
+                                             global-stats? (-> @theme-store :compare?)
+                                             radius-scale ((-> config
                                                               :scales
                                                               (#(get-in % [(-> @theme-store :node-radius-metric)]))
-                                                              (#(% :radius)))
+                                                              (#(% :radius))) global-stats?)
                                              radius (radius-scale node-radius-metric-value)]
                                          radius))) (.strength 1)))
                        ; (.alphaDecay 0.00001)

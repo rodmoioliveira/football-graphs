@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Coliseum Alfonso P\\u00e9rez",
-  :dateutc "2018-01-12 20:00:00"},
+  :dateutc "2018-01-12 20:00:00",
+  :home-away-id {:698 :home, :683 :away}},
  :nodes
  {:698
   ({:id "25888",
@@ -307,4 +308,7 @@
    {:source "93000", :target "25888", :team-id 698, :value 8}
    {:source "36054343", :target "3572", :team-id 698, :value 8}
    {:source "3974", :target "3572", :team-id 698, :value 9})},
- :min-max-values {:passes {:min 1, :max 12}}}
+ :stats
+ {:global {:passes {:min 1, :max 12}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 12}}}}

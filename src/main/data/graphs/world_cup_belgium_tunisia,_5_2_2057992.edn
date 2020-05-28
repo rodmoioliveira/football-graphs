@@ -28,7 +28,8 @@
   :group-name "Group G",
   :status "Played",
   :venue "Otkrytiye Arena",
-  :dateutc "2018-06-23 12:00:00"},
+  :dateutc "2018-06-23 12:00:00",
+  :home-away-id {:5629 :home, :16276 :away}},
  :nodes
  {:16276
   ({:id "2133310014",
@@ -347,4 +348,7 @@
     :target "26100120853",
     :team-id 16276,
     :value 15})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 15}}}}

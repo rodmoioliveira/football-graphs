@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "VOLKSWAGEN ARENA",
-  :dateutc "2017-09-19 18:30:00"},
+  :dateutc "2017-09-19 18:30:00",
+  :home-away-id {:2451 :home, :2443 :away}},
  :nodes
  {:2451
   ({:id "337682",
@@ -358,4 +359,7 @@
    {:source "20704", :target "11095", :team-id 2443, :value 11}
    {:source "11095", :target "223516", :team-id 2443, :value 12}
    {:source "223516", :target "82340", :team-id 2443, :value 12})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 12}}}}

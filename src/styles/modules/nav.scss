@@ -72,6 +72,14 @@ fieldset {
   text-align: left;
 }
 
+.metric-compare-text {
+  color: var(--text-color);
+  text-align: left;
+  margin-left: 0.5rem;
+  font-size: 1.3rem;
+  font-family: 'Alegreya', serif;
+}
+
 .metric-input,
 .metric-select {
   border: var(--input-border);
@@ -91,7 +99,7 @@ fieldset {
   font-size: 1.7rem;
 
   @media (max-width: 700px) {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -117,3 +125,17 @@ fieldset {
   margin-top: 1rem;
 }
 
+[data-fieldset='compare'] {
+  flex-direction: row;
+}
+
+[data-metric='compare'] {
+  height: 2rem;
+  margin: 0;
+  width: 2rem;
+}
+
+.metric-wrapper {
+  display: flex;
+  align-items: center;
+}

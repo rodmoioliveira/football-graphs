@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "OPEL ARENA",
-  :dateutc "2017-12-02 14:30:00"},
+  :dateutc "2017-12-02 14:30:00",
+  :home-away-id {:2460 :home, :2481 :away}},
  :nodes
  {:2460
   ({:id "235450",
@@ -351,4 +352,7 @@
    {:source "83836", :target "223560302600", :team-id 2460, :value 9}
    {:source "228980", :target "15178", :team-id 2460, :value 9}
    {:source "235450", :target "224896", :team-id 2460, :value 11})},
- :min-max-values {:passes {:min 1, :max 11}}}
+ :stats
+ {:global {:passes {:min 1, :max 11}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 7}}}}

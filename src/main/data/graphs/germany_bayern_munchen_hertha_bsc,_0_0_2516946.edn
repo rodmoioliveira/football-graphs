@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Allianz Arena",
-  :dateutc "2018-02-24 14:30:00"},
+  :dateutc "2018-02-24 14:30:00",
+  :home-away-id {:2444 :home, :2457 :away}},
  :nodes
  {:2444
   ({:id "14727",
@@ -334,4 +335,7 @@
    {:source "173212", :target "54579", :team-id 2457, :value 5}
    {:source "82518", :target "32959", :team-id 2457, :value 7}
    {:source "15020", :target "82518", :team-id 2457, :value 8})},
- :min-max-values {:passes {:min 1, :max 30}}}
+ :stats
+ {:global {:passes {:min 1, :max 30}},
+  :home {:passes {:min 1, :max 30}},
+  :away {:passes {:min 1, :max 8}}}}

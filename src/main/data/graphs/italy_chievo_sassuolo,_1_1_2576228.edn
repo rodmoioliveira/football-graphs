@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Marc'Antonio Bentegodi",
-  :dateutc "2018-04-04 16:30:00"},
+  :dateutc "2018-04-04 16:30:00",
+  :home-away-id {:3165 :home, :3315 :away}},
  :nodes
  {:3315
   ({:id "22163",
@@ -331,4 +332,7 @@
    {:source "21607", :target "86301", :team-id 3165, :value 15}
    {:source "215869", :target "21607", :team-id 3165, :value 18}
    {:source "2063720929", :target "20495", :team-id 3165, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 9}}}}

@@ -31,7 +31,8 @@
   :group-name "Group D",
   :status "Played",
   :venue "Stade Geoffroy-Guichard",
-  :dateutc "2016-06-17 16:00:00"},
+  :dateutc "2016-06-17 16:00:00",
+  :home-away-id {:11555 :home, :9598 :away}},
  :nodes
  {:11555
   ({:id "82518",
@@ -331,4 +332,7 @@
    {:source "694048287", :target "14771", :team-id 9598, :value 10}
    {:source "69396", :target "14771", :team-id 9598, :value 12}
    {:source "14771", :target "694048287", :team-id 9598, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 14}}}}

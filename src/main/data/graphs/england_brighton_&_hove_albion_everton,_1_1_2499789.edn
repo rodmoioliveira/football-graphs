@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "The American Express Community Stadium",
-  :dateutc "2017-10-15 12:30:00"},
+  :dateutc "2017-10-15 12:30:00",
+  :home-away-id {:1651 :home, :1623 :away}},
  :nodes
  {:1623
   ({:id "293687",
@@ -337,4 +338,7 @@
    {:source "466", :target "9097", :team-id 1651, :value 8}
    {:source "91381247248", :target "466", :team-id 1651, :value 8}
    {:source "9097", :target "64966", :team-id 1651, :value 9})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 15}}}}

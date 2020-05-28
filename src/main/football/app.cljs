@@ -36,6 +36,7 @@
    [football.matches :refer [matches-files-hash labels-hash]]
    [football.store :refer [store
                            update-store
+                           theme-store
                            flush-simulations!
                            restart-simulations
                            stop-simulations]]
@@ -71,7 +72,12 @@
                                                ((fn [n]
                                                   (reduce (partial hash-by :id) (sorted-map) n))))
                                 :links (-> v :links id)
-                                :min-max-values (-> v :min-max-values)
+                                :team-stats (-> v
+                                                :match-info
+                                                :home-away-id
+                                                id
+                                                ((fn [k] (get-in (-> v :stats) [k]))))
+                                :global-stats (-> v :stats :global)
                                 :label (-> v :label)}))))}) %))))
 
 (defn plot-graphs
@@ -103,10 +109,11 @@
                                    :name-position name-position
                                    :font-color theme-font-color
                                    :mobile? mobile?
+                                   :home-or-away? (-> canvas :data :home-or-away?)
                                    :node-color-range theme-node-color-range
                                    :edge-color-range theme-edge-color-range
-                                   :min-max-values
-                                   (-> canvas :data :min-max-values)})})))
+                                   :global-stats (-> canvas :data :global-stats)
+                                   :team-stats (-> canvas :data :team-stats)})})))
 
 (defn init
   "Init graph interations."

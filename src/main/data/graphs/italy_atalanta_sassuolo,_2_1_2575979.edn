@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Atleti Azzurri d'Italia",
-  :dateutc "2017-09-10 13:00:00"},
+  :dateutc "2017-09-10 13:00:00",
+  :home-away-id {:3172 :home, :3315 :away}},
  :nodes
  {:3172
   ({:id "20404",
@@ -356,4 +357,7 @@
    {:source "246063", :target "209400", :team-id 3315, :value 9}
    {:source "2216220478", :target "20635", :team-id 3315, :value 9}
    {:source "20635", :target "20832", :team-id 3315, :value 10})},
- :min-max-values {:passes {:min 1, :max 11}}}
+ :stats
+ {:global {:passes {:min 1, :max 11}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 10}}}}

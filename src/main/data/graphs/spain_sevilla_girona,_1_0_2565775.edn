@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Ram\\u00f3n S\\u00e1nchez Pizju\\u00e1n",
-  :dateutc "2018-02-11 11:00:00"},
+  :dateutc "2018-02-11 11:00:00",
+  :home-away-id {:680 :home, :756 :away}},
  :nodes
  {:756
   ({:id "3287",
@@ -322,4 +323,7 @@
    {:source "134503", :target "8200", :team-id 680, :value 10}
    {:source "86828", :target "207001", :team-id 680, :value 11}
    {:source "8200", :target "86828", :team-id 680, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 11}}}}

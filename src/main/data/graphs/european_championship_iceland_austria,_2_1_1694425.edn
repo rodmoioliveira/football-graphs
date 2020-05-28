@@ -28,7 +28,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Stade de France",
-  :dateutc "2016-06-22 16:00:00"},
+  :dateutc "2016-06-22 16:00:00",
+  :home-away-id {:7839 :home, :9109 :away}},
  :nodes
  {:9109
   ({:id "7010065027",
@@ -332,4 +333,7 @@
    {:source "51127", :target "55983", :team-id 7839, :value 5}
    {:source "38084", :target "5810556183", :team-id 7839, :value 6}
    {:source "62221", :target "77521", :team-id 7839, :value 6})},
- :min-max-values {:passes {:min 1, :max 28}}}
+ :stats
+ {:global {:passes {:min 1, :max 28}},
+  :home {:passes {:min 1, :max 6}},
+  :away {:passes {:min 1, :max 28}}}}

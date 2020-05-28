@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Municipal de Ipur\\u00faa",
-  :dateutc "2017-12-16 17:30:00"},
+  :dateutc "2017-12-16 17:30:00",
+  :home-away-id {:701 :home, :674 :away}},
  :nodes
  {:701
   ({:id "4048212644",
@@ -333,4 +334,7 @@
    {:source "3286", :target "70129", :team-id 674, :value 7}
    {:source "25623", :target "4892326535", :team-id 674, :value 8}
    {:source "4892326535", :target "211853", :team-id 674, :value 10})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 10}}}}

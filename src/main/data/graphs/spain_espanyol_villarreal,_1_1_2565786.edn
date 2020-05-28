@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "RCDE Stadium",
-  :dateutc "2018-02-18 17:30:00"},
+  :dateutc "2018-02-18 17:30:00",
+  :home-away-id {:691 :home, :682 :away}},
  :nodes
  {:691
   ({:id "3519",
@@ -321,4 +322,7 @@
    {:source "4303", :target "3797", :team-id 691, :value 11}
    {:source "3803341751", :target "3797", :team-id 691, :value 11}
    {:source "411243293", :target "4303", :team-id 691, :value 15})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 12}}}}

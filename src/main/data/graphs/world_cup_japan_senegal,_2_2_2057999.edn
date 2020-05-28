@@ -28,7 +28,8 @@
   :group-name "Group H",
   :status "Played",
   :venue "Stadion Central'nyj",
-  :dateutc "2018-06-24 15:00:00"},
+  :dateutc "2018-06-24 15:00:00",
+  :home-away-id {:12913 :home, :19314 :away}},
  :nodes
  {:12913
   ({:id "20517",
@@ -344,4 +345,7 @@
    {:source "26115", :target "133897", :team-id 19314, :value 8}
    {:source "25726", :target "26115", :team-id 19314, :value 9}
    {:source "448079", :target "375348", :team-id 19314, :value 11})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 17}},
+  :away {:passes {:min 1, :max 11}}}}

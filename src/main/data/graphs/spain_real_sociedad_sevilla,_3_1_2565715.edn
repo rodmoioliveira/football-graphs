@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Municipal de Anoeta",
-  :dateutc "2017-12-20 20:30:00"},
+  :dateutc "2017-12-20 20:30:00",
+  :home-away-id {:687 :home, :680 :away}},
  :nodes
  {:687
   ({:id "3676",
@@ -334,4 +335,7 @@
    {:source "86828", :target "3280", :team-id 680, :value 12}
    {:source "7012556025", :target "3280", :team-id 680, :value 12}
    {:source "3280", :target "86828", :team-id 680, :value 15})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 15}}}}

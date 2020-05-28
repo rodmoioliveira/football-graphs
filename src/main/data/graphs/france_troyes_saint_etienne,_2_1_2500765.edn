@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade de l'Aube",
-  :dateutc "2017-10-01 13:00:00"},
+  :dateutc "2017-10-01 13:00:00",
+  :home-away-id {:3795 :home, :3782 :away}},
  :nodes
  {:3782
   ({:id "276944",
@@ -333,4 +334,7 @@
     :target "295761",
     :team-id 3795,
     :value 7})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 7}},
+  :away {:passes {:min 1, :max 13}}}}
