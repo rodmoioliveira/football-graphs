@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "WWK Arena",
-  :dateutc "2018-03-17 14:30:00"},
+  :dateutc "2018-03-17 14:30:00",
+  :home-away-id {:2481 :home, :2443 :away}},
  :nodes
  {:2481
   ({:id "14914",
@@ -336,4 +337,7 @@
    {:source "15777", :target "16826", :team-id 2481, :value 10}
    {:source "15777", :target "1490015782", :team-id 2481, :value 12}
    {:source "1490015782", :target "65075", :team-id 2481, :value 15})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 14}}}}

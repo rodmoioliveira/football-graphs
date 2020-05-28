@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "VELTINS-Arena",
-  :dateutc "2018-03-03 14:30:00"},
+  :dateutc "2018-03-03 14:30:00",
+  :home-away-id {:2449 :home, :2457 :away}},
  :nodes
  {:2457
   ({:id "13439914762",
@@ -358,4 +359,7 @@
    {:source "173212", :target "54579", :team-id 2457, :value 11}
    {:source "33789032959", :target "173212", :team-id 2457, :value 13}
    {:source "8309", :target "15125", :team-id 2457, :value 17})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 25}},
+  :away {:passes {:min 1, :max 17}}}}

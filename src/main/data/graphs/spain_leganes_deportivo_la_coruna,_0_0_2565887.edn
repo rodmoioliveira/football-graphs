@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Municipal de Butarque",
-  :dateutc "2018-04-20 19:00:00"},
+  :dateutc "2018-04-20 19:00:00",
+  :home-away-id {:712 :home, :677 :away}},
  :nodes
  {:712
   ({:id "6281",
@@ -312,4 +313,7 @@
    {:source "93003", :target "169002", :team-id 712, :value 11}
    {:source "43051", :target "169002", :team-id 712, :value 13}
    {:source "169002", :target "651332968", :team-id 712, :value 13})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 12}}}}

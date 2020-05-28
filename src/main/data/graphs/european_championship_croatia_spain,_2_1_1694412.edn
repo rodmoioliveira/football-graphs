@@ -28,7 +28,8 @@
   :group-name "Group D",
   :status "Played",
   :venue "Stade Matmut-Atlantique",
-  :dateutc "2016-06-21 19:00:00"},
+  :dateutc "2016-06-21 19:00:00",
+  :home-away-id {:9598 :home, :1598 :away}},
  :nodes
  {:9598
   ({:id "6941114812",
@@ -310,4 +311,7 @@
    {:source "14771", :target "69400", :team-id 9598, :value 10}
    {:source "212604", :target "69400", :team-id 9598, :value 10}
    {:source "14771", :target "212604", :team-id 9598, :value 10})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 20}}}}

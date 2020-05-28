@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Wanda Metropolitano",
-  :dateutc "2018-05-20 16:30:00"},
+  :dateutc "2018-05-20 16:30:00",
+  :home-away-id {:679 :home, :701 :away}},
  :nodes
  {:701
   ({:id "225948",
@@ -332,4 +333,7 @@
    {:source "3843", :target "20436", :team-id 701, :value 9}
    {:source "3843", :target "247207", :team-id 701, :value 9}
    {:source "20436", :target "48054180", :team-id 701, :value 9})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 9}}}}

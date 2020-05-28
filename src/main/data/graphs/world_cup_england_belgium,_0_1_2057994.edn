@@ -27,7 +27,8 @@
   :group-name "Group G",
   :status "Played",
   :venue "Kaliningrad Stadium",
-  :dateutc "2018-06-28 18:00:00"},
+  :dateutc "2018-06-28 18:00:00",
+  :home-away-id {:2413 :home, :5629 :away}},
  :nodes
  {:5629
   ({:id "263802",
@@ -320,4 +321,7 @@
    {:source "134702", :target "8034", :team-id 5629, :value 15}
    {:source "83077860", :target "8034", :team-id 5629, :value 22}
    {:source "8034", :target "83077860", :team-id 5629, :value 25})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 16}},
+  :away {:passes {:min 1, :max 25}}}}

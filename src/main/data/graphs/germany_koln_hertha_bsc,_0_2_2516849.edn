@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "RheinEnergieStadion",
-  :dateutc "2017-11-26 17:00:00"},
+  :dateutc "2017-11-26 17:00:00",
+  :home-away-id {:2463 :home, :2457 :away}},
  :nodes
  {:2463
   ({:id "15039",
@@ -349,4 +350,7 @@
    {:source "15253471968", :target "275384", :team-id 2463, :value 18}
    {:source "275384", :target "520617", :team-id 2463, :value 18}
    {:source "520617", :target "275384", :team-id 2463, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 12}}}}

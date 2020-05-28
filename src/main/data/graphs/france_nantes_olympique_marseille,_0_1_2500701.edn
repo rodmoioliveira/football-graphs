@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade de la Beaujoire - Louis Fonteneau",
-  :dateutc "2017-08-12 15:00:00"},
+  :dateutc "2017-08-12 15:00:00",
+  :home-away-id {:3770 :home, :3771 :away}},
  :nodes
  {:3770
   ({:id "260002299154",
@@ -342,4 +343,7 @@
     :target "25999280115",
     :team-id 3771,
     :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 14}}}}

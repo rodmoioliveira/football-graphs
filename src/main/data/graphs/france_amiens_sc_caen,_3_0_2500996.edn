@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade de la Licorne",
-  :dateutc "2018-04-07 18:00:00"},
+  :dateutc "2018-04-07 18:00:00",
+  :home-away-id {:3789 :home, :3783 :away}},
  :nodes
  {:3783
   ({:id "28908",
@@ -345,4 +346,7 @@
    {:source "234138437636", :target "25532", :team-id 3783, :value 11}
    {:source "25532", :target "229427", :team-id 3783, :value 11}
    {:source "229427", :target "25532", :team-id 3783, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 7}},
+  :away {:passes {:min 1, :max 14}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Volksparkstadion",
-  :dateutc "2017-09-30 16:30:00"},
+  :dateutc "2017-09-30 16:30:00",
+  :home-away-id {:2450 :home, :2443 :away}},
  :nodes
  {:2450
   ({:id "39160614864",
@@ -348,4 +349,7 @@
    {:source "444439", :target "14888", :team-id 2450, :value 8}
    {:source "444439", :target "32700920876", :team-id 2450, :value 9}
    {:source "32700920876", :target "14706", :team-id 2450, :value 9})},
- :min-max-values {:passes {:min 1, :max 9}}}
+ :stats
+ {:global {:passes {:min 1, :max 9}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 6}}}}

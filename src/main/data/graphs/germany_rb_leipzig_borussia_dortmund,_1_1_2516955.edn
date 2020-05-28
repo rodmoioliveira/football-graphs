@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Red Bull Arena",
-  :dateutc "2018-03-03 17:30:00"},
+  :dateutc "2018-03-03 17:30:00",
+  :home-away-id {:2975 :home, :2447 :away}},
  :nodes
  {:2975
   ({:id "258252",
@@ -345,4 +346,7 @@
    {:source "297957", :target "14778", :team-id 2447, :value 11}
    {:source "14778", :target "14800", :team-id 2447, :value 12}
    {:source "14778", :target "297957", :team-id 2447, :value 22})},
- :min-max-values {:passes {:min 1, :max 22}}}
+ :stats
+ {:global {:passes {:min 1, :max 22}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 22}}}}

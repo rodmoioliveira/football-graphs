@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stamford Bridge",
-  :dateutc "2017-08-27 12:30:00"},
+  :dateutc "2017-08-27 12:30:00",
+  :home-away-id {:1610 :home, :1623 :away}},
  :nodes
  {:1623
   ({:id "5911293687",
@@ -321,4 +322,7 @@
    {:source "14748", :target "3429", :team-id 1610, :value 16}
    {:source "3350", :target "105333", :team-id 1610, :value 17}
    {:source "25553", :target "3350", :team-id 1610, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 12}}}}

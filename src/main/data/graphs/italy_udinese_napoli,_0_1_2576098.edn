@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Dacia Arena",
-  :dateutc "2017-11-26 14:00:00"},
+  :dateutc "2017-11-26 14:00:00",
+  :home-away-id {:3163 :home, :3187 :away}},
  :nodes
  {:3163
   ({:id "248950",
@@ -345,4 +346,7 @@
    {:source "131184", :target "265172", :team-id 3163, :value 7}
    {:source "265172", :target "131184", :team-id 3163, :value 8}
    {:source "248950", :target "239288", :team-id 3163, :value 8})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 24}}}}

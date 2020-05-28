@@ -28,7 +28,8 @@
   :group-name "",
   :status "Played",
   :venue "Kazan' Arena",
-  :dateutc "2018-07-06 18:00:00"},
+  :dateutc "2018-07-06 18:00:00",
+  :home-away-id {:6380 :home, :5629 :away}},
  :nodes
  {:5629
   ({:id "70123",
@@ -328,4 +329,7 @@
    {:source "25707", :target "2617860", :team-id 5629, :value 10}
    {:source "8307", :target "36", :team-id 5629, :value 13}
    {:source "48", :target "8307", :team-id 5629, :value 13})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 13}}}}

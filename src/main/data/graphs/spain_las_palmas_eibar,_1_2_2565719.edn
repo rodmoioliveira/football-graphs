@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio de Gran Canaria",
-  :dateutc "2018-01-06 17:30:00"},
+  :dateutc "2018-01-06 17:30:00",
+  :home-away-id {:714 :home, :701 :away}},
  :nodes
  {:714
   ({:id "4272",
@@ -313,4 +314,7 @@
    {:source "4379", :target "43624969", :team-id 714, :value 10}
    {:source "29642", :target "43624969", :team-id 714, :value 10}
    {:source "43624969", :target "4379", :team-id 714, :value 12})},
- :min-max-values {:passes {:min 1, :max 12}}}
+ :stats
+ {:global {:passes {:min 1, :max 12}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 9}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Comunale Luigi Ferraris",
-  :dateutc "2017-08-20 18:45:00"},
+  :dateutc "2017-08-20 18:45:00",
+  :home-away-id {:3164 :home, :3219 :away}},
  :nodes
  {:3219
   ({:id "13716121235",
@@ -348,4 +349,7 @@
    {:source "2269521678", :target "134484", :team-id 3219, :value 7}
    {:source "256478", :target "2157824838", :team-id 3219, :value 8}
    {:source "284960", :target "134484", :team-id 3219, :value 11})},
- :min-max-values {:passes {:min 1, :max 31}}}
+ :stats
+ {:global {:passes {:min 1, :max 31}},
+  :home {:passes {:min 1, :max 31}},
+  :away {:passes {:min 1, :max 11}}}}

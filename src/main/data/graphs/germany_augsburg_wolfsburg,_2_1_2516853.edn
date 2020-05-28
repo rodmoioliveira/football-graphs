@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "WWK Arena",
-  :dateutc "2017-11-25 14:30:00"},
+  :dateutc "2017-11-25 14:30:00",
+  :home-away-id {:2481 :home, :2451 :away}},
  :nodes
  {:2451
   ({:id "14731",
@@ -338,4 +339,7 @@
    {:source "25861", :target "149091", :team-id 2451, :value 9}
    {:source "14917", :target "15775285727", :team-id 2451, :value 9}
    {:source "15775285727", :target "25861", :team-id 2451, :value 9})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 9}}}}

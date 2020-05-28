@@ -28,7 +28,8 @@
   :group-name "Group E",
   :status "Played",
   :venue "Otkrytiye Arena",
-  :dateutc "2018-06-27 18:00:00"},
+  :dateutc "2018-06-27 18:00:00",
+  :home-away-id {:17322 :home, :6380 :away}},
  :nodes
  {:6380
   ({:id "10533940550",
@@ -342,4 +343,7 @@
    {:source "14008520941", :target "8306", :team-id 17322, :value 9}
    {:source "265865", :target "14008520941", :team-id 17322, :value 10}
    {:source "424241", :target "265865", :team-id 17322, :value 13})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 25}}}}

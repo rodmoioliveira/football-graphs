@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "St. Mary's Stadium",
-  :dateutc "2018-01-02 19:45:00"},
+  :dateutc "2018-01-02 19:45:00",
+  :home-away-id {:1619 :home, :1628 :away}},
  :nodes
  {:1628
   ({:id "4547988",
@@ -311,4 +312,7 @@
    {:source "8471", :target "8623", :team-id 1628, :value 8}
    {:source "8623", :target "397168", :team-id 1628, :value 9}
    {:source "4547988", :target "127537", :team-id 1628, :value 9})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 9}}}}

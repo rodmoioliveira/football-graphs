@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Camp Nou",
-  :dateutc "2017-09-19 20:00:00"},
+  :dateutc "2017-09-19 20:00:00",
+  :home-away-id {:676 :home, :701 :away}},
  :nodes
  {:701
   ({:id "3737135542",
@@ -323,4 +324,7 @@
    {:source "4805", :target "4094225948", :team-id 701, :value 13}
    {:source "14836", :target "3737135542", :team-id 701, :value 15}
    {:source "70507", :target "4805", :team-id 701, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 17}},
+  :away {:passes {:min 1, :max 18}}}}

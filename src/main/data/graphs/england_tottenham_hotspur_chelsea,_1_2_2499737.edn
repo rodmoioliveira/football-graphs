@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Wembley Stadium",
-  :dateutc "2017-08-20 15:00:00"},
+  :dateutc "2017-08-20 15:00:00",
+  :home-away-id {:1624 :home, :1610 :away}},
  :nodes
  {:1624
   ({:id "13484",
@@ -335,4 +336,7 @@
    {:source "21004414911", :target "36", :team-id 1624, :value 17}
    {:source "36", :target "21004414911", :team-id 1624, :value 17}
    {:source "36", :target "48", :team-id 1624, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 7}}}}

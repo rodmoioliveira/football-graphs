@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Goodison Park",
-  :dateutc "2018-01-01 17:30:00"},
+  :dateutc "2018-01-01 17:30:00",
+  :home-away-id {:1623 :home, :1611 :away}},
  :nodes
  {:1611
   ({:id "8135",
@@ -345,4 +346,7 @@
    {:source "340", :target "82847944", :team-id 1623, :value 9}
    {:source "284476", :target "355937", :team-id 1623, :value 11}
    {:source "82847944", :target "340", :team-id 1623, :value 11})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 24}}}}

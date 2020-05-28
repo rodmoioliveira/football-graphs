@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Michel d'Ornano",
-  :dateutc "2018-05-06 15:00:00"},
+  :dateutc "2018-05-06 15:00:00",
+  :home-away-id {:3783 :home, :19830 :away}},
  :nodes
  {:3783
   ({:id "28908",
@@ -355,4 +356,7 @@
    {:source "149101", :target "13591328117", :team-id 19830, :value 13}
    {:source "472126", :target "70093", :team-id 19830, :value 14}
    {:source "70093", :target "472126", :team-id 19830, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 14}}}}

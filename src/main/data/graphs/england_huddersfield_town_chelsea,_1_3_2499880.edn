@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "The John Smith's Stadium",
-  :dateutc "2017-12-12 20:00:00"},
+  :dateutc "2017-12-12 20:00:00",
+  :home-away-id {:1673 :home, :1610 :away}},
  :nodes
  {:1673
   ({:id "15215",
@@ -337,4 +338,7 @@
     :target "14796282550",
     :team-id 1673,
     :value 15})},
- :min-max-values {:passes {:min 1, :max 47}}}
+ :stats
+ {:global {:passes {:min 1, :max 47}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 47}}}}

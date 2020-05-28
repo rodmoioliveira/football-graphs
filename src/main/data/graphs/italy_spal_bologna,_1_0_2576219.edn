@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Paolo Mazza",
-  :dateutc "2018-03-03 14:00:00"},
+  :dateutc "2018-03-03 14:00:00",
+  :home-away-id {:3204 :home, :3166 :away}},
  :nodes
  {:3204
   ({:id "2044845579",
@@ -328,4 +329,7 @@
     :target "373768232822",
     :team-id 3166,
     :value 8})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 8}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "WIRSOL Rhein-Neckar-Arena",
-  :dateutc "2018-02-24 14:30:00"},
+  :dateutc "2018-02-24 14:30:00",
+  :home-away-id {:2482 :home, :2453 :away}},
  :nodes
  {:2482
   ({:id "69411",
@@ -353,4 +354,7 @@
    {:source "19720", :target "272378", :team-id 2453, :value 14}
    {:source "19525", :target "344864", :team-id 2453, :value 15}
    {:source "344864", :target "19525", :team-id 2453, :value 19})},
- :min-max-values {:passes {:min 1, :max 28}}}
+ :stats
+ {:global {:passes {:min 1, :max 28}},
+  :home {:passes {:min 1, :max 28}},
+  :away {:passes {:min 1, :max 19}}}}

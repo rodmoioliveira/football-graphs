@@ -27,7 +27,8 @@
   :group-name "Group B",
   :status "Played",
   :venue "Stadium Municipal",
-  :dateutc "2016-06-20 19:00:00"},
+  :dateutc "2016-06-20 19:00:00",
+  :home-away-id {:14358 :home, :10682 :away}},
  :nodes
  {:14358
   ({:id "101705",
@@ -349,4 +350,7 @@
    {:source "9615", :target "8831", :team-id 10682, :value 12}
    {:source "8831", :target "775488436", :team-id 10682, :value 13}
    {:source "7870", :target "8831", :team-id 10682, :value 16})},
- :min-max-values {:passes {:min 1, :max 16}}}
+ :stats
+ {:global {:passes {:min 1, :max 16}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 16}}}}

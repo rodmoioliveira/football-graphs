@@ -28,7 +28,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Stade Matmut-Atlantique",
-  :dateutc "2016-07-02 19:00:00"},
+  :dateutc "2016-07-02 19:00:00",
+  :home-away-id {:3148 :home, :3757 :away}},
  :nodes
  {:3148
   ({:id "14716",
@@ -352,4 +353,7 @@
    {:source "20459", :target "2220220461", :team-id 3757, :value 19}
    {:source "20459", :target "20458", :team-id 3757, :value 19}
    {:source "20458", :target "20459", :team-id 3757, :value 25})},
- :min-max-values {:passes {:min 1, :max 28}}}
+ :stats
+ {:global {:passes {:min 1, :max 28}},
+  :home {:passes {:min 1, :max 28}},
+  :away {:passes {:min 1, :max 25}}}}

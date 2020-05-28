@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Schwarzwald-Stadion",
-  :dateutc "2017-09-20 18:30:00"},
+  :dateutc "2017-09-20 18:30:00",
+  :home-away-id {:2453 :home, :2455 :away}},
  :nodes
  {:2455
   ({:id "14802",
@@ -351,4 +352,7 @@
     :target "26949015533",
     :team-id 2453,
     :value 11})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 13}}}}

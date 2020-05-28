@@ -31,7 +31,8 @@
   :group-name "Group E",
   :status "Played",
   :venue "Stade Pierre-Mauroy",
-  :dateutc "2016-06-22 19:00:00"},
+  :dateutc "2016-06-22 19:00:00",
+  :home-away-id {:3757 :home, :8274 :away}},
  :nodes
  {:3757
   ({:id "22566",
@@ -325,4 +326,7 @@
    {:source "83468624", :target "8433", :team-id 8274, :value 8}
    {:source "8240", :target "8242", :team-id 8274, :value 9}
    {:source "8980", :target "8240", :team-id 8274, :value 10})},
- :min-max-values {:passes {:min 1, :max 10}}}
+ :stats
+ {:global {:passes {:min 1, :max 10}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 10}}}}

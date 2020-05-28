@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Matmut-Atlantique",
-  :dateutc "2018-03-10 19:00:00"},
+  :dateutc "2018-03-10 19:00:00",
+  :home-away-id {:3772 :home, :3799 :away}},
  :nodes
  {:3799
   ({:id "2653926068",
@@ -350,4 +351,7 @@
    {:source "26945", :target "33455225923", :team-id 3772, :value 19}
    {:source "410062", :target "26332", :team-id 3772, :value 20}
    {:source "26332", :target "26945", :team-id 3772, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 24}},
+  :away {:passes {:min 1, :max 10}}}}

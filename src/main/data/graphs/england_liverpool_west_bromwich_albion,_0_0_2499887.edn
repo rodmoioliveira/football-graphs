@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Anfield",
-  :dateutc "2017-12-13 20:00:00"},
+  :dateutc "2017-12-13 20:00:00",
+  :home-away-id {:1612 :home, :1627 :away}},
  :nodes
  {:1612
   ({:id "346101257899",
@@ -322,4 +323,7 @@
     :target "346101257899",
     :team-id 1612,
     :value 31})},
- :min-max-values {:passes {:min 1, :max 31}}}
+ :stats
+ {:global {:passes {:min 1, :max 31}},
+  :home {:passes {:min 1, :max 31}},
+  :away {:passes {:min 1, :max 7}}}}

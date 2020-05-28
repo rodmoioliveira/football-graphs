@@ -28,7 +28,8 @@
   :group-name "",
   :status "Played",
   :venue "Olimpiyskiy stadion Luzhniki",
-  :dateutc "2018-07-01 14:00:00"},
+  :dateutc "2018-07-01 14:00:00",
+  :home-away-id {:1598 :home, :14358 :away}},
  :nodes
  {:14358
   ({:id "41123",
@@ -342,4 +343,7 @@
    {:source "41123", :target "4513101699", :team-id 14358, :value 6}
    {:source "41123", :target "103682", :team-id 14358, :value 8}
    {:source "4513101699", :target "41123", :team-id 14358, :value 8})},
- :min-max-values {:passes {:min 1, :max 48}}}
+ :stats
+ {:global {:passes {:min 1, :max 48}},
+  :home {:passes {:min 1, :max 48}},
+  :away {:passes {:min 1, :max 8}}}}

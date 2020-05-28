@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Emirates Stadium",
-  :dateutc "2017-11-29 19:45:00"},
+  :dateutc "2017-11-29 19:45:00",
+  :home-away-id {:1609 :home, :1673 :away}},
  :nodes
  {:1673
   ({:id "8761",
@@ -335,4 +336,7 @@
    {:source "3560", :target "49876", :team-id 1609, :value 24}
    {:source "20612", :target "3560", :team-id 1609, :value 26}
    {:source "7855", :target "20612", :team-id 1609, :value 30})},
- :min-max-values {:passes {:min 1, :max 30}}}
+ :stats
+ {:global {:passes {:min 1, :max 30}},
+  :home {:passes {:min 1, :max 30}},
+  :away {:passes {:min 1, :max 9}}}}

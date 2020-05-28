@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Mercedes-Benz-Arena",
-  :dateutc "2018-02-11 14:30:00"},
+  :dateutc "2018-02-11 14:30:00",
+  :home-away-id {:2445 :home, :2454 :away}},
  :nodes
  {:2445
   ({:id "14731",
@@ -364,4 +365,7 @@
    {:source "14991", :target "15061", :team-id 2454, :value 15}
    {:source "14991", :target "14838", :team-id 2454, :value 17}
    {:source "15806", :target "14991", :team-id 2454, :value 17})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 17}}}}

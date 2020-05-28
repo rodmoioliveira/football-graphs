@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio de Bala\\u00eddos",
-  :dateutc "2018-04-21 14:15:00"},
+  :dateutc "2018-04-21 14:15:00",
+  :home-away-id {:692 :home, :674 :away}},
  :nodes
  {:692
   ({:id "4911",
@@ -347,4 +348,7 @@
    {:source "25623", :target "372752", :team-id 674, :value 9}
    {:source "211853", :target "240445", :team-id 674, :value 12}
    {:source "70112", :target "211853", :team-id 674, :value 13})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 13}}}}

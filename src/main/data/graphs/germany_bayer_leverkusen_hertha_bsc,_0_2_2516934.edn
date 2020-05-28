@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "BayArena",
-  :dateutc "2018-02-10 14:30:00"},
+  :dateutc "2018-02-10 14:30:00",
+  :home-away-id {:2446 :home, :2457 :away}},
  :nodes
  {:2446
   ({:id "258253388267",
@@ -359,4 +360,7 @@
    {:source "14803", :target "16542535477", :team-id 2446, :value 13}
    {:source "14803", :target "344178", :team-id 2446, :value 14}
    {:source "14803", :target "15188", :team-id 2446, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 9}}}}

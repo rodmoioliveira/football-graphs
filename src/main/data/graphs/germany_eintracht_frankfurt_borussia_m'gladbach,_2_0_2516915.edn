@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Commerzbank-Arena",
-  :dateutc "2018-01-26 19:30:00"},
+  :dateutc "2018-01-26 19:30:00",
+  :home-away-id {:2462 :home, :2454 :away}},
  :nodes
  {:2454
   ({:id "15018",
@@ -367,4 +368,7 @@
    {:source "255387", :target "224680", :team-id 2462, :value 11}
    {:source "14929", :target "26021", :team-id 2462, :value 13}
    {:source "14929", :target "255387", :team-id 2462, :value 15})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 21}}}}

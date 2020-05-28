@@ -31,7 +31,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Rostov Arena",
-  :dateutc "2018-06-23 15:00:00"},
+  :dateutc "2018-06-23 15:00:00",
+  :home-away-id {:14855 :home, :15473 :away}},
  :nodes
  {:14855
   ({:id "95299107413",
@@ -347,4 +348,7 @@
    {:source "448210", :target "255387", :team-id 15473, :value 15}
    {:source "3795", :target "255387", :team-id 15473, :value 16}
    {:source "255387", :target "448210", :team-id 15473, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 24}}}}

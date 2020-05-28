@@ -28,7 +28,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Stadion Luzhniki",
-  :dateutc "2018-06-17 15:00:00"},
+  :dateutc "2018-06-17 15:00:00",
+  :home-away-id {:3148 :home, :15473 :away}},
  :nodes
  {:3148
   ({:id "14716",
@@ -343,4 +344,7 @@
    {:source "150243318", :target "3319", :team-id 3148, :value 14}
    {:source "224593", :target "14716", :team-id 3148, :value 18}
    {:source "14716", :target "224593", :team-id 3148, :value 22})},
- :min-max-values {:passes {:min 1, :max 22}}}
+ :stats
+ {:global {:passes {:min 1, :max 22}},
+  :home {:passes {:min 1, :max 22}},
+  :away {:passes {:min 1, :max 8}}}}

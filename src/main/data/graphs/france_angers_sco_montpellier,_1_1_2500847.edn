@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Raymond Kopa",
-  :dateutc "2017-12-09 19:00:00"},
+  :dateutc "2017-12-09 19:00:00",
+  :home-away-id {:3799 :home, :3787 :away}},
  :nodes
  {:3787
   ({:id "26008143189",
@@ -340,4 +341,7 @@
    {:source "69525", :target "26086", :team-id 3799, :value 23}
    {:source "69525", :target "25846", :team-id 3799, :value 24}
    {:source "26086", :target "26265", :team-id 3799, :value 25})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 25}},
+  :away {:passes {:min 1, :max 20}}}}

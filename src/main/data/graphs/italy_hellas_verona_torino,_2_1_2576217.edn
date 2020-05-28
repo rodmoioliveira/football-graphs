@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Marc'Antonio Bentegodi",
-  :dateutc "2018-02-25 14:00:00"},
+  :dateutc "2018-02-25 14:00:00",
+  :home-away-id {:3194 :home, :3185 :away}},
  :nodes
  {:3185
   ({:id "3397918148",
@@ -345,4 +346,7 @@
    {:source "252589", :target "20414", :team-id 3194, :value 5}
    {:source "252589", :target "328336", :team-id 3194, :value 6}
    {:source "328336", :target "252589", :team-id 3194, :value 6})},
- :min-max-values {:passes {:min 1, :max 12}}}
+ :stats
+ {:global {:passes {:min 1, :max 12}},
+  :home {:passes {:min 1, :max 6}},
+  :away {:passes {:min 1, :max 12}}}}

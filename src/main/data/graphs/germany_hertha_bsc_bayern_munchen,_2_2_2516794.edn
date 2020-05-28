@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Olympiastadion Berlin",
-  :dateutc "2017-10-01 13:30:00"},
+  :dateutc "2017-10-01 13:30:00",
+  :home-away-id {:2457 :home, :2444 :away}},
  :nodes
  {:2444
   ({:id "224593",
@@ -358,4 +359,7 @@
    {:source "8251815103", :target "15276", :team-id 2457, :value 7}
    {:source "15276", :target "15020", :team-id 2457, :value 8}
    {:source "8309", :target "54579", :team-id 2457, :value 8})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 25}}}}

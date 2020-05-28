@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade V\\u00e9lodrome",
-  :dateutc "2017-09-10 19:00:00"},
+  :dateutc "2017-09-10 19:00:00",
+  :home-away-id {:3771 :home, :3774 :away}},
  :nodes
  {:3771
   ({:id "280115366401",
@@ -321,4 +322,7 @@
     :target "280115366401",
     :team-id 3771,
     :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 11}}}}

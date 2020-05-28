@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Matmut-Atlantique",
-  :dateutc "2017-08-12 18:00:00"},
+  :dateutc "2017-08-12 18:00:00",
+  :home-away-id {:3772 :home, :3777 :away}},
  :nodes
  {:3777
   ({:id "26033",
@@ -363,4 +364,7 @@
     :target "28529",
     :team-id 3772,
     :value 14})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 15}}}}

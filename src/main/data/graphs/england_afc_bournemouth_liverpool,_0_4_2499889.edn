@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Vitality Stadium",
-  :dateutc "2017-12-17 16:30:00"},
+  :dateutc "2017-12-17 16:30:00",
+  :home-away-id {:1659 :home, :1612 :away}},
  :nodes
  {:1659
   ({:id "8726",
@@ -335,4 +336,7 @@
    {:source "25393", :target "74", :team-id 1612, :value 22}
    {:source "257899", :target "25393", :team-id 1612, :value 22}
    {:source "74", :target "25393", :team-id 1612, :value 22})},
- :min-max-values {:passes {:min 1, :max 22}}}
+ :stats
+ {:global {:passes {:min 1, :max 22}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 22}}}}

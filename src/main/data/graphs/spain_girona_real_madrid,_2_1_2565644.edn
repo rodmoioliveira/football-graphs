@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadi Municipal de Montilivi",
-  :dateutc "2017-10-29 15:15:00"},
+  :dateutc "2017-10-29 15:15:00",
+  :home-away-id {:756 :home, :675 :away}},
  :nodes
  {:675
   ({:id "3322",
@@ -316,4 +317,7 @@
    {:source "3563", :target "8287", :team-id 675, :value 15}
    {:source "40756", :target "14723", :team-id 675, :value 16}
    {:source "14723", :target "3563", :team-id 675, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 19}}}}
