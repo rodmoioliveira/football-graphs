@@ -8,6 +8,7 @@
                       is-body-click?
                       get-metrics
                       get-current-theme
+                      set-compare-text!
                       set-in-storage!
                       activate-nav
                       deactivate-nav]]
@@ -34,6 +35,7 @@
                                                     (get-metrics)
                                                     (get-theme-with (partial theme-identity (get-current-theme)))))))))
                     (rx-op/tap (fn [obj]
+                                 (set-compare-text! obj)
                                  (display-passes obj)
                                  (-> obj update-theme-store!)))))
         list$ (-> dom
