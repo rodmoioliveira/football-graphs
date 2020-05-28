@@ -7,25 +7,46 @@
   [{:keys [id
            node-radius-metric
            node-color-metric
-           min-max-values
+           global-stats
+           team-stats
            name-position
            font-color
            mobile?
            node-color-range
            edge-color-range
            outline-node-color]}]
-  ; (-> min-max-values node-radius-metric (#((juxt :min :max) %)) print)
-  (let [get-ranges (fn [metric] (-> min-max-values metric (#((juxt :min :max) %))))
+  (let [get-ranges (fn [metric global-stats?]
+                     (-> (if global-stats? global-stats team-stats) metric (#((juxt :min :max) %))))
         mapping {:domains
-                 {:passes (-> (get-ranges :passes) clj->js)
-                  :degree (-> (get-ranges :degree) clj->js)
+                 {:passes
+                  (fn
+                    [global-stats?]
+                    (-> (get-ranges :passes global-stats?)
+                        clj->js))
+                  :degree
+                  (fn
+                    [global-stats?]
+                    (-> (get-ranges :degree global-stats?)
+                        clj->js))
+                  :betweenness-centrality
+                  (fn
+                    [global-stats?]
+                    (-> (get-ranges :betweenness-centrality global-stats?)
+                        clj->js))
+                  :local-clustering-coefficient
+                  (fn
+                    [global-stats?]
+                    (-> (get-ranges :local-clustering-coefficient global-stats?)
+                        reverse
+                        clj->js))
+                  :closeness-centrality
+                  (fn
+                    [global-stats?]
+                    (-> (get-ranges :closeness-centrality global-stats?) clj->js))
                   ; :in-degree (-> (get-ranges :in-degree) clj->js)
                   ; :out-degree (-> (get-ranges :out-degree) clj->js)
                   ; :katz-centrality (-> (get-ranges :katz-centrality) clj->js)
-                  :betweenness-centrality (-> (get-ranges :betweenness-centrality) clj->js)
                   ; :current_flow_betweenness_centrality (-> (get-ranges :current_flow_betweenness_centrality) clj->js)
-                  :local-clustering-coefficient (-> (get-ranges :local-clustering-coefficient) reverse clj->js)
-                  :closeness-centrality (-> (get-ranges :closeness-centrality) clj->js)
                   ; :alpha-centrality (-> (get-ranges :alpha-centrality) clj->js)
                   ; :eigenvector-centrality (-> (get-ranges :eigenvector-centrality) clj->js)
                   }
@@ -40,30 +61,33 @@
               :text-align "center"
               :base-line "middle"}
         canvas (-> js/document (.getElementById id))
-        edges->colors (fn [domain range]
+        edges->colors (fn [global-stats? range]
                         (-> d3
-                          (.scalePow)
-                          (.exponent 1)
-                          (.domain domain)
-                          (.range range)
-                          (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3)))))
-        edges->width (-> d3
-                         (.scaleLinear)
-                         (.domain (-> mapping :domains :passes))
-                         (.range (-> mapping :codomains :edges-width)))
+                            (.scalePow)
+                            (.exponent 1)
+                            (.domain ((-> mapping :domains :passes) global-stats?))
+                            (.range range)
+                            (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3)))))
+        edges->width (fn [global-stats?]
+                       (-> d3
+                           (.scaleLinear)
+                           (.domain ((-> mapping :domains :passes) global-stats?))
+                           (.range (-> mapping :codomains :edges-width))))
         node-color-scale (fn [domain]
-                              (fn [codomain]
-                                (-> d3
-                                    (.scalePow)
-                                    (.exponent 1)
-                                    (.domain (-> mapping :domains domain))
-                                    (.range codomain)
-                                    (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))))
-        node-radius-scale #(-> d3
+                           (fn [codomain global-stats?]
+                             (-> d3
+                                 (.scalePow)
+                                 (.exponent 1)
+                                 (.domain ((-> mapping :domains domain) global-stats?))
+                                 (.range codomain)
+                                 (.interpolate (-> d3 (.-interpolateCubehelix) (.gamma 3))))))
+        node-radius-scale (fn [domain]
+                            (fn [global-stats?]
+                              (-> d3
                                ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
-                               (.scaleSqrt)
-                               (.domain (-> mapping :domains %))
-                               (.range (-> mapping :codomains :radius)))
+                                  (.scaleSqrt)
+                                  (.domain ((-> mapping :domains domain) global-stats?))
+                                  (.range (-> mapping :codomains :radius)))))
         map-scale {:radius node-radius-scale
                    :color node-color-scale}
         degree #((-> map-scale %) :degree)
@@ -86,7 +110,7 @@
                 :alpha-centrality alpha-centrality
                 :eigenvector-centrality eigenvector-centrality
                 :current_flow_betweenness_centrality current_flow_betweenness_centrality
-                :edges->colors-partial (partial edges->colors (-> mapping :domains :passes))
+                :edges->colors edges->colors
                 :edges->width edges->width}]
     {:arrows {:recoil 12
               :expansion 1.5

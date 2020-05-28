@@ -17,6 +17,7 @@
    [clojure.java.io :as io]
    [clojure.data.json :as json]
    [clojure.string :as st]
+   [clojure.pprint :refer [pprint]]
    [libpython-clj.require :refer [require-python]]
    [libpython-clj.python :as py :refer [py. py.. py.-]]
 
@@ -76,12 +77,11 @@
 ; Create Graph Data Structure
 ; ==================================
 (defn create-graph
-  [team]
+  [nodes links]
   (let [sdwg (SimpleDirectedWeightedGraph. DefaultWeightedEdge)
         swg (SimpleWeightedGraph. DefaultWeightedEdge)
         mg (nx/MultiGraph)
-        mdg (nx/MultiDiGraph)
-        [nodes links] team]
+        mdg (nx/MultiDiGraph)]
 
     ; ====================================
     ; Nodes
@@ -229,58 +229,54 @@
       (try
         (let [data (get-data :edn id-keyword)
               id (-> id-keyword name)
-              teams-ids (-> data
-                            :nodes
-                            keys
-                            (#(map (fn [id] (-> id name Integer.)) %))
-                            (#(sort %))
-                            (#(map (fn [id] (-> id str keyword)) %)))
+              home-id (-> data :match-info :home-away :home)
+              away-id (-> data :match-info :home-away :away)
               nodes (-> data
                         :nodes
                         vals
-                        (#(sort-by (fn [t] (-> t first :current-national-team-id)) %)))
+                        (#(group-by (fn [t] (-> t first :current-national-team-id)) %)))
               links (-> data
                         :links
                         vals
-                        (#(sort-by (fn [t] (-> t first :team-id)) %)))
-              team-1 (-> [nodes links] (#(map first %)))
-              team-2 (-> [nodes links] (#(map second %)))
-              metrics [(create-graph team-1)
-                       (create-graph team-2)]
+                        (#(group-by (fn [t] (-> t first :team-id)) %)))
+              [home-nodes home-links] [(-> nodes (get-in [home-id]) first)
+                                       (-> links (get-in [home-id]) first)]
+              [away-nodes away-links] [(-> nodes (get-in [away-id]) first)
+                                       (-> links (get-in [away-id]) first)]
+              metrics {:home (create-graph home-nodes home-links)
+                       :away (create-graph away-nodes away-links)}
               graph
               (-> data
                   ((fn [d]
                      (assoc
                       d
                       :nodes
-                      {(-> teams-ids first)
-                       (-> nodes
-                           first
+                      {(-> home-id str keyword)
+                       (-> home-nodes
                            (#(map (fn
                                     [n]
                                     (assoc
                                      n
                                      :metrics
-                                     (get-in metrics [0 :vertex-set (-> n :id keyword) :metrics])))
+                                     (get-in metrics [:home :vertex-set (-> n :id keyword) :metrics])))
                                   %)))
-                       (-> teams-ids second)
-                       (-> nodes
-                           second
+                       (-> away-id str keyword)
+                       (-> away-nodes
                            (#(map (fn
                                     [n]
                                     (assoc
                                      n
                                      :metrics
-                                     (get-in metrics [1 :vertex-set (-> n :id keyword) :metrics])))
+                                     (get-in metrics [:away :vertex-set (-> n :id keyword) :metrics])))
                                   %)))}
                       :stats
-                      {:global (merge (-> data :stats :global) (get-metrics-ranges metrics))
+                      {:global (merge (-> data :stats :global) (get-metrics-ranges (-> metrics vals)))
                        :home (merge (-> data :stats :home)
-                                    (get-in metrics [0 :graph-metrics])
-                                    (-> [(get-in metrics [0])] get-metrics-ranges))
+                                    (get-in metrics [:home :graph-metrics])
+                                    (-> [(get-in metrics [:home])] get-metrics-ranges))
                        :away (merge (-> data :stats :away)
-                                    (get-in metrics [1 :graph-metrics])
-                                    (-> [(get-in metrics [1])] get-metrics-ranges))}))))
+                                    (get-in metrics [:away :graph-metrics])
+                                    (-> [(get-in metrics [:away])] get-metrics-ranges))}))))
 
               match-label (-> data
                               :label

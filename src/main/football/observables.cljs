@@ -24,7 +24,8 @@
         input$ (-> (rx/of
                     (-> dom :node-color-select)
                     (-> dom :node-area-select)
-                    (-> dom :min-passes-input))
+                    (-> dom :min-passes-input)
+                    (-> dom :compare?))
                    (.pipe
                     (rx-op/mergeMap #(-> (rx/fromEvent % "input")
                                          (.pipe (rx-op/map
