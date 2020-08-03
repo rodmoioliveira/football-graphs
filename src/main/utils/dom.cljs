@@ -20,6 +20,9 @@
    :deactivate-btn (-> js/document (.querySelector "[data-deactivate-metrics]"))
    :nav (-> js/document (.querySelector ".nav-metrics"))
    :plot-section (-> js/document (.getElementById "data-plot-graphs"))
+   :search-bar (-> js/document (.getElementById "search-bar"))
+   :search-count (-> js/document (.getElementById "search-count"))
+   :search-result (-> js/document (.getElementById "search-result"))
    :matches-lists (-> js/document (.getElementById "matches__lists"))
    :slider-graph (-> js/document (.querySelector ".slider__graph"))
    :slider-home (-> js/document (.querySelector ".slider__home"))
@@ -251,6 +254,20 @@
    (-> match :label)
    "
    </li>"))
+
+(defn reset-search-results!
+  []
+  (-> dom :search-result (#(set! (.-innerHTML %) ""))))
+
+(defn set-search-count!
+  [matches]
+  (-> dom
+      :search-count ((fn [el] (set! (.-innerText el) (str "(" (count matches) ")"))))))
+
+(defn reset-search-count!
+  []
+  (-> dom
+      :search-count ((fn [el] (set! (.-innerText el) (str "(0)"))))))
 
 (def loader-element "<div class='loader'></div>")
 

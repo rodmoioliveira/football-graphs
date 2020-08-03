@@ -1,13 +1,19 @@
 (ns football.observables
   (:require
+   [clojure.string :refer [includes? split trim replace lower-case]]
    ["rxjs" :as rx]
    ["rxjs/operators" :as rx-op]
 
+   [football.matches :refer [labels-hash search-pool]]
    [football.store :refer [update-theme-store!]]
    [utils.dom :refer [dom
                       is-body-click?
+                      match-item
+                      reset-search-results!
                       get-metrics
                       get-current-theme
+                      set-search-count!
+                      reset-search-count!
                       set-compare-text!
                       set-in-storage!
                       activate-nav
@@ -38,8 +44,8 @@
                                  (set-compare-text! obj)
                                  (display-passes obj)
                                  (-> obj update-theme-store!)))))
-        list$ (-> dom
-                  :matches-lists
+        list$ (-> js/document
+
                   (rx/fromEvent "click")
                   (.pipe
                    (rx-op/filter (fn [e] (-> e .-target (.hasAttribute "data-match-id"))))
@@ -83,3 +89,51 @@
 (def slider$
   (-> dom :slide-to-home
       (rx/fromEvent "click")))
+
+(defn search-bar$
+  []
+    (-> dom :search-bar
+        (rx/fromEvent "input")
+        (.pipe
+         (rx-op/debounceTime 500)
+         (rx-op/tap reset-search-results!)
+         (rx-op/map (fn [e] (-> e .-target .-value trim lower-case))))
+        (.subscribe
+         (fn [v]
+           (let [search-count (count v)]
+             (cond
+               (zero? search-count) (do
+                                      (reset-search-results!)
+                                      (reset-search-count!))
+               (< 2 search-count) (->>
+                                   search-pool
+                                   (filter #(includes? (-> % :label lower-case) v))
+                                   (map #(-> %
+                                             :filename
+                                             (split #"\.")
+                                             first
+                                             (replace #"," "")
+                                             keyword
+                                             labels-hash))
+                                   (sort-by :label)
+                                   (remove nil?)
+                                   ((fn [matches]
+                                      (set-search-count! matches)
+                                      (if (zero? (count matches))
+                                        (-> dom
+                                            :search-result
+                                            (.insertAdjacentHTML
+                                              "beforeend"
+                                              "<p>No results...</p>"))
+                                        (doseq [match matches]
+                                          (-> dom
+                                              :search-result
+                                              (.insertAdjacentHTML "beforeend" (match-item match))))))))
+
+               :else (do
+                       (reset-search-count!)
+                       (-> dom
+                           :search-result
+                           (.insertAdjacentHTML
+                            "beforeend"
+                            "<p>Type a least 3 letters...</p>")))))))))

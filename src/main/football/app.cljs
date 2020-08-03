@@ -30,13 +30,13 @@
 
    [football.observables :refer [select-metrics$
                                  sticky-nav$
+                                 search-bar$
                                  slider$]]
    [mapping.themes :refer [theme-identity
                            get-theme-with]]
    [football.matches :refer [matches-files-hash labels-hash]]
    [football.store :refer [store
                            update-store
-                           theme-store
                            flush-simulations!
                            restart-simulations
                            stop-simulations]]
@@ -140,6 +140,7 @@
       (do
         (reset-dom)
         (sticky-nav$)
+        (search-bar$)
         (-> slider$
             (.subscribe (fn [_]
                           (reset-hash!)
@@ -206,7 +207,7 @@
                               apply-hash
                               (fn [d] (-> d vector plot-dom))
                               (fn [] (-> obj (merge opts) plot-graphs))]))))))))))
-          ; routing
+        ; routing
         (when url-match-id
           (-> dom
               :matches-lists

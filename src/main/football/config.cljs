@@ -84,7 +84,7 @@
         node-radius-scale (fn [domain]
                             (fn [global-stats?]
                               (-> d3
-                               ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
+                                  ; https://bl.ocks.org/d3indepth/775cf431e64b6718481c06fc45dc34f9
                                   (.scaleSqrt)
                                   (.domain ((-> mapping :domains domain) global-stats?))
                                   (.range (-> mapping :codomains :radius)))))
