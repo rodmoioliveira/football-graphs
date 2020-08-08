@@ -4,7 +4,7 @@
 
 # :dart: About this project
 
-This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
+Football Passing Networks is an interactive web application to explore data visualizations on soccer passing networks.
 
 # :globe_with_meridians: Website
 
