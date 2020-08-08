@@ -2,6 +2,10 @@
   <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/public/img/animation_grafos.gif" width="700">
 </p>
 
+[![xscode](https://img.shields.io/badge/Available%20on-xs%3Acode-blue?style=?style=plastic&logo=appveyor&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////////VXz1bAAAAAJ0Uk5T/wDltzBKAAAAlUlEQVR42uzXSwqAMAwE0Mn9L+3Ggtgkk35QwcnSJo9S+yGwM9DCooCbgn4YrJ4CIPUcQF7/XSBbx2TEz4sAZ2q1RAECBAiYBlCtvwN+KiYAlG7UDGj59MViT9hOwEqAhYCtAsUZvL6I6W8c2wcbd+LIWSCHSTeSAAECngN4xxIDSK9f4B9t377Wd7H5Nt7/Xz8eAgwAvesLRjYYPuUAAAAASUVORK5CYII=)](https://xscode.com/rodmoioliveira/football-graphs)
+<img src="https://img.shields.io/github/issues/rodmoioliveira/football-graphs">
+<img src="https://img.shields.io/github/issues-closed-raw/rodmoioliveira/football-graphs">
+
 # :dart: About this project
 
 Football Passing Networks is an interactive web application to explore data visualizations on soccer passing networks.
