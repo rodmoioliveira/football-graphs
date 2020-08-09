@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade de la Meinau",
-  :dateutc "2017-12-16 19:00:00"},
+  :dateutc "2017-12-16 19:00:00",
+  :home-away-id {:3779 :home, :3780 :away}},
  :nodes
  {:3780
   ({:id "144884",
@@ -311,4 +312,7 @@
    {:source "374118253333", :target "25860", :team-id 3780, :value 5}
    {:source "144884", :target "286380", :team-id 3780, :value 6}
    {:source "25791", :target "43196", :team-id 3780, :value 6})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 6}}}}

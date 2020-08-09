@@ -31,7 +31,8 @@
   :group-name "Group A",
   :status "Played",
   :venue "Stade Pierre-Mauroy",
-  :dateutc "2016-06-19 19:00:00"},
+  :dateutc "2016-06-19 19:00:00",
+  :home-away-id {:6697 :home, :4418 :away}},
  :nodes
  {:4418
   ({:id "7858",
@@ -346,4 +347,7 @@
    {:source "20938", :target "49876", :team-id 6697, :value 14}
    {:source "49876", :target "20938", :team-id 6697, :value 14}
    {:source "7850", :target "14922", :team-id 6697, :value 15})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 10}}}}

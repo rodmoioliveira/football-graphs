@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Bet365 Stadium",
-  :dateutc "2017-11-04 12:30:00"},
+  :dateutc "2017-11-04 12:30:00",
+  :home-away-id {:1639 :home, :1631 :away}},
  :nodes
  {:1631
   ({:id "14853",
@@ -318,4 +319,7 @@
    {:source "39288498", :target "26150", :team-id 1631, :value 12}
    {:source "39288498", :target "8488", :team-id 1631, :value 12}
    {:source "8653", :target "39288498", :team-id 1631, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 14}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Anfield",
-  :dateutc "2018-02-24 15:00:00"},
+  :dateutc "2018-02-24 15:00:00",
+  :home-away-id {:1612 :home, :1633 :away}},
  :nodes
  {:1633
   ({:id "411748677",
@@ -340,4 +341,7 @@
    {:source "370", :target "222220", :team-id 1612, :value 18}
    {:source "8319", :target "222220", :team-id 1612, :value 19}
    {:source "222220", :target "8319", :team-id 1612, :value 21})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 21}},
+  :away {:passes {:min 1, :max 8}}}}

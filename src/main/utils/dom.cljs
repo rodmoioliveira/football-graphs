@@ -9,6 +9,8 @@
    :node-area-select (-> js/document (.querySelector (str "[data-metric='node-area']")))
    :coverage-select (-> js/document (.querySelector (str "[data-metric='coverage']")))
    :min-passes-input (-> js/document (.querySelector (str "[data-metric='min-passes-to-display']")))
+   :compare? (-> js/document (.querySelector (str "[data-metric='compare']")))
+   :compare-text (-> js/document (.querySelector ".metric-compare-text"))
    :min-passes-span (-> js/document (.querySelector (str "[data-min-passes-value]")))
    :menu (-> js/document (.querySelector ".nav-menu"))
    :document js/document
@@ -103,7 +105,7 @@
   "Create a label for each match."
   [match]
   (let [[label score] (-> match :label (split #","))
-        [team1 team2] (-> label (split #"-"))
+        [team1 team2] (-> label (split #" - "))
         [score1 score2] (-> score (split #"-"))
         group-name (-> match :match-info :group-name)
         dateutc (-> match :match-info :dateutc)
@@ -172,21 +174,17 @@
   "Create canvas elements."
   [match]
   (let [[label] (-> match :label (split #","))
+        [team1-name team2-name] (-> label (split #" - "))
         match-id (-> match :match-id)
-        get-name (fn [id] (-> match :teams-info (#(get-in % [(keyword (str id))])) :name))
-        get-ac (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :algebraic-connectivity (.toFixed 3)))
-        get-anc (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :average-node-connectivity (.toFixed 3)))
-        get-gclus (fn [id] (-> match :graph-metrics (#(get-in % [(keyword (str id))])) :global-clustering-coefficient (.toFixed 3)))
+        get-metric (fn [team metric] (-> match :stats team metric (.toFixed 3)))
         team1-id (-> match :match-info :home-away :home)
         team2-id (-> match :match-info :home-away :away)
-        team1-name (get-name team1-id)
-        team2-name (get-name team2-id)
-        team1-anc (get-anc team1-id)
-        team2-anc (get-anc team2-id)
-        team1-ac (get-ac team1-id)
-        team2-ac (get-ac team2-id)
-        team1-gc (get-gclus team1-id)
-        team2-gc (get-gclus team2-id)]
+        team1-anc (get-metric :home :average-node-connectivity)
+        team2-anc (get-metric :away :average-node-connectivity)
+        team1-ac (get-metric :home :algebraic-connectivity)
+        team2-ac (get-metric :away :algebraic-connectivity)
+        team1-gc (get-metric :home :global-clustering-coefficient)
+        team2-gc (get-metric :away :global-clustering-coefficient)]
     (str
      "<div class='graphs__wrapper'>
       <div class='graph'>
@@ -264,7 +262,8 @@
   []
   {:node-color-metric (-> dom :node-color-select .-value keyword)
    :node-radius-metric (-> dom :node-area-select .-value keyword)
-   :min-passes-to-display (-> dom :min-passes-input .-value int)})
+   :min-passes-to-display (-> dom :min-passes-input .-value int)
+   :compare? (-> dom :compare? .-checked)})
 
 (defn plot-dom
   "Plot graphs in the dom."
@@ -279,6 +278,10 @@
   [el matches]
   (doseq [match matches]
     (-> el (.insertAdjacentHTML "beforeend" (match-item match)))))
+
+(defn set-compare-text!
+  [{:keys [compare?]}]
+  (-> dom :compare-text (#(set! (.-innerHTML %) (if compare? "(yes)" "(no)")))))
 
 (defn reset-dom
   "Reset graphs in the dom."

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio de la Cer\\u00e1mica",
-  :dateutc "2018-04-28 18:45:00"},
+  :dateutc "2018-04-28 18:45:00",
+  :home-away-id {:682 :home, :692 :away}},
  :nodes
  {:692
   ({:id "4911281255",
@@ -345,4 +346,7 @@
    {:source "364860", :target "3542", :team-id 682, :value 9}
    {:source "134174", :target "3529", :team-id 682, :value 11}
    {:source "3542", :target "364860", :team-id 682, :value 11})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 21}}}}

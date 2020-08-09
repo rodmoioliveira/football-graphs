@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Etihad Stadium",
-  :dateutc "2018-03-04 16:00:00"},
+  :dateutc "2018-03-04 16:00:00",
+  :home-away-id {:1625 :home, :1610 :away}},
  :nodes
  {:1625
   ({:id "8317447205",
@@ -347,4 +348,7 @@
     :target "14808",
     :team-id 1625,
     :value 61})},
- :min-max-values {:passes {:min 1, :max 61}}}
+ :stats
+ {:global {:passes {:min 1, :max 61}},
+  :home {:passes {:min 1, :max 61}},
+  :away {:passes {:min 1, :max 14}}}}

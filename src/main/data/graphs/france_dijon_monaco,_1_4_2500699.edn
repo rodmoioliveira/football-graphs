@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Gaston-G\\u00e9rard",
-  :dateutc "2017-08-13 15:00:00"},
+  :dateutc "2017-08-13 15:00:00",
+  :home-away-id {:3804 :home, :19830 :away}},
  :nodes
  {:3804
   ({:id "215036",
@@ -331,4 +332,7 @@
    {:source "29748393214", :target "215036", :team-id 3804, :value 8}
    {:source "30427", :target "26311", :team-id 3804, :value 9}
    {:source "76201120717", :target "26374", :team-id 3804, :value 9})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 21}}}}

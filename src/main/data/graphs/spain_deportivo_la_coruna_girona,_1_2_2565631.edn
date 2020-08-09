@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Municipal de Riazor",
-  :dateutc "2017-10-23 19:00:00"},
+  :dateutc "2017-10-23 19:00:00",
+  :home-away-id {:677 :home, :756 :away}},
  :nodes
  {:677
   ({:id "3325",
@@ -332,4 +333,7 @@
    {:source "4433244278", :target "621091702", :team-id 756, :value 7}
    {:source "621091702", :target "4433244278", :team-id 756, :value 7}
    {:source "621091702", :target "4360", :team-id 756, :value 9})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 9}}}}

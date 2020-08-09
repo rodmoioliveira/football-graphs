@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade de la Mosson",
-  :dateutc "2018-02-03 19:00:00"},
+  :dateutc "2018-02-03 19:00:00",
+  :home-away-id {:3787 :home, :3799 :away}},
  :nodes
  {:3787
   ({:id "344744",
@@ -364,4 +365,7 @@
    {:source "246946", :target "25829", :team-id 3787, :value 19}
    {:source "341973", :target "246946", :team-id 3787, :value 21}
    {:source "3308", :target "341973", :team-id 3787, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 24}},
+  :away {:passes {:min 1, :max 15}}}}

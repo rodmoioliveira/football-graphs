@@ -28,7 +28,8 @@
   :group-name "Group C",
   :status "Played",
   :venue "Stade de France",
-  :dateutc "2016-06-16 19:00:00"},
+  :dateutc "2016-06-16 19:00:00",
+  :home-away-id {:3148 :home, :13869 :away}},
  :nodes
  {:3148
   ({:id "14716",
@@ -333,4 +334,7 @@
     :target "14798",
     :team-id 13869,
     :value 6})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 24}},
+  :away {:passes {:min 1, :max 6}}}}

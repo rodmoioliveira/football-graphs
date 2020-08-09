@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Municipal de Anoeta",
-  :dateutc "2018-02-02 20:00:00"},
+  :dateutc "2018-02-02 20:00:00",
+  :home-away-id {:687 :home, :677 :away}},
  :nodes
  {:687
   ({:id "3676",
@@ -325,4 +326,7 @@
    {:source "278288", :target "86212", :team-id 687, :value 15}
    {:source "3828", :target "278288", :team-id 687, :value 17}
    {:source "278288", :target "3828", :team-id 687, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 7}}}}

@@ -28,7 +28,8 @@
   :group-name "Group B",
   :status "Played",
   :venue "Mordovia Arena",
-  :dateutc "2018-06-25 18:00:00"},
+  :dateutc "2018-06-25 18:00:00",
+  :home-away-id {:10840 :home, :9905 :away}},
  :nodes
  {:10840
   ({:id "7938153562",
@@ -333,4 +334,7 @@
    {:source "79098", :target "79006", :team-id 10840, :value 4}
    {:source "78991", :target "79449", :team-id 10840, :value 4}
    {:source "79449", :target "79098", :team-id 10840, :value 5})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 5}},
+  :away {:passes {:min 1, :max 18}}}}

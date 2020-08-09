@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Atleti Azzurri d'Italia",
-  :dateutc "2018-02-04 14:00:00"},
+  :dateutc "2018-02-04 14:00:00",
+  :home-away-id {:3172 :home, :3165 :away}},
  :nodes
  {:3172
   ({:id "20404",
@@ -336,4 +337,7 @@
    {:source "41034", :target "280419", :team-id 3172, :value 13}
    {:source "625", :target "41034", :team-id 3172, :value 14}
    {:source "49991", :target "2082086366", :team-id 3172, :value 20})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 9}}}}

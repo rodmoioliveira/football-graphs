@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Ciro Vigorito",
-  :dateutc "2017-09-20 16:00:00"},
+  :dateutc "2017-09-20 16:00:00",
+  :home-away-id {:3219 :home, :3158 :away}},
  :nodes
  {:3158
   ({:id "328333340019",
@@ -331,4 +332,7 @@
    {:source "20518", :target "3463", :team-id 3158, :value 19}
    {:source "8306", :target "114", :team-id 3158, :value 19}
    {:source "114", :target "8306", :team-id 3158, :value 20})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 20}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Bet365 Stadium",
-  :dateutc "2018-01-31 20:00:00"},
+  :dateutc "2018-01-31 20:00:00",
+  :home-away-id {:1639 :home, :1644 :away}},
  :nodes
  {:1639
   ({:id "7932",
@@ -552,30 +553,66 @@
    {:source "334870156", :target "28292", :team-id 1644, :value 6}
    {:source "792920593", :target "92899", :team-id 1644, :value 7}
    {:source "28292", :target "334870156", :team-id 1644, :value 11})},
- :min-max-values
- {:out-degree {:min 4.0, :max 26.0},
-  :passes {:min 1, :max 11},
-  :in-degree {:min 8.0, :max 27.0},
-  :current_flow_betweenness_centrality
-  {:min -0.06606885274320747, :max 0.08321779075709326},
-  :katz-centrality {:min 1.0945117803834545, :max 1.3217803217460609},
-  :degree {:min 14.0, :max 52.0},
-  :alpha-centrality {:min 1.0945117803834545, :max 1.3217803217460609},
-  :betweenness-centrality
-  {:min 0.008787878787878787, :max 0.1497222222222222},
-  :local-clustering-coefficient
-  {:min 0.6444444444444445, :max 0.8333333333333334},
-  :closeness-centrality
-  {:min 0.45454545454545453, :max 0.7692307692307693},
-  :eigenvector-centrality {:min 7.399495454545455E-7, :max 7.1189E-6}},
- :graph-metrics
- {:1639
-  {:algebraic-connectivity 14.230598009479841,
-   :average-node-connectivity 6.118181818181818,
+ :stats
+ {:global
+  {:out-degree {:min 4.0, :max 26.0},
+   :passes {:min 1, :max 11},
+   :in-degree {:min 8.0, :max 27.0},
+   :current_flow_betweenness_centrality
+   {:min -0.06606885274320747, :max 0.08321779075709326},
+   :katz-centrality {:min 1.0945117803834545, :max 1.3217803217460609},
+   :degree {:min 14.0, :max 52.0},
+   :alpha-centrality
+   {:min 1.0945117803834545, :max 1.3217803217460609},
+   :betweenness-centrality
+   {:min 0.008787878787878787, :max 0.1497222222222222},
+   :local-clustering-coefficient
+   {:min 0.6444444444444445, :max 0.8333333333333334},
+   :closeness-centrality
+   {:min 0.45454545454545453, :max 0.7692307692307693},
+   :eigenvector-centrality
+   {:min 7.399495454545455E-7, :max 7.1189E-6}},
+  :home
+  {:out-degree {:min 4.0, :max 26.0},
    :average-clustering-coefficient 0.7144660894660896,
-   :global-clustering-coefficient 0.9295774647887324},
-  :1644
-  {:algebraic-connectivity 11.598384773171325,
-   :average-node-connectivity 5.918181818181818,
+   :algebraic-connectivity 14.230598009479854,
+   :global-clustering-coefficient 0.9295774647887324,
+   :average-node-connectivity 6.118181818181818,
+   :passes {:min 1, :max 6},
+   :in-degree {:min 8.0, :max 20.0},
+   :current_flow_betweenness_centrality
+   {:min -0.06606885274320747, :max 0.08130928213676351},
+   :katz-centrality {:min 1.0945117803834545, :max 1.2314262876545454},
+   :degree {:min 14.0, :max 46.0},
+   :alpha-centrality
+   {:min 1.0945117803834545, :max 1.2314262876545454},
+   :betweenness-centrality
+   {:min 0.008787878787878787, :max 0.1321043771043771},
+   :local-clustering-coefficient
+   {:min 0.6555555555555556, :max 0.8035714285714286},
+   :closeness-centrality
+   {:min 0.45454545454545453, :max 0.7692307692307693},
+   :eigenvector-centrality
+   {:min 3.1905454545454546E-6, :max 7.1189E-6}},
+  :away
+  {:out-degree {:min 7.0, :max 25.0},
    :average-clustering-coefficient 0.7271284271284272,
-   :global-clustering-coefficient 0.8181818181818182}}}
+   :algebraic-connectivity 11.598384773171322,
+   :global-clustering-coefficient 0.8181818181818182,
+   :average-node-connectivity 5.918181818181818,
+   :passes {:min 1, :max 11},
+   :in-degree {:min 9.0, :max 27.0},
+   :current_flow_betweenness_centrality
+   {:min -0.04062786159819988, :max 0.08321779075709326},
+   :katz-centrality {:min 1.1023547396712128, :max 1.3217803217460609},
+   :degree {:min 16.0, :max 52.0},
+   :alpha-centrality
+   {:min 1.1023547396712128, :max 1.3217803217460609},
+   :betweenness-centrality
+   {:min 0.021844729344729346, :max 0.1497222222222222},
+   :local-clustering-coefficient
+   {:min 0.6444444444444445, :max 0.8333333333333334},
+   :closeness-centrality
+   {:min 0.47619047619047616, :max 0.6666666666666666},
+   :eigenvector-centrality
+   {:min 7.399495454545455E-7, :max 3.612033181818182E-6}}}}

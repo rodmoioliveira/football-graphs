@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Parc des Princes",
-  :dateutc "2018-02-25 20:00:00"},
+  :dateutc "2018-02-25 20:00:00",
+  :home-away-id {:3767 :home, :3771 :away}},
  :nodes
  {:3771
   ({:id "25781",
@@ -340,4 +341,7 @@
    {:source "40539", :target "3334", :team-id 3767, :value 15}
    {:source "35623714862", :target "3334", :team-id 3767, :value 17}
    {:source "3334", :target "35623714862", :team-id 3767, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 13}}}}

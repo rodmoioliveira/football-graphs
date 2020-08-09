@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "HDI-Arena",
-  :dateutc "2018-04-06 18:30:00"},
+  :dateutc "2018-04-06 18:30:00",
+  :home-away-id {:2455 :home, :2443 :away}},
  :nodes
  {:2455
   ({:id "14802",
@@ -360,4 +361,7 @@
    {:source "15771", :target "11095", :team-id 2443, :value 12}
    {:source "391441", :target "15771", :team-id 2443, :value 13}
    {:source "15771", :target "391441", :team-id 2443, :value 16})},
- :min-max-values {:passes {:min 1, :max 16}}}
+ :stats
+ {:global {:passes {:min 1, :max 16}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 16}}}}

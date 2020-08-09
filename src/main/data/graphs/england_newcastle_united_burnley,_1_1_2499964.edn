@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "St. James' Park",
-  :dateutc "2018-01-31 19:45:00"},
+  :dateutc "2018-01-31 19:45:00",
+  :home-away-id {:1613 :home, :1646 :away}},
  :nodes
  {:1613
   ({:id "23088312536",
@@ -335,4 +336,7 @@
    {:source "8944", :target "10108", :team-id 1646, :value 7}
    {:source "9164", :target "112948284", :team-id 1646, :value 10}
    {:source "112948284", :target "9164", :team-id 1646, :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 14}}}}

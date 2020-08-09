@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadium Municipal",
-  :dateutc "2017-10-14 18:00:00"},
+  :dateutc "2017-10-14 18:00:00",
+  :home-away-id {:3780 :home, :3789 :away}},
  :nodes
  {:3789
   ({:id "38095",
@@ -335,4 +336,7 @@
    {:source "214710", :target "22919829590", :team-id 3789, :value 10}
    {:source "214710", :target "244357", :team-id 3789, :value 10}
    {:source "244357", :target "26414", :team-id 3789, :value 10})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 10}}}}

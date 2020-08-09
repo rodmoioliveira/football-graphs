@@ -2,9 +2,13 @@
   <img src="https://raw.githubusercontent.com/rodmoioliveira/football-graphs/master/public/img/animation_grafos.gif" width="700">
 </p>
 
+[![xscode](https://img.shields.io/badge/Available%20on-xs%3Acode-blue?style=?style=plastic&logo=appveyor&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////////VXz1bAAAAAJ0Uk5T/wDltzBKAAAAlUlEQVR42uzXSwqAMAwE0Mn9L+3Ggtgkk35QwcnSJo9S+yGwM9DCooCbgn4YrJ4CIPUcQF7/XSBbx2TEz4sAZ2q1RAECBAiYBlCtvwN+KiYAlG7UDGj59MViT9hOwEqAhYCtAsUZvL6I6W8c2wcbd+LIWSCHSTeSAAECngN4xxIDSK9f4B9t377Wd7H5Nt7/Xz8eAgwAvesLRjYYPuUAAAAASUVORK5CYII=)](https://xscode.com/rodmoioliveira/football-graphs)
+<img src="https://img.shields.io/github/issues/rodmoioliveira/football-graphs">
+<img src="https://img.shields.io/github/issues-closed-raw/rodmoioliveira/football-graphs">
+
 # :dart: About this project
 
-This is a personal project to study soccer passing networks and investigate data visualizations on graphs.
+Football Passing Networks is an interactive web application to explore data visualizations on soccer passing networks.
 
 # :globe_with_meridians: Website
 
@@ -34,21 +38,49 @@ This is a personal project to study soccer passing networks and investigate data
 ### :pushpin: Blogs
 - [BetweenThePosts](https://betweentheposts.net/)
 - [Fútbolismo](https://futbolismo.it/)
+- [Joe Gallagher](https://jogall.github.io/)
 - [James' Blog](https://jameswgrayson.wordpress.com/)
 - [R, Scientometrics, Knowledge Management, and Social Network Analysis](https://scientometrics.wordpress.com/)
 - [Katya Ognyanova](https://kateto.net/)
 - [soccermetrics](https://www.soccermetrics.net/)
 
-### :open_file_folder: Resources
+### :open_file_folder: Resources & Tools
+
 - [matiasmascioto/awesome-soccer-analytics](https://github.com/matiasmascioto/awesome-soccer-analytics)
 - [devinpleuler/analytics-handbook](https://github.com/devinpleuler/analytics-handbook)
 - [Friends-of-Tracking-Data-FoTD/passing-networks-in-python](https://github.com/Friends-of-Tracking-Data-FoTD/passing-networks-in-python)
+- [Friends-of-Tracking-Data-FoTD/mapping-match-events-in-Python](https://github.com/Friends-of-Tracking-Data-FoTD/mapping-match-events-in-Python)
+- [openfootball/world-cup.json](https://github.com/openfootball/world-cup.json)
+- [openfootball/world-cup](https://github.com/openfootball/world-cup)
+- [lsv/fifa-worldcup-2018](https://github.com/lsv/fifa-worldcup-2018)
 - [jokecamp/FootballData](https://github.com/jokecamp/FootballData)
 - [planetopendata/awesome-football](https://github.com/planetopendata/awesome-football)
+- [JoGall/soccermatics](https://github.com/JoGall/soccermatics)
+- [yorobot/football.csv](https://github.com/yorobot/football.csv)
+- [martj42/international_results](https://github.com/martj42/international_results)
+- [SciSports-Labs/fot-valuing-actions](https://github.com/SciSports-Labs/fot-valuing-actions)
+- [CleKraus/soccer_analytics](https://github.com/CleKraus/soccer_analytics)
+- [Dato-Futbol/passing-networks](https://github.com/Dato-Futbol/passing-networks)
+- [sharmaabhishekk/passmaps](https://github.com/sharmaabhishekk/passmaps)
+- [metrica-sports/sample-data](https://github.com/metrica-sports/sample-data)
+- [Bustami/DatoFutbol](https://github.com/Bustami/DatoFutbol)
+- [kateto/R-Network-Visualization-Workshop](https://github.com/kateto/R-Network-Visualization-Workshop)
+- [kateto/Network_Analysis_R_Examples](https://github.com/kateto/Network_Analysis_R_Examples)
+- [kateto/R-Network-Visualization-Basics-to-Advanced](https://github.com/kateto/R-Network-Visualization-Basics-to-Advanced)
 
-# :eyes: People to follow
+### :camera: Visualizations
+
+- [Julien Demeaux](https://public.tableau.com/profile/padatawan#!/)
+
+# :eyes: Accounts to follow
+
+- [Women's Soccer Visualizations](https://twitter.com/WSOCViz)
+- [WomensFootyStat](https://twitter.com/WomensFootyStat)
+- [Eilidh Thomson](https://twitter.com/CoachEilidh)
+- [Peter McKeever](https://twitter.com/petermckeever)
 - [Karun Singh](https://twitter.com/karun1710)
 - [Luca Pappalardo](https://github.com/jonpappalord)
+- [Joe Gallagher](https://twitter.com/joedgallagher)
 - [Ricardo Tavares](https://github.com/rjtavares)
 - [William Spearman](https://twitter.com/the_spearman)
 - [Sergio Llana](https://twitter.com/SergioMinuto90)
@@ -62,6 +94,14 @@ This is a personal project to study soccer passing networks and investigate data
 - [Carlo Zapponi](https://twitter.com/littleark)
 - [James Grayson](https://twitter.com/JamesWGrayson)
 - [Katherine Ognyanova](https://twitter.com/ognyanova)
+- [Tussen de linies](https://twitter.com/Tussendelinies)
+- [Marton Balla](https://twitter.com/MartonBalla1)
+- [Statified Football](https://twitter.com/StatifiedF)
+- [Robin Wilhelmus](https://twitter.com/RobinWilhelmus)
+- [American Soccer Analysis](https://twitter.com/AnalysisEvolved)
+- [Julien Demeaux](https://twitter.com/JuDems14)
+- [Sounders Sports Science & Analytics](https://twitter.com/SSFCSpSci)
+- [Ravi Ramineni](https://twitter.com/analyseFooty)
 
 # :floppy_disk: Dataset
 - **Pappalardo, Luca; Massucco, Emanuele (2019).** [Soccer match event dataset](https://doi.org/10.6084/m9.figshare.c.4415000). figshare. Collection.
@@ -185,6 +225,10 @@ Missing matches analysis can be found within [missing.edn](src/main/data/analysi
 > 3) **Weighted betweenness** - assesses how often a player is in-between any other two players of its team measured by their strongest passing connections across a match. Thus, its betweenness character is built on aggregated match data and does not necessarily imply that the player functioned as a bridging unit within plays. It is often used as a playmaker indicator (Pena and Touchette, 2012; Clemente and Martins, 2017). The values of weighted betweenness are bounded between 0 and 1 reflecting the proportion of strongest passing connections between any two players in the network that lead via a particular player.
 
 # :art: Visual Reference
+
+<p align="center">
+  <img src="https://pbs.twimg.com/media/ER75u4gWoAAkK9q?format=jpg" width="700">
+</p>
 <p align="center">
   <img src="https://i0.wp.com/tsj101sports.com/wp-content/uploads/2018/06/ateamsstrate.png?w=1344&ssl=1" width="700">
 </p>

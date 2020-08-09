@@ -31,7 +31,8 @@
   :group-name "Group E",
   :status "Played",
   :venue "Samara Arena",
-  :dateutc "2018-06-17 12:00:00"},
+  :dateutc "2018-06-17 12:00:00",
+  :home-away-id {:16871 :home, :17322 :away}},
  :nodes
  {:16871
   ({:id "3915",
@@ -350,4 +351,7 @@
    {:source "51004", :target "11155", :team-id 16871, :value 10}
    {:source "11155", :target "51004", :team-id 16871, :value 11}
    {:source "51004", :target "55977", :team-id 16871, :value 12})},
- :min-max-values {:passes {:min 1, :max 16}}}
+ :stats
+ {:global {:passes {:min 1, :max 16}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 16}}}}

@@ -28,7 +28,8 @@
   :group-name "Group B",
   :status "Played",
   :venue "Kazan' Arena",
-  :dateutc "2018-06-20 18:00:00"},
+  :dateutc "2018-06-20 18:00:00",
+  :home-away-id {:10840 :home, :1598 :away}},
  :nodes
  {:10840
   ({:id "79006",
@@ -321,4 +322,7 @@
     :target "7914979381",
     :team-id 10840,
     :value 7})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 7}},
+  :away {:passes {:min 1, :max 25}}}}

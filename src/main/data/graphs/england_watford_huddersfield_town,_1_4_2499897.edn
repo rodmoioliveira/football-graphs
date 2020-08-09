@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Vicarage Road Stadium",
-  :dateutc "2017-12-16 15:00:00"},
+  :dateutc "2017-12-16 15:00:00",
+  :home-away-id {:1644 :home, :1673 :away}},
  :nodes
  {:1644
   ({:id "888920593",
@@ -308,4 +309,7 @@
    {:source "15215", :target "928014796", :team-id 1673, :value 7}
    {:source "941916122", :target "928014796", :team-id 1673, :value 7}
    {:source "15215", :target "56038", :team-id 1673, :value 8})},
- :min-max-values {:passes {:min 1, :max 11}}}
+ :stats
+ {:global {:passes {:min 1, :max 11}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 8}}}}

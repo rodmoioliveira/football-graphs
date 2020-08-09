@@ -28,7 +28,8 @@
   :group-name "Group D",
   :status "Played",
   :venue "Rostov Arena",
-  :dateutc "2018-06-26 18:00:00"},
+  :dateutc "2018-06-26 18:00:00",
+  :home-away-id {:7839 :home, :9598 :away}},
  :nodes
  {:9598
   ({:id "69353",
@@ -340,4 +341,7 @@
    {:source "69411", :target "69964", :team-id 9598, :value 14}
    {:source "69964", :target "694043476", :team-id 9598, :value 17}
    {:source "694043476", :target "69400", :team-id 9598, :value 22})},
- :min-max-values {:passes {:min 1, :max 22}}}
+ :stats
+ {:global {:passes {:min 1, :max 22}},
+  :home {:passes {:min 1, :max 8}},
+  :away {:passes {:min 1, :max 22}}}}

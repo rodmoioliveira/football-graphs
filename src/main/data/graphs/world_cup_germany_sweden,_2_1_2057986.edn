@@ -28,7 +28,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Olimpiyskiy Stadion Fisht",
-  :dateutc "2018-06-23 18:00:00"},
+  :dateutc "2018-06-23 18:00:00",
+  :home-away-id {:3148 :home, :7047 :away}},
  :nodes
  {:3148
   ({:id "14716",
@@ -328,4 +329,7 @@
    {:source "224593", :target "14716", :team-id 3148, :value 25}
    {:source "14716", :target "224593", :team-id 3148, :value 28}
    {:source "14748", :target "14716", :team-id 3148, :value 29})},
- :min-max-values {:passes {:min 1, :max 29}}}
+ :stats
+ {:global {:passes {:min 1, :max 29}},
+  :home {:passes {:min 1, :max 29}},
+  :away {:passes {:min 1, :max 7}}}}

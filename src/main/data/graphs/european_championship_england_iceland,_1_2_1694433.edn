@@ -27,7 +27,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Allianz Riviera",
-  :dateutc "2016-06-27 19:00:00"},
+  :dateutc "2016-06-27 19:00:00",
+  :home-away-id {:2413 :home, :7839 :away}},
  :nodes
  {:2413
   ({:id "8301",
@@ -312,4 +313,7 @@
    {:source "51127", :target "77558", :team-id 7839, :value 5}
    {:source "77558", :target "38084", :team-id 7839, :value 7}
    {:source "38084", :target "51127", :team-id 7839, :value 9})},
- :min-max-values {:passes {:min 1, :max 16}}}
+ :stats
+ {:global {:passes {:min 1, :max 16}},
+  :home {:passes {:min 1, :max 16}},
+  :away {:passes {:min 1, :max 9}}}}

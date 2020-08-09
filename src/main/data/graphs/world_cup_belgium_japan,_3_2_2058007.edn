@@ -28,7 +28,8 @@
   :group-name "",
   :status "Played",
   :venue "Rostov Arena",
-  :dateutc "2018-07-02 18:00:00"},
+  :dateutc "2018-07-02 18:00:00",
+  :home-away-id {:5629 :home, :12913 :away}},
  :nodes
  {:12913
   ({:id "20517",
@@ -327,4 +328,7 @@
    {:source "14816", :target "14836", :team-id 12913, :value 10}
    {:source "20517", :target "14816", :team-id 12913, :value 10}
    {:source "20517", :target "14836", :team-id 12913, :value 11})},
- :min-max-values {:passes {:min 1, :max 28}}}
+ :stats
+ {:global {:passes {:min 1, :max 28}},
+  :home {:passes {:min 1, :max 28}},
+  :away {:passes {:min 1, :max 11}}}}

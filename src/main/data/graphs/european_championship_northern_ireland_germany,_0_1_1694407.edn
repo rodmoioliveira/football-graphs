@@ -31,7 +31,8 @@
   :group-name "Group C",
   :status "Played",
   :venue "Parc des Princes",
-  :dateutc "2016-06-21 16:00:00"},
+  :dateutc "2016-06-21 16:00:00",
+  :home-away-id {:10962 :home, :3148 :away}},
  :nodes
  {:3148
   ({:id "1471614855",
@@ -299,4 +300,7 @@
    {:source "14723", :target "3319", :team-id 3148, :value 19}
    {:source "14723", :target "147283318", :team-id 3148, :value 31}
    {:source "147283318", :target "14723", :team-id 3148, :value 32})},
- :min-max-values {:passes {:min 1, :max 32}}}
+ :stats
+ {:global {:passes {:min 1, :max 32}},
+  :home {:passes {:min 1, :max 7}},
+  :away {:passes {:min 1, :max 32}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio Olimpico Grande Torino",
-  :dateutc "2018-04-04 16:30:00"},
+  :dateutc "2018-04-04 16:30:00",
+  :home-away-id {:3185 :home, :3197 :away}},
  :nodes
  {:3197
   ({:id "20815",
@@ -358,4 +359,7 @@
     :target "20429",
     :team-id 3185,
     :value 14})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 7}}}}

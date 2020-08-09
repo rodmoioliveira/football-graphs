@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadion im BORUSSIA-PARK",
-  :dateutc "2017-11-04 14:30:00"},
+  :dateutc "2017-11-04 14:30:00",
+  :home-away-id {:2454 :home, :2460 :away}},
  :nodes
  {:2460
   ({:id "94764",
@@ -348,4 +349,7 @@
    {:source "1501914838", :target "236528", :team-id 2454, :value 15}
    {:source "236528", :target "1501914838", :team-id 2454, :value 15}
    {:source "236528", :target "15806", :team-id 2454, :value 20})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 7}}}}

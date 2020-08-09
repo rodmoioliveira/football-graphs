@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Ciudad de Valencia",
-  :dateutc "2018-05-13 18:45:00"},
+  :dateutc "2018-05-13 18:45:00",
+  :home-away-id {:695 :home, :676 :away}},
  :nodes
  {:695
   ({:id "280383",
@@ -322,4 +323,7 @@
    {:source "32913353", :target "3269", :team-id 676, :value 14}
    {:source "3269", :target "3802", :team-id 676, :value 15}
    {:source "3269", :target "32913353", :team-id 676, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 18}}}}

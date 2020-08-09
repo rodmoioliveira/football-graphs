@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Sardegna Arena",
-  :dateutc "2017-11-05 14:00:00"},
+  :dateutc "2017-11-05 14:00:00",
+  :home-away-id {:3173 :home, :3194 :away}},
  :nodes
  {:3194
   ({:id "34392520947",
@@ -347,4 +348,7 @@
    {:source "283832", :target "21639", :team-id 3173, :value 19}
    {:source "21639", :target "20636", :team-id 3173, :value 21}
    {:source "20636", :target "21639", :team-id 3173, :value 25})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 25}},
+  :away {:passes {:min 1, :max 10}}}}

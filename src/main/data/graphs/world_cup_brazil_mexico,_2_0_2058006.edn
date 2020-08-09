@@ -28,7 +28,8 @@
   :group-name "",
   :status "Played",
   :venue "Samara Arena",
-  :dateutc "2018-07-02 14:00:00"},
+  :dateutc "2018-07-02 14:00:00",
+  :home-away-id {:6380 :home, :15473 :away}},
  :nodes
  {:6380
   ({:id "10533940550",
@@ -342,4 +343,7 @@
     :value 8}
    {:source "20394", :target "3431", :team-id 6380, :value 10}
    {:source "3431", :target "3434", :team-id 6380, :value 11})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 19}}}}

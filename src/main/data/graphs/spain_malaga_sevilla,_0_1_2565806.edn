@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio La Rosaleda",
-  :dateutc "2018-02-28 18:30:00"},
+  :dateutc "2018-02-28 18:30:00",
+  :home-away-id {:683 :home, :680 :away}},
  :nodes
  {:683
   ({:id "4009",
@@ -333,4 +334,7 @@
    {:source "134503", :target "3280", :team-id 680, :value 9}
    {:source "86828", :target "3280", :team-id 680, :value 11}
    {:source "3280", :target "86828", :team-id 680, :value 17})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 13}},
+  :away {:passes {:min 1, :max 17}}}}

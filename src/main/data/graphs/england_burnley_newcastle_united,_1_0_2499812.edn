@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Turf Moor",
-  :dateutc "2017-10-30 20:00:00"},
+  :dateutc "2017-10-30 20:00:00",
+  :home-away-id {:1646 :home, :1613 :away}},
  :nodes
  {:1646
   ({:id "93",
@@ -338,4 +339,7 @@
    {:source "8833", :target "252365", :team-id 1613, :value 15}
    {:source "3436", :target "3523", :team-id 1613, :value 16}
    {:source "3523", :target "3436", :team-id 1613, :value 17})},
- :min-max-values {:passes {:min 1, :max 17}}}
+ :stats
+ {:global {:passes {:min 1, :max 17}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 17}}}}

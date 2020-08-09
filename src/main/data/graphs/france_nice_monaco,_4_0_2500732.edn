@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Allianz Riviera",
-  :dateutc "2017-09-09 15:00:00"},
+  :dateutc "2017-09-09 15:00:00",
+  :home-away-id {:3775 :home, :19830 :away}},
  :nodes
  {:19830
   ({:id "13591328117",
@@ -332,4 +333,7 @@
    {:source "266286", :target "134542279734", :team-id 3775, :value 8}
    {:source "131959", :target "25427", :team-id 3775, :value 9}
    {:source "277629", :target "131959", :team-id 3775, :value 11})},
- :min-max-values {:passes {:min 1, :max 13}}}
+ :stats
+ {:global {:passes {:min 1, :max 13}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 13}}}}

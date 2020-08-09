@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Sardegna Arena",
-  :dateutc "2017-11-05 14:00:00"},
+  :dateutc "2017-11-05 14:00:00",
+  :home-away-id {:3173 :home, :3194 :away}},
  :nodes
  {:3173
   ({:id "20472",
@@ -39,7 +40,7 @@
     :metrics
     {:out-degree 25.0,
      :in-degree 27.0,
-     :current_flow_betweenness_centrality -0.07097476129673619,
+     :current_flow_betweenness_centrality -0.07085584673343927,
      :katz-centrality 1.4697457432930363,
      :degree 52.0,
      :alpha-centrality 1.4697457432930363,
@@ -55,7 +56,7 @@
     :metrics
     {:out-degree 20.0,
      :in-degree 20.0,
-     :current_flow_betweenness_centrality -0.01647799799817495,
+     :current_flow_betweenness_centrality -0.029412036156077855,
      :katz-centrality 1.3409191932510343,
      :degree 40.0,
      :alpha-centrality 1.3409191932510343,
@@ -71,7 +72,7 @@
     :metrics
     {:out-degree 35.0,
      :in-degree 43.0,
-     :current_flow_betweenness_centrality -0.04521776193706013,
+     :current_flow_betweenness_centrality -0.06521773821689485,
      :katz-centrality 1.7618513853277502,
      :degree 78.0,
      :alpha-centrality 1.7618513853277502,
@@ -87,7 +88,7 @@
     :metrics
     {:out-degree 20.0,
      :in-degree 21.0,
-     :current_flow_betweenness_centrality 0.0285492635426698,
+     :current_flow_betweenness_centrality 0.02780949933169655,
      :katz-centrality 1.370232976540991,
      :degree 41.0,
      :alpha-centrality 1.370232976540991,
@@ -103,7 +104,7 @@
     :metrics
     {:out-degree 13.0,
      :in-degree 12.0,
-     :current_flow_betweenness_centrality -0.05823998253025617,
+     :current_flow_betweenness_centrality -0.05671865247556589,
      :katz-centrality 1.2258420849376526,
      :degree 25.0,
      :alpha-centrality 1.2258420849376526,
@@ -119,7 +120,7 @@
     :metrics
     {:out-degree 56.0,
      :in-degree 53.0,
-     :current_flow_betweenness_centrality 0.04139590179006297,
+     :current_flow_betweenness_centrality 0.006406655186282735,
      :katz-centrality 1.9440284594139408,
      :degree 109.0,
      :alpha-centrality 1.9440284594139408,
@@ -135,7 +136,7 @@
     :metrics
     {:out-degree 37.0,
      :in-degree 42.0,
-     :current_flow_betweenness_centrality 0.00958439895733897,
+     :current_flow_betweenness_centrality 0.02564644973609119,
      :katz-centrality 1.6993488687990275,
      :degree 79.0,
      :alpha-centrality 1.6993488687990275,
@@ -151,7 +152,7 @@
     :metrics
     {:out-degree 58.0,
      :in-degree 53.0,
-     :current_flow_betweenness_centrality -0.01315227795046662,
+     :current_flow_betweenness_centrality 0.004164806475957919,
      :katz-centrality 1.9286884639318886,
      :degree 111.0,
      :alpha-centrality 1.9286884639318886,
@@ -167,7 +168,7 @@
     :metrics
     {:out-degree 50.0,
      :in-degree 44.0,
-     :current_flow_betweenness_centrality -0.06316858434281135,
+     :current_flow_betweenness_centrality -0.02622640896616583,
      :katz-centrality 1.8267904747614063,
      :degree 94.0,
      :alpha-centrality 1.8267904747614063,
@@ -183,7 +184,7 @@
     :metrics
     {:out-degree 28.0,
      :in-degree 31.0,
-     :current_flow_betweenness_centrality -0.10943147384173309,
+     :current_flow_betweenness_centrality -0.09390180259323609,
      :katz-centrality 1.5434538222422969,
      :degree 59.0,
      :alpha-centrality 1.5434538222422969,
@@ -199,7 +200,7 @@
     :metrics
     {:out-degree 64.0,
      :in-degree 60.0,
-     :current_flow_betweenness_centrality -0.11201587657276875,
+     :current_flow_betweenness_centrality -0.13084407776858423,
      :katz-centrality 2.100509684070961,
      :degree 124.0,
      :alpha-centrality 2.100509684070961,
@@ -216,7 +217,7 @@
     :metrics
     {:out-degree 10.0,
      :in-degree 19.0,
-     :current_flow_betweenness_centrality -0.02443224120727984,
+     :current_flow_betweenness_centrality -0.013285886163249572,
      :katz-centrality 1.2310491380809672,
      :degree 29.0,
      :alpha-centrality 1.2310491380809672,
@@ -232,7 +233,7 @@
     :metrics
     {:out-degree 9.0,
      :in-degree 8.0,
-     :current_flow_betweenness_centrality 0.009759622940417066,
+     :current_flow_betweenness_centrality 0.012181924477006707,
      :katz-centrality 1.0976285847509217,
      :degree 17.0,
      :alpha-centrality 1.0976285847509217,
@@ -248,7 +249,7 @@
     :metrics
     {:out-degree 4.0,
      :in-degree 6.0,
-     :current_flow_betweenness_centrality 0.018005253949982564,
+     :current_flow_betweenness_centrality 0.018445161870670246,
      :katz-centrality 1.0794902130922037,
      :degree 10.0,
      :alpha-centrality 1.0794902130922037,
@@ -264,7 +265,7 @@
     :metrics
     {:out-degree 22.0,
      :in-degree 21.0,
-     :current_flow_betweenness_centrality -0.016889567318745552,
+     :current_flow_betweenness_centrality -0.017820723805030386,
      :katz-centrality 1.2689626130539908,
      :degree 43.0,
      :alpha-centrality 1.2689626130539908,
@@ -280,7 +281,7 @@
     :metrics
     {:out-degree 17.0,
      :in-degree 15.0,
-     :current_flow_betweenness_centrality 0.0538762132366554,
+     :current_flow_betweenness_centrality 0.05539774132496002,
      :katz-centrality 1.1825643194707527,
      :degree 32.0,
      :alpha-centrality 1.1825643194707527,
@@ -296,7 +297,7 @@
     :metrics
     {:out-degree 11.0,
      :in-degree 17.0,
-     :current_flow_betweenness_centrality -0.02847751281793395,
+     :current_flow_betweenness_centrality -0.017078851403283697,
      :katz-centrality 1.21650554286635,
      :degree 28.0,
      :alpha-centrality 1.21650554286635,
@@ -312,7 +313,7 @@
     :metrics
     {:out-degree 19.0,
      :in-degree 17.0,
-     :current_flow_betweenness_centrality 0.05331265117840793,
+     :current_flow_betweenness_centrality 0.05413815837454759,
      :katz-centrality 1.2202954162634818,
      :degree 36.0,
      :alpha-centrality 1.2202954162634818,
@@ -328,7 +329,7 @@
     :metrics
     {:out-degree 23.0,
      :in-degree 21.0,
-     :current_flow_betweenness_centrality -0.010202390006244243,
+     :current_flow_betweenness_centrality -0.014102155981376206,
      :katz-centrality 1.2549846922900418,
      :degree 44.0,
      :alpha-centrality 1.2549846922900418,
@@ -344,7 +345,7 @@
     :metrics
     {:out-degree 36.0,
      :in-degree 31.0,
-     :current_flow_betweenness_centrality 0.05698034019371541,
+     :current_flow_betweenness_centrality 0.05535334788577665,
      :katz-centrality 1.3791043057850974,
      :degree 67.0,
      :alpha-centrality 1.3791043057850974,
@@ -360,7 +361,7 @@
     :metrics
     {:out-degree 18.0,
      :in-degree 18.0,
-     :current_flow_betweenness_centrality 0.03552293397151595,
+     :current_flow_betweenness_centrality 0.03362867568031963,
      :katz-centrality 1.21735165290306,
      :degree 36.0,
      :alpha-centrality 1.21735165290306,
@@ -376,7 +377,7 @@
     :metrics
     {:out-degree 14.0,
      :in-degree 10.0,
-     :current_flow_betweenness_centrality -0.009879551067268129,
+     :current_flow_betweenness_centrality -0.029281639207118577,
      :katz-centrality 1.1246178751947573,
      :degree 24.0,
      :alpha-centrality 1.1246178751947573,
@@ -589,31 +590,64 @@
    {:source "283832", :target "21639", :team-id 3173, :value 19}
    {:source "21639", :target "20636", :team-id 3173, :value 21}
    {:source "20636", :target "21639", :team-id 3173, :value 25})},
- :min-max-values
- {:out-degree {:min 4.0, :max 64.0},
-  :passes {:min 1, :max 25},
-  :in-degree {:min 6.0, :max 60.0},
-  :current_flow_betweenness_centrality
-  {:min -0.11201587657276875, :max 0.05698034019371541},
-  :katz-centrality {:min 1.0794902130922037, :max 2.100509684070961},
-  :degree {:min 10.0, :max 124.0},
-  :alpha-centrality {:min 1.0794902130922037, :max 2.100509684070961},
-  :betweenness-centrality
-  {:min 0.0018518518518518517, :max 0.15275132275132275},
-  :local-clustering-coefficient
-  {:min 0.6444444444444445, :max 0.9464285714285714},
-  :closeness-centrality
-  {:min 0.30303030303030304, :max 0.7142857142857143},
-  :eigenvector-centrality
-  {:min 1.8227803636363637E-6, :max 3.714857588866926E-5}},
- :graph-metrics
- {:3173
-  {:algebraic-connectivity 25.810667201002747,
-   :average-node-connectivity 8.172727272727272,
+ :stats
+ {:global
+  {:out-degree {:min 4.0, :max 64.0},
+   :passes {:min 1, :max 25},
+   :in-degree {:min 6.0, :max 60.0},
+   :current_flow_betweenness_centrality
+   {:min -0.13084407776858423, :max 0.05539774132496002},
+   :katz-centrality {:min 1.0794902130922037, :max 2.100509684070961},
+   :degree {:min 10.0, :max 124.0},
+   :alpha-centrality {:min 1.0794902130922037, :max 2.100509684070961},
+   :betweenness-centrality
+   {:min 0.0018518518518518517, :max 0.15275132275132275},
+   :local-clustering-coefficient
+   {:min 0.6444444444444445, :max 0.9464285714285714},
+   :closeness-centrality
+   {:min 0.30303030303030304, :max 0.7142857142857143},
+   :eigenvector-centrality
+   {:min 1.8227803636363637E-6, :max 3.714857588866926E-5}},
+  :home
+  {:out-degree {:min 13.0, :max 64.0},
    :average-clustering-coefficient 0.8895743145743147,
-   :global-clustering-coefficient 0.9652173913043478},
-  :3194
-  {:algebraic-connectivity 10.172144411399989,
-   :average-node-connectivity 5.818181818181818,
+   :algebraic-connectivity 25.81066720100275,
+   :global-clustering-coefficient 0.9652173913043478,
+   :average-node-connectivity 8.172727272727272,
+   :passes {:min 1, :max 25},
+   :in-degree {:min 12.0, :max 60.0},
+   :current_flow_betweenness_centrality
+   {:min -0.13084407776858423, :max 0.02780949933169655},
+   :katz-centrality {:min 1.2258420849376526, :max 2.100509684070961},
+   :degree {:min 25.0, :max 124.0},
+   :alpha-centrality {:min 1.2258420849376526, :max 2.100509684070961},
+   :betweenness-centrality
+   {:min 0.0018518518518518517, :max 0.1523985890652557},
+   :local-clustering-coefficient
+   {:min 0.8555555555555555, :max 0.9464285714285714},
+   :closeness-centrality
+   {:min 0.30303030303030304, :max 0.6666666666666666},
+   :eigenvector-centrality
+   {:min 7.85033341785863E-6, :max 3.714857588866926E-5}},
+  :away
+  {:out-degree {:min 4.0, :max 36.0},
    :average-clustering-coefficient 0.7147907647907649,
-   :global-clustering-coefficient 0.8746594005449592}}}
+   :algebraic-connectivity 10.17214441139998,
+   :global-clustering-coefficient 0.8746594005449592,
+   :average-node-connectivity 5.818181818181818,
+   :passes {:min 1, :max 10},
+   :in-degree {:min 6.0, :max 31.0},
+   :current_flow_betweenness_centrality
+   {:min -0.029281639207118577, :max 0.05539774132496002},
+   :katz-centrality {:min 1.0794902130922037, :max 1.3791043057850974},
+   :degree {:min 10.0, :max 67.0},
+   :alpha-centrality
+   {:min 1.0794902130922037, :max 1.3791043057850974},
+   :betweenness-centrality
+   {:min 0.005423280423280423, :max 0.15275132275132275},
+   :local-clustering-coefficient
+   {:min 0.6444444444444445, :max 0.7678571428571429},
+   :closeness-centrality
+   {:min 0.38461538461538464, :max 0.7142857142857143},
+   :eigenvector-centrality
+   {:min 1.8227803636363637E-6, :max 7.5080560909090916E-6}}}}

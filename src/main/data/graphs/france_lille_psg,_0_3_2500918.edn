@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Pierre-Mauroy",
-  :dateutc "2018-02-03 16:00:00"},
+  :dateutc "2018-02-03 16:00:00",
+  :home-away-id {:3776 :home, :3767 :away}},
  :nodes
  {:3767
   ({:id "254403315",
@@ -321,4 +322,7 @@
     :target "254403315",
     :team-id 3767,
     :value 22})},
- :min-max-values {:passes {:min 1, :max 22}}}
+ :stats
+ {:global {:passes {:min 1, :max 22}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 22}}}}

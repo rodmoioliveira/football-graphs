@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Municipal de Riazor",
-  :dateutc "2018-05-12 16:30:00"},
+  :dateutc "2018-05-12 16:30:00",
+  :home-away-id {:677 :home, :682 :away}},
  :nodes
  {:677
   ({:id "56025",
@@ -336,4 +337,7 @@
    {:source "70451", :target "4511364005", :team-id 677, :value 22}
    {:source "3465", :target "70451", :team-id 677, :value 22}
    {:source "7302", :target "3325516397", :team-id 677, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 24}},
+  :away {:passes {:min 1, :max 19}}}}

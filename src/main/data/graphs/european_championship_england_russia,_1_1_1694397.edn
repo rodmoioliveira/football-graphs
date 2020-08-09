@@ -27,7 +27,8 @@
   :group-name "Group B",
   :status "Played",
   :venue "Stade V\\u00e9lodrome",
-  :dateutc "2016-06-11 19:00:00"},
+  :dateutc "2016-06-11 19:00:00",
+  :home-away-id {:2413 :home, :14358 :away}},
  :nodes
  {:14358
   ({:id "101705",
@@ -323,4 +324,7 @@
    {:source "101825", :target "101581", :team-id 14358, :value 11}
    {:source "101581", :target "101583", :team-id 14358, :value 19}
    {:source "101583", :target "101581", :team-id 14358, :value 23})},
- :min-max-values {:passes {:min 1, :max 23}}}
+ :stats
+ {:global {:passes {:min 1, :max 23}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 23}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "San Mam\\u00e9s Barria",
-  :dateutc "2018-05-05 14:15:00"},
+  :dateutc "2018-05-05 14:15:00",
+  :home-away-id {:678 :home, :684 :away}},
  :nodes
  {:684
   ({:id "3335",
@@ -338,4 +339,7 @@
    {:source "70120", :target "3335", :team-id 684, :value 18}
    {:source "3788", :target "70120", :team-id 684, :value 20}
    {:source "70120", :target "3788", :team-id 684, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 24}}}}

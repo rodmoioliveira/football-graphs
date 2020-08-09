@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio de Mestalla",
-  :dateutc "2018-04-08 18:45:00"},
+  :dateutc "2018-04-08 18:45:00",
+  :home-away-id {:674 :home, :691 :away}},
  :nodes
  {:691
   ({:id "5400",
@@ -332,4 +333,7 @@
    {:source "41363", :target "70112", :team-id 674, :value 16}
    {:source "4892", :target "41363", :team-id 674, :value 18}
    {:source "70112", :target "3339", :team-id 674, :value 18})},
- :min-max-values {:passes {:min 1, :max 18}}}
+ :stats
+ {:global {:passes {:min 1, :max 18}},
+  :home {:passes {:min 1, :max 18}},
+  :away {:passes {:min 1, :max 14}}}}

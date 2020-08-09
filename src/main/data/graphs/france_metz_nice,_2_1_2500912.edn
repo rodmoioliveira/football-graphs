@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stade Saint-Symphorien",
-  :dateutc "2018-01-27 19:00:00"},
+  :dateutc "2018-01-27 19:00:00",
+  :home-away-id {:3777 :home, :3775 :away}},
  :nodes
  {:3775
   ({:id "277629",
@@ -332,4 +333,7 @@
    {:source "393228", :target "352992131959", :team-id 3775, :value 8}
    {:source "352992131959", :target "25410", :team-id 3775, :value 9}
    {:source "328488", :target "15010", :team-id 3775, :value 11})},
- :min-max-values {:passes {:min 1, :max 20}}}
+ :stats
+ {:global {:passes {:min 1, :max 20}},
+  :home {:passes {:min 1, :max 20}},
+  :away {:passes {:min 1, :max 11}}}}

@@ -28,7 +28,8 @@
   :group-name "Group B",
   :status "Played",
   :venue "Olimpiyskiy stadion Luzhniki",
-  :dateutc "2018-06-20 12:00:00"},
+  :dateutc "2018-06-20 12:00:00",
+  :home-away-id {:9905 :home, :16216 :away}},
  :nodes
  {:9905
   ({:id "3322",
@@ -354,4 +355,7 @@
     :target "24358870965",
     :team-id 9905,
     :value 10})},
- :min-max-values {:passes {:min 1, :max 11}}}
+ :stats
+ {:global {:passes {:min 1, :max 11}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 11}}}}

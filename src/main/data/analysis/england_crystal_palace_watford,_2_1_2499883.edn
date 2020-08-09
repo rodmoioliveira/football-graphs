@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Selhurst Park",
-  :dateutc "2017-12-12 20:00:00"},
+  :dateutc "2017-12-12 20:00:00",
+  :home-away-id {:1628 :home, :1644 :away}},
  :nodes
  {:1628
   ({:id "8554",
@@ -551,30 +552,61 @@
    {:source "7929", :target "2059370156", :team-id 1644, :value 9}
    {:source "28292", :target "2059370156", :team-id 1644, :value 9}
    {:source "92899", :target "28292", :team-id 1644, :value 12})},
- :min-max-values
- {:out-degree {:min 6.0, :max 42.0},
-  :passes {:min 1, :max 13},
-  :in-degree {:min 4.0, :max 51.0},
-  :current_flow_betweenness_centrality
-  {:min -0.11336475371467698, :max 0.04406833446250074},
-  :katz-centrality {:min 1.0495641839122505, :max 1.678493826505579},
-  :degree {:min 12.0, :max 93.0},
-  :alpha-centrality {:min 1.0495641839122505, :max 1.678493826505579},
-  :betweenness-centrality
-  {:min 0.0034567901234567903, :max 0.16962962962962963},
-  :local-clustering-coefficient
-  {:min 0.5888888888888889, :max 0.9107142857142857},
-  :closeness-centrality {:min 0.2777777777777778, :max 0.625},
-  :eigenvector-centrality
-  {:min 9.446791281818185E-7, :max 2.0277552389090912E-5}},
- :graph-metrics
- {:1628
-  {:algebraic-connectivity 18.956138870765514,
-   :average-node-connectivity 6.909090909090909,
+ :stats
+ {:global
+  {:out-degree {:min 6.0, :max 42.0},
+   :passes {:min 1, :max 13},
+   :in-degree {:min 4.0, :max 51.0},
+   :current_flow_betweenness_centrality
+   {:min -0.11336475371467698, :max 0.04406833446250074},
+   :katz-centrality {:min 1.0495641839122505, :max 1.678493826505579},
+   :degree {:min 12.0, :max 93.0},
+   :alpha-centrality {:min 1.0495641839122505, :max 1.678493826505579},
+   :betweenness-centrality
+   {:min 0.0034567901234567903, :max 0.16962962962962963},
+   :local-clustering-coefficient
+   {:min 0.5888888888888889, :max 0.9107142857142857},
+   :closeness-centrality {:min 0.2777777777777778, :max 0.625},
+   :eigenvector-centrality
+   {:min 9.446791281818185E-7, :max 2.0277552389090912E-5}},
+  :home
+  {:out-degree {:min 6.0, :max 40.0},
    :average-clustering-coefficient 0.7991702741702742,
-   :global-clustering-coefficient 0.9095354523227384},
-  :1644
-  {:algebraic-connectivity 11.895192796549992,
-   :average-node-connectivity 5.472727272727273,
+   :algebraic-connectivity 18.956138870765468,
+   :global-clustering-coefficient 0.9095354523227384,
+   :average-node-connectivity 6.909090909090909,
+   :passes {:min 1, :max 13},
+   :in-degree {:min 11.0, :max 38.0},
+   :current_flow_betweenness_centrality
+   {:min -0.10463544183853898, :max 0.030323028318763198},
+   :katz-centrality {:min 1.1582718438231234, :max 1.5332945157139668},
+   :degree {:min 18.0, :max 76.0},
+   :alpha-centrality
+   {:min 1.1582718438231234, :max 1.5332945157139668},
+   :betweenness-centrality
+   {:min 0.027513227513227514, :max 0.12656966490299823},
+   :local-clustering-coefficient
+   {:min 0.7444444444444445, :max 0.9107142857142857},
+   :closeness-centrality {:min 0.2777777777777778, :max 0.625},
+   :eigenvector-centrality
+   {:min 6.413044220000002E-6, :max 2.0277552389090912E-5}},
+  :away
+  {:out-degree {:min 8.0, :max 42.0},
    :average-clustering-coefficient 0.7032467532467532,
-   :global-clustering-coefficient 0.803921568627451}}}
+   :algebraic-connectivity 11.895192796549994,
+   :global-clustering-coefficient 0.803921568627451,
+   :average-node-connectivity 5.472727272727273,
+   :passes {:min 1, :max 12},
+   :in-degree {:min 4.0, :max 51.0},
+   :current_flow_betweenness_centrality
+   {:min -0.11336475371467698, :max 0.04406833446250074},
+   :katz-centrality {:min 1.0495641839122505, :max 1.678493826505579},
+   :degree {:min 12.0, :max 93.0},
+   :alpha-centrality {:min 1.0495641839122505, :max 1.678493826505579},
+   :betweenness-centrality
+   {:min 0.0034567901234567903, :max 0.16962962962962963},
+   :local-clustering-coefficient
+   {:min 0.5888888888888889, :max 0.8333333333333334},
+   :closeness-centrality {:min 0.3125, :max 0.5555555555555556},
+   :eigenvector-centrality
+   {:min 9.446791281818185E-7, :max 1.7455404187272733E-5}}}}

@@ -28,7 +28,8 @@
   :group-name "Group C",
   :status "Played",
   :venue "Olimpiyskiy stadion Luzhniki",
-  :dateutc "2018-06-26 14:00:00"},
+  :dateutc "2018-06-26 14:00:00",
+  :home-away-id {:7712 :home, :4418 :away}},
  :nodes
  {:7712
   ({:id "8480",
@@ -362,4 +363,7 @@
    {:source "55968", :target "56394", :team-id 7712, :value 8}
    {:source "55979", :target "20433", :team-id 7712, :value 11}
    {:source "20433", :target "55979", :team-id 7712, :value 11})},
- :min-max-values {:passes {:min 1, :max 31}}}
+ :stats
+ {:global {:passes {:min 1, :max 31}},
+  :home {:passes {:min 1, :max 11}},
+  :away {:passes {:min 1, :max 31}}}}

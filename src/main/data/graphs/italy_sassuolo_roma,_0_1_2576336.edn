@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "MAPEI Stadium - Citt\\u00e0 del Tricolore",
-  :dateutc "2018-05-20 18:45:00"},
+  :dateutc "2018-05-20 18:45:00",
+  :home-away-id {:3315 :home, :3158 :away}},
  :nodes
  {:3315
   ({:id "2128222163",
@@ -348,4 +349,7 @@
    {:source "3463", :target "8306", :team-id 3158, :value 17}
    {:source "92966", :target "22566239290", :team-id 3158, :value 18}
    {:source "8306", :target "3475340019", :team-id 3158, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 10}},
+  :away {:passes {:min 1, :max 19}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio Santiago Bernab\\u00e9u",
-  :dateutc "2017-10-22 18:45:00"},
+  :dateutc "2017-10-22 18:45:00",
+  :home-away-id {:675 :home, :701 :away}},
  :nodes
  {:675
   ({:id "3322",
@@ -332,4 +333,7 @@
    {:source "44983563", :target "8287", :team-id 675, :value 14}
    {:source "3306", :target "344132", :team-id 675, :value 14}
    {:source "8287", :target "44983563", :team-id 675, :value 15})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 15}}}}

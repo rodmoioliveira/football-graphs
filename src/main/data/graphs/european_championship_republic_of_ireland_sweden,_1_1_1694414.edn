@@ -31,7 +31,8 @@
   :group-name "Group E",
   :status "Played",
   :venue "Stade de France",
-  :dateutc "2016-06-13 16:00:00"},
+  :dateutc "2016-06-13 16:00:00",
+  :home-away-id {:8274 :home, :7047 :away}},
  :nodes
  {:8274
   ({:id "8240",
@@ -303,4 +304,7 @@
    {:source "8004", :target "8744", :team-id 8274, :value 6}
    {:source "8980", :target "8744", :team-id 8274, :value 6}
    {:source "8744", :target "8980", :team-id 8274, :value 9})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 9}},
+  :away {:passes {:min 1, :max 14}}}}

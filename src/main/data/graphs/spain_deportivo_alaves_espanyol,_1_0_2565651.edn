@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadio de Mendizorroza",
-  :dateutc "2017-11-04 17:30:00"},
+  :dateutc "2017-11-04 17:30:00",
+  :home-away-id {:696 :home, :691 :away}},
  :nodes
  {:696
   ({:id "278278",
@@ -307,4 +308,7 @@
    {:source "4303", :target "3803", :team-id 691, :value 12}
    {:source "379741124", :target "4303", :team-id 691, :value 19}
    {:source "4303", :target "379741124", :team-id 691, :value 21})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 7}},
+  :away {:passes {:min 1, :max 21}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Roazhon Park",
-  :dateutc "2017-09-17 15:00:00"},
+  :dateutc "2017-09-17 15:00:00",
+  :home-away-id {:3774 :home, :3775 :away}},
  :nodes
  {:3775
   ({:id "277629",
@@ -362,4 +363,7 @@
    {:source "25470", :target "25562366571", :team-id 3774, :value 11}
    {:source "228963", :target "228981", :team-id 3774, :value 12}
    {:source "334720", :target "228963", :team-id 3774, :value 12})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 12}},
+  :away {:passes {:min 1, :max 15}}}}

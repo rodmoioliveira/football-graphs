@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Groupama Stadium",
-  :dateutc "2017-11-29 18:00:00"},
+  :dateutc "2017-11-29 18:00:00",
+  :home-away-id {:3766 :home, :3776 :away}},
  :nodes
  {:3776
   ({:id "257750",
@@ -357,4 +358,7 @@
     :target "25013428122",
     :team-id 3776,
     :value 13})},
- :min-max-values {:passes {:min 1, :max 25}}}
+ :stats
+ {:global {:passes {:min 1, :max 25}},
+  :home {:passes {:min 1, :max 25}},
+  :away {:passes {:min 1, :max 13}}}}

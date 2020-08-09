@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Stadio San Paolo",
-  :dateutc "2018-02-18 14:00:00"},
+  :dateutc "2018-02-18 14:00:00",
+  :home-away-id {:3187 :home, :3204 :away}},
  :nodes
  {:3204
   ({:id "263432",
@@ -360,4 +361,7 @@
    {:source "22107", :target "21385", :team-id 3187, :value 21}
    {:source "22107", :target "2117199902", :team-id 3187, :value 23}
    {:source "25726", :target "22107", :team-id 3187, :value 24})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 24}},
+  :away {:passes {:min 1, :max 10}}}}

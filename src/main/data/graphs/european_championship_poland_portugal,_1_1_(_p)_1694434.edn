@@ -28,7 +28,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Stade V\\u00e9lodrome",
-  :dateutc "2016-06-30 19:00:00"},
+  :dateutc "2016-06-30 19:00:00",
+  :home-away-id {:13869 :home, :9905 :away}},
  :nodes
  {:9905
   ({:id "3322",
@@ -355,4 +356,7 @@
     :target "2049637762",
     :team-id 9905,
     :value 17})},
- :min-max-values {:passes {:min 1, :max 24}}}
+ :stats
+ {:global {:passes {:min 1, :max 24}},
+  :home {:passes {:min 1, :max 24}},
+  :away {:passes {:min 1, :max 17}}}}

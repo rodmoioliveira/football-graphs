@@ -31,7 +31,8 @@
   :group-name "Group E",
   :status "Played",
   :venue "Stadion Krestovskyi",
-  :dateutc "2018-06-22 12:00:00"},
+  :dateutc "2018-06-22 12:00:00",
+  :home-away-id {:6380 :home, :16871 :away}},
  :nodes
  {:6380
   ({:id "214220",
@@ -355,4 +356,7 @@
    {:source "3802", :target "3310", :team-id 6380, :value 20}
    {:source "3310", :target "40810", :team-id 6380, :value 21}
    {:source "3310", :target "3802", :team-id 6380, :value 23})},
- :min-max-values {:passes {:min 1, :max 23}}}
+ :stats
+ {:global {:passes {:min 1, :max 23}},
+  :home {:passes {:min 1, :max 23}},
+  :away {:passes {:min 1, :max 7}}}}

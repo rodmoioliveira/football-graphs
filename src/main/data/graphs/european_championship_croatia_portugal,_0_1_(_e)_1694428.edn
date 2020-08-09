@@ -28,7 +28,8 @@
   :group-name "Group F",
   :status "Played",
   :venue "Stade Bollaert-Delelis",
-  :dateutc "2016-06-25 19:00:00"},
+  :dateutc "2016-06-25 19:00:00",
+  :home-away-id {:9598 :home, :9905 :away}},
  :nodes
  {:9905
   ({:id "3322",
@@ -362,4 +363,7 @@
    {:source "37762", :target "70389", :team-id 9905, :value 9}
    {:source "70389", :target "7096532597", :team-id 9905, :value 10}
    {:source "28907", :target "7040320496", :team-id 9905, :value 10})},
- :min-max-values {:passes {:min 1, :max 28}}}
+ :stats
+ {:global {:passes {:min 1, :max 28}},
+  :home {:passes {:min 1, :max 28}},
+  :away {:passes {:min 1, :max 10}}}}

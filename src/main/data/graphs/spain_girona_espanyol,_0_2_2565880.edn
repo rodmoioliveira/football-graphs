@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Estadi Municipal de Montilivi",
-  :dateutc "2018-04-22 10:00:00"},
+  :dateutc "2018-04-22 10:00:00",
+  :home-away-id {:756 :home, :691 :away}},
  :nodes
  {:691
   ({:id "5400",
@@ -301,4 +302,7 @@
    {:source "3806", :target "4303", :team-id 691, :value 7}
    {:source "4303", :target "26518", :team-id 691, :value 8}
    {:source "4303", :target "41124", :team-id 691, :value 10})},
- :min-max-values {:passes {:min 1, :max 14}}}
+ :stats
+ {:global {:passes {:min 1, :max 14}},
+  :home {:passes {:min 1, :max 14}},
+  :away {:passes {:min 1, :max 10}}}}

@@ -28,7 +28,8 @@
   :group-name nil,
   :status "Played",
   :venue "Old Trafford",
-  :dateutc "2018-04-29 15:30:00"},
+  :dateutc "2018-04-29 15:30:00",
+  :home-away-id {:1611 :home, :1609 :away}},
  :nodes
  {:1609
   ({:id "413002",
@@ -340,4 +341,7 @@
    {:source "1345133413", :target "70122", :team-id 1611, :value 17}
    {:source "7938", :target "1345133413", :team-id 1611, :value 18}
    {:source "1345133413", :target "7938", :team-id 1611, :value 19})},
- :min-max-values {:passes {:min 1, :max 19}}}
+ :stats
+ {:global {:passes {:min 1, :max 19}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 12}}}}

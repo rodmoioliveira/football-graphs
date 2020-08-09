@@ -27,7 +27,8 @@
   :group-name nil,
   :status "Played",
   :venue "King Power Stadium",
-  :dateutc "2018-02-03 15:00:00"},
+  :dateutc "2018-02-03 15:00:00",
+  :home-away-id {:1631 :home, :10531 :away}},
  :nodes
  {:1631
   ({:id "14853",
@@ -332,4 +333,7 @@
    {:source "2628976", :target "8336", :team-id 10531, :value 9}
    {:source "8336", :target "2628976", :team-id 10531, :value 9}
    {:source "2628976", :target "246866", :team-id 10531, :value 10})},
- :min-max-values {:passes {:min 1, :max 15}}}
+ :stats
+ {:global {:passes {:min 1, :max 15}},
+  :home {:passes {:min 1, :max 15}},
+  :away {:passes {:min 1, :max 10}}}}

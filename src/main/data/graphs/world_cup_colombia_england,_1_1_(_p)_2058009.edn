@@ -27,7 +27,8 @@
   :group-name "",
   :status "Played",
   :venue "Otkrytiye Arena",
-  :dateutc "2018-07-03 18:00:00"},
+  :dateutc "2018-07-03 18:00:00",
+  :home-away-id {:12430 :home, :2413 :away}},
  :nodes
  {:12430
   ({:id "257762",
@@ -389,4 +390,7 @@
    {:source "8653", :target "9380", :team-id 2413, :value 15}
    {:source "9380", :target "8653", :team-id 2413, :value 18}
    {:source "3971788277", :target "9380", :team-id 2413, :value 21})},
- :min-max-values {:passes {:min 1, :max 21}}}
+ :stats
+ {:global {:passes {:min 1, :max 21}},
+  :home {:passes {:min 1, :max 19}},
+  :away {:passes {:min 1, :max 21}}}}
