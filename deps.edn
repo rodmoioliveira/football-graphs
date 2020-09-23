@@ -6,6 +6,16 @@
         cnuernber/libpython-clj  {:mvn/version "1.36"}
         utils.core {:local/root "./src/main/utils/core"
                     :deps/manifest :deps}}
+ :aliases {:metav {:extra-deps {metav {:mvn/version "1.6.7"}}}
+           :artifact-name {:extra-deps {metav {:mvn/version "1.6.7"}}
+                           :main-opts ["-m" "metav.display"]}
+           :release {:extra-deps {metav {:mvn/version "1.6.7"}}
+                     :main-opts ["-m" "metav.release"]}
+           :spit     {:extra-deps {metav {:mvn/version "1.6.7"}}
+                      :main-opts ["-m" "metav.spit"
+                                  "--output-dir" "src"
+                                  "--namespace" "yournamespace.meta"
+                                  "--formats" "clj"]}}
  :paths ["src/dev" "src/main" "src/test" "src/specs"]
  :classpath-overrides {utils.core "./src/main/utils/core"
                        project-specs "./src/specs/project_specs"}}
